@@ -1,0 +1,78 @@
+---
+title: "Overview"
+output: html_notebook
+---
+
+Ok.
+First, load the full signatures, and make sure we source the data processing file.
+There's an error here, not sure what's causing it.
+This is a work-in-progress.
+
+```{r, echo=FALSE}
+source("../code/data_processing.R")
+
+los <- list.files("../data/full_sigs", full.names=TRUE)
+names <- list.files("../data/full_sigs")
+names(los) <- substr(names, 1, nchar(names)-4)
+los <- lapply(los, readRDS)
+los <- remove_empties(los)
+# annoying strange error that I should fix pops up
+```
+
+These are the updated counts.
+```{r}
+total_arguments <- apply_count_to_lopkg_c(los, args_count_all)
+total_mono_type <- apply_count_to_lopkg_c(los, args_count_all_mono_type)
+total_mono_attr <- apply_count_to_lopkg_c(los, args_count_all_mono_attr_pattern)
+total_mono_clas <- apply_count_to_lopkg_c(los, args_count_all_mono_class)
+
+total_functions <- apply_count_to_lopkg_c(los, length)
+total_mono_type_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_type)
+total_mono_attr_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_attr_pattern)
+total_mono_clas_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_class)
+```
+
+This is how you get the top sigs.
+```{r}
+poly_type_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_type_args))
+poly_type_args <- poly_type_args[order(-poly_type_args$count),] # sort by count
+poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 100, 2)
+```
+
+Then, pick out the ones you want.
+```{r}
+print_me <- head(poly_type_args, 20)
+print_me$type <- sapply(print_me$type, function(x) paste0(x[[1]], collapse=", "))
+print_me
+# I need to streamline this, too many weird lists appearing...
+```
+
+Similarly for attributes, and classes.
+```{r}
+poly_attr_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_attr_args))
+poly_attr_args <- poly_attr_args[order(-poly_attr_args$count),] # sort by count
+poly_attr_args$perc <- round(poly_attr_args$count/sum(poly_attr_args$count) * 100, 2)
+```
+
+```{r}
+poly_class_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_class_args))
+poly_class_args <- poly_class_args[order(-poly_class_args$count),] # sort by count
+poly_class_args$perc <- round(poly_class_args$count/sum(poly_class_args$count) * 100, 2)
+```
+
+Printing is as before.
+Note that ATM I also have attribute type information in here.
+I'll get it to display just the names as well.
+I figured this might be interesting, and I don't expect many functions to be polymorphic in this way.
+```{r}
+# will fix printing, its annoying atm
+print_me_a <- head(poly_attr_args, 20)
+print_me_a$attr <- sapply(print_me_a$attr, function(x) paste0(x[[1]], collapse=", "))
+print_me_a
+```
+
+```{r}
+print_me_c <- head(poly_class_args, 20)
+print_me_c$class <- sapply(print_me_c$class, function(x) paste0(x[[1]], collapse=", "))
+print_me_c
+```

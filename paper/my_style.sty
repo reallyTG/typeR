@@ -1,0 +1,14 @@
+\usepackage{xcolor,xspace} % needed for the comments
+
+\newcommand{\authorcomment}[3]{\xspace\textcolor{#1}{{\bf #2} #3}\xspace} % start by defining an authorcomment
+
+% For author notes:
+%
+\newcommand{\AT}[1]{\authorcomment{red}{AT}{#1}}
+\newcommand{\JV}[1]{\authorcomment{olive}{JV}{#1}}
+\newcommand{\KS}[1]{\authorcomment{blue}{KS}{#1}}
+
+% For meta comments:
+%
+\newcommand{\isit}[1]{\authorcomment{cyan}{Check}{#1}}
+\newcommand{\todo}[1]{\authorcomment{red}{TODO}{#1}}
