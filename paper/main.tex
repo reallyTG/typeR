@@ -1,60 +1,37 @@
 \documentclass[acmsmall,10pt,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
-\usepackage{booktabs} % For formal tables
-\usepackage{listings}
+\usepackage{booktabs,listings}
 \lstset{language=R}
 \usepackage{my_style}
 
 \setcopyright{none}
 %\setcopyright{acmcopyright}%\setcopyright{acmlicensed}
 %\acmDOI{10.475/123_4}
-%\acmISBN{123-4567-24-567/08/06}
 %\acmConference[OOPSLAs]{Woodstock conference}{July 1997}{El Paso, Texas USA}
 %\acmYear{1997}%\copyrightyear{2016}%\acmPrice{15.00}
 \begin{document}
 
-\title{A large-scale study of polymorphism}
+\title{A large-scale study of polymorphism in R}
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientfic domains
-for tasks related to data science. The language is geared towards exploratory
-data
-
-The R programming language is widely used in a variety of scientific domains
-for tasks related to data analysis. Over the last two decades many libraries
-have been developed to facilitate all steps of the data analysis process.
-These libraries are stored in the CRAN reposot
+for tasks related to data science. The language was designed to favor an
+interactive style of programming with minimal syntactic and conceptual
+overhead. This design is well suited to support interactive data analysis,
+but is not well suited to generating performant code or catching programming
+errors.  In particular, R has no type annotations and all operations are
+dynamically checked at runtime. The starting point for our work is the
+question: \emph{what could a static type system for R look like?}  To answer
+that question we study the polymorphism that is present in over X millions
+of lines of R code, written over a period of Y years by Z programmers.  We
+perform a dynamic analysis, leveraging tests and use-cases, to determine the
+level of polymprhism that is present in the code. We do this for several
+potential notions of types.
 \end{abstract}
-
-
-\keywords{Type Systems, R}
-
 \maketitle
 
-
-\section{High-Level Discussion}
-
-
-So, what do we want to say in this paper?  We would like to produce a
-high-level paper saying what the status of the language is in terms of
-types, and possibly give direction to future work on the language.
-
-
-%
 \section{Introduction}
 
 
-
-\begin{itemize}
-    \item R is a cool and unusual language that isn't studied a lot.
-    \item People really like it, even if many people in our community scoff at it. \textit{``What? It's lazy \textbf{and} side-effecting?''}
-    \item We should study it because it can give us some insights on how people without a formal training in programming program.
-    \item Deepening our understanding of the language will enable us to further improve it, while continuing to support common paradigms.
-    \item In this work, we aim to shed some light on how R programmers program by analyzing how they use \textit{type information} (either types themselves, or attributes which are a form of RTTI).
-\end{itemize}
-
-%
-%
-%
 %
 %
 %
@@ -66,7 +43,6 @@ types, and possibly give direction to future work on the language.
 %
 \subsection{The R Programming Language}
 
-\AT{Talk about R.}
 R is a lazy, side-effecting, dynamically-typed, ... .
 
 Typical usage of the language is ... . \AT{Do we have something to cite for this?}
@@ -78,8 +54,7 @@ Most R libraries (called \textit{packages}) are stored in the Comprehensive R Ar
 
 \AT{Kind of ... want to combine the above two paragraphs somehow? Together, they lead in nicely to the genthat talk.}
 
-%
-%
+
 %
 %
 \subsection{The \texttt{genthat} Package}
@@ -106,33 +81,51 @@ We can leverage this trace information to glean type and attribute patterns of f
 %
 \section{Motivation and High-level Overview}
 
-Our community is centred on building, improving, and reasoning about programming languages.
-A key component in all this is to truly \textit{understand} the languages we're working on, so that we may make the best decisions for the benefit of all users of a programming language.
-In many cases, we as researchers can appeal to our own intuition to at least build a sense for how a language is used, as language users typically have some training from an experienced programmer or software engineer (e.g., computer science studies, online tutorials written by language experts, etc.).
-\AT{We claim that this is emphatically not the case in R.}
+Our community is centred on building, improving, and reasoning about
+programming languages.  A key component in all this is to truly
+\textit{understand} the languages we're working on, so that we may make the
+best decisions for the benefit of all users of a programming language.  In
+many cases, we as researchers can appeal to our own intuition to at least
+build a sense for how a language is used, as language users typically have
+some training from an experienced programmer or software engineer (e.g.,
+computer science studies, online tutorials written by language experts,
+etc.).  \AT{We claim that this is emphatically not the case in R.}
 
-R is a languages written by and for \textit{statisticians}.
-It traces its roots to the S language, developed by ... .
-R programmers don't write big servers or software systems; instead, they write and modify small data processing pipelines as a means to facilitate interaction with digital data.
-This leads to ``front-line'' R code (i.e., code written for users, not programmers) not being made available on typical platforms like Github.
-\AT{Maybe front-line code isn't a good word, is there a good way to describe non-library code?}
-Put differently, R is essentially a really big domain-specific language.
+R is a languages written by and for \textit{statisticians}.  It traces its
+roots to the S language, developed by ... .  R programmers don't write big
+servers or software systems; instead, they write and modify small data
+processing pipelines as a means to facilitate interaction with digital data.
+This leads to ``front-line'' R code (i.e., code written for users, not
+programmers) not being made available on typical platforms like Github.
+\AT{Maybe front-line code isn't a good word, is there a good way to describe
+  non-library code?}  Put differently, R is essentially a really big
+domain-specific language.
 
-The design of R is also rife with questionable decisions.
-For example, the language is lazy \textit{and} side-effecting, which one could describe as an antagonistic pair of features.
-In addition, data structures must be entirely copied when being modified, which appears to be far from ideal in a language meant to process (thus, modify) big data.
+The design of R is also rife with questionable decisions.  For example, the
+language is lazy \textit{and} side-effecting, which one could describe as an
+antagonistic pair of features.  In addition, data structures must be
+entirely copied when being modified, which appears to be far from ideal in a
+language meant to process (thus, modify) big data.
 
 In spite of these flaws, the language is incredibly popular.
 \AT{We'll want to cite something here.}
 
-One way or another, R is here to stay, so we may as well figure out how to deal with it.
-One aspect of this is understanding R programmers and how they interact with the language, and a step towards this goal is to understand \AT{how types arise in R programs.}
-We will shed some light on this by analyzing the usage of R functions, and build a picture of how polymorphic R code is.
+One way or another, R is here to stay, so we may as well figure out how to
+deal with it.  One aspect of this is understanding R programmers and how
+they interact with the language, and a step towards this goal is to
+understand \AT{how types arise in R programs.}  We will shed some light on
+this by analyzing the usage of R functions, and build a picture of how
+polymorphic R code is.
 
 \begin{itemize}
-    \item Understanding R can help us improve the language, as well as better equip us to build languages which have an appeal outside of the realm of computer science.
-    \item We're gonna tackle this by looking at how R programmers use types and type information in their programs.
-    \item We will be mindful of the runtime representations of values to give more context to the information we glean from programmer-visible type information.
+    \item Understanding R can help us improve the language, as well as
+      better equip us to build languages which have an appeal outside of the
+      realm of computer science.
+    \item We're gonna tackle this by looking at how R programmers use types
+      and type information in their programs.
+    \item We will be mindful of the runtime representations of values to
+      give more context to the information we glean from programmer-visible
+      type information.
 \end{itemize}
 
 %
@@ -145,26 +138,41 @@ We will shed some light on this by analyzing the usage of R functions, and build
 
 In this section, we will detail our methodology for collecting data.
 
-First, we leverage {\tt genthat}'s tracer to trace function executions.
-The idea here is that we don't really have access to non-library code written in R, as general use patterns are (possibly?) to write small scripts which analyze some bit of data and possibly visualize results.
-The goal is likely not to build big working systems, instead to explore data with by writing and rewriting small scripts, ad infinitum.
-In looking at package tests, vignettes, and examples, we are painting a picture of how the package designers intended their packages to be used, which we believe is a close approximation of what R users would do.
+First, we leverage {\tt genthat}'s tracer to trace function executions.  The
+idea here is that we don't really have access to non-library code written in
+R, as general use patterns are (possibly?) to write small scripts which
+analyze some bit of data and possibly visualize results.  The goal is likely
+not to build big working systems, instead to explore data with by writing
+and rewriting small scripts, ad infinitum.  In looking at package tests,
+vignettes, and examples, we are painting a picture of how the package
+designers intended their packages to be used, which we believe is a close
+approximation of what R users would do.
 
-{\tt genthat} generates a trace file which can be loaded into R and contains all of the necessary information to rerun the tested function.
-This includes the random seed and all relevant environment data.
-We utilize this trace data to collect type information:
-we run each argument in the specified environment, and collect type information through R's {\tt typeof} function, and attribute information through R's {\tt attributes} function.
+{\tt genthat} generates a trace file which can be loaded into R and contains
+all of the necessary information to rerun the tested function.  This
+includes the random seed and all relevant environment data.  We utilize this
+trace data to collect type information: we run each argument in the
+specified environment, and collect type information through R's {\tt typeof}
+function, and attribute information through R's {\tt attributes} function.
 
 Then, we aggregate the information in all traces for a particular function.
-If there was only one function trace, we discard the result as the function is trivially monomorphic.
-We can see which arguments had which types over how many traces, and from here we can build a \textit{signature} for each function argument, and consider them together to create a function signature.
-A \textbf{polymorphic argument} is one which has been inhabited by values of at least two different types, and a \textbf{polymorphic function} is a function with at least one polymorphic argument or a polymorphic return.
+If there was only one function trace, we discard the result as the function
+is trivially monomorphic.  We can see which arguments had which types over
+how many traces, and from here we can build a \textit{signature} for each
+function argument, and consider them together to create a function
+signature.  A \textbf{polymorphic argument} is one which has been inhabited
+by values of at least two different types, and a \textbf{polymorphic
+  function} is a function with at least one polymorphic argument or a
+polymorphic return.
 
-We repeat the above for each package on the Comprehensive R Archive Network (CRAN), the premier source for R libraries (called packages), and the Bioconductor package repository.
-Now, depending on the data point we're after, our methods from here differ slightly.
+We repeat the above for each package on the Comprehensive R Archive Network
+(CRAN), the premier source for R libraries (called packages), and the
+Bioconductor package repository.  Now, depending on the data point we're
+after, our methods from here differ slightly.
 
 \begin{itemize}
-    \item for \textbf{counting signatures}: for each signature, we count how many functions or arguments have the requisite signature;
+    \item for \textbf{counting signatures}: for each signature, we count how
+      many functions or arguments have the requisite signature;
     \item for \textbf{finding the most common signatures}: we enumerate as before, and sort the signatures based on how often they appear;
 \end{itemize}
 
@@ -267,19 +275,27 @@ That said, types alone don't always paint the whole picture:
 recall that \textit{attributes} are an R language feature which allows programmers to stick metadata onto values.
 So in which circumstances \textit{do} types paint the whole picture?
 
-The second data point in \textbf{TODO FIGURE} indicates that a \isit{majority} of function arguments are monomorphic in type \textit{and} have no attributes.
-These represent arguments which are truly trivial to annotate, as the {\tt typeof} an argument perfectly describes the usage of that argument.
-That said, some attributes arise naturally in R:
-For instance, names in a named list (e.g. {\tt x} and {\tt y} in {\tt list(x=0, y=0)}) appear as an attribute on the value.
-In Section~\ref{sec:method:attributes}, we outlined these naturally-occurring attribute patterns, and the third data point in \textbf{TODO FIGURE} shows that a nontrivial amount of functions are monomorphic in type with said natural attribute patterns.
+The second data point in \textbf{TODO FIGURE} indicates that a
+\isit{majority} of function arguments are monomorphic in type \textit{and}
+have no attributes.  These represent arguments which are truly trivial to
+annotate, as the {\tt typeof} an argument perfectly describes the usage of
+that argument.  That said, some attributes arise naturally in R: For
+instance, names in a named list (e.g. {\tt x} and {\tt y} in {\tt list(x=0,
+  y=0)}) appear as an attribute on the value.  In
+Section~\ref{sec:method:attributes}, we outlined these naturally-occurring
+attribute patterns, and the third data point in \textbf{TODO FIGURE} shows
+that a nontrivial amount of functions are monomorphic in type with said
+natural attribute patterns.
 
 Another facet of type information in R is in the {\tt class} attribute.
-Recall that values have a \textit{class} in addition to a type:
-For example, a {\tt data.frame} has type {\tt list} and class {\tt data.frame}.
-\todo{Plug classes earlier}
-R has a number of built-in classes, such as \todo{X, Y, and Z}, but users are free to redefine the class of any value at runtime, and easily define new classes.
-The next data point in \todo{Figure} shows that user-defined classes don't appear altogether often, though they do indeed feature.
-\AT{In a following section, we will discuss how the usage of these classes manifests itself.}
+Recall that values have a \textit{class} in addition to a type: For example,
+a {\tt data.frame} has type {\tt list} and class {\tt data.frame}.
+\todo{Plug classes earlier} R has a number of built-in classes, such as
+\todo{X, Y, and Z}, but users are free to redefine the class of any value at
+runtime, and easily define new classes.  The next data point in
+\todo{Figure} shows that user-defined classes don't appear altogether often,
+though they do indeed feature.  \AT{In a following section, we will discuss
+  how the usage of these classes manifests itself.}
 
 \AT{Separate section for functions? Right now, this is at argument granularity.}
 
@@ -298,12 +314,16 @@ And how often is the attribute pattern polymorphic?
 \begin{itemize}
     \item the vast majority of arguments are monomorphic in type;
     \item of those, over 60\% have no attribute information;
-    \item of the 40\% with attribute information, roughly 1/2 have fairly simple attributes corresponding to base R constructs (named lists and vectors, matrices, and data frames);
+    \item of the 40\% with attribute information, roughly 1/2 have fairly
+      simple attributes corresponding to base R constructs (named lists and
+      vectors, matrices, and data frames);
     \item now, of those arguments which are polymorphic, a sizable chunk (well over half) have defensible signatures (e.g., double and character for named list indexing, double and integer for obvious reasons, etc.).
 \end{itemize}
 
-In short, it looks like R (package) programmers are reasonable.
-I'd conjecture that a lot of the polymorphism (e.g., double and list) is coming from how easy it is to use either type in a given situation (e.g., converting from vector of doubles to list or vice versa is simple).
+In short, it looks like R (package) programmers are reasonable.  I'd
+conjecture that a lot of the polymorphism (e.g., double and list) is coming
+from how easy it is to use either type in a given situation (e.g.,
+converting from vector of doubles to list or vice versa is simple).
 
 %
 %
@@ -315,8 +335,7 @@ I'd conjecture that a lot of the polymorphism (e.g., double and list) is coming 
 
 In this section, we will discuss the conclusions that we draw from our data.
 
-%
-%
+
 %
 %
 \subsection{Suggested Annotations}
@@ -337,10 +356,9 @@ Some possible annotations:
 %
 \subsubsection{Struct-Like Attribute Declarations}
 
-\AT{What's a convenient way to annotate attributes?
-Should investigate how often attributes are consistent.}
+\AT{What's a convenient way to annotate attributes?  Should investigate how
+  often attributes are consistent.}
 
-%
 %
 \subsubsection{Coverage}
 
