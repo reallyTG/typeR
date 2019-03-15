@@ -16,7 +16,7 @@
 #     try it with a few examples (class, and coinciding)
 # [X] print function for notebook
 # [X] full monomorphic
-# [ ] how many are just scalar
+# [X] how many are just scalar A: 40%
 # [ ] see numbers (1) without vector/scalar distinction, and
 # [ ] (2) without NULL / X distinction
 # [ ] different type systems
@@ -418,7 +418,7 @@ does_df_have_coinciding_types_index_and_list <- function(df) {
     (length(lot) == 2 && Reduce("&&", check1 %in% lot) || Reduce("&&", check2 %in% lot)) ||
     (length(lot) == 3 && Reduce("&&", check3 %in% lot))
   })
-  type_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_for_shape)))
+  type_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_to_shape)))
   list_rows <- lapply(type_shapes, function(lot) {
     "list" %in% lot || "vector" %in% lot
     # if there is any hope of this argument being listy
@@ -427,6 +427,68 @@ does_df_have_coinciding_types_index_and_list <- function(df) {
   # where the indexy is different from the listy
   Reduce("||", xor(unlist(index_rows), unlist(list_rows)))
 }
+
+# # # # # # # # # # # # #
+#           END         #
+# <Extractor Functions> #
+#           ,,,         #
+# # # # # # # # # # # # # # # # # #
+
+
+# # # # # # # # # # # # # # # # # #
+#          START            #
+# <ROW Extractor Functions> #
+#           ,,,             #
+# # # # # # # # # # # # # # #
+#
+# These functions are to get specific rows matching some criteria.
+#
+
+apply_row_extractor_to_lopkg_c <- function(lopkg_c, r_e_fun) {
+  r <- lapply(lopkg_c, function(lofun_c) {
+    apply_row_extractor_to_lofun_c(lofun_c, r_e_fun)
+  })
+  r[sapply(r, length) > 0]
+}
+
+# also removes empties
+apply_row_extractor_to_lofun_c <- function(lofun_c, r_e_fun) {
+  r <- lapply(lofun_c, r_e_fun)
+  r[sapply(r, nrow) > 0]
+}
+
+get_rows_from_df_only_scalar <- function(df) {
+  # first, change types to shapes
+  shapes <- lapply(df$type, function(lot) {
+    unique(lapply(unlist(lot), distill_type_to_shape))
+  })
+  which_are_just_scalar <- sapply(shapes, function(los) {
+    length(los) == 1 && los[[1]] == "scalar"
+  })
+
+  df[which_are_just_scalar, ]
+}
+
+# # # # # # # # # # # # # # #
+#           END             #
+# <ROW Extractor Functions> #
+#           ,,,             #
+# # # # # # # # # # # # # # # # # #
+
+# # # # # #
+#
+# Functions for doing things sequentially, but by reading files.
+#
+count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
+  lapply(list.files(path_to_lofun_cs, full.names=TRUE), function(lofun_c_p) {
+    count_fun(readRDS(lofun_c_p))
+  })
+}
+
+# # # # # #
+#
+# Aux functions. For processing scripts, printing, etc.
+#
 
 # map supertypes to "atomic" types
 process_list_for_types <- function(lot) {
@@ -459,36 +521,16 @@ distill_type <- function(t) {
     t
 }
 
-distill_type_for_shape <- function(t) {
+distill_type_to_shape <- function(t) {
   if (grepl("list", t))
     "list"
   else if (grepl("vector", t))
     "vector"
+  else if (grepl("scalar", t))
+    "scalar"
   else
     t
 }
-
-# # # # # # # # # # # # #
-#           END         #
-# <Extractor Functions> #
-#           ,,,         #
-# # # # # # # # # # # # # # # # # #
-
-
-# # # # # #
-#
-# Functions for doing things sequentially, but by reading files.
-#
-count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
-  lapply(list.files(path_to_lofun_cs, full.names=TRUE), function(lofun_c_p) {
-    count_fun(readRDS(lofun_c_p))
-  })
-}
-
-# # # # # #
-#
-# Aux functions. For processing scripts, printing, etc.
-#
 
 # get a df ready for printing in a Rmd file
 format_df_for_print <- function(df) {

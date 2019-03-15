@@ -23,15 +23,21 @@ los <- remove_empties(los)
 
 These are the updated counts.
 ```{r}
+# argument counts
 total_arguments <- apply_count_to_lopkg_c(los, args_count_all)
 total_mono_type <- apply_count_to_lopkg_c(los, args_count_all_mono_type)
 total_mono_attr <- apply_count_to_lopkg_c(los, args_count_all_mono_attr_pattern)
 total_mono_clas <- apply_count_to_lopkg_c(los, args_count_all_mono_class)
+total_mono_all <- apply_count_to_lopkg_c(los, args_count_all_mono_all)
+```
 
+```{r}
+# function counts
 total_functions <- apply_count_to_lopkg_c(los, length)
 total_mono_type_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_type)
 total_mono_attr_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_attr_pattern)
 total_mono_clas_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_class)
+total_mono_all_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_all)
 ```
 
 This is how you get the top sigs.
@@ -72,3 +78,10 @@ format_df_for_print(poly_attr_args[1:20,])
 ```{r}
 format_df_for_print(poly_class_args[1:20,])
 ```
+
+How many things are just scalar?
+```{r}
+lo_scalars <- apply_row_extractor_to_lopkg_c(los, get_rows_from_df_only_scalar)
+total_scalar_arguments <- apply_count_to_lopkg_c(lo_scalars, args_count_all)
+```
+
