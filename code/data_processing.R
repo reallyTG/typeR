@@ -14,7 +14,8 @@
 # [ ] consider putting attr names as their own column still
 # [X] make sure that you can pull out signatures that you're interested in,
 #     try it with a few examples (class, and coinciding)
-# [ ] full monomorphic
+# [X] print function for notebook
+# [X] full monomorphic
 # [ ] how many are just scalar
 # [ ] see numbers (1) without vector/scalar distinction, and
 # [ ] (2) without NULL / X distinction
@@ -161,6 +162,18 @@ args_count_all <- function(lofun_c) {
   Reduce("+", lapply(lofun_c, nrow))
 }
 
+args_count_all_mono_all <- function(lofun_c) {
+  Reduce("+", lapply(lofun_c, function(fun_df) {
+    want_type <- lapply(fun_df$type, length) == 1
+    want_attr <- lapply(fun_df$attr, length) == 1
+    want_class <- lapply(fun_df$class, length) == 1
+    want <- sapply(1:length(want_type), function(i) {
+      want_type[[i]] && want_class[[i]] && want_attr[[i]]
+    })
+    length(want[want])
+  }))
+}
+
 args_count_all_mono_type <- function(lofun_c) {
   Reduce("+", lapply(lofun_c, function(fun_df) {
     want <- lapply(fun_df$type, length) == 1
@@ -211,6 +224,21 @@ fun_count_all_mono_attr_pattern <- function(lofun_c) {
 fun_count_all_mono_class <- function(lofun_c) {
   Reduce("+", lapply(lofun_c, function(fun_df) {
     want <- lapply(fun_df$class, length) == 1
+    if (length(want[want]) == nrow(fun_df))
+      1
+    else
+      0
+  }))
+}
+
+fun_count_all_mono_all <- function(lofun_c) {
+  Reduce("+", lapply(lofun_c, function(fun_df) {
+    want_type <- lapply(fun_df$type, length) == 1
+    want_attr <- lapply(fun_df$attr, length) == 1
+    want_class <- lapply(fun_df$class, length) == 1
+    want <- sapply(1:length(want_type), function(i) {
+      want_type[[i]] && want_class[[i]] && want_attr[[i]]
+    })
     if (length(want[want]) == nrow(fun_df))
       1
     else
@@ -459,9 +487,21 @@ count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
 
 # # # # # #
 #
-# Aux functions. For use with processing scripts, mostly, to ensure that things
-# are properly loaded and located.
+# Aux functions. For processing scripts, printing, etc.
 #
+
+# get a df ready for printing in a Rmd file
+format_df_for_print <- function(df) {
+  which <- names(df)[1]
+  if (which == "type") {
+    df$type <- sapply(df$type, function(t) paste0(t[[1]], collapse=", "))
+  } else if (which == "attr") {
+    df$attr <- sapply(df$attr, function(t) paste0(t[[1]], collapse=", "))
+  } else if (which == "class") {
+    df$class <- sapply(df$class, function(t) paste0(t[[1]], collapse=", "))
+  }
+  df
+}
 
 # get rid of empty lofuns from a lopkg
 remove_empties <- function(lopkg) {

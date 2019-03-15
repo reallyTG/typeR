@@ -8,9 +8,11 @@ First, load the full signatures, and make sure we source the data processing fil
 There's an error here, not sure what's causing it.
 This is a work-in-progress.
 
-```{r, echo=FALSE}
-source("../code/data_processing.R")
+```{r}
+source("../code/data_processing.R") # get the functions we need
+```
 
+```{r, echo=FALSE}
 los <- list.files("../data/full_sigs", full.names=TRUE)
 names <- list.files("../data/full_sigs")
 names(los) <- substr(names, 1, nchar(names)-4)
@@ -40,11 +42,10 @@ poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 10
 ```
 
 Then, pick out the ones you want.
+The `format_df_for_print` function is just for letting the notebook display the data frame properly.
+The type, attr, and class rows are lists of lists.
 ```{r}
-print_me <- head(poly_type_args, 20)
-print_me$type <- sapply(print_me$type, function(x) paste0(x[[1]], collapse=", "))
-print_me
-# I need to streamline this, too many weird lists appearing...
+format_df_for_print(poly_type_args[1:20,])
 ```
 
 Similarly for attributes, and classes.
@@ -65,14 +66,9 @@ Note that ATM I also have attribute type information in here.
 I'll get it to display just the names as well.
 I figured this might be interesting, and I don't expect many functions to be polymorphic in this way.
 ```{r}
-# will fix printing, its annoying atm
-print_me_a <- head(poly_attr_args, 20)
-print_me_a$attr <- sapply(print_me_a$attr, function(x) paste0(x[[1]], collapse=", "))
-print_me_a
+format_df_for_print(poly_attr_args[1:20,])
 ```
 
 ```{r}
-print_me_c <- head(poly_class_args, 20)
-print_me_c$class <- sapply(print_me_c$class, function(x) paste0(x[[1]], collapse=", "))
-print_me_c
+format_df_for_print(poly_class_args[1:20,])
 ```
