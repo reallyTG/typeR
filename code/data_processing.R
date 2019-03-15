@@ -18,11 +18,13 @@
 # [X] full monomorphic
 # [X] how many are just scalar A: 40%
 # [X] see numbers (1) without vector/scalar distinction, and
-# [ ] (2) without NULL / X distinction
+# [X] (2) without NULL / X distinction
 # [X] different type systems
-# [ ] breakdown by package
+# [X] breakdown by package
 # [ ] make all non-attribute classes primitive
 # [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
+# [ ] how many lines of code were analyzed?
+# [ ] deal with errors
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -380,9 +382,7 @@ get_fun_sigs_matching_pred_from_lofun <- function(lofun, pred, ...) {
   lofun[unname(sapply(lofun, function(x) pred(x, ...)))]
 }
 
-# TODO
-# TODO : Think about how this should work. Right now, not working exactly as intended.
-# TODO   If giving a pair, want the whole pair to be in. e.g. when looking for a data.frame
+# TODO test the Reduce("&&", ...) code to make sure it works
 
 
 # [PREDICATE]
@@ -399,7 +399,7 @@ does_df_have_X_attrs <- function(df, attrs_to_find) {
         # reduce that list (if applicable) with desired name
         if (length(attr_names) > 0) {
           Reduce("||", lapply(attr_names, function(s) {
-            s %in% attrs_to_find
+            Reduce("&&", s %in% attrs_to_find)
           }))
         } else {
           FALSE
@@ -544,16 +544,6 @@ fold_NULL_into_other_types_df <- function(df) {
 
 fold_together_int_double_df <- function(df) {
   translate_df_with_type_map(df, type_map_r_to_real)
-  # new_types <- lapply(df$type, unlist)
-  # df$type <- lapply(new_types, function(lot) {
-  #   if (length(lot) > 1) {
-  #     # fold in NULLs if applicable
-  #     lot <-
-  #   } else {
-  #     lot
-  #   }
-  # })
-  # df
 }
 
 # # # # # # # # # # # # # # #
@@ -561,6 +551,60 @@ fold_together_int_double_df <- function(df) {
 # <TyS Transform Functions> #
 #           ,,,             #
 # # # # # # # # # # # # # # # # # #
+
+# # # # # # # # # # # # # # # # #
+#          START          #
+# <Per Package Functions> #
+#           ,,,           #
+# # # # # # # # # # # # # #
+#
+# These functions are to tally up per package.
+#
+
+# idea: get summary info about a package
+tally_up_lofun_c <- function(lofun_c) {
+  # 1. get the counts in the package
+  this_all <- args_count_all(lofun_c)
+  this_mono_all <- args_count_all_mono_all(lofun_c)
+  this_mono_type <- args_count_all_mono_type(lofun_c)
+  this_mono_class <- args_count_all_mono_class(lofun_c)
+  this_mono_attr <- args_count_all_mono_attr_pattern(lofun_c)
+
+  this_all_fun <- length(lofun_c)
+  this_mono_all_fun <- fun_count_all_mono_all(lofun_c)
+  this_mono_type_fun <- fun_count_all_mono_type(lofun_c)
+  this_mono_class_fun <- fun_count_all_mono_class(lofun_c)
+  this_mono_attr_fun <- fun_count_all_mono_attr_pattern(lofun_c)
+
+  # list( ... ) here is to get the type list to be a list of lists, instead of a list of strings
+  # which need to be split up later
+  top_poly_type <- reduce_extracted_lopkgs_to_one(list(apply_extract_to_lofun(lofun_c, extract_poly_type_args)))
+  top_poly_attr <- reduce_extracted_lopkgs_to_one(list(apply_extract_to_lofun(lofun_c, extract_poly_attr_args)))
+  # top_poly_attr <- attr_name_type_to_name_df(top_poly_attr)
+  top_poly_class <- reduce_extracted_lopkgs_to_one(list(apply_extract_to_lofun(lofun_c, extract_poly_class_args)))
+
+  list(
+    tot_args             = this_all,
+    tot_mono_args_all    = this_mono_all,
+    tot_mono_args_type   = this_mono_type,
+    tot_mono_args_class  = this_mono_class,
+    tot_mono_args_attr   = this_mono_attr,
+    tot_funs             = this_all_fun,
+    tot_mono_funs_all    = this_mono_all_fun,
+    tot_mono_funs_type   = this_mono_type_fun,
+    tot_mono_funs_class  = this_mono_class_fun,
+    tot_mono_funs_attr   = this_mono_attr_fun,
+    top_poly_type        = top_poly_type[order(-top_poly_type$count),],
+    top_poly_attr        = top_poly_attr[order(-top_poly_attr$count),],
+    top_poly_class       = top_poly_class[order(-top_poly_class$count),]
+  )
+}
+
+# # # # # # # # # # # # # #
+#           END           #
+# <Per Package Functions> #
+#           ,,,           #
+# # # # # # # # # # # # # # # # #
 
 # # # # # #
 #
@@ -576,6 +620,21 @@ count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
 #
 # Aux functions. For processing scripts, printing, etc.
 #
+
+# the loaps[[1]] thing is annoying
+attr_name_type_to_name_df <- function(df) {
+  df$attr <- lapply(df$attr, function(loaps) lapply(loaps[[1]], function(ap) attr_name_type_to_name(ap)))
+  df
+}
+
+# this is gross. but here we are. takes an attr pattern with name:type pairs,
+# and gives you an attr pattern with just names
+attr_name_type_to_name <- function(attr_patt) {
+  attr_patt <- strsplit(substr(attr_patt, 2, nchar(attr_patt)-1), split=",")
+  paste0(c("{", paste0(lapply(attr_patt[[1]], function(ntp) {
+    substr(ntp, 1, gregexpr(":", ntp)[[1]][1]-1)
+  }), collapse=","), "}"), collapse="")
+}
 
 # probably can be handled by generic map fun
 process_list_for_types <- function(lot, a_type_map) {

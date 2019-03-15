@@ -128,3 +128,35 @@ What if we fold ints and doubles together into reals?
 ```{r}
 los_basic_no_null_real <- lapply(los_basic_no_null, function(lof) {lapply(lof, function(df) {fold_together_int_double_df(df)})})
 ```
+
+What are the counts now?
+```{r}
+total_mono_type_basic_no_null_real <- apply_count_to_lopkg_c(los_basic_no_null_real, args_count_all_mono_type)
+total_mono_all_basic_no_null_real <- apply_count_to_lopkg_c(los_basic_no_null_real, args_count_all_mono_all)
+```
+
+Great.
+Now, what are the top instances of type-based polymorphism?
+```{r}
+poly_type_args_basic_no_null_real <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los_basic_no_null_real, extract_poly_type_args))
+poly_type_args_basic_no_null_real <- poly_type_args_basic_no_null_real[order(-poly_type_args_basic_no_null_real$count),] # sort by count
+poly_type_args_basic_no_null_real$perc <- round(poly_type_args_basic_no_null_real$count/sum(poly_type_args_basic_no_null_real$count) * 100, 2)
+```
+
+What's the top?
+```{r}
+format_df_for_print(poly_type_args_basic_no_null_real[1:20,])
+```
+
+Ok.
+What if we want some per package information?
+Well, to do it on one package (let's try rlang):
+
+```{r}
+rlang_tally <- tally_up_lofun_c(los$rlang)
+rlang_tally$tot_args
+rlang_tally$tot_mono_args_type
+format_df_for_print(rlang_tally$top_poly_type)
+```
+
+As you'll see, the numbers here are low because we didn't actually trace rlang itself, just that some other packages used rlang, giving us limited results.
