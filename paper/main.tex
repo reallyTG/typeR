@@ -1,67 +1,28 @@
 \documentclass[acmsmall,10pt,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
-
 \usepackage{booktabs} % For formal tables
-
 \usepackage{listings}
 \lstset{language=R}
-
-% Style Stuff
 \usepackage{my_style}
 
-% Copyright
-%\setcopyright{none}
-%\setcopyright{acmcopyright}
-%\setcopyright{acmlicensed}
-\setcopyright{rightsretained}
-%\setcopyright{usgov}
-%\setcopyright{usgovmixed}
-%\setcopyright{cagov}
-%\setcopyright{cagovmixed}
-
-
-% DOI
-\acmDOI{10.475/123_4}
-
-% ISBN
-\acmISBN{123-4567-24-567/08/06}
-
-%Conference
-\acmConference[WOODSTOCK'97]{ACM Woodstock conference}{July 1997}{El
-  Paso, Texas USA}
-\acmYear{1997}
-\copyrightyear{2016}
-
-\acmPrice{15.00}
-
-\acmSubmissionID{123-A12-B3}
-
+\setcopyright{none}
+%\setcopyright{acmcopyright}%\setcopyright{acmlicensed}
+%\acmDOI{10.475/123_4}
+%\acmISBN{123-4567-24-567/08/06}
+%\acmConference[OOPSLAs]{Woodstock conference}{July 1997}{El Paso, Texas USA}
+%\acmYear{1997}%\copyrightyear{2016}%\acmPrice{15.00}
 \begin{document}
-\title{How R R's Types Used}
-% \titlenote{Produces the permission block, and
-%   copyright information}
-\subtitle{A Study of Type Usage in R}
-% \subtitlenote{The full version of the author's guide is available as
-%   \texttt{acmart.pdf} document}
 
-
-\author{Alexi Turcotte}
-\authornote{Work of this author was partially supported by NSERC.}
-% \orcid{1234-5678-9012}
-\affiliation{%
-  \institution{Northeastern University}
-%   \streetaddress{P.O. Box 1212}
-%   \city{Dublin}
-%   \state{Ohio}
-%   \postcode{43017-6221}
-}
-\email{alexi@ccs.neu.edu}
-
-% if the default list of authors is too long for headers:
-% \renewcommand{\shortauthors}{B. Trovato et al.}
-
+\title{A large-scale study of polymorphism}
 
 \begin{abstract}
+The R programming language is widely used in a variety of scientfic domains
+for tasks related to data science. The language is geared towards exploratory
+data
 
+The R programming language is widely used in a variety of scientific domains
+for tasks related to data analysis. Over the last two decades many libraries
+have been developed to facilitate all steps of the data analysis process.
+These libraries are stored in the CRAN reposot
 \end{abstract}
 
 
@@ -72,18 +33,12 @@
 
 \section{High-Level Discussion}
 
-I set up author notes:
-\KS{for Konrad}, \JV{for Jan}, and \AT{for myself}.
-Just do backslash and your initials (see source).
 
-So, what do we want to say in this paper?
-We would like to produce a high-level paper saying what the status of the language is in terms of types, and possibly give direction to future work on the language.
+So, what do we want to say in this paper?  We would like to produce a
+high-level paper saying what the status of the language is in terms of
+types, and possibly give direction to future work on the language.
 
-%
-%
-%
-%
-%
+
 %
 \section{Introduction}
 
@@ -391,12 +346,6 @@ Should investigate how often attributes are consistent.}
 
 \AT{What is the coverage of these new annotations?}
 
-%
-%
-%
-%
-%
-%
 \section{Conclusions and Future Work}
 
 \bibliographystyle{ACM-Reference-Format}
