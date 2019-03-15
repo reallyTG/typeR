@@ -22,23 +22,47 @@
 # [ ] different type systems
 # [ ] breakdown by package
 # [ ] make all non-attribute classes primitive
+# [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
 
 # Require tidyverse for convenience.
 require(tidyverse)
 
-# one of our polymorphic type maps
-type_map <- list(
-  character   = c("character/vector", "character/scalar"),
-  integer     = c("integer/vector", "integer/scalar"),
-  double      = c("double/vector", "double/scalar"),
-  complex     = c("complex/vector", "complex/scalar"),
-  raw         = c("raw/vector", "raw/scalar"),
-  logical     = c("logical/vector", "logical/scalar"),
-  list        = c("list<*>"),
-  vector      = c("character/vector", "integer/vector", "double/vector",
-                  "complex/vector", "raw/vector", "logical/vector"),
+# TYPE
+#      MAPS
+#
+# A type map should map existing R types to some conceivable type system, or
+# the other way around depending.
+
+# T0: fine-grained type system, which aims to empower the user as much as possible.
+type_map_r_to_T0 <- list(
+  character   = c("vector/character", "scalar/character"),
+  integer     = c("vector/integer", "scalar/integer"),
+  double      = c("vector/double", "scalar/double"),
+  complex     = c("vector/complex", "scalar/complex"),
+  raw         = c("vector/raw", "scalar/raw"),
+  logical     = c("vector/logical", "scalar/logical"),
+  list        = c("list<any>"), # in theory this could be anything
+  vector      = c("vector/character", "vector/integer", "vector/double",
+                  "vector/complex", "vector/raw", "vector/logical"),
   index       = c("character", "double", "integer")
-  # TODO: wildcard for list? or just wildcard for any type, *
+)
+
+type_map_T0_to_r <- list(
+  `vector/character`  = "character",
+  `scalar/character`  = "character",
+  `vector/integer`    = "integer",
+  `scalar/integer`    = "integer",
+  `vector/double`     = "double",
+  `scalar/double`     = "double",
+  `vector/raw`        = "raw",
+  `scalar/raw`        = "raw",
+  `vector/logical`    = "logical",
+  `scalar/logical`    = "logical",
+  `vector/complex`    = "complex",
+  `scalar/complex`    = "complex",
+  `list<>`            = "list",      # note: make sure to convert list<X> -> list<>
+  raw_NA              = "logical",
+  `data.frame`        = "list"
 )
 
 # # # # # #
@@ -444,6 +468,7 @@ does_df_have_coinciding_types_index_and_list <- function(df) {
 # These functions are to get specific rows matching some criteria.
 #
 
+# These functions handle getting rid of empty sublists and data frames.
 apply_row_extractor_to_lopkg_c <- function(lopkg_c, r_e_fun) {
   r <- lapply(lopkg_c, function(lofun_c) {
     apply_row_extractor_to_lofun_c(lofun_c, r_e_fun)
@@ -475,6 +500,27 @@ get_rows_from_df_only_scalar <- function(df) {
 #           ,,,             #
 # # # # # # # # # # # # # # # # # #
 
+# # # # # # # # # # # # # # # # # #
+#          START            #
+# <TyS Transform Functions> #
+#           ,,,             #
+# # # # # # # # # # # # # # #
+#
+# These functions are for going from one type system to another.
+#
+
+change_type_systems_df <- function(df, a_type_map) {
+  new_types <- lapply(df$type, unlist)
+  df$type <- lapply(translate_type_list_with_type_map(new_types, a_type_map), unique)
+  df
+}
+
+# # # # # # # # # # # # # # #
+#           END             #
+# <TyS Transform Functions> #
+#           ,,,             #
+# # # # # # # # # # # # # # # # # #
+
 # # # # # #
 #
 # Functions for doing things sequentially, but by reading files.
@@ -490,16 +536,35 @@ count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
 # Aux functions. For processing scripts, printing, etc.
 #
 
-# map supertypes to "atomic" types
-process_list_for_types <- function(lot) {
+# probably can be handled by generic map fun
+process_list_for_types <- function(lot, a_type_map) {
   translate <- function(x) {
-    if (x %in% names(type_map))
-      type_map[[x]]
+    if (x %in% names(a_type_map))
+      a_type_map[[x]]
     else
       x
   }
   got <- lapply(lot, translate)
   got <- lapply(got, translate) # max depth needed is 2, just check it
+}
+
+translate_type_list_with_type_map <- function(lolot, a_type_map) {
+  translate <- function(x) {
+    if (x %in% names(a_type_map))
+      a_type_map[[x]]
+    else
+      x
+  }
+  # 1. preprocess parametric types to get their shape
+  lapply(lolot, function(lot) lapply(lot, function(t) translate(unparametrify(t))))
+}
+
+unparametrify <- function(t) {
+  # in T0, the main parametric type is list<T>
+  if (substr(t, 1, 5) == "list<") # that's probably enough
+    "list<>"
+  else
+    t
 }
 
 distill_type <- function(t) {

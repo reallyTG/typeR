@@ -85,3 +85,17 @@ lo_scalars <- apply_row_extractor_to_lopkg_c(los, get_rows_from_df_only_scalar)
 total_scalar_arguments <- apply_count_to_lopkg_c(lo_scalars, args_count_all)
 ```
 
+Let's see what happens if we change type systems!
+```{r}
+los_basic <- lapply(los, function(lof) {lapply(lof, function(df) {change_type_systems_df(df, type_map_T0_to_r)})})
+```
+
+Let's get some counts.
+This is for a type system which is in direct correspondence with R's typeof.
+```{r}
+# argument counts
+total_mono_type_basic <- apply_count_to_lopkg_c(los_basic, args_count_all_mono_type)
+total_mono_all_basic <- apply_count_to_lopkg_c(los_basic, args_count_all_mono_all)
+```
+
+What if we roll NULL into every type?
