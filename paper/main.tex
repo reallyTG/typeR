@@ -79,6 +79,55 @@ Just do backslash and your initials (see source).
 So, what do we want to say in this paper?
 We would like to produce a high-level paper saying what the status of the language is in terms of types, and possibly give direction to future work on the language.
 
+\subsection{What is a type?}
+
+\AT{this should be moved to a relevant place later}
+
+R is a unityped language, and as such is trivially monomorphic, and this notion of monomorphism is far from useful.
+We are interested in expanding the notion of ``type'' in R, and thankfully the language has some tools on offer.
+\AT{this is discussed later on}
+
+\subsection{What are possible type systems?}
+
+Great question.
+Some things:
+
+\begin{itemize}
+
+\item {\it The Obvious Type System (OTS)}: this type system corresponds directly with the type information that one can fetch using the {\tt typeof}, {\tt attributes}, and {\tt class} functions.
+In this system, there is no distinction between vectors and scalars, and lists of differently-typed elements (e.g., a list of integers vs. a list of strings), and there is a distinction between integers and doubles, and the type of NULL and all other types.
+This type system isn't particularly informative to a programmer, though it does reflect the treatment of values in the R runtime, for the {\tt typeof} a value is the type that the value has according to the R internals.
+
+\item {\it The Fine-Grained Type System (FGTS)}: this type systems includes a number of relevant additions.
+Chiefly, it distinguishes between vectors and scalars, as it is conceivable that boxing scalars as single-element vectors might be overkill.
+In addition, list types are parameterized over the types of their elements (e.g., list<integer> vs. list<character>).
+Finally, NAs ``in the wild'' are given the type {\tt raw\_NA}, as {\tt typeof(NA) = logical} in R.
+
+\item {\it The Null-and-NA-Free Type System (NNTS)}: most languages consider NULLs to inhabit all types, and R does so for NAs \AT{elaborate}.
+This gives us ... .
+
+\end{itemize}
+
+Of course, one could conceive of a more fine-grained type system than FGTS, but it's unclear that we would gain much in doing so.
+Indeed, there is a space to explore in slightly less fine-grained type systems, which make modifications including:
+
+\begin{itemize}
+
+\item {\bf collapsing vectors and scalars}: this yields a type system slightly closer to OTS.
+
+\item {\bf rolling NULL into other types}: in most languages, NULL is an inhabitant of all types, and this adjustment seems interesting.
+Note that this goes beyond even OTS, as in R {\tt typeof(NULL) = NULL}.
+
+\item {\bf rolling NA into other types}: \AT{i should try this}
+similarly, NA is an inhabitant of all types, though NA standing alone has type {\tt logical}.
+FGTS distinguishes such NAs with the {\tt raw\_NA} type, and if instead we consider NA to inhabit all types we may \AT{win}.
+
+\item {\bf combining integers and doubles}: as in most languages, doubles and ints can stand-in for each other in nearly every scenario.
+Even if not, it is trivial to convert from one to the other, particularly converting ints to doubles.
+Aside, in R a double can be used to index a list, and R will floor it when performing the lookup.
+
+\end{itemize}
+
 %
 %
 %
