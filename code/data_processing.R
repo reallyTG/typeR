@@ -17,9 +17,9 @@
 # [X] print function for notebook
 # [X] full monomorphic
 # [X] how many are just scalar A: 40%
-# [ ] see numbers (1) without vector/scalar distinction, and
+# [X] see numbers (1) without vector/scalar distinction, and
 # [ ] (2) without NULL / X distinction
-# [ ] different type systems
+# [X] different type systems
 # [ ] breakdown by package
 # [ ] make all non-attribute classes primitive
 # [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
@@ -63,6 +63,11 @@ type_map_T0_to_r <- list(
   `list<>`            = "list",      # note: make sure to convert list<X> -> list<>
   raw_NA              = "logical",
   `data.frame`        = "list"
+)
+
+type_map_r_to_real <- list(
+  integer   = "real",
+  double    = "real"
 )
 
 # # # # # #
@@ -509,10 +514,46 @@ get_rows_from_df_only_scalar <- function(df) {
 # These functions are for going from one type system to another.
 #
 
+change_type_systems_lopkg <- function(lopkg_c, a_type_map) {
+  lapply(lopkg_c, function(lofun_c) change_type_systems_lofun(lofun_c, a_type_map))
+}
+
+change_type_systems_lofun <- function(lofun_c, a_type_map) {
+  lapply(lofun_c, function(df) change_type_systems_df(df, a_type_map))
+}
+
 change_type_systems_df <- function(df, a_type_map) {
   new_types <- lapply(df$type, unlist)
-  df$type <- lapply(translate_type_list_with_type_map(new_types, a_type_map), unique)
+  df$type <- translate_type_list_with_type_map(new_types, a_type_map)
   df
+}
+
+fold_NULL_into_other_types_df <- function(df) {
+  new_types <- lapply(df$type, unlist)
+  df$type <- lapply(new_types, function(lot) {
+    if (length(lot) > 1) {
+      # fold in NULLs if applicable
+      where <- lot == "NULL"
+      lot[!where]
+    } else {
+      lot
+    }
+  })
+  df
+}
+
+fold_together_int_double_df <- function(df) {
+  translate_df_with_type_map(df, type_map_r_to_real)
+  # new_types <- lapply(df$type, unlist)
+  # df$type <- lapply(new_types, function(lot) {
+  #   if (length(lot) > 1) {
+  #     # fold in NULLs if applicable
+  #     lot <-
+  #   } else {
+  #     lot
+  #   }
+  # })
+  # df
 }
 
 # # # # # # # # # # # # # # #
@@ -548,6 +589,11 @@ process_list_for_types <- function(lot, a_type_map) {
   got <- lapply(got, translate) # max depth needed is 2, just check it
 }
 
+translate_df_with_type_map <- function(df, a_type_map) {
+  df$type <- translate_type_list_with_type_map(df$type, a_type_map)
+  df
+}
+
 translate_type_list_with_type_map <- function(lolot, a_type_map) {
   translate <- function(x) {
     if (x %in% names(a_type_map))
@@ -556,7 +602,7 @@ translate_type_list_with_type_map <- function(lolot, a_type_map) {
       x
   }
   # 1. preprocess parametric types to get their shape
-  lapply(lolot, function(lot) lapply(lot, function(t) translate(unparametrify(t))))
+  lapply(lolot, function(lot) unique(lapply(lot, function(t) translate(unparametrify(t)))))
 }
 
 unparametrify <- function(t) {

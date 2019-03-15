@@ -99,3 +99,32 @@ total_mono_all_basic <- apply_count_to_lopkg_c(los_basic, args_count_all_mono_al
 ```
 
 What if we roll NULL into every type?
+```{r}
+los_basic_no_null <- lapply(los_basic, function(lof) {lapply(lof, function(df) {fold_NULL_into_other_types_df(df)})})
+```
+
+What are the counts now?
+```{r}
+total_mono_type_basic_no_null <- apply_count_to_lopkg_c(los_basic_no_null, args_count_all_mono_type)
+total_mono_all_basic_no_null <- apply_count_to_lopkg_c(los_basic_no_null, args_count_all_mono_all)
+```
+
+Great.
+Now, what are the top instances of type-based polymorphism?
+```{r}
+poly_type_args_basic_no_null <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los_basic_no_null, extract_poly_type_args))
+poly_type_args_basic_no_null <- poly_type_args_basic_no_null[order(-poly_type_args_basic_no_null$count),] # sort by count
+poly_type_args_basic_no_null$perc <- round(poly_type_args_basic_no_null$count/sum(poly_type_args_basic_no_null$count) * 100, 2)
+```
+
+What's the top?
+```{r}
+format_df_for_print(poly_type_args_basic_no_null[1:20,])
+```
+
+So, clearly, "real number polymorphism" is the top choice.
+What if we fold ints and doubles together into reals?
+
+```{r}
+los_basic_no_null_real <- lapply(los_basic_no_null, function(lof) {lapply(lof, function(df) {fold_together_int_double_df(df)})})
+```
