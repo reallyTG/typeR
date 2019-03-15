@@ -122,7 +122,7 @@ The design of R is also rife with questionable decisions.
 For example, the language is lazy \textit{and} side-effecting, which one could describe as an antagonistic pair of features.
 In addition, data structures must be entirely copied when being modified, which appears to be far from ideal in a language meant to process (thus, modify) big data.
 
-In spite of these flaws, the language is incredibly popular. 
+In spite of these flaws, the language is incredibly popular.
 \AT{We'll want to cite something here.}
 
 One way or another, R is here to stay, so we may as well figure out how to deal with it.
@@ -155,7 +155,7 @@ This includes the random seed and all relevant environment data.
 We utilize this trace data to collect type information:
 we run each argument in the specified environment, and collect type information through R's {\tt typeof} function, and attribute information through R's {\tt attributes} function.
 
-Then, we aggregate the information in all traces for a particular function. 
+Then, we aggregate the information in all traces for a particular function.
 If there was only one function trace, we discard the result as the function is trivially monomorphic.
 We can see which arguments had which types over how many traces, and from here we can build a \textit{signature} for each function argument, and consider them together to create a function signature.
 A \textbf{polymorphic argument} is one which has been inhabited by values of at least two different types, and a \textbf{polymorphic function} is a function with at least one polymorphic argument or a polymorphic return.
