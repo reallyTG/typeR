@@ -21,6 +21,7 @@
 # [X] (2) without NULL / X distinction
 # [X] different type systems
 # [X] breakdown by package
+# [ ] get top poly packages
 # [X] make all non-attribute classes primitive
 # [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
 # [ ] how many lines of code were analyzed?
@@ -312,19 +313,24 @@ reduce_extracted_lopkgs_to_one <- function(lopkgs_c_e) {
   r <- Reduce(rbind, lapply(lopkgs_c_e, reduce_extracted_lofuns_to_one))
   r$count <- unlist(r$count) # why
   which <- names(r)[1]
-  group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
-  do(count=sum(.$count)) %>%
-  as.data.frame -> r
-  r$count <- unlist(r$count)
-  rep <- lapply(r[, 1], function(x) {strsplit(x, split="~")})
-  if (which == "type") {
-    r$type <- rep
-  } else if (which == "attr") {
-    r$attr <- rep
-  } else if (which == "class") {
-    r$class <- rep
+  if (is.null(which)) {
+    # skip
+    which
+  } else {
+    group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
+    do(count=sum(.$count)) %>%
+    as.data.frame -> r
+    r$count <- unlist(r$count)
+    rep <- lapply(r[, 1], function(x) {strsplit(x, split="~")})
+    if (which == "type") {
+      r$type <- rep
+    } else if (which == "attr") {
+      r$attr <- rep
+    } else if (which == "class") {
+      r$class <- rep
+    }
+    r
   }
-  r
 }
 
 reduce_extracted_lofuns_to_one <- function(lofuns_c_e) {
@@ -332,16 +338,22 @@ reduce_extracted_lofuns_to_one <- function(lofuns_c_e) {
   collapse_me <- lapply(r[, 1], function(x) sort(unlist(x)))
   rep <- sapply(collapse_me, function(x) {paste(x, collapse="~")})
   which <- names(r)[1]
-  if (which == "type") {
+  if (is.null(which)) {
+    # nothing to do
+  } else if (which == "type") {
     r$type <- rep
   } else if (which == "attr") {
     r$attr <- rep
   } else if (which == "class") {
     r$class <- rep
   }
-  group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
-  do(count=sum(.$count)) %>%
-  as.data.frame
+  if (is.null(which)) {
+    NULL
+  } else {
+    group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
+    do(count=sum(.$count)) %>%
+    as.data.frame
+  }
 }
 
 apply_extract_to_lopkg <- function(lopkg_c, extract_fun) {
@@ -602,6 +614,22 @@ tally_up_lofun_c <- function(lofun_c) {
   # top_poly_attr <- attr_name_type_to_name_df(top_poly_attr)
   top_poly_class <- reduce_extracted_lopkgs_to_one(list(apply_extract_to_lofun(lofun_c, extract_poly_class_args)))
 
+  if (!is.null(top_poly_type)) {
+    top_poly_type <- top_poly_type[order(-top_poly_type$count),]
+  }
+  if (!is.null(top_poly_attr)) {
+    top_poly_attr <- top_poly_attr[order(-top_poly_attr$count),]
+  }
+  if (!is.null(top_poly_class)) {
+    top_poly_class <- top_poly_class[order(-top_poly_class$count),]
+  }
+
+  # compute the total "size" of the polymorphism in the package.
+  # depending on what size metric you want, change the function being passed
+  size_of_poly <- Reduce("+", lapply(lofun_c, function(df) {
+    size_of_signatures_in_df(df, size_of_signature_all)
+  }))
+
   list(
     tot_args             = this_all,
     tot_mono_args_all    = this_mono_all,
@@ -613,9 +641,10 @@ tally_up_lofun_c <- function(lofun_c) {
     tot_mono_funs_type   = this_mono_type_fun,
     tot_mono_funs_class  = this_mono_class_fun,
     tot_mono_funs_attr   = this_mono_attr_fun,
-    top_poly_type        = top_poly_type[order(-top_poly_type$count),],
-    top_poly_attr        = top_poly_attr[order(-top_poly_attr$count),],
-    top_poly_class       = top_poly_class[order(-top_poly_class$count),]
+    tot_size_of_poly     = size_of_poly,
+    top_poly_type        = top_poly_type,
+    top_poly_attr        = top_poly_attr,
+    top_poly_class       = top_poly_class
   )
 }
 
@@ -695,6 +724,20 @@ translate_type_list_with_type_map <- function(lolot, a_type_map) {
   }
   # 1. preprocess parametric types to get their shape
   lapply(lolot, function(lot) unique(lapply(lot, function(t) translate(unparametrify(t)))))
+}
+
+# Function to measure the size of a signature.
+# This one just sums up the size of each component of the full signature.
+# This could be modified, if we think there is too much double counting.
+# Notes: size will always be > 3 with this scheme.
+size_of_signature_all <- function(row_in_df) {
+  length(unlist(row_in_df$type)) + length(unlist(row_in_df$attr)) +
+  length(unlist(row_in_df$class))
+}
+
+# Applies the size function to a data frame
+size_of_signatures_in_df <- function(df, size_fun) {
+  Reduce("+", apply(df[,names(df)], 1, size_fun))
 }
 
 unparametrify <- function(t) {
