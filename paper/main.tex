@@ -47,66 +47,21 @@ facilities that increase the likelyhood that code will ``just work''.
 
 For example abbreviation of name arguments and automatic conversions.
 
-But invariably some applications written in those languages survive past the prototype stage.
+But invariably some applications written in those languages survive past the
+prototype stage.
 
 The results obtained are published and even sometimes drive policy decisions.
 
-Given that code almost never stops, and that any computation is likely to deliver a bunch of numbers, how can we trust those numbers?
+Given that code almost never stops, and that any computation is likely to
+deliver a bunch of numbers, how can we trust those numbers?
 
-Years of work in programming languages suggest that one cost efficient way to catch some errors is to add types to a language.
+Years of work in programming languages suggest that one cost efficient way
+to catch some errors is to add types to a language.
 
-In the last decade much attention has been given to the incremental addition of types. Successes like Hack, TypeScript and Racket suggest that this may be feasible for wide spectrum languages. 
+In the last decade much attention has been given to the incremental addition
+of types. Successes like Hack, TypeScript and Racket suggest that this may
+be feasible for wide spectrum languages.
 
-
-
-%
-%
-%
-\section{Background}
-
-%
-%
-%
-%
-\subsection{The R Programming Language}
-
-R is a lazy, side-effecting, dynamically-typed, ... .
-
-Typical usage of the language is ... . \AT{Do we have something to cite for this?}
-\AT{Should we motivate why we only look at R packages?
-Some people might wonder why we don't look at non-library code.}
-
-Most R libraries (called \textit{packages}) are stored in the Comprehensive R Archive Network (CRAN) and Bioconductor package repositories.
-\AT{Talk about important packages? tidyverse?}
-
-\AT{Kind of ... want to combine the above two paragraphs somehow? Together, they lead in nicely to the genthat talk.}
-
-
-%
-%
-\subsection{The \texttt{genthat} Package}
-
-Unfortunately, getting our hands on ``front-line'' R code is tricky:
-R is not like many other languages, where large systems are built up and stored in a repository such as Github.
-Instead, R programmers are liable to leverage a number of packages and work them into their data analysis pipelines.
-
-Interestingly, we are somewhat able to replicate this using only package code.
-CRAN, for instance, has a policy that packages made available on the CRAN platform should be accompanied by a series of examples, tests, and/or vignettes showing off how the code is intended to be used.
-Nominally unrelated, the {\tt genthat} project aims to trace this swath of example code to generate new examples which package designers may not have thought of.
-Crucially, {\tt genthat} outputs complete trace information for each of the functions that it runs so that they can be run again in a fresh R instance (e.g., by capturing the random seed, environment variables, etc.).
-We can leverage this trace information to glean type and attribute patterns of functions, and since these traces correspond to examples of the packages being used (rather than just arbitrarily running package code), we have a reasonable approximation of how R programmers would use the packages.
-
-\AT{We use/modify the {\tt genthat} tracer, probably worth going in to more detail here.}
-
-
-
-%
-%
-%
-%
-%
-%
-\section{Motivation and High-level Overview}
 
 Our community is centred on building, improving, and reasoning about
 programming languages.  A key component in all this is to truly
@@ -155,12 +110,52 @@ polymorphic R code is.
       type information.
 \end{itemize}
 
+
+
 %
+\section{The R Programming Language}
+
+R is a lazy, side-effecting, dynamically-typed, ... .
+
+Typical usage of the language is ... . \AT{Do we have something to cite for
+  this?}  \AT{Should we motivate why we only look at R packages?  Some
+  people might wonder why we don't look at non-library code.}
+
+Most R libraries (called \textit{packages}) are stored in the Comprehensive
+R Archive Network (CRAN) and Bioconductor package repositories.  \AT{Talk
+  about important packages? tidyverse?}
+
+\AT{Kind of ... want to combine the above two paragraphs somehow? Together,
+  they lead in nicely to the genthat talk.}
+
+
+\subsection{The \texttt{genthat} Package}
+
+Unfortunately, getting our hands on ``front-line'' R code is tricky: R is
+not like many other languages, where large systems are built up and stored
+in a repository such as Github.  Instead, R programmers are liable to
+leverage a number of packages and work them into their data analysis
+pipelines.
+
+Interestingly, we are somewhat able to replicate this using only package
+code.  CRAN, for instance, has a policy that packages made available on the
+CRAN platform should be accompanied by a series of examples, tests, and/or
+vignettes showing off how the code is intended to be used.  Nominally
+unrelated, the {\tt genthat} project aims to trace this swath of example
+code to generate new examples which package designers may not have thought
+of.  Crucially, {\tt genthat} outputs complete trace information for each of
+the functions that it runs so that they can be run again in a fresh R
+instance (e.g., by capturing the random seed, environment variables, etc.).
+We can leverage this trace information to glean type and attribute patterns
+of functions, and since these traces correspond to examples of the packages
+being used (rather than just arbitrarily running package code), we have a
+reasonable approximation of how R programmers would use the packages.
+
+\AT{We use/modify the {\tt genthat} tracer, probably worth going in to more
+  detail here.}
 %
-%
-%
-%
-%
+
+
 \section{The Method}
 
 In this section, we will detail our methodology for collecting data.
@@ -200,7 +195,8 @@ after, our methods from here differ slightly.
 \begin{itemize}
     \item for \textbf{counting signatures}: for each signature, we count how
       many functions or arguments have the requisite signature;
-    \item for \textbf{finding the most common signatures}: we enumerate as before, and sort the signatures based on how often they appear;
+    \item for \textbf{finding the most common signatures}: we enumerate as
+      before, and sort the signatures based on how often they appear;
 \end{itemize}
 
 %
@@ -210,11 +206,16 @@ after, our methods from here differ slightly.
 \subsection{Attributes}
 \label{sec:method:attributes}
 
-Types (in the sense of the result of a call to {\tt typeof}) are easy to analyze as values can only have one type.
-Attributes, however, are a different story, as values can have an arbitrary number of attributes.
-Essentially, we're not interesting by function arguments which have had multiple attributes, we're interested in function arguments which have had multiple attribute \textit{patterns}. \AT{is this defined earlier?}
-Arguments are said to be polymorphic in attribute if they have been inhabited with values which have had different attribute patterns.
-\AT{We have not investigated whether functions which are polymorphic in attribute use attributes extensively inside the function code.}
+Types (in the sense of the result of a call to {\tt typeof}) are easy to
+analyze as values can only have one type.  Attributes, however, are a
+different story, as values can have an arbitrary number of attributes.
+Essentially, we're not interesting by function arguments which have had
+multiple attributes, we're interested in function arguments which have had
+multiple attribute \textit{patterns}. \AT{is this defined earlier?}
+Arguments are said to be polymorphic in attribute if they have been
+inhabited with values which have had different attribute patterns.  \AT{We
+  have not investigated whether functions which are polymorphic in attribute
+  use attributes extensively inside the function code.}
 
 \AT{Paragraph justifying our construction of an attribute pattern.
 Either just name, or (name, type).}
@@ -228,9 +229,13 @@ Either just name, or (name, type).}
 %
 \subsection{{\tt genthat} Tracer Quirks}
 
-First and foremost, {\tt genthat} captures arguments only on function exit, so as to not force promises during function execution.
-\AT{Uh oh:} One clear limitation here is that if an argument \textit{gains} attributes over the functione execution, then they will appear in our signatures.
-As R is side-effecting, this is an entirely valid practice (i.e., passing objects to functions to modify them), though \AT{it's unclear if people actually do this}.
+First and foremost, {\tt genthat} captures arguments only on function exit,
+so as to not force promises during function execution.  \AT{Uh oh:} One
+clear limitation here is that if an argument \textit{gains} attributes over
+the functione execution, then they will appear in our signatures.  As R is
+side-effecting, this is an entirely valid practice (i.e., passing objects to
+functions to modify them), though \AT{it's unclear if people actually do
+  this}.
 
 \AT{Maybe talk about the quirks of genthat in here?
 For example, how it deals with default arguments, and stuff like that.}
@@ -241,9 +246,13 @@ For example, how it deals with default arguments, and stuff like that.}
 %
 \subsection{Goals}
 
-Ultimately, our goal is to collect data and report on patterns which emerge organically.
-That said, the comprehensive picture of type usage we are developing can also be used to inform the design of a set of \textit{type annotations} for the language, and this goal informs our analysis.
-As we collect our data, we keep in mind the idea that the data we produce should clearly suggest what sorts of type annotations would reflect language usage patterns.
+Ultimately, our goal is to collect data and report on patterns which emerge
+organically.  That said, the comprehensive picture of type usage we are
+developing can also be used to inform the design of a set of \textit{type
+  annotations} for the language, and this goal informs our analysis.  As we
+collect our data, we keep in mind the idea that the data we produce should
+clearly suggest what sorts of type annotations would reflect language usage
+patterns.
 
 %
 %
