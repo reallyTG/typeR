@@ -21,10 +21,11 @@
 # [X] (2) without NULL / X distinction
 # [X] different type systems
 # [X] breakdown by package
-# [ ] make all non-attribute classes primitive
+# [X] make all non-attribute classes primitive
 # [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
 # [ ] how many lines of code were analyzed?
 # [ ] deal with errors
+# [ ] develop notion of size of polymorphism
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -70,6 +71,24 @@ type_map_T0_to_r <- list(
 type_map_r_to_real <- list(
   integer   = "real",
   double    = "real"
+)
+
+primitive_classes <- list(
+  "character",
+  "complex",
+  "double",
+  "expression",
+  "integer",
+  "list",
+  "logical",
+  "numeric",
+  "single",
+  "raw",
+  "matrix",
+  "data.frame",
+  "NULL",
+  "factor",
+  "function"
 )
 
 # # # # # #
@@ -620,6 +639,20 @@ count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
 #
 # Aux functions. For processing scripts, printing, etc.
 #
+
+class_to_primitive_df <- function(df) {
+  df$class <- lapply(df$class, function(loc) {
+    unique(lapply(unlist(loc), convert_class_to_primitive))
+  })
+  df
+}
+
+convert_class_to_primitive <- function(cl) {
+  if (cl %in% primitive_classes)
+    "primitive"
+  else
+    cl
+}
 
 # the loaps[[1]] thing is annoying
 attr_name_type_to_name_df <- function(df) {

@@ -160,3 +160,28 @@ format_df_for_print(rlang_tally$top_poly_type)
 ```
 
 As you'll see, the numbers here are low because we didn't actually trace rlang itself, just that some other packages used rlang, giving us limited results.
+
+Now, how about if we take all of R's base classes (i.e., those which occur naturally in R) and lump them all into a "primitive" class.
+What sort of class-based polymorphism do we see, now?
+
+```{r}
+los_primitive_class <- lapply(los, function(lof) {lapply(lof, class_to_primitive_df)})
+```
+
+```{r}
+total_mono_clas_prim <- apply_count_to_lopkg_c(los_primitive_class, args_count_all_mono_class)
+total_mono_clas_functions_prim <- apply_count_to_lopkg_c(los_primitive_class, fun_count_all_mono_class)
+```
+
+Let's get the top poly class now.
+```{r}
+poly_class_args_prim <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los_primitive_class, extract_poly_class_args))
+poly_class_args_prim <- poly_class_args_prim[order(-poly_class_args_prim$count),] # sort by count
+poly_class_args_prim$perc <- round(poly_class_args_prim$count/sum(poly_class_args_prim$count) * 100, 2)
+```
+
+```{r}
+format_df_for_print(poly_class_args_prim[1:20,])
+```
+
+The low percentage numbers suggest that no one user-defined pattern contributes too much to the class-based polymorphism.
