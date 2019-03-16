@@ -26,10 +26,11 @@
 # [X] make all non-attribute classes primitive
 # [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
 # [ ] how many lines of code were analyzed?
-# [ ] how old is the oldest version of a package we analyzed?
-# [ ] how many R programmers were involved?
+# [ ] how old is the oldest version of a package we analyzed?    -- can run, waiting on moment
+# [ ] how many R programmers were involved?   -- can run, waiting on moment
 # [ ] deal with errors
-# [ ] develop notion of size of polymorphism
+# [X] develop notion of size of polymorphism
+# [ ] develop more/better notions of size of polymorphism
 
 # Require tidyverse for convenience.
 require(tidyverse)
