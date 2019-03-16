@@ -62,13 +62,7 @@ In the last decade much attention has been given to the incremental addition of 
 %
 %
 %
-\section{Background}
-
-%
-%
-%
-%
-\subsection{The R Programming Language}
+\section{The R Programming Language}
 
 R is a lazy, side-effecting, dynamically-typed, ... .
 
@@ -83,27 +77,30 @@ Most R libraries (called \textit{packages}) are stored in the Comprehensive R Ar
 
 
 %
-%
+
 \subsection{The \texttt{genthat} Package}
 
-Unfortunately, getting our hands on ``front-line'' R code is tricky:
-R is not like many other languages, where large systems are built up and stored in a repository such as Github.
-Instead, R programmers are liable to leverage a number of packages and work them into their data analysis pipelines.
+Unfortunately, getting our hands on ``front-line'' R code is tricky: R is
+not like many other languages, where large systems are built up and stored
+in a repository such as Github.  Instead, R programmers are liable to
+leverage a number of packages and work them into their data analysis
+pipelines.
 
-Interestingly, we are somewhat able to replicate this using only package code.
-CRAN, for instance, has a policy that packages made available on the CRAN platform should be accompanied by a series of examples, tests, and/or vignettes showing off how the code is intended to be used.
-Nominally unrelated, the {\tt genthat} project aims to trace this swath of example code to generate new examples which package designers may not have thought of.
-Crucially, {\tt genthat} outputs complete trace information for each of the functions that it runs so that they can be run again in a fresh R instance (e.g., by capturing the random seed, environment variables, etc.).
-We can leverage this trace information to glean type and attribute patterns of functions, and since these traces correspond to examples of the packages being used (rather than just arbitrarily running package code), we have a reasonable approximation of how R programmers would use the packages.
+Interestingly, we are somewhat able to replicate this using only package
+code.  CRAN, for instance, has a policy that packages made available on the
+CRAN platform should be accompanied by a series of examples, tests, and/or
+vignettes showing off how the code is intended to be used.  Nominally
+unrelated, the {\tt genthat} project aims to trace this swath of example
+code to generate new examples which package designers may not have thought
+of.  Crucially, {\tt genthat} outputs complete trace information for each of
+the functions that it runs so that they can be run again in a fresh R
+instance (e.g., by capturing the random seed, environment variables, etc.).
+We can leverage this trace information to glean type and attribute patterns
+of functions, and since these traces correspond to examples of the packages
+being used (rather than just arbitrarily running package code), we have a
+reasonable approximation of how R programmers would use the packages.
 
 \AT{We use/modify the {\tt genthat} tracer, probably worth going in to more detail here.}
-
-
-
-%
-%
-%
-%
 %
 %
 \section{Motivation and High-level Overview}
@@ -157,10 +154,7 @@ polymorphic R code is.
 
 %
 %
-%
-%
-%
-%
+
 \section{The Method}
 
 In this section, we will detail our methodology for collecting data.
