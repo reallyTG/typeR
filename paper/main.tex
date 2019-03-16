@@ -24,7 +24,7 @@ question: \emph{what could a static type system for R look like?}  To answer
 that question we study the polymorphism that is present in over X millions
 of lines of R code, XX packages, written over a period of Y years by Z
 programmers.  We perform a dynamic analysis, leveraging tests and use-cases,
-to determine the level of polymoprhism that is present in the code. We do
+to determine the level of polymorphism that is present in the code. We do
 this for several potential notions of types. Our result suggest that
 polymorphism is important in some key parts of the system but that
 relatively simple type annotations could be used to capture most of the
@@ -245,6 +245,22 @@ Ultimately, our goal is to collect data and report on patterns which emerge orga
 That said, the comprehensive picture of type usage we are developing can also be used to inform the design of a set of \textit{type annotations} for the language, and this goal informs our analysis.
 As we collect our data, we keep in mind the idea that the data we produce should clearly suggest what sorts of type annotations would reflect language usage patterns.
 
+%
+%
+%
+%
+\subsection{The Corpus}
+
+\AT{I'm hesitant to go into too much detail here, as I'm not sure if we're quite done running our analysis.
+I can imagine a scenario where we will try to rerun with a longer timeout just to get a little bit more data (because why not).}
+
+We ran our analysis over a subset of CRAN, the Comprehensive R Archive Network.
+We analyzed \AT{over 7500} packages, over half of all packages available on CRAN.
+Our analysis had an explicit timeout of \AT{30 minutes} per package, as a number of R packages feature functions which have a nigh-eternal running time (e.g., machine learning packages and complex simulations) \AT{cite those packages/examples}.
+
+\AT{Should we talk about some of the packages?
+What else do we have to say about the corpus?
+We can restate the numbers from the abstract.}
 
 %
 %

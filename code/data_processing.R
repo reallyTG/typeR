@@ -21,10 +21,13 @@
 # [X] (2) without NULL / X distinction
 # [X] different type systems
 # [X] breakdown by package
-# [ ] get top poly packages
+# [X] get top poly packages
+# [ ] make more metrics for polymorphism
 # [X] make all non-attribute classes primitive
 # [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
 # [ ] how many lines of code were analyzed?
+# [ ] how old is the oldest version of a package we analyzed?
+# [ ] how many R programmers were involved?
 # [ ] deal with errors
 # [ ] develop notion of size of polymorphism
 
@@ -870,6 +873,20 @@ computeRevDeps <- function(p, recursive=FALSE)
 
   rdeps <- unlist(rdeps, use.names=FALSE)
   rdeps
+}
+
+# # # # #
+#
+# Functions for scraping.
+# All require rvest.
+
+scrape_for_authors <- function(pname) {
+  url <- paste0('https://cran.r-project.org/web/packages/', pname)
+  wp <- read_html(url)
+  the_t <- html_table(wp)[[1]]
+  a_list <- the_t$X2[the_t$X1 == "Author:"]
+  a_names <- trimws(strsplit(a_list, split='\n')[[1]])
+  unlist(lapply(a_names, function(sn) { strsplit(sn, split=" \\[")[[1]][[1]] }))
 }
 
 #
