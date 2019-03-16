@@ -188,3 +188,43 @@ The low percentage numbers suggest that no one user-defined pattern contributes 
 
 Alright, let's do a package tally for all packages.
 First, let's make all the classes primitive in our previous collapsed list.
+
+```{r}
+los_basic_no_null_real_primitive_class <- lapply(los_basic_no_null_real, function(lof) {lapply(lof, class_to_primitive_df)})
+```
+
+Note: this takes a long time to run.
+```{r}
+all_tallies_all_reduced <- lapply(los_basic_no_null_real_primitive_class, tally_up_lofun_c)
+```
+
+```{r}
+all_tallies_sizes <- lapply(all_tallies_all_reduced, function(x) x$tot_size_of_poly)
+```
+
+Ok.
+It's certainly not perfect, but one metric I used for figuring out the size of polymorphism is just by summing up the type-, attribute-, and class-based polymorphism of each argument in a function.
+This might give us some leads.
+The top 20 polymorphic packages by this metric is:
+
+```{r}
+head(sort(unlist(all_tallies_sizes), decreasing=TRUE), 20)
+```
+
+Ok.
+Let's see what we can get out of coinciding type signatures.
+With out reduced type system, we might want to know a little bit more about the "real", "character" type signature, which is by far one of the most common signatures.
+We hypothesize that these should appear alongside lists (and possibly vectors).
+For lists only, we can do this easily:
+```{r}
+# for list coinciding
+coincide_list_index <- get_fun_sigs_matching_pred_from_lopkg(los_basic_no_null_real_primitive_class, does_df_have_coinciding_types_index_and_list_reduced_TS)
+
+# just real, character
+char_real_sigs <- get_fun_sigs_matching_pred_from_lopkg(los_basic_no_null_real_primitive_class, does_df_have_X_types, types_to_find=c("real", "character"), strict=TRUE)
+```
+
+Let's look for vectors, also.
+```{r}
+coincide_list_vector_index <- get_fun_sigs_matching_pred_from_lopkg(los, does_df_have_coinciding_types_index_and_list_or_vector)
+```

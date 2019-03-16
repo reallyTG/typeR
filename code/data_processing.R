@@ -31,6 +31,8 @@
 # [ ] deal with errors
 # [X] develop notion of size of polymorphism
 # [ ] develop more/better notions of size of polymorphism
+# [ ] get numbers for coninciding ... list or vector X character or numeric
+# [ ] " " ... argument and return type signatures
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -417,13 +419,10 @@ get_fun_sigs_matching_pred_from_lofun <- function(lofun, pred, ...) {
   lofun[unname(sapply(lofun, function(x) pred(x, ...)))]
 }
 
-# TODO test the Reduce("&&", ...) code to make sure it works
-
 
 # [PREDICATE]
 # df should be a full_sig df
-# TODO: make strict version also?
-does_df_have_X_attrs <- function(df, attrs_to_find) {
+does_df_have_X_attrs <- function(df, attrs_to_find, strict=FALSE) {
   if (!is.na(df$arg_name[1])) {
     Reduce("||", lapply(df$attr, function(attr_pttrns) {
       Reduce("||", lapply(attr_pttrns, function(pttrn) {
@@ -434,7 +433,7 @@ does_df_have_X_attrs <- function(df, attrs_to_find) {
         # reduce that list (if applicable) with desired name
         if (length(attr_names) > 0) {
           Reduce("||", lapply(attr_names, function(s) {
-            Reduce("&&", s %in% attrs_to_find)
+            Reduce("&&", s %in% attrs_to_find) && (!strict || length(s) == length(attrs_to_find))
           }))
         } else {
           FALSE
@@ -445,19 +444,19 @@ does_df_have_X_attrs <- function(df, attrs_to_find) {
     FALSE
 }
 
-does_df_have_X_types <- function(df, types_to_find) {
+does_df_have_X_types <- function(df, types_to_find, strict=FALSE) {
   if (!is.na(df$arg_name[1])) {
     Reduce("||", lapply(df$type, function(lotypes) {
-      types_to_find %in% lotypes
+      Reduce("&&", types_to_find %in% lotypes) && (!strict || length(lotypes) == length(types_to_find))
     }))
   } else
     FALSE
 }
 
-does_df_have_X_classes <- function(df, classes_to_find) {
+does_df_have_X_classes <- function(df, classes_to_find, strict=FALSE) {
   if (!is.na(df$arg_name[1])) {
     Reduce("||", lapply(df$class, function(loclasses) {
-      classes_to_find %in% loclasses
+      Reduce("&&", classes_to_find %in% loclasses) && (!strict || length(loclasses) == length(classes_to_find))
     }))
   } else
     FALSE
@@ -473,23 +472,71 @@ does_df_have_coinciding_types <- function(df, list_of_types) {
 
 # less general, for index and list, to get an idea
 # strict
-does_df_have_coinciding_types_index_and_list <- function(df) {
-  check1 <- list("integer", "character")
-  check2 <- list("double", "character")
-  check3 <- list("integer", "double", "character")
-  distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
-  index_rows <- lapply(distilled_types, function(lot) {
-    (length(lot) == 2 && Reduce("&&", check1 %in% lot) || Reduce("&&", check2 %in% lot)) ||
-    (length(lot) == 3 && Reduce("&&", check3 %in% lot))
+# does_df_have_coinciding_types_index_and_list <- function(df) {
+#   check1 <- list("integer", "character")
+#   check2 <- list("double", "character")
+#   check3 <- list("integer", "double", "character")
+#   distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
+#   index_rows <- lapply(distilled_types, function(lot) {
+#     (length(lot) == 2 && Reduce("&&", check1 %in% lot) || Reduce("&&", check2 %in% lot)) ||
+#     (length(lot) == 3 && Reduce("&&", check3 %in% lot))
+#   })
+#   type_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_to_shape)))
+#   list_rows <- lapply(type_shapes, function(lot) {
+#     "list" %in% lot || "vector" %in% lot
+#     # if there is any hope of this argument being listy
+#   })
+#   # now, probably xor the list_rows and index_rows to make sure there is a configuration
+#   # where the indexy is different from the listy
+#   Reduce("||", xor(unlist(index_rows), unlist(list_rows)))
+# }
+
+does_df_have_coinciding_types_index_and_list_reduced_TS <- function(df) {
+  check_index <- list("real", "character")
+  # distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
+  index_rows <- lapply(df$type, function(lot) {
+    length(lot) == 2 && Reduce("&&", check_index %in% lot)
   })
-  type_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_to_shape)))
-  list_rows <- lapply(type_shapes, function(lot) {
-    "list" %in% lot || "vector" %in% lot
-    # if there is any hope of this argument being listy
+  # at least one of those needs to be true
+  if (!Reduce("||", index_rows))
+    return(FALSE)
+
+  list_rows <- lapply(df$type, function(lot) {
+    # TODO do this for vectors also? might need to modify pipeline
+    "list" %in% lot # if there is any hope of this argument being listy
   })
+  # again, at least one needs to be true
+  if (!Reduce("||", list_rows))
+    return(FALSE)
+
   # now, probably xor the list_rows and index_rows to make sure there is a configuration
   # where the indexy is different from the listy
   Reduce("||", xor(unlist(index_rows), unlist(list_rows)))
+}
+
+# ensure that df
+does_df_have_coinciding_types_index_and_list_or_vector <- function(df) {
+  check_index <- list("real", "character")
+  distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
+  distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
+  index_rows <- lapply(distilled_types, function(lot) {
+    length(lot) == 2 && Reduce("&&", check_index %in% lot)
+  })
+  # at least one of those needs to be true
+  if (!Reduce("||", index_rows))
+    return(FALSE)
+
+  types_as_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_to_shape)))
+  listy_rows <- lapply(types_as_shapes, function(lot) {
+    "list" %in% lot || "vector" %in% lot # if there is any hope of this argument being listy
+  })
+  # again, at least one needs to be true
+  if (!Reduce("||", listy_rows))
+    return(FALSE)
+
+  # now, probably xor the list_rows and index_rows to make sure there is a configuration
+  # where the indexy is different from the listy
+  Reduce("||", xor(unlist(index_rows), unlist(listy_rows)))
 }
 
 # # # # # # # # # # # # #
@@ -755,6 +802,8 @@ unparametrify <- function(t) {
 distill_type <- function(t) {
   if (grepl("list", t))
     "list"
+  else if (t == "data.frame")
+    "list"
   else if (grepl("character", t))
     "character"
   else if (grepl("integer", t))
@@ -773,6 +822,8 @@ distill_type <- function(t) {
 
 distill_type_to_shape <- function(t) {
   if (grepl("list", t))
+    "list"
+  else if (t == "data.frame")
     "list"
   else if (grepl("vector", t))
     "vector"
