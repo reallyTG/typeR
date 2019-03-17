@@ -13,7 +13,7 @@
 \title{A large-scale study of polymorphism in R}
 
 \begin{abstract}
-The R programming language is widely used in a variety of scientfic domains
+The R programming language is widely used in a variety of scientific domains
 for tasks related to data science. The language was designed to favor an
 interactive style of programming with minimal syntactic and conceptual
 overhead. This design is well suited to support interactive data analysis,
@@ -22,7 +22,7 @@ errors.  In particular, R has no type annotations and all operations are
 dynamically checked at runtime. The starting point for our work is the
 question: \emph{what could a static type system for R look like?}  To answer
 that question we study the polymorphism that is present in over X millions
-of lines of R code, XX packages, written over a period of Y years by Z
+of lines of R code spread among some 7500 packages, written over a period of over 20 years by over 10000
 programmers.  We perform a dynamic analysis, leveraging tests and use-cases,
 to determine the level of polymorphism that is present in the code. We do
 this for several potential notions of types. Our result suggest that
@@ -30,6 +30,7 @@ polymorphism is important in some key parts of the system but that
 relatively simple type annotations could be used to capture most of the
 interesting cases.
 \end{abstract}
+
 \maketitle
 
 \section{Introduction}
@@ -39,7 +40,8 @@ make design decisions that benefit most users of a language, we need to
 understand the language we are working with as well as the real-world needs
 it answers. Often, we, as researchers, can appeal to our intuition as many
 languages are intended to be general purpose and appeal to users with some 
-training.
+training. Unfortunately, these intuitions don't always apply to domain-specific
+languages.
 
 A number of programming languages have gained popularity for data science
 tasks, they include MATLAB, Python, Julia and R.
@@ -49,8 +51,8 @@ These languages are all dynamically typed.
 This is because they emphasize ease of programming, interactive data
 exploration, and light-weight syntax.
 
-To faciliate programming these language offer all kinds of short cuts and
-facilities that increase the likelyhood that code will ``just work''.
+To facilitate programming these language offer all kinds of short cuts and
+facilities that increase the likelihood that code will ``just work''.
 
 For example abbreviation of name arguments and automatic conversions.
 
@@ -58,6 +60,8 @@ But invariably some applications written in those languages survive past the
 prototype stage.
 
 The results obtained are published and even sometimes drive policy decisions.
+\AT{There's a cool stat in the blog I linked which says that a lot of the Stack
+Overflow traffic R gets is from government officials.}
 
 Given that code almost never stops, and that any computation is likely to
 deliver a bunch of numbers, how can we trust those numbers?
@@ -70,7 +74,8 @@ of types. Successes like Hack, TypeScript and Racket suggest that this may
 be feasible for wide spectrum languages.
 
 R is a languages written by and for \textit{statisticians}.  It traces its
-roots to the S language~\cite{becker1988new}, developed by Richard Becker, John Chambers, and Allan Wilks.  R programmers don't write big
+roots to the S language~\cite{becker1988new}, developed by Richard Becker, 
+John Chambers, and Allan Wilks.  R programmers don't write big
 servers or software systems; instead, they write and modify small data
 processing pipelines as a means to facilitate interaction with digital data.
 This leads to ``front-line'' R code (i.e., code written for users, not
@@ -86,7 +91,7 @@ entirely copied when being modified, which appears to be far from ideal in a
 language meant to process (thus, modify) big data.
 
 In spite of these flaws, the language is incredibly popular.
-\AT{We'll want to cite something here.}
+\AT{We'll want to cite something here, maybe the blog I linked?}
 
 One way or another, R is here to stay, so we may as well figure out how to
 deal with it.  One aspect of this is understanding R programmers and how
@@ -106,7 +111,18 @@ polymorphic R code is.
       type information.
 \end{itemize}
 
+The main contributions of this work are:
 
+\begin{itemize}
+
+	\item \AT{maybe} a tool to analyze the polymorphicity of R code;
+	
+	\item a study of polymorphism in the R language \AT{using said tool};
+	
+	\item a number of proposed static type systems for R which cover most of the 
+	type usage patterns which arise in R code.
+
+\end{itemize}
 
 %
 \section{The R Programming Language}
@@ -263,6 +279,13 @@ We ran our analysis over a subset of CRAN, the Comprehensive R Archive Network.
 We analyzed \AT{over 7500} packages, over half of all packages available on CRAN.
 Our analysis had an explicit timeout of \AT{30 minutes} per package, as a number of R packages feature functions which have a nigh-eternal running time (e.g., machine learning packages and complex simulations) \AT{cite those packages/examples}.
 
+There are a number of interesting packages in our corpus.
+\AT{References for all of these.}
+For example, we have analyzed some packages for plotting data: among others, the {\tt ggplot2} package is an immensely popular package for generating highly-customizable plots, and the {\tt plotmo} package is an interesting package aimed at displaying models.
+We also analyzed {\tt dplyr}, an integral package to the {\tt tidyverse} set of R packages \AT{talk about tidyverse earlier, or here}.
+{\tt dplyr} is a popular package that makes full use of R's features to create what is tantamount to a small DSL for data manipulation within R.
+Another interesting package is {\tt rquery}, a package for generating SQL-like queries. 
+
 \AT{Should we talk about some of the packages?
 What else do we have to say about the corpus?
 We can restate the numbers from the abstract.}
@@ -275,8 +298,20 @@ We can restate the numbers from the abstract.}
 %
 \section{Results}
 
-\AT{Tables, graphs, code examples should go in here.}
-In this section, we ... .
+\AT{PSA:} There are a few ways we could do this section.
+One way would be to go through our data in a sort of linear fashion, akin to how the main notebook is set up.
+We can explore each of our type systems one at a time, and present them (thus breaking the section up by type system).
+Another option is to just break down by-result, so have a section for the counts, for the top polymorphism...
+I like the first option better.
+
+\AT{Draft}
+In this section, we will present the results of our analysis. 
+We approach the data with the purpose of informing the design of a static type system for R.
+We propose to begin with a very basic type system, discussed next.
+
+\subsection{Base R Type System}
+
+The {\it Base R Type System} (BRTS) ...
 
 %
 %
