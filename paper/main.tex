@@ -10,7 +10,7 @@
 %\acmYear{1997}%\copyrightyear{2016}%\acmPrice{15.00}
 \begin{document}
 
-\title{A large-scale study of polymorphism in R}
+\title{A Large-scale Study of Polymorphism in R}
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -22,13 +22,13 @@ errors.  In particular, R has no type annotations and all operations are
 dynamically checked at runtime. The starting point for our work is the
 question: \emph{what could a static type system for R look like?}  To answer
 that question we study the polymorphism that is present in over X millions
-of lines of R code spread among some 7500 packages, written over a period of over 20 years by over 10000
-programmers.  We perform a dynamic analysis, leveraging tests and use-cases,
-to determine the level of polymorphism that is present in the code. We do
-this for several potential notions of types. Our result suggest that
-polymorphism is important in some key parts of the system but that
-relatively simple type annotations could be used to capture most of the
-interesting cases.
+of lines of R code spread among some 7,500 packages, written over a period of
+over 20 years by over 10,000 programmers.  We perform a dynamic analysis,
+leveraging tests and use-cases, to determine the level of polymorphism that
+is present in the code. We do this for several potential notions of
+types. Our result suggest that polymorphism is important in some key parts
+of the system but that relatively simple type annotations could be used to
+capture most of the interesting cases.
 \end{abstract}
 
 \maketitle
@@ -36,62 +36,47 @@ interesting cases.
 \section{Introduction}
 
 Our community builds, improves, and reasons about programming languages.  To
-make design decisions that benefit most users of a language, we need to
-understand the language we are working with as well as the real-world needs
-it answers. Often, we, as researchers, can appeal to our intuition as many
-languages are intended to be general purpose and appeal to users with some 
-training. Unfortunately, these intuitions don't always apply to domain-specific
-languages.
+make design decisions that benefit most users, we need to understand the
+language we are working with as well as the real-world needs it
+answers. Often, we, as researchers, can appeal to our intuition as many
+languages are intended to be general purpose and appeal to users with some
+computer science training. Unfortunately, these intuitions don't always
+apply to domain-specific languages, languages designed for and by a specific
+group of users to solve very specific needs. This is the case of the data
+science language R.
 
-A number of programming languages have gained popularity for data science
-tasks, they include MATLAB, Python, Julia and R.
+R and it's ancestor S are languages designed, implemented and maintained by
+statisticians. Originally they were designed as glue languages, languages
+that would allow to read data into vectors and call statistical routines
+written in Fortran. Over three decades, the languages became widely used
+across many fields of science and in industry for data analysis and data
+visualization; with time additional features were added.  Modern R, as a
+linguistic object of study, is fascinating. It is a vectorized, dynamically
+typed, lazy functional language with limited side-effects, extensive
+reflective facilities and retrofitted object-oriented programming support.
 
-These languages are all dynamically typed.
+Many of the design decisions that gave us R were intended to foster an
+interactive, exploratory, programming style. This includes, to name a few,
+the lack of type annotations on variables and functions, the ability to use
+syntactic shortcut, and the automatic conversion between data types.  While
+these choices have led to a language that is surprisingly easy to use by
+beginners --many data science programs do not teach the language itself but
+simply introduce some of its key libraries-- they have also created a
+language where almost all computations yield a numeric result and where
+errors can go undetected. 
 
-This is because they emphasize ease of programming, interactive data
-exploration, and light-weight syntax.
+One way to increase assurance in the results obtained when using R would be
+to add type annotations to functions and variable declarations. These
+annotations could then be used, either statically or (more likely)
+dynamically, to catch mismatches between expected and provided data values.
+The nature of R is such that it is unlikely to be ever fully statically
+checked, furthermore end users may not be willing to write types when
+carrying out exploratory programming tasks. So, we are looking for an
+optional type system that would allow us to capture as much of behavior of
+library functions as possible while remaining easy to understand for
+end-users and library developers alike.
 
-To facilitate programming these language offer all kinds of short cuts and
-facilities that increase the likelihood that code will ``just work''.
 
-For example abbreviation of name arguments and automatic conversions.
-
-But invariably some applications written in those languages survive past the
-prototype stage.
-
-The results obtained are published and even sometimes drive policy decisions.
-\AT{There's a cool stat in the blog I linked which says that a lot of the Stack
-Overflow traffic R gets is from government officials.}
-
-Given that code almost never stops, and that any computation is likely to
-deliver a bunch of numbers, how can we trust those numbers?
-
-Years of work in programming languages suggest that one cost efficient way
-to catch some errors is to add types to a language.
-
-In the last decade much attention has been given to the incremental addition
-of types. Successes like Hack, TypeScript and Racket suggest that this may
-be feasible for wide spectrum languages.
-
-R is a languages written by and for \textit{statisticians}.  It traces its
-roots to the S language~\cite{becker1988new}, developed by Richard Becker, 
-John Chambers, and Allan Wilks.  R programmers don't write big
-servers or software systems; instead, they write and modify small data
-processing pipelines as a means to facilitate interaction with digital data.
-This leads to ``front-line'' R code (i.e., code written for users, not
-programmers) not being made available on typical platforms like Github.
-\AT{Maybe front-line code isn't a good word, is there a good way to describe
-  non-library code?}  Put differently, R is essentially a really big
-domain-specific language.
-
-The design of R is also rife with questionable decisions.  For example, the
-language is lazy \textit{and} side-effecting, which one could describe as an
-antagonistic pair of features.  In addition, data structures must be
-entirely copied when being modified, which appears to be far from ideal in a
-language meant to process (thus, modify) big data.
-
-In spite of these flaws, the language is incredibly popular.
-\AT{We'll want to cite something here, maybe the blog I linked?}
 
 One way or another, R is here to stay, so we may as well figure out how to
 deal with it.  One aspect of this is understanding R programmers and how
