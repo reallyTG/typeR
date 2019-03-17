@@ -19,6 +19,7 @@
 # [X] how many are just scalar A: 40%
 # [X] see numbers (1) without vector/scalar distinction, and
 # [X] (2) without NULL / X distinction
+# [ ]     also w/o NA / X distinction
 # [X] different type systems
 # [X] breakdown by package
 # [X] get top poly packages
@@ -26,13 +27,21 @@
 # [X] make all non-attribute classes primitive
 # [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
 # [ ] how many lines of code were analyzed?
-# [ ] how old is the oldest version of a package we analyzed?    -- can run, waiting on moment
-# [ ] how many R programmers were involved?   -- can run, waiting on moment
+# [X] how old is the oldest version of a package we analyzed? > 20 years
+# [X] how many R programmers were involved? > 10k programmers
 # [ ] deal with errors
 # [X] develop notion of size of polymorphism
 # [ ] develop more/better notions of size of polymorphism
 # [ ] get numbers for coninciding ... list or vector X character or numeric
 # [ ] " " ... argument and return type signatures
+# [ ] fold new data in with old data --- newer runs generate more info for a number
+#     of already seen packages. It would be best if we could combine that information.
+#     Probably easy enough, just take the traces, process them, and bind them.
+# [ ] do we want anything more out of the data? names? dims? could be fun to get
+# [ ] skip retv in coincidence checking?
+
+# Notes:
+# re: char/real poly: retvs with char/X could be communicating error messages
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -462,6 +471,20 @@ does_df_have_X_classes <- function(df, classes_to_find, strict=FALSE) {
     FALSE
 }
 
+# to check for dates
+# TODO stupid ass extra lists... shouldnt need to unlist(r["type"])
+does_df_have_date_real_char <- function(df) {
+  # look at types and classes
+  date_classes <- list("Date", "POSIXct", "POSIXt")
+  check_date_type <- list("real", "character")
+  good_rows <- apply(df[, c("type", "class")], 1, function(r) {
+    length(unlist(r["type"])) == 2 && Reduce("&&", check_date_type %in% unlist(r["type"])) &&
+    Reduce("||", date_classes %in% unlist(r["class"]))
+  })
+  # want there to be one such row
+  Reduce("||", good_rows)
+}
+
 # usage: does_df_have_coinciding_types(df, list("index", "list")) and
 #        ...(df, list("index", "vector"))
 # TODO: check also for names attribute?
@@ -469,27 +492,6 @@ does_df_have_coinciding_types <- function(df, list_of_types) {
   list_to_check <- process_list_for_types(list_of_types)
 
 }
-
-# less general, for index and list, to get an idea
-# strict
-# does_df_have_coinciding_types_index_and_list <- function(df) {
-#   check1 <- list("integer", "character")
-#   check2 <- list("double", "character")
-#   check3 <- list("integer", "double", "character")
-#   distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
-#   index_rows <- lapply(distilled_types, function(lot) {
-#     (length(lot) == 2 && Reduce("&&", check1 %in% lot) || Reduce("&&", check2 %in% lot)) ||
-#     (length(lot) == 3 && Reduce("&&", check3 %in% lot))
-#   })
-#   type_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_to_shape)))
-#   list_rows <- lapply(type_shapes, function(lot) {
-#     "list" %in% lot || "vector" %in% lot
-#     # if there is any hope of this argument being listy
-#   })
-#   # now, probably xor the list_rows and index_rows to make sure there is a configuration
-#   # where the indexy is different from the listy
-#   Reduce("||", xor(unlist(index_rows), unlist(list_rows)))
-# }
 
 does_df_have_coinciding_types_index_and_list_reduced_TS <- function(df) {
   check_index <- list("real", "character")
@@ -537,6 +539,30 @@ does_df_have_coinciding_types_index_and_list_or_vector <- function(df) {
   # now, probably xor the list_rows and index_rows to make sure there is a configuration
   # where the indexy is different from the listy
   Reduce("||", xor(unlist(index_rows), unlist(listy_rows)))
+}
+
+# Just index but no list
+# TODO this isn't exactly the opposite of does_df_have_coinciding_types_index_and_list_or_vector.
+#
+does_df_have_coinciding_types_index_and_NOT_list_or_vector <- function(df) {
+  check_index <- list("real", "character")
+  distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
+  distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
+  index_rows <- lapply(distilled_types, function(lot) {
+    length(lot) == 2 && Reduce("&&", check_index %in% lot)
+  })
+  # at least one of those needs to be true
+  if (!Reduce("||", index_rows))
+    return(FALSE)
+
+  types_as_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_to_shape)))
+  list_rows <- lapply(types_as_shapes, function(lot) {
+    "list" %in% lot || "vector" %in% lot # if there is any hope of this argument being listy
+  })
+
+  # want all rows WHICH ARE NOT INDEX ROWS to be list-free.
+  # by this point at least one row has an index
+  Reduce("||", (!unlist(list_rows)) || unlist(index_rows))
 }
 
 # # # # # # # # # # # # #
@@ -617,6 +643,24 @@ fold_NULL_into_other_types_df <- function(df) {
       # fold in NULLs if applicable
       where <- lot == "NULL"
       lot[!where]
+    } else {
+      lot
+    }
+  })
+  df
+}
+
+fold_NULL_and_NA_into_other_types_df <- function(df) {
+  new_types <- lapply(df$type, unlist)
+  df$type <- lapply(new_types, function(lot) {
+    if (length(lot) > 1) {
+      # fold in NULLs if applicable
+      where <- lot == "NULL" || lot == "raw_NA"
+      ret <- lot[!where]
+      if (length(ret) == 0) {
+        ret <- list("raw_NA_or_NULL") # ok
+      }
+      ret
     } else {
       lot
     }

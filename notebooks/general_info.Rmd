@@ -228,3 +228,25 @@ Let's look for vectors, also.
 ```{r}
 coincide_list_vector_index <- get_fun_sigs_matching_pred_from_lopkg(los, does_df_have_coinciding_types_index_and_list_or_vector)
 ```
+
+73% coincide.
+Nice.
+Dates might be another possibility?
+Let's check:
+
+```{r}
+sigs_with_real_char <- get_fun_sigs_matching_pred_from_lopkg(los_basic_no_null_real_primitive_class, does_df_have_X_types, types_to_find=c("real", "character"), strict=TRUE)
+```
+
+```{r}
+sigs_with_dates <- get_fun_sigs_matching_pred_from_lopkg(los_basic_no_null_real_primitive_class, does_df_have_date_real_char)
+```
+
+Hmm... Not as much as we would have liked, just 20% of the leftover (or 5% of the total).
+Why don't we just see what's leftover:
+```{r}
+just_index <- get_fun_sigs_matching_pred_from_lopkg(los, does_df_have_coinciding_types_index_and_NOT_list_or_vector)
+```
+
+This isn't working the way I was expecting.
+
