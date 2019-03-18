@@ -195,7 +195,7 @@ transparently work on vectors of any length and different types.
 [1] 0.1 0.3 0.6
 > normSum(c(1.6,3.3,6.1))
 [1] 0.15 0.30 0.55
-> normSum(complex(r=rnorm(3),i=rnorm(3))
+> normSum(complex(r=rnorm(3),i=rnorm(3)))
 [1] 0.49+0.21i 0.30-0.18i 0.22-0.03i
 \end{lstlisting}}
 \caption{Sample R code}\label{sample}
@@ -222,10 +222,31 @@ R (\code{special}, \code{builtin}, \code{symbol}, \code{pairlist},
 \code{expression}, \code{externalptr}, \code{bytecode} and \code{weakref}).
 
 %% TODO : make the types all bold.
+\AT{Some examples of use of \code{typeof}:}
+To build a sense of how these types arise in R code, consider the following:
+\AT{We could think of another way to do this also.}
 
+\begin{itemize}
 
+	\item \code{typeof(5) == typeof(c(5)) == typeof(c(5, 5)) == "double"}.
+	As we mentioned, R is vectorized, so even apparent scalars are vectors.
+	\AT{Just for fun,} note that \code{5[1] == 5} in R.
+	
+	\item to actually get an integer, you need \code{typeof(5L) == "integer"}.
+	Doubles are by far the most common numeric type in R \AT{I can get data for this}, and you can even use them to index lists and vectors: \code{list(1, 2)\[\[1.9\]\] == 1}.
+	Note the double brackets for list indexing.
+	
+	\item NAs are common in data-centric languages (e.g. MATLAB, \AT{others?}), and R is no exception.
+	As for their type, we see that \code{typeof(NA) == "logical"}, but that isn't to say that NA only has type logical.
+	Consider \code{typeof(c(1, NA, 3)\[2\])}: NA actually inhabits every type in R, \AT{details}.
 
-attributes:
+	\item \AT{other examples?}
+
+\end{itemize}
+
+Another form of type information relates to metadata on values, and R allows programmers to add said metadata in the form of {\it attributes}.
+The functionality to do so in R is through the \code{attributes(x)} and \code{attr(x, "name")}  functions.
+\code{attributes} 
 
   - dim
 
