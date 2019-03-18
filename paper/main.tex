@@ -3,6 +3,41 @@
 \lstset{language=R}
 \usepackage{my_style}
 
+\definecolor{LightGray}{rgb}{.95,.95,.95}
+\definecolor{Gray}{rgb}{.3,.3,.3}
+\definecolor{DarkGray}{rgb}{.5,.5,.5}
+
+\lstset{ %
+  columns=flexible,
+  captionpos=b,
+  frame=single,
+  framerule=0pt,
+  framexleftmargin=-1mm,
+  framexrightmargin=-1mm,
+  tabsize=2,
+  belowskip=0pt,
+  basicstyle=\small\ttfamily,
+  backgroundcolor=\color{LightGray},
+  emphstyle=\sffamily,
+  keywordstyle=\bfseries,
+  commentstyle=\color{Gray}\em,
+  stringstyle=\color{Gray}
+}
+
+\lstdefinestyle{R}{ %
+  language=R,
+  deletekeywords={env, equal, c, runif, trace, args},
+  breaklines=true
+}
+
+\lstdefinestyle{Rin}{ %
+  style=R,
+  numberstyle=none,
+  basicstyle=\normalsize\ttfamily,
+  breaklines=false
+}
+\newcommand{\code}[1]{\lstinline|#1|\xspace}
+
 \setcopyright{none}
 %\setcopyright{acmcopyright}%\setcopyright{acmlicensed}
 %\acmDOI{10.475/123_4}
@@ -101,6 +136,30 @@ operations these tests are run regularly and failing packages are removed.
 This allowed us to have access to \PACKAGES libraries and about an order of
 magnitude more runnable scripts that exercise those libraries.
 
+The contributions of this paper are thus as follows:
+\begin{itemize}
+\item A large-scale analysis of the polymorphism present in function
+  signatures of \PACKAGES widely used and actively maintained R packages.
+\item A tracing and analysis pipeline that extends a previously published
+  test generation tool named \code{genthat}.
+\item Manual analysis of 100 functions to validate the dynamic analysis
+  results.
+\end{itemize}
+
+One threat to validity of our work is that we rely on dynamic analysis, so
+our conclusions are only as good as the coverage of the possibly function
+behaviors. Previous work~\cite{issta18}, reported that running all the
+scripts that come with CRAN packages gives, on average, 68\% test coverage.
+We attempted to mitigate the threat coming from the fact that only part of
+the code is being exercised by manual analysis. It would be reasonable to
+ask for confirmation of the data by static analysis of the code, but sound
+static analysis of R is difficult because of the extensive use of reflective
+features such as \code{eval} and of the ability to redefine the meaning of
+operators such as \code{+} and \code{if}.  Another threat to validity is
+that we only have access to code that has been deposited in the CRAN
+repository. While this may bias our findings towards code written to be
+reusable and, possibly, better engineered than typical user code. This is
+also the code that would most benefit from type annotations.
 
 \section{The R Programming Language}\label{sec:rlang}
 
@@ -301,16 +360,24 @@ patterns.
 \AT{I'm hesitant to go into too much detail here, as I'm not sure if we're quite done running our analysis.
 I can imagine a scenario where we will try to rerun with a longer timeout just to get a little bit more data (because why not).}
 
-We ran our analysis over a subset of CRAN, the Comprehensive R Archive Network.
-We analyzed \AT{over 7500} packages, over half of all packages available on CRAN.
-Our analysis had an explicit timeout of \AT{30 minutes} per package, as a number of R packages feature functions which have a nigh-eternal running time (e.g., machine learning packages and complex simulations) \AT{cite those packages/examples}.
+We ran our analysis over a subset of CRAN, the Comprehensive R Archive
+Network.  We analyzed \AT{over 7500} packages, over half of all packages
+available on CRAN.  Our analysis had an explicit timeout of \AT{30 minutes}
+per package, as a number of R packages feature functions which have a
+nigh-eternal running time (e.g., machine learning packages and complex
+simulations) \AT{cite those packages/examples}.
 
-There are a number of interesting packages in our corpus.
-\AT{References for all of these.}
-For example, we have analyzed some packages for plotting data: among others, the {\tt ggplot2} package is an immensely popular package for generating highly-customizable plots, and the {\tt plotmo} package is an interesting package aimed at displaying models.
-We also analyzed {\tt dplyr}, an integral package to the {\tt tidyverse} set of R packages \AT{talk about tidyverse earlier, or here}.
-{\tt dplyr} is a popular package that makes full use of R's features to create what is tantamount to a small DSL for data manipulation within R.
-Another interesting package is {\tt rquery}, a package for generating SQL-like queries. 
+There are a number of interesting packages in our corpus.  \AT{References
+  for all of these.}  For example, we have analyzed some packages for
+plotting data: among others, the {\tt ggplot2} package is an immensely
+popular package for generating highly-customizable plots, and the {\tt
+  plotmo} package is an interesting package aimed at displaying models.  We
+also analyzed {\tt dplyr}, an integral package to the {\tt tidyverse} set of
+R packages \AT{talk about tidyverse earlier, or here}.  {\tt dplyr} is a
+popular package that makes full use of R's features to create what is
+tantamount to a small DSL for data manipulation within R.  Another
+interesting package is {\tt rquery}, a package for generating SQL-like
+queries.
 
 \AT{Should we talk about some of the packages?
 What else do we have to say about the corpus?
