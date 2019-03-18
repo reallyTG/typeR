@@ -201,7 +201,35 @@ transparently work on vectors of any length and different types.
 \caption{Sample R code}\label{sample}
 \end{figure}
 
+\subsection{Types of Data}
 
+Before attempting to define a type system for R, we should understand the
+different kinds of values that programs operate on.  As we will see
+different notions of type may emerge depending on how granular we want to
+be.
+
+The first distinction that can be made is based on the value of the
+\code{typeof} function.  This function, given a value, will return one of
+the following types: \code{logical} (vector of booleans), \code{integer}
+(vector of integers), \code{double} (vector of floating points),
+\code{complex} (vector of complex numbers), \code{character} (vector of
+character strings), \code{raw} (vector of bytes) and \code{list}
+(polymorphic vector), \x`code{NULL} (vector of NULL),
+\code{closure} (function), \code{environment} (naming environment),
+\code{S4} (S4 object) and others that are used within the implementation of
+R (\code{special}, \code{builtin}, \code{symbol}, \code{pairlist},
+\code{promise}, \code{language}, \code{char}, \code{...}, \code{any},
+\code{expression}, \code{externalptr}, \code{bytecode} and \code{weakref}).
+
+%% TODO : make the types all bold.
+
+
+
+attributes:
+
+  - dim
+
+class:
 
 
 \section{The \texttt{genthat} Package}
