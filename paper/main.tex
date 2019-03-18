@@ -76,6 +76,17 @@ optional type system that would allow us to capture as much of behavior of
 library functions as possible while remaining easy to understand for
 end-users and library developers alike.
 
+This papers is a data-driven study of what a type system for the R language
+could look like. Longer term, our intention is to propose changes to
+language, but for any changes to be accepted by the user community, they
+must clearly benefit the language without endangering backwards
+compatibility. Our goal is thus to find a compromise between simplicity and
+usefulness; the proposed type system should cover most common programming
+idioms while remaining easy to use. In order to do this, we need to
+understand the degree of polymorphism present in R code, that is to say, how
+programmers leverage the dynamic nature of R to write code that can accept
+arguments of different types.  This understanding will drive our design.
+
 
 
 One way or another, R is here to stay, so we may as well figure out how to
@@ -99,14 +110,10 @@ polymorphic R code is.
 The main contributions of this work are:
 
 \begin{itemize}
-
-	\item \AT{maybe} a tool to analyze the polymorphicity of R code;
-	
-	\item a study of polymorphism in the R language \AT{using said tool};
-	
-	\item a number of proposed static type systems for R which cover most of the 
-	type usage patterns which arise in R code.
-
+\item \AT{maybe} a tool to analyze the polymorphicity of R code;
+\item a study of polymorphism in the R language \AT{using said tool};
+\item a number of proposed static type systems for R which cover most of the
+  type usage patterns which arise in R code.
 \end{itemize}
 
 %
