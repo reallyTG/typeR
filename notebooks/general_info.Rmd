@@ -101,6 +101,9 @@ total_mono_all_basic <- apply_count_to_lopkg_c(los_basic, args_count_all_mono_al
 What if we roll NULL into every type?
 ```{r}
 los_basic_no_null <- lapply(los_basic, function(lof) {lapply(lof, function(df) {fold_NULL_into_other_types_df(df)})})
+
+# also curious if we roll raw_NAs in
+los_basic_no_null_no_NA <- lapply(los_basic, function(lof) {lapply(lof, function(df) {fold_NULL_and_NA_into_other_types_df(df)})})
 ```
 
 What are the counts now?

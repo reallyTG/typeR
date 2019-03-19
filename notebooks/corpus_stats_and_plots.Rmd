@@ -1,0 +1,35 @@
+---
+title: "Corpus Stats"
+output: html_notebook
+---
+
+First order of business: the lines of code of the corpus.
+Load.
+
+```{r}
+r_counts <- readRDS("../data/R_loc_by_package.RDS")
+c_counts <- readRDS("../data/c_loc_by_package.RDS")
+
+# just named lists. some elements (in either) are integer(0) i believe, as some packages
+# just have data.
+```
+
+...I guess let's try to plot it??
+
+```{r}
+library(ggplot2)
+
+r_c_df <- data.frame(package_name = names(r_counts), loc_r = r_counts)
+# looks weird sorted
+# r_c_df <- r_c_df[order(r_c_df$loc_r),]
+
+plot_r_counts <- ggplot( data=r_c_df, aes(x=1:length(r_counts), y=loc_r, group=1))
+plot_r_counts <- plot_r_counts + geom_line() + geom_point()
+plot_r_counts <- plot_r_counts + labs(x = "Corpus of Analyzed Packages", y = "Lines of R Code in Package")
+
+plot_r_counts <- plot_r_counts + theme(axis.text.x = element_blank())
+
+# plot it
+plot_r_counts
+
+```

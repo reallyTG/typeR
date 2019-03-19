@@ -39,6 +39,7 @@
 #     Probably easy enough, just take the traces, process them, and bind them.
 # [ ] do we want anything more out of the data? names? dims? could be fun to get
 # [ ] skip retv in coincidence checking?
+# [ ] author names -- just last name  
 
 # Notes:
 # re: char/real poly: retvs with char/X could be communicating error messages
