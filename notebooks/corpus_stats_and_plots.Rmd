@@ -74,6 +74,7 @@ plot_c_counts
 
 Similar to the R stuff.
 Now, we should combine these plots.
+Messy graphs, beware!
 ```{r}
 combo_df <- r_c_df
 combo_df$loc_c <- c_c_df$loc_c
@@ -82,9 +83,18 @@ combo_df$loc_c <- sapply(combo_df$loc_c, function(x) if (x == 0) x else log10(x)
 
 # sort
 combo_df <- combo_df[order(combo_df$loc_r), ]
+# this makes sure the package_names are in the right order, ggplot2 plots according to factors
+# and levels
+combo_df$package_name <- factor(combo_df$package_name, levels=combo_df$package_name)
+
+combo_df_c <- combo_df[order(combo_df$loc_c), ]
+combo_df_c$package_name <- factor(combo_df_c$package_name, levels=combo_df_c$package_name)
+
+combo_df_c <- combo_df_c[combo_df_c$loc_c > 0, ]
 
 # TODO: not staying sorted, probably id.vars
 zzz <- melt(combo_df, id.vars="package_name", variable.name = "language")
+zzz_c <- melt(combo_df_c, id.vars="package_name", variable.name = "language")
 
 plot_both <- ggplot( data=zzz, aes(package_name, value, group=1))
 plot_both <- plot_both + geom_line(aes(colour = language)) + geom_point(aes(colour = language))
@@ -94,8 +104,20 @@ plot_both <- plot_both + labs(
   y = "Lines of Code in Package (Log10-scaled)"
 )
 
+plot_both_c <- ggplot( data=zzz_c, aes(package_name, value, group=1))
+plot_both_c <- plot_both_c + geom_line(aes(colour = language)) + geom_point(aes(colour = language))
+plot_both_c <- plot_both_c + labs(
+  title = "Analysis of R Corpus (R and C)",
+  x = "Corpus of Analyzed Packages", 
+  y = "Lines of Code in Package (Log10-scaled)"
+)
+
 plot_both <- plot_both + theme(axis.text.x = element_blank())
+
+plot_both_c <- plot_both_c + theme(axis.text.x = element_blank())
 
 # plot it
 plot_both
+
+plot_both_c
 ```
