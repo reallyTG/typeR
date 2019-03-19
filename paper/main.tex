@@ -47,8 +47,12 @@
 
 \title{A Large-scale Study of Polymorphism in R}
 
-\newcommand{\PACKAGES}{7,500\xspace}
+\newcommand{\PACKAGES}{7,763\xspace}
 \newcommand{\PROGRAMMERS}{10,000\xspace}
+\newcommand{\PERCENTCRAN}{56\%\xspace}
+\newcommand{\CRANTOTAL}{13,841\xspace}
+\newcommand{\RLOC}{8,996,572\xspace}
+\newcommand{\YEARS}{20\xspace}
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -59,9 +63,9 @@ but is not well suited to generating performant code or catching programming
 errors.  In particular, R has no type annotations and all operations are
 dynamically checked at runtime. The starting point for our work is the
 question: \emph{what could a static type system for R look like?}  To answer
-that question we study the polymorphism that is present in over X millions
-of lines of R code spread among some \PACKAGES packages, written over a
-period of over 20 years by over 10,000 programmers.  We perform a dynamic
+that question we study the polymorphism that is present in \RLOC lines of R 
+code spread among some \PACKAGES packages, written over a
+period of over \YEARS years by \PROGRAMMERS programmers.  We perform a dynamic
 analysis, leveraging tests and use-cases, to determine the level of
 polymorphism that is present in the code. We do this for several potential
 notions of types. Our result suggest that polymorphism is important in some
@@ -163,6 +167,12 @@ also the code that would most benefit from type annotations.
 
 \section{The R Programming Language}\label{sec:rlang}
 
+\AT{Note: some stuff I wrote that might belong somewhere in here, if not, delete.}
+As mentioned, the syntax is highly unrestrictive to make this data analysis easy.
+All functions in R are vectorized, and consequently operators and functions are multi-purpose.
+For instance, the syntax for adding numbers, vectors, and matrices uses the same "+" operator.
+\AT{End note.}
+
 Over the last decade, the R Project has become a key tool for implementing
 sophisticated data analysis algorithms in fields ranging from Computational
 Biology~\cite{R05} to Political Science~\cite{R:Keele:2008}. At the heart of
@@ -263,6 +273,66 @@ class:
 % > lines of C and R code per project? big graph could be nice
 % > give people a sense of our data set
 
+\section{The Corpus}
+
+\AT{Draft}
+
+In this section, we will discuss the R language ecosystem with a focus on our dataset.
+
+First and foremost, recall that R is essentially a DSL for statisticians, designed to help them in their day-to-day tasks of data analytics.
+Among other things, R has an out-of-the-box data type called the data frame for storing data, and this data type is essential to a large part of R's functionality.
+A data frame is a two-dimensional array where each row represents an observation, with columns indicating the values of some observation.
+For example, our own analysis is written in R, and one of our data frames has a row for each package analyzed, with columns for values ranging from number of polymorphic functions, number of monomorphic arguments, unique attribute patterns, etc.
+\AT{Put a figure?}
+Much of R's base functionality, and indeed much of the functionality provided by packages, operate on data frames.
+
+In general, the data analysis workflow tightly integrates the analyst and the environment.
+\AT{I think the tidyverse "manifesto" has some stuff we could inspire ourselves from. But, generally:}
+For tasks related to data visualization, an analyst will need to: (1) import a data set, (2) sanitize or otherwise transform the data, (3) plot the data, (4) repeat as necessary.
+For tasks related to testing hypotheses or otherwise validating conclusions: (1) import a data set, (2) sanitize or otherwise transform the data, (3) call some functions to perform necessary computations for the test, (4) repeat as necessary.
+The pattern of import, transform, do something, repeat is referred to as a {\it pipeline} in the R community.
+Indeed, RStudio, one of the most popular IDEs for developing R, is designed to support this iterative behaviour.
+In it, users create {\it notebooks} (akin to Jupyter notebooks for those familiar) wherein they may write text alongside their computation pipeline, and these notebooks expose the code written by the user, altogether facilitating collaboration with other users.
+
+Now, there is a wealth of literature built up over centuries for statistics and the foundation of what we refer to as data science, and a data analyst might be interested in leveraging that in their pipeline:
+Thanks to R's {\it package} ecosystem, this is easy.
+In R, using a library (called a package in R) is straightforward and can be done at any point in an R script.
+After installing the package, a simple call to \code{library(pkg\_name)} exposes all of \code{pkg\_name}'s exported functions for use in the rest of the script.
+All package code is available for download from CRAN, the Comprehensive R Archive Network, and CRAN sports over 13,000 packages.
+CRAN is an actively maintained and curated environment, and there are a number of reasonable requirements for a package to be accepted for publication.
+Package authors are encouraged to write tests for their code, as well as examples showing off basic usage and functionality, and vignettes which show how one might use the package in a realistic scenario.
+Bioconductor is one other popular package repository for R, focusing on supporting analysis of genomic data.
+
+Our aim is to analyze a large portion of existing R code to build a sense of how programmers use types in the language, to perhaps inform the design of a static type system for the language.
+Unfortunately, there isn't much non-library code available for our analysis to peruse:
+Besides CRAN and Bioconductor, most R scripts are not built to be exported, and are part of an iterative and interactive process of data analysis.
+Unlike other programming languages, R code has a very small footprint on GitHub, and most of the R code available there is referenced through CRAN \AT{maybe we can get numbers here? or just take out the sentence}.
+
+ \AT{Still working on this, meeting speaker now.}
+
+%We ran our analysis over a subset of CRAN, the Comprehensive R Archive
+%Network.  We analyzed \AT{over 7500} packages, over half of all packages
+%available on CRAN.  Our analysis had an explicit timeout of \AT{30 minutes}
+%per package, as a number of R packages feature functions which have a
+%nigh-eternal running time (e.g., machine learning packages and complex
+%simulations) \AT{cite those packages/examples}.
+%
+%There are a number of interesting packages in our corpus.  \AT{References
+%for all of these.}  For example, we have analyzed some packages for
+%plotting data: among others, the {\tt ggplot2} package is an immensely
+%popular package for generating highly-customizable plots, and the {\tt
+%plotmo} package is an interesting package aimed at displaying models.  We
+%also analyzed {\tt dplyr}, an integral package to the {\tt tidyverse} set of
+%R packages \AT{talk about tidyverse earlier, or here}.  {\tt dplyr} is a
+%popular package that makes full use of R's features to create what is
+%tantamount to a small DSL for data manipulation within R.  Another
+%interesting package is {\tt rquery}, a package for generating SQL-like
+%queries.
+
+%
+%
+%
+%
 \section{The \texttt{genthat} Package}
 
 Unfortunately, getting our hands on ``front-line'' R code is tricky: R is
@@ -434,38 +504,6 @@ developing can also be used to inform the design of a set of \textit{type
 collect our data, we keep in mind the idea that the data we produce should
 clearly suggest what sorts of type annotations would reflect language usage
 patterns.
-
-%
-%
-%
-%
-\subsection{The Corpus}
-
-\AT{I'm hesitant to go into too much detail here, as I'm not sure if we're quite done running our analysis.
-I can imagine a scenario where we will try to rerun with a longer timeout just to get a little bit more data (because why not).}
-
-We ran our analysis over a subset of CRAN, the Comprehensive R Archive
-Network.  We analyzed \AT{over 7500} packages, over half of all packages
-available on CRAN.  Our analysis had an explicit timeout of \AT{30 minutes}
-per package, as a number of R packages feature functions which have a
-nigh-eternal running time (e.g., machine learning packages and complex
-simulations) \AT{cite those packages/examples}.
-
-There are a number of interesting packages in our corpus.  \AT{References
-  for all of these.}  For example, we have analyzed some packages for
-plotting data: among others, the {\tt ggplot2} package is an immensely
-popular package for generating highly-customizable plots, and the {\tt
-  plotmo} package is an interesting package aimed at displaying models.  We
-also analyzed {\tt dplyr}, an integral package to the {\tt tidyverse} set of
-R packages \AT{talk about tidyverse earlier, or here}.  {\tt dplyr} is a
-popular package that makes full use of R's features to create what is
-tantamount to a small DSL for data manipulation within R.  Another
-interesting package is {\tt rquery}, a package for generating SQL-like
-queries.
-
-\AT{Should we talk about some of the packages?
-What else do we have to say about the corpus?
-We can restate the numbers from the abstract.}
 
 %
 %
