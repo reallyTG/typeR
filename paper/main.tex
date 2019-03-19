@@ -171,6 +171,10 @@ also the code that would most benefit from type annotations.
 As mentioned, the syntax is highly unrestrictive to make this data analysis easy.
 All functions in R are vectorized, and consequently operators and functions are multi-purpose.
 For instance, the syntax for adding numbers, vectors, and matrices uses the same "+" operator.
+
+\AT{Also:}
+The R language has a very easy-to-use FFI to C, and even to C++ through another R package, {\tt Rcpp}.
+
 \AT{End note.}
 
 Over the last decade, the R Project has become a key tool for implementing
@@ -210,6 +214,13 @@ transparently work on vectors of any length and different types.
 \end{lstlisting}}
 \caption{Sample R code}\label{sample}
 \end{figure}
+
+\AT{I wrote a paragraph in the next section which seems to belong here, maybe work this in?}
+Besides these primitive data types, R has an out-of-the-box data type called the data frame for storing data, and this data type is essential to a large part of R's functionality.
+A data frame is a two-dimensional array where each row represents an observation, with columns indicating the values of some observation.
+For example, our own analysis is written in R, and one of our data frames has a row for each package analyzed, with columns for values ranging from number of polymorphic functions, number of monomorphic arguments, unique attribute patterns, etc.
+\AT{Put a figure?}
+Much of R's base functionality, and indeed much of the functionality provided by packages, operate on data frames.
 
 \subsection{Types of Data}
 
@@ -279,36 +290,65 @@ class:
 
 In this section, we will discuss the R language ecosystem with a focus on our dataset.
 
-First and foremost, recall that R is essentially a DSL for statisticians, designed to help them in their day-to-day tasks of data analytics.
-Among other things, R has an out-of-the-box data type called the data frame for storing data, and this data type is essential to a large part of R's functionality.
-A data frame is a two-dimensional array where each row represents an observation, with columns indicating the values of some observation.
-For example, our own analysis is written in R, and one of our data frames has a row for each package analyzed, with columns for values ranging from number of polymorphic functions, number of monomorphic arguments, unique attribute patterns, etc.
-\AT{Put a figure?}
-Much of R's base functionality, and indeed much of the functionality provided by packages, operate on data frames.
-
-In general, the data analysis workflow tightly integrates the analyst and the environment.
-\AT{I think the tidyverse "manifesto" has some stuff we could inspire ourselves from. But, generally:}
-For tasks related to data visualization, an analyst will need to: (1) import a data set, (2) sanitize or otherwise transform the data, (3) plot the data, (4) repeat as necessary.
-For tasks related to testing hypotheses or otherwise validating conclusions: (1) import a data set, (2) sanitize or otherwise transform the data, (3) call some functions to perform necessary computations for the test, (4) repeat as necessary.
+The R environment is designed to accommodate the workflow of the data analyst, a workflow which tightly integrates the analyst and the data.
+As an example example, for a task related to data visualization, an analyst will need to: (1) import a data set, (2) sanitize or otherwise transform the data, (3) plot the data, (4) repeat as necessary.
+Similarly, for a task related to testing hypotheses or otherwise validating conclusions: (1) import a data set, (2) sanitize or otherwise transform the data, (3) call some functions to perform necessary computations for the test, (4) repeat as necessary.
 The pattern of import, transform, do something, repeat is referred to as a {\it pipeline} in the R community.
 Indeed, RStudio, one of the most popular IDEs for developing R, is designed to support this iterative behaviour.
 In it, users create {\it notebooks} (akin to Jupyter notebooks for those familiar) wherein they may write text alongside their computation pipeline, and these notebooks expose the code written by the user, altogether facilitating collaboration with other users.
 
-Now, there is a wealth of literature built up over centuries for statistics and the foundation of what we refer to as data science, and a data analyst might be interested in leveraging that in their pipeline:
-Thanks to R's {\it package} ecosystem, this is easy.
-In R, using a library (called a package in R) is straightforward and can be done at any point in an R script.
-After installing the package, a simple call to \code{library(pkg\_name)} exposes all of \code{pkg\_name}'s exported functions for use in the rest of the script.
-All package code is available for download from CRAN, the Comprehensive R Archive Network, and CRAN sports over 13,000 packages.
-CRAN is an actively maintained and curated environment, and there are a number of reasonable requirements for a package to be accepted for publication.
-Package authors are encouraged to write tests for their code, as well as examples showing off basic usage and functionality, and vignettes which show how one might use the package in a realistic scenario.
-Bioconductor is one other popular package repository for R, focusing on supporting analysis of genomic data.
+By and large, the most extensive repository of R code is CRAN, the Comprehensive R Archive Network.
+After installing a package, a simple call to \code{library(pkg\_name)} exposes all of \code{pkg\_name}'s exported functions for use in the rest of the script.
+CRAN sports over 13,00 packages, and is an actively maintained and curated environment, in that there are a number of requirements for a package to be accepted for publication, particularly with regards to proper package documentation.
+One such requirement is the presence of at least one vignette, a documented walk-through of some of the package's functions.
+\AT{Do we want an example of a vignette? We could put one.}
+Besides vignettes, package authors are encouraged to write tests for their code as well as examples showing off basic usage and functionality.
 
-Our aim is to analyze a large portion of existing R code to build a sense of how programmers use types in the language, to perhaps inform the design of a static type system for the language.
-Unfortunately, there isn't much non-library code available for our analysis to peruse:
-Besides CRAN and Bioconductor, most R scripts are not built to be exported, and are part of an iterative and interactive process of data analysis.
-Unlike other programming languages, R code has a very small footprint on GitHub, and most of the R code available there is referenced through CRAN \AT{maybe we can get numbers here? or just take out the sentence}.
+One goal of our analysis is to build a sense of how programmers use types in R, and unfortunately there isn't much non-library code available for our analysis to peruse.
+Most R scripts are not built to be exported, and are part of an iterative and interactive process of data analysis, and unlike other programming languages, R has a very small footprint on GitHub, and most of the R code available there is referenced through CRAN \AT{maybe we can get numbers here? or just take out the sentence}.
+There are a number of potential explanations for this, including the proprietary nature of certain data sets (e.g., governments working with sensitive census data, or medical researchers working with private patient data).
 
- \AT{Still working on this, meeting speaker now.}
+The lack of non-package code is somewhat mitigated by the good culture of packages published on CRAN, in that they typically provide tests and examples of intended package use.
+We modify the {\tt genthat} tracer, discussed in more detail in the next section, which essentially traces these tests, examples, and vignettes to generate new package tests.
+\AT{Not sure how to word the second half of this paragraph.}
+In focusing on these exemplary snippets, we should capture the intent of package designers, which gives up hope that our proposed type annotations would be adopted.
+
+%
+%
+%
+%
+\subsection{Our Test Suite}
+
+We ran our analysis over a subset of CRAN, analyzing \PACKAGES packages, account for some \PERCENTCRAN of all packages available on CRAN.
+\AT{Talk about timeout?}  Due to the nature of some packages (e.g., packages implementing a computationally-intensive model with many tests), we ran our analysis with a 1 hour timeout.
+Our tracer also traces reverse-dependencies: if some package utilizes some other package, both are instrumented and traced.
+This serves to further mitigate the lack of non-library R code.
+
+To get a better sense of the corpus we're dealing with, we will highlight a few packages that we have analyzed:
+
+\begin{itemize}
+
+	\item \textbf{\texttt{ggplot2}} is an important package for building graphics and plotting data in R.
+	{\tt ggplot2} is part of the tidyverse, which bills itself as an ``opinionated collection of R packages designed for data science''.
+	Essentially, packages in the tidyverse use a common grammar and are all designed to address the main issues faced in data analysis.
+	{\tt ggplot2}'s role in the tidyverse is to make creating elegant plots easy: in it, graphics are created declaratively in a manner based on The Grammar of Graphics \AT{cite}.
+
+	\item \textbf{\texttt{dplyr}} is another integral package to the tidyverse.
+	In it is defined a convenient piece of R syntax: the pipe operator {\tt \%>\%}.
+	If using {\tt dplyr}, one can write \code{f(x) \%>\% g()}, which is equivalent to \code{g(f(x))}.
+	{\tt dplyr} also defines a number of highly useful functions for manipulating data frames, and considered alongside the pipe operator form the underpinning of the tidyverse data pipeline philosophy.
+
+	\item \textbf{\texttt{zoo}} is a popular R package for dealing with time series, themselves a common occurrence in statistics.
+
+	\item \textbf{\texttt{spatstat}} is the largest package in our corpus in terms of lines of R code.
+	This package is designed for spatial statistics, focusing on the analysis of spatial point patterns.
+	It is, in some sense, the definitive spatial statistics package in R.
+	
+	\item \textbf{\texttt{multinet}} is the largest package in our corpus in terms of lines of C code.
+	{\tt multinet} is a package designed to store and analyze multilayer social networks.
+
+
+\end{itemize}
 
 %We ran our analysis over a subset of CRAN, the Comprehensive R Archive
 %Network.  We analyzed \AT{over 7500} packages, over half of all packages
