@@ -21,15 +21,50 @@ library(ggplot2)
 
 r_c_df <- data.frame(package_name = names(r_counts), loc_r = r_counts)
 # looks weird sorted
-# r_c_df <- r_c_df[order(r_c_df$loc_r),]
+r_c_df <- r_c_df[order(r_c_df$loc_r),]
+# looks weirder log10-scaled
+r_c_df$loc_r <- log10(r_c_df$loc_r)
 
 plot_r_counts <- ggplot( data=r_c_df, aes(x=1:length(r_counts), y=loc_r, group=1))
 plot_r_counts <- plot_r_counts + geom_line() + geom_point()
-plot_r_counts <- plot_r_counts + labs(x = "Corpus of Analyzed Packages", y = "Lines of R Code in Package")
+plot_r_counts <- plot_r_counts + labs(
+  title = "Analysis of R Corpus (R Code Portion)",
+  x = "Corpus of Analyzed Packages", 
+  y = "Lines of R Code in Package (Log10-scaled)"
+)
 
 plot_r_counts <- plot_r_counts + theme(axis.text.x = element_blank())
 
 # plot it
 plot_r_counts
+
+```
+
+The outlier is the spatstat package.
+How about for C?
+
+```{r}
+library(ggplot2)
+
+c_c_df <- data.frame(package_name = names(c_counts), loc_c = c_counts)
+# removing packages w/ no C code (-1)
+c_c_df$loc_c <- lapply(c_c_df$loc_c, function(loc) if (loc == -1) 0 else loc)
+# looks weird sorted
+c_c_df <- c_c_df[order(c_c_df$loc_c),]
+# looks weirder log10-scaled
+c_c_df$loc_c <- log10(c_c_df$loc_c)
+
+plot_c_counts <- ggplot( data=c_c_df, aes(x=1:length(c_counts), y=loc_c, group=1))
+plot_c_counts <- plot_c_counts + geom_line() + geom_point()
+plot_c_counts <- plot_c_counts + labs(
+  title = "Analysis of R Corpus (C Code Portion)",
+  x = "Corpus of Analyzed Packages", 
+  y = "Lines of C Code in Package (Log10-scaled)"
+)
+
+plot_c_counts <- plot_c_counts + theme(axis.text.x = element_blank())
+
+# plot it
+plot_c_counts
 
 ```
