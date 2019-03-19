@@ -7,6 +7,9 @@ First order of business: the lines of code of the corpus.
 Load.
 
 ```{r}
+library(reshape2)
+library(ggplot2)
+
 r_counts <- readRDS("../data/R_loc_by_package.RDS")
 c_counts <- readRDS("../data/c_loc_by_package.RDS")
 
@@ -17,15 +20,15 @@ c_counts <- readRDS("../data/c_loc_by_package.RDS")
 ...I guess let's try to plot it??
 
 ```{r}
-library(ggplot2)
-
 r_c_df <- data.frame(package_name = names(r_counts), loc_r = r_counts)
 # looks weird sorted
-r_c_df <- r_c_df[order(r_c_df$loc_r),]
+r_c_df_sub <- r_c_df[order(r_c_df$loc_r),]
+# just get the entries with > 0 lines of code
+r_c_df_sub <- r_c_df_sub[r_c_df_sub$loc_r > 0, ]
 # looks weirder log10-scaled
-r_c_df$loc_r <- log10(r_c_df$loc_r)
+r_c_df_sub$loc_r <- log10(r_c_df_sub$loc_r)
 
-plot_r_counts <- ggplot( data=r_c_df, aes(x=1:length(r_counts), y=loc_r, group=1))
+plot_r_counts <- ggplot( data=r_c_df_sub, aes(x=1:length(r_c_df_sub$loc_r), y=loc_r, group=1))
 plot_r_counts <- plot_r_counts + geom_line() + geom_point()
 plot_r_counts <- plot_r_counts + labs(
   title = "Analysis of R Corpus (R Code Portion)",
@@ -47,14 +50,14 @@ How about for C?
 library(ggplot2)
 
 c_c_df <- data.frame(package_name = names(c_counts), loc_c = c_counts)
-# removing packages w/ no C code (-1)
-c_c_df$loc_c <- lapply(c_c_df$loc_c, function(loc) if (loc == -1) 0 else loc)
 # looks weird sorted
-c_c_df <- c_c_df[order(c_c_df$loc_c),]
+c_c_df_sub <- c_c_df[order(c_c_df$loc_c),]
+# get rid of 0s
+c_c_df_sub <- c_c_df_sub[c_c_df_sub$loc_c > 0, ]
 # looks weirder log10-scaled
-c_c_df$loc_c <- log10(c_c_df$loc_c)
+c_c_df_sub$loc_c <- log10(c_c_df_sub$loc_c)
 
-plot_c_counts <- ggplot( data=c_c_df, aes(x=1:length(c_counts), y=loc_c, group=1))
+plot_c_counts <- ggplot( data=c_c_df_sub, aes(x=1:length(c_c_df_sub$loc_c), y=loc_c, group=1))
 plot_c_counts <- plot_c_counts + geom_line() + geom_point()
 plot_c_counts <- plot_c_counts + labs(
   title = "Analysis of R Corpus (C Code Portion)",
@@ -67,4 +70,32 @@ plot_c_counts <- plot_c_counts + theme(axis.text.x = element_blank())
 # plot it
 plot_c_counts
 
+```
+
+Similar to the R stuff.
+Now, we should combine these plots.
+```{r}
+combo_df <- r_c_df
+combo_df$loc_c <- c_c_df$loc_c
+combo_df$loc_r <- sapply(combo_df$loc_r, function(x) if (x == 0) x else log10(x))
+combo_df$loc_c <- sapply(combo_df$loc_c, function(x) if (x == 0) x else log10(x))
+
+# sort
+combo_df <- combo_df[order(combo_df$loc_r), ]
+
+# TODO: not staying sorted, probably id.vars
+zzz <- melt(combo_df, id.vars="package_name", variable.name = "language")
+
+plot_both <- ggplot( data=zzz, aes(package_name, value, group=1))
+plot_both <- plot_both + geom_line(aes(colour = language)) + geom_point(aes(colour = language))
+plot_both <- plot_both + labs(
+  title = "Analysis of R Corpus (R and C)",
+  x = "Corpus of Analyzed Packages", 
+  y = "Lines of Code in Package (Log10-scaled)"
+)
+
+plot_both <- plot_both + theme(axis.text.x = element_blank())
+
+# plot it
+plot_both
 ```
