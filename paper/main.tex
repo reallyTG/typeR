@@ -167,10 +167,11 @@ also the code that would most benefit from type annotations.
 
 \section{The R Programming Language}\label{sec:rlang}
 
-\AT{Note: some stuff I wrote that might belong somewhere in here, if not, delete.}
-As mentioned, the syntax is highly unrestrictive to make this data analysis easy.
-All functions in R are vectorized, and consequently operators and functions are multi-purpose.
-For instance, the syntax for adding numbers, vectors, and matrices uses the same "+" operator.
+\AT{Note: some stuff I wrote that might belong somewhere in here, if not,
+  delete.}  As mentioned, the syntax is highly unrestrictive to make this
+data analysis easy.  All functions in R are vectorized, and consequently
+operators and functions are multi-purpose.  For instance, the syntax for
+adding numbers, vectors, and matrices uses the same "+" operator.
 
 \AT{Also:}
 The R language has a very easy-to-use FFI to C, and even to C++ through another R package, {\tt Rcpp}.
@@ -243,114 +244,97 @@ R (\code{special}, \code{builtin}, \code{symbol}, \code{pairlist},
 \code{expression}, \code{externalptr}, \code{bytecode} and \code{weakref}).
 
 %% TODO : make the types all bold.
-\AT{Some examples of use of \code{typeof}:}
-To build a sense of how these types arise in R code, consider the following:
-\AT{We could think of another way to do this also.}
+\AT{Some examples of use of \code{typeof}:} To build a sense of how these
+types arise in R code, consider the following: \AT{We could think of another
+  way to do this also.}
 
 \begin{itemize}
-
-	\item \code{typeof(5) == typeof(c(5)) == typeof(c(5, 5)) == "double"}.
-	As we mentioned, R is vectorized, so even apparent scalars are vectors.
-	\AT{Just for fun,} note that \code{5[1] == 5} in R.
-	
-	\item to actually get an integer, you need \code{typeof(5L) == "integer"}.
-	Doubles are by far the most common numeric type in R \AT{I can get data for this}, and you can even use them to index lists and vectors: \code{list(1, 2)\[\[1.9\]\] == 1}.
-	Note the double brackets for list indexing.
-	
-	\item NAs are common in data-centric languages (e.g. MATLAB, \AT{others?}), and R is no exception.
-	As for their type, we see that \code{typeof(NA) == "logical"}, but that isn't to say that NA only has type logical.
-	Consider \code{typeof(c(1, NA, 3)\[2\])}: NA actually inhabits every type in R, \AT{details}.
-
-	\item \AT{other examples?}
-
+\item \code{typeof(5) == typeof(c(5)) == typeof(c(5, 5)) == "double"}.  As
+  we mentioned, R is vectorized, so even apparent scalars are vectors.
+  \AT{Just for fun,} note that \code{5[1] == 5} in R.
+\item to actually get an integer, you need \code{typeof(5L) == "integer"}.
+  Doubles are by far the most common numeric type in R \AT{I can get data
+    for this}, and you can even use them to index lists and vectors:
+  \code{list(1, 2)\[\[1.9\]\] == 1}.  Note the double brackets for list
+  indexing.
+\item NAs are common in data-centric languages (e.g. MATLAB, \AT{others?}),
+  and R is no exception.  As for their type, we see that \code{typeof(NA) ==
+    "logical"}, but that isn't to say that NA only has type logical.
+  Consider \code{typeof(c(1, NA, 3)\[2\])}: NA actually inhabits every type
+  in R, \AT{details}.
+\item \AT{other examples?}
 \end{itemize}
 
-Another form of type information relates to metadata on values, and R allows programmers to add said metadata in the form of {\it attributes}.
-The functionality to do so in R is through the \code{attributes(x)} and \code{attr(x, "name")}  functions.
-\code{attributes} 
+Another form of type information relates to metadata on values, and R allows
+programmers to add said metadata in the form of {\it attributes}.  The
+functionality to do so in R is through the \code{attributes(x)} and
+\code{attr(x, "name")} functions.  \code{attributes}
 
   - dim
 
 class:
 
-%
-% Corpus Section
-%
-% > talk about CRAN
-% > what is a package 
-% > look at genthat paper for inspiration
-% > communicate the size of the adventure
-% > convince people that this is real
-% > lines of C and R code per project? big graph could be nice
-% > give people a sense of our data set
 
 \section{The Corpus}
 
-In this section, we will discuss the R language ecosystem with a focus on our dataset.
+In this section, we present our dataset. R is designed to accommodate the
+workflow of data analysts.  Typical workflows go from data import, to data
+cleaning, the steps of modeling, transformation and visualization. Often
+this code is stored in notebooks which combine code and its output.
+Unfortunately notebooks are typically not available on GitHub, for this our
+analysis focuses on R packages, these bundle reusable units of R code with
+documentation, sample data, use-cases and tests.
 
-The R environment is designed to accommodate the workflow of the data analyst, a workflow which tightly integrates the analyst and the data.
-As an example example, for a task related to data visualization, an analyst will need to: (1) import a data set, (2) sanitize or otherwise transform the data, (3) plot the data, (4) repeat as necessary.
-Similarly, for a task related to testing hypotheses or otherwise validating conclusions: (1) import a data set, (2) sanitize or otherwise transform the data, (3) call some functions to perform necessary computations for the test, (4) repeat as necessary.
-The pattern of import, transform, do something, repeat is referred to as a {\it pipeline} in the R community.
-Indeed, RStudio, one of the most popular IDEs for developing R, is designed to support this iterative behaviour.
-In it, users create {\it notebooks} (akin to Jupyter notebooks for those familiar) wherein they may write text alongside their computation pipeline, and these notebooks expose the code written by the user, altogether facilitating collaboration with other users.
+We focus on packages hosted on the \emph{Comprehensive R Archive Network} or
+CRAN.  With over 13,000 packages, CRAN is the largest repository of software
+written in R. Unlike sites like GitHub, CRAN is a curated collection of
+packages. A package is only accepted to CRAN if it abides by a number of
+well-formdness rules.  Most relevant for our purposes, packages must have
+data, examples, vignettes and tests. All code associated with the package
+must succesfully run. This means that each of the package in CRAN comes with
+up to a dozen executable scripts that exercise some of its functionality.
 
-By and large, the most extensive repository of R code is CRAN, the Comprehensive R Archive Network.
-After installing a package, a simple call to \code{library(pkg\_name)} exposes all of \code{pkg\_name}'s exported functions for use in the rest of the script.
-CRAN sports over 13,00 packages, and is an actively maintained and curated environment, in that there are a number of requirements for a package to be accepted for publication, particularly with regards to proper package documentation.
-One such requirement is the presence of at least one vignette, a documented walk-through of some of the package's functions.
-\AT{Do we want an example of a vignette? We could put one.}
-Besides vignettes, package authors are encouraged to write tests for their code as well as examples showing off basic usage and functionality.
+Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
+for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
+lines of R code and ??? lines of C code. For each package, we extracted all
+executable code snippets from documentation, vignettes and tests and ran
+them independently recording all call to R functions.  The rationale for
+this particular subset of CRAN was pragmatic, our infrastructure adds some
+overhead to the execution of scripts, the packages we selected we all those
+that could be run in one hour or less.
 
-One goal of our analysis is to build a sense of how programmers use types in R, and unfortunately there isn't much non-library code available for our analysis to peruse.
-Most R scripts are not built to be exported, and are part of an iterative and interactive process of data analysis, and unlike other programming languages, R has a very small footprint on GitHub, and most of the R code available there is referenced through CRAN \AT{maybe we can get numbers here? or just take out the sentence}.
-There are a number of potential explanations for this, including the proprietary nature of certain data sets (e.g., governments working with sensitive census data, or medical researchers working with private patient data).
+Figure~\ref{most} shows the ten most downloaded CRAN packages
+%% TODO make sure we are analyzing them, and cut the list to ten
+and for each package it shows the number of lines of R, the number of lines
+of C/C++, and the number of executable scripts that could be run.
 
-The lack of non-package code is somewhat mitigated by the good culture of packages published on CRAN, in that they typically provide tests and examples of intended package use.
-We modify the {\tt genthat} tracer, discussed in more detail in the next section, which essentially traces these tests, examples, and vignettes to generate new package tests.
-\AT{Not sure how to word the second half of this paragraph.}
-In focusing on these exemplary snippets, we should capture the intent of package designers, which gives us hope that our proposed type annotations would be adopted.
+Figure~\ref{allcloc} shows the size of the code in each package in C and R.
 
-%
-%
-%
-%
-\subsection{Our Test Suite}
+Figure~\ref{recorded} gives the number of function signatures that we
+recorded while executing the scripts of each package.
 
-We ran our analysis over a subset of CRAN, analyzing \PACKAGES packages, accounting for some \PERCENTCRAN of all packages available on CRAN.
-These packages have a total of \RLOC lines of code, and were written by \PROGRAMMERS programmers over a period of \YEARS years.
-\AT{Talk about timeout?}  Due to the nature of some packages (e.g., packages implementing a computationally-intensive model with many tests), we ran our analysis with a 1 hour timeout.
-Our tracer also traces reverse-dependencies: if some package utilizes some other package, both are instrumented and traced.
-This serves to further mitigate the lack of non-library R code.
-
-To get a better sense of the corpus we're dealing with, we will highlight a few packages that we have analyzed:
-
-\begin{itemize}
-
-	\item \textbf{\texttt{ggplot2}} is an important package for building graphics and plotting data in R.
-	{\tt ggplot2} is part of the tidyverse, which bills itself as an ``opinionated collection of R packages designed for data science''.
-	Essentially, packages in the tidyverse use a common grammar and are all designed to address the main issues faced in data analysis.
-	{\tt ggplot2}'s role in the tidyverse is to make creating elegant plots easy: in it, graphics are created declaratively in a manner based on The Grammar of Graphics \AT{cite}.
-
-	\item \textbf{\texttt{dplyr}} is another integral package to the tidyverse.
-	In it is defined a convenient piece of R syntax: the pipe operator {\tt \%>\%}.
-	If using {\tt dplyr}, one can write \code{f(x) \%>\% g()}, which is equivalent to \code{g(f(x))}.
-	{\tt dplyr} also defines a number of highly useful functions for manipulating data frames, and considered alongside the pipe operator form the underpinning of the tidyverse data pipeline philosophy.
-
-	\item \textbf{\texttt{zoo}} is a popular R package for dealing with time series, themselves a common occurrence in statistics.
-	One of the main functions in this package is the eponymous {\tt zoo} function, which takes in a numeric vector or list along with some parameters, and produces a ``zoo'' object for use in other package functions.
-
-	\item \textbf{\texttt{spatstat}} is the largest package in our corpus in terms of lines of R code.
-	This package is designed for spatial statistics, focusing on the analysis of spatial point patterns.
-	It is, in some sense, the definitive spatial statistics package in R.
-	
-	\item \textbf{\texttt{multinet}} is the largest package in our corpus in terms of lines of C code.
-	{\tt multinet} is a package designed to store and analyze multilayer social networks.
-
-\end{itemize}
-
-Most of the packages we looked at have between 100 and 1000 lines of R code.
-
+% https://www.r-pkg.org/downloaded
+\begin{figure}[!th]
+  {\footnotesize\begin{tabular}{@{}r||l|r|r|r@{}}
+\hline
+\bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts\\\hline
+\tt Rcpp  & Seamless C++ integration & 10K & 3K & 12 \\
+\tt rlang & Functions for 'Tidyverse'&&& \\
+\tt glue  & Interpreted string literals&&& \\
+\tt tibble & Simple data frames&& &\\
+\tt stringi &  String processing &&& \\
+\tt ggplot2 & Data visualisations&& &\\
+\tt dplyr  &  Data manipulation&&& \\
+\tt pillar & Formatting for columns&&& \\
+\tt R6 & Classes w. ref. semantics&&& \\
+\tt stringr & String operations&&& \\
+\tt data.table & Extension of `data.frame`&&& \\
+\tt yaml & Convert R data to YAML&&& \\
+\tt cli &  Command line interfaces&&& \\
+\tt purrr & Functional programming&&& \\\hline
+\end{tabular}}
+\caption{Most downloaded packages.}\label{most}
+\end{figure}
 %
 %
 %
