@@ -286,8 +286,6 @@ class:
 
 \section{The Corpus}
 
-\AT{Draft}
-
 In this section, we will discuss the R language ecosystem with a focus on our dataset.
 
 The R environment is designed to accommodate the workflow of the data analyst, a workflow which tightly integrates the analyst and the data.
@@ -311,7 +309,7 @@ There are a number of potential explanations for this, including the proprietary
 The lack of non-package code is somewhat mitigated by the good culture of packages published on CRAN, in that they typically provide tests and examples of intended package use.
 We modify the {\tt genthat} tracer, discussed in more detail in the next section, which essentially traces these tests, examples, and vignettes to generate new package tests.
 \AT{Not sure how to word the second half of this paragraph.}
-In focusing on these exemplary snippets, we should capture the intent of package designers, which gives up hope that our proposed type annotations would be adopted.
+In focusing on these exemplary snippets, we should capture the intent of package designers, which gives us hope that our proposed type annotations would be adopted.
 
 %
 %
@@ -319,7 +317,8 @@ In focusing on these exemplary snippets, we should capture the intent of package
 %
 \subsection{Our Test Suite}
 
-We ran our analysis over a subset of CRAN, analyzing \PACKAGES packages, account for some \PERCENTCRAN of all packages available on CRAN.
+We ran our analysis over a subset of CRAN, analyzing \PACKAGES packages, accounting for some \PERCENTCRAN of all packages available on CRAN.
+These packages have a total of \RLOC lines of code, and were written by \PROGRAMMERS programmers over a period of \YEARS years.
 \AT{Talk about timeout?}  Due to the nature of some packages (e.g., packages implementing a computationally-intensive model with many tests), we ran our analysis with a 1 hour timeout.
 Our tracer also traces reverse-dependencies: if some package utilizes some other package, both are instrumented and traced.
 This serves to further mitigate the lack of non-library R code.
@@ -339,6 +338,7 @@ To get a better sense of the corpus we're dealing with, we will highlight a few 
 	{\tt dplyr} also defines a number of highly useful functions for manipulating data frames, and considered alongside the pipe operator form the underpinning of the tidyverse data pipeline philosophy.
 
 	\item \textbf{\texttt{zoo}} is a popular R package for dealing with time series, themselves a common occurrence in statistics.
+	One of the main functions in this package is the eponymous {\tt zoo} function, which takes in a numeric vector or list along with some parameters, and produces a ``zoo'' object for use in other package functions.
 
 	\item \textbf{\texttt{spatstat}} is the largest package in our corpus in terms of lines of R code.
 	This package is designed for spatial statistics, focusing on the analysis of spatial point patterns.
@@ -347,81 +347,47 @@ To get a better sense of the corpus we're dealing with, we will highlight a few 
 	\item \textbf{\texttt{multinet}} is the largest package in our corpus in terms of lines of C code.
 	{\tt multinet} is a package designed to store and analyze multilayer social networks.
 
-
 \end{itemize}
 
-%We ran our analysis over a subset of CRAN, the Comprehensive R Archive
-%Network.  We analyzed \AT{over 7500} packages, over half of all packages
-%available on CRAN.  Our analysis had an explicit timeout of \AT{30 minutes}
-%per package, as a number of R packages feature functions which have a
-%nigh-eternal running time (e.g., machine learning packages and complex
-%simulations) \AT{cite those packages/examples}.
-%
-%There are a number of interesting packages in our corpus.  \AT{References
-%for all of these.}  For example, we have analyzed some packages for
-%plotting data: among others, the {\tt ggplot2} package is an immensely
-%popular package for generating highly-customizable plots, and the {\tt
-%plotmo} package is an interesting package aimed at displaying models.  We
-%also analyzed {\tt dplyr}, an integral package to the {\tt tidyverse} set of
-%R packages \AT{talk about tidyverse earlier, or here}.  {\tt dplyr} is a
-%popular package that makes full use of R's features to create what is
-%tantamount to a small DSL for data manipulation within R.  Another
-%interesting package is {\tt rquery}, a package for generating SQL-like
-%queries.
+Most of the packages we looked at have between 100 and 1000 lines of R code.
 
 %
 %
 %
 %
 \section{The \texttt{genthat} Package}
+\label{sec:genthat}
 
-Unfortunately, getting our hands on ``front-line'' R code is tricky: R is
-not like many other languages, where large systems are built up and stored
-in a repository such as Github.  Instead, R programmers are liable to
-leverage a number of packages and work them into their data analysis
-pipelines.
+As we mentioned, getting our hands on ``front-line'' non-library R code is tricky: 
+R is not like many other languages, where large systems are built up and stored in a repository such as GitHub.  
+Instead, R programmers are liable to leverage a number of packages and work them into their data analysis pipelines.
 
-Interestingly, we are somewhat able to replicate this using only package
-code.  CRAN, has a policy that packages made available on the CRAN platform
-should be accompanied by a series of examples, tests, and/or vignettes
-showing off how the code is intended to be used.  Nominally unrelated, the
-{\tt genthat} project~\cite{issta18} traces this swath of example code to
-generate new examples which package designers may not have thought of.  As
-it happens, we can leverage {\tt genthat} to extract dynamic type
-information from running package test code, which presumably indicates how
-package code is intended to be used.
+Thankfully, we are somewhat able to make up for this lack of code.
+CRAN has a policy that published packages are to be accompanied by at least one vignette, and typically by tests and examples showing off how the code is intended to be used.  
+Nominally unrelated, the {\tt genthat} project~\cite{issta18} traces this example code to generate new unit tests which package designers may not have thought of.
+As it happens, we can leverage {\tt genthat} to extract dynamic type information from running package test code, which presumably indicates how package code is intended to be used.
 
 \AT{Draft}
 
-We modify the {\tt genthat} tracer to capture the type information of
-arguments.  {\tt genthat} generates traces for each unique function
-invocation with the express purpose of re-invoking the function at a later
-time.  Instead of generating traces for these invocations, we can instead
-capture type information of the arguments and return values of functions.
-This is done by evaluating the arguments and return values of functions at
-the end of the function's scope in the relevant environment.  The sort of
-types and granularity of the type information that are generated can be
-specified in our tracer: Essentially, our tracer is parameterized over a
-user-specified type system.  For instance, if desired our tracer can dig
-into lists and data frames to get the types of list elements and fields.
-Our tracer produces trace results for each unique type signature
-encountered, which may then be used for data analysis.
+Our tracer is built on of the {\tt genthat}~\cite{issta18} tracer, which we modified to capture the type information of arguments.  
+{\tt genthat} generates traces for each unique function invocation with the express purpose of re-invoking the function at a later time, and instead of generating traces for these invocations we capture type information of the arguments and return values of functions.
+This is done by evaluating the arguments and return values of functions at the end of the function's scope in the relevant environment.  
+The sort of types and granularity of the type information that are generated can be specified in our tracer: 
+Essentially, our tracer is parameterized over a user-specified type system.  
+For instance, if desired our tracer can dig into lists and data frames to get the types of list elements and fields.
+Our tracer produces trace results for each unique type signature encountered, which may then be used for data analysis.
 
-An unfortunate consequence of R's most common usage pattern is the lack of
-"deployed" R code.  R is most often used for exploratory data analysis, and
-very little of this analysis code is made publicly available on e.g. GitHub.
-The {\tt genthat} angle is thus desirable: With the scarcity of non-library
-code, examples of package usage is about as representative as one can hope
-for of the sort of code people will write in their analysis pipelines.
+An unfortunate consequence of R's most common usage pattern is the lack of "deployed" R code. 
+R is most often used for exploratory data analysis, and very little of this analysis code is made publicly available on e.g. GitHub.
+The {\tt genthat} angle is thus desirable: 
+With the scarcity of non-library code, examples of package usage is about as representative as one can hope for of the sort of code people will write in their analysis pipelines.
 
 We can do a little bit better than merely package usage examples, though.
-Available through CRAN is a list of {\it reverse dependencies} of packages:
-for some package {\tt p}, a list of all packages which require {\tt p} in
-some way.  Our tracer is able to leverage and trace this code as well.  When
-running a package, we also trace how all inherited functions are used, thus
-painting an even clearer picture of function usage.  This additional data is
-considered alongside similar data collected for all other packages, as well
-as the data obtained by tracing the package's examples.
+Available through CRAN is a list of {\it reverse dependencies} of packages: 
+for some package {\tt p}, a list of all packages which require {\tt p} in some way.  
+Our tracer is able to leverage and trace this code as well. 
+When running a package, we also trace how all inherited functions are used, thus painting an even clearer picture of function usage.  
+This additional data is considered alongside similar data collected for all other packages, as well as the data obtained by tracing the package's examples.
 
 % Some prose we might want to pull from.
 %First, we leverage {\tt genthat}'s tracer to trace function executions.  The
@@ -440,36 +406,53 @@ as the data obtained by tracing the package's examples.
 In this section, we will detail our methodology for collecting data.
 
 %
+%
+%
+%
+\subsection{Granularity of Type Information}
+
+As we mentioned in Section~\ref{sec:rlang}, R has several notions of ``type'', ranging from the results of \code{typeof} to metadata on values obtainable via the \code{attributes} function.
+Individually, these paint an incomplete picture of the type of a value:
+For example, recall that \code{typeof(5) == typeof(c(5, 5)) == "double"}.
+
+To be as specific as possible, our analysis collects additional information to create a more specific type than the result of any of R's reflection functions.
+For instance, if the analysis encounters {\tt typeof(x) == \~ "double"}, it will look at the length of {\tt x} to determine if {\tt x} is a scalar or a vector, generating the annotation {\tt scalar/double} or {\tt vector/double} accordingly. 
+One notable imperfection in this example is that unit-length vectors will appear as scalars, but if some function was called with unit-length vectors {\it as well as} larger ones, both scalar and vector types will appear, and this distinction can be later collapsed.
+Another example is that our analysis builds parametric list types by capturing the types of list elements.
+We also distinguish NAs ``in the wild'' with a {\tt raw\_NA} type.
+
+%
+%
+%
+%
 \subsection{Data Collection Pipeline}
 
-As we mentioned in the previous section, we modify the {\tt genthat} tracer
-to collect and output the type information for all function invocations.
+As we mentioned in Section~\ref{sec:genthat}, we modify the {\tt genthat} tracer to collect and output the type information for all function invocations.
 
-\AT{somewhere} Our analysis can be parameterized by a user-specified ``type
-system'', simply a map between existing dynamically observable type
-information and user-defined types.  If no type system is specified, the
-analysis gains as much information as it can.  For instance, if the analysis
-encounters {\tt typeof(x) == "double"}, it will look at the length of {\tt
-  x} to determine if {\tt x} is a scalar or a vector, generating the
-annotation {\tt scalar/double} or {\tt vector/double} accordingly.  Note
-that this is imperfect, as a vector of unit length would (perhaps
-incorrectly) show up as a {\tt scalar/X}, but any other invocation where the
-vector does not have unit length will generate the correct {\tt vector/X}
-type, and the distinction between scalars and vectors can be later collapsed
-if desired.  Note also that the type system described here is the
-\AT{SOMETHING} Type System, described in detail in Section~\AT{TODO}.
-
-The process for tracing one package {\tt p} is as follows:
+The high-level process for tracing one package {\tt p} is as follows:
 
 \begin{enumerate}
-\item first, all functions in {\tt p} are instrumented with on-exit hooks.
-  These hooks call a number of R's available reflection functions on each of
-  the arguments, as well as the return type: The called functions are {\tt
-    typeof}, {\tt class}, and {\tt attributes}.  See Section~\ref{sec:rlang}
-  for details on these functions.
+	\item first, all functions in {\tt p} are instrumented with on-exit hooks.
+  	These hooks call a number of R's available reflection functions on each of the arguments, as well as the return type: 
+  	The called functions are {\tt typeof}, {\tt class}, and {\tt attributes}.  
+  	See Section~\ref{sec:rlang} for details on these functions.
+  
+  	\item next, runnable code is extracted and run from package tests, examples, and vignettes, and \AT{what about rev deps}.
+  
+	\item each function invocation triggers the on-exit hook, and it is this on-exit code which collects the information.
+	Depending on the results of {\tt typeof}, {\tt class}, and {\tt attributes}, more analysis may be performed.
+	For example, if an argument is a list, type information is collected on list elements until a more accurate type (e.g., {\tt list<double>}) can be constructed.
+	Indeed, in a later section we do propose some possible type systems for R, and our analysis can be parameterized with these type systems to generate type information according to the types specified, and this will be discussed further in Section \AT{yap}.
 	
-\item then, depending on the specified type 
+	\item all of the recorded type information makes up a function {\it trace}.
+	This trace is passed to a C++ function (for performance reasons) which hashes it and checks it against already seen trace hashes.
+	If the trace is determined to be new, the hash is saved and the trace is written to a file.
+	
+	\item finally, after all test code has finished executing, we are left with a directory full of all of the unique type signatures that were observed while running the package code.
+	
 \end{enumerate}
+
+
 
 Then, we aggregate the information in all traces for a particular function.
 If there was only one function trace, we discard the result as the function
