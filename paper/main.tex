@@ -52,6 +52,7 @@
 \newcommand{\PERCENTCRAN}{56\%\xspace}
 \newcommand{\CRANTOTAL}{13,841\xspace}
 \newcommand{\RLOC}{8,996,572\xspace}
+\newcommand{\CLOC}{5,100,719\xspace}
 \newcommand{\YEARS}{20\xspace}
 
 \begin{abstract}
@@ -276,6 +277,7 @@ class:
 
 
 \section{The Corpus}
+\label{sec:corpus}
 
 In this section, we present our dataset. R is designed to accommodate the
 workflow of data analysts.  Typical workflows go from data import, to data
@@ -289,14 +291,14 @@ We focus on packages hosted on the \emph{Comprehensive R Archive Network} or
 CRAN.  With over 13,000 packages, CRAN is the largest repository of software
 written in R. Unlike sites like GitHub, CRAN is a curated collection of
 packages. A package is only accepted to CRAN if it abides by a number of
-well-formdness rules.  Most relevant for our purposes, packages must have
+well-formedness rules.  Most relevant for our purposes, packages must have
 data, examples, vignettes and tests. All code associated with the package
-must succesfully run. This means that each of the package in CRAN comes with
+must successfully run. This means that each of the package in CRAN comes with
 up to a dozen executable scripts that exercise some of its functionality.
 
 Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
 for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
-lines of R code and ??? lines of C code. For each package, we extracted all
+lines of R code and \CLOC lines of C code. For each package, we extracted all
 executable code snippets from documentation, vignettes and tests and ran
 them independently recording all call to R functions.  The rationale for
 this particular subset of CRAN was pragmatic, our infrastructure adds some
@@ -304,7 +306,6 @@ overhead to the execution of scripts, the packages we selected we all those
 that could be run in one hour or less.
 
 Figure~\ref{most} shows the ten most downloaded CRAN packages
-%% TODO make sure we are analyzing them, and cut the list to ten
 and for each package it shows the number of lines of R, the number of lines
 of C/C++, and the number of executable scripts that could be run.
 
@@ -328,13 +329,14 @@ recorded while executing the scripts of each package.
 \tt pillar & Formatting for columns&&& \\
 \tt R6 & Classes w. ref. semantics&&& \\
 \tt stringr & String operations&&& \\
-\tt data.table & Extension of `data.frame`&&& \\
-\tt yaml & Convert R data to YAML&&& \\
-\tt cli &  Command line interfaces&&& \\
-\tt purrr & Functional programming&&& \\\hline
+%\tt data.table & Extension of `data.frame`&&& \\
+%\tt yaml & Convert R data to YAML&&& \\
+%\tt cli &  Command line interfaces&&& \\
+%\tt purrr & Functional programming&&& \\\hline
 \end{tabular}}
-\caption{Most downloaded packages.}\label{most}
+\caption{10 Most Downloaded Packages.}\label{most}
 \end{figure}
+
 %
 %
 %
@@ -400,7 +402,7 @@ Individually, these paint an incomplete picture of the type of a value:
 For example, recall that \code{typeof(5) == typeof(c(5, 5)) == "double"}.
 
 To be as specific as possible, our analysis collects additional information to create a more specific type than the result of any of R's reflection functions.
-For instance, if the analysis encounters {\tt typeof(x) == \~ "double"}, it will look at the length of {\tt x} to determine if {\tt x} is a scalar or a vector, generating the annotation {\tt scalar/double} or {\tt vector/double} accordingly. 
+For instance, if the analysis encounters {\tt typeof(x) == "double"}, it will look at the length of {\tt x} to determine if {\tt x} is a scalar or a vector, generating the annotation {\tt scalar/double} or {\tt vector/double} accordingly. 
 One notable imperfection in this example is that unit-length vectors will appear as scalars, but if some function was called with unit-length vectors {\it as well as} larger ones, both scalar and vector types will appear, and this distinction can be later collapsed.
 Another example is that our analysis builds parametric list types by capturing the types of list elements.
 We also distinguish NAs ``in the wild'' with a {\tt raw\_NA} type.
@@ -413,13 +415,13 @@ We also distinguish NAs ``in the wild'' with a {\tt raw\_NA} type.
 
 As we mentioned in Section~\ref{sec:genthat}, we modify the {\tt genthat} tracer to collect and output the type information for all function invocations.
 
-The high-level process for tracing one package {\tt p} is as follows:
+The high-level process for tracing one package is as follows:
 
 \begin{enumerate}
-	\item first, all functions in {\tt p} are instrumented with on-exit hooks.
+	\item first, all functions in the package are instrumented with on-exit hooks.
   	These hooks call a number of R's available reflection functions on each of the arguments, as well as the return type: 
   	The called functions are {\tt typeof}, {\tt class}, and {\tt attributes}.  
-  	See Section~\ref{sec:rlang} for details on these functions.
+  	Recording is done on function exit to avoid forcing promises before they are needed (as these promises may cause side effects).
   
   	\item next, runnable code is extracted and run from package tests, examples, and vignettes, and \AT{what about rev deps}.
   
@@ -436,50 +438,51 @@ The high-level process for tracing one package {\tt p} is as follows:
 	
 \end{enumerate}
 
+For each package function, we then consolidate all observed signatures: this gives us a {\it function signature}.
+\AT{Example?}
+In the function signature, each function argument is accompanied by a list of types, attributes, and classes that have inhabited it. 
 
-
-Then, we aggregate the information in all traces for a particular function.
-If there was only one function trace, we discard the result as the function
-is trivially monomorphic.  We can see which arguments had which types over
-how many traces, and from here we can build a \textit{signature} for each
-function argument, and consider them together to create a function
-signature.  A \textbf{polymorphic argument} is one which has been inhabited
-by values of at least two different types, and a \textbf{polymorphic
-  function} is a function with at least one polymorphic argument or a
-polymorphic return.
-
-We repeat the above for each package on the Comprehensive R Archive Network
-(CRAN), the premier source for R libraries (called packages), and the
-Bioconductor package repository.  Now, depending on the data point we're
-after, our methods from here differ slightly.
+We will need a notion of polymorphism when undertaking this analysis.
+As R is unityped, and the only notion of polymorphism in the language is its use of dynamic dispatch on the class of an argument.
+For our purposes, we will define 3 simple types of polymorphism, closely connected with the reflection functions we use.
+We start by defining what it means for an {\it argument} to be polymorphic.
+\AT{Could be valuable to have an example here.}
 
 \begin{itemize}
-    \item for \textbf{counting signatures}: for each signature, we count how
-      many functions or arguments have the requisite signature;
-    \item for \textbf{finding the most common signatures}: we enumerate as
-      before, and sort the signatures based on how often they appear;
+
+	\item an argument is {\it polymorphic in type} if it has been called with at least two distinct ``types'' according to the \code{typeof} function and our extra analysis.
+	
+	\item similarly, an argument is {\it polymorphic in class} if it has been called with at least two distinct classes according to the \code{class} function.
+	
+	\item attributes are a bit more tricky.
+	We can't simply count the number of attributes that have inhabited an argument, since values can contain arbitrarily many values (and having several attributes isn't polymorphism---think records).
+	Instead, we define the {\it attribute pattern} of a value to be the set of all attribute name and type pairs in the attribute list of a value (obtained via \code{attributes}).
+	And so an argument is {\it polymorphic in attribute} if it has been called with at least two distinct attribute patterns.
+
 \end{itemize}
 
-%
-%
-\subsection{Attributes}\label{sec:method:attributes}
+There is an important distinction to be made between the result of \code{typeof} and that of \code{class} and \code{attributes}:
+In R, the \code{typeof} a value cannot change, and this is not the case with class and attributes.
+As mentioned in \AT{an earlier section}, the class of values can be easily redefined by assigning to the value's class attribute.
+Similarly, attributes can be dynamically added, removed, or changed.
 
-Types (in the sense of the result of a call to {\tt typeof}) are easy to
-analyze as values can only have one type.  Attributes, however, are a
-different story, as values can have an arbitrary number of attributes.
-Essentially, we're not interesting by function arguments which have had
-multiple attributes, we're interested in function arguments which have had
-multiple attribute \textit{patterns}. \AT{is this defined earlier?}
-Arguments are said to be polymorphic in attribute if they have been
-inhabited with values which have had different attribute patterns.  \AT{We
-  have not investigated whether functions which are polymorphic in attribute
-  use attributes extensively inside the function code.}
+This begs the question: what sort of classes and attribute patterns occur naturally, before possible user tampering?
+In terms of classes, the discussion can be found in Section~\ref{sec:rlang}.
+As for attributes:
 
-\AT{Paragraph justifying our construction of an attribute pattern.
-Either just name, or (name, type).}
+\begin{itemize}
 
-\AT{Paragraph about so-called ``naturally-occurring'' attribute patterns.}
+	\item data frames have three attributes: {\tt names} for column names, {\tt row.names} for row names, and {\tt class} (which is instantiated to {\tt "data.frame"} upon creation).
+	
+	\item matrices have at least a {\tt dim} attribute with matrix dimensions, and optionally a {\tt dimnames} attribute for dimension names.
 
+	\item lists and vectors may have a {\tt names} attribute, which assigns names to locations.
+	
+	\item to ease dealing with large sorted sets of non-numeric values, R offers the \code{factor} and \code{levels} functions.
+	\code{factor(x, levels=someOrder)} adds a {\tt "levels"} attribute to \code{x}, which specifies an ordering for \code{x} according to the \code{sortedOrder} parameter.
+	\code{factor} also changes the class of the parameter being factored to \code{"factor"}.
+
+\end{itemize}
 
 %
 %
