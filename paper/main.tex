@@ -168,17 +168,6 @@ also the code that would most benefit from type annotations.
 
 \section{The R Programming Language}\label{sec:rlang}
 
-\AT{Note: some stuff I wrote that might belong somewhere in here, if not,
-  delete.}  As mentioned, the syntax is highly unrestrictive to make this
-data analysis easy.  All functions in R are vectorized, and consequently
-operators and functions are multi-purpose.  For instance, the syntax for
-adding numbers, vectors, and matrices uses the same "+" operator.
-
-\AT{Also:}
-The R language has a very easy-to-use FFI to C, and even to C++ through another R package, {\tt Rcpp}.
-
-\AT{End note.}
-
 Over the last decade, the R Project has become a key tool for implementing
 sophisticated data analysis algorithms in fields ranging from Computational
 Biology~\cite{R05} to Political Science~\cite{R:Keele:2008}. At the heart of
@@ -193,7 +182,6 @@ statistical data analysis. Today, there are over 13,000 R packages available
 from repositories such as CRAN and Bioconductor.  With 55 R user groups
 world-wide, Smith~\cite{eco11} estimates that there are over 2 million
 end-users.
-
 
 As an introduction to R, consider the code snippet in Fig.~\ref{sample} from
 a top-level interaction where the user defines a function \code{normSum}
@@ -217,12 +205,19 @@ transparently work on vectors of any length and different types.
 \caption{Sample R code}\label{sample}
 \end{figure}
 
-\AT{I wrote a paragraph in the next section which seems to belong here, maybe work this in?}
-Besides these primitive data types, R has an out-of-the-box data type called the data frame for storing data, and this data type is essential to a large part of R's functionality.
-A data frame is a two-dimensional array where each row represents an observation, with columns indicating the values of some observation.
-For example, our own analysis is written in R, and one of our data frames has a row for each package analyzed, with columns for values ranging from number of polymorphic functions, number of monomorphic arguments, unique attribute patterns, etc.
-\AT{Put a figure?}
-Much of R's base functionality, and indeed much of the functionality provided by packages, operate on data frames.
+R has a number of features that are not crucial to the present
+discussion. We will mention some of them here for completeness.  In R, data
+structures are reference counted and have copy-on-write semantics, thus the
+assignment \code{x[12]<-3} results in an update to a copy of \code{x} unless
+the reference count on that object is 1.  This semantics gives R a
+functional flavor while allowing updating in place within loops (the first
+update copies, subsequent updates are performed on the copy). Arguments to
+functions are evaluated only when needed, they are bundled in so-called
+promises which package the original expression (as an AST), its environment
+as well as the result of evaluating the expression. Promises can be
+leveraged for meta-programming as it is possible to retrieve the text of a
+promise and evaluate that in a different environment.
+
 
 \subsection{Types of Data}
 
@@ -230,6 +225,45 @@ Before attempting to define a type system for R, we should understand the
 different kinds of values that programs operate on.  As we will see
 different notions of type may emerge depending on how granular we want to
 be.
+
+\renewcommand{\k}[1]{{\tt #1}\xspace}
+
+R has one builtin notion of type that can be queried by the \k{typeof}
+function. Over the years, programmers have found the need for a richer type
+structure and have added attributes. The best way to think of attributes is
+as an optional map from name to values that can be attached to any object.
+Attributes are used to encode various type structures. They can be queried
+with functions such as \k{attributes} and \k{class}.
+
+\begin{figure}[!ht]
+\begin{tabular}{l|l}\hline
+\multicolumn{2}{l}{\bf Vectorized data types:}  \\\hline
+\k{logical}  & vector of boolean values\\
+\k{integer}   & vector of 32 bit integer values\\
+\k{double} & vector of 64 bit floating point values\\
+\k{complex} & vector of complex values\\
+\k{character} & vector of strings values\\
+\k{raw} & vector of bytes\\
+\k{list} & vector of values of any type\\\hline
+\multicolumn{2}{l}{\bf Scalar data types:}\\\hline
+\k{NULL}  &  singleton null value\\
+\k{closure} & a function with its environment\\
+\k{environment} & a mapping from symbol to value \\\hline
+\multicolumn{2}{l}{\bf Implementation data types:}\\\hline
+&\k{special},
+\k{builtin},
+\k{symbol},
+\k{pairlist},
+\k{promise},
+\k{language},
+\k{char},
+\k{...}\\
+&\k{any},
+\k{expression},
+\k{externalprt},
+\k{bytecode},
+\k{weakref}\\\hline
+\end{tabular}\caption{Builtin Types}\label{types}\end{figure}
 
 The first distinction that can be made is based on the value of the
 \code{typeof} function.  This function, given a value, will return one of
@@ -276,48 +310,67 @@ functionality to do so in R is through the \code{attributes(x)} and
 class:
 
 
-\section{The Corpus}
-\label{sec:corpus}
+Besides these primitive data types, R has an out-of-the-box data type called
+the data frame for storing data, and this data type is essential to a large
+part of R's functionality.  A data frame is a two-dimensional array where
+each row represents an observation, with columns indicating the values of
+some observation.  For example, our own analysis is written in R, and one of
+our data frames has a row for each package analyzed, with columns for values
+ranging from number of polymorphic functions, number of monomorphic
+arguments, unique attribute patterns, etc.  \AT{Put a figure?}  Much of R's
+base functionality, and indeed much of the functionality provided by
+packages, operate on data frames.
 
-In this section, we present our dataset. R is designed to accommodate the
-workflow of data analysts.  Typical workflows go from data import, to data
-cleaning, the steps of modeling, transformation and visualization. Often
-this code is stored in notebooks which combine code and its output.
-Unfortunately notebooks are typically not available on GitHub, for this our
-analysis focuses on R packages, these bundle reusable units of R code with
-documentation, sample data, use-cases and tests.
+
+\section{The Corpus}\label{sec:corpus}
+
+In this section, we present our dataset. R is designed to accommodate data
+analysts.  Typical workflows go from data import, to data cleaning, followed
+by steps of modeling, transformation and visualization. Often the code that
+implement these analysis pipelines together with their results resides in
+notebooks. Unfortunately notebooks are typically not shared in public
+repositories such as GitHub, and if they were, the data required to run them
+would surely not be shared. For this reason our analysis focuses on
+packages; these bundle reusable units of R code with documentation, sample
+data, use-cases and tests.
 
 We focus on packages hosted on the \emph{Comprehensive R Archive Network} or
 CRAN.  With over 13,000 packages, CRAN is the largest repository of software
-written in R. Unlike sites like GitHub, CRAN is a curated collection of
-packages. A package is only accepted to CRAN if it abides by a number of
-well-formedness rules.  Most relevant for our purposes, packages must have
-data, examples, vignettes and tests. All code associated with the package
-must successfully run. This means that each of the package in CRAN comes with
-up to a dozen executable scripts that exercise some of its functionality.
+written in R. It is experiencing sustained growth with an average of size
+new packages a day~\cite{LIgges2017}.  Unlike sites like GitHub, CRAN is a
+curated collection of packages. A package is only accepted to CRAN if it
+abides by a number of well-formedness rules.  Most relevant for our
+purposes, packages must have data, examples, vignettes and tests. All of
+which must successfully run. From our perspective this means that each of
+the package in CRAN comes with up to a dozen executable scripts that
+exercise some of its functionality.
+
 
 Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
 for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
-lines of R code and \CLOC lines of C code. For each package, we extracted all
-executable code snippets from documentation, vignettes and tests and ran
-them independently recording all call to R functions.  The rationale for
-this particular subset of CRAN was pragmatic, our infrastructure adds some
-overhead to the execution of scripts, the packages we selected we all those
-that could be run in one hour or less.
+lines of R code and \CLOC lines of C code. For each package, we extracted
+all executable code snippets from documentation, vignettes and tests and ran
+them independently recording all call to R functions.  It is noteworthy that
+in order to run the scripts in one package, it is often necessary to load a
+number of other packages.  In~\cite{issta18}, the authors estimated code
+coverage to be around 60\% when including reverse dependencies.  The
+rationale for our choice of packages was pragmatic, our infrastructure adds
+overhead to the execution of scripts, we eliminated any package that would
+take more than one hour to run. We expect to extend our coverage of CRAN for
+the next version of this paper.
 
-Figure~\ref{most} shows the ten most downloaded CRAN packages
-and for each package it shows the number of lines of R, the number of lines
-of C/C++, and the number of executable scripts that could be run.
-
-Figure~\ref{allcloc} shows the size of the code in each package in C and R.
-
-Figure~\ref{recorded} gives the number of function signatures that we
-recorded while executing the scripts of each package.
+Figure~\ref{most} shows the ten most downloaded CRAN packages.  For each
+one, we list how many lines of R and C/C++ the packages contains.
+Typically, C/C++ code is used to implement performance critical portions of
+the code. We show the number of scripts that could be extracted from the
+package. Each script corresponds to either one use-case or a set of unit
+tests.  Figure~\ref{allcloc} shows the size of the code across all the
+packages we have used.  Lastly, Figure~\ref{recorded} gives the number of
+function signatures that we recorded while executing the scripts of each
+package.
 
 % https://www.r-pkg.org/downloaded
-\begin{figure}[!th]
-  {\footnotesize\begin{tabular}{@{}r||l|r|r|r@{}}
-\hline
+\begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r@{}}\hline
 \bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts\\\hline
 \tt Rcpp  & Seamless C++ integration & 10K & 3K & 12 \\
 \tt rlang & Functions for 'Tidyverse'&&& \\
@@ -329,12 +382,7 @@ recorded while executing the scripts of each package.
 \tt pillar & Formatting for columns&&& \\
 \tt R6 & Classes w. ref. semantics&&& \\
 \tt stringr & String operations&&& \\
-%\tt data.table & Extension of `data.frame`&&& \\
-%\tt yaml & Convert R data to YAML&&& \\
-%\tt cli &  Command line interfaces&&& \\
-%\tt purrr & Functional programming&&& \\\hline
-\end{tabular}}
-\caption{10 Most Downloaded Packages.}\label{most}
+\end{tabular}}\caption{10 Most Downloaded Packages.}\label{most}
 \end{figure}
 
 %
