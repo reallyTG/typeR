@@ -532,36 +532,8 @@ As for attributes:
 
 \end{itemize}
 
-%
-%
-%
-%
-\subsection{{\tt genthat} Tracer Quirks}
-
-First and foremost, {\tt genthat} captures arguments only on function exit,
-so as to not force promises during function execution.  \AT{Uh oh:} One
-clear limitation here is that if an argument \textit{gains} attributes over
-the functione execution, then they will appear in our signatures.  As R is
-side-effecting, this is an entirely valid practice (i.e., passing objects to
-functions to modify them), though \AT{it's unclear if people actually do
-  this}.
-
-\AT{Maybe talk about the quirks of genthat in here?
-For example, how it deals with default arguments, and stuff like that.}
-
-%
-%
-%
-%
-\subsection{Goals}
-
-Ultimately, our goal is to collect data and report on patterns which emerge
-organically.  That said, the comprehensive picture of type usage we are
-developing can also be used to inform the design of a set of \textit{type
-  annotations} for the language, and this goal informs our analysis.  As we
-collect our data, we keep in mind the idea that the data we produce should
-clearly suggest what sorts of type annotations would reflect language usage
-patterns.
+These naturally-occurring attribute patterns and classes can be separately accounted for to highlight user-defined patterns and behaviours.
+This will be made clear in Section~\ref{sec:results}.
 
 %
 %
@@ -570,21 +542,60 @@ patterns.
 %
 %
 \section{Results}
+\label{sec:results}
 
-\AT{PSA:} There are a few ways we could do this section.
-One way would be to go through our data in a sort of linear fashion, akin to how the main notebook is set up.
-We can explore each of our type systems one at a time, and present them (thus breaking the section up by type system).
-Another option is to just break down by-result, so have a section for the counts, for the top polymorphism...
-I like the first option better.
+\AT{Meta-Comment:} 
+My plan for this section is to linearly go through the data, and show logical transitions between various type systems.
+I'll start with the finest-grained one.
 
 \AT{Draft}
-In this section, we will present the results of our analysis. 
+Having built an understanding of our data collection and analysis pipeline, we will turn our attention to the results of our analysis.
 We approach the data with the purpose of informing the design of a static type system for R.
-We propose to begin with a very basic type system, discussed next.
+To that end, we propose to begin with a very basic type system, the {\it Fine-Grained Type System} (FGTS).
 
-\subsection{Base R Type System}
+The logical ``baseline'' for any design of a static type system for R is promotion of the language's dynamic types (in the sense of \code{typeof}) to static types, but there are some clear limitations to this approach.
+For example, \code{typeof} makes no distinction between vectors and scalars, as indeed there is no such distinction in R.
+But that doesn't mean that there {\it shouldn't} be a distinction, as an all-new runtime environment design for R might benefit from such a distinction.
 
-The {\it Base R Type System} (BRTS) ...
+To address these limitations, we augment the logical naive type system with more information which was alluded to in the discussion of our data collection methodology.
+We will consider unit-length vectors to be scalars, collect list member type information to build an accurate list type, and promote NAs to their own type.
+In addition, we collect attribute and class information to distinguish a type for data frames and matrices, as the \code{typeof} these is simply {\tt list} in R.
+This type system is referred to as the Fine-Grained Type System, or FGTS.
+An example of a signature in this type system can be found in Figure~\AT{figggg}.
+
+The first question we will address is: {\it how polymorphic is R?}
+To answer that, we will first look at the number of monomorphic arguments across all of the packages we analyzed.
+The data can be found in Figure~\AT{fiGgGgGgGGg}.
+
+\AT{We should figure out the pipeline to get the notebook output into here.}
+
+\AT{I'm fairly sure the numbers aren't going to be insanely different, so I'll just manually write them for now.}
+
+We see that roughly 10\% of all argument positions in R are polymorphic.
+The numbers for attribute and class polymorphism are included for completeness, but the important number is that of type polymorphism (as our method of constructing types sometimes factors in class and attribute).
+Specifically for classes, often the class and \code{typeof} a value will line up (refer to Section~\ref{sec:rlang}).
+
+As for functions, roughly 25\% are polymorphic, or put differently 25\% have at least one polymorphic argument or a polymorphic return.
+The discrepancy between this and the polymorphicity of arguments is explained by the tendency of some functions, particularly those dealing with models, to have {\it many} arguments.
+
+These numbers alone are insufficient, so we ask: {\it of the polymorphic arguments, what are the most common patterns?}
+The answer to that question can be found in Figure~\AT{eyyy}.
+
+By and large, the most common pattern is {\tt scalar/X} and {\tt vector/X}.
+One way to account for this would be to collapse scalar and vector types into a vector type:
+If a function argument is observed to be both a unit-length and non-unit-length vector, then it's reasonable to assume that the argument is intended to be a vector.
+
+One other interesting question is: {\it how many arguments are strictly scalar?}
+As it happens, over 40\% of monomorphic arguments with primitive vectorized types are always scalar (so, 40\% of {\it monomorphic} occurrences of {\tt scalar/X} and {\tt vector/X} are scalar).
+This is important as it shows that there is value in a scalar annotation, which could be used to communicate to an R runtime that vectorization of a value is not necessary, which may in turn ead to a performance improvement.
+
+We will collapse the distinction between vectors and scalars in a moment, but imagine we did so and refer back to Figure~\AT{eyyy}.
+Another major source of polymorphism is the {\tt double} and {\tt integer} distinction.
+This distinction is mainly just relevant to the implementation, as integers and doubles are stored and dealt with differently in the runtime.
+For a programmer, this distinction is meaningless, as both types can be used interchangeably in every situation.
+We propose to also collapse this distinction, instead considering doubles and integers as part of a real number type, {\tt real}.
+
+\AT{TODO: do vector/scalar collapse and real collapse and get numbers.}
 
 %
 %
@@ -592,11 +603,7 @@ The {\it Base R Type System} (BRTS) ...
 %
 \subsection{Types in R}
 
-\AT{may not be the correct place for this. i think i accidentally deleted it.}
-
-R is a unityped language, and as such is trivially monomorphic, and this notion of monomorphism is far from useful.
-We are interested in expanding the notion of ``type'' in R, and thankfully the language has some tools on offer.
-\AT{this is discussed later on}
+\AT{I'll pull from this section when appropriate, as the discussion of the type systems becomes relevant.}
 
 %
 %
