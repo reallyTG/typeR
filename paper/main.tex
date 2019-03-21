@@ -38,6 +38,8 @@
 }
 \newcommand{\code}[1]{\lstinline|#1|\xspace}
 
+\newcommand{\genthat}{{\sc Genthat}\xspace}
+
 \setcopyright{none}
 %\setcopyright{acmcopyright}%\setcopyright{acmlicensed}
 %\acmDOI{10.475/123_4}
@@ -146,7 +148,7 @@ The contributions of this paper are thus as follows:
 \item A large-scale analysis of the polymorphism present in function
   signatures of \PACKAGES widely used and actively maintained R packages.
 \item A tracing and analysis pipeline that extends a previously published
-  test generation tool named \code{genthat}.
+  test generation tool named \genthat.
 \item Manual analysis of 100 functions to validate the dynamic analysis
   results.
 \end{itemize}
@@ -397,8 +399,6 @@ package.
 \newpage
 \section{Methods}
 
-\newcommand{\genthat}{{\sc genthat}\xspace}
-
 In this section, we will detail our methodology for collecting data.  The
 basic idea we are exploring is to observe arguments and return values of
 function calls, and from these generalize possible type signatures for the
@@ -437,12 +437,12 @@ record are as follows:
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 `+`: D[1], I[1] -> D[1]
-`c`: D[1], D[1], D[1], D[1] -> D[4]
+c: D[1], D[1], D[1], D[1] -> D[4]
 `<-`: S, D[3] -> D[3]
-`c`: D[1], D[1] -> D[2]
+c: D[1], D[1] -> D[2]
 `attr<-1`:  S, C, D[2] -> 
-`c`: D[1], D[1] -> D
-`+`: D[4]{dim=(2,2)}, D[2] -> D[4]{dim=(2,2)}
+c: D[1], D[1] -> D[2]
+`+`: D[4]{dim=D[2]}, D[2] -> D[4]{dim=D[2]}
 \end{lstlisting}}\caption{Recorded shapes}\label{shapes}\end{figure}
 
 In the above we abreviate types, \k{double}, \k{integer}, \k{symbol} and
@@ -454,47 +454,44 @@ adds a matrix to a vector returning a matrix.
 
 \subsection{Implementation}
 
->>>>
-
-The high-level process for tracing one package is as follows:
+A high-level description of the workflow of our tool for one package
+retrieved from CRAN is as follows:
 
 \begin{enumerate}
-\item first, all functions in the package are instrumented with on-exit
-  hooks.  These hooks call a number of R's available reflection functions on
-  each of the arguments, as well as the return type: The called functions
-  are {\tt typeof}, {\tt class}, and {\tt attributes}.  Recording is done on
-  function exit to avoid forcing promises before they are needed (as these
-  promises may cause side effects).
-  
-\item next, runnable code is extracted and run from package tests, examples,
-  and vignettes.
-  
-\item each function invocation triggers the on-exit hook, and it is this
-  on-exit code which collects the information.  Depending on the results of
-  {\tt typeof}, {\tt class}, and {\tt attributes}, more analysis may be
-  performed.  For example, if an argument is a list, type information is
-  collected on list elements until a more accurate type (e.g., {\tt
-    list<double>}) can be constructed.  Indeed, in a later section we do
-  propose some possible type systems for R, and our analysis can be
-  parameterized with these type systems to generate type information
-  according to the types specified, and this will be discussed further in
-  Section \AT{yap}.
-	
-\item all of the recorded type information makes up a function {\it trace}.
-  This trace is passed to a C++ function (for performance reasons) which
-  hashes it and checks it against already seen trace hashes.  If the trace
-  is determined to be new, the hash is saved and the trace is written to a
-  file.
-	
-\item finally, after all test code has finished executing, we are left with
-  a directory full of all of the unique type signatures that were observed
-  while running the package code.
+\item {\bf Exec generation:} All runnable code in the package is extracted
+  from its tests, examples and vignettes. The code snippets are combined
+  into a single file.
+\item {\bf Installation:} All packages that are required for execution of
+  the current package are downloaded and installed.
+\item {\bf Instrumentation:} As code is loaded into the R, every function
+  definition is instrumented with an \code{on-exit} hook which is invoked
+  when the function returns either normally or through an exception.
+\item {\bf Recording:} When a hook is called, arguments and return value are
+  inspected. We record \k{typeof}, \k{class} and \k{attributes} recursively.
+  For \code{list} values, an extra bit of analysis is performed to record
+  the element type.
+\item {\bf Writing:} Unique signatures are recorded to file with information
+  about which package triggered the recording.
 \end{enumerate}
 
-For each package function, we then consolidate all observed signatures: this
-gives us a {\it function signature}.  \AT{Example?}  In the function
-signature, each function argument is accompanied by a list of types,
-attributes, and classes that have inhabited it.
+Our recording mechanism does not remember the order in which arguments were
+passed, nor does it record which arguments were not passed (and for which
+default values were used). If an argument was not passed, and no default
+value was specified, we record it as \emph{missing}. In R, trying to use
+such a missing value results in an error. For practical reasons, we do not
+record the contents of environments. These can be used as hash tables and
+may be big and are quite likely different from one another.
+
+In R all arguments are passed as promises, unused arguments will be
+unevaluated, for these we can not report a type. THUS WE DO WHAT? SAY MORE.
+
+For each function of each package, we consolidate all recorded observations
+into a function signature. The details of how consolidation is parameterized
+by the definition of a potential type system for R and will be discussed in
+the next section.
+
+
+\section{Stuff}
 
 We will need a notion of polymorphism when undertaking this analysis.  As R
 is unityped, and the only notion of polymorphism in the language is its use
