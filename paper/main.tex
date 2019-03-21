@@ -342,7 +342,6 @@ which must successfully run. From our perspective this means that each of
 the package in CRAN comes with up to a dozen executable scripts that
 exercise some of its functionality.
 
-
 Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
 for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
 lines of R code and \CLOC lines of C code. For each package, we extracted
@@ -382,195 +381,201 @@ package.
 \end{tabular}}\caption{10 Most Downloaded Packages.}\label{most}
 \end{figure}
 
-%
-%
-%
-%
-\section{The \texttt{genthat} Package}
-\label{sec:genthat}
-
-As we mentioned, getting our hands on ``front-line'' non-library R code is tricky: 
-R is not like many other languages, where large systems are built up and stored in a repository such as GitHub.  
-Instead, R programmers are liable to leverage a number of packages and work them into their data analysis pipelines.
-
-Thankfully, we are somewhat able to make up for this lack of code.
-CRAN has a policy that published packages are to be accompanied by at least one vignette, and typically by tests and examples showing off how the code is intended to be used.  
-Nominally unrelated, the {\tt genthat} project~\cite{issta18} traces this example code to generate new unit tests which package designers may not have thought of.
-As it happens, we can leverage {\tt genthat} to extract dynamic type information from running package test code, which presumably indicates how package code is intended to be used.
-
-\AT{Draft}
-
-Our tracer is built on of the {\tt genthat}~\cite{issta18} tracer, which we modified to capture the type information of arguments.  
-{\tt genthat} generates traces for each unique function invocation with the express purpose of re-invoking the function at a later time, and instead of generating traces for these invocations we capture type information of the arguments and return values of functions.
-This is done by evaluating the arguments and return values of functions at the end of the function's scope in the relevant environment.  
-The sort of types and granularity of the type information that are generated can be specified in our tracer: 
-Essentially, our tracer is parameterized over a user-specified type system.  
-For instance, if desired our tracer can dig into lists and data frames to get the types of list elements and fields.
-Our tracer produces trace results for each unique type signature encountered, which may then be used for data analysis.
-
-An unfortunate consequence of R's most common usage pattern is the lack of "deployed" R code. 
-R is most often used for exploratory data analysis, and very little of this analysis code is made publicly available on e.g. GitHub.
-The {\tt genthat} angle is thus desirable: 
-With the scarcity of non-library code, examples of package usage is about as representative as one can hope for of the sort of code people will write in their analysis pipelines.
-
-We can do a little bit better than merely package usage examples, though.
-Available through CRAN is a list of {\it reverse dependencies} of packages: 
-for some package {\tt p}, a list of all packages which require {\tt p} in some way.  
-Our tracer is able to leverage and trace this code as well. 
-When running a package, we also trace how all inherited functions are used, thus painting an even clearer picture of function usage.  
-This additional data is considered alongside similar data collected for all other packages, as well as the data obtained by tracing the package's examples.
-
-% Some prose we might want to pull from.
-%First, we leverage {\tt genthat}'s tracer to trace function executions.  The
-%idea here is that we don't really have access to non-library code written in
-%R, as general use patterns are (possibly?) to write small scripts which
-%analyze some bit of data and possibly visualize results.  The goal is likely
-%not to build big working systems, instead to explore data with by writing
-%and rewriting small scripts, ad infinitum.  In looking at package tests,
-%vignettes, and examples, we are painting a picture of how the package
-%designers intended their packages to be used, which we believe is a close
-%approximation of what R users would do.
-
-
-\section{The Method}
+\newpage
+\section{Methods}
 
 In this section, we will detail our methodology for collecting data.
 
-%
-%
-%
-%
-\subsection{Granularity of Type Information}
+Our tracer is built on of the {\tt genthat}~\cite{issta18} tracer, which we
+modified to capture the type information of arguments.  {\tt genthat}
+generates traces for each unique function invocation with the express
+purpose of re-invoking the function at a later time, and instead of
+generating traces for these invocations we capture type information of the
+arguments and return values of functions.  This is done by evaluating the
+arguments and return values of functions at the end of the function's scope
+in the relevant environment.  The sort of types and granularity of the type
+information that are generated can be specified in our tracer: Essentially,
+our tracer is parameterized over a user-specified type system.  For
+instance, if desired our tracer can dig into lists and data frames to get
+the types of list elements and fields.  Our tracer produces trace results
+for each unique type signature encountered, which may then be used for data
+analysis.
 
-As we mentioned in Section~\ref{sec:rlang}, R has several notions of ``type'', ranging from the results of \code{typeof} to metadata on values obtainable via the \code{attributes} function.
-Individually, these paint an incomplete picture of the type of a value:
-For example, recall that \code{typeof(5) == typeof(c(5, 5)) == "double"}.
-
-To be as specific as possible, our analysis collects additional information to create a more specific type than the result of any of R's reflection functions.
-For instance, if the analysis encounters {\tt typeof(x) == "double"}, it will look at the length of {\tt x} to determine if {\tt x} is a scalar or a vector, generating the annotation {\tt scalar/double} or {\tt vector/double} accordingly. 
-One notable imperfection in this example is that unit-length vectors will appear as scalars, but if some function was called with unit-length vectors {\it as well as} larger ones, both scalar and vector types will appear, and this distinction can be later collapsed.
-Another example is that our analysis builds parametric list types by capturing the types of list elements.
-We also distinguish NAs ``in the wild'' with a {\tt raw\_NA} type.
-
 %
-%
-%
-%
-\subsection{Data Collection Pipeline}
-
-As we mentioned in Section~\ref{sec:genthat}, we modify the {\tt genthat} tracer to collect and output the type information for all function invocations.
-
 The high-level process for tracing one package is as follows:
 
 \begin{enumerate}
-	\item first, all functions in the package are instrumented with on-exit hooks.
-  	These hooks call a number of R's available reflection functions on each of the arguments, as well as the return type: 
-  	The called functions are {\tt typeof}, {\tt class}, and {\tt attributes}.  
-  	Recording is done on function exit to avoid forcing promises before they are needed (as these promises may cause side effects).
+\item first, all functions in the package are instrumented with on-exit
+  hooks.  These hooks call a number of R's available reflection functions on
+  each of the arguments, as well as the return type: The called functions
+  are {\tt typeof}, {\tt class}, and {\tt attributes}.  Recording is done on
+  function exit to avoid forcing promises before they are needed (as these
+  promises may cause side effects).
   
-  	\item next, runnable code is extracted and run from package tests, examples, and vignettes, and \AT{what about rev deps}.
+\item next, runnable code is extracted and run from package tests, examples,
+  and vignettes.
   
-	\item each function invocation triggers the on-exit hook, and it is this on-exit code which collects the information.
-	Depending on the results of {\tt typeof}, {\tt class}, and {\tt attributes}, more analysis may be performed.
-	For example, if an argument is a list, type information is collected on list elements until a more accurate type (e.g., {\tt list<double>}) can be constructed.
-	Indeed, in a later section we do propose some possible type systems for R, and our analysis can be parameterized with these type systems to generate type information according to the types specified, and this will be discussed further in Section \AT{yap}.
+\item each function invocation triggers the on-exit hook, and it is this
+  on-exit code which collects the information.  Depending on the results of
+  {\tt typeof}, {\tt class}, and {\tt attributes}, more analysis may be
+  performed.  For example, if an argument is a list, type information is
+  collected on list elements until a more accurate type (e.g., {\tt
+    list<double>}) can be constructed.  Indeed, in a later section we do
+  propose some possible type systems for R, and our analysis can be
+  parameterized with these type systems to generate type information
+  according to the types specified, and this will be discussed further in
+  Section \AT{yap}.
 	
-	\item all of the recorded type information makes up a function {\it trace}.
-	This trace is passed to a C++ function (for performance reasons) which hashes it and checks it against already seen trace hashes.
-	If the trace is determined to be new, the hash is saved and the trace is written to a file.
+\item all of the recorded type information makes up a function {\it trace}.
+  This trace is passed to a C++ function (for performance reasons) which
+  hashes it and checks it against already seen trace hashes.  If the trace
+  is determined to be new, the hash is saved and the trace is written to a
+  file.
 	
-	\item finally, after all test code has finished executing, we are left with a directory full of all of the unique type signatures that were observed while running the package code.
-	
+\item finally, after all test code has finished executing, we are left with
+  a directory full of all of the unique type signatures that were observed
+  while running the package code.
 \end{enumerate}
 
-For each package function, we then consolidate all observed signatures: this gives us a {\it function signature}.
-\AT{Example?}
-In the function signature, each function argument is accompanied by a list of types, attributes, and classes that have inhabited it. 
+For each package function, we then consolidate all observed signatures: this
+gives us a {\it function signature}.  \AT{Example?}  In the function
+signature, each function argument is accompanied by a list of types,
+attributes, and classes that have inhabited it.
 
-We will need a notion of polymorphism when undertaking this analysis.
-As R is unityped, and the only notion of polymorphism in the language is its use of dynamic dispatch on the class of an argument.
-For our purposes, we will define 3 simple types of polymorphism, closely connected with the reflection functions we use.
-We start by defining what it means for an {\it argument} to be polymorphic.
-\AT{Could be valuable to have an example here.}
+We will need a notion of polymorphism when undertaking this analysis.  As R
+is unityped, and the only notion of polymorphism in the language is its use
+of dynamic dispatch on the class of an argument.  For our purposes, we will
+define 3 simple types of polymorphism, closely connected with the reflection
+functions we use.  We start by defining what it means for an {\it argument}
+to be polymorphic.  \AT{Could be valuable to have an example here.}
 
 \begin{itemize}
-
-	\item an argument is {\it polymorphic in type} if it has been called with at least two distinct ``types'' according to the \code{typeof} function and our extra analysis.
+\item an argument is {\it polymorphic in type} if it has been called with at
+  least two distinct ``types'' according to the \code{typeof} function and
+  our extra analysis.
+\item similarly, an argument is {\it polymorphic in class} if it has been
+  called with at least two distinct classes according to the \code{class}
+  function.
 	
-	\item similarly, an argument is {\it polymorphic in class} if it has been called with at least two distinct classes according to the \code{class} function.
-	
-	\item attributes are a bit more tricky.
-	We can't simply count the number of attributes that have inhabited an argument, since values can contain arbitrarily many values (and having several attributes isn't polymorphism---think records).
-	Instead, we define the {\it attribute pattern} of a value to be the set of all attribute name and type pairs in the attribute list of a value (obtained via \code{attributes}).
-	And so an argument is {\it polymorphic in attribute} if it has been called with at least two distinct attribute patterns.
+\item attributes are a bit more tricky.  We can't simply count the number of
+  attributes that have inhabited an argument, since values can contain
+  arbitrarily many values (and having several attributes isn't
+  polymorphism---think records).  Instead, we define the {\it attribute
+    pattern} of a value to be the set of all attribute name and type pairs
+  in the attribute list of a value (obtained via \code{attributes}).  And so
+  an argument is {\it polymorphic in attribute} if it has been called with
+  at least two distinct attribute patterns.
 
 \end{itemize}
 
-There is an important distinction to be made between the result of \code{typeof} and that of \code{class} and \code{attributes}:
-In R, the \code{typeof} a value cannot change, and this is not the case with class and attributes.
-As mentioned in \AT{an earlier section}, the class of values can be easily redefined by assigning to the value's class attribute.
+There is an important distinction to be made between the result of
+\code{typeof} and that of \code{class} and \code{attributes}: In R, the
+\code{typeof} a value cannot change, and this is not the case with class and
+attributes.  As mentioned in \AT{an earlier section}, the class of values
+can be easily redefined by assigning to the value's class attribute.
 Similarly, attributes can be dynamically added, removed, or changed.
 
-This begs the question: what sort of classes and attribute patterns occur naturally, before possible user tampering?
-In terms of classes, the discussion can be found in Section~\ref{sec:rlang}.
-As for attributes:
+This begs the question: what sort of classes and attribute patterns occur
+naturally, before possible user tampering?  In terms of classes, the
+discussion can be found in Section~\ref{sec:rlang}.  As for attributes:
 
 \begin{itemize}
 
-	\item data frames have three attributes: {\tt names} for column names, {\tt row.names} for row names, and {\tt class} (which is instantiated to {\tt "data.frame"} upon creation).
+\item data frames have three attributes: {\tt names} for column names, {\tt
+  row.names} for row names, and {\tt class} (which is instantiated to {\tt
+  "data.frame"} upon creation).
 	
-	\item matrices have at least a {\tt dim} attribute with matrix dimensions, and optionally a {\tt dimnames} attribute for dimension names.
+\item matrices have at least a {\tt dim} attribute with matrix dimensions,
+  and optionally a {\tt dimnames} attribute for dimension names.
 
-	\item lists and vectors may have a {\tt names} attribute, which assigns names to locations.
+\item lists and vectors may have a {\tt names} attribute, which assigns
+  names to locations.
 	
-	\item to ease dealing with large sorted sets of non-numeric values, R offers the \code{factor} and \code{levels} functions.
-	\code{factor(x, levels=someOrder)} adds a {\tt "levels"} attribute to \code{x}, which specifies an ordering for \code{x} according to the \code{sortedOrder} parameter.
-	\code{factor} also changes the class of the parameter being factored to \code{"factor"}.
+\item to ease dealing with large sorted sets of non-numeric values, R offers
+  the \code{factor} and \code{levels} functions.  \code{factor(x,
+    levels=someOrder)} adds a {\tt "levels"} attribute to \code{x}, which
+  specifies an ordering for \code{x} according to the \code{sortedOrder}
+  parameter.  \code{factor} also changes the class of the parameter being
+  factored to \code{"factor"}.
 
 \end{itemize}
 
-These naturally-occurring attribute patterns and classes can be separately accounted for to highlight user-defined patterns and behaviours.
-This will be made clear in Section~\ref{sec:results}.
+These naturally-occurring attribute patterns and classes can be separately
+accounted for to highlight user-defined patterns and behaviours.  This will
+be made clear in Section~\ref{sec:results}.
 
 %
 %
+
 %
+\subsection{Granularity of Type Information}
+
+As we mentioned in Section~\ref{sec:rlang}, R has several notions of
+``type'', ranging from the results of \code{typeof} to metadata on values
+obtainable via the \code{attributes} function.  Individually, these paint an
+incomplete picture of the type of a value: For example, recall that
+\code{typeof(5) == typeof(c(5, 5)) == "double"}.
+
+To be as specific as possible, our analysis collects additional information
+to create a more specific type than the result of any of R's reflection
+functions.  For instance, if the analysis encounters {\tt typeof(x) ==
+  "double"}, it will look at the length of {\tt x} to determine if {\tt x}
+is a scalar or a vector, generating the annotation {\tt scalar/double} or
+{\tt vector/double} accordingly.  One notable imperfection in this example
+is that unit-length vectors will appear as scalars, but if some function was
+called with unit-length vectors {\it as well as} larger ones, both scalar
+and vector types will appear, and this distinction can be later collapsed.
+Another example is that our analysis builds parametric list types by
+capturing the types of list elements.  We also distinguish NAs ``in the
+wild'' with a {\tt raw\_NA} type.
+
 %
-%
-%
-\section{Results}
-\label{sec:results}
+\section{Results}\label{sec:results}
 
-\AT{Meta-Comment:} 
-My plan for this section is to linearly go through the data, and show logical transitions between various type systems.
-I'll start with the finest-grained one.
+\AT{Meta-Comment:} My plan for this section is to linearly go through the
+data, and show logical transitions between various type systems.  I'll start
+with the finest-grained one.
 
-\AT{Draft}
-Having built an understanding of our data collection and analysis pipeline, we will turn our attention to the results of our analysis.
-We approach the data with the purpose of informing the design of a static type system for R.
-To that end, we propose to begin with a very basic type system, the {\it Fine-Grained Type System} (FGTS).
+Having built an understanding of our data collection and analysis
+pipeline, we will turn our attention to the results of our analysis.  We
+approach the data with the purpose of informing the design of a static type
+system for R.  To that end, we propose to begin with a very basic type
+system, the {\it Fine-Grained Type System} (FGTS).
 
-The logical ``baseline'' for any design of a static type system for R is promotion of the language's dynamic types (in the sense of \code{typeof}) to static types, but there are some clear limitations to this approach.
-For example, \code{typeof} makes no distinction between vectors and scalars, as indeed there is no such distinction in R.
-But that doesn't mean that there {\it shouldn't} be a distinction, as an all-new runtime environment design for R might benefit from such a distinction.
+The logical ``baseline'' for any design of a static type system for R is
+promotion of the language's dynamic types (in the sense of \code{typeof}) to
+static types, but there are some clear limitations to this approach.  For
+example, \code{typeof} makes no distinction between vectors and scalars, as
+indeed there is no such distinction in R.  But that doesn't mean that there
+{\it shouldn't} be a distinction, as an all-new runtime environment design
+for R might benefit from such a distinction.
 
-To address these limitations, we augment the logical naive type system with more information which was alluded to in the discussion of our data collection methodology.
-We will consider unit-length vectors to be scalars, collect list member type information to build an accurate list type, and promote NAs to their own type.
-In addition, we collect attribute and class information to distinguish a type for data frames and matrices, as the \code{typeof} these is simply {\tt list} in R.
-This type system is referred to as the Fine-Grained Type System, or FGTS.
-An example of a signature in this type system can be found in Figure~\AT{figggg}.
+To address these limitations, we augment the logical naive type system with
+more information which was alluded to in the discussion of our data
+collection methodology.  We will consider unit-length vectors to be scalars,
+collect list member type information to build an accurate list type, and
+promote NAs to their own type.  In addition, we collect attribute and class
+information to distinguish a type for data frames and matrices, as the
+\code{typeof} these is simply {\tt list} in R.  This type system is referred
+to as the Fine-Grained Type System, or FGTS.  An example of a signature in
+this type system can be found in Figure~\AT{figggg}.
 
-The first question we will address is: {\it how polymorphic is R?}
-To answer that, we will first look at the number of monomorphic arguments across all of the packages we analyzed.
-The data can be found in Figure~\AT{fiGgGgGgGGg}.
+The first question we will address is: {\it how polymorphic is R?}  To
+answer that, we will first look at the number of monomorphic arguments
+across all of the packages we analyzed.  The data can be found in
+Figure~\AT{fiGgGgGgGGg}.
 
 \AT{We should figure out the pipeline to get the notebook output into here.}
 
-\AT{I'm fairly sure the numbers aren't going to be insanely different, so I'll just manually write them for now.}
+\AT{I'm fairly sure the numbers aren't going to be insanely different, so
+  I'll just manually write them for now.}
 
 We see that roughly 10\% of all argument positions in R are polymorphic.
-The numbers for attribute and class polymorphism are included for completeness, but the important number is that of type polymorphism (as our method of constructing types sometimes factors in class and attribute).
-Specifically for classes, often the class and \code{typeof} a value will line up (refer to Section~\ref{sec:rlang}).
+The numbers for attribute and class polymorphism are included for
+completeness, but the important number is that of type polymorphism (as our
+method of constructing types sometimes factors in class and attribute).
+Specifically for classes, often the class and \code{typeof} a value will
+line up (refer to Section~\ref{sec:rlang}).
 
 As for functions, roughly 25\% are polymorphic, or put differently 25\% have at least one polymorphic argument or a polymorphic return.
 The discrepancy between this and the polymorphicity of arguments is explained by the tendency of some functions, particularly those dealing with models, to have {\it many} arguments.
