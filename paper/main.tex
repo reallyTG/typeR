@@ -295,25 +295,30 @@ closures and environments.  The implementation of R has a number of other
 types that are mostly not used by user code, they are listed in
 Figure~\ref{types} for reference.
 
+The addition of attributes lets programmers extend the set of types by
+tagging data with user-defined attributes. For example, one could define a
+vector of four values, \code{x<-c(1,2,3,4)} and then attach the attribute
+\k{dim} with a pair of numbers as value: \code{attr(x,"dim")<-c(2,2)}.  From
+that point, arithmetic functions will treat \k{x} as a 2x2 matrix. Another
+attribute that can be set is the \k{class}.  This attribute can be bound to
+a list of class names. For instance, \code{class(x)<-"human"}, set the class
+of \k{x} to be \k{human}.  Attributes are thus used for object-oriented
+programming. The S3 object system support single dispatch on the class of
+the first argument of a function, whereas the S4 object system allows
+multiple dispatch (on all arguments). Some of the most widely used data
+type, such as data frames, leverage attributes. A data frame, for instance,
+is a list of vectors with a class and a column name attribute.
 
-Another form of type information relates to metadata on values, and R allows
-programmers to add said metadata in the form of {\it attributes}.  The
-functionality to do so in R is through the \code{attributes(x)} and
-\code{attr(x, "name")} functions.  \code{attributes}
+\paragraph{Summary.} The most common values in R computations are vectorized
+types. R programs do not have a way to constrain values to be scalar.
+\k{NULL} is sometimes used to represent the case when no value is
+available. \k{NA} is used within vector to represent missing observations.
+Attributes can decorate values and are used as building blocks for
+object-oriented programming. A potential type system for R could focus only
+on the builtin types, if one wanted to strive for simplicity, or it could
+try to capture attributes at the risk of increased complexity.
 
-
-Besides these primitive data types, R has an out-of-the-box data type called
-the data frame for storing data, and this data type is essential to a large
-part of R's functionality.  A data frame is a two-dimensional array where
-each row represents an observation, with columns indicating the values of
-some observation.  For example, our own analysis is written in R, and one of
-our data frames has a row for each package analyzed, with columns for values
-ranging from number of polymorphic functions, number of monomorphic
-arguments, unique attribute patterns, etc.  \AT{Put a figure?}  Much of R's
-base functionality, and indeed much of the functionality provided by
-packages, operate on data frames.
-
-
+\newpage
 \section{The Corpus}\label{sec:corpus}
 
 In this section, we present our dataset. R is designed to accommodate data
