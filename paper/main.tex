@@ -384,9 +384,64 @@ package.
 \newpage
 \section{Methods}
 
+\newcommand{\genthat}{{\sc genthat}\xspace}
+
 In this section, we will detail our methodology for collecting data.
 
-Our tracer is built on of the {\tt genthat}~\cite{issta18} tracer, which we
+The basic idea we are exploring is to observe arguments and return values of
+function calls, and from these generalize possible type signatures for the
+called functions. To this end, we build on an open source tool called
+\genthat whose purpose was to generate unit tests for R
+libraries~\cite{issta18}.  To generate test cases, one must record and
+recreate accurately arguments and return values and avoid generating
+redundant tests (i.e. tests that do not increase code coverage). For our
+purposes, we change the existing tool in two main ways, we record argument
+\emph{shapes} rather than their values, given the limited number of shapes
+this allowed us to avoid having to run code coverage minimization phase of
+the tool. Both changes were beneficial for scalability -- allowing us to
+trace more calls than was reported in~\cite{issta18}.
+
+\subsection{Example}
+
+To illustrate our approach consider the following script which adds a double
+to an integer, and the creates a matrix and a vector to i.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+> 1 + 2L
+[1] 3
+> x <- c(1,2,3,4)
+> attr(x,"dim") <- c(2,2)
+> x + c(1,2)
+     [,1] [,2]
+[1,]    2    4
+[2,]    4    6
+\end{lstlisting}}\caption{Example script}\label{example}\end{figure}
+
+The functions being called here are \k{`+`}, \k{`<-`}, \k{c} and
+\k{`attr<-`}.  Some functions syntactic support, addition is infix, and the
+assignment to an attribute is written mixfix. The shapes we would expect to
+record are as follows:
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+`+`: D[1], I[1] -> D[1]
+`c`: D[1], D[1], D[1], D[1] -> D[4]
+`<-`: S, D[3] -> D[3]
+`c`: D[1], D[1] -> D[2]
+`attr<-1`:  S, C, D[2] -> 
+`c`: D[1], D[1] -> D
+`+`: D[4]{dim=(2,2)}, D[2] -> D[4]{dim=(2,2)}
+\end{lstlisting}}\caption{Recorded shapes}\label{shapes}\end{figure}
+
+In the above we abreviate types, \k{double}, \k{integer}, \k{symbol} and
+\k{character}. For vectorized types we record their length and for all types
+we record attributes with some of their values. Looking at the signatures
+observed for addition, it is clear that the function is polymorphic as it
+starts with the addition of two scalar numbers of different types, and then
+adds a matrix to a vector returning a matrix.
+
+\subsection{Implementation}
+
+tracer, which we
 modified to capture the type information of arguments.  {\tt genthat}
 generates traces for each unique function invocation with the express
 purpose of re-invoking the function at a later time, and instead of
