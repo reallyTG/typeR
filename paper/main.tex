@@ -1,5 +1,5 @@
 \documentclass[acmsmall,10pt,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
-\usepackage{booktabs,listings,xspace}
+\usepackage{booktabs,listings,xspace,wrapfig}
 \lstset{language=R}
 \usepackage{my_style}
 
@@ -166,6 +166,8 @@ repository. While this may bias our findings towards code written to be
 reusable and, possibly, better engineered than typical user code. This is
 also the code that would most benefit from type annotations.
 
+\newpage  %%Leave here
+
 \section{The R Programming Language}\label{sec:rlang}
 
 Over the last decade, the R Project has become a key tool for implementing
@@ -190,7 +192,7 @@ normalizes the vector with respect to its sum and rounds the results. The
 function definition does not require type annotations, and all operations
 transparently work on vectors of any length and different types.
 
-\begin{figure}{\small
+\begin{figure}[!hb]{\small
 \begin{lstlisting}[style=R]
 > normSum <- function( m )  round( m / sum(m), 2)
 > normSum(c(1L,3L,6L))
@@ -218,7 +220,6 @@ as well as the result of evaluating the expression. Promises can be
 leveraged for meta-programming as it is possible to retrieve the text of a
 promise and evaluate that in a different environment.
 
-
 \subsection{Types of Data}
 
 Before attempting to define a type system for R, we should understand the
@@ -235,12 +236,12 @@ as an optional map from name to values that can be attached to any object.
 Attributes are used to encode various type structures. They can be queried
 with functions such as \k{attributes} and \k{class}.
 
-\begin{figure}[!ht]
-\begin{tabular}{l|l}\hline
+\begin{wrapfigure}{r}{6.1cm}
+\footnotesize\begin{tabular}{l|l@{}}\hline
 \multicolumn{2}{l}{\bf Vectorized data types:}  \\\hline
 \k{logical}  & vector of boolean values\\
 \k{integer}   & vector of 32 bit integer values\\
-\k{double} & vector of 64 bit floating point values\\
+\k{double} & vector of 64 bit floating points\\
 \k{complex} & vector of complex values\\
 \k{character} & vector of strings values\\
 \k{raw} & vector of bytes\\
@@ -251,64 +252,54 @@ with functions such as \k{attributes} and \k{class}.
 \k{closure} & a function with its environment\\
 \k{environment} & a mapping from symbol to value \\\hline
 \multicolumn{2}{l}{\bf Implementation data types:}\\\hline
-&\k{special},
+\multicolumn{2}{l}{\k{special},
 \k{builtin},
 \k{symbol},
 \k{pairlist},
-\k{promise},
+\k{promise}}\\
+\multicolumn{2}{l}{
 \k{language},
 \k{char},
-\k{...}\\
-&\k{any},
+\k{...}, 
+\k{any},
 \k{expression},
+}\\
+\multicolumn{2}{l}{
 \k{externalprt},
 \k{bytecode},
-\k{weakref}\\\hline
-\end{tabular}\caption{Builtin Types}\label{types}\end{figure}
+\k{weakref}}\\\hline
+\end{tabular}\caption{Builtin Types}\label{types}\end{wrapfigure}
 
-The first distinction that can be made is based on the value of the
-\code{typeof} function.  This function, given a value, will return one of
-the following types: \code{logical} (vector of booleans), \code{integer}
-(vector of integers), \code{double} (vector of floating points),
-\code{complex} (vector of complex numbers), \code{character} (vector of
-character strings), \code{raw} (vector of bytes) and \code{list}
-(polymorphic vector), \code{NULL} (vector of NULL),
-\code{closure} (function), \code{environment} (naming environment),
-\code{S4} (S4 object) and others that are used within the implementation of
-R (\code{special}, \code{builtin}, \code{symbol}, \code{pairlist},
-\code{promise}, \code{language}, \code{char}, \code{...}, \code{any},
-\code{expression}, \code{externalptr}, \code{bytecode} and \code{weakref}).
+Figure~\ref{types} lists all of the builtin types that are provided by the
+language. They are the possible return values of \k{typeof}. There is no
+intrinsic notion of subtyping in R. But, in many context a \k{logical} will
+convert to \k{integer}, and an \k{integer} will convert to \k{double}.  Some
+off conversion can occur in corner cases, such as \k{1<"2"} holds and
+\k{c(1,2)[1.6]} returns the first element of the vector, as the double is
+converted to an integer. R does not distinguish between scalars and vectors
+(they are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
+  typeof(c(5,5))} \code{ == "double"}. Finally all vectorized data types have a
+distinguished missing value denoted by \code{NA}. The default type of
+\code{NA} is \k{logical}. We can see that \code{typeof(NA)=="logical"}, but
+NA inhabits every type: \code{typeof(c(1,NA)[2])=="double"}.
 
-%% TODO : make the types all bold.
-\AT{Some examples of use of \code{typeof}:} To build a sense of how these
-types arise in R code, consider the following: \AT{We could think of another
-  way to do this also.}
+With one exception all vectorized data types are monomorphic, the exception
+is the \k{list} type which can hold values of any other type including
+\k{list}. For all monomorphic data types, attempting to store a value of a
+different type will cause a conversion. Either the value is converted to the
+type of vector, or the vector is converted to the type of the value.
 
-\begin{itemize}
-\item \code{typeof(5) == typeof(c(5)) == typeof(c(5, 5)) == "double"}.  As
-  we mentioned, R is vectorized, so even apparent scalars are vectors.
-  \AT{Just for fun,} note that \code{5[1] == 5} in R.
-\item to actually get an integer, you need \code{typeof(5L) == "integer"}.
-  Doubles are by far the most common numeric type in R \AT{I can get data
-    for this}, and you can even use them to index lists and vectors:
-  \code{list(1, 2)\[\[1.9\]\] == 1}.  Note the double brackets for list
-  indexing.
-\item NAs are common in data-centric languages (e.g. MATLAB, \AT{others?}),
-  and R is no exception.  As for their type, we see that \code{typeof(NA) ==
-    "logical"}, but that isn't to say that NA only has type logical.
-  Consider \code{typeof(c(1, NA, 3)\[2\])}: NA actually inhabits every type
-  in R, \AT{details}.
-\item \AT{other examples?}
-\end{itemize}
+Scalar data types include the distinguished \k{NULL} value, which is also of
+type \k{NULL}, instance of classes written using the S4 object system,
+closures and environments.  The implementation of R has a number of other
+types that are mostly not used by user code, they are listed in
+Figure~\ref{types} for reference.
+
 
 Another form of type information relates to metadata on values, and R allows
 programmers to add said metadata in the form of {\it attributes}.  The
 functionality to do so in R is through the \code{attributes(x)} and
 \code{attr(x, "name")} functions.  \code{attributes}
-
-  - dim
-
-class:
 
 
 Besides these primitive data types, R has an out-of-the-box data type called
@@ -354,7 +345,7 @@ all executable code snippets from documentation, vignettes and tests and ran
 them independently recording all call to R functions.  It is noteworthy that
 in order to run the scripts in one package, it is often necessary to load a
 number of other packages.  In~\cite{issta18}, the authors estimated code
-coverage to be around 60\% when including reverse dependencies.  The
+coverage to be around 68\% when including reverse dependencies.  The
 rationale for our choice of packages was pragmatic, our infrastructure adds
 overhead to the execution of scripts, we eliminated any package that would
 take more than one hour to run. We expect to extend our coverage of CRAN for
