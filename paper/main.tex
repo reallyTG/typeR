@@ -207,6 +207,19 @@ transparently work on vectors of any length and different types.
 \caption{Sample R code}\label{sample}
 \end{figure}
 
+In R, function can be called with named parameters, R support variable
+argument lists, and arguments can have default values. Putting all of these
+together consider the following declaration:
+
+\begin{lstlisting}[style=R]
+f <- function(x, ..., y=3) x + y
+\end{lstlisting}
+
+\noindent
+Function \k{f} can be called with a single argument \code{f(3)}, with named
+argument \code{f(y=4,x=2)} and with a variable number of arguments,
+\code{f(1,2,3,4,y=5)}, all of these calls will return \code{6}.
+
 R has a number of features that are not crucial to the present
 discussion. We will mention some of them here for completeness.  In R, data
 structures are reference counted and have copy-on-write semantics, thus the
@@ -319,7 +332,7 @@ on the builtin types, if one wanted to strive for simplicity, or it could
 try to capture attributes at the risk of increased complexity.
 
 \newpage
-\section{The Corpus}\label{sec:corpus}
+\section{Corpus}\label{sec:corpus}
 
 In this section, we present our dataset. R is designed to accommodate data
 analysts.  Typical workflows go from data import, to data cleaning, followed
@@ -386,9 +399,8 @@ package.
 
 \newcommand{\genthat}{{\sc genthat}\xspace}
 
-In this section, we will detail our methodology for collecting data.
-
-The basic idea we are exploring is to observe arguments and return values of
+In this section, we will detail our methodology for collecting data.  The
+basic idea we are exploring is to observe arguments and return values of
 function calls, and from these generalize possible type signatures for the
 called functions. To this end, we build on an open source tool called
 \genthat whose purpose was to generate unit tests for R
@@ -404,7 +416,8 @@ trace more calls than was reported in~\cite{issta18}.
 \subsection{Example}
 
 To illustrate our approach consider the following script which adds a double
-to an integer, and the creates a matrix and a vector to i.
+to an integer, and then creates a matrix and a vector, adds them together to
+yield a new matrix.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 > 1 + 2L
@@ -441,22 +454,8 @@ adds a matrix to a vector returning a matrix.
 
 \subsection{Implementation}
 
-tracer, which we
-modified to capture the type information of arguments.  {\tt genthat}
-generates traces for each unique function invocation with the express
-purpose of re-invoking the function at a later time, and instead of
-generating traces for these invocations we capture type information of the
-arguments and return values of functions.  This is done by evaluating the
-arguments and return values of functions at the end of the function's scope
-in the relevant environment.  The sort of types and granularity of the type
-information that are generated can be specified in our tracer: Essentially,
-our tracer is parameterized over a user-specified type system.  For
-instance, if desired our tracer can dig into lists and data frames to get
-the types of list elements and fields.  Our tracer produces trace results
-for each unique type signature encountered, which may then be used for data
-analysis.
+>>>>
 
-%
 The high-level process for tracing one package is as follows:
 
 \begin{enumerate}
