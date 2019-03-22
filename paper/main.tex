@@ -385,15 +385,15 @@ package.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.6]{linesofrandccode.pdf}
-\caption{Lines of Code (R and C) in the Analyzed Corpus}
+\includegraphics[scale=0.15]{linesofrandccode.jpg}
+\caption{Lines of code in the analyzed corpus. \# of lines of R code are above 0, \# of lines of C code are below 0.}
 \label{allcloc}
 \end{center}
 \end{figure}
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.6]{recordsbypkg}
+\includegraphics[scale=0.15]{recordsbypkg}
 \caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
 \label{allcloc}
 \end{center}
@@ -422,21 +422,21 @@ In this section, we will detail our methodology for collecting data.  The
 basic idea we are exploring is to observe arguments and return values of
 function calls, and from these generalize possible type signatures for the
 called functions. To this end, we build on an open source tool called
-\genthat whose purpose was to generate unit tests for R
+\genthat whose purpose is to generate unit tests for R
 libraries~\cite{issta18}.  To generate test cases, one must record and
-recreate accurately arguments and return values and avoid generating
+accurately recreate arguments and return values and avoid generating
 redundant tests (i.e. tests that do not increase code coverage). For our
-purposes, we change the existing tool in two main ways, we record argument
-\emph{shapes} rather than their values, given the limited number of shapes
-this allowed us to avoid having to run code coverage minimization phase of
-the tool. Both changes were beneficial for scalability -- allowing us to
+purposes, we change the existing tool in two main ways: We record argument
+\emph{shapes} rather than their values, and given the limited number of shapes
+this allowed us to avoid having to run the code coverage minimization phase of
+the tool. Both changes were beneficial for scalability---allowing us to
 trace more calls than was reported in~\cite{issta18}.
 
 \subsection{Example}
 
-To illustrate our approach consider the following script which adds a double
-to an integer, and then creates a matrix and a vector, adds them together to
-yield a new matrix.
+To illustrate our approach, consider the following script which adds a double
+to an integer, and then creates a matrix and a vector, and adds them together to
+get a new matrix.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 > 1 + 2L
@@ -450,12 +450,12 @@ yield a new matrix.
 \end{lstlisting}}\caption{Example script}\label{example}\end{figure}
 
 The functions being called here are \k{`+`}, \k{`<-`}, \k{c} and
-\k{`attr<-`}.  Some functions syntactic support, addition is infix, and the
+\k{`attr<-`}.  Some functions syntactic support \AT{?}, addition is infix, and the
 assignment to an attribute is written mixfix. The shapes we would expect to
 record are as follows:
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-`+`: D[1], I[1] -> D[1]
+`+`: D[1], I[1] -> D[1] # (args: double size 1, integer size 1, return: double size 1)
 c: D[1], D[1], D[1], D[1] -> D[4]
 `<-`: S, D[3] -> D[3]
 c: D[1], D[1] -> D[2]
@@ -512,7 +512,7 @@ the next section.
 
 \section{Stuff}
 
-We will need a notion of polymorphism when undertaking this analysis.  As R
+We will need a notion of polymorphism when undertaking this analysis. R
 is unityped, and the only notion of polymorphism in the language is its use
 of dynamic dispatch on the class of an argument.  For our purposes, we will
 define 3 simple types of polymorphism, closely connected with the reflection
@@ -529,7 +529,7 @@ to be polymorphic.  \AT{Could be valuable to have an example here.}
 	
 \item attributes are a bit more tricky.  We can't simply count the number of
   attributes that have inhabited an argument, since values can contain
-  arbitrarily many values (and having several attributes isn't
+  arbitrarily many attributes (and having several attributes isn't
   polymorphism---think records).  Instead, we define the {\it attribute
     pattern} of a value to be the set of all attribute name and type pairs
   in the attribute list of a value (obtained via \code{attributes}).  And so
@@ -566,7 +566,7 @@ discussion can be found in Section~\ref{sec:rlang}.  As for attributes:
     levels=someOrder)} adds a {\tt "levels"} attribute to \code{x}, which
   specifies an ordering for \code{x} according to the \code{sortedOrder}
   parameter.  \code{factor} also changes the class of the parameter being
-  factored to \code{"factor"}.
+  factored to \texttt{"factor"}.
 
 \end{itemize}
 
@@ -612,13 +612,13 @@ approach the data with the purpose of informing the design of a static type
 system for R.  To that end, we propose to begin with a very basic type
 system, the {\it Fine-Grained Type System} (FGTS).
 
-The logical ``baseline'' for any design of a static type system for R is
+The logical ``baseline'' for the design of a static type system for R is
 promotion of the language's dynamic types (in the sense of \code{typeof}) to
 static types, but there are some clear limitations to this approach.  For
 example, \code{typeof} makes no distinction between vectors and scalars, as
 indeed there is no such distinction in R.  But that doesn't mean that there
-{\it shouldn't} be a distinction, as an all-new runtime environment design
-for R might benefit from such a distinction.
+{\it couldn't} be a distinction, as an all-new runtime environment design
+for R might benefit from e.g. not needing to vectorize scalar values.
 
 To address these limitations, we augment the logical naive type system with
 more information which was alluded to in the discussion of our data
@@ -628,26 +628,79 @@ promote NAs to their own type.  In addition, we collect attribute and class
 information to distinguish a type for data frames and matrices, as the
 \code{typeof} these is simply {\tt list} in R.  This type system is referred
 to as the Fine-Grained Type System, or FGTS.  An example of a signature in
-this type system can be found in Figure~\AT{figggg}.
+this type system can be found in Figure~\ref{fig:exFGTS}.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+> cat_and_list <- function(x, y) as.list(c(x, y)) # c(2, c(3, 1)) => c(2, 3, 1)
+> cat_and_list(2, c(3, 1)) # => list(2, 3, 1)
+\end{lstlisting}}
+\begin{tabular}{@{}r|l|l|l@{}}\hline
+\bf Argument & \bf Type & \bf Class &\bf Attributes \\
+x & \tt scalar/double & \tt numeric & \tt \{\} \\
+y & \tt vector/double & \tt numeric & \tt \{\} \\
+retv & \tt list<double> & \tt list & \tt \{\}  
+\end{tabular}
+\caption{Example call and FGTS signature}\label{fig:exFGTS}\end{figure}
 
 The first question we will address is: {\it how polymorphic is R?}  To
 answer that, we will first look at the number of monomorphic arguments
 across all of the packages we analyzed.  The data can be found in
-Figure~\AT{fiGgGgGgGGg}.
+Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
+\AT{TODO: have these tables be generated automatically}
+\AT{TODO: side by side in minipage?}
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Mar 22 18:03:30 2019
+\begin{table}[ht]
+\label{tab:argcountsFGTS}
+\centering
+\begin{tabular}{rlrr}
+  \hline
+ & Argument Polymorphism & Count & Percentage \\ 
+  \hline
+1 & Full Monomorphic & 448K & 85.50 \\ 
+  2 & Monomorphic in Type & 471K & 90.28 \\ 
+  3 & Monomorphic in Class & 480K & 92.16 \\ 
+  4 & Monomorphic in Attribute Pattern & 480K & 91.99 \\ 
+  5 & Total Seen & 521K & -- \\ 
+   \hline
+\end{tabular}
+\caption{Account of {\it argument} polymorphism in the FGTS.}
+\end{table}
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Mar 22 18:10:46 2019
+\begin{table}[ht]
+\label{tab:funcountsFGTS}
+\centering
+\begin{tabular}{rlrr}
+  \hline
+ & Function Polymorphism & Count & Percentage \\ 
+  \hline
+1 & Full Monomorphic & 82K & 66.27 \\ 
+  2 & Monomorphic in Type & 94K & 75.74 \\ 
+  3 & Monomorphic in Class & 97K & 78.45 \\ 
+  4 & Monomorphic in Attribute Pattern & 96K & 77.47 \\ 
+  5 & Total Seen & 124K & -- \\ 
+   \hline
+\end{tabular}
+\caption{Account of {\it function} polymorphism in the FGTS.}
+\end{table}
 
 \AT{We should figure out the pipeline to get the notebook output into here.}
 
 \AT{I'm fairly sure the numbers aren't going to be insanely different, so
   I'll just manually write them for now.}
 
-We see that roughly 10\% of all argument positions in R are polymorphic.
+In the tables, ``Full Monomorphic'' denotes monomorphism in type, class, and attribute.
+We see that roughly 10\% of all argument positions in R are polymorphic in type.
 The numbers for attribute and class polymorphism are included for
 completeness, but the important number is that of type polymorphism (as our
 method of constructing types sometimes factors in class and attribute).
 Specifically for classes, often the class and \code{typeof} a value will
 line up (refer to Section~\ref{sec:rlang}).
 
-As for functions, roughly 25\% are polymorphic, or put differently 25\% have at least one polymorphic argument or a polymorphic return.
+As for functions, roughly 25\% are polymorphic in type, or put differently 25\% have at least one polymorphic argument or a polymorphic return.
 The discrepancy between this and the polymorphicity of arguments is explained by the tendency of some functions, particularly those dealing with models, to have {\it many} arguments.
 
 These numbers alone are insufficient, so we ask: {\it of the polymorphic arguments, what are the most common patterns?}

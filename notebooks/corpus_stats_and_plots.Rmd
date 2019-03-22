@@ -93,18 +93,31 @@ zzz <- melt(combo_df, id.vars="package_name", variable.name = "language")
 # zzz_c <- melt(combo_df_c, id.vars="package_name", variable.name = "language")
 
 plot_both <- ggplot( data=zzz, aes(package_name, value, group=1))
-plot_both <- plot_both + geom_line(aes(colour = language), size=0.001) # +  geom_point(aes(colour = language))
+plot_both <- plot_both + geom_line(aes(colour = language), size=0.05) # +  geom_point(aes(colour = language))
 plot_both <- plot_both + labs(
   title = "Analysis of R Corpus (R and C)",
   y = "Lines of Code in Package (Log10-scaled)"
-)
+) + guides(colour=F)
 
-plot_both <- plot_both + theme(axis.text.x = element_blank(), axis.title.x=element_blank(), axis.ticks.x=element_blank()) + scale_y_continuous(name="Lines of Code in Package") # , breaks = c(-4, -3, -2, -1, 0, 1, 2, 3, 4), labels = function(x) abs(x^10)
+# cut_top <- data.frame( x = c(-Inf, Inf), y = 2, cutoff = factor(2) )
+# cut_bot <- data.frame( x = c(-Inf, Inf), y = -2, cutoff = factor(-2) )
+
+plot_both <- plot_both + theme(
+  axis.text.x  = element_blank(), 
+  axis.title.x = element_blank(),
+  axis.ticks.x = element_blank(),
+  axis.ticks.y = element_line(), 
+  panel.grid.major.y = element_line(colour = "red")) + # ,
+  # panel.ontop = T) + 
+  scale_y_continuous(name="Lines of Code in Package", breaks = c(-4, -3, -2, -1, 0, 1, 2, 3, 4), 
+                     labels = c(10000, 1000, 100, 10, 0, 10, 100, 1000, 10000))
+  # geom_line(aes( x, y), cut_top) +
+  # geom_line(aes( x, y), cut_bot)
 
 # plot it
 plot_both
 
-ggsave("../paper/plots/linesofrandccode.pdf", plot_both)
+ggsave("../paper/plots/linesofrandccode.jpg", plot_both)
 
 ```
 
@@ -113,7 +126,7 @@ Final numbers will become available as the trace completes.
 ```{r}
 
 records_by_fun <- unlist(readRDS("../data/total_list_of_records_by_pkg.RDS"))
-records_by_fun_df <- data.frame(pname=names(records_by_fun), records=unname(records_by_fun))
+records_by_fun_df <- data.frame(pname=names(records_by_fun), records=unname(records_by_fun)/1000)
 # records_by_fun_df <- records_by_fun_df[order(records_by_fun_df$records), ]
 # records_by_fun_df$pname <- factor(records_by_fun_df$pname, levels=records_by_fun_df$pname)
 
@@ -128,6 +141,6 @@ plot_records <- ggplot(data=records_by_fun_df, aes(x=pname, y=records, group=1))
 plot_records
 
 # generate file
-ggsave("../paper/plots/recordsbypkg.pdf", plot_records)
+ggsave("../paper/plots/recordsbypkg.jpg", plot_records)
 ```
 
