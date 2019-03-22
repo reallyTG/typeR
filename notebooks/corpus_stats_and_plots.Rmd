@@ -79,7 +79,7 @@ Messy graphs, beware!
 combo_df <- r_c_df
 combo_df$loc_c <- c_c_df$loc_c
 combo_df$loc_r <- sapply(combo_df$loc_r, function(x) if (x == 0) x else log10(x))
-combo_df$loc_c <- sapply(combo_df$loc_c, function(x) if (x == 0) x else log10(x))
+combo_df$loc_c <- - sapply(combo_df$loc_c, function(x) if (x == 0) x else log10(x))
 
 # sort
 combo_df <- combo_df[order(combo_df$loc_r), ]
@@ -87,37 +87,47 @@ combo_df <- combo_df[order(combo_df$loc_r), ]
 # and levels
 combo_df$package_name <- factor(combo_df$package_name, levels=combo_df$package_name)
 
-combo_df_c <- combo_df[order(combo_df$loc_c), ]
-combo_df_c$package_name <- factor(combo_df_c$package_name, levels=combo_df_c$package_name)
-
-combo_df_c <- combo_df_c[combo_df_c$loc_c > 0, ]
 
 # TODO: not staying sorted, probably id.vars
 zzz <- melt(combo_df, id.vars="package_name", variable.name = "language")
-zzz_c <- melt(combo_df_c, id.vars="package_name", variable.name = "language")
+# zzz_c <- melt(combo_df_c, id.vars="package_name", variable.name = "language")
 
 plot_both <- ggplot( data=zzz, aes(package_name, value, group=1))
-plot_both <- plot_both + geom_line(aes(colour = language)) + geom_point(aes(colour = language))
+plot_both <- plot_both + geom_line(aes(colour = language), size=0.001) # +  geom_point(aes(colour = language))
 plot_both <- plot_both + labs(
   title = "Analysis of R Corpus (R and C)",
-  x = "Corpus of Analyzed Packages", 
   y = "Lines of Code in Package (Log10-scaled)"
 )
 
-plot_both_c <- ggplot( data=zzz_c, aes(package_name, value, group=1))
-plot_both_c <- plot_both_c + geom_line(aes(colour = language)) + geom_point(aes(colour = language))
-plot_both_c <- plot_both_c + labs(
-  title = "Analysis of R Corpus (R and C)",
-  x = "Corpus of Analyzed Packages", 
-  y = "Lines of Code in Package (Log10-scaled)"
-)
-
-plot_both <- plot_both + theme(axis.text.x = element_blank())
-
-plot_both_c <- plot_both_c + theme(axis.text.x = element_blank())
+plot_both <- plot_both + theme(axis.text.x = element_blank(), axis.title.x=element_blank(), axis.ticks.x=element_blank()) + scale_y_continuous(name="Lines of Code in Package") # , breaks = c(-4, -3, -2, -1, 0, 1, 2, 3, 4), labels = function(x) abs(x^10)
 
 # plot it
 plot_both
 
-plot_both_c
+ggsave("../paper/plots/linesofrandccode.pdf", plot_both)
+
 ```
+
+Changing gears, lets get the number of recorded events by package.
+Final numbers will become available as the trace completes.
+```{r}
+
+records_by_fun <- unlist(readRDS("../data/total_list_of_records_by_pkg.RDS"))
+records_by_fun_df <- data.frame(pname=names(records_by_fun), records=unname(records_by_fun))
+# records_by_fun_df <- records_by_fun_df[order(records_by_fun_df$records), ]
+# records_by_fun_df$pname <- factor(records_by_fun_df$pname, levels=records_by_fun_df$pname)
+
+plot_records <- ggplot(data=records_by_fun_df, aes(x=pname, y=records, group=1)) +
+                geom_line() + 
+                labs( title = "Numbers of Recorded Signatures",
+                      y = "Recorded Traces in a Package (Thousands)") +
+                theme(axis.text.x = element_blank(), axis.title.x=element_blank(),
+                      axis.ticks.x=element_blank())
+
+# plot
+plot_records
+
+# generate file
+ggsave("../paper/plots/recordsbypkg.pdf", plot_records)
+```
+

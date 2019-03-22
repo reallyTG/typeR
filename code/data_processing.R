@@ -39,10 +39,23 @@
 #     Probably easy enough, just take the traces, process them, and bind them.
 # [ ] do we want anything more out of the data? names? dims? could be fun to get
 # [ ] skip retv in coincidence checking?
-# [ ] author names -- just last name  
+# [ ] author names -- just last name
 
 # Notes:
 # re: char/real poly: retvs with char/X could be communicating error messages
+
+# Rerun:
+# [X] count all things that happened
+# [X] execution time (per script in genthat) (genthat_runtimes)
+# [X] number of recorded events
+# [X] deal with overlap in saving -- seems to not be a problem, actually
+# [X] move extraced code to reasonable location (genthat_extracted_code)
+# [X] set up for ``trace everything just once'':
+#     package_info(pname) gives all dependencies, maybe want to trace those
+# [ ] how to deal with base???
+#
+#
+# [ ] map args to retvs
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -107,6 +120,13 @@ primitive_classes <- list(
   "factor",
   "function"
 )
+
+character_pack   = c("vector/character", "scalar/character")
+integer_pack     = c("vector/integer", "scalar/integer")
+double_pack      = c("vector/double", "scalar/double")
+complex_pack     = c("vector/complex", "scalar/complex")
+raw_pack         = c("vector/raw", "scalar/raw")
+logical_pack     = c("vector/logical", "scalar/logical")
 
 # # # # # #
 #
@@ -671,6 +691,25 @@ fold_NULL_and_NA_into_other_types_df <- function(df) {
 
 fold_together_int_double_df <- function(df) {
   translate_df_with_type_map(df, type_map_r_to_real)
+}
+
+# TODO FIX
+combine_scalar_vector_where_appropriate <- function(df) {
+  df$type <- lapply(df$type, function(lot) {
+    if (Reduce("&&", character_pack %in% lot))
+      lot[lot == "scalar/character"] <- NULL
+    else if (Reduce("&&", integer_pack %in% lot))
+      lot[lot == "scalar/integer"] <- NULL
+    else if (Reduce("&&", double_pack %in% lot))
+      lot[lot == "scalar/double"] <- NULL
+    else if (Reduce("&&", logical_pack %in% lot))
+      lot[lot == "scalar/logical"] <- NULL
+    else if (Reduce("&&", raw_pack %in% lot))
+      lot[lot == "scalar/raw"] <- NULL
+    else if (Reduce("&&", complex_pack %in% lot))
+      lot[lot == "scalar/complex"] <- NULL
+  })
+  df
 }
 
 # # # # # # # # # # # # # # #

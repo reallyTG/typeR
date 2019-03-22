@@ -7,6 +7,8 @@
 \definecolor{Gray}{rgb}{.3,.3,.3}
 \definecolor{DarkGray}{rgb}{.5,.5,.5}
 
+\graphicspath{ {./plots/} }
+
 \lstset{ %
   columns=flexible,
   captionpos=b,
@@ -379,6 +381,22 @@ tests.  Figure~\ref{allcloc} shows the size of the code across all the
 packages we have used.  Lastly, Figure~\ref{recorded} gives the number of
 function signatures that we recorded while executing the scripts of each
 package.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.6]{linesofrandccode.pdf}
+\caption{Lines of Code (R and C) in the Analyzed Corpus}
+\label{allcloc}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=0.6]{recordsbypkg}
+\caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
+\label{allcloc}
+\end{center}
+\end{figure}
 
 % https://www.r-pkg.org/downloaded
 \begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r@{}}\hline
