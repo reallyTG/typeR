@@ -340,8 +340,8 @@ try to capture attributes at the risk of increased complexity.
 
 In this section, we present our dataset. R is designed to accommodate data
 analysts.  Typical workflows go from data import, to data cleaning, followed
-by steps of modeling, transformation and visualization. Often the code that
-implement these analysis pipelines together with their results resides in
+by steps of modeling, transformation and visualization. Often, the code that
+implements these analysis pipelines together with their results resides in
 notebooks. Unfortunately notebooks are typically not shared in public
 repositories such as GitHub, and if they were, the data required to run them
 would surely not be shared. For this reason our analysis focuses on
@@ -352,25 +352,26 @@ We focus on packages hosted on the \emph{Comprehensive R Archive Network} or
 CRAN.  With over 13,000 packages, CRAN is the largest repository of software
 written in R. It is experiencing sustained growth with an average of size
 new packages a day~\cite{LIgges2017}.  Unlike sites like GitHub, CRAN is a
-curated collection of packages. A package is only accepted to CRAN if it
+curated collection of packages: A package is only accepted to CRAN if it
 abides by a number of well-formedness rules.  Most relevant for our
-purposes, packages must have data, examples, vignettes and tests. All of
-which must successfully run. From our perspective this means that each of
-the package in CRAN comes with up to a dozen executable scripts that
-exercise some of its functionality.
+purposes, packages must have data, examples, vignettes and tests, all of
+which must successfully run. From our perspective this means that each package 
+in CRAN comes with several executable scripts that exercise some of its functionality.
+Notable exceptions to this rule are packages only containing data, which have no runnable
+code but are referenced by other packages \AT{I should collect stats on this}.
 
 Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
 for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
 lines of R code and \CLOC lines of C code. For each package, we extracted
 all executable code snippets from documentation, vignettes and tests and ran
-them independently recording all call to R functions.  It is noteworthy that
+them independently recording all calls to R functions.  It is noteworthy that
 in order to run the scripts in one package, it is often necessary to load a
 number of other packages.  In~\cite{issta18}, the authors estimated code
-coverage to be around 68\% when including reverse dependencies.  The
-rationale for our choice of packages was pragmatic, our infrastructure adds
-overhead to the execution of scripts, we eliminated any package that would
-take more than one hour to run. We expect to extend our coverage of CRAN for
-the next version of this paper.
+coverage to be around 68\% when including reverse dependencies.  As our infrastructure
+adds overhead to script execution, coupled with the fact that some scripts take 
+inordinate amounts of time to run, we limit our analysis of any given package to one hour.
+We capture and record function signatures on-the-fly, though, so we do collect (partial) data even 
+for these long-running packages. \AT{We expect to extend our coverage of CRAN for the next version of this paper.}
 
 Figure~\ref{most} shows the ten most downloaded CRAN packages.  For each
 one, we list how many lines of R and C/C++ the packages contains.
@@ -401,16 +402,16 @@ package.
 % https://www.r-pkg.org/downloaded
 \begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r@{}}\hline
 \bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts\\\hline
-\tt Rcpp  & Seamless C++ integration & 10K & 3K & 12 \\
-\tt rlang & Functions for 'Tidyverse'&&& \\
-\tt glue  & Interpreted string literals&&& \\
-\tt tibble & Simple data frames&& &\\
-\tt stringi &  String processing &&& \\
-\tt ggplot2 & Data visualisations&& &\\
-\tt dplyr  &  Data manipulation&&& \\
-\tt pillar & Formatting for columns&&& \\
-\tt R6 & Classes w. ref. semantics&&& \\
-\tt stringr & String operations&&& \\
+\tt Rcpp  & Seamless C++ integration & 2.1K & 4K & 12 \\
+\tt rlang & Functions for 'Tidyverse' & 4.4K & 3.8K & ? \\
+\tt glue  & Interpreted string literals & 0.2K & 0.2K & 8 \\
+\tt tibble & Simple data frames & 1.3K & 0.3K & ? \\
+\tt stringi &  String processing & 1.5K & 515K & ? \\
+\tt ggplot2 & Data visualisations & 10.8K & 0 & 130 \\
+\tt dplyr  &  Data manipulation & 3.8K & 4.7K & 78 \\
+\tt pillar & Formatting for columns & 1.3K & 0 & ? \\
+\tt R6 & Classes w. ref. semantics & 0.6K & 0 & ? \\
+\tt stringr & String operations & 0.5K & 0 & ? \\
 \end{tabular}}\caption{10 Most Downloaded Packages.}\label{most}
 \end{figure}
 
