@@ -606,13 +606,10 @@ wild'' with a {\tt raw\_NA} type.
 data, and show logical transitions between various type systems.  I'll start
 with the finest-grained one.
 
-\AT{TODO: adjust prose to talk about how vector/scalar is dealt with before this point.}
-
 Having built an understanding of our data collection and analysis
 pipeline, we will turn our attention to the results of our analysis.  We
 approach the data with the purpose of informing the design of a static type
-system for R.  To that end, we propose to begin with a very basic type
-system, the {\it Fine-Grained Type System} (FGTS).
+system for R. 
 
 The logical ``baseline'' for the design of a static type system for R is
 promotion of the language's dynamic types (in the sense of \code{typeof}) to
@@ -629,12 +626,12 @@ collect list member type information to build an accurate list type, and
 promote NAs to their own type.  In addition, we collect attribute and class
 information to distinguish a type for data frames and matrices, as the
 \code{typeof} these is simply {\tt list} in R.  This type system is referred
-to as the Fine-Grained Type System, or FGTS.  An example of a signature in
+to as the {\it Fine-Grained Type System}, or FGTS.  An example of a signature in
 this type system can be found in Figure~\ref{fig:exFGTS}.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-> cat_and_list <- function(x, y) as.list(c(x, y)) # c(2, c(3, 1)) => c(2, 3, 1)
-> cat_and_list(2, c(3, 1)) # => list(2, 3, 1)
+> add_make_list <- function(x, y) as.list(x + y)
+> add_make_list(2, c(3, 1)) # => list(5, 3)
 \end{lstlisting}}
 \begin{tabular}{@{}r|l|l|l@{}}\hline
 \bf Argument & \bf Type & \bf Class &\bf Attributes \\
@@ -691,9 +688,6 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
 
 \AT{We should figure out the pipeline to get the notebook output into here.}
 
-\AT{I'm fairly sure the numbers aren't going to be insanely different, so
-  I'll just manually write them for now.}
-
 In the tables, ``Full Monomorphic'' denotes monomorphism in type, class, and attribute.
 We see that roughly 7\% of all argument positions in R are polymorphic in type.
 The numbers for attribute and class polymorphism are included for
@@ -703,7 +697,7 @@ Specifically for classes, often the class and \code{typeof} a value will
 line up (refer to Section~\ref{sec:rlang}).
 
 As for functions, roughly 20\% are polymorphic in type, or put differently 20\% have at least one polymorphic argument or a polymorphic return.
-The discrepancy between this and the polymorphicity of arguments is explained by the tendency of some functions, particularly those dealing with models, to have {\it many} arguments.
+The discrepancy between this and the polymorphicity of arguments is explained by the tendency of some functions to have {\it many} arguments.
 
 These numbers alone are insufficient, so we ask: {\it of the polymorphic arguments, what are the most common patterns?}
 The answer to that question can be found in Table~\ref{tab:toppolyFDTS}.
@@ -732,20 +726,20 @@ The answer to that question can be found in Table~\ref{tab:toppolyFDTS}.
 \caption{Top polymorphic argument signatures in the FDTS.}
 \end{table}
 
-By and large, the most common pattern is {\tt scalar/X} and {\tt vector/X}, but we deal with this polymorphism separately:
-If a function argument is observed to be both a unit-length and non-unit-length vector, then it's reasonable to assume that the argument is intended to be a vector.
+\AT{This should probably be discussed earlier.}
+Not pictured here, the most common polymorphic pattern in the FGTS is the {\tt scalar/X}, {\tt vector/X} pattern, but this is dealt with separately:
+If a function argument is observed to be both a unit-length and non-unit-length vector, then it's reasonable to assume that the argument is intended to be a vector, so we collapse the distinction in such cases.
 
-One other interesting question is: {\it how many arguments are strictly scalar?}
-As it happens, over 40\% of monomorphic arguments with primitive vectorized types are always scalar (so, 40\% of {\it monomorphic} occurrences of {\tt scalar/X} and {\tt vector/X} are scalar).
-This is important as it shows that there is value in a scalar annotation, which could be used to communicate to an R runtime that vectorization of a value is not necessary, which may in turn ead to a performance improvement.
+In Table~\ref{tab:toppolyFDTS}, we see the prominence of {\tt double} and {\tt integer} polymorphism.
+In many dynamic languages, primitive double and integer types can easily stand-in for each other as coercion between them is easy.
+In R, the distinction is mainly just relevant to the implementation, as integers and doubles are stored and dealt with differently in the runtime but programmers only see the distinction when printing.
+We address this by creating a new type, {\it real}, encompassing both.
 
-We will collapse the distinction between vectors and scalars in a moment, but imagine we did so and refer back to Figure~\AT{eyyy}.
-Another major source of polymorphism is the {\tt double} and {\tt integer} distinction.
-This distinction is mainly just relevant to the implementation, as integers and doubles are stored and dealt with differently in the runtime.
-For a programmer, this distinction is meaningless, as both types can be used interchangeably in every situation.
-We propose to also collapse this distinction, instead considering doubles and integers as part of a real number type, {\tt real}.
+As we make the distinction between vectors and scalars, one other interesting question that arises is: {\it how many arguments are strictly scalar?}
+As it happens, over 40\% of monomorphic arguments with primitive vectorized types are always scalar (so, 40\% of {\it monomorphic} occurrences of {\tt scalar/X} or {\tt vector/X} are scalar).
+This is important as it shows that there is value in a scalar annotation, which could be used to communicate to an R runtime that vectorization of a value is not necessary, which may in turn lead to a performance improvement.
 
-\AT{TODO: do vector/scalar collapse and real collapse and get numbers.}
+\AT{Next: get real.}
 
 %
 %
