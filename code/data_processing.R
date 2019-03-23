@@ -983,6 +983,17 @@ convert_trace_to_df <- function(t) {
   r_df
 }
 
+give_pkg_name_to_attrs_funs <- function(lopkg) {
+  named_names <- names(lopkg)
+  names(named_names) <- named_names
+  lapply(named_names, function(n) {
+    lapply(lopkg[[n]], function(fun) {
+        attr(fun, "pkg") <- n
+        fun
+      })
+  })
+}
+
 # for downloading packages properly
 # adapted from http://www.salemmarafi.com/code/install-r-package-automatically/
 usePackage <- function(p)

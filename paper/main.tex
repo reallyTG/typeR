@@ -395,7 +395,7 @@ package.
 \begin{center}
 \includegraphics[scale=0.15]{recordsbypkg}
 \caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
-\label{allcloc}
+\label{recorded}
 \end{center}
 \end{figure}
 
@@ -734,12 +734,38 @@ In Table~\ref{tab:toppolyFDTS}, we see the prominence of {\tt double} and {\tt i
 In many dynamic languages, primitive double and integer types can easily stand-in for each other as coercion between them is easy.
 In R, the distinction is mainly just relevant to the implementation, as integers and doubles are stored and dealt with differently in the runtime but programmers only see the distinction when printing.
 We address this by creating a new type, {\it real}, encompassing both.
+The expected coercion is evident throughout R.
+Consider the snippet in Figure~\ref{fig:realex} for details.
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+> 5L + 1L # => 6L, an integer
+> 5L + 1.2 # => 6.2, a double (5L coerced to 5.0)
+> c(10, 20, 30)[1.2] # => 10, 1.2 coerced to 1L
+\end{lstlisting}}\caption{Example of {\it real} type usage.}\label{fig:realex}\end{figure}
 
 As we make the distinction between vectors and scalars, one other interesting question that arises is: {\it how many arguments are strictly scalar?}
 As it happens, over 40\% of monomorphic arguments with primitive vectorized types are always scalar (so, 40\% of {\it monomorphic} occurrences of {\tt scalar/X} or {\tt vector/X} are scalar).
 This is important as it shows that there is value in a scalar annotation, which could be used to communicate to an R runtime that vectorization of a value is not necessary, which may in turn lead to a performance improvement.
 
-\AT{Next: get real.}
+Another clear pattern in Table~\ref{tab:toppolyFDTS} is that of NULL, X.
+In many programming languages, NULLs inhabit every type, and this is not the case in our FGTS.
+The FGTS reflects many of R's implementation details, and this distinction is no exception:
+NULLs are represented as \AT{fill in} in the R runtime.
+
+In terms of programmer behaviour, we observe a pattern of optional arguments throughout several R packages, wherein programmers specify a default argument value which is sometimes NULL.
+Consider the snippet in Figure~\ref{fig:optnull} for an example.
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+# w here is weights
+frac.ranks <- function(x, w=NULL) {
+  if (is.null(w)) w <- rep(1, length(x)) # if no weights passed, take all weights = 1
+  ...
+  \end{lstlisting}}\caption{Example of optional argument.}\label{fig:optnull}\end{figure}
+The distinction between NULL and other types is not particularly useful to the programmer, so we propose to also collapse this distinction.
+
+Not pictured in Table~\ref{tab:toppolyFDTS} are NAs, which are ascribed the type {\tt raw\_NA} in FGTS; NAs in fact inhabit every type, though the default NA type is {\tt logical}.
+Just as we fold NULL into all types, we will do the same with NAs.
+
+The next type system design we will consider is ... .
+\AT{Generate tables. The stuff we do is: real, NULL fold, NA fold.}
 
 %
 %
