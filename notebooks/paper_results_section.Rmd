@@ -1,0 +1,90 @@
+---
+title: "Paper Results Section"
+output: html_notebook
+---
+
+This Notebook walks through the results section of the paper.
+
+First, administrivia.
+```{r}
+source("../code/data_processing.R") # get the functions we need
+
+library(xtable)
+```
+
+Load the data.
+```{r, echo=FALSE}
+los <- list.files("../data/full_sigs", full.names=TRUE)
+names <- list.files("../data/full_sigs")
+names(los) <- substr(names, 1, nchar(names)-4)
+los <- lapply(los, readRDS)
+los <- remove_empties(los)
+# annoying strange error that I should fix pops up
+```
+
+Get the counts.
+```{r}
+# argument counts
+total_arguments <- apply_count_to_lopkg_c(los, args_count_all)
+total_mono_type <- apply_count_to_lopkg_c(los, args_count_all_mono_type)
+total_mono_attr <- apply_count_to_lopkg_c(los, args_count_all_mono_attr_pattern)
+total_mono_clas <- apply_count_to_lopkg_c(los, args_count_all_mono_class)
+total_mono_all <- apply_count_to_lopkg_c(los, args_count_all_mono_all)
+```
+
+```{r}
+tot_arg_df <- data.frame(
+  Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
+  Count=c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments),
+  Percentage=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / total_arguments * 100, 2)
+)
+
+xtable(tot_arg_df)
+```
+
+```{r}
+# function counts
+total_functions <- apply_count_to_lopkg_c(los, length)
+total_mono_type_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_type)
+total_mono_attr_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_attr_pattern)
+total_mono_clas_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_class)
+total_mono_all_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_all)
+```
+
+```{r}
+tot_fun_df <- data.frame(
+  Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
+  Count=c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions),
+  Percentage=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / total_functions * 100, 2)
+)
+
+xtable(tot_fun_df)
+```
+
+We Have one thing we want to do first.
+Namely, let's get rid of vector/X, scalar/X polymorphism.
+```{r}
+los_vs <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_appropriate)})
+```
+
+Top signatures, with printing.
+This is how you get the top sigs.
+```{r}
+poly_type_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_type_args))
+poly_type_args <- poly_type_args[order(-poly_type_args$count),] # sort by count
+poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 100, 2)
+```
+
+Print top 10.
+```{r}
+format_df_for_print(poly_type_args[1:10,]) -> put_me
+xtable(put_me)
+```
+
+Now, having noted that:
+(1) vector/X, scalar/X is common, and
+(2) ints and doubles are basically interchangable
+while noting that together these make up a huge portion of the polymorphism, we transform.
+```{r}
+
+```

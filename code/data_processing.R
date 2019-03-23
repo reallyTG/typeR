@@ -693,7 +693,6 @@ fold_together_int_double_df <- function(df) {
   translate_df_with_type_map(df, type_map_r_to_real)
 }
 
-# TODO FIX
 combine_scalar_vector_where_appropriate <- function(df) {
   df$type <- lapply(df$type, function(lot) {
     if (Reduce("&&", character_pack %in% lot))
@@ -708,6 +707,7 @@ combine_scalar_vector_where_appropriate <- function(df) {
       lot[lot == "scalar/raw"] <- NULL
     else if (Reduce("&&", complex_pack %in% lot))
       lot[lot == "scalar/complex"] <- NULL
+    lot
   })
   df
 }
