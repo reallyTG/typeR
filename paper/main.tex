@@ -602,6 +602,53 @@ wild'' with a {\tt raw\_NA} type.
 %
 \section{Results}\label{sec:results}
 
+\AT{Collection of examples of polymorphism...}
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+# w here is weights
+frac.ranks <- function(x, w=NULL) {
+  if (is.null(w)) w <- rep(1, length(x)) # if no weights passed, take all weights = 1
+  ...
+\end{lstlisting}}\caption{Example of optional argument (from {\tt acid} package).}\label{fig:optnull}\end{figure}
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+is.point.inside <- function (point, polyg) {
+    p <- as.numeric(point) # as.numeric(list(1, 2)) => c(1, 2)
+    ...
+\end{lstlisting}}\caption{Example of list/vector argument (from {\tt bivrp} package).}\label{fig:listvec}\end{figure}
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+function (object, fn = mean, par.name, comp.label, chain.no,  ...) 
+{
+    ...
+    if (is.character(fn)) {
+        if (fn == "MODE" | fn == "MAP") {
+            do_MAP <- TRUE
+        }
+        else {
+            do_MAP <- FALSE
+            fn <- match.fun(fn) # looks up the function name
+        }
+    }
+    ...
+\end{lstlisting}}\caption{Example of char/closure argument (from {\tt BAMBI} package).}\label{fig:charclos}\end{figure}
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+nret.translator <- function(dat, spss="out", ...){
+  ...
+  if(identical(spss, "out")) {
+    if(!is.vector(dat)) {
+        stop(simpleError("If 'corr=TRUE', 'dat' must be a vector!"))
+      }
+    ...
+  } else {
+    ...
+    # here, dat is data.frame
+    items.idx <- items.idx[order(names(dat[, items.idx]))]
+  }
+  
+\end{lstlisting}}\caption{Example of data.frame/vector/double argument (from {\tt klausR} package).}\label{fig:charclos}\end{figure}
+
 \AT{Meta-Comment:} My plan for this section is to linearly go through the
 data, and show logical transitions between various type systems.  I'll start
 with the finest-grained one.
@@ -753,12 +800,7 @@ NULLs are represented as \AT{fill in} in the R runtime.
 
 In terms of programmer behaviour, we observe a pattern of optional arguments throughout several R packages, wherein programmers specify a default argument value which is sometimes NULL.
 Consider the snippet in Figure~\ref{fig:optnull} for an example.
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-# w here is weights
-frac.ranks <- function(x, w=NULL) {
-  if (is.null(w)) w <- rep(1, length(x)) # if no weights passed, take all weights = 1
-  ...
-  \end{lstlisting}}\caption{Example of optional argument.}\label{fig:optnull}\end{figure}
+\AT{TODO put that figure here}
 The distinction between NULL and other types is not particularly useful to the programmer, so we propose to also collapse this distinction.
 
 Not pictured in Table~\ref{tab:toppolyFDTS} are NAs, which are ascribed the type {\tt raw\_NA} in FGTS; NAs in fact inhabit every type, though the default NA type is {\tt logical}.
