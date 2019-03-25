@@ -384,6 +384,8 @@ packages we have used.  Lastly, Figure~\ref{recorded} gives the number of
 function signatures that we recorded while executing the scripts of each
 package.
 
+\AT{TODO Change "recorded" to "observed" in recordsbypkg}
+
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=0.15]{linesofrandccode.jpg}
@@ -401,18 +403,19 @@ package.
 \end{figure}
 
 % https://www.r-pkg.org/downloaded
-\begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r@{}}\hline
-\bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts\\\hline
-\tt Rcpp  & Seamless C++ integration & 2.1K & 4K & 12 \\
-\tt rlang & Functions for 'Tidyverse' & 4.4K & 3.8K & ? \\
-\tt glue  & Interpreted string literals & 0.2K & 0.2K & 8 \\
-\tt tibble & Simple data frames & 1.3K & 0.3K & ? \\
-\tt stringi &  String processing & 1.5K & 515K & ? \\
-\tt ggplot2 & Data visualisations & 10.8K & 0 & 130 \\
-\tt dplyr  &  Data manipulation & 3.8K & 4.7K & 78 \\
-\tt pillar & Formatting for columns & 1.3K & 0 & ? \\
-\tt R6 & Classes w. ref. semantics & 0.6K & 0 & ? \\
-\tt stringr & String operations & 0.5K & 0 & ? \\
+\begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r|r|r@{}}\hline
+\bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts & \bf Calls Observed & \bf Calls Recorded \\
+\hline
+\tt Rcpp  & Seamless C++ integration & 2.1K & 4K & 25 & 51K & 282 \\
+\tt rlang & Functions for 'Tidyverse' & 4.4K & 3.8K & 122 & 2,240K & 5,171 \\
+\tt glue  & Interpreted string literals & 0.2K & 0.2K & 8 & 2K & 120 \\
+\tt tibble & Simple data frames & 1.3K & 0.3K & 16 & 839K & 4,148 \\
+\tt stringi &  String processing & 1.5K & 515K & 64 & 692K & 666 \\
+\tt ggplot2 & Data visualisations & 10.8K & 0 & 130 & 110K & 2,636\\
+\tt dplyr  &  Data manipulation & 3.8K & 4.7K & 78 & 157K & 1,967 \\
+\tt pillar & Formatting for columns & 1.3K & 0 & 13 & 549K & 1,273 \\
+\tt R6 & Classes w. ref. semantics & 0.6K & 0 & 2 & 1K & 226 \\
+\tt stringr & String operations & 0.5K & 0 & 32 & 1,551K & 371 \\
 \end{tabular}}\caption{10 Most Downloaded Packages.}\label{most}
 \end{figure}
 
@@ -609,6 +612,17 @@ wild'' with a {\tt raw\_NA} type.
 \section{Examples of Polymorphism}
 \label{sec:polyex}
 
+\AT{Putting examples of polymorphism in this section, we can talk about them and where they should go.}
+
+First, Figure~\ref{fig:realex} shows an example of how integers and doubles are very compatible.
+\AT{TODO add matrix (dimensions) to the example.}
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+> 5L + 1L # => 6L, an integer
+> 5L + 1.2 # => 6.2, a double (5L coerced to 5.0)
+> c(10, 20, 30)[1.2] # => 10, 1.2 coerced to 1L
+\end{lstlisting}}\caption{Example of {\it real} type usage.}\label{fig:realex}\end{figure}
+
 Figure~\ref{fig:optnull} shows an example of a function with an optional argument.
 In the function, {\tt x} is a sorted vector of income values, and {\tt w} is a vector of weights, optionally NULL.
 The function computes fractional ranks required for the computation of some coefficient implemented by the package.
@@ -630,9 +644,14 @@ is.point.inside <- function (point, polyg) {
     ...
 \end{lstlisting}}\caption{Example of list/vector argument (from {\tt bivrp} package).}\label{fig:listvec}\end{figure}
 
+Figure~\ref{fig:charclos} shows an example of a function with character and function polymorphism.
+\AT{Bluh.}
+At a high level, this function calculates point estimates for an {\tt angmcmc} object (specific to some packages).
+The caller specifies {\tt fn}, either a function or a function name which will be evaluated on the object samples to estimate parameters.
+The call to lookup the function name is on line 10.
+
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-function (object, fn = mean, par.name, comp.label, chain.no,  ...) 
-{
+pointest <- function (object, fn = mean, par.name, comp.label, chain.no,  ...) {
     ...
     if (is.character(fn)) {
         if (fn == "MODE" | fn == "MAP") {
@@ -652,7 +671,7 @@ Now, depending on the value of {\tt spss}, {\tt dat} will either be a data frame
 \AT{This ties in to the (arg, retv) coupling, which we will have data on soon.}
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-nret.translator <- function(dat, spss="out", ...){
+nret.translator <- function(dat, spss="out", ...) {
   ...
   if(identical(spss, "out")) {
     if(!is.vector(dat)) {
@@ -672,13 +691,12 @@ Here, {\tt fixIndicies} has been observed to be either a character or double vec
 In R, list indices are typically doubles, but can be characters (if the list or vector being indexed has a {\tt names} attribute).
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-fixGenes <- function (network, fixIndices, values)  {
+fixGenes <- function (network, fixIndices, values) {
   ...
   network$fixed[fixIndices] <- as.integer(values)
   ...
 }
 \end{lstlisting}}\caption{Example of character/double argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}
-
 
 %
 %
@@ -821,12 +839,7 @@ In many dynamic languages, primitive double and integer types can easily stand-i
 In R, the distinction is mainly just relevant to the implementation, as integers and doubles are stored and dealt with differently in the runtime but programmers only see the distinction when printing.
 We address this by creating a new type, {\it real}, encompassing both.
 The expected coercion is evident throughout R.
-Consider the snippet in Figure~\ref{fig:realex} for details.
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-> 5L + 1L # => 6L, an integer
-> 5L + 1.2 # => 6.2, a double (5L coerced to 5.0)
-> c(10, 20, 30)[1.2] # => 10, 1.2 coerced to 1L
-\end{lstlisting}}\caption{Example of {\it real} type usage.}\label{fig:realex}\end{figure}
+Refer to the snippet in Figure~\ref{fig:realex} for details.
 
 As we make the distinction between vectors and scalars, one other interesting question that arises is: {\it how many arguments are strictly scalar?}
 As it happens, over 40\% of monomorphic arguments with primitive vectorized types are always scalar (so, 40\% of {\it monomorphic} occurrences of {\tt scalar/X} or {\tt vector/X} are scalar).
