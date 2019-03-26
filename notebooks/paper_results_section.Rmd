@@ -29,40 +29,16 @@ los <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_
 Get the counts.
 ```{r}
 # argument counts
-total_arguments <- apply_count_to_lopkg_c(los, args_count_all)
-total_mono_type <- apply_count_to_lopkg_c(los, args_count_all_mono_type)
-total_mono_attr <- apply_count_to_lopkg_c(los, args_count_all_mono_attr_pattern)
-total_mono_clas <- apply_count_to_lopkg_c(los, args_count_all_mono_class)
-total_mono_all <- apply_count_to_lopkg_c(los, args_count_all_mono_all)
-```
+c_basic_df <- build_arg_count_df_from_lopkgs(los)
 
-```{r}
-tot_arg_df <- data.frame(
-  Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
-  Count=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / 1000, 0),
-  Percentage=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / total_arguments * 100, 2)
-)
-
-xtable(tot_arg_df)
+xtable(c_basic_df)
 ```
 
 ```{r}
 # function counts
-total_functions <- apply_count_to_lopkg_c(los, length)
-total_mono_type_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_type)
-total_mono_attr_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_attr_pattern)
-total_mono_clas_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_class)
-total_mono_all_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_all)
-```
+c_f_basic_df <- build_fun_count_df_from_lopkgs(los)
 
-```{r}
-tot_fun_df <- data.frame(
-  Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
-  Count=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / 1000, 0),
-  Percentage=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / total_functions * 100, 2)
-)
-
-xtable(tot_fun_df)
+xtable(c_f_basic_df)
 ```
 
 Top signatures, with printing.

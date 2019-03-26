@@ -22,7 +22,7 @@ tibble(names=names(t_r_s), rec = unlist(t_r_s)) -> total_recorded_sigs
 
 r_b_f <- read_rds("../data/final_obs_counts_df.RDS")
 as.tibble(r_b_f) %>%
-  mutate(names = row.names(records_by_fun)) %>%
+  mutate(names = row.names(r_b_f)) %>%
   rename(obs = invo_obs) %>%
   select(names, obs) -> records_by_fun
   
@@ -30,6 +30,7 @@ total_recorded_sigs %>%
   inner_join(records_by_fun, by="names") %>%
   filter(obs != 0, rec !=0) %>% 
   inner_join(cloc, by="names") %>%
+  filter(rec <= obs) %>%                      # Added this
   filter(r_counts != 0) -> df
 
 top_10 <- c("Rcpp", "rlang", "glue", "tibble", "stringi", "ggplot2", "dplyr", "pillar", "R6", "stringr")
