@@ -11,7 +11,7 @@
 #
 # [X] use attribute patterns, not just attributes
 # [X] write getters (get sigs with a type, attr, class)
-# [ ] consider putting attr names as their own column still
+# [-] consider putting attr names as their own column still
 # [X] make sure that you can pull out signatures that you're interested in,
 #     try it with a few examples (class, and coinciding)
 # [X] print function for notebook
@@ -19,28 +19,31 @@
 # [X] how many are just scalar A: 40%
 # [X] see numbers (1) without vector/scalar distinction, and
 # [X] (2) without NULL / X distinction
-# [ ]     also w/o NA / X distinction
+# [X]     also w/o NA / X distinction
 # [X] different type systems
 # [X] breakdown by package
 # [X] get top poly packages
 # [ ] make more metrics for polymorphism
 # [X] make all non-attribute classes primitive
-# [ ] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
-# [ ] how many lines of code were analyzed?
+# [-] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
+# [X] how many lines of code were analyzed?
 # [X] how old is the oldest version of a package we analyzed? > 20 years
 # [X] how many R programmers were involved? > 10k programmers
 # [ ] deal with errors
 # [X] develop notion of size of polymorphism
 # [ ] develop more/better notions of size of polymorphism
-# [ ] get numbers for coninciding ... list or vector X character or numeric
+# [X] get numbers for coninciding ... list or vector X character or numeric
 # [ ] " " ... argument and return type signatures
-# [ ] fold new data in with old data --- newer runs generate more info for a number
+# [X] fold new data in with old data --- newer runs generate more info for a number
 #     of already seen packages. It would be best if we could combine that information.
 #     Probably easy enough, just take the traces, process them, and bind them.
 # [ ] do we want anything more out of the data? names? dims? could be fun to get
 # [ ] skip retv in coincidence checking?
-# [ ] author names -- just last name
-# [ ] attach arg types to retv types
+# [ ] better author name metric (just last name?)
+
+# Issues:
+# [ ] list<any> happens even for ints, doubles... we end up with list<any>, list<real>
+#     polymorphism. what should we do about this?
 
 # Notes:
 # re: char/real poly: retvs with char/X could be communicating error messages
@@ -53,7 +56,7 @@
 # [X] move extraced code to reasonable location (genthat_extracted_code)
 # [X] set up for ``trace everything just once'':
 #     package_info(pname) gives all dependencies, maybe want to trace those
-# [ ] how to deal with base???
+# [X] how to deal with base??? -- don't
 #
 #
 # [ ] map args to retvs
@@ -62,7 +65,7 @@
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# 35729
+# [       ]
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -143,6 +146,7 @@ double_pack      = c("vector/double", "scalar/double")
 complex_pack     = c("vector/complex", "scalar/complex")
 raw_pack         = c("vector/raw", "scalar/raw")
 logical_pack     = c("vector/logical", "scalar/logical")
+real_pack        = c("vector/real", "scalar/real")
 
 # # # # # #
 #
@@ -746,6 +750,8 @@ combine_scalar_vector_where_appropriate <- function(df) {
       lot[lot == "scalar/raw"] <- NULL
     else if (Reduce("&&", complex_pack %in% lot))
       lot[lot == "scalar/complex"] <- NULL
+    else if (Reduce("&&", real_pack %in% lot))
+      lot[lot == "scalar/real"] <- NULL
     lot
   })
   df
@@ -1001,7 +1007,7 @@ process_list_for_types <- function(lot, a_type_map) {
 
 translate_df_with_type_map <- function(df, a_type_map) {
   df$type <- translate_type_list_with_type_map(df$type, a_type_map)
-  df
+  combine_scalar_vector_where_appropriate(df)
 }
 
 get_inner_type_of_list_param <- function(lt) {
