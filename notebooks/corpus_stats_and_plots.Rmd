@@ -10,10 +10,10 @@ Load.
 library(reshape2)
 library(ggplot2)
 library(ggrepel)
+library(tidyverse)
 
-count_df <- readRDS("../data/final_loc_counts.RDS")
-
-total_recorded_sigs <- readRDS("../data/final_recorded_sigs_by_package.RDS")
+count_df <- read_rds("../data/final_loc_counts.RDS")
+total_recorded_sigs <- read_rds("../data/final_recorded_sigs_by_package.RDS")
 
 r_counts <- count_df[, 1]; names(r_counts) <- rownames(count_df)
 c_counts <- count_df[, 2]; names(c_counts) <- rownames(count_df)
