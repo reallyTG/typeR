@@ -1,0 +1,26 @@
+library(ggplot2)
+
+
+### Name: geom_errorbarh
+### Title: Horizontal error bars
+### Aliases: geom_errorbarh
+
+### ** Examples
+
+df <- data.frame(
+  trt = factor(c(1, 1, 2, 2)),
+  resp = c(1, 5, 3, 4),
+  group = factor(c(1, 2, 1, 2)),
+  se = c(0.1, 0.3, 0.3, 0.2)
+)
+
+# Define the top and bottom of the errorbars
+
+p <- ggplot(df, aes(resp, trt, colour = group))
+p + geom_point() +
+  geom_errorbarh(aes(xmax = resp + se, xmin = resp - se))
+p + geom_point() +
+  geom_errorbarh(aes(xmax = resp + se, xmin = resp - se, height = .2))
+
+
+

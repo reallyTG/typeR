@@ -1,0 +1,21 @@
+library(features)
+
+
+### Name: features
+### Title: Estimate features of a discretely-sampled functional data.
+### Aliases: features
+
+### ** Examples
+
+# Estimating the smooth and the derivatives of a noisy and discretely sampled function. 
+n <- 200
+x <- sort(runif(n))
+y <- exp(-0.2 * sin(2*pi*x)) + rnorm(n, sd=0.05)
+
+ans <- features(x, y)
+
+fget(ans)
+
+
+
+

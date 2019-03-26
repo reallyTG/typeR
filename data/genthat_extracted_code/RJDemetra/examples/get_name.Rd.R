@@ -1,0 +1,42 @@
+library(RJDemetra)
+
+
+### Name: get_name
+### Title: Get the Java name of a multiprocessing or a sa_item
+### Aliases: get_name
+
+### ** Examples
+
+## No test: 
+spec_x13 <- x13_spec_def(spec = "RSA5c", easter.enabled = FALSE)
+sa_x13 <- x13(ipi_c_eu[, "FR"], spec = spec_x13)
+spec_ts <- tramoseats_spec_def(spec = "RSA5")
+sa_ts <- tramoseats(ipi_c_eu[, "FR"], spec = spec_ts)
+
+wk <- new_workspace()
+mp <- new_multiprocessing(wk, "sa1")
+add_sa_item(wk, "sa1", sa_x13, "X13")
+add_sa_item(wk, "sa1", sa_ts, "TramoSeats")
+
+sa_item1 <- get_object(mp, 1)
+sa_item2 <- get_object(mp, 2)
+
+get_name(sa_item1) # returns "X13"
+get_name(sa_item2) # returns "TramoSeats"
+
+get_name(mp) # returns "sa1"
+
+# To get all the name of the sa_items inside a multiprocessing:
+sapply(get_all_objects(mp), get_name)
+
+# To get all the name of the multiprocessings inside a workspace:
+sapply(get_all_objects(wk), get_name)
+
+# To get all the name of the sa_items inside a workspace:
+lapply(get_all_objects(wk),function(mp){
+  sapply(get_all_objects(mp), get_name)
+})
+## End(No test)
+
+
+

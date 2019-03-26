@@ -1,0 +1,3 @@
+library("future.BatchJobs")
+sessionDetails()
+

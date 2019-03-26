@@ -1,0 +1,28 @@
+library(TraMineR)
+
+
+### Name: seqmpos
+### Title: Number of matching positions between two sequences.
+### Aliases: seqmpos
+### Keywords: Dissimilarity measures
+
+### ** Examples
+
+data(famform)
+famform.seq <- seqdef(famform)
+
+seqmpos(famform.seq[1,],famform.seq[2,])
+seqmpos(famform.seq[2,],famform.seq[4,])
+
+## Example with gaps in sequences
+a <- c(NA,"A",NA,"B","C")
+b <- c(NA,"C",NA,"B","C")
+
+ex1.seq <- seqdef(rbind(a,b))
+
+seqmpos(ex1.seq[1,], ex1.seq[2,])
+seqmpos(ex1.seq[1,], ex1.seq[2,], with.missing=TRUE)
+
+
+
+

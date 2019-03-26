@@ -1,0 +1,47 @@
+library(shinydashboard)
+
+
+### Name: renderValueBox
+### Title: Create an info or value box output (server side)
+### Aliases: renderValueBox renderInfoBox
+
+### ** Examples
+
+## Only run this example in interactive R sessions
+if (interactive()) {
+library(shiny)
+
+ui <- dashboardPage(
+  dashboardHeader(title = "Dynamic boxes"),
+  dashboardSidebar(),
+  dashboardBody(
+    fluidRow(
+      box(width = 2, actionButton("count", "Count")),
+      infoBoxOutput("ibox"),
+      valueBoxOutput("vbox")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$ibox <- renderInfoBox({
+    infoBox(
+      "Title",
+      input$count,
+      icon = icon("credit-card")
+    )
+  })
+  output$vbox <- renderValueBox({
+    valueBox(
+      "Title",
+      input$count,
+      icon = icon("credit-card")
+    )
+  })
+}
+
+shinyApp(ui, server)
+}
+
+
+

@@ -1,0 +1,35 @@
+library(ensembleBMA)
+
+
+### Name: fitBMAnormal
+### Title: BMA mixture of normals fit to a training set
+### Aliases: fitBMAnormal
+### Keywords: models
+
+### ** Examples
+
+  data(ensBMAtest)
+
+  ensNames <- c("gfs","cmcg","eta","gasp","jma","ngps","tcwb","ukmo")
+
+  obs <- paste("T2","obs", sep = ".")
+  ens <- paste("T2", ensNames, sep = ".")
+
+  tempTestData <- ensembleData( forecasts = ensBMAtest[,ens],
+                                observations = ensBMAtest[,obs],
+                                station = ensBMAtest[,"station"],
+                                dates = ensBMAtest[,"vdate"],
+                                forecastHour = 48,
+                                initializationTime = "00")
+
+  tempTrain <- trainingData( tempTestData, trainingDays = 30,
+                             date  = "2008010100")
+
+  tempTrainFit <- fitBMAnormal( tempTrain)
+
+## equivalent to
+##    tempTrainFit <- fitBMA( tempTrain, model = "normal")
+
+
+
+

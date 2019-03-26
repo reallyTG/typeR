@@ -1,0 +1,42 @@
+library(hpiR)
+
+
+### Name: smoothIndex
+### Title: Smooth an index
+### Aliases: smoothIndex
+
+### ** Examples
+
+
+ # Load data
+ data(ex_sales)
+
+ # Create index with raw transaction data
+ rt_index <- rtIndex(trans_df = ex_sales,
+                     periodicity = 'monthly',
+                     min_date = '2010-06-01',
+                     max_date = '2015-11-30',
+                     adj_type = 'clip',
+                     date = 'sale_date',
+                     price = 'sale_price',
+                     trans_id = 'sale_id',
+                     prop_id = 'pinx',
+                     estimator = 'robust',
+                     log_dep = TRUE,
+                     trim_model = TRUE,
+                     max_period = 48,
+                     smooth = FALSE)
+
+ # Create Smooth index
+ sm_index <- smoothIndex(index_obj = rt_index,
+                         order = 3,
+                         in_place = FALSE)
+
+ # Create Smooth index (in place)
+ sm_index <- smoothIndex(index_obj = rt_index,
+                         order = 3,
+                         in_place = TRUE)
+
+
+
+

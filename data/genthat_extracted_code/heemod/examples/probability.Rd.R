@@ -1,0 +1,30 @@
+library(heemod)
+
+
+### Name: probability
+### Title: Convenience Functions to Compute Probabilities
+### Aliases: probability rescale_prob prob_to_prob rate_to_prob or_to_prob
+###   rr_to_prob
+
+### ** Examples
+
+# convert 5-year probability 
+# to 1-year probability
+rescale_prob(p = .65, from = 5)
+
+# convert 1-year probability 
+# to 1-month probability
+rescale_prob(p = .5, to = 1/12)
+
+# convert rate per 1000 PY
+# to 5-year probability
+rate_to_prob(r = 162, per = 1000, to = 5)
+
+# convert OR to probability
+or_to_prob(or = 1.9, p = .51)
+
+# convert RR to probability
+rr_to_prob(rr = 1.9, p = .51)
+
+
+

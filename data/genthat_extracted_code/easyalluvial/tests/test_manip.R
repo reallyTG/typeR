@@ -1,0 +1,102 @@
+
+
+context('Test manipulation functions')
+
+
+test_that( 'manip_factor_2_numeric'
+  ,{
+
+    fac_num = factor( c(1,3,8) )
+    fac_chr = factor( c('foo','bar') )
+    fac_chr_ordered = factor( c('a','b','c'), ordered = T )
+
+    expect_identical( manip_factor_2_numeric( fac_num ), c(1,3,8) )
+    expect_identical( manip_factor_2_numeric( fac_chr ), c(2,1) )
+    expect_identical( manip_factor_2_numeric( fac_chr_ordered ), c(1,2,3) )
+
+})
+
+
+test_that('manip_bin_numerics'
+  ,{
+
+  categoricals = c('cyl', 'vs', 'am', 'gear', 'carb')
+
+  data = mtcars %>%
+    mutate_at( vars(categoricals), as.factor )
+
+  data_new = manip_bin_numerics(data)
+
+  numerics = data_new %>%
+    select_if( is.numeric ) %>%
+    names()
+
+  expect_true( is_empty(numerics) )
+  expect_true( ! is_empty(data_new) )
+  expect_identical( names(data_new) , names(data) )
+  expect_true( ! 'easyalluvialid' %in% names(data_new) )
+  
+  bins_from_vec = manip_bin_numerics(data$disp)
+  expect_equal( levels(bins_from_vec), c("LL", "ML", "M",  "MH", "HH") )
+  
+  data_new_cuts = manip_bin_numerics(data, bin_labels = 'cuts')
+  
+  data_new_median = manip_bin_numerics(data, bin_labels = 'median')
+  
+  data_new_mean = manip_bin_numerics(data, bin_labels = 'mean')
+  
+  data_new_min_max = manip_bin_numerics(data, bin_labels = 'min_max')
+  
+  # p1 = alluvial_wide(data)
+  # 
+  # p2 = alluvial_wide(data, bin_labels = 'min_max')
+  # 
+  # gridExtra::grid.arrange(p1,p2)
+  
+  expect_false( identical(data_new_cuts, data_new_median) )
+  
+  expect_false( identical(data_new_mean, data_new_median) )
+  
+})
+
+
+test_that('manip_bin_numerics no numerics in data'
+          ,{
+
+  data = mtcars %>%
+    mutate_all( as.factor )
+
+  data_new = manip_bin_numerics(data)
+
+  expect_identical(data, data_new)
+
+})
+
+test_that('manip_bin_numerics zero variance columns'
+          ,{
+
+  data = mtcars %>%
+    as_tibble() %>%
+    mutate( zero_var = 1
+            , zero = 0
+            , near_zero_var = c( rep(1,nrow(.)-1), 0.9 ) )
+
+  data_new = manip_bin_numerics(data)
+
+  expect_identical( select(data, zero_var, zero)
+                    , select(data_new, zero_var, zero) )
+
+  expect_true( is.factor(data_new$near_zero_var) )
+
+})
+
+test_that('manip_bin_numerics with vector'
+          , {
+
+  vec = manip_bin_numerics(mtcars$mpg)
+  expect_true( is.factor(vec) )
+
+  vec = manip_bin_numerics( as.factor(mtcars$cyl) )
+  expect_identical( vec, as.factor(mtcars$cyl) )
+
+})

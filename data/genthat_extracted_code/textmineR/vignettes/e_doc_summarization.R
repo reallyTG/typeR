@@ -1,0 +1,172 @@
+## ----setup, include = FALSE----------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+## ----embedding-----------------------------------------------------------
+library(textmineR)
+
+# load the data
+data(movie_review, package = "text2vec")
+
+# let's take a sample so the demo will run quickly
+# note: textmineR is generally quite scaleable, depending on your system
+set.seed(123)
+s <- sample(1:nrow(movie_review), 200)
+
+movie_review <- movie_review[ s , ]
+
+# let's get those nasty "<br />" symbols out of the way
+movie_review$review <- stringr::str_replace_all(movie_review$review, "<br */>", "")
+
+# First create a TCM using skip grams, we'll use a 5-word window
+# most options available on CreateDtm are also available for CreateTcm
+tcm <- CreateTcm(doc_vec = movie_review$review,
+                 skipgram_window = 10,
+                 verbose = FALSE,
+                 cpus = 2)
+
+# use LDA to get embeddings into probability space
+# This will take considerably longer as the TCM matrix has many more rows 
+# than a DTM
+embeddings <- FitLdaModel(dtm = tcm,
+                          k = 50,
+                          iterations = 200,
+                          burnin = 180,
+                          alpha = 0.1,
+                          beta = 0.05,
+                          optimize_alpha = TRUE,
+                          calc_likelihood = FALSE,
+                          calc_coherence = FALSE,
+                          calc_r2 = FALSE,
+                          cpus = 2)
+
+
+## ----eval = FALSE--------------------------------------------------------
+#    # parse it into sentences
+#    sent <- stringi::stri_split_boundaries(doc, type = "sentence")[[ 1 ]]
+#  
+#    names(sent) <- seq_along(sent) # so we know index and order
+#  
+#    # embed the sentences in the model
+#    e <- CreateDtm(sent, ngram_window = c(1,1), verbose = FALSE, cpus = 2)
+#  
+#    # remove any documents with 2 or fewer words
+#    e <- e[ rowSums(e) > 2 , ]
+#  
+#    vocab <- intersect(colnames(e), colnames(gamma))
+#  
+#    e <- e / rowSums(e)
+#  
+#    e <- e[ , vocab ] %*% t(gamma[ , vocab ])
+#  
+#    e <- as.matrix(e)
+#  
+
+## ----eval = FALSE--------------------------------------------------------
+#    # get the pairwise distances between each embedded sentence
+#    e_dist <- CalcHellingerDist(e)
+
+## ----eval = FALSE--------------------------------------------------------
+#    # turn into a similarity matrix
+#    g <- (1 - e_dist) * 100
+
+## ----eval = FALSE--------------------------------------------------------
+#    # we don't need sentences connected to themselves
+#    diag(g) <- 0
+#  
+#    # turn into a nearest-neighbor graph
+#    g <- apply(g, 1, function(x){
+#      x[ x < sort(x, decreasing = TRUE)[ 3 ] ] <- 0
+#      x
+#    })
+#  
+#    # by taking pointwise max, we'll make the matrix symmetric again
+#    g <- pmax(g, t(g))
+
+## ----eval = FALSE--------------------------------------------------------
+#    g <- graph.adjacency(g, mode = "undirected", weighted = TRUE)
+#  
+#    # calculate eigenvector centrality
+#    ev <- evcent(g)
+#  
+#    # format the result
+#    result <- sent[ names(ev$vector)[ order(ev$vector, decreasing = TRUE)[ 1:3 ] ] ]
+#  
+#    result <- result[ order(as.numeric(names(result))) ]
+#  
+#    paste(result, collapse = " ")
+
+## ----summaries-----------------------------------------------------------
+
+library(igraph) 
+
+# let's do this in a function
+
+summarizer <- function(doc, gamma) {
+  
+  # recursive fanciness to handle multiple docs at once
+  if (length(doc) > 1 )
+    # use a try statement to catch any weirdness that may arise
+    return(sapply(doc, function(d) try(summarizer(d, gamma))))
+  
+  # parse it into sentences
+  sent <- stringi::stri_split_boundaries(doc, type = "sentence")[[ 1 ]]
+  
+  names(sent) <- seq_along(sent) # so we know index and order
+  
+  # embed the sentences in the model
+  e <- CreateDtm(sent, ngram_window = c(1,1), verbose = FALSE, cpus = 2)
+  
+  # remove any documents with 2 or fewer words
+  e <- e[ rowSums(e) > 2 , ]
+  
+  vocab <- intersect(colnames(e), colnames(gamma))
+  
+  e <- e / rowSums(e)
+  
+  e <- e[ , vocab ] %*% t(gamma[ , vocab ])
+  
+  e <- as.matrix(e)
+  
+  # get the pairwise distances between each embedded sentence
+  e_dist <- CalcHellingerDist(e)
+  
+  # turn into a similarity matrix
+  g <- (1 - e_dist) * 100
+  
+  # we don't need sentences connected to themselves
+  diag(g) <- 0
+  
+  # turn into a nearest-neighbor graph
+  g <- apply(g, 1, function(x){
+    x[ x < sort(x, decreasing = TRUE)[ 3 ] ] <- 0
+    x
+  })
+
+  # by taking pointwise max, we'll make the matrix symmetric again
+  g <- pmax(g, t(g))
+  
+  g <- graph.adjacency(g, mode = "undirected", weighted = TRUE)
+  
+  # calculate eigenvector centrality
+  ev <- evcent(g)
+  
+  # format the result
+  result <- sent[ names(ev$vector)[ order(ev$vector, decreasing = TRUE)[ 1:3 ] ] ]
+  
+  result <- result[ order(as.numeric(names(result))) ]
+  
+  paste(result, collapse = " ")
+}
+
+## ------------------------------------------------------------------------
+# Let's see the summary of the first couple of reviews
+docs <- movie_review$review[ 1:3 ]
+names(docs) <- movie_review$id[ 1:3 ]
+
+sums <- summarizer(docs, gamma = embeddings$gamma)
+
+sums
+

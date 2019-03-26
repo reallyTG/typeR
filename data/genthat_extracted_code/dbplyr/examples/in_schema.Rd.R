@@ -1,0 +1,28 @@
+library(dbplyr)
+
+
+### Name: in_schema
+### Title: Refer to a table in a schema
+### Aliases: in_schema
+
+### ** Examples
+
+in_schema("my_schema", "my_table")
+
+# Example using schemas with SQLite
+con <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+src <- src_dbi(con, auto_disconnect = TRUE)
+
+# Add auxilary schema
+tmp <- tempfile()
+DBI::dbExecute(con, paste0("ATTACH '", tmp, "' AS aux"))
+
+library(dplyr, warn.conflicts = FALSE)
+copy_to(con, iris, "df", temporary = FALSE)
+copy_to(con, mtcars, in_schema("aux", "df"), temporary = FALSE)
+
+con %>% tbl("df")
+con %>% tbl(in_schema("aux", "df"))
+
+
+

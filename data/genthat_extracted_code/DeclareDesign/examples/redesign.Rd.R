@@ -1,0 +1,62 @@
+library(DeclareDesign)
+
+
+### Name: redesign
+### Title: Redesign
+### Aliases: redesign
+
+### ** Examples
+
+
+n <- 500
+population <- declare_population(N = 1000)
+sampling <- declare_sampling(n = n)
+design <- population + sampling
+
+# returns a single, modified design
+modified_design <- redesign(design, n = 200)
+
+# returns a list of six modified designs
+design_vary_N <- redesign(design, n = seq(400, 900, 100))
+
+# When redesigning with arguments that are vectors,
+# use list() in redesign, with each list item
+# representing a design you wish to create
+
+prob_each <- c(.1, .5, .4)
+
+assignment <- declare_assignment(prob_each = prob_each)
+
+design <- population + assignment
+
+# returns two designs
+
+designs_vary_prob_each <- redesign(
+  design,
+  prob_each = list(c(.2, .5, .3), c(0, .5, .5)))
+
+
+# To illustrate what does and does not get edited by redesign, 
+# consider the following three designs. In the first two, argument
+# X is called from the step's environment; in the third it is not.
+# Using redesign will alter the role of X in the first two designs
+# but not the third one.
+
+X <- 3
+f <- function(b, X) b*X
+g <- function(b) b*X
+
+design1 <- declare_population(N = 1, A = X)       + NULL
+design2 <- declare_population(N = 1, A = f(2, X)) + NULL
+design3 <- declare_population(N = 1, A = g(2))    + NULL
+
+draw_data(design1)
+draw_data(design2)
+draw_data(design3)
+
+draw_data(redesign(design1, X=0))
+draw_data(redesign(design2, X=0))
+draw_data(redesign(design3, X=0))
+
+
+

@@ -1,0 +1,134 @@
+## ----setup, include = FALSE----------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(datamaps)
+
+## ------------------------------------------------------------------------
+# Fake data
+st <- c("AR", "NY", "CA", "IL", "CO", "MT", "TX", "OK", "AL", "NM", "NV", "NC", "OH", "PA")
+states <- data.frame(from = st, to = sample(st, 14))
+
+states %>%
+    datamaps(scope = "usa", height = "400", width = "100%") %>% # intiate map
+    add_arcs_name(from, to) %>% # add arcs layers 
+    add_labels() # add state labels
+
+## ------------------------------------------------------------------------
+data.frame(
+  state = state.abb,
+  area = state.area
+) %>% 
+  datamaps(scope = "usa", height = "400", width = "100%") %>%
+  add_choropleth(state, area)
+
+## ------------------------------------------------------------------------
+library(datamaps)
+library(dplyr)
+
+sesh <- read.csv("https://raw.githubusercontent.com/JohnCoene/projects/master/htmlwidgets/echarts/data/sessions.csv")
+
+# datamaps uses iso3c format
+sesh$iso3c <- countrycode::countrycode(sesh$Country, "country.name", "iso3c")
+sesh <- sesh[!is.na(sesh$iso3c),] # remove NA
+sesh$continent <- countrycode::countrycode(sesh$iso3c, "iso3c", "continent") # find continents
+
+# sum Sessions by continent
+continents <- sesh %>% 
+  group_by(continent) %>% 
+  summarise(Sessions = sum(Sessions)) %>% 
+  mutate(long = c(3.917313, -99.133209, 106.660172, 16.363449),
+         lat = c(7.401962, 19.432608, 10.762622, 48.210033))
+
+sesh %>% 
+  datamaps(default = "lightgray", height = "400", width = "100%") %>% # initiate map
+  add_choropleth(iso3c, Sessions, colors = RColorBrewer::brewer.pal(5, "YlOrRd")) %>% # add chorpleth layer
+  add_data(continents) %>% # add continent dataset
+  add_bubbles(long, lat, log(Sessions) * 5, continent, continent, colors = RColorBrewer::brewer.pal(4, "Set1")) # add continent bubbles
+
+## ------------------------------------------------------------------------
+data <- data.frame(name = c("USA", "CAN", "BRA", "ARG", "MEX", "CUB", "BOL"),
+                   color = round(runif(7, 1, 10)))
+
+data %>%
+  datamaps(projection = "orthographic", height = "400", width = "100%") %>%
+  add_choropleth(name, color, colors = c("skyblue", "yellow", "orangered")) %>% 
+  add_graticule() 
+
+## ------------------------------------------------------------------------
+coords <- data.frame(city = c("London", "New York", "Beijing", "Sydney"),
+                     lon = c(-0.1167218, -73.98002, 116.3883, 151.18518),
+                     lat = c(51.49999, 40.74998, 39.92889, -33.92001),
+                     values = c(11, 23, 29 , 42))
+
+data <- data.frame(name = c("USA", "FRA", "CHN", "RUS", "COG", "DZA",
+                            "BRA", "AFG"),
+    color = round(runif(8, 1, 10)))
+
+edges <- data.frame(origin = c("USA", "FRA", "BGD", "ETH", "KHM", "GRD",
+                               "FJI", "GNB", "AUT", "YEM"),
+    target = c("BRA", "USA", "URY", "ZAF", "SAU", "SVK", "RWA", "SWE",
+               "TUV", "ZWE"),
+    strokeColor = rep(c("gray", "black"), 5))
+
+data %>%
+    datamaps(default = "lightgray", height = "400", width = "100%") %>%
+    add_choropleth(name, color) %>%
+    add_data(coords) %>%
+    add_bubbles(lon, lat, values, values, city, colors = c("skyblue", "darkblue")) %>%
+    add_data(edges) %>%
+    add_arcs_name(origin, target, strokeColor)
+
+## ------------------------------------------------------------------------
+topo <- paste0(
+  "https://rawgit.com/Anujarya300/bubble_maps/",
+  "master/data/geography-data/india.topo.json"
+)
+
+data <- data.frame(state = c("JH", "MH"), value = c(55, 28))
+  
+data %>% 
+  datamaps(scope = "india", height = "600", width = "100%") %>% 
+  add_choropleth(state, value) %>% 
+  config_geo(data.url = topo) %>% 
+  set_projection(htmlwidgets::JS('
+  function (element) {
+    var projection = d3.geo.mercator()
+    .center([78.9629, 23.5937])
+    .scale(1000);
+    var path = d3.geo.path().projection(projection);
+    return { path: path, projection: projection };
+  }
+  ')
+  )
+
+## ------------------------------------------------------------------------
+coords <- data.frame(
+  city = c("London", "New York", "Beijing", "Sydney"),
+  lon = c(-0.1167218, -73.98002, 116.3883, 151.18518),
+  lat = c(51.49999, 40.74998, 39.92889, -33.92001)
+)
+
+coords %>% 
+  datamaps() %>% 
+  add_icons(lon, lat)
+
+## ------------------------------------------------------------------------
+icon_url <- paste0(
+  "https://pbs.twimg.com/profile_images/",
+  "927645314630193158/ufoYTbbi_400x400.jpg"
+)
+
+coords %>% 
+  datamaps() %>% 
+  markers_options(
+    icon = list(
+      url = icon_url,
+      width = 20, height = 20
+     ),
+     fillOpacity = 1
+  ) %>% 
+  add_markers(lon, lat)
+

@@ -1,0 +1,25 @@
+library(MixSim)
+
+
+### Name: overlap
+### Title: Overlap
+### Aliases: overlap
+### Keywords: cluster
+
+### ** Examples
+
+data("iris", package = "datasets")
+p <- ncol(iris) - 1
+id <- as.integer(iris[, 5])
+K <- max(id)
+
+# estimate mixture parameters
+Pi <- prop.table(tabulate(id))
+Mu <- t(sapply(1:K, function(k){ colMeans(iris[id == k, -5]) }))
+S <- sapply(1:K, function(k){ var(iris[id == k, -5]) })
+dim(S) <- c(p, p, K)
+
+overlap(Pi = Pi, Mu = Mu, S = S)
+
+
+

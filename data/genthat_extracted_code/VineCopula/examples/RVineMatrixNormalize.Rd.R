@@ -1,0 +1,33 @@
+library(VineCopula)
+
+
+### Name: RVineMatrixNormalize
+### Title: Normalization of R-Vine Matrix
+### Aliases: RVineMatrixNormalize
+### Keywords: vine
+
+### ** Examples
+
+
+Matrix <- matrix(c(5, 2, 3, 1, 4,
+                   0, 2, 3, 4, 1,
+                   0, 0, 3, 4, 1,
+                   0, 0, 0, 4, 1,
+                   0, 0, 0, 0, 1), 5, 5)
+family <- matrix(1,5,5)
+
+par <- matrix(c(0, 0.2, 0.9, 0.5, 0.8,
+                0,   0, 0.1, 0.6, 0.9,
+                0,   0,   0, 0.7, 0.5,
+                0,   0,   0,   0, 0.8,
+                0,   0,   0,   0,   0), 5, 5)
+
+# define RVineMatrix object
+RVM <- RVineMatrix(Matrix, family, par)
+
+# normalise the RVine
+RVineMatrixNormalize(RVM)
+
+
+
+

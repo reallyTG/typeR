@@ -1,0 +1,23 @@
+library(quadmesh)
+
+
+### Name: triangulate_quads
+### Title: Triangles from quads
+### Aliases: triangulate_quads
+
+### ** Examples
+
+triangulate_quads(cbind(c(1, 2, 4, 3), c(3, 4, 6, 5)))
+
+qm <- quadmesh(raster::crop(etopo, raster::extent(140, 160, -50, -30)))
+tri <- triangulate_quads(qm$ib)
+plot(t(qm$vb))
+tri_avg <- colMeans(matrix(qm$vb[3, tri], nrow = 3), na.rm = TRUE)
+scl <- function(x) (x - min(x))/diff(range(x))
+tri_col <- grey(seq(0, 1, length = 100))[scl(tri_avg) * 99 + 1]
+## tri is qm$ib converted to triangles for the same vertex set
+polygon(t(qm$vb)[rbind(tri, NA), ])
+polygon(t(qm$vb)[rbind(tri, NA), ], col = tri_col)
+
+
+

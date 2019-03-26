@@ -1,0 +1,27 @@
+library(rphast)
+
+
+### Name: add.signals.feat
+### Title: Add start/stop codon, 3'/5' splice signals to features
+### Aliases: add.signals.feat
+### Keywords: features
+
+### ** Examples
+
+exampleArchive <- system.file("extdata", "examples.zip", package="rphast")
+featFile <- "gencode.ENr334.gp"
+unzip(exampleArchive, featFile)
+f <- read.feat(featFile)
+table(f$feature)
+coverage.feat(f[f$feature=="CDS",])
+coverage.feat(f[f$feature=="exon",])
+f <- add.signals.feat(f)
+table(f$feature)
+coverage.feat(f[f$feature=="3'splice",])
+coverage.feat(f[f$feature=="5'splice",])
+coverage.feat(f[f$feature=="start_codon",])
+coverage.feat(f[f$feature=="stop_codon",])
+unlink(featFile)
+
+
+

@@ -1,0 +1,121 @@
+library(expss)
+
+
+### Name: if_val
+### Title: Change, rearrange or consolidate the values of an existing/new
+###   variable. Inspired by RECODE command from SPSS.
+### Aliases: if_val if_val<- recode<- recode ifs lo hi copy %into%
+### Keywords: datasets
+
+### ** Examples
+
+# `ifs` examples
+a = 1:5
+b = 5:1
+ifs(b>3 ~ 1)                       # c(1, 1, NA, NA, NA)
+ifs(b>3 ~ 1, TRUE ~ 3)             # c(1, 1, 3, 3, 3)
+ifs(b>3 ~ 1, a>4 ~ 7, TRUE ~ 3)    # c(1, 1, 3, 3, 7)
+ifs(b>3 ~ a, TRUE ~ 42)            # c(1, 2, 42, 42, 42)
+# some examples from SPSS manual
+# RECODE V1 TO V3 (0=1) (1=0) (2, 3=-1) (9=9) (ELSE=SYSMIS)
+set.seed(123)
+v1  = sample(c(0:3, 9, 10), 20, replace = TRUE)
+recode(v1) = c(0 ~ 1, 1 ~ 0, 2:3 ~ -1, 9 ~ 9, other ~ NA)
+v1
+
+# RECODE QVAR(1 THRU 5=1)(6 THRU 10=2)(11 THRU HI=3)(ELSE=0).
+set.seed(123)
+qvar = sample((-5):20, 50, replace = TRUE)
+recode(qvar, 1 %thru% 5 ~ 1, 6 %thru% 10 ~ 2, 11 %thru% hi ~ 3, other ~ 0)
+# the same result
+recode(qvar, 1 %thru% 5 ~ 1, 6 %thru% 10 ~ 2, ge(11) ~ 3, other ~ 0)
+
+# RECODE STRNGVAR ('A', 'B', 'C'='A')('D', 'E', 'F'='B')(ELSE=' '). 
+strngvar = LETTERS
+recode(strngvar, c('A', 'B', 'C') ~ 'A', c('D', 'E', 'F') ~ 'B', other ~ ' ')
+
+# RECODE AGE (MISSING=9) (18 THRU HI=1) (0 THRU 18=0) INTO VOTER. 
+set.seed(123)
+age = sample(c(sample(5:30, 40, replace = TRUE), rep(9, 10)))
+voter = recode(age, NA ~ 9, 18 %thru% hi ~ 1, 0 %thru% 18 ~ 0)
+voter
+# the same result with '%into%'
+recode(age, NA ~ 9, 18 %thru% hi ~ 1, 0 %thru% 18 ~ 0) %into% voter2
+voter2
+
+# multiple assignment with '%into%'
+#' set.seed(123)
+x1 = runif(30)
+x2 = runif(30)
+x3 = runif(30)
+# note nessesary brackets around RHS of '%into%'
+recode(x1 %to% x3, gt(0.5) ~ 1, other ~ 0) %into% (x_rec_1 %to% x_rec_3)
+fre(x_rec_1)
+# the same operation with characters expansion
+i = 1:3
+recode(x1 %to% x3, gt(0.5) ~ 1, other ~ 0) %into% subst('x_rec2_`i`')
+fre(x_rec2_1)
+
+# example with function in RHS
+set.seed(123)
+a = rnorm(20)
+# if a<(-0.5) we change it to absolute value of a (abs function)
+recode(a, lt(-0.5) ~ abs, other ~ copy) 
+
+# the same example with logical criteria
+recode(a, a<(-.5) ~ abs, other ~ copy) 
+
+# replace with specific value for each column
+# we replace values greater than 0.75 with column max and values less than 0.25 with column min
+# and NA with column means
+# make data.frame
+set.seed(123)
+x1 = runif(30)
+x2 = runif(30)
+x3 = runif(30)
+x1[sample(30, 10)] = NA # place 10 NA's
+x2[sample(30, 10)] = NA # place 10 NA's
+x3[sample(30, 10)] = NA # place 10 NA's
+dfs = data.frame(x1, x2, x3)
+
+#replacement. Note the necessary transpose operation
+recode(dfs, 
+        lt(0.25) ~ t(min_col(dfs)), 
+        gt(0.75) ~ t(max_col(dfs)), 
+        NA ~ t(mean_col(dfs)), 
+        other ~ copy
+      )
+
+# replace NA with row means
+# some rows which contain only NaN's remain unchanged because mean_row for them also is NaN
+recode(dfs, NA ~ mean_row(dfs), other ~ copy) 
+
+# some of the above examples with from/to notation
+
+set.seed(123)
+v1  = sample(c(0:3,9,10), 20, replace = TRUE)
+# RECODE V1 TO V3 (0=1) (1=0) (2,3=-1) (9=9) (ELSE=SYSMIS)
+fr = list(0, 1, 2:3, 9, other)
+to = list(1, 0, -1, 9, NA)
+recode(v1, from = fr) = to
+v1
+
+# RECODE QVAR(1 THRU 5=1)(6 THRU 10=2)(11 THRU HI=3)(ELSE=0).
+fr = list(1 %thru% 5, 6 %thru% 10, ge(11), other)
+to = list(1, 2, 3, 0)
+recode(qvar, from = fr, to = to)
+
+# RECODE STRNGVAR ('A','B','C'='A')('D','E','F'='B')(ELSE=' ').
+fr = list(c('A','B','C'), c('D','E','F') , other)
+to = list("A", "B", " ")
+recode(strngvar, from = fr, to = to)
+
+# RECODE AGE (MISSING=9) (18 THRU HI=1) (0 THRU 18=0) INTO VOTER.
+fr = list(NA, 18 %thru% hi, 0 %thru% 18)
+to = list(9, 1, 0)
+voter = recode(age, from = fr, to = to)
+voter
+
+
+
+

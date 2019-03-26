@@ -1,0 +1,89 @@
+library(DiagrammeR)
+
+
+### Name: colorize_node_attrs
+### Title: Apply colors based on node attribute values
+### Aliases: colorize_node_attrs
+
+### ** Examples
+
+# Create a graph with 8
+# nodes and 7 edges
+graph <-
+  create_graph() %>%
+  add_path(n = 8) %>%
+  set_node_attrs(
+    node_attr = weight,
+    values = c(
+      8.2, 3.7, 6.3, 9.2,
+      1.6, 2.5, 7.2, 5.4))
+
+# Find group membership values for all nodes
+# in the graph through the Walktrap community
+# finding algorithm and join those group values
+# to the graph's internal node data frame (ndf)
+# with the `join_node_attrs()` function
+graph <-
+  graph %>%
+  join_node_attrs(
+    df = get_cmty_walktrap(.))
+
+# Inspect the number of distinct communities
+graph %>%
+  get_node_attrs(
+    node_attr = walktrap_group) %>%
+  unique() %>%
+  sort()
+
+# Visually distinguish the nodes in the different
+# communities by applying colors using the
+# `colorize_node_attrs()` function; specifically,
+# set different `fillcolor` values with an alpha
+# value of 90 and apply opaque colors to the node
+# border (with the `color` node attribute)
+graph <-
+  graph %>%
+  colorize_node_attrs(
+    node_attr_from = walktrap_group,
+    node_attr_to = fillcolor,
+    palette = "Greens",
+    alpha = 90) %>%
+  colorize_node_attrs(
+    node_attr_from = walktrap_group,
+    node_attr_to = color,
+    palette = "viridis",
+    alpha = 80)
+
+# Show the graph's internal node data frame
+graph %>%
+  get_node_df()
+
+# Create a graph with 8 nodes and 7 edges
+graph <-
+  create_graph() %>%
+  add_path(n = 8) %>%
+  set_node_attrs(
+    node_attr = weight,
+    values = c(
+      8.2, 3.7, 6.3, 9.2,
+      1.6, 2.5, 7.2, 5.4))
+
+# We can bucketize values in `weight` using
+# `cut_points` and assign colors to each of the
+# bucketed ranges (for values not part of any
+# bucket, a gray color is assigned by default)
+graph <-
+  graph %>%
+  colorize_node_attrs(
+    node_attr_from = weight,
+    node_attr_to = fillcolor,
+    cut_points = c(1, 3, 5, 7, 9))
+
+# Now there will be a `fillcolor` node attribute
+# with distinct colors (the `#D9D9D9` color is
+# the default `gray85` color)
+graph %>%
+  get_node_df()
+
+
+

@@ -1,0 +1,21 @@
+library(tripack)
+
+
+### Name: tri.find
+### Title: Locate a point in a triangulation
+### Aliases: tri.find
+### Keywords: spatial
+
+### ** Examples
+
+data(tritest)
+tritest.tr<-tri.mesh(tritest$x,tritest$y)
+plot(tritest.tr)
+pnt<-list(x=0.3,y=0.4)
+triangle.with.pnt<-tri.find(tritest.tr,pnt$x,pnt$y)
+attach(triangle.with.pnt)
+lines(tritest$x[c(i1,i2,i3,i1)],tritest$y[c(i1,i2,i3,i1)],col="red")
+points(pnt$x,pnt$y)
+
+
+

@@ -1,0 +1,33 @@
+library(pkr)
+
+
+### Name: NCA
+### Title: Noncompartmental analysis for a dataset with multiple subjects
+### Aliases: NCA
+### Keywords: NCA
+
+### ** Examples
+
+# Theoph and Indometh data: dose in mg, conc in mg/L, time in h
+NCA(Theoph, "Subject", "Time", "conc", dose=320, uConc="mg/L")
+NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", uConc="mg/L")
+
+iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)) ; iAUC
+NCA(Theoph, "Subject", "Time", "conc", dose=320, iAUC=iAUC, uConc="mg/L")
+NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", iAUC=iAUC, uConc="mg/L")
+
+writeLines(NCA(Theoph, "Subject", "Time", "conc", dose=320, report="Text", uConc="mg/L"),
+           "Theoph_Linear_CoreOutput.txt")
+writeLines(NCA(Theoph, "Subject", "Time", "conc", dose=320, fit="Log", report="Text", 
+           uConc="mg/L"), "Theoph_Log_CoreOutput.txt")
+writeLines(NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", report="Text", 
+           uConc="mg/L"), "Indometh_Bolus_Linear_CoreOutput.txt")
+writeLines(NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", fit="Log",
+           report="Text", uConc="mg/L"), "Indometh_Bolus_Log_CoreOutput.txt")
+writeLines(NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", dur=0.25,
+           report="Text", uConc="mg/L"), "Indometh_Infusion_Linear_CoreOutput.txt")
+writeLines(NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", dur=0.25,
+           fit="Log", report="Text", uConc="mg/L"), "Indometh_Infusion_Log_CoreOutput.txt")
+
+
+

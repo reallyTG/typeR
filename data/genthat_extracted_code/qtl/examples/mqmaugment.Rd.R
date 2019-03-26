@@ -1,0 +1,28 @@
+library(qtl)
+
+
+### Name: mqmaugment
+### Title: MQM augmentation
+### Aliases: mqmaugment
+### Keywords: utilities
+
+### ** Examples
+
+data(map10)                    # Genetic map modeled after mouse
+
+# simulate a cross (autosomes 1-10)
+qtl <- c(3,15,1,0)             # QTL model: chr, pos'n, add've & dom effects
+cross <- sim.cross(map10[1:10],qtl,n=100,missing.prob=0.01)
+
+# MQM
+crossaug <- mqmaugment(cross)  # Augmentation
+cat(crossaug$mqm$Nind,'real individuals retained in dataset',
+    crossaug$mqm$Naug,'individuals augmented\n')
+
+result <- mqmscan(crossaug)    # Scan
+
+# show LOD interval of the QTL on chr 3
+lodint(result,chr=3)
+
+
+

@@ -1,0 +1,127 @@
+## ----setup, include=FALSE------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+
+library(ggparliament)
+library(dplyr)
+library(ggplot2)
+require(tidyr)
+require(magrittr)
+
+source("../R/parliament_data.R")
+source("../R/geom_parliament_seats.R")
+source("../R/geom_highlight_government.R")
+source("../R/helper_funcs.R")
+source("../R/draw_majoritythreshold.R")
+source("../R/draw_partylabels.R")
+source("../R/draw_majoritythreshold.R")
+source("../R/draw_totalseats.R")
+source("../R/theme_ggparliament.R")
+load("../R/sysdata.rda")
+
+
+
+## ---- fig.height = 4, fig.width=6----------------------------------------
+usa_12 <- election_data %>%
+  filter(country == "USA" &
+           house == "Representatives" & 
+           year == "2012")  %>% 
+  parliament_data(election_data = .,
+  party_seats = .$seats,
+  parl_rows = 8,
+  type = "semicircle")
+
+ggplot(usa_12, aes(x, y, colour = party_short)) +
+  geom_parliament_seats() + 
+  geom_highlight_government(government == 1) + 
+  draw_majoritythreshold(n = 218,
+                         type = "semicircle") + 
+  theme_ggparliament() +
+  labs(colour = NULL, 
+       title = "2012 American Congress",
+       subtitle = "Party that controls the chamber is highlighted in black.") +
+  scale_colour_manual(values = usa_12$colour, 
+                      limits = usa_12$party_short) 
+
+
+## ---- fig.height = 4, fig.width=4----------------------------------------
+#get the data for the last election
+uk_data <- election_data %>%
+  filter(country == "UK") %>%
+  filter(year == 2017) %>%
+  #parl_data it out
+  parliament_data(election_data = .,
+                  party_seats = .$seats,
+                  group = .$government,
+                  parl_rows = NULL,
+                  type = "opposing_benches")
+#note that for opposing benches, parliament_data tries to calculate a number of rows per dot
+#that allows clear visualisation of the majority line
+#try to use a number of rows that is an exact divisor of the threshold
+
+colscale = 
+
+#plot it
+uk <- ggplot(uk_data, aes(x, y, colour = party_short)) +
+  scale_colour_manual(values = unique(uk_data$colour),
+                      limits = unique(uk_data$party_short),
+                      name = "Party") +
+  geom_parliament_seats(size = 1.5) +
+  draw_majoritythreshold(n = 325, type = "opposing_benches") +
+  coord_flip() + 
+  theme_ggparliament() +
+  theme(legend.position = c("bottom"))
+
+uk
+
+
+## ----fig.width=4, fig.height=4-------------------------------------------
+australia <- election_data %>%
+  filter(country == "Australia" &
+    house == "Representatives" &
+    year == 2016) 
+
+australia1 <- parliament_data(election_data = australia,
+  party_seats = australia$seats,
+  parl_rows = 4,
+  type = "horseshoe")
+
+au <-ggplot(australia1, aes(x, y, colour = party_short)) +
+  geom_parliament_seats() + 
+  geom_highlight_government(government == 1) + 
+  draw_majoritythreshold(n = 76,
+                         type = "horseshoe") + 
+  theme_ggparliament() +
+  labs(colour = NULL, 
+       title = "Australian Parliament",
+       subtitle = "Government encircled in black.") +
+  scale_colour_manual(values = australia$colour, 
+                      limits = australia$party_short) + 
+  theme(legend.position = 'bottom') 
+au
+
+## ---- fig.height=4, fig.width=8------------------------------------------
+germany <- election_data %>%
+  filter(year == 2017 & 
+           country == "Germany") 
+
+germany <- parliament_data(election_data = germany, 
+                           parl_rows = 12,
+                           party_seats = germany$seats, 
+                           plot_order = germany$government,
+                           type = 'semicircle')
+
+german_parliament <- ggplot(germany, aes(x, y, colour = party_short)) +
+  geom_parliament_seats() +
+  geom_highlight_government(government == 1) + 
+  draw_majoritythreshold(n = 355, label = FALSE, type = "semicircle") + 
+  labs(colour="Party", 
+       title="Germany 2017 Election Results") + 
+  theme_ggparliament() +
+  scale_colour_manual(values = germany$colour, 
+                      limits = germany$party_short)
+german_parliament
+

@@ -1,0 +1,20 @@
+library(flatxml)
+
+
+### Name: fxml_getSiblings
+### Title: Siblings of an XML element
+### Aliases: fxml_getSiblings
+
+### ** Examples
+
+# Load example file with population data from United Nations Statistics Division
+# and create flat dataframe
+example <- system.file("worldpopulation.xml", package="flatxml")
+xml.dataframe <- fxml_importXMLFlat(example)
+
+# Get all the siblings (elements on the same hierarchy level) of the XML element with ID 4
+# (xml.dataframe$elemid. ==  4)
+fxml_getSiblings(xml.dataframe, 4)
+
+
+

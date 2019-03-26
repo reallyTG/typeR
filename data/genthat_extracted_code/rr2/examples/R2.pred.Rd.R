@@ -1,0 +1,127 @@
+library(rr2)
+
+
+### Name: R2.pred
+### Title: Calculate R2.pred
+### Aliases: R2.pred
+
+### ** Examples
+
+library(ape)
+library(phylolm)
+library(lme4)
+
+#################
+# LMM with two fixed and two random effects 
+p1 <- 10
+nsample <- 10
+n <- p1 * nsample
+
+d <- data.frame(x1 = 0, x2 = 0, y = 0, u1 = rep(1:p1, each = nsample), 
+                u2 = rep(1:p1, times = nsample))
+d$u1 <- as.factor(d$u1)
+d$u2 <- as.factor(d$u2)
+
+b1 <- 1
+b2 <- -1
+sd1 <- 1.5
+
+d$x1 <- rnorm(n = n)
+d$x2 <- rnorm(n = n)
+d$y <- b1 * d$x1 + b2 * d$x2 + rep(rnorm(n = p1, sd = sd1), each = nsample) + 
+       rep(rnorm(n = p1, sd = sd1), times = nsample) + rnorm(n = n)
+
+z.f <- lmer(y ~ x1 + x2 + (1 | u1) + (1 | u2), data = d, REML = FALSE)
+z.x <- lmer(y ~ x1 + (1 | u1) + (1 | u2), data = d, REML = FALSE)
+z.v <- lmer(y ~ 1 + (1 | u2), data = d, REML = FALSE)
+z.0 <- lm(y ~ 1, data = d)
+
+R2.pred(z.f, z.x)
+R2.pred(z.f, z.v)
+R2.pred(z.f)
+
+#################
+# GLMM with one fixed and one random effect
+
+p1 <- 10
+nsample <- 10
+n <- p1 * nsample
+
+d <- data.frame(x = 0, y = 0, u = rep(1:p1, each = nsample))
+d$u <- as.factor(d$u)
+
+b1 <- 1
+sd1 <- 1.5
+
+d$x <- rnorm(n = n)
+prob <- inv.logit(b1 * d$x + rep(rnorm(n = p1, sd = sd1), each = nsample))
+d$y <- rbinom(n = n, size = 1, prob = prob)
+
+z.f <- glmer(y ~ x + (1 | u), data = d, family = 'binomial')
+z.x <- glmer(y ~ 1 + (1 | u), data = d, family = 'binomial')
+z.v <- glm(y ~ x, data = d, family = 'binomial')
+
+R2.pred(z.f, z.x)
+R2.pred(z.f, z.v)
+R2.pred(z.f)
+
+#################
+# PGLS with a single fixed effect
+
+n <- 100
+d <- data.frame(x = array(0, dim = n), y = 0)
+
+b1 <- 1.5
+signal <- 0.7
+
+phy <- compute.brlen(rtree(n = n), method = 'Grafen', power = 1)
+phy.x <- compute.brlen(phy, method = 'Grafen', power = .0001)
+
+# Generate random data
+x <- rTraitCont(phy.x, model = 'BM', sigma = 1)
+e <- signal^0.5 * rTraitCont(phy, model = 'BM', sigma = 1) + (1-signal)^0.5 * rnorm(n = n)
+d$x <- x[match(names(e), names(x))]
+d$y <- b1 * x + e
+rownames(d) <- phy$tip.label
+
+z.x <- phylolm(y ~ 1, phy = phy, data = d, model = 'lambda')
+lam.x <- round(z.x$optpar, digits = 4)
+z.f <- phylolm(y ~ x, phy = phy, data = d, model = 'lambda')
+z.v <- lm(y ~ x, data = d)
+
+R2.pred(z.f, z.x, phy = phy)
+R2.pred(z.f, z.v, phy = phy)
+R2.pred(z.f, phy = phy)
+
+#################
+# PGLMM with one fixed effect
+
+n <- 100
+b1 <- 1.5
+signal <- 2
+
+phy <- compute.brlen(rtree(n = n), method = 'Grafen', power = 1)
+phy.x <- compute.brlen(phy, method = 'Grafen', power = .0001)
+
+# Generate random data
+x <- rnorm(n)
+d <- data.frame(x = x, y = 0)
+
+e <- signal * rTraitCont(phy, model = 'BM', sigma = 1)
+e <- e[match(phy$tip.label, names(e))]
+
+d$y <- rbinom(n = n, size = 1, prob = inv.logit(b1 * d$x + e))
+rownames(d) <- phy$tip.label
+
+# Use the function binaryPGLMM() from the rr2 package rather than ape.
+z.f <- rr2::binaryPGLMM(y ~ x, data = d, phy = phy)
+z.x <- rr2::binaryPGLMM(y ~ 1, data = d, phy = phy)
+z.v <- glm(y ~ x, data = d, family = 'binomial')
+
+R2.pred(z.f, z.x)
+R2.pred(z.f, z.v)
+R2.pred(z.f)
+
+
+
+

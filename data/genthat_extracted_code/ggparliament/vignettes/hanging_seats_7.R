@@ -1,0 +1,72 @@
+## ----setup, include=FALSE------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+
+library(ggparliament)
+library(dplyr)
+library(ggplot2)
+require(tidyr)
+require(magrittr)
+
+source("../R/parliament_data.R")
+source("../R/geom_parliament_seats.R")
+source("../R/geom_highlight_government.R")
+source("../R/geom_overhang_seats.R")
+source("../R/helper_funcs.R")
+source("../R/draw_majoritythreshold.R")
+source("../R/draw_partylabels.R")
+source("../R/draw_majoritythreshold.R")
+source("../R/draw_totalseats.R")
+source("../R/theme_ggparliament.R")
+load("../R/sysdata.rda")
+
+
+## ------------------------------------------------------------------------
+data <- election_data %>%
+  filter(country == "Germany" & year == "2013") %>% # on the federal level, CSU is a part of CDU
+  mutate(seats = gsub("255", "311", seats)) %>% # Add the 56 CSU seats to CDU
+  mutate(seats = as.numeric(as.character(seats))) %>%
+  filter_all(all_vars(!grepl('Christian Social Union in Bavaria',.)))
+# binary variable for overhang seat
+overhangseats <- c(1, 0, 1, 0, 1, 0, 1, 0)
+# number of overhang seats and remainder for each party
+number_overhangseats <- c(3, 61, 3, 60,16, 295, 11, 182)
+# expand data
+german_data <- parliament_data(
+  election_data = data,
+  parl_rows = 11,
+  party_seats = data$seats,
+  type = "semicircle"
+)
+german_data <- german_data %>% mutate(overhang_seats = rep(overhangseats, number_overhangseats))
+german_parliament <- ggplot(german_data, aes(x,
+  y,
+  colour = party_short
+)) +
+  geom_parliament_seats() +
+  # Hollow the overhang seats as follows:
+  geom_overhang_seats(overhang_seats == 1) +
+  labs(
+    colour = "Party",
+    title = "German Bundestag - 2013 election",
+    subtitle = "Overhang seats are hollow."
+  ) +
+  theme_void() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5),
+    legend.position = "none"
+  ) +
+  draw_partylabels(type = "semicircle",
+                   party_colours = colour,
+                   party_names = party_short,
+                   party_seats = seats) +
+  scale_colour_manual(
+    values = german_data$colour,
+    limits = german_data$party_short
+  )
+german_parliament
+

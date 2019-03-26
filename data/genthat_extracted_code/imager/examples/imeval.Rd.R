@@ -1,0 +1,66 @@
+library(imager)
+
+
+### Name: imeval
+### Title: Evaluation in an image context
+### Aliases: imeval
+
+### ** Examples
+
+## Computing mean absolute deviation
+imeval(boats, ~ mean(abs(.-median(.))))
+##Equivalent to:
+mean(abs(boats-median(boats)))
+##Two statistics
+imeval(boats,mad=  ~ mean(abs(.-median(.))),sd=  ~ sd(.))
+##imeval can precompute certain quantities, like the x or y coord. of each pixel
+imeval(boats,~ x) %>% plot
+##same as Xc(boats) %>% plot
+## Other predefined quantities:
+##w is width, h is height
+imeval(boats,~ x/w) %>% range
+##It defines certain transformed coordinate systems:
+##Scaled x,y,z
+## xs=x/w
+## ys=y/h
+##Select upper-left quadrant (returns a pixset)
+imeval(boats,~ xs<.5 & ys < .5) %>% plot
+##Fade effect
+imeval(boats,~ xs*.) %>% plot
+## xc and yc are another set of transformed coordinates
+## where xc=0,yc=0 is the image center
+imeval(boats,~ (abs(xc)/w)*.) %>% plot
+
+##rho, theta: circular coordinates. rho is distance to center (in pix.), theta angle
+##Gaussian mask with sd 10 pix.
+blank <- imfill(30,30)
+imeval(blank,~ dnorm(rho,sd=w/3)) %>% plot(int=FALSE)
+imeval(blank,~ theta) %>% plot
+##imeval is made for interactive use, meaning it
+##accesses the environment it got called from, e.g. this works: 
+f <- function()
+{
+  im1 <- imfill(3,3,val=1)
+   im2 <- imfill(3,3,val=3)
+
+  imeval(im1,~ .+im2)
+}
+f()
+##imeval accepts lists as well 
+map_il(1:3, ~ isoblur(boats,.)) %>%
+   imeval(~ xs*.) %>%
+   plot
+
+##imeval is useful for defining pixsets:
+##here, all central pixels that have value under the median
+grayscale(boats) %>%
+    imeval(~ (. > median(.)) & rho < 150) %>%
+    plot
+##other abbreviations are defined:
+##s for imshift, b for isoblur, rot for imrotate.
+##e.g.
+imeval(boats, ~ .*s(.,3)) %>% plot
+
+
+
+

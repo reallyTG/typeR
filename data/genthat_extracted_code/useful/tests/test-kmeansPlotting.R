@@ -1,0 +1,32 @@
+context('Test that kmeansPlotting returns the correct output in all cases')
+
+k1 <- kmeans(x=iris[, 1:4], centers=3)
+
+test_that('fortify returns dataframes and plot returns plots', {
+  expect_is(fortify(k1), 'data.frame')
+  expect_is(fortify(k1, data=iris), 'data.frame')
+  expect_is(fortify.kmeans(k1), 'data.frame')
+  expect_is(fortify.kmeans(k1, data=iris), 'data.frame')
+  expect_is(plot(k1), 'ggplot')
+  expect_is(plot(k1, data=iris), 'ggplot')
+  expect_error(plot(k1, legend.position='lol'), regexp="right")
+  expect_error(plot(k1, legend.position='lol'), regexp="bottom")
+  expect_error(plot(k1, legend.position='lol'), regexp="left")
+  expect_error(plot(k1, legend.position='lol'), regexp="top")
+  expect_error(plot(k1, legend.position='lol'), regexp="none")
+  expect_is(plot.kmeans(k1), 'ggplot')
+  expect_is(plot.kmeans(k1, data=iris), 'ggplot')
+})
+
+test_that('the inputs do what we expect them to do',{
+  p <- plot(k1, data=iris)
+  expect_identical(p$labels$title, 'K-Means Results')
+  expect_identical(p$labels$x, 'Principal Component 1')
+  expect_identical(p$labels$y, 'Principal Component 2')
+  expect_identical(p$theme$legend.position, 'right')
+  p <- plot(k1, legend.position='left', title='Something About Irises', xlab='Nonsense 1', ylab='Nonsense 2')
+  expect_identical(p$labels$title, 'Something About Irises')
+  expect_identical(p$labels$x, 'Nonsense 1')
+  expect_identical(p$labels$y, 'Nonsense 2')
+  expect_identical(p$theme$legend.position, 'left')
+})

@@ -1,0 +1,25 @@
+library(ffbase)
+
+
+### Name: ffwhich
+### Title: Create an index from a filter statement
+### Aliases: ffwhich
+
+### ** Examples
+
+# create a ff vector
+x <- ff(10:1)
+# make an ff index vector
+idx <- ffwhich(x, x < 5)
+# use it to retrieve values from x
+x[idx][]
+
+# create a ffdf data.frame
+dat <- ffdf(x1=x, y1=x)
+# create an ff index vector from a filter statement
+idx <- ffwhich(dat, x1 < 5 & y1 > 2)
+# use it to select data from the data.frame
+dat[idx,][,]
+
+
+

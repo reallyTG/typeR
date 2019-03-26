@@ -1,0 +1,32 @@
+library(Rdimtools)
+
+
+### Name: do.slpp
+### Title: Supervised Locality Preserving Projection
+### Aliases: do.slpp
+
+### ** Examples
+
+## Not run: 
+##D ## generate data of 2 types with clear difference
+##D diff = 15
+##D dt1  = aux.gensamples(n=123)-diff;
+##D dt2  = aux.gensamples(n=123)+diff;
+##D 
+##D ## merge the data and create a label correspondingly
+##D Y      = rbind(dt1,dt2)
+##D label  = c(rep(1,123), rep(2,123))
+##D 
+##D ## compare SLPP with LPP
+##D outLPP  <- do.lpp(Y)
+##D outSLPP <- do.slpp(Y, label)
+##D 
+##D ## visualize
+##D par(mfrow=c(1,2))
+##D plot(outLPP$Y[,1], outLPP$Y[,2], main="LPP")
+##D plot(outSLPP$Y[,1], outSLPP$Y[,2], main="SLPP")
+## End(Not run)
+
+
+
+

@@ -1,0 +1,5 @@
+library(tree)
+set.seed(4)
+foo <- data.frame(x=rnorm(100), y=rnorm(100))
+my_tree <- tree(y ~ x, data = foo)
+cv.tree(my_tree, k = 1:40)

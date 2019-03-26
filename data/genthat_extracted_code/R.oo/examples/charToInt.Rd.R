@@ -1,0 +1,17 @@
+library(R.oo)
+
+
+### Name: charToInt
+### Title: Converts a vector of ASCII characters into a vector of integers
+### Aliases: charToInt.default charToInt
+### Keywords: character internal
+
+### ** Examples
+
+  i <- charToInt(unlist(strsplit("Hello world!", split=NULL)))
+  # Gives: 72 101 108 108 111  32 119 111 114 108 100  33
+  ch <- intToChar(c(72,101,108,108,111,32,119,111,114,108,100,33))
+  # Gives: "H" "e" "l" "l" "o" " " "w" "o" "r" "l" "d" "!"
+
+
+

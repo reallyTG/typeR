@@ -1,0 +1,205 @@
+## ----echo = FALSE--------------------------------------------------------
+knitr::opts_chunk$set(
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>", 
+  eval = !is.null(knitr::opts_knit$get("rmarkdown.pandoc.to"))
+)
+
+## ----warning=FALSE, echo=FALSE, message=FALSE----------------------------
+library(officer)
+library(flextable)
+
+## ----echo=FALSE----------------------------------------------------------
+typology <- structure(list(col_keys = c("sep_1", "sep_2", "year", "premium",
+"latest_eval", "cape_cod_u_l", "cape_cod_lr", "chain_ladder_u_l",
+"chain_ladder_lr"), colC = c(" ", " ", "", "", "", "Cape Cod",
+"Cape Cod", "Chain Ladder", "Chain Ladder"), colB = c(" ", " ",
+"Year", "Premium", "Latest Eval", "Ultimate Loss", "Ultimate LR",
+"Ultimate Loss", "Ultimate LR"), colA = c(" ", " ", "Year", "Premium",
+"Latest Eval", "(000)", "(%)", "(000)", "(%)")), class = c("data.frame"), row.names = c(NA, -9L), .Names = c("col_keys",
+"colC", "colB", "colA"))
+typology
+
+## ----echo=FALSE----------------------------------------------------------
+x <- structure(list(year = 2001:2004, premium = c(8.92042818214451,
+12.6608266777834, 8.75775727892536, 9.85258034701945), latest_eval = c(4.49236487976272,
+5.16555617550473, 6.22153711959364, 5.33407812665529), cape_cod_u_l = c(6998L,
+7058L, 6923L, 6916L), cape_cod_lr = c(60L, 69L, 69L, 83L), chain_ladder_u_l = c(4.97029563327406,
+5.98041693727634, 6.39257172913119, 4.40052968174841), chain_ladder_lr = c(69.3393557027241,
+69.0607156360397, 71.4041411791844, 70.238484387929)), .Names = c("year",
+"premium", "latest_eval", "cape_cod_u_l", "cape_cod_lr", "chain_ladder_u_l",
+"chain_ladder_lr"), class = c("data.frame"), row.names = c(NA, -4L))
+x
+
+## ------------------------------------------------------------------------
+double_format <- function(x){
+  sprintf("%.3f", x)
+}
+percent_format <- function(x){
+  sprintf("%.2f %%", x)
+}
+ft <- regulartable(
+  x, col_keys = c("year", "premium", "latest_eval",
+                  "sep_1", "cape_cod_u_l", "cape_cod_lr",
+                  "sep_2", "chain_ladder_u_l", "chain_ladder_lr") )
+ft <- set_formatter(ft, premium = double_format, latest_eval = double_format,
+                    chain_ladder_lr = percent_format )
+ft <- set_header_df(ft, mapping = typology, key = "col_keys" )
+ft <- theme_box(ft)
+ft
+
+ft <- merge_h(ft, part = "header")
+ft <- merge_v(ft, part = "header", j = 1:3)
+ft <- theme_zebra(ft, odd_header = "transparent", even_header = "transparent")
+ft
+
+ft <- fontsize(ft, size = 11, part = "all")
+ft <- fontsize(ft, i = 1:2, size = 12, part = "header")
+ft <- color(ft, i = 1:2, color = "#007FA6", part = "header")
+ft <- fontsize(ft, i = 3, size = 9, part = "header")
+ft <- color(ft, i = 3, color = "gray", part = "header")
+ft
+
+ft <- hline(ft, border = fp_border(width = .75, color = "#007FA6"), part = "body" )
+
+ft <- hline(ft, border = fp_border(width = 2, color = "#007FA6"), part = "header" )
+ft
+
+ft <- empty_blanks(ft)
+ft <- autofit(ft)
+ft
+
+## ------------------------------------------------------------------------
+ft <- regulartable(head(mtcars))
+ft <- color(ft, i = ~ drat > 3, j = ~ vs + am, color = "red")
+ft <- bg(ft, i = ~ wt < 3, j = ~ mpg, bg = "#EFEF99")
+ft <- bold(ft, i = 2:4, j = "cyl", bold = TRUE)
+ft
+
+## ------------------------------------------------------------------------
+if( require("xtable") ){
+  data(tli)
+  fm3 <- glm(disadvg ~ ethnicty*grade, data = tli, family = binomial)
+  ft <- xtable_to_flextable(xtable(anova(fm3)), hline.after = c(1))
+  ft
+}
+
+## ------------------------------------------------------------------------
+if( require("xtable") ){
+  bktbs <- xtable(matrix(1:10, ncol = 2))
+  hlines <- c(-1, 0, 1, nrow(bktbs))
+  ft <- xtable_to_flextable(bktbs, hline.after = hlines)
+  ft
+}
+
+## ------------------------------------------------------------------------
+if( require("xtable") ){
+
+  data(tli)
+  tli.table <- xtable(tli[1:10, ])
+  xtable::align(tli.table) <- "|r|r|clr|r|"
+  ft <- xtable_to_flextable(
+    tli.table, 
+    rotate.colnames = TRUE, 
+    include.rownames = FALSE)
+  
+  ft <- height(ft, i = 1, part = "header", height = 1)
+  ft
+}
+
+## ------------------------------------------------------------------------
+if( require("xtable") ){
+
+  Grade3 <- c("A","B","B","A","B","C","C","D","A","B",
+    "C","C","C","D","B","B","D","C","C","D")
+  Grade6 <- c("A","A","A","B","B","B","B","B","C","C",
+    "A","C","C","C","D","D","D","D","D","D")
+  Cohort <- table(Grade3, Grade6)
+  ft <- xtable_to_flextable(xtable(Cohort))
+  ft <- set_header_labels(ft, rowname = "Grade 3")
+  ft <- autofit(ft)
+  ft <- add_header(ft, A = "Grade 6") 
+  ft <- merge_at(ft, i = 1, j = seq_len( ncol(Cohort) ) + 1, 
+    part = "header" ) 
+  ft <- bold(ft, j = 1, bold = TRUE, part = "body")
+  ft <- height_all(ft, part = "header", height = .4)
+  ft
+}
+
+## ------------------------------------------------------------------------
+if( require("xtable") ){
+  temp.ts <- ts(cumsum(1 + round(rnorm(100), 0)),
+    start = c(1954, 7), frequency = 12)
+  ft <- xtable_to_flextable(x = xtable(temp.ts, digits = 0),
+    NA.string = "-")
+  ft
+}
+
+## ------------------------------------------------------------------------
+if( require("xtable") ){
+  mat <- round(matrix(c(0.9, 0.89, 200, 0.045, 2.0), c(1, 5)), 4)
+  mat <- xtable(mat)
+  ft <- xtable_to_flextable(x = mat, NA.string = "-")
+  print(ft$col_keys)
+  ft <- flextable::display(ft, i = 1, col_key = "X1", 
+    pattern = "{{val}}{{pow}}", part = "header",
+    formatters = list(val ~ as.character("R"), pow ~ as.character("2") ),
+    fprops = list(pow = fp_text(vertical.align = "superscript", font.size = 8))
+    )
+  ft <- flextable::display(ft, i = 1, col_key = "X2", 
+    pattern = "{{val}}{{pow}}", part = "header",
+    formatters = list(val ~ as.character("\u03BC"), pow ~ as.character("x") ),
+    fprops = list(pow = fp_text(vertical.align = "superscript", font.size = 8))
+    )
+  ft <- flextable::display(ft, i = 1, col_key = "rowname", 
+    pattern = "{{val}}{{pow}}", part = "body",
+    formatters = list(val ~ as.character("y"), pow ~ as.character("t-1") ),
+    fprops = list(pow = fp_text(vertical.align = "subscript", font.size = 8))
+    )
+  ft <- set_header_labels(ft, X3 = "F-stat", X4 = "S.E.E", X5 = "DW", rowname = "")
+  ft <- autofit(ft)
+  ft
+}
+
+## ----echo=FALSE----------------------------------------------------------
+if( require("xtable") ){
+  if( any( xtab_l <- grepl(":xtable$", as.character(search()) ) ) )
+    detach(pos = which(xtab_l))
+}
+
+
+## ----eval=FALSE----------------------------------------------------------
+#  library(shiny)
+#  library(flextable)
+#  
+#  ui <- fluidPage(
+#  
+#    titlePanel("mtcars"),
+#    sidebarLayout(
+#      sidebarPanel(
+#        sliderInput("mpg", "mpg Limit", min = 11, max = 33, value = 20)
+#      ),
+#      mainPanel(
+#        uiOutput("mtcars_ft")
+#      )
+#    )
+#  )
+#  
+#  server <- function(input, output) {
+#    library(dplyr)
+#    output$mtcars_ft <- renderUI({
+#      req(input$mpg)
+#      mtcars %>%
+#        mutate(car = rownames(.)) %>%
+#        select(car, everything()) %>%
+#        filter(mpg <= input$mpg) %>%
+#        regulartable() %>%
+#        theme_booktabs() %>%
+#        htmltools_value()
+#    })
+#  }
+#  
+#  # Run the application
+#  shinyApp(ui = ui, server = server)
+

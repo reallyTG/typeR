@@ -1,0 +1,38 @@
+library(CCpop)
+
+
+### Name: marginal.assoc.test.unconstrained.chisq
+### Title: Marginal association tests
+### Aliases: marginal.assoc.tests marginal.assoc.test.unconstrained.chisq
+###   marginal.assoc.test.unconstrained.gsq
+###   marginal.assoc.test.hwe.in.controls marginal.assoc.test.pop.hwe.kpy
+###   marginal.assoc.test.kpx.kpy
+
+### ** Examples
+
+  ## An example marginal/pairwise association
+  
+  # Controls
+  t0 = matrix(c(375,  240,   46,
+                640,  405,   62,
+                300,  169,   19), nrow = 3, byrow = TRUE)
+                
+  # Cases
+  t1 = matrix(c(317,  162,   15,
+                459,  209,   22,
+                120,   76,   13), nrow = 3, byrow = TRUE)
+  
+  # Independent population sample, marginalized for SNP1 and SNP2
+  tp1 = c(2410, 4253, 1945)
+  tp2 = c(4972, 3140,  496)
+  
+  ## The prevalence of the studied disease in the population
+  prevalence = 0.001
+
+  marginal.assoc.test.pop.hwe.kpy(t0 = rowSums(t0), t1 = rowSums(t1), tp = tp1, prevalence)
+  marginal.assoc.test.pop.hwe.kpy(t0 = colSums(t0), t1 = colSums(t1), tp = tp2, prevalence)
+  pairwise.assoc.test.pop.hwe.le.kpy(t0, t1, tp1, tp2, prevalence)  
+  conditional.assoc.test.pure.pop.hwe.le.kpy(t0, t1, tp1, tp2, prevalence)
+
+
+

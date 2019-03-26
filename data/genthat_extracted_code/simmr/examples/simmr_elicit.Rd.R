@@ -1,0 +1,62 @@
+library(simmr)
+
+
+### Name: simmr_elicit
+### Title: Function to allow informative prior distribution to be included
+###   in simmr
+### Aliases: simmr_elicit
+
+### ** Examples
+
+## Not run: 
+##D # Data set: 10 observations, 2 tracers, 4 sources
+##D mix = matrix(c(-10.13, -10.72, -11.39, -11.18, -10.81, -10.7, -10.54, 
+##D                -10.48, -9.93, -9.37, 11.59, 11.01, 10.59, 10.97, 11.52, 11.89, 
+##D                11.73, 10.89, 11.05, 12.3), ncol=2, nrow=10)
+##D colnames(mix) = c('d13C','d15N')
+##D s_names=c('Source A','Source B','Source C','Source D')
+##D s_means = matrix(c(-14, -15.1, -11.03, -14.44, 3.06, 7.05, 13.72, 5.96), ncol=2, nrow=4)
+##D s_sds = matrix(c(0.48, 0.38, 0.48, 0.43, 0.46, 0.39, 0.42, 0.48), ncol=2, nrow=4)
+##D c_means = matrix(c(2.63, 1.59, 3.41, 3.04, 3.28, 2.34, 2.14, 2.36), ncol=2, nrow=4)
+##D c_sds = matrix(c(0.41, 0.44, 0.34, 0.46, 0.46, 0.48, 0.46, 0.66), ncol=2, nrow=4)
+##D conc = matrix(c(0.02, 0.1, 0.12, 0.04, 0.02, 0.1, 0.09, 0.05), ncol=2, nrow=4)
+##D 
+##D 
+##D # Load into simmr
+##D simmr_1 = simmr_load(mixtures=mix,
+##D                      source_names=s_names,
+##D                      source_means=s_means,
+##D                      source_sds=s_sds,
+##D                      correction_means=c_means,
+##D                      correction_sds=c_sds,
+##D                      concentration_means = conc)
+##D 
+##D # MCMC run
+##D simmr_1_out = simmr_mcmc(simmr_1)
+##D 
+##D # Summary
+##D summary(simmr_1_out,'quantiles')
+##D # A bit vague:
+##D #           2.5##D 
+##D # Source A 0.029 0.115 0.203 0.312 0.498
+##D # Source B 0.146 0.232 0.284 0.338 0.453
+##D # Source C 0.216 0.255 0.275 0.296 0.342
+##D # Source D 0.032 0.123 0.205 0.299 0.465
+##D 
+##D # Now suppose I had prior information that: 
+##D # proportion means = 0.5,0.2,0.2,0.1 
+##D # proportion sds = 0.08,0.02,0.01,0.02
+##D prior=simmr_elicit(simmr_1,c(0.5,0.2,0.2,0.1),c(0.08,0.02,0.01,0.02))
+##D 
+##D simmr_1a_out = simmr_mcmc(simmr_1,prior.control=list(means=prior$mean,sd=prior$sd))
+##D 
+##D summary(simmr_1a_out,'quantiles')
+##D # Much more precise:
+##D #           2.5##D 
+##D # Source A 0.441 0.494 0.523 0.553 0.610
+##D # Source B 0.144 0.173 0.188 0.204 0.236
+##D # Source C 0.160 0.183 0.196 0.207 0.228
+##D # Source D 0.060 0.079 0.091 0.105 0.135
+## End(Not run)
+
+

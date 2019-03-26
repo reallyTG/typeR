@@ -1,0 +1,12 @@
+## ----setup, include=TRUE-------------------------------------------------
+
+## ------------------------------------------------------------------------
+library(mlbgameday)
+library(RSQLite)
+
+# Create an empty database instance.
+con <- dbConnect(RSQLite::SQLite(), dbname = "mlbgameday.sqlite3")
+
+get_payload(start = "2018-01-01", end = "2018-03-28", db_con = con)
+
+

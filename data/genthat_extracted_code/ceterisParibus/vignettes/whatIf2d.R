@@ -1,0 +1,38 @@
+## ---- fig.width=7, fig.height=6, warning=FALSE, message=FALSE------------
+library("DALEX")
+library("ceterisParibus")
+library("randomForest")
+set.seed(59)
+
+apartments_rf_model <- randomForest(m2.price ~ construction.year + surface + floor + no.rooms + district, data = apartments)
+
+explainer_rf <- explain(apartments_rf_model,
+      data = apartmentsTest[,2:6], y = apartmentsTest$m2.price)
+
+new_apartment <- apartmentsTest[1, ]
+new_apartment
+
+wi_rf_2d <- what_if_2d(explainer_rf, observation = new_apartment)
+wi_rf_2d
+
+plot(wi_rf_2d)
+plot(wi_rf_2d, add_contour = FALSE)
+plot(wi_rf_2d, add_observation = FALSE)
+plot(wi_rf_2d, add_raster = FALSE)
+
+## ---- fig.width=7, fig.height=6, warning=FALSE, message=FALSE------------
+# HR data
+model <- randomForest(status ~ gender + age + hours + evaluation + salary, data = HR)
+pred1 <- function(m, x)   predict(m, x, type = "prob")[,1]
+explainer_rf_fired <- explain(model, data = HR[,1:5],
+   y = HR$status == "fired",
+   predict_function = pred1, label = "fired")
+
+new_emp <- HR[1, ]
+new_emp
+
+wi_rf_2d <- what_if_2d(explainer_rf_fired, observation = new_emp)
+wi_rf_2d
+
+plot(wi_rf_2d)
+

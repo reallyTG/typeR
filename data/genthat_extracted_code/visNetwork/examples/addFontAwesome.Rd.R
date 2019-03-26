@@ -1,0 +1,37 @@
+library(visNetwork)
+
+
+### Name: addFontAwesome
+### Title: Use fontAwesome icons in visNetwork 'graph'
+### Aliases: addFontAwesome
+
+### ** Examples
+
+
+# use fontAwesome icons using groups or nodes options 
+# font-awesome is not part of dependencies. use addFontAwesome() if needed.
+# https://fontawesome.com/v4.7.0/
+# Version in package (and compatible with vis.js) : 4.7.0
+# cheatsheet available in package: 
+# system.file("fontAwesome/Font_Awesome_Cheatsheet.pdf", package = "visNetwork")
+
+# definition in groups
+nodes <- data.frame(id = 1:3, group = c("B", "A", "B"))
+edges <- data.frame(from = c(1,2), to = c(2,3))
+
+visNetwork(nodes, edges) %>%
+  visGroups(groupname = "A", shape = "icon", icon = list(code = "f0c0", size = 75)) %>%
+  visGroups(groupname = "B", shape = "icon", icon = list(code = "f007", color = "red")) %>%
+  addFontAwesome()
+
+# definition in nodes
+nodes <- data.frame(id = 1:3, shape = "icon", icon.face = 'FontAwesome', 
+   icon.code = "f0c0")
+edges <- data.frame(from = c(1,2), to = c(1,3))
+
+visNetwork(nodes, edges) %>%
+  addFontAwesome()
+
+
+
+

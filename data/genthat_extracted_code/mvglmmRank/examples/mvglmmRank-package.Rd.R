@@ -1,0 +1,21 @@
+library(mvglmmRank)
+
+
+### Name: mvglmmRank-package
+### Title: Multivariate Generalized Linear Mixed Models for Ranking Sports
+###   Teams
+### Aliases: mvglmmRank-package
+### Keywords: package
+
+### ** Examples
+
+data(nfl2012)
+mvglmmRank(nfl2012,method="PB0",first.order=TRUE,verbose=TRUE,max.iter.EM=1)
+## No test: 
+result <- mvglmmRank(nfl2012,method="PB0",first.order=TRUE,verbose=TRUE)
+print(result)
+game.pred(result,home="Denver Broncos",away="Green Bay Packers")
+## End(No test)
+
+
+

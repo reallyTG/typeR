@@ -1,0 +1,486 @@
+library(trajr)
+
+context("Basic tests")
+
+trjFromAnglesAndLengths <- function(angles, lengths) {
+  coords <- c(0, cumsum(complex(modulus = lengths, argument = angles)))
+  TrajFromCoords(data.frame(Re(coords), Im(coords)))
+}
+
+test_that("Trajectory creation", {
+  csvFile <- "../testdata/096xypts.csv"
+  expect_true(file.exists(csvFile))
+  coords <- utils::read.csv(csvFile, stringsAsFactors = FALSE)
+  expect_false(is.null(coords))
+  trj <- TrajFromCoords(coords, fps = 850)
+
+  expect_false(is.null(trj))
+  expect_equal(2030, nrow(trj))
+  xRange <- c(997.31, 1541.549436)
+  expect_equal(range(trj$x), xRange)
+  yRange <- c(669.883810, 956.924828)
+  expect_equal(range(trj$y), yRange)
+  expect_equal(TrajGetFPS(trj), 850)
+  expect_equal(TrajGetNCoords(trj), nrow(coords))
+
+  # Scaling
+  scale <- 1 / 2500
+  scaled <- TrajScale(trj, scale, "m")
+  #plot(scaled)
+  expect_false(is.null(scaled))
+  expect_equal(nrow(trj), nrow(scaled))
+  expect_equal(range(scaled$x), xRange * scale)
+  expect_equal(range(scaled$y), yRange * scale)
+
+  # Duration
+  expect_equal(TrajDuration(trj), (nrow(trj) - 1) / 850)
+  # Velocity
+  v <- TrajMeanVelocity(scaled)
+  expect_equal(Mod(v), 0.0728938)
+  expect_equal(Arg(v), 0.03861151)
+
+  # Smoothing
+  smoothed <- TrajSmoothSG(scaled, 3, 101)
+  #plot(smoothed)
+  expect_true(TrajLength(smoothed) < TrajLength(scaled))
+  expect_true(abs(TrajDistance(smoothed) - TrajDistance(scaled)) < TrajDistance(scaled) / 10)
+
+  # Derivatives
+  derivs <- TrajDerivatives(smoothed)
+  #plot(derivs$speed, type = 'l', col = 'red')
+  #plot(derivs$acceleration, type = 'l')
+
+  # Rediscretization
+  rd <- TrajRediscretize(smoothed, .001)
+  #plot(rd)
+
+  expect_true(TrajStraightness(smoothed) < 1)
+  expect_true(TrajStraightness(smoothed) > 0)
+
+  corr <- TrajDirectionAutocorrelations(rd)
+  # Check it can be plotted without an error
+  expect_error(plot(corr, type='l'), NA)
+  mn <- TrajDAFindFirstMinimum(corr, 10)
+  # points(mn["deltaS"], mn["C"], pch = 16, col = "red", lwd = 2)
+  # points(mn["deltaS"], mn["C"], col = "black", lwd = 2)
+  mx <- TrajDAFindFirstMaximum(corr, 5)
+  # points(mx["deltaS"], mx["C"], pch = 16, col = "green", lwd = 2)
+  # points(mx["deltaS"], mx["C"], col = "black", lwd = 2)
+
+})
+
+test_that("Speed intervals", {
+
+  # 1 Interval with no start and 1 stop
+  set.seed(1)
+  trj <- TrajGenerate(200, random = TRUE)
+  slowerThan = NULL
+  fasterThan = 120
+  smoothed <- TrajSmoothSG(trj, 3, 101)
+  intervals <- TrajSpeedIntervals(smoothed, slowerThan = slowerThan, fasterThan = fasterThan)
+  expect_error(plot(intervals), NA)
+  expect_true(nrow(intervals) == 1)
+
+  # 1 Interval with 1 start and no stop
+  set.seed(2)
+  trj <- TrajGenerate(200, random = TRUE)
+  slowerThan = NULL
+  fasterThan = 120
+  smoothed <- TrajSmoothSG(trj, 3, 101)
+  intervals <- TrajSpeedIntervals(smoothed, slowerThan = slowerThan, fasterThan = fasterThan)
+  #plot(intervals)
+  expect_true(nrow(intervals) == 1)
+
+  # 0 intervals
+  set.seed(3)
+  trj <- TrajGenerate(200, random = TRUE)
+  slowerThan = NULL
+  fasterThan = 200
+  smoothed <- TrajSmoothSG(trj, 3, 101)
+  intervals <- TrajSpeedIntervals(smoothed, slowerThan = slowerThan, fasterThan = fasterThan)
+  expect_error(plot(intervals), NA)
+  expect_true(nrow(intervals) == 0)
+
+  # 3 intervals
+  set.seed(4)
+  trj <- TrajGenerate(200, random = TRUE)
+  slowerThan = 150
+  fasterThan = 90
+  smoothed <- TrajSmoothSG(trj, 3, 101)
+  intervals <- TrajSpeedIntervals(smoothed, slowerThan = slowerThan, fasterThan = fasterThan)
+  #plot(intervals)
+  expect_true(nrow(intervals) == 3)
+
+  # 3 intervals
+  set.seed(4)
+  trj <- TrajGenerate(200, random = TRUE)
+  slowerThan = 50
+  fasterThan = NULL
+  smoothed <- TrajSmoothSG(trj, 3, 101)
+  intervals <- TrajSpeedIntervals(smoothed, slowerThan = slowerThan, fasterThan = fasterThan)
+  expect_error(plot(intervals), NA)
+  expect_true(nrow(intervals) == 3)
+
+  # 2 intervals
+  set.seed(4)
+  trj <- TrajGenerate(20, random = TRUE)
+  slowerThan = 92
+  fasterThan = NULL
+  intervals <- TrajSpeedIntervals(trj, slowerThan = slowerThan, fasterThan = fasterThan)
+  #plot(intervals)
+  expect_true(nrow(intervals) == 2)
+
+  # Interval wholly contained within a segment
+  set.seed(4)
+  trj <- TrajGenerate(10, random = TRUE)
+  slowerThan = 110
+  fasterThan = 107
+  intervals <- TrajSpeedIntervals(trj, slowerThan = slowerThan, fasterThan = fasterThan)
+  #plot(intervals)
+  expect_true(nrow(intervals) == 0)
+
+  set.seed(1)
+  trj <- TrajGenerate(10, random = TRUE)
+  slowerThan = NULL
+  fasterThan = 110
+  intervals <- TrajSpeedIntervals(trj, slowerThan = slowerThan, fasterThan = fasterThan)
+  #plot(intervals)
+  expect_true(nrow(intervals) == 2)
+
+  slowerThan = 107
+  fasterThan = NULL
+  intervals <- TrajSpeedIntervals(trj, slowerThan = slowerThan, fasterThan = fasterThan)
+  #plot(intervals)
+  expect_true(nrow(intervals) == 3)
+})
+
+test_that("Emax", {
+  set.seed(1)
+  trj1 <- TrajGenerate(1000, angularErrorSd = .5)
+  trj2 <- TrajGenerate(1000, angularErrorSd = .2)
+  # trj2 (black) should be straighter than trj1 (red), hence Emax(trj1) < Emax(trj2)
+  #plot(trj2, asp = NULL, xlim = range(c(trj1$x, trj2$x)), ylim = range(c(trj1$y, trj2$y)))
+  #plot(trj1, col = "red", add = TRUE)
+
+  expect_true(TrajEmax(trj1) < TrajEmax(trj2))
+})
+
+test_that("Sinuosity", {
+  set.seed(1)
+  trj1 <- TrajGenerate(1000, angularErrorSd = .5)
+  trj2 <- TrajGenerate(1000, angularErrorSd = .2)
+  # trj2 (black) should be straighter than trj1 (red), hence Sinuosity(trj1) > Sinuosity(trj2)
+  #plot(trj2, asp = NULL, xlim = range(c(trj1$x, trj2$x)), ylim = range(c(trj1$y, trj2$y)))
+  #plot(trj1, col = "red", add = TRUE)
+
+  expect_true(TrajSinuosity(trj1) > TrajSinuosity(trj2))
+})
+
+test_that("Directional change", {
+
+  # Test that directional change as implemented gives the same results as the equation in the book
+  L <- c(1, 1, 1, 1)
+  A <- c(pi / 4, 0, -pi / 8, pi / 6)
+  trj <- trjFromAnglesAndLengths(A, L)
+  #plot(trj, turning.angles = "random")
+
+  .bookCalc <- function(trj) {
+    # Lengths between consecutive points
+    lengths1 <- Mod(diff(trj$polar))
+    # Lengths between points 2 apart
+    lengths2 <- Mod(trj$polar[3:nrow(trj)] - trj$polar[1:(nrow(trj) - 2)])
+    # Times between points 2 apart
+    times2 <- trj$displacementTime[3:nrow(trj)] - trj$displacementTime[1:(nrow(trj) - 2)]
+
+    sapply(1:(nrow(trj) - 2), function(i) {
+      a <- lengths1[i]
+      b <- lengths1[i+1]
+      c <- lengths2[i]
+      t <- times2[i]
+      (180 - (180 / pi * acos((a ^ 2 + b ^ 2 - c ^ 2) / (2 * a * b)))) / t
+    })
+  }
+  expect_equal(TrajDirectionalChange(trj), .bookCalc(trj))
+
+  set.seed(1)
+  trj <- TrajGenerate()
+  expect_equal(TrajDirectionalChange(trj), .bookCalc(trj))
+
+  #microbenchmark(TrajDirectionalChange(trj), .bookCalc(trj), times = 1000)
+
+})
+
+test_that("Reverse", {
+  set.seed(1)
+  trj <- TrajGenerate()
+  rv <- TrajReverse(trj)
+  expect_equal(nrow(rv), nrow(trj))
+  expect_equal(rv$polar[1], trj$polar[nrow(trj)])
+  expect_equal(rv$polar[nrow(rv)], trj$polar[1])
+  expect_equal(TrajLength(rv), TrajLength(trj))
+  expect_equal(TrajEmax(rv), TrajEmax(trj))
+})
+
+test_that("Translate", {
+  set.seed(1)
+  trj <- TrajGenerate()
+  dx <- 10
+  dy <- 15
+  tt <- TrajTranslate(trj, dx, dy)
+  expect_equal(nrow(tt), nrow(trj))
+  expect_equal(tt$x, trj$x + dx)
+  expect_equal(tt$y, trj$y + dy)
+  expect_equal(tt$displacement, trj$displacement)
+  expect_equal(TrajLength(tt), TrajLength(trj))
+  expect_equal(TrajEmax(tt), TrajEmax(trj))
+
+  tto <- TrajTranslate(tt, -tt$x[1], -tt$y[1])
+  expect_equal(nrow(tto), nrow(trj))
+  expect_equal(tto$polar, trj$polar)
+  expect_equal(tto$x, trj$x)
+  expect_equal(tto$y, trj$y)
+  expect_equal(TrajLength(tto), TrajLength(trj))
+  expect_equal(TrajEmax(tto), TrajEmax(trj))
+})
+
+test_that("Step lengths", {
+  set.seed(1)
+  nSteps <- 100
+  nTrajs <- 4
+  stepLength <- 1
+  trjs <- lapply(1:nTrajs, TrajGenerate, n = nSteps, stepLength = stepLength)
+  sl <- TrajsStepLengths(trjs)
+  expect_equal(length(sl), nSteps * nTrajs)
+  # Expect mean and median to be roughly equal to the specified step length
+  expect_equal(mean(sl), stepLength, tolerance = 2e-2)
+  expect_equal(median(sl), stepLength, tolerance = 2e-2)
+})
+
+test_that("Generate", {
+
+  unifDist <- function(n) runif(n, -1, 1)
+
+  set.seed(1)
+  sd <- 0.5
+  trj <- TrajGenerate(angularErrorSd = sd, linearErrorDist = unifDist)
+  # Should NOT be able to reject the NULL hypothesis that turning angle errors are normally distributed
+  expect_true(shapiro.test(TrajAngles(trj))$p.value > 0.05)
+  expect_equal(sd(TrajAngles(trj)), sd, tolerance = 5e-2)
+  # Should be able to reject the NULL hypothesis that linear errors are normally distributed
+  expect_true(shapiro.test(TrajStepLengths(trj))$p.value <= 0.05)
+  trj <- TrajGenerate(angularErrorDist = unifDist)
+  # Should be able to reject the NULL hypothesis that turning angles are normally distributed
+  expect_true(shapiro.test(TrajAngles(trj))$p.value <= 0.05)
+  # Should NOT be able to reject the NULL hypothesis that linear errors are normally distributed
+  expect_true(shapiro.test(TrajStepLengths(trj))$p.value > 0.05)
+})
+
+test_that("Smoothing", {
+  set.seed(1)
+  sd <- 0.5
+  trj <- TrajGenerate(angularErrorSd = sd)
+  smoothed <- TrajSmoothSG(trj, 3, 41)
+  expect_true(TrajEmax(trj) < TrajEmax(smoothed))
+  smoothed2 <- TrajSmoothSG(trj, 3, 101)
+  expect_true(TrajEmax(smoothed) < TrajEmax(smoothed2))
+})
+
+test_that("Convenience", {
+  # Reads a set of points from a file. The points come from multiple tracks
+  # due to noise in the video conversion process.
+  # The longest track is the one we are interested in
+  #
+  # Value - data frame with values x & y, and an attribute "numFrames" which records the number of frames in the source video
+  .MreadPoints <- function(file, ...) {
+    points <- read.csv(file, comment.char = '#')
+
+    # Save the number of frames in the file in case the track doesn't extend until the end
+    maxFrame <- max(points$Frame)
+
+    # Save number of frames
+    attr(points, 'numFrames') <- maxFrame
+
+    points
+  }
+
+  tracks <- rbind(
+    data.frame(file = "3527.csv", species = "Zodariid2 sp1", category = "spider"),
+    data.frame(file = "3530.csv", species = "Daerlac nigricans", category = "mimic bug"),
+    data.frame(file = "3534.csv", species = "Daerlac nigricans", category = "mimic bug"),
+    data.frame(file = "3537.csv", species = "Myrmarachne erythrocephala", category = "mimic spider"),
+    data.frame(file = NA, species = "", category = ""),
+    data.frame(file = "3542.csv", species = "Polyrhachis sp1", category = "ant"),
+    data.frame(file = "3543.csv", species = "Polyrhachis sp1", category = "ant"),
+    data.frame(file = "3548.csv", species = "Crematogaster sp1", category = "ant"),
+    data.frame(file = NA, species = "", category = ""),
+    stringsAsFactors = FALSE
+  )
+  csvStruct <- list(x = "x", y = "y", time = "Time")
+
+  # Expect to fail with a message when there are blank
+  expect_error(TrajsBuild(tracks$file, scale = .220 / 720, spatialUnits = "m", timeUnits = "s", csvStruct = csvStruct, rootDir = "..", csvReadFn = .MreadPoints),
+               "Trajectory input file name is blank or NULL.*")
+  tracks <- na.omit(tracks)
+  trjs <- TrajsBuild(tracks$file, scale = .220 / 720, spatialUnits = "m", timeUnits = "s", csvStruct = csvStruct, rootDir = "..", csvReadFn = .MreadPoints)
+
+  expect_equal(length(trjs), nrow(tracks))
+  expect_equal(TrajGetUnits(trjs[[2]]), "m")
+  expect_equal(TrajGetTimeUnits(trjs[[2]]), "s")
+
+  # Trajectories should start at origin
+  expect_true(!any(sapply(trjs, function (t) c(t$x[1], t$y[1])) == 0))
+
+  # Define a function which calculates some statistics
+  # of interest for a single trajectory
+  characteriseTrajectory <- function(trj) {
+    # Measures of speed
+    derivs <- TrajDerivatives(trj)
+    mean_speed <- mean(derivs$speed)
+    sd_speed <- sd(derivs$speed)
+
+    # Measures of straightness
+    sinuosity <- TrajSinuosity(trj)
+    resampled <- TrajRediscretize(trj, .001)
+    Emax <- TrajEmax(resampled)
+
+    # Periodicity
+    corr <- TrajDirectionAutocorrelations(resampled, round(nrow(resampled) / 4))
+    first_min <- TrajDAFindFirstMinimum(corr)
+
+    # Return a list with all of the statistics for this trajectory
+    list(mean_speed = mean_speed,
+         sd_speed = sd_speed,
+         sinuosity = sinuosity,
+         Emax = Emax,
+         first_min_deltaS = first_min[1],
+         first_min_C = first_min[2])
+  }
+
+  stats <- TrajsMergeStats(trjs, characteriseTrajectory)
+
+  expect_true(any(is.na(stats)))
+  stats <- TrajsStatsReplaceNAs(stats, "first_min_deltaS", flagColumn = "No_first_min")
+  stats <- TrajsStatsReplaceNAs(stats, "first_min_C")
+  expect_false(any(is.na(stats)))
+
+  # Test translating to the origin
+  trjs <- TrajsBuild(tracks$file, translateToOrigin = TRUE, scale = .220 / 720, spatialUnits = "m", timeUnits = "s", csvStruct = csvStruct, rootDir = "..", csvReadFn = .MreadPoints)
+  expect_true(all(sapply(trjs, function (t) c(t$x[1], t$y[1])) == 0))
+
+})
+
+test_that("Convenience-multi", {
+
+  # Test building multiple trajectories from each "file"
+  readFn <- function(filename, ...) {
+    # Return 2 very different trajectories
+    t1 <- TrajGenerate(50)
+    t2 <- TrajGenerate(20, random = FALSE)
+    list(t1 = t1[, c('x', 'y', 'time')], t2 = t2[, c('x', 'y', 'time')])
+  }
+
+  trjs <- TrajsBuild(c("one", "two"), csvReadFn = readFn, smoothN = 11)
+
+  expect_equal(length(trjs), 4)
+})
+
+test_that("Sinuosity", {
+  set.seed(1)
+  for(aa in seq(0, 2, by = .1)) {
+    trj <- TrajGenerate(angularErrorSd = aa)
+    # Don't expect equal, just close
+    expect_equal(TrajSinuosity(trj), TrajSinuosity2(trj), tolerance = 0.2)
+  }
+})
+
+test_that("fractal dimension", {
+  set.seed(1)
+  n <- 5
+  angErr <- runif(n, 0, pi)
+  trjs <- lapply(1:n, function(i) TrajGenerate(500, angularErrorSd = angErr[i]))
+  range <- TrajLogSequence(1, 10, 10)
+  fd <- sapply(trjs, function(trj) TrajFractalDimension(trj, range))
+
+  # Test slope of regression
+  l <- lm(fd ~ angErr)
+  l$coefficients[2] %>% expect_gt(0.2) %>% expect_lt(2)
+  })
+
+test_that("Expected square displacement", {
+  set.seed(1)
+  n <- 200
+  angErr <- runif(n, 0, pi)
+  trjs <- lapply(1:n, function(i) TrajGenerate(500, angularErrorSd = angErr[i]))
+  esd1 <- sapply(trjs, function(trj) TrajExpectedSquareDisplacement(trj, eqn1 = TRUE))
+  esd2 <- sapply(trjs, function(trj) TrajExpectedSquareDisplacement(trj, eqn1 = FALSE))
+
+  # plot(angErr, y = abs(esd1), log = 'xy', pch = 16, cex = .7)
+  # points(angErr, y = esd2, pch = 16, cex = .6, col = "red")
+
+  # Test slopes of regressions
+  l <- lm(log(esd1) ~ log(angErr))
+  l$coefficients[2] %>% expect_lt(-1.5) %>% expect_gt(-2)
+
+  l <- lm(log(esd2) ~ log(angErr))
+  l$coefficients[2] %>% expect_lt(-1.5) %>% expect_gt(-2)
+})
+
+test_that("straightness r", {
+  set.seed(1)
+  n <- 200
+  angErr <- runif(n, 0, pi)
+  trjs <- lapply(1:n, function(i) TrajRediscretize(TrajGenerate(500, angularErrorSd = angErr[i]), 2))
+  sir <- sapply(trjs, function(trj) Mod(TrajMeanVectorOfTurningAngles(trj)))
+  sid <- sapply(trjs, function(trj) TrajStraightness(trj))
+
+  # plot(angErr, y = sid, pch = 16, cex = .7, ylim = range(c(sir, sid)))
+  # points(angErr, y = sir, pch = 16, cex = .6, col = "red")
+
+  # Test slopes of regressions
+  l <- lm(sir ~ angErr)
+  l$coefficients[2] %>% expect_lt(0) %>% expect_gt(-.5)
+
+  l <- lm(sid ~ angErr)
+  l$coefficients[2] %>% expect_lt(0) %>% expect_gt(-.5)
+
+})
+
+test_that("plots", {
+  csvFile <- "../testdata/096xypts.csv"
+  coords <- utils::read.csv(csvFile, stringsAsFactors = FALSE)
+  trj <- TrajFromCoords(coords, fps = 850)
+
+  # Scaling
+  scale <- 1 / 2500
+  scaled <- TrajScale(trj, scale, "m")
+
+  # Smoothing
+  smoothed <- TrajSmoothSG(scaled, 3, 101)
+
+
+  # Expect no errors from plotting (weird syntax!)
+  expect_error(plot(scaled), NA)
+  expect_error(lines(smoothed, col = "red"), NA)
+  expect_error(points(smoothed, pch = '.', col = 'green'), NA)
+
+  # Plot a simple trajectory with turning angles
+  set.seed(2)
+  trj <- TrajGenerate(5)
+  expect_error(plot(scaled, turning.angles = TRUE))
+  expect_error(plot(trj, turning.angles = "random"), NA)
+  expect_error(plot(trj, turning.angles = "directed"), NA)
+})
+
+test_that("rotation", {
+  set.seed(1)
+  trj <- TrajGenerate(10)
+  r <- TrajRotate(trj)
+
+  vo <- TrajMeanVelocity(trj)
+  vr <- TrajMeanVelocity(r)
+
+  # Expect mean vector length and path length to be unchanged, but angle to be changed
+  expect_equal(Mod(vr), Mod(vo))
+  expect_equal(TrajLength(trj), TrajLength(r))
+  expect_true(Arg(vr) != Arg(vo))
+})

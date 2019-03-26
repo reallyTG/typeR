@@ -1,0 +1,32 @@
+library(git2r)
+
+
+### Name: tags
+### Title: Tags
+### Aliases: tags
+
+### ** Examples
+
+## Not run: 
+##D ## Initialize a temporary repository
+##D path <- tempfile(pattern="git2r-")
+##D dir.create(path)
+##D repo <- init(path)
+##D 
+##D ## Create a user
+##D config(repo, user.name="Alice", user.email="alice@example.org")
+##D 
+##D ## Commit a text file
+##D writeLines("Hello world!", file.path(path, "example.txt"))
+##D add(repo, "example.txt")
+##D commit(repo, "First commit message")
+##D 
+##D ## Create tag
+##D tag(repo, "Tagname", "Tag message")
+##D 
+##D ## List tags
+##D tags(repo)
+## End(Not run)
+
+
+

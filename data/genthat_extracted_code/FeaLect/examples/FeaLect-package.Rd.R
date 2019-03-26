@@ -1,0 +1,22 @@
+library(FeaLect)
+
+
+### Name: FeaLect-package
+### Title: Scores Features for Feature Selection
+### Aliases: FeaLect-package
+### Keywords: package regression multivariate classif models
+
+### ** Examples
+
+library(FeaLect)
+data(mcl_sll)
+F <- as.matrix(mcl_sll[ ,-1])	# The Feature matrix
+L <- as.numeric(mcl_sll[ ,1])	# The labels
+names(L) <- rownames(F)
+message(dim(F)[1], " samples and ",dim(F)[2], " features.")
+
+## For this data, total.num.of.models is suggested to be at least 100.
+FeaLect.result.1 <-FeaLect(F=F,L=L,maximum.features.num=10,total.num.of.models=20,talk=TRUE)
+
+
+

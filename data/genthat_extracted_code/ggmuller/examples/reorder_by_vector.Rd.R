@@ -1,0 +1,21 @@
+library(ggmuller)
+
+
+### Name: reorder_by_vector
+### Title: Reorder a Muller plot dataframe by a vector
+### Aliases: reorder_by_vector
+
+### ** Examples
+
+df <- data.frame(Generation = c(rep(0, 6), rep(1, 6)), 
+ Identity = rep(1:6,2), Population = c(1, rep(0, 5), 10, rep(1, 5)))
+df <- rbind(df, df) # duplicate rows
+require(dplyr)
+df <- arrange(df, Generation) # put in chronological order
+edges1 <- data.frame(Parent = c(1,1,1,3,3), Identity = 2:6) # adjacency matrix
+path <- path_vector(edges1) # path through the adjacency matrix
+reorder_by_vector(df, path)
+
+
+
+

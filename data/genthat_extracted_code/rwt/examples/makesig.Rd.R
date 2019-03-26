@@ -1,0 +1,18 @@
+library(rwt)
+
+
+### Name: makesig
+### Title: Make Signal
+### Aliases: makesig SIGNAL.ALL SIGNAL.HEAVI.SINE SIGNAL.BUMPS
+###   SIGNAL.BLOCKS SIGNAL.DOPPLER SIGNAL.RAMP SIGNAL.CUSP SIGNAL.SING
+###   SIGNAL.HI.SINE SIGNAL.LO.SINE SIGNAL.LIN.CHIRP SIGNAL.TWO.CHIRP
+###   SIGNAL.QUAD.CHIRP SIGNAL.MISH.MASH SIGNAL.WERNER.SORROWS
+###   SIGNAL.LEOPOLD
+### Keywords: interface
+
+### ** Examples
+
+ret.sig <- makesig(SIGNAL.DOPPLER, 32)
+
+
+

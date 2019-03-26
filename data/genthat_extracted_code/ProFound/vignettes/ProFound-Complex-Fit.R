@@ -1,0 +1,154 @@
+## ---- eval=FALSE---------------------------------------------------------
+#  library(devtools)
+#  install_github('asgr/ProFound')
+#  install_github('ICRAR/ProFit')
+
+## ------------------------------------------------------------------------
+evalglobal=FALSE
+
+## ---- eval=evalglobal----------------------------------------------------
+#  library(ProFound)
+#  library(ProFit)
+
+## ---- eval=evalglobal, fig.width=5, fig.height=5, dpi=40-----------------
+#  image=readFITS(system.file("extdata", 'VIKING/mystery_VIKING_Z.fits', package="ProFound"))
+#  profound=profoundProFound(image, magzero=30, verbose=TRUE, plot=TRUE, boundstats=TRUE, rotstats=TRUE)
+
+## ---- eval=evalglobal----------------------------------------------------
+#  profound$group$groupsegID[1,]
+
+## ---- eval=evalglobal, fig.width=5, fig.height=5, dpi=40-----------------
+#  magimage(profound$group$groupim==1)
+
+## ---- eval=evalglobal----------------------------------------------------
+#  group1segstats=profound$segstats[profound$segstats$segID %in% unlist(profound$group$groupsegID[1,"segID"]),]
+#  group1segstats
+
+## ---- eval=evalglobal----------------------------------------------------
+#  psf_modellist=list(
+#    moffat=list(
+#      xcen=75/2,
+#      ycen=75/2,
+#      mag=0,
+#      fwhm=3.8,
+#      con=2.04,
+#      ang=0,
+#      axrat=1,
+#      box=0
+#    )
+#  )
+#  psf_model=profitMakeModel(modellist=psf_modellist, dim=c(75,75))$z
+
+## ---- eval=evalglobal, fig.width=5, fig.height=5, dpi=40-----------------
+#  maghist(profound$segstats$R50*2/0.339,breaks=20)
+#  abline(v=4.47, lty=2)
+
+## ---- eval=evalglobal, fig.width=5, fig.height=5, dpi=40-----------------
+#  magimage(psf_model)
+
+## ---- eval=evalglobal----------------------------------------------------
+#  group1_modellist=list(
+#    pointsource=list(
+#      xcen= group1segstats$xmax[1:3],
+#      ycen= group1segstats$ymax[1:3],
+#      mag= group1segstats$mag[1:3]
+#    ),
+#    sersic=list(
+#      xcen= group1segstats$xmax[4:5],
+#      ycen= group1segstats$ymax[4:5],
+#      mag= group1segstats$mag[4:5],
+#      re= group1segstats$R50[4:5]/0.339,
+#      nser= rep(1, 2),
+#      ang= group1segstats$ang[4:5],
+#      axrat= group1segstats$axrat[4:5],
+#      box= rep(0, 2)
+#    )
+#  )
+#  
+#  group1_interval=list(
+#    pointsource=list(
+#      xcen= rep(list(c(-1,1)),3),
+#      ycen= rep(list(c(-1,1)),3),
+#      mag= rep(list(c(-2,2)),3)
+#    ),
+#    sersic=list(
+#      xcen= rep(list(c(-1,1)),2),
+#      ycen= rep(list(c(-1,1)),2),
+#      mag= rep(list(c(-2,2)),2),
+#      re= rep(list(c(0.5,2)),2),
+#      nser= rep(list(c(0.5,10)),2),
+#      ang= rep(list(c(-180,360)),2),
+#      axrat= rep(list(c(0.1,1)),2),
+#      box= rep(list(c(-1,1)),2)
+#    )
+#  )
+#  for(i in 1:3){
+#    group1_interval$pointsource$xcen[[i]]=group1_modellist$pointsource$xcen[i]+group1_interval$pointsource$xcen[[i]]
+#    group1_interval$pointsource$ycen[[i]]=group1_modellist$pointsource$ycen[i]+group1_interval$pointsource$ycen[[i]]
+#    group1_interval$pointsource$mag[[i]]=group1_modellist$pointsource$mag[i]+group1_interval$pointsource$mag[[i]]
+#  }
+#  for(i in 1:2){
+#    group1_interval$sersic$xcen[[i]]=group1_modellist$sersic$xcen[i]+group1_interval$sersic$xcen[[i]]
+#    group1_interval$sersic$ycen[[i]]=group1_modellist$sersic$ycen[i]+group1_interval$sersic$ycen[[i]]
+#    group1_interval$sersic$mag[[i]]=group1_modellist$sersic$mag[i]+group1_interval$sersic$mag[[i]]
+#    group1_interval$sersic$re[[i]]=group1_modellist$sersic$re[i]*group1_interval$sersic$re[[i]]
+#  }
+#  
+#  group1_tofit=list(
+#    pointsource=list(
+#      xcen= rep(TRUE, 3),
+#      ycen= rep(TRUE, 3),
+#      mag= rep(TRUE, 3)
+#    ),
+#    sersic=list(
+#      xcen= rep(TRUE, 2),
+#      ycen= rep(TRUE, 2),
+#      mag= rep(TRUE, 2),
+#      re= rep(TRUE, 2),
+#      nser= rep(TRUE, 2),
+#      ang= rep(TRUE, 2),
+#      axrat= rep(TRUE, 2),
+#      box= rep(FALSE, 2)
+#    )
+#  )
+#  
+#  group1_tolog=list(
+#    pointsource=list(
+#      xcen= rep(FALSE, 3),
+#      ycen= rep(FALSE, 3),
+#      mag= rep(FALSE, 3)
+#    ),
+#    sersic=list(
+#      xcen= rep(FALSE, 2),
+#      ycen= rep(FALSE, 2),
+#      mag= rep(FALSE, 2),
+#      re= rep(TRUE, 2),
+#      nser= rep(TRUE, 2),
+#      ang= rep(FALSE, 2),
+#      axrat= rep(TRUE, 2),
+#      box= rep(FALSE, 2)
+#    )
+#  )
+
+## ---- eval=evalglobal, fig.width=5, fig.height=5, dpi=40-----------------
+#  sigma=profoundMakeSigma(image$imDat, objects=profound$objects, gain=0.5, sky=profound$sky, skyRMS =profound$skyRMS, plot=TRUE)
+
+## ---- eval=evalglobal----------------------------------------------------
+#  group1_Data=profitSetupData(image$imDat-profound$sky, sigma=sigma, modellist=group1_modellist, tofit=group1_tofit, tolog=group1_tolog, intervals=group1_interval, magzero=30, algo.func='optim', psf=psf_model, region=matrix(profound$segim %in% unlist(profound$group$groupsegID[1,'segID'])[1:5], 356), verbose=FALSE)
+
+## ---- eval=evalglobal, fig.width=8, fig.height=5, dpi=40-----------------
+#  profitLikeModel(parm=group1_Data$init, Data=group1_Data, makeplots=TRUE, plotchisq=TRUE)
+
+## ---- echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE----------------
+#  group1_fit=optim(group1_Data$init, profitLikeModel, method='BFGS', Data=group1_Data, control=list(fnscale=-1))
+
+## ---- fig.width=8, fig.height=5, eval=FALSE, dpi=40----------------------
+#  profitLikeModel(parm=group1_fit$par, Data=group1_Data, makeplots=TRUE, plotchisq=TRUE)
+
+## ---- eval=evalglobal----------------------------------------------------
+#  group1_modellist_fit=profitRemakeModellist(parm=group1_fit$par, Data=group1_Data)$modellist
+#  group1_modellist_fit
+
+## ---- eval=FALSE---------------------------------------------------------
+#  relist(unlist(group1_modellist)-unlist(group1_modellist_fit), skeleton = group1_modellist)
+

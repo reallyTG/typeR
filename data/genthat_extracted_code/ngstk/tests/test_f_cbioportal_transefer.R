@@ -1,0 +1,46 @@
+test_that("muts2mutation_mapper", {
+  demo_file <- system.file("extdata", "demo/proteinpaint/muts2pp_iseq.txt", package = "ngstk")
+  input_data <- read.table(demo_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+  disease <- "T-ALL"
+  input_data <- data.frame(input_data, disease)
+  input_data$disease <- as.character(input_data$disease)
+  suppressWarnings(result <- muts2mutation_mapper(input_data, input_type = "iseq"))
+  result_colnames <- colnames(result)
+  colnames_len <- length(result_colnames)
+  expect_that(colnames_len, equals(12))
+  expect_that(result_colnames[1], equals("Hugo_Symbol"))
+  expect_that(result_colnames[3], equals("Protein_Change"))
+  expect_that(result_colnames[6], equals("Start_Position"))
+  expect_that(result_colnames[8], equals("Reference_Allele"))
+})
+
+test_that("muts2oncoprinter", {
+  demo_file <- system.file("extdata", "demo/proteinpaint/muts2pp_iseq.txt", package = "ngstk")
+  input_data <- read.table(demo_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+  disease <- "T-ALL"
+  input_data <- data.frame(input_data, disease)
+  input_data$disease <- as.character(input_data$disease)
+  suppressWarnings(result <- muts2oncoprinter(input_data, input_type = "iseq"))
+  result_colnames <- colnames(result)
+  colnames_len <- length(result_colnames)
+  expect_that(colnames_len, equals(4))
+  expect_that(result_colnames[1], equals("Sample"))
+  expect_that(result_colnames[2], equals("Gene"))
+  expect_that(result_colnames[3], equals("Alteration"))
+  expect_that(result_colnames[4], equals("Type"))
+})
+
+test_that("fusions2oncoprinter", {
+  demo_file <- system.file("extdata", "demo/proteinpaint/fusions2pp_fusioncatcher.txt", 
+    package = "ngstk")
+  input_data <- read.table(demo_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+  suppressWarnings(result <- fusions2oncoprinter(input_data, input_type = "fusioncatcher"))
+  result_colnames <- colnames(result)
+  colnames_len <- length(result_colnames)
+  expect_that(colnames_len, equals(5))
+  expect_that(result_colnames[1], equals("Sample"))
+  expect_that(result_colnames[2], equals("Gene_a"))
+  expect_that(result_colnames[3], equals("Gene_b"))
+  expect_that(result_colnames[4], equals("Alteration"))
+  expect_that(result_colnames[5], equals("Type"))
+})

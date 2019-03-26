@@ -1,0 +1,29 @@
+library(TraMineR)
+
+
+### Name: dissrep
+### Title: Extracting sets of representative objects using a dissimilarity
+###   matrix
+### Aliases: dissrep
+### Keywords: Dissimilarity-based analysis
+
+### ** Examples
+
+## Defining a sequence object with the data in columns 10 to 25
+## (family status from age 15 to 30) in the biofam data set
+data(biofam)
+biofam.lab <- c("Parent", "Left", "Married", "Left+Marr",
+"Child", "Left+Child", "Left+Marr+Child", "Divorced")
+biofam.seq <- seqdef(biofam, 10:25, labels=biofam.lab)
+
+## Computing the distance matrix
+costs <- seqsubm(biofam.seq, method="TRATE")
+biofam.om <- seqdist(biofam.seq, method="OM", sm=costs)
+
+## Representative set using the neighborhood density criterion
+biofam.rep <- dissrep(biofam.om)
+biofam.rep
+summary(biofam.rep)
+
+
+

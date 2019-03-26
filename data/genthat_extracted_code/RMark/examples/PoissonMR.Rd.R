@@ -1,0 +1,30 @@
+library(RMark)
+
+
+### Name: PoissonMR
+### Title: Example of Poisson Mark-Resight model
+### Aliases: PoissonMR
+### Keywords: datasets
+
+### ** Examples
+
+## No test: 
+# This example is excluded from testing to reduce package check time
+data(PoissonMR)
+pois.proc=process.data(PoissonMR,model="PoissonMR",
+		counts=list("Unmarked Seen"=c(1380, 1120, 1041, 948),
+				    "Marked Unidentified"=c(8,10,9,11),
+					"Known Marks"=c(45,67,0,0)))
+pois.ddl=make.design.data(pois.proc)
+mod=mark(pois.proc,pois.ddl,
+		model.parameters=list(Phi=list(formula=~1,link="sin"),
+			      GammaDoublePrime=list(formula=~1,share=TRUE,link="sin"),
+			      alpha=list(formula=~-1+time,link="log"),
+				  U=list(formula=~-1+time,link="log"),
+				  sigma=list(formula=~-1+time,link="log")),
+		          initial=c(1,1,1,1,-1.4,-.8,-.9,-.6,6,6,6,6,2,-1),threads=2)
+summary(mod)
+## End(No test)
+
+
+

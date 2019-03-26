@@ -1,0 +1,39 @@
+library(FSelectorRcpp)
+
+
+### Name: to_formula
+### Title: Create a formula Object
+### Aliases: to_formula
+
+### ** Examples
+
+
+# evaluator from FSelector package
+evaluator <- function(subset, data, dependent = names(iris)[5]) {
+  library(rpart)
+  k <- 5
+  splits <- runif(nrow(data))
+  results <- sapply(1:k, function(i) {
+    test.idx <- (splits >= (i - 1) / k) & (splits < i / k)
+    train.idx <- !test.idx
+    test <- data[test.idx, , drop = FALSE]
+    train <- data[train.idx, , drop = FALSE]
+    tree <- rpart(to_formula(subset, dependent), train)
+    error.rate <- sum(test[[dependent]] != predict(tree, test, type = "c")) /
+    nrow(test)
+    return(1 - error.rate)
+  })
+  return(mean(results))
+}
+
+set.seed(123)
+fit <- feature_search(attributes = names(iris)[-5], fun = evaluator, data = iris,
+                mode = "exhaustive", parallel = FALSE)
+fit$best
+names(fit$best)[fit$best == 1]
+# with to_formula
+to_formula(names(fit$best)[fit$best == 1], "Species")
+
+
+
+

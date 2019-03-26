@@ -1,0 +1,18 @@
+library(gethr)
+
+
+### Name: eth_call
+### Title: New message call.
+### Aliases: eth_call
+
+### ** Examples
+
+## No test: 
+eth_call(to = '0xcaf9a0356ddfa779fdbb55c45b22d35673550f30', data = '0x8f8a0d1900
+00000000000000000000000000000000000000000000000000000000000006000000000000000000
+0000000000000000000000000000000000000000000002')
+## End(No test)
+
+
+
+

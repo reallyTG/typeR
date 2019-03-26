@@ -1,0 +1,1130 @@
+## SimInf, a framework for stochastic disease spread simulations
+## Copyright (C) 2015 - 2018  Stefan Engblom
+## Copyright (C) 2015 - 2018  Stefan Widgren
+##
+## This program is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+library("SimInf")
+
+## For debugging
+sessionInfo()
+
+u0 <- structure(list(S  = c(0, 1, 2, 3, 4, 5, 6, 7, 8),
+                     I  = c(0, 0, 0, 0, 0, 0, 0, 0, 0)),
+                .Names = c("S", "I"),
+                row.names = c(NA, -9L), class = "data.frame")
+
+## Place nodes in a grid
+distance <- expand.grid(x = seq_len(3),
+                        y = seq_len(3))
+distance <- distance_matrix(distance$x, distance$y, 2)
+
+## Check missing columns in u0
+res <- tools::assertError(SISe_sp(u0 = u0[, "I", drop = FALSE]))
+stopifnot(length(grep("Missing columns in u0",
+                      res[[1]]$message)) > 0)
+res <- tools::assertError(SISe_sp(u0 = u0[, "S", drop = FALSE]))
+stopifnot(length(grep("Missing columns in u0",
+                      res[[1]]$message)) > 0)
+
+## Check default phi
+res <- SISe_sp(u0       = u0,
+               tspan    = seq_len(10) - 1,
+               events   = NULL,
+               upsilon  = 0.0357,
+               gamma    = 0.1,
+               alpha    = 1.0,
+               beta_t1  = 0.19,
+               beta_t2  = 0.085,
+               beta_t3  = 0.075,
+               beta_t4  = 0.185,
+               end_t1   = 91,
+               end_t2   = 182,
+               end_t3   = 273,
+               end_t4   = 365,
+               coupling = 0.0005,
+               distance = distance)
+stopifnot(identical(res@v0,
+                    structure(c(0, 0, 0, 0, 0, 0, 0, 0, 0),
+                              .Dim = c(1L, 9L),
+                              .Dimnames = list("phi", NULL))))
+
+## Check missing upsilon
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'upsilon' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing gamma
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'gamma' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing alpha
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'alpha' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing beta_t1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t1' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing beta_t2
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t2' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing beta_t3
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t3' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing beta_t4
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t4' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing end_t1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t1' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing end_t2
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t2' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing end_t3
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t3' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing end_t4
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t4' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing coupling
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  distance = distance))
+stopifnot(length(grep("'coupling' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check missing distance
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005))
+stopifnot(length(grep("'distance' is missing",
+                      res[[1]]$message)) > 0)
+
+## Check negative distance
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = -distance))
+stopifnot(length(grep("All values in the 'distance' matrix must be >= 0",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric upsilon
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = "0.0357",
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'upsilon' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric gamma
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = "0.1",
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'gamma' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric alpha
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = "1.0",
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'alpha' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric beta_t1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = "0.19",
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t1' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric beta_t2
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = "0.085",
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t2' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric beta_t3
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = "0.075",
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t3' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric beta_t4
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = "0.185",
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t4' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check non-integer end_t1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = "91",
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t1' must be integer",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91.5,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t1' must be integer",
+                      res[[1]]$message)) > 0)
+
+## Check non-integer end_t2
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = "182",
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t2' must be integer",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182.5,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t2' must be integer",
+                      res[[1]]$message)) > 0)
+
+## Check non-integer end_t3
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = "273",
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t3' must be integer",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273.5,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t3' must be integer",
+                      res[[1]]$message)) > 0)
+
+## Check non-integer end_t4
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = "365",
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t4' must be integer",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365.5,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t4' must be integer",
+                      res[[1]]$message)) > 0)
+
+## Check non-numeric coupling
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = "0.0005",
+                                  distance = distance))
+stopifnot(length(grep("'coupling' must be numeric",
+                      res[[1]]$message)) > 0)
+
+## Check that length of upsilon equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = c(0.0357, 0.0357),
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'upsilon' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check that length of gamma equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = c(0.1, 0.1),
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'gamma' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check that length of alpha equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = c(1.0, 1.0),
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'alpha' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check that length of beta_t1 equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = c(0.19, 0.19),
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t1' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check that length of beta_t2 equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = c(0.085, 0.085),
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t2' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check that length of beta_t3 equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = c(0.075, 0.075),
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t3' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check that length of beta_t4 equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = c(0.185, 0.185),
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'beta_t4' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check that length of coupling equals 1
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = c(0.0005, 0.0005),
+                                  distance = distance))
+stopifnot(length(grep("'coupling' must be of length 1",
+                      res[[1]]$message)) > 0)
+
+## Check interval endpoints
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = -1,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t1' must be greater than or equal to '0'",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 18,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t1' must be less than 'end_t2'",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 173,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t2' must be less than 'end_t3'",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 365,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t3' must be less than '364'",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = -1,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t4' must be greater than or equal to '0'",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 366,
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep("'end_t4' must be less than or equal to '365'",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 4:12,
+                                  end_t2   = 5:13,
+                                  end_t3   = c(8:15, 19),
+                                  end_t4   = c(2, 11:18),
+                                  coupling = 0.0005,
+                                  distance = distance))
+stopifnot(length(grep(
+    "'end_t4' must be less than 'end_t1' or greater than 'end_t3'",
+    res[[1]]$message)) > 0)
+
+## Check distance matrix
+res <- tools::assertError(SISe_sp(u0       = u0,
+                                  tspan    = seq_len(10) - 1,
+                                  events   = NULL,
+                                  phi      = rep(1, nrow(u0)),
+                                  upsilon  = 0.0357,
+                                  gamma    = 0.1,
+                                  alpha    = 1.0,
+                                  beta_t1  = 0.19,
+                                  beta_t2  = 0.085,
+                                  beta_t3  = 0.075,
+                                  beta_t4  = 0.185,
+                                  end_t1   = 91,
+                                  end_t2   = 182,
+                                  end_t3   = 273,
+                                  end_t4   = 365,
+                                  coupling = 0.0005,
+                                  distance = as.matrix(distance)))
+stopifnot(length(grep("The 'distance' argument must be of type 'dgCMatrix'",
+                      res[[1]]$message)) > 0)
+
+## Check extraction of data from 'suscpetible', and 'infected'
+## compartments
+model <- SISe_sp(u0       = u0,
+                 tspan    = seq_len(10) - 1,
+                 events   = NULL,
+                 phi      = rep(0, nrow(u0)),
+                 upsilon  = 0.0357,
+                 gamma    = 0.1,
+                 alpha    = 1.0,
+                 beta_t1  = 0.19,
+                 beta_t2  = 0.085,
+                 beta_t3  = 0.075,
+                 beta_t4  = 0.185,
+                 end_t1   = 91,
+                 end_t2   = 182,
+                 end_t3   = 273,
+                 end_t4   = 365,
+                 coupling = 0.0005,
+                 distance = distance)
+
+result <- run(model, threads = 1)
+
+S_expected <- structure(c(0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L,
+                          0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L),
+                        .Dim = 9:10,
+                        .Dimnames = list(
+                            c("S", "S", "S", "S", "S", "S", "S", "S", "S"),
+                            c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")))
+S_observed <- trajectory(result, compartments = "S", as.is = TRUE)
+stopifnot(identical(S_observed, S_expected))
+
+I_expected <- structure(c(0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L,
+                          0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L),
+                        .Dim = 9:10,
+                        .Dimnames = list(
+                            c("I", "I", "I", "I", "I", "I", "I", "I", "I"),
+                            c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")))
+I_observed <- trajectory(result, compartments = "I", as.is = TRUE)
+stopifnot(identical(I_observed, I_expected))
+
+## Check SISe_sp plot method
+pdf_file <- tempfile(fileext = ".pdf")
+pdf(pdf_file)
+plot(result)
+dev.off()
+stopifnot(file.exists(pdf_file))
+unlink(pdf_file)
+
+## Check that C SISe_sp run function fails for misspecified SISe_sp model
+res <- tools::assertError(.Call("SISe_sp_run", NULL, NULL, NULL, PACKAGE = "SimInf"))
+stopifnot(length(grep("Invalid model.",
+                      res[[1]]$message)) > 0)
+
+res <- tools::assertError(.Call("SISe_sp_run", "SISe_sp", NULL, NULL, PACKAGE = "SimInf"))
+stopifnot(length(grep("Invalid model.",
+                      res[[1]]$message)) > 0)
+
+## Check error non-finite v
+model <- SISe_sp(u0       = u0,
+                 tspan    = seq_len(10) - 1,
+                 events   = NULL,
+                 phi      = rep(1, nrow(u0)),
+                 upsilon  = 0.0357,
+                 gamma    = 0.1,
+                 alpha    = 1.0,
+                 beta_t1  = 0.19,
+                 beta_t2  = 0.085,
+                 beta_t3  = 0.075,
+                 beta_t4  = 0.185,
+                 end_t1   = 91,
+                 end_t2   = 182,
+                 end_t3   = 273,
+                 end_t4   = 365,
+                 coupling = 0.0005,
+                 distance = distance)
+model@gdata["beta_t1"] <- Inf
+model@gdata["beta_t2"] <- Inf
+model@gdata["beta_t3"] <- Inf
+model@gdata["beta_t4"] <- Inf
+res <- tools::assertError(run(model, threads = 1))
+stopifnot(length(grep("The continuous state 'v' is not finite.",
+                      res[[1]]$message)) > 0)
+
+## Check negative v
+u0 <- structure(list(S  = c(0, 1, 2, 3, 4, 5, 6, 7, 8),
+                     I  = c(10, 10, 10, 10, 10, 10, 10, 10, 10)),
+                .Names = c("S", "I"),
+                row.names = c(NA, -9L), class = "data.frame")
+model <- SISe_sp(u0       = u0,
+                 tspan    = seq_len(10) - 1,
+                 events   = NULL,
+                 phi      = rep(1, nrow(u0)),
+                 upsilon  = 0,
+                 gamma    = 0,
+                 alpha    = -1.0,
+                 beta_t1  = 0.19,
+                 beta_t2  = 0.085,
+                 beta_t3  = 0.075,
+                 beta_t4  = 0.185,
+                 end_t1   = 91,
+                 end_t2   = 182,
+                 end_t3   = 273,
+                 end_t4   = 365,
+                 coupling = 0.0005,
+                 distance = distance)
+res <- tools::assertError(run(model, threads = 1))
+stopifnot(length(grep("The continuous state 'v' is negative.",
+                      res[[1]]$message)) > 0)

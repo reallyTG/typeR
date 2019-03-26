@@ -1,0 +1,49 @@
+library(simPop)
+
+
+### Name: silcTools
+### Title: Utility functions for socio-economic data sets
+### Aliases: silcTools getAge getGender getEcoStat getCitizenship getHsize
+###   restructureHHid factorNA getAge getGender getEcoStat getCitizenship
+###   getHsize restructureHHid factorNA
+### Keywords: internal
+
+### ** Examples
+
+birth <- sample(1950:2000, 20)
+getAge(birth, 2013)
+data(eusilcS)
+head(getGender("rb090", labels = c("ma","fe"), data=eusilcS))
+lev <- c("Employee working full-time", "Employee working part-time",
+         "Self-employed working full-time", "Self-employed working part-time",
+         "Unemployed", "Pupil, student, further training, unpaid work experience",
+         "In retirement", "Permanently disabled", "In compulsory military community or service",
+         "Fulfilling domestic tasks", "Other inactive person")
+g <- getEcoStat("pl030", eusilcS, lev)
+table(g)
+data(eusilcS)
+## destroy info on pb220a to show afterwards the usage of the function
+owncountry <- "AT"
+EU <- c("DE","BE","BG","CY","CZ","DK","EE","EL","ES","FI","FR","GR","HU","IE",
+        "IT","LT","LU","LV","MT","NL","PL","PT","RO","SI","SE","SK","UK")
+other <- c("CAN","CH","CSA","HR","IS","ME","MK","NAF","NME","NO",
+           "OAF","OAS","OCE","OEU","OT","OTH","TR","USA","WAF")
+eusilcS$fakepb220a <-  factor(sample(c(owncountry, EU, other), nrow(eusilcS), replace = TRUE))
+table(eusilcS$fakepb220a)
+eusilcS$fakepb220a <- getCitizenship(citizenship = "fakepb220a",
+                                  data=eusilcS, owncountry=owncountry,
+                                  EU=EU, other=other)
+table(eusilcS$fakepb220a)
+data(eusilcS)
+hsize <- getHsize(data=eusilcS)
+table(hsize)
+hhid <- c(6,6,3,3,3,2,1,1,8,9,9,9,9,7,7)
+hhid
+df <- data.frame("hhid"=hhid)
+restructureHHid(df, "hhid")
+hhid <- factor(c(6,6,3,3,3,2,1,1,NA,9,9,9,9,7,7))
+hhid
+factorNA(hhid)
+
+
+

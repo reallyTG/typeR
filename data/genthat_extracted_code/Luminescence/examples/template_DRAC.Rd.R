@@ -1,0 +1,56 @@
+library(Luminescence)
+
+
+### Name: template_DRAC
+### Title: Create a DRAC input data template (v1.2)
+### Aliases: template_DRAC
+
+### ** Examples
+
+
+# create a new DRAC input input
+input <- template_DRAC(preset = "DRAC-example_quartz")
+
+# show content of the input
+print(input)
+print(input$`Project ID`)
+print(input[[4]])
+
+
+## Example: DRAC Quartz example
+# note that you only have to assign new values where they
+# are different to the default values
+input$`Project ID` <- "DRAC-Example"
+input$`Sample ID` <- "Quartz"
+input$`Conversion factors` <- "AdamiecAitken1998"
+input$`External U (ppm)` <- 3.4
+input$`errExternal U (ppm)` <- 0.51
+input$`External Th (ppm)` <- 14.47
+input$`errExternal Th (ppm)` <- 1.69
+input$`External K (%)` <- 1.2
+input$`errExternal K (%)` <- 0.14
+input$`Calculate external Rb from K conc?` <- "N"
+input$`Calculate internal Rb from K conc?` <- "N"
+input$`Scale gammadoserate at shallow depths?` <- "N"
+input$`Grain size min (microns)` <- 90
+input$`Grain size max (microns)` <- 125
+input$`Water content ((wet weight - dry weight)/dry weight) %` <- 5
+input$`errWater content %` <- 2
+input$`Depth (m)` <- 2.2
+input$`errDepth (m)` <- 0.22
+input$`Overburden density (g cm-3)` <- 1.8
+input$`errOverburden density (g cm-3)` <- 0.1
+input$`Latitude (decimal degrees)` <- 30.0000
+input$`Longitude (decimal degrees)` <- 70.0000
+input$`Altitude (m)` <- 150
+input$`De (Gy)` <- 20
+input$`errDe (Gy)` <- 0.2
+
+# use DRAC
+## Not run: 
+##D output <- use_DRAC(input)
+## End(Not run)
+
+
+
+

@@ -1,0 +1,85 @@
+## ----eval = FALSE--------------------------------------------------------
+#  library("rbenchmark")
+#  library("dat")
+#  
+#  benchmark(
+#    flatmap(1:3, x ~ x^2),
+#    sapply(1:3, function(x) x^2),
+#    sapply(1:3, as.function(x ~ x^2)),
+#    flatmap(1:3, function(x) x^2)
+#  )
+#  
+#  benchmark(
+#    flatmap(1:1e4, x ~ x^2),
+#    sapply(1:1e4, function(x) x^2)
+#  )
+
+## ----eval = FALSE--------------------------------------------------------
+#  benchmark(
+#    flatmap(1:3 ~ 1:3, f(x, y) ~ x + y),
+#    mapply(function(x, y) x + y, 1:3, 1:3),
+#    mapply(as.function(f(x, y) ~ x + y), 1:3, 1:3)
+#  )
+
+## ----eval = FALSE--------------------------------------------------------
+#  library("data.table")
+#  library("dplyr")
+#  N <- 2e7 # more is not possible with small laptop
+#  K <- 100
+#  set.seed(1)
+#  
+#  DT <- data.table(
+#    id1 = sample(sprintf("id%03d",1:K), N, TRUE),      # large groups (char)
+#    id2 = sample(sprintf("id%03d",1:K), N, TRUE),      # large groups (char)
+#    id3 = sample(sprintf("id%010d",1:(N/K)), N, TRUE), # small groups (char)
+#    id4 = sample(K, N, TRUE),                          # large groups (int)
+#    id5 = sample(K, N, TRUE),                          # large groups (int)
+#    id6 = sample(N/K, N, TRUE),                        # small groups (int)
+#    v1 =  sample(5, N, TRUE),                          # int in range [1,5]
+#    v2 =  sample(5, N, TRUE),                          # int in range [1,5]
+#    v3 =  sample(round(runif(100,max=100),4), N, TRUE) # numeric e.g. 23.5749
+#  )
+#  
+#  setClass("DataTable", "data.table")
+#  setMethod("[", "DataTable", mutar)
+#  DT4 <- new("DataTable", DT)
+#  
+#  cat("GB =", round(sum(gc()[,2]) / 1024, 3), "\n")
+#  format(object.size(DT), units = "MB")
+#  format(object.size(DT4), units = "MB")
+#  
+#  system.time(DT[, sum(v1), keyby = id1])
+#  system.time(DT[, sum(v1), keyby = id1])
+#  system.time(DT4[V1 ~ sum(v1), sby = "id1"])
+#  system.time(DT4[V1 ~ sum(v1), sby = "id1"])
+#  system.time(group_by(DT, id1) %>% summarise(V1 = sum(v1)))
+#  system.time(group_by(DT, id1) %>% summarise(V1 = sum(v1)))
+#  
+#  system.time(DT[, sum(v1), keyby = "id1,id2"])
+#  system.time(DT[, sum(v1), keyby = "id1,id2"])
+#  system.time(DT4[V1 ~ sum(v1), sby = c("id1", "id2")])
+#  system.time(DT4[V1 ~ sum(v1), sby = c("id1", "id2")])
+#  system.time(group_by(DT, id1, id2) %>% summarise(V1 = sum(v1)))
+#  system.time(group_by(DT, id1, id2) %>% summarise(V1 = sum(v1)))
+#  
+#  system.time(DT[, list(sum(v1), mean(v3)), keyby = id3])
+#  system.time(DT[, list(sum(v1), mean(v3)), keyby = id3])
+#  system.time(DT4[V1 ~ sum(v1), V3 ~ mean(v3), sby = "id3"])
+#  system.time(DT4[V1 ~ sum(v1), V3 ~ mean(v3), sby = "id3"])
+#  system.time(group_by(DT, id3) %>% summarise(V1 = sum(v1), V3 = mean(v3)))
+#  system.time(group_by(DT, id3) %>% summarise(V1 = sum(v1), V3 = mean(v3)))
+#  
+#  system.time(DT[, lapply(.SD, mean), keyby = id4, .SDcols = 7:9])
+#  system.time(DT[, lapply(.SD, mean), keyby = id4, .SDcols = 7:9])
+#  system.time(DT4[FL(.n ~ mean(.n), .n = "^v[1-3]"), sby = "id4"])
+#  system.time(DT4[FL(.n ~ mean(.n), .n = "^v[1-3]"), sby = "id4"])
+#  system.time(group_by(DT, id4) %>% summarise(V1 = mean(v1), V2 = mean(v2), V3 = mean(v3)))
+#  system.time(group_by(DT, id4) %>% summarise(V1 = mean(v1), V2 = mean(v2), V3 = mean(v3)))
+#  
+#  system.time(DT[, lapply(.SD, sum), keyby = id6, .SDcols = 7:9])
+#  system.time(DT[, lapply(.SD, sum), keyby = id6, .SDcols = 7:9])
+#  system.time(DT4[FL(.n ~ sum(.n), .n = "v1:v3"), sby = "id6"])
+#  system.time(DT4[FL(.n ~ sum(.n), .n = "v1:v3"), sby = "id6"])
+#  system.time(group_by(DT, id6) %>% summarise(V1 = sum(v1), V2 = sum(v2), V3 = sum(v3)))
+#  system.time(group_by(DT, id6) %>% summarise(V1 = sum(v1), V2 = sum(v2), V3 = sum(v3)))
+

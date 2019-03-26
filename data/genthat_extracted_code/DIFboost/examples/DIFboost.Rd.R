@@ -1,0 +1,23 @@
+library(DIFboost)
+
+
+### Name: DIFboost
+### Title: Detection of Differential Item Functioning (DIF) in Rasch Models
+###   by Boosting Techniques
+### Aliases: DIFboost
+### Keywords: DIFboost
+
+### ** Examples
+
+## Not run: 
+##D data(simul.data)
+##D 
+##D Y <- simul.data[,1:10]
+##D X <- simul.data[,11:13]
+##D 
+##D m1 <- DIFboost(Y = Y, X = X) 
+##D print(m1)
+## End(Not run)
+
+
+

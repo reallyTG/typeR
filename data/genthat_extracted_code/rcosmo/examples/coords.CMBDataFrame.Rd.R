@@ -1,0 +1,27 @@
+library(rcosmo)
+
+
+### Name: coords.CMBDataFrame
+### Title: Coordinate system from a 'CMBDataFrame'
+### Aliases: coords.CMBDataFrame
+
+### ** Examples
+
+
+## Create df with no coords, then create df2 with cartesian coords
+df <- CMBDataFrame(nside = 16)
+df
+coords(df)
+df2 <- coords(df, new.coords = "cartesian")
+coords(df2)
+
+
+## Change the coords of df directly (to spherical)
+coords(df) <- "spherical"
+coords(df)
+
+
+
+
+
+

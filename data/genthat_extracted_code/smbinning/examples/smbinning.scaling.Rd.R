@@ -1,0 +1,65 @@
+library(smbinning)
+
+
+### Name: smbinning.scaling
+### Title: Scaling
+### Aliases: smbinning.scaling
+
+### ** Examples
+
+# Load library and its dataset
+library(smbinning)
+
+# Sampling
+pop=smbsimdf1 # Population
+train=subset(pop,rnd<=0.7) # Training sample
+
+# Generate binning object to generate variables
+smbcbs1=smbinning(train,x="cbs1",y="fgood")
+smbcbinq=smbinning.factor(train,x="cbinq",y="fgood")
+smbcblineut=smbinning.custom(train,x="cblineut",y="fgood",cuts=c(30,40,50))
+smbpmt=smbinning.factor(train,x="pmt",y="fgood")
+smbtob=smbinning.custom(train,x="tob",y="fgood",cuts=c(1,2,3))
+smbdpd=smbinning.factor(train,x="dpd",y="fgood")
+smbdep=smbinning.custom(train,x="dep",y="fgood",cuts=c(10000,12000,15000))
+smbod=smbinning.factor(train,x="od",y="fgood")
+smbhome=smbinning.factor(train,x="home",y="fgood")
+smbinc=smbinning.factor.custom(
+  train,x="inc",y="fgood",
+  c("'W01','W02'","'W03','W04','W05'","'W06','W07'","'W08','W09','W10'"))
+
+pop=smbinning.gen(pop,smbcbs1,"g1cbs1")
+pop=smbinning.factor.gen(pop,smbcbinq,"g1cbinq")
+pop=smbinning.gen(pop,smbcblineut,"g1cblineut")
+pop=smbinning.factor.gen(pop,smbpmt,"g1pmt")
+pop=smbinning.gen(pop,smbtob,"g1tob")
+pop=smbinning.factor.gen(pop,smbdpd,"g1dpd")
+pop=smbinning.gen(pop,smbdep,"g1dep")
+pop=smbinning.factor.gen(pop,smbod,"g1od")
+pop=smbinning.factor.gen(pop,smbhome,"g1home")
+pop=smbinning.factor.gen(pop,smbinc,"g1inc")
+
+# Resample
+train=subset(pop,rnd<=0.7) # Training sample
+test=subset(pop,rnd>0.7) # Testing sample
+
+# Run logistic regression
+f=fgood~g1cbs1+g1cbinq+g1cblineut+g1pmt+g1tob+g1dpd+g1dep+g1od+g1home+g1inc
+modlogisticsmb=glm(f,data = train,family = binomial())
+summary(modlogisticsmb)
+
+# Example: Scaling from logistic parameters to points
+smbscaled=smbinning.scaling(modlogisticsmb,pdo=20,score=720,odds=99)
+smbscaled$logitscaled # Scaled model
+smbscaled$minmaxscore # Expected minimum and maximum Score
+smbscaled$parameters # Parameters used for scaling
+summary(smbscaled$logitraw) # Extract of original logistic regression
+
+# Example: Generate score from scaled model
+pop1=smbinning.scoring.gen(smbscaled=smbscaled, dataset=pop)
+
+# Example Generate SQL code from scaled model
+smbinning.scoring.sql(smbscaled)
+
+
+

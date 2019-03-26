@@ -1,0 +1,15 @@
+library(games)
+
+
+### Name: LW
+### Title: Lambert's W
+### Aliases: LW
+
+### ** Examples
+
+x <- rexp(10)
+w <- LW(x)
+all.equal(x, w * exp(w))
+
+
+

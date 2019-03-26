@@ -1,0 +1,82 @@
+#' @author Lech Madeyski
+library(reproducer)
+context("MadeyskiKitchenhamMetaAnalysis")
+
+newTolerance <- 0.001
+
+test_that('effectSizeCI(expDesign="CrossOverRM", t=14.4, n1=15, n2=15, r=0.6401) returns expected results', {
+  r<-effectSizeCI(expDesign="CrossOverRM", t=14.4, n1=15, n2=15, r=0.6401)
+  expect_equal(r$t_LB, 10.64733, tolerance = newTolerance)
+  expect_equal(r$t_UB, 19.47515, tolerance = newTolerance)
+  expect_equal(r$d_RM_LB, 2.749129, tolerance = newTolerance)
+  expect_equal(r$d_RM_UB, 5.028462, tolerance = newTolerance)
+  expect_equal(r$d_IG_LB, 1.649248, tolerance = newTolerance)
+  expect_equal(r$d_IG_UB, 3.016658, tolerance = newTolerance)
+  expect_equal(r$g_RM_LB, 2.674828, tolerance = newTolerance)
+  expect_equal(r$g_RM_UB, 4.892558, tolerance = newTolerance)
+  expect_equal(r$g_IG_LB, 1.604674, tolerance = newTolerance)
+  expect_equal(r$g_IG_UB, 2.935127, tolerance = newTolerance)
+  expect_equal(r$i, 18)
+})
+
+test_that('effectSizeCI(expDesign = "BeforeAfterRM", t=14.16536, n1=15, n2=0, r=0.6146771)', {
+  r<-effectSizeCI(expDesign = "BeforeAfterRM", t=14.16536, n1=15, n2=0, r=0.6146771)
+  expect_equal(r$t_LB, 9.45389, tolerance = newTolerance)
+  expect_equal(r$t_UB, 21.53893, tolerance = newTolerance)
+  expect_equal(r$d_RM_LB, 2.440984, tolerance = newTolerance)
+  expect_equal(r$d_RM_UB, 5.561329, tolerance = newTolerance)
+  expect_equal(r$d_IG_LB, 2.142853, tolerance = newTolerance)
+  expect_equal(r$d_IG_UB, 4.882092, tolerance = newTolerance)
+  expect_equal(r$g_RM_LB, 2.307839, tolerance = newTolerance)
+  expect_equal(r$g_RM_UB, 5.257984, tolerance = newTolerance)
+  expect_equal(r$g_IG_LB, 2.02597, tolerance = newTolerance)
+  expect_equal(r$g_IG_UB, 4.615796, tolerance = newTolerance)
+  expect_equal(r$i, 22)
+})
+
+test_that('effectSizeCI(expDesign = "IG", t=-6.344175, n1=15, n2=15) returns expected results', {
+  r<-effectSizeCI(expDesign = "IG", t=-6.344175, n1=15, n2=15)
+  expect_equal(r$t_LB, -9.329637, tolerance = newTolerance)
+  expect_equal(r$t_UB, -3.982595, tolerance = newTolerance)
+  expect_equal(r$d_RM_LB, "NA", tolerance = newTolerance)
+  expect_equal(r$d_RM_UB, "NA", tolerance = newTolerance)
+  expect_equal(r$d_IG_LB, -3.406702, tolerance = newTolerance)
+  expect_equal(r$d_IG_UB, -1.454238, tolerance = newTolerance)
+  expect_equal(r$g_RM_LB, "NA", tolerance = newTolerance)
+  expect_equal(r$g_RM_UB, "NA", tolerance = newTolerance)
+  expect_equal(r$g_IG_LB, -3.314629, tolerance = newTolerance)
+  expect_equal(r$g_IG_UB, -1.414934, tolerance = newTolerance)
+  expect_equal(r$i, 22)
+})
+
+test_that('r<-effectSizeCI(expDesign="CrossOverRM", t=0.5581, n1=6, n2=6, r=0.36135) returns expected results', {
+  r<-effectSizeCI(expDesign="CrossOverRM", t=0.5581, n1=6, n2=6, r=0.36135)
+  expect_equal(r$t_LB, -1.598086, tolerance = newTolerance)
+  expect_equal(r$t_UB, 2.889992, tolerance = newTolerance)
+  expect_equal(r$d_RM_LB, -0.6524157, tolerance = newTolerance)
+  expect_equal(r$d_RM_UB, 1.179834, tolerance = newTolerance)
+  expect_equal(r$d_IG_LB, -0.5213818, tolerance = newTolerance)
+  expect_equal(r$d_IG_UB, 0.9428713, tolerance = newTolerance)
+  expect_equal(r$g_RM_LB, -0.6022299, tolerance = newTolerance)
+  expect_equal(r$g_RM_UB, 1.089078, tolerance = newTolerance)
+  expect_equal(r$g_IG_LB, -0.4812755, tolerance = newTolerance)
+  expect_equal(r$g_IG_UB, 0.8703428, tolerance = newTolerance)
+  expect_equal(r$i, 81)
+})
+
+test_that('r<-effectSizeCI(expDesign = "CrossOverRM", r=0.855,t=4.33, n1=7, n2=6) returns expected results', {
+  r<-effectSizeCI(expDesign = "CrossOverRM", r=0.855,t=4.33, n1=7, n2=6)
+  expect_equal(r$t_LB, 1.946897, tolerance = newTolerance)
+  expect_equal(r$t_UB, 7.858928, tolerance = newTolerance)
+  expect_equal(r$d_RM_LB, 0.7659052, tolerance = newTolerance)
+  expect_equal(r$d_RM_UB, 3.091686, tolerance = newTolerance)
+  expect_equal(r$d_IG_LB, 0.291648, tolerance = newTolerance)
+  expect_equal(r$d_IG_UB, 1.177279, tolerance = newTolerance)
+  expect_equal(r$g_RM_LB, 0.7124699, tolerance = newTolerance)
+  expect_equal(r$g_RM_UB, 2.875987, tolerance = newTolerance)
+  expect_equal(r$g_IG_LB, 0.2713005, tolerance = newTolerance)
+  expect_equal(r$g_IG_UB, 1.095143, tolerance = newTolerance)
+  expect_equal(r$i, 44)
+})
+
+

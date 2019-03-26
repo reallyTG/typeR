@@ -1,0 +1,35 @@
+library(R.oo)
+
+
+### Name: attachLocally.Object
+### Title: Attaches an Object locally to an environment
+### Aliases: attachLocally.Object Object.attachLocally
+###   attachLocally,Object-method
+### Keywords: internal methods utilities programming
+
+### ** Examples
+
+foo <- function(object, arg1="some value", ...) {
+  cat("Local objects in foo():\n")
+  print(ls())
+
+  attachLocally(object)
+
+  cat("\nLocal objects in foo():\n")
+  print(ls())
+
+  for (name in ls()) {
+    cat("\nObject '", name, "':\n", sep="")
+    print(get(name, inherits=FALSE))
+  }
+}
+
+a <- "A string"
+obj <- Object()
+obj$a <- "Another string"
+obj$b <- NA
+foo(obj)
+print(a)
+
+
+

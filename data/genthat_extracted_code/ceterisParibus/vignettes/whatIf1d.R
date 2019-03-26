@@ -1,0 +1,52 @@
+## ---- warning=FALSE, message=FALSE---------------------------------------
+library("DALEX")
+library("randomForest")
+library("ceterisParibus")
+set.seed(59)
+
+apartments_lm_model <- lm(m2.price ~ construction.year + surface + floor + 
+                            no.rooms + district, data = apartments)
+
+apartments_rf_model <- randomForest(m2.price ~ construction.year + surface + floor + 
+                                      no.rooms + district, data = apartments)
+
+explainer_rf <- explain(apartments_rf_model, 
+                        data = apartmentsTest[,2:6], y = apartmentsTest$m2.price)
+explainer_lm <- explain(apartments_lm_model, 
+                        data = apartmentsTest[,2:6], y = apartmentsTest$m2.price)
+
+## ---- fig.width=7, fig.height=7------------------------------------------
+new_apartment <- apartmentsTest[1, ]
+new_apartment
+
+wi_rf <- what_if(explainer_rf, observation = new_apartment)
+wi_rf
+plot(wi_rf, split = "variables", color = "variables", quantiles = FALSE)
+plot(wi_rf, split = "variables", color = "variables")
+plot(wi_rf)
+
+wi_lm <- what_if(explainer_lm, observation = new_apartment)
+wi_lm
+plot(wi_lm, split = "variables", color = "variables", quantiles = FALSE)
+plot(wi_lm, split = "variables", color = "variables")
+plot(wi_lm)
+
+
+## ---- fig.width=7, fig.height=7------------------------------------------
+plot(wi_rf, wi_lm, split = "variables", color = "models", quantiles = FALSE)
+plot(wi_rf, wi_lm, split = "variables", color = "models")
+plot(wi_rf, wi_lm)
+
+## ---- fig.width=7, fig.height=7, message=FALSE, warning=FALSE, eval=FALSE----
+#  library("ggiraph")
+#  
+#  plot_interactive(wi_rf, split = "variables", color = "variables")
+#  plot_interactive(wi_rf)
+#  
+#  plot_interactive(wi_lm, split = "variables", color = "variables")
+#  plot_interactive(wi_lm)
+
+## ---- fig.width=7, fig.height=7, eval=FALSE------------------------------
+#  plot_interactive(wi_rf, wi_lm)
+#  plot_interactive(wi_rf, wi_lm, split = "variables")
+

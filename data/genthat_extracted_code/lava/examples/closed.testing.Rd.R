@@ -1,0 +1,32 @@
+library(lava)
+
+
+### Name: closed.testing
+### Title: Closed testing procedure
+### Aliases: closed.testing p.correct
+
+### ** Examples
+
+m <- lvm()
+regression(m, c(y1,y2,y3,y4,y5,y6,y7)~x) <- c(0,0.25,0,0.25,0.25,0,0)
+regression(m, to=endogenous(m), from="u") <- 1
+variance(m,endogenous(m)) <- 1
+set.seed(2)
+d <- sim(m,200)
+l1 <- lm(y1~x,d)
+l2 <- lm(y2~x,d)
+l3 <- lm(y3~x,d)
+l4 <- lm(y4~x,d)
+l5 <- lm(y5~x,d)
+l6 <- lm(y6~x,d)
+l7 <- lm(y7~x,d)
+
+(a <- merge(l1,l2,l3,l4,l5,l6,l7,subset=2))
+if (requireNamespace("mets",quietly=TRUE)) {
+   p.correct(a)
+}
+as.vector(closed.testing(a))
+
+
+
+

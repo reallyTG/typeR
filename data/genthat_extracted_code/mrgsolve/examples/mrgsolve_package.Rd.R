@@ -1,0 +1,103 @@
+library(mrgsolve)
+
+
+### Name: mrgsolve
+### Title: mrgsolve
+### Aliases: mrgsolve mrgsolve-package
+
+### ** Examples
+
+
+## example("mrgsolve")
+
+mod <- mrgsolve:::house(delta=0.1)  %>% param(CL=0.5)
+
+events <-  ev(amt=1000, cmt=1, addl=5, ii=24)
+
+events
+
+mod
+
+see(mod)
+
+stime(mod)
+
+param(mod)
+init(mod)
+
+out <- mod %>% ev(events) %>% mrgsim(end=168)
+
+out
+
+head(out)
+tail(out)
+dim(out)
+
+plot(out, GUT+CP~.)
+
+sims <- as.data.frame(out)
+
+t72 <- subset(sims, time==72)
+str(t72)
+
+idata <- data.frame(ID=c(1,2,3), CL=c(0.5,1,2),VC=12)
+out <- mod %>% ev(events) %>% mrgsim(end=168, idata=idata, req="")
+plot(out)
+
+out <- mod %>% ev(events) %>% mrgsim(carry.out="amt,evid,cmt,CL")
+head(out)
+
+out <- 
+  mod %>% 
+  ev() %>% 
+  knobs(CL=c(0.5, 1,2), amt=c(100,300,1000), cmt=1,end=48)
+
+plot(out, CP~., scales="same")
+plot(out, RESP+CP~time|amt,groups=CL)
+
+
+ev1 <- ev(amt=500, cmt=2,rate=10)
+ev2 <- ev(amt=100, cmt=1, time=54, ii=8, addl=10)
+events <- ev1+ev2
+events
+
+out <- mod %>% ev(ev1+ev2) %>% mrgsim(end=180, req="")
+plot(out)
+
+
+
+## "Condensed" data set
+data(extran1)
+extran1
+
+out <- mod %>% data_set(extran1) %>% mrgsim(end=200)
+
+plot(out,CP~time|factor(ID))
+
+
+## idata
+data(exidata)
+exidata
+
+out <- 
+  mod %>% 
+  ev(amt=1000, cmt=1) %>% 
+  idata_set(exidata) %>%  
+  mrgsim(end=72)
+
+plot(out, CP~., as="log10")
+
+
+# Internal model library
+## Not run: 
+##D mod <- mread("irm1", modlib())
+##D 
+##D mod
+##D 
+##D mod %>% ev(amt=300, ii=12, addl=3) %>% mrgsim
+##D 
+## End(Not run)
+
+
+
+

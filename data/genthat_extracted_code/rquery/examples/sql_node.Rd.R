@@ -1,0 +1,79 @@
+library(rquery)
+
+
+### Name: sql_node
+### Title: Make a general SQL node.
+### Aliases: sql_node
+
+### ** Examples
+
+
+if (requireNamespace("DBI", quietly = TRUE) && requireNamespace("RSQLite", quietly = TRUE)) {
+  # example database connection
+  my_db <- DBI::dbConnect(RSQLite::SQLite(),
+                          ":memory:")
+  # load up example data
+  d <- rq_copy_to(
+    my_db, 'd',
+    data.frame(v1 = c(1, 2, NA, 3),
+               v2 = c(NA, "b", NA, "c"),
+               v3 = c(NA, NA, 7, 8),
+               stringsAsFactors = FALSE))
+
+  # look at table
+  execute(my_db, d)
+
+  # get list of columns
+  vars <- column_names(d)
+  print(vars)
+
+  # build a NA/NULLs per-row counting expression.
+  # names are "quoted" by wrapping them with as.name().
+  # constants can be quoted by an additional list wrapping.
+  expr <- lapply(vars,
+                 function(vi) {
+                   list("+ (CASE WHEN (",
+                        as.name(vi),
+                        "IS NULL ) THEN 1.0 ELSE 0.0 END)")
+                 })
+  expr <- unlist(expr, recursive = FALSE)
+  expr <- c(list(0.0), expr)
+  cat(paste(unlist(expr), collapse = " "))
+
+  # instantiate the operator node
+  op_tree <- d %.>%
+    sql_node(., "num_missing" %:=% list(expr))
+  cat(format(op_tree))
+
+  # examine produced SQL
+  sql <- to_sql(op_tree, my_db)
+  cat(sql)
+
+  # execute
+  execute(my_db, op_tree) %.>%
+     print(.)
+
+  # whole process wrapped in convenience node
+  op_tree2 <- d %.>%
+    count_null_cols(., vars, "nnull")
+  execute(my_db, op_tree2) %.>%
+    print(.)
+
+  # sql_node also allows marking variable in quoted expressions
+  ops <- d %.>%
+     sql_node(., qae(sqrt_v1 = sqrt(.[v1])))
+  execute(my_db, ops) %.>%
+     print(.)
+  # marking variables allows for error-checking of column names
+  tryCatch({
+    ops <- d %.>%
+      sql_node(., qae(sqrt_v1 = sqrt(.[v1_misspellled])))
+    },
+    error = function(e) {print(e)})
+
+  DBI::dbDisconnect(my_db)
+}
+
+
+
+

@@ -1,0 +1,23 @@
+library(cgh)
+
+
+### Name: sw.rob
+### Title: Robustness Calculation for Smith-Waterman Algorithm
+### Aliases: sw.rob
+### Keywords: misc
+
+### ** Examples
+
+
+## simluate vector of logratios
+set.seed(3)
+logratio <- c(rnorm(20) - 1, rnorm(20))
+
+## invert sign of values and subtract threshold to ensure negative mean
+x <- sw.threshold(logratio, function(x) median(x) + .2 * mad(x), -1)
+
+## calculate robustness values
+sw.rob(x)
+  
+
+

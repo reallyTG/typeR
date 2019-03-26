@@ -1,0 +1,86 @@
+library(RMark)
+
+
+### Name: weta
+### Title: Occupancy data for Mahoenui Giant Weta
+### Aliases: weta
+### Keywords: datasets
+
+### ** Examples
+
+
+#  The data can be imported with the following command using the
+#  tab-delimited weta.txt file in the data subdirectory.
+#   weta=import.chdata("weta.txt",field.types=c(rep("f",6)))
+#  Below is the first few lines of the data file that was constructed
+#  from the .xls file that accompanies PRESENCE.
+#ch	Browse	Obs1	Obs2	Obs3	Obs4	Obs5
+#0000.	1	1	3	2	3	.
+#0000.	1	1	3	2	3	.
+#0001.	1	1	3	2	3	.
+#0000.	0	1	3	2	3	.
+#0000.	1	1	3	2	3	.
+#0000.	0	1	3	2	3	.
+#
+## No test: 
+# This example is excluded from testing to reduce package check time
+# retrieve weta data
+data(weta)
+# Create function to fit the 18 models in the book
+fit.weta.models=function()
+{
+#  use make.time.factor to create time-varying dummy variables Obs1 and Obs2
+#  observer 3 is used as the intercept
+   weta=make.time.factor(weta,"Obs",1:5,intercept=3)
+#  Process data and use Browse covariate to group sites; it could have also
+#  been used an individual covariate because it is a 0/1 variable.
+   weta.process=process.data(weta,model="Occupancy",groups="Browse")
+   weta.ddl=make.design.data(weta.process)
+#  time factor variable copied to Day to match names used in book
+   weta.ddl$p$Day=weta.ddl$p$time
+# Define p models
+   p.dot=list(formula=~1)
+   p.day=list(formula=~Day)
+   p.obs=list(formula=~Obs1+Obs2)
+   p.browse=list(formula=~Browse)
+   p.day.obs=list(formula=~Day+Obs1+Obs2)
+   p.day.browse=list(formula=~Day+Browse)
+   p.obs.browse=list(formula=~Obs1+Obs2+Browse)
+   p.day.obs.browse=list(formula=~Day+Obs1+Obs2+Browse)
+# Define Psi models
+   Psi.dot=list(formula=~1)
+   Psi.browse=list(formula=~Browse)
+# Create model list
+   cml=create.model.list("Occupancy")
+# Run and return marklist of models
+   return(mark.wrapper(cml,data=weta.process,ddl=weta.ddl))
+}
+weta.models=fit.weta.models()
+# Modify the model table to show -2lnl and use AIC rather than AICc
+weta.models$model.table=model.table(weta.models,use.AIC=TRUE,use.lnl=TRUE)
+# Show new model table which duplicates the results except they have
+# some type of error with the model Psi(.)P(Obs+Browse) which should have
+# 5 parameters rather than 4 and the -2lnl also doesn't agree with the results here
+weta.models
+#
+# display beta vcv matrix of the Psi parameters (intercept + browse=1)
+# matches what is shown on pg 122 of Occupancy book
+weta.models[[7]]$result$beta.vcv[8:9,8:9]
+# compute variance-covariance matrix of Psi0(6; unbrowsed) ,Psi1(7; browsed)
+vcv.psi=get.real(weta.models[[7]],"Psi",vcv=TRUE)$vcv.real
+vcv.psi
+# Compute proportion unbrowsed and browsed
+prop.browse=c(37,35)/72
+prop.browse
+# compute std error of overall estimate as shown on pg 121-122
+sqrt(sum(prop.browse^2*diag(vcv.psi)))
+# compute std error and correctly include covariance between Psi0 and Psi1
+sqrt( t(prop.browse) %*% vcv.psi %*% prop.browse )
+# show missing part of variance 2 times cross-product of prop.browse * covariance
+2*prod(prop.browse)*vcv.psi[1,2]
+sqrt(sum(prop.browse^2*diag(vcv.psi))+2*prod(prop.browse)*vcv.psi[1,2])
+
+## End(No test)
+
+
+

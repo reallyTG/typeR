@@ -1,0 +1,23 @@
+library(spgs)
+
+
+### Name: ag.test
+### Title: Test of Purine-Pyrimidine Parity Based on Purine Count
+### Aliases: ag.test
+### Keywords: htest
+
+### ** Examples
+
+#Demonstration on real viral sequence
+data(pieris)
+ag.test(pieris)
+ag.test(pieris, type="simplex")
+
+#Simulate synthetic DNA sequence that does not exhibit Purine-Pyrimidine parity
+trans.mat <- matrix(c(.4, .1, .4, .1, .2, .1, .6, .1, .4, .1, .3, .2, .1, .2, .4, .3), 
+ncol=4, byrow=TRUE)
+seq <- simulateMarkovChain(500000, trans.mat, states=c("a", "c", "g", "t"))
+ag.test(seq)
+
+
+

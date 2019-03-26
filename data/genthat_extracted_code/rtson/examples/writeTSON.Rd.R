@@ -1,0 +1,37 @@
+library(rtson)
+
+
+### Name: writeTSON
+### Title: Serialize a list
+### Aliases: writeTSON
+
+### ** Examples
+
+## Example
+
+library(rtson)
+
+list = list(integer=42L,
+            double=42,
+            bool=TRUE,
+            uint8=tson.uint8.vec(c(42,0)),
+            uint16=tson.uint16.vec(c(42,0)),
+            uint32=tson.uint32.vec(c(42,0)),
+            int8=tson.int8.vec(c(42,0)),
+            int16=tson.int16.vec(c(42,0)),
+            int32=as.integer(c(42,0)),
+            float32=tson.float32.vec(c(0.0, 42.0)),
+            float64=c(42.0,42.0),
+            map=list(x=42, y=42, label="42"),
+            list=list("42",42)
+)
+
+con = rawConnection(raw(0), "r+")
+writeTSON(list, con)
+bytes = rawConnectionValue(con)
+close(con)
+con = rawConnection(bytes, "r")
+object = readTSON(con)
+
+
+

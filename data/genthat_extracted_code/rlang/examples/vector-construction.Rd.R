@@ -1,0 +1,43 @@
+library(rlang)
+
+
+### Name: vector-construction
+### Title: Create vectors
+### Aliases: vector-construction lgl int dbl cpl chr bytes ll
+
+### ** Examples
+
+# These constructors are like a typed version of c():
+c(TRUE, FALSE)
+lgl(TRUE, FALSE)
+
+# They follow a restricted set of coercion rules:
+int(TRUE, FALSE, 20)
+
+# Lists can be spliced:
+dbl(10, !!! list(1, 2L), TRUE)
+
+
+# They splice names a bit differently than c(). The latter
+# automatically composes inner and outer names:
+c(a = c(A = 10), b = c(B = 20, C = 30))
+
+# On the other hand, rlang's ctors use the inner names and issue a
+# warning to inform the user that the outer names are ignored:
+dbl(a = c(A = 10), b = c(B = 20, C = 30))
+dbl(a = c(1, 2))
+
+# As an exception, it is allowed to provide an outer name when the
+# inner vector is an unnamed scalar atomic:
+dbl(a = 1)
+
+# Spliced lists behave the same way:
+dbl(!!! list(a = 1))
+dbl(!!! list(a = c(A = 1)))
+
+# bytes() accepts integerish inputs
+bytes(1:10)
+bytes(0x01, 0xff, c(0x03, 0x05), list(10, 20, 30L))
+
+
+

@@ -1,0 +1,104 @@
+context('Import and Validation')
+
+gtfs_example_url <- "https://github.com/r-transit/trread/raw/master/inst/extdata/sample-feed-fixed.zip"
+local_gtfs_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "trread")
+
+working <- function() {
+  connecting <- function(gtfs_example_url) {
+    r <- base::try(httr::GET(gtfs_example_url, httr::timeout(5)))
+    if(!assertthat::is.error(r)) r$status_code == 200 else FALSE
+  }
+  connecting(gtfs_example_url)
+}
+
+test_that('read_gtfs() imports a local file to a list of dataframes and doesnt delete the source file', {
+  gtfs_obj <- trread:::read_gtfs(
+    local_gtfs_path,
+    local=TRUE)
+  
+  expect_is(gtfs_obj, 'gtfs')
+  file.exists(local_gtfs_path)
+})
+
+test_that('Downloading a zip file from a gtfs_example_url returns a file', {
+  skip_on_cran()
+  if(!working()){
+    skip("no internet, skipping")
+  }
+  else {  
+  zip <- trread:::download_from_url(gtfs_example_url, quiet = T)
+
+  expect_true(file.exists(zip))
+  }
+})
+
+test_that('import-bad paths throw good errors', {
+  skip_on_cran()
+  not_a_url <- "#!:D"
+  expect_error(read_gtfs(path)) # invalid path
+})
+
+# parse_gtfs()
+test_that('import-empty txt files are not imported and non-empty ones are imported', {
+  skip_on_cran()
+  if(!working()){
+    skip("no internet, skipping")
+  }
+  else {
+    zip <- trread:::download_from_url(gtfs_example_url)
+    folder <- trread:::unzip_file(zip)
+    files <- list.files(folder, full.names = TRUE)
+    agency_file <- files[1]
+    # empty file
+    empty <- ''
+    write(empty, file.path(folder, '_empty.txt'))
+    files <- list.files(folder, full.names = TRUE)
+    empty_file <- files[1]
+    
+    expect_null(trread:::parse_gtfs_file('_empty', empty_file)) # expect null since file is empty
+    expect_is(trread:::parse_gtfs_file('agency', agency_file), 'tbl_df') # check for tibble object
+  }
+})
+
+#read_gtfs()
+test_that('the read_gtfs function works', {
+  skip_on_cran()
+  if(!working()){
+      skip("no internet, skipping")
+  }
+  else {
+    # non-specified path
+    x <- read_gtfs(gtfs_example_url, quiet=TRUE)
+    expect_is(x, 'gtfs') # should return 'list' object
+  }
+  
+})
+
+#read_gtfs()
+test_that('the read_gtfs function fails gracefully on bad urls', {
+  skip_on_cran()
+  if(!working()){
+      skip("no internet, skipping")
+  }
+  else {
+    not_zip <- "https://developers.google.com/transit/gtfs/examples/sample-feed.zippy"
+    bad_url <- "https://developers.google.com/transit/gtfs/examples/sample-feed-bad.zip"
+  
+    # non-specified path
+    expect_error(trread::read_gtfs(not_zip, quiet=TRUE))
+    expect_error(trread::read_gtfs(bad_url, quiet=TRUE)) # not zip file warning
+  }
+  
+})
+
+test_that('Some minimal validation is performed and returned', {
+  skip_on_cran()
+  if(working()){
+    gtfs_obj1 <- trread::read_gtfs(gtfs_example_url)
+    
+    expect_true(dim(attributes(gtfs_obj1)$validation_result)[1]>0)
+    expect_true(dim(attributes(gtfs_obj1)$validation_result)[2]>0)
+  }
+})
+
+

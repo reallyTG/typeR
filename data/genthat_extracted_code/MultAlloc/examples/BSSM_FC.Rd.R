@@ -1,0 +1,48 @@
+library(MultAlloc)
+
+
+### Name: BSSM_FC
+### Title: Optimal Allocation - Minimum Sample Size
+### Aliases: BSSM_FC
+### Keywords: ~kwd1 ~kwd2
+
+### ** Examples
+
+#Example1 - Number of survey variables (m=2) and seven strata (H=7)
+Nh<-c(49,78,20,39,73,82,89)
+Yj<-c(542350,56089251)
+Sh2j<-rbind(c(4436978,5581445,33454902,5763294,8689167,3716130,13938505),
+            c(11034299660,40919330279,33519355946,18228286901,74247764986,49062224184,5783096806))
+cvt<-c(0.02,0.02)
+result<-BSSM_FC(Nh,Sh2j,Yj,cvt)
+
+#Example2
+#nmin>2
+Nh<-c(49,78,20,39,73,82,89)
+Yj<-c(542350,56089251)
+Sh2j<-rbind(c(4436978,5581445,33454902,5763294,8689167,3716130,13938505),
+            c(11034299660,40919330279,33519355946,18228286901,74247764986,49062224184,5783096806))
+cvt<-c(0.1,0.1)
+nmin<-20
+result<-BSSM_FC(Nh,Sh2j,Yj,cvt,nmin)
+
+#Example3
+#certain=TRUE
+Nh<-c(49,78,20,39,73,82,89)
+Yj<-c(542350,56089251)
+Sh2j<-rbind(c(4436978,5581445,33454902,5763294,8689167,3716130,13938505),
+            c(11034299660,40919330279,33519355946,18228286901,74247764986,49062224184,5783096806))
+cvt<-c(0.1,0.1)
+result<-BSSM_FC(Nh,Sh2j,Yj,cvt,certain=TRUE)
+
+
+#Example4
+#Number of survey variables m=1
+Nh<-c(49,78,20,39,73,82,89)
+Yj<-542350
+Sh2j<-c(4436978,5581445,33454902,5763294,8689167,3716130,13938505)
+cvt<-0.1
+result<-BSSM_FC(Nh,Sh2j,Yj,cvt)
+
+
+

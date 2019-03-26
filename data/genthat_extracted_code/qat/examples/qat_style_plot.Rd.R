@@ -1,0 +1,36 @@
+library(qat)
+
+
+### Name: qat_style_plot
+### Title: Produce a plotstylelist
+### Aliases: qat_style_plot
+### Keywords: iplot IO
+
+### ** Examples
+
+library("qat")
+# define testvector
+testvector<-rnorm(500)
+# read in workflow from systemfiles
+filename_in <- system.file("extdata/workflowexample.xml", package="qat")
+workflowlist <- qat_config_read_workflow(filename_in)
+# define some additional vectors
+maxlim <- seq(3,1,length.out=500)
+minlim <- seq(-1,-3,length.out=500)
+uproc <- seq(1,3,length.out=500)
+downroc <- seq(3,1,length.out=500)
+# load plotstyle
+filename_ps <- system.file("extdata/plotstyle1.xml", package="qat")
+ps<-qat_style_plot(filename_ps)
+# run the workflow on the testvector
+rlist <- qat_run_workflow_check(testvector,workflowlist,vec1=maxlim, vec2=minlim, 
+vec3=uproc, vec4=downroc)
+# produce some plots of the result in teh current directory with new plotstyle
+qat_run_workflow_plot(rlist, measurement_name="Test", basename="test", plotstyle=ps)
+# add some more informations for the workflow
+workflowlist <- qat_add_all_descriptions(workflowlist) 
+workflowlist <- qat_add_all_algorithms(workflowlist)
+workflowlist <- qat_add_comment(workflowlist, 1, "No problems")
+
+
+

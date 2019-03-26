@@ -1,0 +1,60 @@
+library(fitdistrplus)
+
+
+### Name: salinity
+### Title: Species-Sensitivity Distribution (SSD) for salinity tolerance
+### Aliases: salinity
+### Keywords: datasets
+
+### ** Examples
+
+# (1) load of data
+#
+data(salinity)
+
+# (2) plot of data using Turnbull cdf plot
+#
+log10LC50 <-log10(salinity)
+plotdistcens(log10LC50)
+
+# (3) fit of a normal and a logistic distribution to data in log10
+# (classical distributions used for species sensitivity 
+# distributions, SSD, in ecotoxicology))
+# and visual comparison of the fits using Turnbull cdf plot 
+#
+fln <- fitdistcens(log10LC50,"norm")
+summary(fln)
+
+fll <- fitdistcens(log10LC50,"logis")
+summary(fll)
+
+cdfcompcens(list(fln,fll),legendtext=c("normal","logistic"),
+    xlab = "log10(LC50)",xlim=c(0.5,2),lines01 = TRUE)
+
+# (4) estimation of the 5 percent quantile value of 
+# the normal fitted distribution (5 percent hazardous concentration  : HC5)
+# with its two-sided 95 percent confidence interval calculated by 
+# non parametric bootstrap
+# from a small number of bootstrap iterations to satisfy CRAN running times constraint.
+# For practical applications, we recommend to use at least niter=501 or niter=1001.
+#
+# in log10(LC50)
+bln <- bootdistcens(fln, niter=101)
+HC5ln <- quantile(bln,probs = 0.05)
+# in LC50
+10^(HC5ln$quantiles)
+10^(HC5ln$quantCI)
+
+# (5) estimation of the HC5 value
+# with its one-sided 95 percent confidence interval (type "greater")
+#
+# in log10(LC50)
+HC5lnb <- quantile(bln, probs = 0.05,CI.type="greater")
+
+# in LC50
+10^(HC5lnb$quantiles)
+10^(HC5lnb$quantCI)
+
+
+
+

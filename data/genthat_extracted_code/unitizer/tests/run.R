@@ -1,0 +1,5 @@
+library(unitizer)
+unitize("tests/interactive/unitizer/tests.R")
+unitize("tests/interactive/unitizer/tests1.R", "tests/interactive/unitizer/tests.unitizer")
+unitize("tests/interactive/unitizer/tests2.R", "tests/interactive/unitizer/tests.unitizer")
+unitize("tests/interactive/unitizer/tests3.R", "tests/interactive/unitizer/tests.unitizer")

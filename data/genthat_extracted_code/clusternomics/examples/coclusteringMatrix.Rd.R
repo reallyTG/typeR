@@ -1,0 +1,35 @@
+library(clusternomics)
+
+
+### Name: coclusteringMatrix
+### Title: Compute the posterior co-clustering matrix from global cluster
+###   assignments.
+### Aliases: coclusteringMatrix
+
+### ** Examples
+
+# Generate simple test dataset
+groupCounts <- c(50, 10, 40, 60)
+means <- c(-1.5,1.5)
+testData <- generateTestData_2D(groupCounts, means)
+datasets <- testData$data
+
+# Fit the model
+# 1. specify number of clusters
+clusterCounts <- list(global=10, context=c(3,3))
+# 2. Run inference
+# Number of iterations is just for demonstration purposes, use
+# a larger number of iterations in practice!
+results <- contextCluster(datasets, clusterCounts,
+     maxIter = 10, burnin = 5, lag = 1,
+     dataDistributions = 'diagNormal',
+     verbose = TRUE)
+
+# Extract only the sampled global assignments
+samples <- results$samples
+clusters <- plyr::laply(1:length(samples), function(i) samples[[i]]$Global)
+coclusteringMatrix(clusters)
+
+
+
+

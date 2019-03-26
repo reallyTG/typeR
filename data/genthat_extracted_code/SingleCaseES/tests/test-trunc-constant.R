@@ -1,0 +1,1 @@
+context("Test logic of trunc_constant")

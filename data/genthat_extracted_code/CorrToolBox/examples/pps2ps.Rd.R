@@ -1,0 +1,24 @@
+library(CorrToolBox)
+
+
+### Name: pps2ps
+### Title: Computation of the Polyserial Correlation from the
+###   Point-Polyserial Correlation
+### Aliases: pps2ps
+
+### ** Examples
+
+set.seed(234)
+y1<-rweibull(n=100000, scale=1, shape=25)
+
+gaussmix <- function(n,m1,m2,s1,s2,pi) {
+  I <- runif(n)<pi
+  rnorm(n,mean=ifelse(I,m1,m2),sd=ifelse(I,s1,s2))
+}
+y2<-gaussmix(n=100000, m1=0, s1=1, m2=2, s2=1, pi=0.5)
+
+pps2ps(pps=0.3, ord.var=y1, cont.var=y2, cats=c(1,2,3,4), p=c(0.4, 0.3, 0.2, 0.1))
+pps2ps(pps=0.3, ord.var=y1, cont.var=y2, cats=c(1,2,3,4), cutpoint=c(0.97341, 1.00750, 1.03421))
+
+
+

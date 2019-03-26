@@ -1,0 +1,23 @@
+library(laeken)
+
+
+### Name: meanExcessPlot
+### Title: Mean excess plot
+### Aliases: meanExcessPlot
+### Keywords: hplot
+
+### ** Examples
+
+data(eusilc)
+# equivalized disposable income is equal for each household
+# member, therefore only one household member is taken
+eusilc <- eusilc[!duplicated(eusilc$db030),]
+
+# with sample weights
+meanExcessPlot(eusilc$eqIncome, w = eusilc$db090)
+
+# without sample weights
+meanExcessPlot(eusilc$eqIncome)
+
+
+

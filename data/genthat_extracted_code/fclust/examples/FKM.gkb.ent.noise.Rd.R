@@ -1,0 +1,24 @@
+library(fclust)
+
+
+### Name: FKM.gkb.ent.noise
+### Title: Gustafson, Kessel and Babuska - like fuzzy k-means with entropy
+###   regularization and noise cluster
+### Aliases: FKM.gkb.ent.noise
+### Keywords: multivariate
+
+### ** Examples
+
+## Not run: 
+##D ## unemployment data
+##D data(unemployment)
+##D ## Gustafson, Kessel and Babuska-like fuzzy k-means with entropy regularization and noise cluster,
+##D ##fixing the number of clusters
+##D clust=FKM.gkb.ent.noise(unemployment,k=3,ent=0.2,delta=1,RS=10,stand=1)
+##D ## Gustafson, Kessel and Babuska-like fuzzy k-means with entropy regularization and noise cluster,
+##D ##selecting the number of clusters
+##D clust=FKM.gkb.ent.noise(unemployment,k=2:6,ent=0.2,delta=1,RS=10,stand=1)
+## End(Not run)
+
+
+

@@ -1,0 +1,93 @@
+library(ssc)
+
+
+### Name: setred
+### Title: SETRED method
+### Aliases: setred
+
+### ** Examples
+
+
+library(ssc)
+
+## Load Wine data set
+data(wine)
+
+cls <- which(colnames(wine) == "Wine")
+x <- wine[, -cls] # instances without classes
+y <- wine[, cls] # the classes
+x <- scale(x) # scale the attributes
+
+## Prepare data
+set.seed(20)
+# Use 50% of instances for training
+tra.idx <- sample(x = length(y), size = ceiling(length(y) * 0.5))
+xtrain <- x[tra.idx,] # training instances
+ytrain <- y[tra.idx]  # classes of training instances
+# Use 70% of train instances as unlabeled set
+tra.na.idx <- sample(x = length(tra.idx), size = ceiling(length(tra.idx) * 0.7))
+ytrain[tra.na.idx] <- NA # remove class information of unlabeled instances
+
+# Use the other 50% of instances for inductive testing
+tst.idx <- setdiff(1:length(y), tra.idx)
+xitest <- x[tst.idx,] # testing instances
+yitest <- y[tst.idx] # classes of testing instances
+
+## Example: Training from a set of instances with 1-NN as base classifier.
+m1 <- setred(x = xtrain, y = ytrain, dist = "euclidean", 
+            learner = caret::knn3, 
+            learner.pars = list(k = 1),
+            pred = "predict")
+pred1 <- predict(m1, xitest)
+table(pred1, yitest)
+
+## Example: Training from a distance matrix with 1-NN as base classifier.
+# Compute distances between training instances
+library(proxy)
+D <- dist(x = xtrain, method = "euclidean", by_rows = TRUE)
+
+m2 <- setred(x = D, y = ytrain, x.inst = FALSE,
+            learner = ssc::oneNN, 
+            pred = "predict",
+            pred.pars = list(distance.weighting = "none"))
+ditest <- proxy::dist(x = xitest, y = xtrain[m2$instances.index,],
+                      method = "euclidean", by_rows = TRUE)
+pred2 <- predict(m2, ditest)
+table(pred2, yitest)
+
+## Example: Training from a set of instances with SVM as base classifier.
+learner <- e1071::svm
+learner.pars <- list(type = "C-classification", kernel="radial", 
+                     probability = TRUE, scale = TRUE)
+pred <- function(m, x){
+  r <- predict(m, x, probability = TRUE)
+  prob <- attr(r, "probabilities")
+  prob
+}
+m3 <- setred(x = xtrain, y = ytrain, dist = "euclidean", 
+             learner = learner, 
+             learner.pars = learner.pars, 
+             pred = pred)
+pred3 <- predict(m3, xitest)
+table(pred3, yitest)
+
+## Example: Training from a set of instances with Naive-Bayes as base classifier.
+m4 <- setred(x = xtrain, y = ytrain, dist = "euclidean",
+             learner = function(x, y) e1071::naiveBayes(x, y), 
+             pred = "predict",
+             pred.pars = list(type = "raw"))
+pred4 <- predict(m4, xitest)
+table(pred4, yitest)
+
+## Example: Training from a set of instances with C5.0 as base classifier.
+m5 <- setred(x = xtrain, y = ytrain, dist = "euclidean",
+             learner = C50::C5.0, 
+             pred = "predict",
+             pred.pars = list(type = "prob"))
+pred5 <- predict(m5, xitest)
+table(pred5, yitest)
+
+
+
+
+
