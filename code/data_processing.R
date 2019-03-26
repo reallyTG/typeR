@@ -915,19 +915,6 @@ get_counts_for_pkg_in_counts_dir <- function(pkg, path_to_counts) {
   tot_obs
 }
 
-for (fpath in lof) {
-  tryCatch({
-    r <- readRDS(fpath)
-    maybe_count <- sum(r[[pkg]])
-    if (maybe_count > 1000000)
-      print(fpath)
-    # if (!is.null(maybe_count))
-    tot_obs <- tot_obs + maybe_count
-  }, error = function(e) {
-    print("error")
-  })
-}
-
 # [X] Tested?
 add_count_lists <- function(l1, l2) {
   # top level names i.e. names of sublists
