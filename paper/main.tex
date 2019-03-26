@@ -339,15 +339,14 @@ try to capture attributes at the risk of increased complexity.
 \newpage
 \section{Corpus}\label{sec:corpus}
 
-In this section, we present our dataset. R is designed to accommodate data
-analysts.  Typical workflows go from data import, to data cleaning, followed
-by steps of modeling, transformation and visualization. Often, the code that
-implements these analysis pipelines together with their results resides in
-notebooks. Unfortunately notebooks are typically not shared in public
-repositories such as GitHub, and if they were, the data required to run them
-would surely not be shared. For this reason our analysis focuses on
-packages; these bundle reusable units of R code with documentation, sample
-data, use-cases and tests.
+In this section, we present our dataset. R aims to accommodate data
+analysts, their workflows start with data import, followed by cleaning, and
+then by steps of modeling, transformation and visualization. Often, the code
+of these analysis pipelines resides, together with the data and results, in
+notebooks. Few notebooks are publicly shared, and when they are, the data
+isn't. For this reason our
+analysis focuses on packages; these bundle reusable units of R code with
+documentation, sample data and use-cases.
 
 We focus on packages hosted on the \emph{Comprehensive R Archive Network} or
 CRAN.  With over 13,000 packages, CRAN is the largest repository of software
@@ -356,10 +355,11 @@ new packages a day~\cite{LIgges2017}.  Unlike sites like GitHub, CRAN is a
 curated collection of packages: A package is only accepted to CRAN if it
 abides by a number of well-formedness rules.  Most relevant for our
 purposes, packages must have data, examples, vignettes and tests, all of
-which must successfully run. From our perspective this means that each package 
-in CRAN comes with several executable scripts that exercise some of its functionality.
-Notable exceptions to this rule are packages only containing data, which have no runnable
-code but are referenced by other packages \AT{I should collect stats on this}.
+which must successfully run. From our perspective this means that each
+package in CRAN comes with several executable scripts that exercise some of
+its functionality.  Notable exceptions to this rule are packages only
+containing data, which have no runnable code but are referenced by other
+packages \AT{I should collect stats on this}.
 
 Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
 for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
