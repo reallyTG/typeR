@@ -9,8 +9,11 @@ Load.
 ```{r}
 library(reshape2)
 library(ggplot2)
+library(ggrepel)
 
 count_df <- readRDS("../data/final_loc_counts.RDS")
+
+total_recorded_sigs <- readRDS("../data/final_recorded_sigs_by_package.RDS")
 
 r_counts <- count_df[, 1]; names(r_counts) <- rownames(count_df)
 c_counts <- count_df[, 2]; names(c_counts) <- rownames(count_df)
@@ -21,9 +24,11 @@ pkgs_to_plot <- intersect(rownames(records_by_fun), names(r_counts))
 
 r_counts <- r_counts[pkgs_to_plot]
 c_counts <- c_counts[pkgs_to_plot]
-records_by_fun[ "pkg" ] <- rownames(records_by_fun) # needed for plotting
+total_recorded_sigs <- total_recorded_sigs[pkgs_to_plot]
 
+records_by_fun[ "pkg" ] <- rownames(records_by_fun) # needed for plotting
 records_by_fun <- records_by_fun[records_by_fun[,"pkg"] %in% pkgs_to_plot, ]
+records_by_fun$invo_rec <- unlist(total_recorded_sigs)
 
 top_10 <- c("Rcpp", "rlang", "glue", "tibble", "stringi", "ggplot2", "dplyr", "pillar", "R6", "stringr")
 
@@ -125,10 +130,10 @@ plot_both <- plot_both + theme(
   panel.grid.major.y = element_line(colour = "red")) + # ,
   # panel.ontop = T) + 
   scale_y_continuous(name="Lines of Code in Package", breaks = c(-4, -3, -2, -1, 0, 1, 2, 3, 4), 
-                     labels = c(10000, 1000, 100, 10, 0, 10, 100, 1000, 10000)) # +
-  # scale_x_discrete(name="Package", breaks = unlist(loc_of_top_10[!(loc_of_top_10 == FALSE)]), labels = top_10)
-  # geom_line(aes( x, y), cut_top) +
-  # geom_line(aes( x, y), cut_bot)
+                     labels = c(10000, 1000, 100, 10, 0, 10, 100, 1000, 10000)) +
+  geom_text_repel(data=subset(zzz, package_name %in% top_10 & language == "loc_r"),
+                  aes(y = 0, label=package_name), position=position_dodge(0.9), direction="y")
+  # trying to get some text to show up
 
 # plot it
 plot_both
@@ -142,16 +147,17 @@ Plot:
 
 records_by_fun$pkg <- factor(records_by_fun$pkg, levels=combo_df$package_name)
 # log scale?
-records_by_fun$invo_obs <- sapply(records_by_fun$invo_obs, function(x) if (x == 0) x else log10(x))
+# records_by_fun$invo_obs <- sapply(records_by_fun$invo_obs, function(x) if (x == 0) x else log10(x))
 
-plot_records <- ggplot(data=records_by_fun, aes(x=pkg, y=invo_obs, group=1)) +
-                geom_line(size=0.25) + 
+plot_records <- ggplot(data=records_by_fun, aes(x=invo_obs, y=invo_rec)) +
+                geom_point(size=0.25) + 
                 labs( title = "Numbers of Observed Signatures",
-                      y = "Observed Invocations in Pkg (Thousands, log10-Scaled)") +
+                      y = "Recorded Invocations in Pkg (Thousands)",
+                      x = "Observed Invocations in Pkg (Thousands)") +
                 theme(axis.text.x = element_blank(), axis.title.x=element_blank(),
-                      axis.ticks.x=element_blank()) +
-                scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5, 6), 
-                     labels = c(0, 10, 100, 1000, 10000, 100000, 1000000))
+                      axis.ticks.x=element_blank()) #+
+                # scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5, 6),
+                #      labels = c(0, 10, 100, 1000, 10000, 100000, 1000000))
 
 # plot
 plot_records

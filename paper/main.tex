@@ -757,15 +757,15 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
 \begin{table}[ht]
 \label{tab:argcountsFGTS}
 \centering
-\begin{tabular}{rlrr}
+\begin{tabular}{lrr}
   \hline
- & Argument Polymorphism & Count & Percentage \\ 
+ Argument Polymorphism & Count & Percentage \\ 
   \hline
-  1 & Full Monomorphic & 784K & 85.19 \\ 
-  2 & Monomorphic in Type & 839K & 91.27 \\ 
-  3 & Monomorphic in Class & 831K & 90.31 \\ 
-  4 & Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
-  5 & Total Seen & 920K & --- \\ 
+  Full Monomorphic & 784K & 85.19 \\ 
+  Monomorphic in Type & 839K & 91.27 \\ 
+  Monomorphic in Class & 831K & 90.31 \\ 
+  Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
+  Total Seen & 920K & --- \\ 
      \hline
 \end{tabular}
 \caption{Account of {\it argument} polymorphism in the FGTS.}
@@ -776,15 +776,15 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
 \begin{table}[ht]
 \label{tab:funcountsFGTS}
 \centering
-\begin{tabular}{rlrr}
+\begin{tabular}{lrr}
   \hline
- & Function Polymorphism & Count & Percentage \\ 
+ Function Polymorphism & Count & Percentage \\ 
   \hline
-  1 & Full Monomorphic & 143K & 65.64 \\ 
-  2 & Monomorphic in Type & 169K & 77.65 \\ 
-  3 & Monomorphic in Class & 163K & 75.13 \\ 
-  4 & Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
-  5 & Total Seen & 217K & --- \\ 
+  Full Monomorphic & 143K & 65.64 \\ 
+  Monomorphic in Type & 169K & 77.65 \\ 
+  Monomorphic in Class & 163K & 75.13 \\ 
+  Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
+  Total Seen & 217K & --- \\ 
    \hline
 \end{tabular}
 \caption{Account of {\it function} polymorphism in the FGTS.}
@@ -859,7 +859,48 @@ Not pictured in Table~\ref{tab:toppolyFDTS} are NAs, which are ascribed the type
 Just as we fold NULL into all types, we will do the same with NAs.
 
 The next type system design we will consider is ... .
-\AT{Generate tables. The stuff we do is: real, NULL fold, NA fold.}
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Mar 22 18:03:30 2019
+\begin{table}[ht]
+\label{tab:argcountsWHATTS}
+\centering
+\begin{tabular}{lrr}
+  \hline
+ Argument Polymorphism & Count & Percentage \\ 
+  \hline
+  Full Monomorphic & 785K & 85.38 \\ 
+  Monomorphic in Type & 874K & 95.08 \\ 
+%  Monomorphic in Class & 831K & 90.31 \\ 
+%  Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
+  Total Seen & 920K & --- \\ 
+     \hline
+\end{tabular}
+\caption{Account of {\it argument} polymorphism in the NEW TYPE SYSTEM.}
+\end{table}
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Mar 22 18:10:46 2019
+\begin{table}[ht]
+\label{tab:funcountsWHATTS}
+\centering
+\begin{tabular}{lrr}
+  \hline
+ Function Polymorphism & Count & Percentage \\ 
+  \hline
+  Full Monomorphic & 143K & 65.95 \\ 
+  Monomorphic in Type & 186K & 85.85 \\ 
+%  Monomorphic in Class & 163K & 75.13 \\ 
+%  Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
+  Total Seen & 217K & --- \\ 
+   \hline
+\end{tabular}
+\caption{Account of {\it function} polymorphism in the NEW TYPE SYSTEM.}
+\end{table}
+
+We had some big wins here.
+
+How do the top signatures shake out now?
 
 %
 %
