@@ -20,6 +20,10 @@ names(los) <- substr(names, 1, nchar(names)-4)
 los <- lapply(los, readRDS)
 los <- remove_empties(los)
 # annoying strange error that I should fix pops up
+
+# There's at least one transformation that we're always gonna want to apply, namly the vector/scalar
+# collapse where both are present in a signature.
+los <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_appropriate)})
 ```
 
 Get the counts.
@@ -35,7 +39,7 @@ total_mono_all <- apply_count_to_lopkg_c(los, args_count_all_mono_all)
 ```{r}
 tot_arg_df <- data.frame(
   Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
-  Count=c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments),
+  Count=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / 1000, 0),
   Percentage=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / total_arguments * 100, 2)
 )
 
@@ -54,17 +58,11 @@ total_mono_all_functions <- apply_count_to_lopkg_c(los, fun_count_all_mono_all)
 ```{r}
 tot_fun_df <- data.frame(
   Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
-  Count=c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions),
+  Count=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / 1000, 0),
   Percentage=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / total_functions * 100, 2)
 )
 
 xtable(tot_fun_df)
-```
-
-We Have one thing we want to do first.
-Namely, let's get rid of vector/X, scalar/X polymorphism.
-```{r}
-los_vs <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_appropriate)})
 ```
 
 Top signatures, with printing.
@@ -78,13 +76,21 @@ poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 10
 Print top 10.
 ```{r}
 format_df_for_print(poly_type_args[1:10,]) -> put_me
+put_me
 xtable(put_me)
 ```
 
 Now, having noted that:
-(1) vector/X, scalar/X is common, and
-(2) ints and doubles are basically interchangable
-while noting that together these make up a huge portion of the polymorphism, we transform.
+(1) ints and doubles are basically interchangable, and
+(2) null and NA should be a part of every type,
+while also noting that together these make up a huge portion of the polymorphism, we transform.
 ```{r}
+los <- lapply(los, function(s) lapply(s, fold_NULL_and_NA_into_other_types_df))
+null_na_fold_arg_counts <- build_arg_count_df_from_lopkgs(los)
+null_na_fold_fun_counts <- build_fun_count_df_from_lopkgs(los)
 
+los <- lapply(los, function(lof) {lapply(lof, function(df) {change_type_systems_df(df, type_map_sv_to_real)})})
+null_na_fold_real_arg_counts <- build_arg_count_df_from_lopkgs(los)
+null_na_fold_real_fun_counts <- build_fun_count_df_from_lopkgs(los)
 ```
+

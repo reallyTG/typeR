@@ -110,6 +110,15 @@ type_map_r_to_real <- list(
   double    = "real"
 )
 
+type_map_sv_to_real <- list(
+  `vector/integer`    = "vector/real",
+  `scalar/integer`    = "scalar/real",
+  `vector/double`     = "vector/real",
+  `scalar/double`     = "scalar/real",
+   double             = "real",
+   integer            = "real"
+)
+
 primitive_classes <- list(
   "character",
   "complex",
@@ -705,10 +714,11 @@ fold_NULL_and_NA_into_other_types_df <- function(df) {
   df$type <- lapply(new_types, function(lot) {
     if (length(lot) > 1) {
       # fold in NULLs if applicable
-      where <- lot == "NULL" || lot == "raw_NA"
+      where <- mapply(function(x, y) {x || y}, lot == "NULL", lot == "raw_NA")
       ret <- lot[!where]
       if (length(ret) == 0) {
-        ret <- list("raw_NA_or_NULL") # ok
+        # ret <- list("raw_NA_or_NULL") # ok
+        ret <- lot[1]
       }
       ret
     } else {
@@ -854,8 +864,35 @@ count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
 # Aux functions. For processing scripts, printing, etc.
 #
 
-get_num_recorded_signatures <- function(pkg, path_to_sigs) {
+build_arg_count_df_from_lopkgs <- function(lopkgs) {
+  total_arguments <- apply_count_to_lopkg_c(lopkgs, args_count_all)
+  total_mono_type <- apply_count_to_lopkg_c(lopkgs, args_count_all_mono_type)
+  total_mono_attr <- apply_count_to_lopkg_c(lopkgs, args_count_all_mono_attr_pattern)
+  total_mono_clas <- apply_count_to_lopkg_c(lopkgs, args_count_all_mono_class)
+  total_mono_all <- apply_count_to_lopkg_c(lopkgs, args_count_all_mono_all)
 
+  tot_arg_df <- data.frame(
+    Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
+    Count=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / 1000, 0),
+    Percentage=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / total_arguments * 100, 2)
+  )
+
+  tot_arg_df
+}
+
+build_fun_count_df_from_lopkgs <- function(lopkgs) {
+  total_functions <- apply_count_to_lopkg_c(lopkgs, length)
+  total_mono_type_functions <- apply_count_to_lopkg_c(lopkgs, fun_count_all_mono_type)
+  total_mono_attr_functions <- apply_count_to_lopkg_c(lopkgs, fun_count_all_mono_attr_pattern)
+  total_mono_clas_functions <- apply_count_to_lopkg_c(lopkgs, fun_count_all_mono_class)
+  total_mono_all_functions <- apply_count_to_lopkg_c(lopkgs, fun_count_all_mono_all)
+
+  tot_fun_df <- data.frame(
+    Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
+    Count=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / 1000, 0),
+    Percentage=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / total_functions * 100, 2)
+  )
+  tot_fun_df
 }
 
 get_counts_for_pkg_in_counts_dir <- function(pkg, path_to_counts) {
@@ -870,6 +907,19 @@ get_counts_for_pkg_in_counts_dir <- function(pkg, path_to_counts) {
     }, error = function(e) {})
   }
   tot_obs
+}
+
+for (fpath in lof) {
+  tryCatch({
+    r <- readRDS(fpath)
+    maybe_count <- sum(r[[pkg]])
+    if (maybe_count > 1000000)
+      print(fpath)
+    # if (!is.null(maybe_count))
+    tot_obs <- tot_obs + maybe_count
+  }, error = function(e) {
+    print("error")
+  })
 }
 
 # [X] Tested?
@@ -954,15 +1004,24 @@ translate_df_with_type_map <- function(df, a_type_map) {
   df
 }
 
-translate_type_list_with_type_map <- function(lolot, a_type_map) {
+get_inner_type_of_list_param <- function(lt) {
+  substr(lt, 6, nchar(lt)-1)
+}
+
+translate_type_list_with_type_map <- function(lolot, a_type_map, unparam=F) {
   translate <- function(x) {
     if (x %in% names(a_type_map))
       a_type_map[[x]]
+    else if (substr(x, 1, 5) == "list<")
+      paste0("list<", translate(get_inner_type_of_list_param(x)), ">")
     else
       x
   }
   # 1. preprocess parametric types to get their shape
-  lapply(lolot, function(lot) unique(lapply(lot, function(t) translate(unparametrify(t)))))
+  if (unparam)
+    lapply(lolot, function(lot) unique(lapply(lot, function(t) translate(unparametrify(t)))))
+  else
+    lapply(lolot, function(lot) unique(lapply(lot, function(t) translate(t))))
 }
 
 # Function to measure the size of a signature.
