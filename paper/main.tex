@@ -406,16 +406,16 @@ package.
 \begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r|r|r@{}}\hline
 \bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts & \bf Calls Observed & \bf Calls Recorded \\
 \hline
-\tt Rcpp  & Seamless C++ integration & 2.1K & 4K & 25 & 51K & 282 \\
-\tt rlang & Functions for 'Tidyverse' & 4.4K & 3.8K & 122 & 2,240K & 5,171 \\
-\tt glue  & Interpreted string literals & 0.2K & 0.2K & 8 & 2K & 120 \\
-\tt tibble & Simple data frames & 1.3K & 0.3K & 16 & 839K & 4,148 \\
-\tt stringi &  String processing & 1.5K & 515K & 64 & 692K & 666 \\
-\tt ggplot2 & Data visualisations & 10.8K & 0 & 130 & 110K & 2,636\\
-\tt dplyr  &  Data manipulation & 3.8K & 4.7K & 78 & 157K & 1,967 \\
-\tt pillar & Formatting for columns & 1.3K & 0 & 13 & 549K & 1,273 \\
+\tt Rcpp  & Seamless C++ integration & 2.1K & 4K & 25 & 55K & 282 \\
+\tt rlang & Functions for 'Tidyverse' & 4.4K & 3.8K & 122 & 3,924K & 5,171 \\
+\tt glue  & Interpreted string literals & 0.2K & 0.2K & 8 & 4K & 120 \\
+\tt tibble & Simple data frames & 1.3K & 0.3K & 16 & 1,332K & 4,148 \\
+\tt stringi &  String processing & 1.5K & 515K & 64 & 923K & 666 \\
+\tt ggplot2 & Data visualisations & 10.8K & 0 & 130 & 153K & 2,636\\
+\tt dplyr  &  Data manipulation & 3.8K & 4.7K & 78 & 233K & 1,967 \\
+\tt pillar & Formatting for columns & 1.3K & 0 & 13 & 803K & 1,273 \\
 \tt R6 & Classes w. ref. semantics & 0.6K & 0 & 2 & 1K & 226 \\
-\tt stringr & String operations & 0.5K & 0 & 32 & 1,551K & 371 \\
+\tt stringr & String operations & 0.5K & 0 & 32 & 1,764K & 371 \\
 \end{tabular}}\caption{10 Most Downloaded Packages.}\label{most}
 \end{figure}
 
@@ -761,11 +761,11 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
   \hline
  & Argument Polymorphism & Count & Percentage \\ 
   \hline
-1 & Full Monomorphic & 457K & 87.75 \\ 
-  2 & Monomorphic in Type & 485K & 93.08 \\ 
-  3 & Monomorphic in Class & 480K & 92.16 \\ 
-  4 & Monomorphic in Attribute Pattern & 480K & 91.99 \\ 
-  5 & Total Seen & 521K & --- \\ 
+  1 & Full Monomorphic & 784K & 85.19 \\ 
+  2 & Monomorphic in Type & 839K & 91.27 \\ 
+  3 & Monomorphic in Class & 831K & 90.31 \\ 
+  4 & Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
+  5 & Total Seen & 920K & --- \\ 
      \hline
 \end{tabular}
 \caption{Account of {\it argument} polymorphism in the FGTS.}
@@ -780,11 +780,11 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
   \hline
  & Function Polymorphism & Count & Percentage \\ 
   \hline
-1 & Full Monomorphic & 86K & 69.44 \\ 
-  2 & Monomorphic in Type & 100K & 81.01 \\ 
-  3 & Monomorphic in Class & 97K & 78.45 \\ 
-  4 & Monomorphic in Attribute Pattern & 96K & 77.47 \\ 
-  5 & Total Seen & 124K & --- \\ 
+  1 & Full Monomorphic & 143K & 65.64 \\ 
+  2 & Monomorphic in Type & 169K & 77.65 \\ 
+  3 & Monomorphic in Class & 163K & 75.13 \\ 
+  4 & Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
+  5 & Total Seen & 217K & --- \\ 
    \hline
 \end{tabular}
 \caption{Account of {\it function} polymorphism in the FGTS.}
@@ -793,14 +793,14 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
 \AT{We should figure out the pipeline to get the notebook output into here.}
 
 In the tables, ``Full Monomorphic'' denotes monomorphism in type, class, and attribute.
-We see that roughly 7\% of all argument positions in R are polymorphic in type.
+We see that roughly 9\% of all argument positions in R are polymorphic in type.
 The numbers for attribute and class polymorphism are included for
 completeness, but the important number is that of type polymorphism (as our
 method of constructing types sometimes factors in class and attribute).
 Specifically for classes, often the class and \code{typeof} a value will
 line up (refer to Section~\ref{sec:rlang}).
 
-As for functions, roughly 20\% are polymorphic in type, or put differently 20\% have at least one polymorphic argument or a polymorphic return.
+As for functions, roughly 22\% are polymorphic in type, or put differently 22\% have at least one polymorphic argument or a polymorphic return.
 The discrepancy between this and the polymorphicity of arguments is explained by the tendency of some functions to have {\it many} arguments.
 
 These numbers alone are insufficient, so we ask: {\it of the polymorphic arguments, what are the most common patterns?}
@@ -815,16 +815,16 @@ The answer to that question can be found in Table~\ref{tab:toppolyFDTS}.
   \hline
  Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
   \hline
-  vector/double, vector/integer & 4838 & 13.42 \\ 
-  scalar/double, scalar/integer & 3666 & 10.17 \\ 
-  NULL, vector/double & 1463 & 4.06 \\ 
-  data.frame, vector/double & 1324 & 3.67 \\ 
-  NULL, scalar/character & 1237 & 3.43 \\ 
-   NULL, scalar/double & 1174 & 3.26 \\ 
-   list$<$any$>$, list$<$double$>$ & 1092 & 3.03 \\ 
-   list$<$any$>$, list$<$list$>$ & 767 & 2.13 \\ 
-   scalar/character, scalar/double & 674 & 1.87 \\ 
-   NULL, vector/character & 640 & 1.78 \\ 
+vector/double, vector/integer & 10,316 & 12.85 \\ 
+scalar/double, scalar/integer & 7,194 & 8.96 \\ 
+NULL, vector/double & 3,087 & 3.85 \\ 
+data.frame, vector/double & 2,604 & 3.24 \\ 
+NULL, scalar/character & 2,333 & 2.91 \\ 
+list$<$any$>$, list$<$double$>$ & 2,224 & 2.77 \\ 
+NULL, scalar/double & 2,066 & 2.57 \\ 
+raw\_NA, vector/double & 1,465 & 1.83 \\ 
+list$<$any$>$, list$<$list$>$ & 1,426 & 1.78 \\ 
+NULL, vector/character & 1,385 & 1.73 \\ 
      \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in the FDTS.}

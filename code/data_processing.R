@@ -40,6 +40,7 @@
 # [ ] do we want anything more out of the data? names? dims? could be fun to get
 # [ ] skip retv in coincidence checking?
 # [ ] author names -- just last name
+# [ ] attach arg types to retv types
 
 # Notes:
 # re: char/real poly: retvs with char/X could be communicating error messages
@@ -56,6 +57,12 @@
 #
 #
 # [ ] map args to retvs
+
+# Paper
+# [X] Corpus table -- signatures observed and recorded in top 10
+
+# Current RUNID:
+# 35729
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -215,6 +222,7 @@ collapse_per_arg_lopkg <- function(lopkgs) {
 # use on just one package output
 # gives you a lofun_c
 collapse_per_arg_lofun <- function(lofuns) {
+  lofuns <- sanitize_lofuns(lofuns)
 
   # first, collapse to attribute patterns
   lapply(lofuns, function(funs) {           # TODO something fishi
@@ -227,6 +235,27 @@ collapse_per_arg_lofun <- function(lofuns) {
     do(type=union(.$type, c()), attr=union(.$attr, c()), class=union(.$class, c())) %>%
     as.data.frame
   })
+}
+
+sanitize_lofuns <- function(lofuns) {
+  intermed <- lapply(lofuns, sanitize_lodfs)
+  intermed[sapply(intermed, is.null)] <- NULL
+  intermed
+}
+
+sanitize_lodfs <- function(lodfs) {
+  remove <- sapply(lodfs, function(x) {
+    if (nrow(x) == 0)
+      TRUE
+    else
+      FALSE
+  })
+
+  lodfs[remove] <- NULL
+  if (length(lodfs) == 0)
+    NULL
+  else
+    lodfs
 }
 
 #
@@ -791,6 +820,27 @@ tally_up_lofun_c <- function(lofun_c) {
 
 # # # # # #
 #
+# Transform a data.frame (recorded sig) to (arg, ... arg) -> retv sig.
+# Consolidate all of these over a function.
+convert_df_to_fun_sig <- function(df) {
+  # positions are important, so no sorting.
+  # also put in argument names?
+  arg_names_types <- mapply( function(x, y) {paste(x, y, sep=": ")},
+                             names(df$arg_types), df$arg_types)
+
+  args_only <- sort(arg_names_types[names(arg_names_types) != "retv"])
+  retv_only <- arg_names_types["retv"]
+
+  paste("{", paste(args_only, collapse=", "), "}", "->", retv_only)
+}
+
+convert_list_of_traces_to_fun_df <- function(lot) {
+  convert_me <- lapply(lot, function(x) x$arg_types)
+  data.table::rbindlist(unique(convert_me), fill=T)
+}
+
+# # # # # #
+#
 # Functions for doing things sequentially, but by reading files.
 #
 count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
@@ -803,6 +853,60 @@ count_all_in_dir <- function(path_to_lofun_cs, count_fun) {
 #
 # Aux functions. For processing scripts, printing, etc.
 #
+
+get_num_recorded_signatures <- function(pkg, path_to_sigs) {
+
+}
+
+get_counts_for_pkg_in_counts_dir <- function(pkg, path_to_counts) {
+  lof <- list.files(path_to_counts, full.names=T)
+  tot_obs <- 0
+  for (fpath in lof) {
+    tryCatch({
+      r <- readRDS(fpath)
+      maybe_count <- sum(r[[pkg]])
+      # if (!is.null(maybe_count))
+        tot_obs <- tot_obs + maybe_count
+    }, error = function(e) {})
+  }
+  tot_obs
+}
+
+# [X] Tested?
+add_count_lists <- function(l1, l2) {
+  # top level names i.e. names of sublists
+  all_names <- union(names(l1), names(l2))
+  names(all_names) <- all_names
+  # set up return list
+  lapply(all_names, function(tln) {
+    sl1 <- l1[[tln]]
+    sl2 <- l2[[tln]]
+    if(is.null(sl1)) {
+      sl2
+    } else if (is.null(sl2)) {
+      sl1
+    } else {
+      # complicated case
+      # sum up same names
+      combo_names <- union(names(sl1), names(sl2))
+      names(combo_names) <- combo_names
+      sapply(combo_names, function(n) {
+        if (is.na(sl1[n])) {
+          unname(sl2[n])
+        } else if (is.na(sl2[n])) {
+          unname(sl1[n])
+        } else {
+          unname(sl1[n]) + unname(sl2[n])
+        }
+      })
+    }
+  })
+}
+
+# need: for (n in union(names(r$dapr), names(f$dapr))) { l_combo[n] <- get_w_name_def_0(r$dapr, n) + get_w_name_def_0(f$dapr, n) }
+get_w_name_def_0 <- function(v, n) {
+  if (is.na(v[n])) 0 else v[n]
+}
 
 class_to_primitive_df <- function(df) {
   df$class <- lapply(df$class, function(loc) {

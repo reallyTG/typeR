@@ -1,0 +1,29 @@
+---
+title: "Corpus Analysis"
+output: html_notebook
+---
+
+Always load data processing.
+```{r}
+source("../code/data_processing.R")
+```
+
+```{r}
+get_counts_for_pkg_in_counts_dir("rlang", path_to_counts = "../data/genthat_counts_final")
+```
+
+Get counts for observations.
+```{r}
+
+pkgs_to_count <- c("Rcpp", "rlang", "glue", "tibble", "stringi", "ggplot2", "dplyr", "pillar", "R6", "stringr")
+names(pkgs_to_count) <- pkgs_to_count
+
+top_obs <- lapply(pkgs_to_count, function(n) get_counts_for_pkg_in_counts_dir(n, path_to_counts = "../data/genthat_counts_final"))
+
+top_obs
+
+```
+
+```{r}
+
+```
