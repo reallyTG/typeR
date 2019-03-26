@@ -13,25 +13,26 @@ library(ggrepel)
 library(tidyverse)
 
 count_df <- read_rds("../data/final_loc_counts.RDS")
-total_recorded_sigs <- read_rds("../data/final_recorded_sigs_by_package.RDS")
-
-r_counts <- count_df[, 1]; names(r_counts) <- rownames(count_df)
-c_counts <- count_df[, 2]; names(c_counts) <- rownames(count_df)
-
+as.tibble(count_df) %>%
+  mutate(names = rownames(count_df)) -> cloc
+    
 # for observations
-records_by_fun <- readRDS("../data/final_obs_counts_df.RDS")
-pkgs_to_plot <- intersect(rownames(records_by_fun), names(r_counts))
+t_r_s <- read_rds("../data/final_recorded_sigs_by_package.RDS")
+tibble(names=names(t_r_s), rec = unlist(t_r_s)) -> total_recorded_sigs
 
-r_counts <- r_counts[pkgs_to_plot]
-c_counts <- c_counts[pkgs_to_plot]
-total_recorded_sigs <- total_recorded_sigs[pkgs_to_plot]
-
-records_by_fun[ "pkg" ] <- rownames(records_by_fun) # needed for plotting
-records_by_fun <- records_by_fun[records_by_fun[,"pkg"] %in% pkgs_to_plot, ]
-records_by_fun$invo_rec <- unlist(total_recorded_sigs)
+r_b_f <- read_rds("../data/final_obs_counts_df.RDS")
+as.tibble(r_b_f) %>%
+  mutate(names = row.names(records_by_fun)) %>%
+  rename(obs = invo_obs) %>%
+  select(names, obs) -> records_by_fun
+  
+total_recorded_sigs %>%
+  inner_join(records_by_fun, by="names") %>%
+  filter(obs != 0, rec !=0) %>% 
+  inner_join(cloc, by="names") %>%
+  filter(r_counts != 0) -> df
 
 top_10 <- c("Rcpp", "rlang", "glue", "tibble", "stringi", "ggplot2", "dplyr", "pillar", "R6", "stringr")
-
 # just named lists. some elements (in either) are integer(0) i believe, as some packages
 # just have data.
 ```
@@ -39,119 +40,62 @@ top_10 <- c("Rcpp", "rlang", "glue", "tibble", "stringi", "ggplot2", "dplyr", "p
 ...I guess let's try to plot it??
 
 ```{r}
-r_c_df <- data.frame(package_name = names(r_counts), loc_r = r_counts)
-# looks weird sorted
-r_c_df_sub <- r_c_df[order(r_c_df$loc_r),]
-# just get the entries with > 0 lines of code
-r_c_df_sub <- r_c_df_sub[r_c_df_sub$loc_r > 0, ]
-# looks weirder log10-scaled
-r_c_df_sub$loc_r <- log10(r_c_df_sub$loc_r)
+df %>%
+  arrange(r_counts) %>%
+  mutate(names_o = factor(names, names) , r_c_log= log10(r_counts), c_c_log = ifelse((c_counts==0),0, log10(c_counts)))  -> df_rc
 
-plot_r_counts <- ggplot( data=r_c_df_sub, aes(x=1:length(r_c_df_sub$loc_r), y=loc_r, group=1))
-plot_r_counts <- plot_r_counts + geom_line() + geom_point()
-plot_r_counts <- plot_r_counts + labs(
-  title = "Analysis of R Corpus (R Code Portion)",
-  x = "Corpus of Analyzed Packages", 
-  y = "Lines of R Code in Package (Log10-scaled)"
-)
 
-plot_r_counts <- plot_r_counts + theme(axis.text.x = element_blank())
-
-# plot it
-plot_r_counts
-
+df_rc %>% 
+  ggplot(aes(x=names_o, y=r_c_log, group=1)) +
+  geom_line() + geom_point() + labs(title = "Analysis of R Corpus (R Code Portion)",
+    x = "Corpus of Analyzed Packages", 
+    y = "Lines of R Code in Package (Log10-scaled)") + theme(axis.text.x = element_blank())
 ```
-
-The outlier is the spatstat package.
-How about for C?
 
 ```{r}
-library(ggplot2)
 
-c_c_df <- data.frame(package_name = names(c_counts), loc_c = c_counts)
-# looks weird sorted
-c_c_df_sub <- c_c_df[order(c_c_df$loc_c),]
-# get rid of 0s
-c_c_df_sub <- c_c_df_sub[c_c_df_sub$loc_c > 0, ]
-# looks weirder log10-scaled
-c_c_df_sub$loc_c <- log10(c_c_df_sub$loc_c)
 
-plot_c_counts <- ggplot( data=c_c_df_sub, aes(x=1:length(c_c_df_sub$loc_c), y=loc_c, group=1))
-plot_c_counts <- plot_c_counts + geom_line() + geom_point()
-plot_c_counts <- plot_c_counts + labs(
-  title = "Analysis of R Corpus (C Code Portion)",
-  x = "Corpus of Analyzed Packages", 
-  y = "Lines of C Code in Package (Log10-scaled)"
-)
-
-plot_c_counts <- plot_c_counts + theme(axis.text.x = element_blank())
-
-# plot it
-plot_c_counts
-
+df_rc %>% 
+  ggplot(aes(x=names_o, y=c_c_log, group=1)) +
+  geom_line() + geom_point() + labs(title = "Analysis of R Corpus (C Code Portion)",
+    x = "Corpus of Analyzed Packages", 
+    y = "Lines of C Code in Package (Log10-scaled)") + theme(axis.text.x = element_blank())
 ```
+
 
 Similar to the R stuff.
 Now, we should combine these plots.
 Messy graphs, beware!
 ```{r}
-combo_df <- r_c_df
-combo_df$loc_c <- c_c_df$loc_c
-combo_df$loc_r <- sapply(combo_df$loc_r, function(x) if (x == 0) x else log10(x))
-combo_df$loc_c <- - sapply(combo_df$loc_c, function(x) if (x == 0) x else log10(x))
-
-# sort
-combo_df <- combo_df[order(combo_df$loc_r), ]
-# this makes sure the package_names are in the right order, ggplot2 plots according to factors
-# and levels
-combo_df$package_name <- factor(combo_df$package_name, levels=combo_df$package_name)
-
 loc_of_top_10 <- lapply(1:length(combo_df$package_name), function(x) if (combo_df$package_name[[x]] %in% top_10) x else FALSE) 
 
-# TODO: not staying sorted, probably id.vars
-zzz <- melt(combo_df, id.vars="package_name", variable.name = "language")
-# zzz_c <- melt(combo_df_c, id.vars="package_name", variable.name = "language")
+df_rc %>% 
+  select(names_o, r_c_log, c_c_log) %>% 
+  mutate(c_c_log=-c_c_log) %>%
+  melt(id.vars="names_o",variable.name="language") -> zzz
 
-plot_both <- ggplot( data=zzz, aes(package_name, value, group=1))
-plot_both <- plot_both + geom_line(aes(colour = language), size=0.05) # +  geom_point(aes(colour = language))
-plot_both <- plot_both + labs(
-  title = "Analysis of R Corpus (R and C)",
-  y = "Lines of Code in Package (Log10-scaled)"
-) + guides(colour=F)
-
-# cut_top <- data.frame( x = c(-Inf, Inf), y = 2, cutoff = factor(2) )
-# cut_bot <- data.frame( x = c(-Inf, Inf), y = -2, cutoff = factor(-2) )
-
-plot_both <- plot_both + theme(
-  axis.text.x  = element_blank(), 
-  axis.title.x = element_blank(),
-  axis.ticks.x = element_blank(),
-  axis.ticks.y = element_line(), 
-  panel.grid.major.y = element_line(colour = "red")) + # ,
-  # panel.ontop = T) + 
+zzz %>%
+ggplot(aes(x=names_o, value, group=1)) +
+ geom_line(aes(colour = language), size=0.05) +
+ labs(title = "Analysis of R Corpus (R and C)", y = "Lines of Code in Package (Log10-scaled)") + guides(colour=F) + 
+ theme( axis.text.x  = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(),
+        axis.ticks.y = element_line(),  panel.grid.major.y = element_line(colour = "red")) + # ,
   scale_y_continuous(name="Lines of Code in Package", breaks = c(-4, -3, -2, -1, 0, 1, 2, 3, 4), 
-                     labels = c(10000, 1000, 100, 10, 0, 10, 100, 1000, 10000)) +
-  geom_text_repel(data=subset(zzz, package_name %in% top_10 & language == "loc_r"),
-                  aes(y = 0, label=package_name), position=position_dodge(0.9), direction="y")
-  # trying to get some text to show up
+                     labels = c(10000, 1000, 100, 10, 0, 10, 100, 1000, 10000)) 
 
-# plot it
-plot_both
+#+  geom_text_repel(data=subset(zzz, names %in% top_10 & language == "loc_r"), 
+#                  aes(y = 0, label=names), position=position_dodge(0.9), direction="y")
+  
 
-ggsave("../paper/plots/linesofrandccode.jpg", plot_both)
-
+ggsave("../paper/plots/linesofrandccode.pdf")
 ```
 
 Plot:
 ```{r}
-
-records_by_fun$pkg <- factor(records_by_fun$pkg, levels=combo_df$package_name)
-# log scale?
-# records_by_fun$invo_obs <- sapply(records_by_fun$invo_obs, function(x) if (x == 0) x else log10(x))
-# records_by_fun$invo_rec <- sapply(records_by_fun$invo_rec, function(x) if (x == 0) x else log10(x))
-
-plot_records <- ggplot(data=records_by_fun, aes(x=invo_rec, y=invo_obs)) +
-                geom_point(size=0.25) + 
+df_rc %>%
+  mutate(rec=log(rec),obs=log(obs))  %>%
+  ggplot(aes(x=rec, y=obs)) +
+                geom_point(size=0.1) + 
                 labs( title = "Numbers of Observed Signatures",
                       y = "Obs Invocations in Pkg",
                       x = "Rec Invocations in Pkg")
@@ -160,10 +104,8 @@ plot_records <- ggplot(data=records_by_fun, aes(x=invo_rec, y=invo_obs)) +
                 # scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5, 6),
                 #      labels = c(0, 10, 100, 1000, 10000, 100000, 1000000))
 
-# plot
-plot_records
 
 # generate file
-ggsave("../paper/plots/recordsbypkg.jpg", plot_records)
+ggsave("../paper/plots/recordsbypkg.pdf")
 ```
 
