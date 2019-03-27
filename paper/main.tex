@@ -52,13 +52,13 @@
 
 \title{A Large-scale Study of Polymorphism in R}
 
-\newcommand{\PACKAGES}{7,763\xspace}
-\newcommand{\PROGRAMMERS}{10,000\xspace}
-\newcommand{\PERCENTCRAN}{56\%\xspace}
+\newcommand{\PACKAGES}{11,463\xspace}
+\newcommand{\PROGRAMMERS}{?\xspace}
+\newcommand{\PERCENTCRAN}{83\%\xspace}
 \newcommand{\CRANTOTAL}{13,841\xspace}
-\newcommand{\RLOC}{8,996,572\xspace}
-\newcommand{\CLOC}{5,100,719\xspace}
-\newcommand{\YEARS}{20\xspace}
+\newcommand{\RLOC}{15,050,267\xspace}
+\newcommand{\CLOC}{9,373,542\xspace}
+\newcommand{\YEARS}{?\xspace}
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -93,7 +93,7 @@ apply to domain-specific languages, languages designed for and by a specific
 group of users to solve very specific needs. This is the case of the data
 science language R.
 
-R and it's ancestor S are languages designed, implemented and maintained by
+R and its ancestor S are languages designed, implemented and maintained by
 statisticians. Originally they were designed as glue languages, languages
 that would allow to read data into vectors and call statistical routines
 written in Fortran. Over three decades, the languages became widely used
@@ -574,7 +574,7 @@ discussion can be found in Section~\ref{sec:rlang}.  As for attributes:
 \end{itemize}
 
 These naturally-occurring attribute patterns and classes can be separately
-accounted for to highlight user-defined patterns and behaviours.  This will
+accounted for to highlight user-defined patterns and behaviors.  This will
 be made clear in Section~\ref{sec:results}.
 
 %
@@ -698,10 +698,13 @@ fixGenes <- function (network, fixIndices, values) {
 \end{lstlisting}}\caption{Example of character/double argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}
 
 In Figure~\ref{fig:matvec}, we see that the function can take in a vector, but immediately transforms it (transpose, with {\tt t}) into a matrix.
+As an idea, matrix/vector polymorphism seems sensible, as mathematically vectors are matrices.
+R echoes this by making conversion between the two ``types'' easy:
+\code{as.vector(m)} flattens a matrix \code{m} into a vector (e.g., \code{as.vector(matrix(2, 2, 2)) == c(2, 2, 2, 2)}), and \code{as.matrix(v)} builds a {\tt length(v) x 1} matrix (e.g., \code{as.matrix(c(1, 2)) == matrix(data=c(1, 2))}).
+\AT{TODO fix line break in code at end of last sentence}
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-tee <- function (x, theta, D1, D2, phi) 
-{
+tee <- function (x, theta, D1, D2, phi)  {
     if (is.vector(x)) {
         x <- t(x)
     }
@@ -860,7 +863,7 @@ In many programming languages, NULLs inhabit every type, and this is not the cas
 The FGTS reflects many of R's implementation details, and this distinction is no exception:
 NULLs are represented as \AT{fill in} in the R runtime.
 
-In terms of programmer behaviour, we observe a pattern of optional arguments throughout several R packages, wherein programmers specify a default argument value which is sometimes NULL.
+In terms of programmer behavior, we observe a pattern of optional arguments throughout several R packages, wherein programmers specify a default argument value which is sometimes NULL.
 Consider the snippet in Figure~\ref{fig:optnull} for an example.
 \AT{TODO put that figure here}
 The distinction between NULL and other types is not particularly useful to the programmer, so we propose to also collapse this distinction.
