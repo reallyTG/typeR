@@ -140,13 +140,13 @@ primitive_classes <- list(
   "function"
 )
 
-character_pack   = c("vector/character", "scalar/character")
-integer_pack     = c("vector/integer", "scalar/integer")
-double_pack      = c("vector/double", "scalar/double")
-complex_pack     = c("vector/complex", "scalar/complex")
-raw_pack         = c("vector/raw", "scalar/raw")
-logical_pack     = c("vector/logical", "scalar/logical")
-real_pack        = c("vector/real", "scalar/real")
+character_pack   = c("vector/character",  "scalar/character")
+integer_pack     = c("vector/integer",    "scalar/integer")
+double_pack      = c("vector/double",     "scalar/double")
+complex_pack     = c("vector/complex",    "scalar/complex")
+raw_pack         = c("vector/raw",        "scalar/raw")
+logical_pack     = c("vector/logical",    "scalar/logical")
+real_pack        = c("vector/real",       "scalar/real")
 
 # # # # # #
 #
@@ -581,6 +581,9 @@ does_df_have_coinciding_types_index_and_list_reduced_TS <- function(df) {
 
 # ensure that df
 does_df_have_coinciding_types_index_and_list_or_vector <- function(df) {
+  # Note: skip retv?
+  df <- df[df$arg_name != "retv", ]
+
   check_index <- list("real", "character")
   distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
   distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
@@ -608,6 +611,8 @@ does_df_have_coinciding_types_index_and_list_or_vector <- function(df) {
 # TODO this isn't exactly the opposite of does_df_have_coinciding_types_index_and_list_or_vector.
 #
 does_df_have_coinciding_types_index_and_NOT_list_or_vector <- function(df) {
+  df <- df[df$arg_name != "retv", ]
+
   check_index <- list("real", "character")
   distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
   distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
@@ -685,6 +690,61 @@ get_rows_from_df_only_scalar <- function(df) {
 # These functions are for going from one type system to another.
 #
 
+#
+# Use this after int, dbl -> real conversion
+distinguish_matrices_df <- function(df) {
+  # in trans_me, we want to turn the vector/real into a real
+  trans_me <- apply(df, 1, function(x)
+    "matrix" %in% x[["class"]] &&
+    ((! "numeric" %in% x[["class"]] && "vector/double" %in% x[["type"]]) ||
+     (! "integer" %in% x[["class"]] && "vector/integer" %in% x[["type"]])))
+
+  types <- df$type
+  typess <- lapply(types[trans_me], function(x) {
+    x[x=="vector/integer"] <- "matrix"
+    x[x=="vector/double"] <- "matrix"
+    unique(x)
+  })
+  types[trans_me] <- typess
+  df$type <- types
+
+  add_me <- apply(df, 1, function(x)
+    "matrix" %in% x[["class"]] &&
+    (("numeric" %in% x[["class"]] && "vector/double" %in% x[["type"]]) ||
+     ("integer" %in% x[["class"]] && "vector/integer" %in% x[["type"]])))
+
+  types <- df$type
+  typess <- lapply(types[add_me], function(x) {c(x, "matrix")})
+  types[add_me] <- typess
+  df$type <- types
+
+  df
+}
+
+# this one needs to be after real conversion
+# distinguish_matrices_df <- function(df) {
+#   # in trans_me, we want to turn the vector/real into a real
+#   trans_me <- apply(df, 1, function(x)
+#     "matrix" %in% x[["class"]] && ! "numeric" %in% x[["class"]] && "vector/real" %in% x[["type"]])
+#
+#   types <- df$type
+#   typess <- lapply(types[trans_me], function(x) {x[x=="vector/real"] <- "matrix"; x})
+#   types[trans_me] <- typess
+#   df$type <- types
+#
+#   add_me <- apply(df, 1, function(x)
+#     "matrix" %in% x[["class"]] &&
+#     ("numeric" %in% x[["class"]] || "integer" %in% x[["class"]]) &&
+#     "vector/real" %in% x[["type"]])
+#
+#   types <- df$type
+#   typess <- lapply(types[add_me], function(x) {c(x, "matrix")})
+#   types[add_me] <- typess
+#   df$type <- types
+#
+#   df
+# }
+
 change_type_systems_lopkg <- function(lopkg_c, a_type_map) {
   lapply(lopkg_c, function(lofun_c) change_type_systems_lofun(lofun_c, a_type_map))
 }
@@ -694,9 +754,9 @@ change_type_systems_lofun <- function(lofun_c, a_type_map) {
 }
 
 change_type_systems_df <- function(df, a_type_map) {
-  new_types <- lapply(df$type, unlist)
-  df$type <- translate_type_list_with_type_map(new_types, a_type_map)
-  df
+  # new_types <- lapply(df$type, unlist)
+  # df$type <- translate_type_list_with_type_map(new_types, a_type_map)
+  translate_df_with_type_map(df, a_type_map)
 }
 
 fold_NULL_into_other_types_df <- function(df) {

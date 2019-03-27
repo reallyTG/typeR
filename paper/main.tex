@@ -387,7 +387,7 @@ package.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.15]{linesofrandccode.jpg}
+\includegraphics[scale=0.6]{linesofrandccode}
 \caption{Lines of code in the analyzed corpus. \# of lines of R code are above 0, \# of lines of C code are below 0.}
 \label{allcloc}
 \end{center}
@@ -395,7 +395,7 @@ package.
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=0.15]{recordsbypkg}
+\includegraphics[scale=0.6]{recordsbypkg}
 \caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
 \label{recorded}
 \end{center}
@@ -697,6 +697,17 @@ fixGenes <- function (network, fixIndices, values) {
 }
 \end{lstlisting}}\caption{Example of character/double argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}
 
+In Figure~\ref{fig:matvec}, we see that the function can take in a vector, but immediately transforms it (transpose, with {\tt t}) into a matrix.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+tee <- function (x, theta, D1, D2, phi) 
+{
+    if (is.vector(x)) {
+        x <- t(x)
+    }
+    ...
+\end{lstlisting}}\caption{Example of matrix/(vector/double) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
+
 %
 %
 %
@@ -760,8 +771,8 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
   \hline
  Argument Polymorphism & Count & Percentage \\ 
   \hline
-  Full Monomorphic & 784K & 85.19 \\ 
-  Monomorphic in Type & 839K & 91.27 \\ 
+  Full Monomorphic & 784K & 85.28 \\ 
+  Monomorphic in Type & 836K & 90.91 \\ 
   Monomorphic in Class & 831K & 90.31 \\ 
   Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
   Total Seen & 920K & --- \\ 
@@ -779,8 +790,8 @@ Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
   \hline
  Function Polymorphism & Count & Percentage \\ 
   \hline
-  Full Monomorphic & 143K & 65.64 \\ 
-  Monomorphic in Type & 169K & 77.65 \\ 
+  Full Monomorphic & 143K & 65.80 \\ 
+  Monomorphic in Type & 167K & 76.84 \\ 
   Monomorphic in Class & 163K & 75.13 \\ 
   Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
   Total Seen & 217K & --- \\ 
@@ -814,16 +825,16 @@ The answer to that question can be found in Table~\ref{tab:toppolyFDTS}.
   \hline
  Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
   \hline
-vector/double, vector/integer & 10,316 & 12.85 \\ 
-scalar/double, scalar/integer & 7,194 & 8.96 \\ 
-NULL, vector/double & 3,087 & 3.85 \\ 
-data.frame, vector/double & 2,604 & 3.24 \\ 
-NULL, scalar/character & 2,333 & 2.91 \\ 
-list$<$any$>$, list$<$double$>$ & 2,224 & 2.77 \\ 
-NULL, scalar/double & 2,066 & 2.57 \\ 
-raw\_NA, vector/double & 1,465 & 1.83 \\ 
-list$<$any$>$, list$<$list$>$ & 1,426 & 1.78 \\ 
-NULL, vector/character & 1,385 & 1.73 \\ 
+  vector/double, vector/integer & 7677 & 9.18 \\ 
+  scalar/double, scalar/integer & 7194 & 8.61 \\ 
+  matrix, vector/double & 5354 & 6.40 \\ 
+  NULL, scalar/character & 2333 & 2.79 \\ 
+  list$<$any$>$, list$<$double$>$ & 2224 & 2.66 \\ 
+  data.frame, matrix & 2115 & 2.53 \\ 
+  NULL, scalar/double & 2066 & 2.47 \\ 
+  NULL, vector/double & 2042 & 2.44 \\ 
+  list$<$any$>$, list$<$list$>$ & 1426 & 1.71 \\ 
+  NULL, vector/character & 1385 & 1.66 \\ 
      \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in the FDTS.}
@@ -858,6 +869,7 @@ Not pictured in Table~\ref{tab:toppolyFDTS} are NAs, which are ascribed the type
 Just as we fold NULL into all types, we will do the same with NAs.
 
 The next type system design we will consider is ... .
+The number of monomorphic arguments and functions can be found in Tables~\ref{tab:argcountsWHATTS} and~\ref{tab:funcountsWHATTS} respectively.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 22 18:03:30 2019
@@ -869,7 +881,7 @@ The next type system design we will consider is ... .
  Argument Polymorphism & Count & Percentage \\ 
   \hline
   Full Monomorphic & 785K & 85.38 \\ 
-  Monomorphic in Type & 874K & 95.08 \\ 
+  Monomorphic in Type & 871K & 94.65 \\ 
 %  Monomorphic in Class & 831K & 90.31 \\ 
 %  Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
   Total Seen & 920K & --- \\ 
@@ -888,7 +900,7 @@ The next type system design we will consider is ... .
  Function Polymorphism & Count & Percentage \\ 
   \hline
   Full Monomorphic & 143K & 65.95 \\ 
-  Monomorphic in Type & 186K & 85.85 \\ 
+  Monomorphic in Type & 184K & 84.778 \\
 %  Monomorphic in Class & 163K & 75.13 \\ 
 %  Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
   Total Seen & 217K & --- \\ 
@@ -897,9 +909,35 @@ The next type system design we will consider is ... .
 \caption{Account of {\it function} polymorphism in the NEW TYPE SYSTEM.}
 \end{table}
 
-We had some big wins here.
+We had some big wins here, with only ~5\% of argument polymorphism unaccounted for.
+To get an idea of what more we can do, let's see what the most frequent remaining polymorphic signatures are.
+See Table~\ref{tab:toppolyWHATTS}.
 
-How do the top signatures shake out now?
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Tue Mar 26 17:46:45 2019
+\begin{table}[ht]
+\label{tab:toppolyWHATTS}
+\centering
+\begin{tabular}{lrr}
+  \hline
+Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
+  \hline
+  matrix, vector/real & 6307 & 12.82 \\ 
+  list$<$any$>$, list$<$real$>$ & 2792 & 5.68 \\ 
+  vector/character, vector/real & 2719 & 5.53 \\ 
+  scalar/character, scalar/real & 2536 & 5.16 \\ 
+  data.frame, matrix & 2163 & 4.40 \\ 
+  list$<$any$>$, list$<$list$>$ & 1492 & 3.03 \\ 
+  list$<$any$>$, list$<$character$>$ & 1217 & 2.47 \\ 
+  data.frame, vector/real & 1025 & 2.08 \\ 
+  scalar/logical, scalar/real & 917 & 1.86 \\ 
+  scalar/character, vector/real & 844 & 1.72 \\ 
+   \hline
+\end{tabular}
+\caption{Top 10 argument signatures in the NEW TYPE SYSTEM.}
+\end{table}
+
+What's up with matrix, vector/real?
 
 %
 %

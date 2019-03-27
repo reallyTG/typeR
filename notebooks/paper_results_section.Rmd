@@ -24,12 +24,14 @@ los <- remove_empties(los)
 # There's at least one transformation that we're always gonna want to apply, namly the vector/scalar
 # collapse where both are present in a signature.
 los <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_appropriate)})
+# Figure out which ones are matrices. Remove if the analysis picks this up (and we rerun).
+los_m <- lapply(los, function(lofun) lapply(lofun, distinguish_matrices_df))
 ```
 
 Get the counts.
 ```{r}
 # argument counts
-c_basic_df <- build_arg_count_df_from_lopkgs(los)
+c_basic_df <- build_arg_count_df_from_lopkgs(los_m)
 
 xtable(c_basic_df)
 ```
@@ -72,8 +74,8 @@ null_na_fold_real_fun_counts <- build_fun_count_df_from_lopkgs(los)
 
 Generate...
 ```{r}
-xtable(null_na_fold_real_arg_counts)
-xtable(null_na_fold_real_fun_counts)
+xtable(null_na_fold_real_arg_counts) %>% print(include.rownames=F)
+xtable(null_na_fold_real_fun_counts) %>% print(include.rownames=F)
 ```
 
 Top sig time.
@@ -87,5 +89,30 @@ Print top 10.
 ```{r}
 format_df_for_print(poly_type_args[1:10,]) -> put_me
 put_me
-xtable(put_me)
+xtable(put_me) %>% print(include.rownames=F)
+```
+
+I think something funky is happening.
+We should have matrix types, maybe I forgot.
+Dealing with that now:
+```{r}
+# NOTE matrix stuff moved up, oopsie
+```
+
+Top sig time.
+```{r}
+# poly_type_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_type_args))
+# poly_type_args <- poly_type_args[order(-poly_type_args$count),] # sort by count
+# poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 100, 2)
+```
+
+Print top 10.
+```{r}
+# format_df_for_print(poly_type_args[1:10,]) -> put_me
+# put_me
+# xtable(put_me) %>% print(include.rownames=F)
+```
+
+```{r}
+# sigs_df_vec <- get_fun_sigs_matching_pred_from_lopkg(los, pred=does_df_have_X_types, types_to_find=c("matrix", "vector/real"), strict=T)
 ```
