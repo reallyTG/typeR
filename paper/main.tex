@@ -515,8 +515,10 @@ into a function signature. The details of how consolidation is parameterized
 by the definition of a potential type system for R and will be discussed in
 the next section.
 
-
 \section{Stuff}
+
+\AT{Do we want to talk about how sometimes we can't eval an argument, even if a function executes successfully?
+Like pipe from magrittr.}
 
 We will need a notion of polymorphism when undertaking this analysis. R
 is unityped, and the only notion of polymorphism in the language is its use
@@ -761,12 +763,21 @@ retv & \tt list<double> & \tt list & \tt \{\}
 \end{tabular}
 \caption{Example call and FGTS signature}\label{fig:exFGTS}\end{figure}
 
-The first question we will address is: {\it how polymorphic is R?}  To
-answer that, we will first look at the number of monomorphic arguments
-across all of the packages we analyzed.  The data can be found in
-Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
+Broadly, the first question we will address is: {\it how polymorphic is R?} 
+We will answer this in two parts, and first we will look at the number of monomorphic {\it arguments} across all of the packages we analyzed.  
+
+%
+%
+%
+%
+\subsection{Argument Polymorphism}
+
+In this section, we will explore the polymorphicity of function argument positions and return values.
+Exploring argument polymorphism will help to motivate a design for whole function signatures.
+
+To begin, let's look at the {\it amount} of polymorphism by way of {\it number of polymorphic arguments}.
+The data can be found in Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFGTS}.
 \AT{TODO: have these tables be generated automatically}
-\AT{TODO: put all counts in one table?}
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 22 18:03:30 2019
@@ -965,8 +976,21 @@ Well, as it happens, character/real polymorphism coincides with some list-flavor
 
 Another option is a date.
 In R, dates are often represented as either strings or numbers, and many packages make use of dates.
+Dates (sometimes) manifest themselves in the {\tt class} of a value, for examples refer to Figure~\ref{fig:date}.
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+class(date()) # => character
+class(Sys.Date()) # => Date
+class(as.POSIXlt(Sys.Date())) # => POSIXlt, POSIXt
+as.integer(as.Date(1, origin = "1900-01-01"))
+\end{lstlisting}}\caption{Dates in R.}\label{fig:date}\end{figure}
 
+This figure reveals an unfortunate truth that date ``data type'' in R is not standardized.
+That said, translating between the data types is straigthforward.
 
+%
+%
+%
+%
 \AT{We might want to discuss some of the most polymorphic functions in the language.}
 \subsection{Most Polymorphic Functions}
 
@@ -976,164 +1000,39 @@ The most polymorphic function in the corpus of code we analyzed is {\tt magrittr
 {\tt magrittr} is part of the Tidyverse, and the pipe function is frequently used to chain function calls.
 The fact that the pipe is the most polymorphic function is not shocking, as its goal is simply to take the right hand argument and apply it to the left hand argument, and this in a sense irrespective of type.
 
-%
-%
-%
-%
-\subsection{Types in R}
-
-\AT{I'll pull from this section when appropriate, as the discussion of the type systems becomes relevant.}
-
-%
-%
-\subsubsection{What are possible type systems?}
-
-Great question.
-Some things:
-
-\begin{itemize}
-
-\item {\it The Obvious Type System (OTS)}: this type system corresponds directly with the type information that one can fetch using the {\tt typeof}, {\tt attributes}, and {\tt class} functions.
-In this system, there is no distinction between vectors and scalars, and lists of differently-typed elements (e.g., a list of integers vs. a list of strings), and there is a distinction between integers and doubles, and the type of NULL and all other types.
-This type system isn't particularly informative to a programmer, though it does reflect the treatment of values in the R runtime, for the {\tt typeof} a value is the type that the value has according to the R internals.
-
-\item {\it The Fine-Grained Type System (FGTS)}: this type systems includes a number of relevant additions.
-Chiefly, it distinguishes between vectors and scalars, as it is conceivable that boxing scalars as single-element vectors might be overkill.
-In addition, list types are parameterized over the types of their elements (e.g., list<integer> vs. list<character>).
-Finally, NAs ``in the wild'' are given the type {\tt raw\_NA}, as {\tt typeof(NA) = logical} in R.
-
-\item {\it The Null-and-NA-Free Type System (NNTS)}: most languages consider NULLs to inhabit all types, and R does so for NAs \AT{elaborate}.
-This gives us ... .
-
-\end{itemize}
-
-Of course, one could conceive of a more fine-grained type system than FGTS, but it's unclear that we would gain much in doing so.
-Indeed, there is a space to explore in slightly less fine-grained type systems, which make modifications including:
-
-\begin{itemize}
-
-\item {\bf collapsing vectors and scalars}: this yields a type system slightly closer to OTS.
-
-\item {\bf rolling NULL into other types}: in most languages, NULL is an inhabitant of all types, and this adjustment seems interesting.
-Note that this goes beyond even OTS, as in R {\tt typeof(NULL) = NULL}.
-
-\item {\bf rolling NA into other types}: \AT{i should try this}
-similarly, NA is an inhabitant of all types, though NA standing alone has type {\tt logical}.
-FGTS distinguishes such NAs with the {\tt raw\_NA} type, and if instead we consider NA to inhabit all types we may \AT{win}.
-
-\item {\bf combining integers and doubles}: as in most languages, doubles and ints can stand-in for each other in nearly every scenario.
-Even if not, it is trivial to convert from one to the other, particularly converting ints to doubles.
-Aside, in R a double can be used to index a list, and R will floor it when performing the lookup.
-
-\end{itemize}
+...
 
 %
 %
 %
 %
-\subsection{Usage Patterns}
+\subsection{Function Polymorphism}
 
-In this section, we will discuss function usage patterns which arose in our analysis.
-We will start by looking at the morphicity of functions.
+Now, we will turn our attention to whole function polymorphism.
 
-\subsubsection{Function Argument and Return Morphicity}
+This is different because we can now look at argument polymorphism across several arguments, like we did when thinking about character/real polymorphism.
 
-First and foremost, we would like to know how often R programmers create polymorphic functions.
-Recall that we define a polymorphic function to be a function with at least one polymorphic argument, or a polymorphic return.
-We will turn our attention now to the data in \todo{Figure}, and go through each entry in the table.
+We're interested to see what kinds of ``meta-annotations'' we can make at the function level.
+For instance, should we link argument types with return types?
+Consider Figure~\ref{fig:funanno}.
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+iden <- function(x) x;
 
-Here, we see that the vast majority of function arguments are indeed monomorphic.
-Monomorphic arguments are easy to annotate, as the {\tt typeof} the arguments is exactly the most precise annotation we could give, at least in terms of \textit{type}.
-That said, types alone don't always paint the whole picture:
-recall that \textit{attributes} are an R language feature which allows programmers to stick metadata onto values.
-So in which circumstances \textit{do} types paint the whole picture?
+# observed calls:
+f(2); # x: double -> double
+f(list(1, 2, 3)) # x: list<double> -> list<double>
 
-The second data point in \textbf{TODO FIGURE} indicates that a
-\isit{majority} of function arguments are monomorphic in type \textit{and}
-have no attributes.  These represent arguments which are truly trivial to
-annotate, as the {\tt typeof} an argument perfectly describes the usage of
-that argument.  That said, some attributes arise naturally in R: For
-instance, names in a named list (e.g. {\tt x} and {\tt y} in {\tt list(x=0,
-  y=0)}) appear as an attribute on the value.  In
-Section~\ref{sec:method:attributes}, we outlined these naturally-occurring
-attribute patterns, and the third data point in \textbf{TODO FIGURE} shows
-that a nontrivial amount of functions are monomorphic in type with said
-natural attribute patterns.
-
-Another facet of type information in R is in the {\tt class} attribute.
-Recall that values have a \textit{class} in addition to a type: For example,
-a {\tt data.frame} has type {\tt list} and class {\tt data.frame}.
-\todo{Plug classes earlier} R has a number of built-in classes, such as
-\todo{X, Y, and Z}, but users are free to redefine the class of any value at
-runtime, and easily define new classes.  The next data point in
-\todo{Figure} shows that user-defined classes don't appear altogether often,
-though they do indeed feature.  \AT{In a following section, we will discuss
-  how the usage of these classes manifests itself.}
-
-\AT{Separate section for functions? Right now, this is at argument granularity.}
-
-\subsubsection{Type Signatures}
-
-In the last section, we presented a high-level overview of the morphicity ... .
-
-\subsubsection{Attribute Signatures}
-
-Recall that attributes are a way for programmers to store metadata on values in R.
-What are the common attribute patterns?
-And how often is the attribute pattern polymorphic?
-
-\subsubsection{Takeaways}
-
-\begin{itemize}
-    \item the vast majority of arguments are monomorphic in type;
-    \item of those, over 60\% have no attribute information;
-    \item of the 40\% with attribute information, roughly 1/2 have fairly
-      simple attributes corresponding to base R constructs (named lists and
-      vectors, matrices, and data frames);
-    \item now, of those arguments which are polymorphic, a sizable chunk (well over half) have defensible signatures (e.g., double and character for named list indexing, double and integer for obvious reasons, etc.).
-\end{itemize}
-
-In short, it looks like R (package) programmers are reasonable.  I'd
-conjecture that a lot of the polymorphism (e.g., double and list) is coming
-from how easy it is to use either type in a given situation (e.g.,
-converting from vector of doubles to list or vice versa is simple).
+# possible annotations:
+# [1] x: {double, list<double>} -> {double, list<double>}
+# [2] x: {double -> double, x: list<double> -> list<double>}
+\end{lstlisting}}\caption{Possible function annotations.}\label{fig:funanno}\end{figure}
+The first annotation option is 
 
 %
 %
 %
 %
-%
-%
-\section{Synthesis}
-
-In this section, we will discuss the conclusions that we draw from our data.
-
-
-%
-%
-\subsection{Suggested Annotations}
-
-\AT{How can we capture these patterns with annotations?}
-
-Some possible annotations:
-
-\begin{itemize}
-    \item \textit{real}: for \textit{double} and \textit{integer} values
-    \item \textit{function}: for \textit{closure}, \textit{special}, and \textit{builtin} values
-    \item \textit{vector}: to indicate that something should be vectorized
-    \item \textit{scalar}: to indicate that something should \textbf{not} be vectorized
-    \item \textit{index}: for \textit{real} and \textit{character} values
-\end{itemize}
-
-%
-%
-\subsubsection{Struct-Like Attribute Declarations}
-
-\AT{What's a convenient way to annotate attributes?  Should investigate how
-  often attributes are consistent.}
-
-%
-\subsubsection{Coverage}
+\subsection{Coverage}
 
 \AT{What is the coverage of these new annotations?}
 
@@ -1158,5 +1057,123 @@ Other analysis work~\cite{milojkovic2017duck} ... .
 
 \bibliographystyle{boilerplate/ACM-Reference-Format}
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new}
+
+%%
+%%
+%%
+%%
+%\subsection{Types in R}
+%
+%\AT{I'll pull from this section when appropriate, as the discussion of the type systems becomes relevant.}
+%
+%%
+%%
+%\subsubsection{What are possible type systems?}
+%
+%Great question.
+%Some things:
+%
+%\begin{itemize}
+%
+%\item {\it The Obvious Type System (OTS)}: this type system corresponds directly with the type information that one can fetch using the {\tt typeof}, {\tt attributes}, and {\tt class} functions.
+%In this system, there is no distinction between vectors and scalars, and lists of differently-typed elements (e.g., a list of integers vs. a list of strings), and there is a distinction between integers and doubles, and the type of NULL and all other types.
+%This type system isn't particularly informative to a programmer, though it does reflect the treatment of values in the R runtime, for the {\tt typeof} a value is the type that the value has according to the R internals.
+%
+%\item {\it The Fine-Grained Type System (FGTS)}: this type systems includes a number of relevant additions.
+%Chiefly, it distinguishes between vectors and scalars, as it is conceivable that boxing scalars as single-element vectors might be overkill.
+%In addition, list types are parameterized over the types of their elements (e.g., list<integer> vs. list<character>).
+%Finally, NAs ``in the wild'' are given the type {\tt raw\_NA}, as {\tt typeof(NA) = logical} in R.
+%
+%\item {\it The Null-and-NA-Free Type System (NNTS)}: most languages consider NULLs to inhabit all types, and R does so for NAs \AT{elaborate}.
+%This gives us ... .
+%
+%\end{itemize}
+%
+%Of course, one could conceive of a more fine-grained type system than FGTS, but it's unclear that we would gain much in doing so.
+%Indeed, there is a space to explore in slightly less fine-grained type systems, which make modifications including:
+%
+%\begin{itemize}
+%
+%\item {\bf collapsing vectors and scalars}: this yields a type system slightly closer to OTS.
+%
+%\item {\bf rolling NULL into other types}: in most languages, NULL is an inhabitant of all types, and this adjustment seems interesting.
+%Note that this goes beyond even OTS, as in R {\tt typeof(NULL) = NULL}.
+%
+%\item {\bf rolling NA into other types}: \AT{i should try this}
+%similarly, NA is an inhabitant of all types, though NA standing alone has type {\tt logical}.
+%FGTS distinguishes such NAs with the {\tt raw\_NA} type, and if instead we consider NA to inhabit all types we may \AT{win}.
+%
+%\item {\bf combining integers and doubles}: as in most languages, doubles and ints can stand-in for each other in nearly every scenario.
+%Even if not, it is trivial to convert from one to the other, particularly converting ints to doubles.
+%Aside, in R a double can be used to index a list, and R will floor it when performing the lookup.
+%
+%\end{itemize}
+%\subsection{Usage Patterns}
+%
+%In this section, we will discuss function usage patterns which arose in our analysis.
+%We will start by looking at the morphicity of functions.
+%
+%\subsubsection{Function Argument and Return Morphicity}
+%
+%First and foremost, we would like to know how often R programmers create polymorphic functions.
+%Recall that we define a polymorphic function to be a function with at least one polymorphic argument, or a polymorphic return.
+%We will turn our attention now to the data in \todo{Figure}, and go through each entry in the table.
+%
+%Here, we see that the vast majority of function arguments are indeed monomorphic.
+%Monomorphic arguments are easy to annotate, as the {\tt typeof} the arguments is exactly the most precise annotation we could give, at least in terms of \textit{type}.
+%That said, types alone don't always paint the whole picture:
+%recall that \textit{attributes} are an R language feature which allows programmers to stick metadata onto values.
+%So in which circumstances \textit{do} types paint the whole picture?
+%
+%The second data point in \textbf{TODO FIGURE} indicates that a
+%\isit{majority} of function arguments are monomorphic in type \textit{and}
+%have no attributes.  These represent arguments which are truly trivial to
+%annotate, as the {\tt typeof} an argument perfectly describes the usage of
+%that argument.  That said, some attributes arise naturally in R: For
+%instance, names in a named list (e.g. {\tt x} and {\tt y} in {\tt list(x=0,
+%  y=0)}) appear as an attribute on the value.  In
+%Section~\ref{sec:method:attributes}, we outlined these naturally-occurring
+%attribute patterns, and the third data point in \textbf{TODO FIGURE} shows
+%that a nontrivial amount of functions are monomorphic in type with said
+%natural attribute patterns.
+%
+%Another facet of type information in R is in the {\tt class} attribute.
+%Recall that values have a \textit{class} in addition to a type: For example,
+%a {\tt data.frame} has type {\tt list} and class {\tt data.frame}.
+%\todo{Plug classes earlier} R has a number of built-in classes, such as
+%\todo{X, Y, and Z}, but users are free to redefine the class of any value at
+%runtime, and easily define new classes.  The next data point in
+%\todo{Figure} shows that user-defined classes don't appear altogether often,
+%though they do indeed feature.  \AT{In a following section, we will discuss
+%  how the usage of these classes manifests itself.}
+%
+%\AT{Separate section for functions? Right now, this is at argument granularity.}
+%
+%\subsubsection{Type Signatures}
+%
+%In the last section, we presented a high-level overview of the morphicity ... .
+%
+%\subsubsection{Attribute Signatures}
+%
+%Recall that attributes are a way for programmers to store metadata on values in R.
+%What are the common attribute patterns?
+%And how often is the attribute pattern polymorphic?
+%
+%\subsubsection{Takeaways}
+%
+%\begin{itemize}
+%    \item the vast majority of arguments are monomorphic in type;
+%    \item of those, over 60\% have no attribute information;
+%    \item of the 40\% with attribute information, roughly 1/2 have fairly
+%      simple attributes corresponding to base R constructs (named lists and
+%      vectors, matrices, and data frames);
+%    \item now, of those arguments which are polymorphic, a sizable chunk (well over half) have defensible signatures (e.g., double and character for named list indexing, double and integer for obvious reasons, etc.).
+%\end{itemize}
+%
+%In short, it looks like R (package) programmers are reasonable.  I'd
+%conjecture that a lot of the polymorphism (e.g., double and list) is coming
+%from how easy it is to use either type in a given situation (e.g.,
+%converting from vector of doubles to list or vice versa is simple).
+
 
 \end{document}

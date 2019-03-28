@@ -57,15 +57,17 @@
 # [X] set up for ``trace everything just once'':
 #     package_info(pname) gives all dependencies, maybe want to trace those
 # [X] how to deal with base??? -- don't
-#
-#
-# [ ] map args to retvs
+# [X] !! re-reduce, but remove_failures_lot first
+# [X]    remove empties? convert to df puts empties
+
+
+# [X] map args to retvs
 
 # Paper
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# [       ]
+# [236936]
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -175,7 +177,7 @@ setup_typeR <- function() {
 #       later can just pass in the TS and the conversion will be done.
 synthesize_signature_for_fun <- function(lot) {
   # get first table
-  df <- as.data.frame(convert_list_of_traces_to_fun_df(lot))
+  df <- as.data.frame(convert_list_of_traces_to_fun_df(remove_failures_lot(lot)))
   not_retv_names <- names(df)[names(df) != "retv"]
   df <- df[c(not_retv_names, "retv")]
 
@@ -200,9 +202,17 @@ collapse <- function(df) {
 
 # take a synthesized signature, and print it out
 emit_signature <- function(synth_sig) {
+  # NA in synth_sig signifies optional arg
   apply(synth_sig, 1, function(r) {
     paste(paste(lapply(names(r)[names(r) != "retv"], function(n) {
-      paste0(n, ": ", paste(r[[n]], collapse=", "))
+      l_o_ty <- r[[n]]
+      if (length(l_o_ty) != length(l_o_ty[!sapply(l_o_ty, is.na)])) {
+        # is NA
+        paste0(n, "?: ", paste(l_o_ty[!sapply(l_o_ty, is.na)], collapse=", "))
+      } else {
+        # no NA
+        paste0(n, ": ", paste(l_o_ty, collapse=", "))
+      }
     }), collapse=" && "), "->", r[["retv"]])
   })
 }
@@ -248,6 +258,8 @@ read_and_make_lofun <- function(pname, path_to_exports="trace_exports") {
       lapply(y, function(z) {
         trace_to_convert <- NULL
         tryCatch({trace_to_convert <- readRDS(z)}, error = function(e) {})
+        if (class(trace_to_convert) != "genthat_trace")
+          trace_to_convert <- NULL
         convert_trace_to_df(trace_to_convert)
       })
     })
@@ -1330,6 +1342,10 @@ give_pkg_name_to_attrs_funs <- function(lopkg) {
         fun
       })
   })
+}
+
+remove_failures_lot <- function(lot) {
+  lot[sapply(lot, function(t) attr(t, "class") == "genthat_trace")]
 }
 
 # for downloading packages properly
