@@ -163,6 +163,65 @@ setup_typeR <- function() {
 
 # # # # # #
 #
+# The Big Function :: Synthesize Signature
+#
+# # # # # #
+#
+# lot: list of traces for a function
+# return: data.frame with function signatures
+#         associating types w/ return values
+#
+# note: current implementation needs you to transform your dfs to the TS you want,
+#       later can just pass in the TS and the conversion will be done.
+synthesize_signature_for_fun <- function(lot) {
+  # get first table
+  df <- as.data.frame(convert_list_of_traces_to_fun_df(lot))
+  not_retv_names <- names(df)[names(df) != "retv"]
+  df <- df[c(not_retv_names, "retv")]
+
+  u_retvs <- unique(df$retv)
+
+  lapply(u_retvs, function(n) {
+    df[ df["retv"] == n, ] %>% collapse
+  }) -> lodfs
+
+  Reduce(rbind, lodfs)
+}
+
+collapse <- function(df) {
+  col <- lapply(names(df), function(n) {as.list(union(df[, n], c()))})
+  names(col) <- names(df)
+  dfr <- data.frame()
+  for (n in names(df))
+    dfr[1,n] <- list(col[n])
+
+  dfr
+}
+
+# take a synthesized signature, and print it out
+emit_signature <- function(synth_sig) {
+  apply(synth_sig, 1, function(r) {
+    paste(paste(lapply(names(r)[names(r) != "retv"], function(n) {
+      paste0(n, ": ", paste(r[[n]], collapse=", "))
+    }), collapse=" && "), "->", r[["retv"]])
+  })
+}
+
+# collapse <- function(df) {
+#   col <- lapply(names(df), function(n) {as.list(union(df[, n], c()))})
+#   names(col) <- names(df)
+#   dfr <- data.frame()
+#   # for (n in names(df))
+#   #   dfr[1,n] <- list(list())
+#   for (n in names(df))
+#     dfr[1,n] <- list(col[n])
+#
+#   dfr
+#   # col
+# }
+
+# # # # # #
+#
 # this is your entry point to this framework.
 # path_to_fun should point to a directory containing the output of running:
 #
@@ -583,13 +642,17 @@ does_df_have_coinciding_types_index_and_list_reduced_TS <- function(df) {
 does_df_have_coinciding_types_index_and_list_or_vector <- function(df) {
   # Note: skip retv?
   df <- df[df$arg_name != "retv", ]
+  if (nrow(df) == 0)
+    return(FALSE)
 
   check_index <- list("real", "character")
   distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
-  distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
+  # this next line isn't required if the type system is already translated.
+  # distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
   index_rows <- lapply(distilled_types, function(lot) {
     length(lot) == 2 && Reduce("&&", check_index %in% lot)
   })
+
   # at least one of those needs to be true
   if (!Reduce("||", index_rows))
     return(FALSE)
@@ -608,29 +671,37 @@ does_df_have_coinciding_types_index_and_list_or_vector <- function(df) {
 }
 
 # Just index but no list
-# TODO this isn't exactly the opposite of does_df_have_coinciding_types_index_and_list_or_vector.
+# TODO does this work?
 #
 does_df_have_coinciding_types_index_and_NOT_list_or_vector <- function(df) {
   df <- df[df$arg_name != "retv", ]
+  if (nrow(df) == 0)
+    return(FALSE)
 
   check_index <- list("real", "character")
   distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
-  distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
-  index_rows <- lapply(distilled_types, function(lot) {
+  # distilled_types <- translate_type_list_with_type_map(distilled_types, type_map_r_to_real)
+  index_rows <- sapply(distilled_types, function(lot) {
     length(lot) == 2 && Reduce("&&", check_index %in% lot)
   })
   # at least one of those needs to be true
   if (!Reduce("||", index_rows))
     return(FALSE)
 
-  types_as_shapes <- lapply(df$type, function(lot) unique(lapply(lot, distill_type_to_shape)))
-  list_rows <- lapply(types_as_shapes, function(lot) {
+  # we want to look in the non-index rows
+  types_to_search <- df[!index_rows,]$type
+
+  if (length(types_to_search) == 0)
+    return(TRUE)
+
+  types_as_shapes <- lapply(types_to_search, function(lot) unique(lapply(lot, distill_type_to_shape)))
+  list_rows <- sapply(types_as_shapes, function(lot) {
     "list" %in% lot || "vector" %in% lot # if there is any hope of this argument being listy
   })
 
   # want all rows WHICH ARE NOT INDEX ROWS to be list-free.
   # by this point at least one row has an index
-  Reduce("||", (!unlist(list_rows)) || unlist(index_rows))
+  !Reduce("||", list_rows)
 }
 
 # # # # # # # # # # # # #
@@ -1086,10 +1157,55 @@ size_of_signature_all <- function(row_in_df) {
   length(unlist(row_in_df$class))
 }
 
+# simpler, just the type
+size_of_signature_type <- function(row_in_df) {
+  length(unlist(row_in_df$type))
+}
+
 # Applies the size function to a data frame
 size_of_signatures_in_df <- function(df, size_fun) {
   Reduce("+", apply(df[,names(df)], 1, size_fun))
 }
+
+size_of_signatures_in_df_normalized <- function(df, size_fun) {
+  if (nrow(df) > 0)
+    size_of_signatures_in_df(df, size_fun) / nrow(df)
+  else
+    0
+}
+
+get_biggest_function <- function(lopkgs, metric, normalized=T) {
+  if (normalized)
+    lo_sizes <- lapply(los, function(lofuns)
+      lapply(lofuns, function(df) size_of_signatures_in_df_normalized(df, metric))
+    )
+  else
+    lo_sizes <- lapply(los, function(lofuns)
+      lapply(lofuns, function(df) size_of_signatures_in_df(df, metric))
+    )
+  m <- max(sapply(lo_sizes, function(x) max(unlist(x))))
+
+  lo_sizes[m == sapply(lo_sizes, function(x) max(unlist(x)))] -> the_lofun
+  pkg <- names(the_lofun)
+
+  fun <- names(the_lofun[[1]][m == the_lofun[[1]]])
+
+  r <- lopkgs[[pkg]][[fun]]
+  attr(r, "pkg::fun") <- paste(pkg, fun, sep="::")
+
+  r
+}
+
+# get_X_biggest_functions <- function(lopkgs, X=10, metric) {
+#   nnames <- lapply(names(lopkgs), function(n) {
+#     names(lopkgs[[n]]) <- paste0(n, "::", names(lopkgs[[n]]))
+#   })
+#
+#   wwm <- Reduce(c, lopkgs)
+#   names(wwm) <- nnames
+#
+#   wwm
+# }
 
 unparametrify <- function(t) {
   # in T0, the main parametric type is list<T>
@@ -1104,6 +1220,8 @@ distill_type <- function(t) {
     "list"
   else if (t == "data.frame")
     "list"
+  else if (t == "matrix")
+    "list"
   else if (grepl("character", t))
     "character"
   else if (grepl("integer", t))
@@ -1116,6 +1234,8 @@ distill_type <- function(t) {
     "logical"
   else if (grepl("complex", t))
     "complex"
+  else if (grepl("real", t))
+    "real"
   else
     t
 }
@@ -1124,6 +1244,8 @@ distill_type_to_shape <- function(t) {
   if (grepl("list", t))
     "list"
   else if (t == "data.frame")
+    "list"
+  else if (t == "matrix")
     "list"
   else if (grepl("vector", t))
     "vector"

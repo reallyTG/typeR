@@ -59,6 +59,9 @@
 \newcommand{\RLOC}{15,050,267\xspace}
 \newcommand{\CLOC}{9,373,542\xspace}
 \newcommand{\YEARS}{?\xspace}
+\newcommand{\INDEXCOINCIDENCE}{3,426\xspace}
+\newcommand{\TOTALINDEXY}{6,461\xspace}
+\newcommand{\INDEXYPERC}{53\%\xspace}		% TODO Not an accurate count.
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -940,7 +943,38 @@ Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\
 \caption{Top 10 argument signatures in the NEW TYPE SYSTEM.}
 \end{table}
 
-What's up with matrix, vector/real?
+A few of the top polymorphic signatures stand out.
+First, the matrix/(vector/real) signature is interesting: \AT{as we showed in our polymorphism examples section}, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
+In fact, in R matrices can be used identically to vectors in many cases, and we refer the reader to Figure~\ref{fig:matasvec} for examples.
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+v <- c(1, 2, 3, 4)
+ma <- matrix(data=v, nrow=4, ncol=1)
+v[2] == m[2] == m[2, 1]
+
+mb <- matrix(data=v, nrow=2, ncol=2)
+v[3] == m[3] == m[1, 2] 
+\end{lstlisting}}\caption{Using a matrix like a vector.}\label{fig:matasvec}\end{figure}
+
+\AT{We should figure out how we want to deal with this polymorphism.}
+
+Another significant source of apparently strange polymorphism is the {\tt character}, {\tt real} polymorphism.
+Recall Figure~\ref{fig:chardbl}, which laid out an example of this polymorphic signature: lists and vectors can be accessed by strings as well as by numerics.
+This is a somewhat unusual example of polymorphism, and our argument depends on there being perhaps a list or vector passed alongside the {\tt character}- or {\tt real}-typed argument.
+So, just how often is this the case?
+Well, as it happens, character/real polymorphism coincides with some list-flavored type in \INDEXCOINCIDENCE instances (\INDEXYPERC of occurrences).
+
+Another option is a date.
+In R, dates are often represented as either strings or numbers, and many packages make use of dates.
+
+
+\AT{We might want to discuss some of the most polymorphic functions in the language.}
+\subsection{Most Polymorphic Functions}
+
+\AT{Draft}
+
+The most polymorphic function in the corpus of code we analyzed is {\tt magrittr}'s {\tt \%>\%} (pipe) function.
+{\tt magrittr} is part of the Tidyverse, and the pipe function is frequently used to chain function calls.
+The fact that the pipe is the most polymorphic function is not shocking, as its goal is simply to take the right hand argument and apply it to the left hand argument, and this in a sense irrespective of type.
 
 %
 %

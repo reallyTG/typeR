@@ -38,6 +38,13 @@ top_10 <- c("Rcpp", "rlang", "glue", "tibble", "stringi", "ggplot2", "dplyr", "p
 # just have data.
 ```
 
+First: let's get some of the counts for the beginning of the paper.
+```{r}
+tot_r <- sum(df$r_counts)
+tot_c <- sum(df$c_counts)
+nrow(df)
+```
+
 ...I guess let's try to plot it??
 
 ```{r}

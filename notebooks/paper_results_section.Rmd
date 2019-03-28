@@ -25,22 +25,22 @@ los <- remove_empties(los)
 # collapse where both are present in a signature.
 los <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_appropriate)})
 # Figure out which ones are matrices. Remove if the analysis picks this up (and we rerun).
-los_m <- lapply(los, function(lofun) lapply(lofun, distinguish_matrices_df))
+los <- lapply(los, function(lofun) lapply(lofun, distinguish_matrices_df))
 ```
 
 Get the counts.
 ```{r}
 # argument counts
-c_basic_df <- build_arg_count_df_from_lopkgs(los_m)
+c_basic_df <- build_arg_count_df_from_lopkgs(los)
 
-xtable(c_basic_df)
+xtable(c_basic_df) %>% print(include.rownames=F)
 ```
 
 ```{r}
 # function counts
 c_f_basic_df <- build_fun_count_df_from_lopkgs(los)
 
-xtable(c_f_basic_df)
+xtable(c_f_basic_df) %>% print(include.rownames=F)
 ```
 
 Top signatures, with printing.
@@ -55,7 +55,7 @@ Print top 10.
 ```{r}
 format_df_for_print(poly_type_args[1:10,]) -> put_me
 put_me
-xtable(put_me)
+xtable(put_me) %>% print(include.rownames=F)
 ```
 
 Now, having noted that:

@@ -180,10 +180,17 @@ $(document).ready(function () {
 <p>First, administrivia.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi4vY29kZS9kYXRhX3Byb2Nlc3NpbmcuUlwiKSAjIGdldCB0aGUgZnVuY3Rpb25zIHdlIG5lZWRcbmxpYnJhcnkoeHRhYmxlKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi4vY29kZS9kYXRhX3Byb2Nlc3NpbmcuUlwiKSAjIGdldCB0aGUgZnVuY3Rpb25zIHdlIG5lZWRcblxuYGBgIn0= -->
 <pre class="r"><code>source(&quot;../code/data_processing.R&quot;) # get the functions we need
-library(xtable)</code></pre>
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gc291cmNlKFwiLi4vY29kZS9kYXRhX3Byb2Nlc3NpbmcuUlwiKSA6IFxuICAuLi9jb2RlL2RhdGFfcHJvY2Vzc2luZy5SOjExNzI6NjI6IHVuZXhwZWN0ZWQgJyknXG4xMTcxOiAgIHd3bSA8LSBsYXBwbHkobmFtZXMobG9wa2dzKSwgZnVuY3Rpb24obikge1xuMTE3MjogICAgIG5hbWVzKGxvcGtnc1tbbl1dKSA8LSBwYXN0ZTAobiwgXCI6OlwiLCBuYW1lcyhsb3BrZ3NbW25dXSkpKVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5cbiJ9 -->
+<pre><code>Error in source(&quot;../code/data_processing.R&quot;) : 
+  ../code/data_processing.R:1172:62: unexpected ')'
+1171:   wwm &lt;- lapply(names(lopkgs), function(n) {
+1172:     names(lopkgs[[n]]) &lt;- paste0(n, &quot;::&quot;, names(lopkgs[[n]])))
+                                                                   ^</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Load the data.</p>
@@ -200,25 +207,24 @@ by .GlobalEnv when processing object ‘options’</code></pre>
 <p>Get the counts.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBhcmd1bWVudCBjb3VudHNcbmNfYmFzaWNfZGYgPC0gYnVpbGRfYXJnX2NvdW50X2RmX2Zyb21fbG9wa2dzKGxvcylcbnh0YWJsZShjX2Jhc2ljX2RmKVxuYGBgIn0= -->
-<pre class="r"><code># argument counts
-c_basic_df &lt;- build_arg_count_df_from_lopkgs(los)
-xtable(c_basic_df)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHRhYmxlKGNfYmFzaWNfZGYpICU+JSBwcmludChpbmNsdWRlLnJvd25hbWVzPUYpXG5cbmBgYCJ9 -->
+<pre class="r"><code>xtable(c_basic_df) %&gt;% print(include.rownames=F)
+</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDIyOjEwOjM3IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17cmxycn1cbiAgXFxobGluZVxuICYgVHlwZSAmIENvdW50ICYgUGVyY2VudGFnZSBcXFxcIFxuICBcXGhsaW5lXG4xICYgRnVsbCBNb25vbW9ycGhpYyAmIDc4NC4wMCAmIDg1LjE5IFxcXFwgXG4gIDIgJiBNb25vbW9ycGhpYyBpbiBUeXBlICYgODM5LjAwICYgOTEuMjcgXFxcXCBcbiAgMyAmIE1vbm9tb3JwaGljIGluIENsYXNzICYgODMxLjAwICYgOTAuMzEgXFxcXCBcbiAgNCAmIE1vbm9tb3JwaGljIGluIEF0dHJpYnV0ZSBQYXR0ZXJuICYgODMwLjAwICYgOTAuMjUgXFxcXCBcbiAgNSAmIFRvdGFsIFNlZW4gJiA5MjAuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDIyOjQwOjM5IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG5UeXBlICYgQ291bnQgJiBQZXJjZW50YWdlIFxcXFwgXG4gIFxcaGxpbmVcbkZ1bGwgTW9ub21vcnBoaWMgJiA3ODQuMDAgJiA4NS4yOCBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBUeXBlICYgODM2LjAwICYgOTAuOTEgXFxcXCBcbiAgTW9ub21vcnBoaWMgaW4gQ2xhc3MgJiA4MzEuMDAgJiA5MC4zMSBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBBdHRyaWJ1dGUgUGF0dGVybiAmIDgzMC4wMCAmIDkwLjI1IFxcXFwgXG4gIFRvdGFsIFNlZW4gJiA5MjAuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
 <pre><code>% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Tue Mar 26 22:10:37 2019
+% Tue Mar 26 22:40:39 2019
 \begin{table}[ht]
 \centering
-\begin{tabular}{rlrr}
+\begin{tabular}{lrr}
   \hline
- &amp; Type &amp; Count &amp; Percentage \\ 
+Type &amp; Count &amp; Percentage \\ 
   \hline
-1 &amp; Full Monomorphic &amp; 784.00 &amp; 85.19 \\ 
-  2 &amp; Monomorphic in Type &amp; 839.00 &amp; 91.27 \\ 
-  3 &amp; Monomorphic in Class &amp; 831.00 &amp; 90.31 \\ 
-  4 &amp; Monomorphic in Attribute Pattern &amp; 830.00 &amp; 90.25 \\ 
-  5 &amp; Total Seen &amp; 920.00 &amp; 100.00 \\ 
+Full Monomorphic &amp; 784.00 &amp; 85.28 \\ 
+  Monomorphic in Type &amp; 836.00 &amp; 90.91 \\ 
+  Monomorphic in Class &amp; 831.00 &amp; 90.31 \\ 
+  Monomorphic in Attribute Pattern &amp; 830.00 &amp; 90.25 \\ 
+  Total Seen &amp; 920.00 &amp; 100.00 \\ 
    \hline
 \end{tabular}
 \end{table}</code></pre>
@@ -227,25 +233,25 @@ xtable(c_basic_df)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBmdW5jdGlvbiBjb3VudHNcbmNfZl9iYXNpY19kZiA8LSBidWlsZF9mdW5fY291bnRfZGZfZnJvbV9sb3BrZ3MobG9zKVxueHRhYmxlKGNfZl9iYXNpY19kZilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBmdW5jdGlvbiBjb3VudHNcbmNfZl9iYXNpY19kZiA8LSBidWlsZF9mdW5fY291bnRfZGZfZnJvbV9sb3BrZ3MobG9zKVxueHRhYmxlKGNfZl9iYXNpY19kZikgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RilcbmBgYCJ9 -->
 <pre class="r"><code># function counts
 c_f_basic_df &lt;- build_fun_count_df_from_lopkgs(los)
-xtable(c_f_basic_df)</code></pre>
+xtable(c_f_basic_df) %&gt;% print(include.rownames=F)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDE3OjUzOjA2IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17cmxycn1cbiAgXFxobGluZVxuICYgVHlwZSAmIENvdW50ICYgUGVyY2VudGFnZSBcXFxcIFxuICBcXGhsaW5lXG4xICYgRnVsbCBNb25vbW9ycGhpYyAmIDE0My4wMCAmIDY1LjY0IFxcXFwgXG4gIDIgJiBNb25vbW9ycGhpYyBpbiBUeXBlICYgMTY5LjAwICYgNzcuNjUgXFxcXCBcbiAgMyAmIE1vbm9tb3JwaGljIGluIENsYXNzICYgMTYzLjAwICYgNzUuMTMgXFxcXCBcbiAgNCAmIE1vbm9tb3JwaGljIGluIEF0dHJpYnV0ZSBQYXR0ZXJuICYgMTYxLjAwICYgNzQuMzEgXFxcXCBcbiAgNSAmIFRvdGFsIFNlZW4gJiAyMTcuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDIyOjQxOjI3IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG5UeXBlICYgQ291bnQgJiBQZXJjZW50YWdlIFxcXFwgXG4gIFxcaGxpbmVcbkZ1bGwgTW9ub21vcnBoaWMgJiAxNDMuMDAgJiA2NS44MCBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBUeXBlICYgMTY3LjAwICYgNzYuODQgXFxcXCBcbiAgTW9ub21vcnBoaWMgaW4gQ2xhc3MgJiAxNjMuMDAgJiA3NS4xMyBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBBdHRyaWJ1dGUgUGF0dGVybiAmIDE2MS4wMCAmIDc0LjMxIFxcXFwgXG4gIFRvdGFsIFNlZW4gJiAyMTcuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
 <pre><code>% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Tue Mar 26 17:53:06 2019
+% Tue Mar 26 22:41:27 2019
 \begin{table}[ht]
 \centering
-\begin{tabular}{rlrr}
+\begin{tabular}{lrr}
   \hline
- &amp; Type &amp; Count &amp; Percentage \\ 
+Type &amp; Count &amp; Percentage \\ 
   \hline
-1 &amp; Full Monomorphic &amp; 143.00 &amp; 65.64 \\ 
-  2 &amp; Monomorphic in Type &amp; 169.00 &amp; 77.65 \\ 
-  3 &amp; Monomorphic in Class &amp; 163.00 &amp; 75.13 \\ 
-  4 &amp; Monomorphic in Attribute Pattern &amp; 161.00 &amp; 74.31 \\ 
-  5 &amp; Total Seen &amp; 217.00 &amp; 100.00 \\ 
+Full Monomorphic &amp; 143.00 &amp; 65.80 \\ 
+  Monomorphic in Type &amp; 167.00 &amp; 76.84 \\ 
+  Monomorphic in Class &amp; 163.00 &amp; 75.13 \\ 
+  Monomorphic in Attribute Pattern &amp; 161.00 &amp; 74.31 \\ 
+  Total Seen &amp; 217.00 &amp; 100.00 \\ 
    \hline
 \end{tabular}
 \end{table}</code></pre>
@@ -269,35 +275,35 @@ poly_type_args$perc &lt;- round(poly_type_args$count/sum(poly_type_args$count) *
 <pre class="r"><code>format_df_for_print(poly_type_args[1:10,]) -&gt; put_me
 put_me</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MTB9LCJyZGYiOiJINHNJQUFBQUFBQUFBd3R5aVREaWl1QmlZR0JnWW1CbVpXUmdZZ1l5V1ppQUJDTURDd01uaUs1Z1lHQVdCakpBTWdKQXpBV1ZrQzFMVFM3Skw5SlB5UzlOeWtuVlVZQnlNL05LVXROVGkyQ0tpcE1UY3hJUmlxQmNWRVhDZnFFK1BuQURJRXFoVXBJcGlTV0plbWxGaWJtcDJCV0lRZlJDelUzT1NDeEtUQzZCbXl5ZWsxbGNZcE9ZVjJtbm93Qm1RdlRhb1ZxTTRrYW9sR2hSWW5tOG55TjJTMFhSalFVUmRxZ3VndXBEdUlpQmdROFVlZzVIMUJoQXdHR1BGSVJlSVFlaGwwUkE2RVZXRUhwaEFvUmVvQUtocHoyQjBoNFFldW9TQmlpQW1LdTUyUmdFSEJSZnQ4cnRDSHpqd0hjR0JNNDZjRUw1N083clJLb2Vlaml3YVh3OTFCK2o2Y0RTSHdOaTJmK0ZpTnYvcVhvSVpGWGIvd1p4M2RlaEpRUFdQR0FVRkVPVEFETlVrS1drc2dBV0pxekorYVY1SlRDSmd0U2laRFFUT0l2eXkvVmdwdkNDRXhLRDREVWc5Z2NhbXNiQXdHYkl3TUQvazRHQld4bklsd2JpcDBBMmtDOFFpZTZVNUp6RVlwaFRZSUpjaUlRQzVQMUQwOEtlWDFDU21aOEgxTVFFU3Nxc2FKb1ppOUFFK0V2elFDNU4wVTNPS00zTDFqV0V1QllvRGNHOFVKb0xpYzBNc1pMcFA5UW9WcWhSYktsNTZabDU4RkRLU1V4S3pZRnkrSUFoQWc0UXZZS2lUSGpZY1FGRmkvVks4a3NTWWVxNGt2TnpZQ0pndnpIOEF3QzJLK2FQdUFNQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MTB9LCJyZGYiOiJINHNJQUFBQUFBQUFBd3R5aVREaWl1QmlZR0JnWW1CbVpXUmdZZ1l5V1ppQUJDTURDd01uaUs1Z1lHQVdCakpBTWdKQXpBV1ZrQzFMVFM3Skw5SlB5UzlOeWtuVlVZQnlNL05LVXROVGkyQ0tpcE1UY3hJUmlxQmNWRVdpdVlrbFJaa1ZjQ01naXFHU1luNmhQajV3amNrWmlVV0p5U1Z3cmVJNW1jVWxOb2w1bFhZNkNtQW1SSzhkVkZvb0piRWtVUyt0S0RFWGFEZkVGcWlNTUlxeEtEWkNwYkE1UmhUZE9oQmhoK3BTcUQ2RVN4a1krRURCNXJEM0x3TUlPT3lSZ3RCYlhrSG9SVllRZW1FQ2hGN1FCcVZWSVBUOEZ4QjZtZ2VFbnJxRUFRb2c1aXJGYUh3OTFCL2pvR2dSK0xwVmJvZUQ1RXdRbU9YQUJ1WUdPYkM2cnhPcGV1amh3R0pic1BnNmw2MERNMUN4eHRmRERzeEFXYUFTKzk4US9mYS8rc0VNdFBobnpRTUdYakUwN3BtaGdpd2xsUVd3TUdGTnppL05LNEZKRktRV0phT1p3Rm1VWDY0SE00VVhuSUlZaEVPQWtYT1pnVUV3RElpWE16Qndid0FhZEJYSVBnb1VCNnJobVEyazBaTWlhM0pPWWpITUtUQkJMa1FVQTNuLzBMU3c1eGVVWk9ibkFUVXhnZEl3SzVwbXhpSTBBWUhTUEpCTFUzU1RNMHJ6c25XTlRDSE9CY3BETUMrVTVrSmlNMFBzWlBvUE5Zc1ZhaFpiYWw1NlpoNDhtSElTazFKem9CdytZSkNBUTBTdm9DZ1RIbmhjUU5GaXZaTDhra1NZT3E3ay9CeVlDTmh6RFA4QWp2U0g3YklEQUFBPSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["count"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["perc"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"vector/double, vector/integer","2":"10316","3":"12.85","_rn_":"4566"},{"1":"scalar/double, scalar/integer","2":"7194","3":"8.96","_rn_":"4431"},{"1":"NULL, vector/double","2":"3087","3":"3.85","_rn_":"4198"},{"1":"data.frame, vector/double","2":"2604","3":"3.24","_rn_":"1585"},{"1":"NULL, scalar/character","2":"2333","3":"2.91","_rn_":"4089"},{"1":"list<any>, list<double>","2":"2224","3":"2.77","_rn_":"2851"},{"1":"NULL, scalar/double","2":"2066","3":"2.57","_rn_":"4123"},{"1":"raw_NA, vector/double","2":"1465","3":"1.83","_rn_":"4325"},{"1":"list<any>, list<list>","2":"1426","3":"1.78","_rn_":"3065"},{"1":"NULL, vector/character","2":"1385","3":"1.73","_rn_":"4185"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["count"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["perc"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"vector/double, vector/integer","2":"7677","3":"9.18","_rn_":"4948"},{"1":"scalar/double, scalar/integer","2":"7194","3":"8.61","_rn_":"4819"},{"1":"matrix, vector/double","2":"5354","3":"6.40","_rn_":"4438"},{"1":"NULL, scalar/character","2":"2333","3":"2.79","_rn_":"4519"},{"1":"list<any>, list<double>","2":"2224","3":"2.66","_rn_":"2992"},{"1":"data.frame, matrix","2":"2115","3":"2.53","_rn_":"1493"},{"1":"NULL, scalar/double","2":"2066","3":"2.47","_rn_":"4549"},{"1":"NULL, vector/double","2":"2042","3":"2.44","_rn_":"4621"},{"1":"list<any>, list<list>","2":"1426","3":"1.71","_rn_":"3227"},{"1":"NULL, vector/character","2":"1385","3":"1.66","_rn_":"4608"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[10]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHRhYmxlKHB1dF9tZSlcbmBgYCJ9 -->
-<pre class="r"><code>xtable(put_me)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHRhYmxlKHB1dF9tZSkgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RilcbmBgYCJ9 -->
+<pre class="r"><code>xtable(put_me) %&gt;% print(include.rownames=F)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDE3OjU1OjMzIDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17cmxycn1cbiAgXFxobGluZVxuICYgdHlwZSAmIGNvdW50ICYgcGVyYyBcXFxcIFxuICBcXGhsaW5lXG40NTY2ICYgdmVjdG9yL2RvdWJsZSwgdmVjdG9yL2ludGVnZXIgJiAxMDMxNi4wMCAmIDEyLjg1IFxcXFwgXG4gIDQ0MzEgJiBzY2FsYXIvZG91YmxlLCBzY2FsYXIvaW50ZWdlciAmIDcxOTQuMDAgJiA4Ljk2IFxcXFwgXG4gIDQxOTggJiBOVUxMLCB2ZWN0b3IvZG91YmxlICYgMzA4Ny4wMCAmIDMuODUgXFxcXCBcbiAgMTU4NSAmIGRhdGEuZnJhbWUsIHZlY3Rvci9kb3VibGUgJiAyNjA0LjAwICYgMy4yNCBcXFxcIFxuICA0MDg5ICYgTlVMTCwgc2NhbGFyL2NoYXJhY3RlciAmIDIzMzMuMDAgJiAyLjkxIFxcXFwgXG4gIDI4NTEgJiBsaXN0JDwkYW55JD4kLCBsaXN0JDwkZG91YmxlJD4kICYgMjIyNC4wMCAmIDIuNzcgXFxcXCBcbiAgNDEyMyAmIE5VTEwsIHNjYWxhci9kb3VibGUgJiAyMDY2LjAwICYgMi41NyBcXFxcIFxuICA0MzI1ICYgcmF3XFxfTkEsIHZlY3Rvci9kb3VibGUgJiAxNDY1LjAwICYgMS44MyBcXFxcIFxuICAzMDY1ICYgbGlzdCQ8JGFueSQ+JCwgbGlzdCQ8JGxpc3QkPiQgJiAxNDI2LjAwICYgMS43OCBcXFxcIFxuICA0MTg1ICYgTlVMTCwgdmVjdG9yL2NoYXJhY3RlciAmIDEzODUuMDAgJiAxLjczIFxcXFwgXG4gICBcXGhsaW5lXG5cXGVuZHt0YWJ1bGFyfVxuXFxlbmR7dGFibGV9XG4ifQ== -->
+<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDIyOjQzOjUyIDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG50eXBlICYgY291bnQgJiBwZXJjIFxcXFwgXG4gIFxcaGxpbmVcbnZlY3Rvci9kb3VibGUsIHZlY3Rvci9pbnRlZ2VyICYgNzY3Ny4wMCAmIDkuMTggXFxcXCBcbiAgc2NhbGFyL2RvdWJsZSwgc2NhbGFyL2ludGVnZXIgJiA3MTk0LjAwICYgOC42MSBcXFxcIFxuICBtYXRyaXgsIHZlY3Rvci9kb3VibGUgJiA1MzU0LjAwICYgNi40MCBcXFxcIFxuICBOVUxMLCBzY2FsYXIvY2hhcmFjdGVyICYgMjMzMy4wMCAmIDIuNzkgXFxcXCBcbiAgbGlzdCQ8JGFueSQ+JCwgbGlzdCQ8JGRvdWJsZSQ+JCAmIDIyMjQuMDAgJiAyLjY2IFxcXFwgXG4gIGRhdGEuZnJhbWUsIG1hdHJpeCAmIDIxMTUuMDAgJiAyLjUzIFxcXFwgXG4gIE5VTEwsIHNjYWxhci9kb3VibGUgJiAyMDY2LjAwICYgMi40NyBcXFxcIFxuICBOVUxMLCB2ZWN0b3IvZG91YmxlICYgMjA0Mi4wMCAmIDIuNDQgXFxcXCBcbiAgbGlzdCQ8JGFueSQ+JCwgbGlzdCQ8JGxpc3QkPiQgJiAxNDI2LjAwICYgMS43MSBcXFxcIFxuICBOVUxMLCB2ZWN0b3IvY2hhcmFjdGVyICYgMTM4NS4wMCAmIDEuNjYgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
 <pre><code>% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Tue Mar 26 17:55:33 2019
+% Tue Mar 26 22:43:52 2019
 \begin{table}[ht]
 \centering
-\begin{tabular}{rlrr}
+\begin{tabular}{lrr}
   \hline
- &amp; type &amp; count &amp; perc \\ 
+type &amp; count &amp; perc \\ 
   \hline
-4566 &amp; vector/double, vector/integer &amp; 10316.00 &amp; 12.85 \\ 
-  4431 &amp; scalar/double, scalar/integer &amp; 7194.00 &amp; 8.96 \\ 
-  4198 &amp; NULL, vector/double &amp; 3087.00 &amp; 3.85 \\ 
-  1585 &amp; data.frame, vector/double &amp; 2604.00 &amp; 3.24 \\ 
-  4089 &amp; NULL, scalar/character &amp; 2333.00 &amp; 2.91 \\ 
-  2851 &amp; list$&lt;$any$&gt;$, list$&lt;$double$&gt;$ &amp; 2224.00 &amp; 2.77 \\ 
-  4123 &amp; NULL, scalar/double &amp; 2066.00 &amp; 2.57 \\ 
-  4325 &amp; raw\_NA, vector/double &amp; 1465.00 &amp; 1.83 \\ 
-  3065 &amp; list$&lt;$any$&gt;$, list$&lt;$list$&gt;$ &amp; 1426.00 &amp; 1.78 \\ 
-  4185 &amp; NULL, vector/character &amp; 1385.00 &amp; 1.73 \\ 
+vector/double, vector/integer &amp; 7677.00 &amp; 9.18 \\ 
+  scalar/double, scalar/integer &amp; 7194.00 &amp; 8.61 \\ 
+  matrix, vector/double &amp; 5354.00 &amp; 6.40 \\ 
+  NULL, scalar/character &amp; 2333.00 &amp; 2.79 \\ 
+  list$&lt;$any$&gt;$, list$&lt;$double$&gt;$ &amp; 2224.00 &amp; 2.66 \\ 
+  data.frame, matrix &amp; 2115.00 &amp; 2.53 \\ 
+  NULL, scalar/double &amp; 2066.00 &amp; 2.47 \\ 
+  NULL, vector/double &amp; 2042.00 &amp; 2.44 \\ 
+  list$&lt;$any$&gt;$, list$&lt;$list$&gt;$ &amp; 1426.00 &amp; 1.71 \\ 
+  NULL, vector/character &amp; 1385.00 &amp; 1.66 \\ 
    \hline
 \end{tabular}
 \end{table}</code></pre>
@@ -323,9 +329,9 @@ null_na_fold_real_fun_counts &lt;- build_fun_count_df_from_lopkgs(los)</code></p
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHRhYmxlKG51bGxfbmFfZm9sZF9yZWFsX2FyZ19jb3VudHMpICU+JSBwcmludChpbmNsdWRlLnJvd25hbWVzPUYpXG5gYGAifQ== -->
 <pre class="r"><code>xtable(null_na_fold_real_arg_counts) %&gt;% print(include.rownames=F)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDE3OjU5OjQ4IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG5UeXBlICYgQ291bnQgJiBQZXJjZW50YWdlIFxcXFwgXG4gIFxcaGxpbmVcbkZ1bGwgTW9ub21vcnBoaWMgJiA3ODUuMDAgJiA4NS4zOCBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBUeXBlICYgODc3LjAwICYgOTUuMzUgXFxcXCBcbiAgTW9ub21vcnBoaWMgaW4gQ2xhc3MgJiA4MzEuMDAgJiA5MC4zMSBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBBdHRyaWJ1dGUgUGF0dGVybiAmIDgzMC4wMCAmIDkwLjI1IFxcXFwgXG4gIFRvdGFsIFNlZW4gJiA5MjAuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDIyOjUyOjAxIDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG5UeXBlICYgQ291bnQgJiBQZXJjZW50YWdlIFxcXFwgXG4gIFxcaGxpbmVcbkZ1bGwgTW9ub21vcnBoaWMgJiA3ODUuMDAgJiA4NS4zOCBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBUeXBlICYgODcxLjAwICYgOTQuNjUgXFxcXCBcbiAgTW9ub21vcnBoaWMgaW4gQ2xhc3MgJiA4MzEuMDAgJiA5MC4zMSBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBBdHRyaWJ1dGUgUGF0dGVybiAmIDgzMC4wMCAmIDkwLjI1IFxcXFwgXG4gIFRvdGFsIFNlZW4gJiA5MjAuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
 <pre><code>% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Tue Mar 26 17:59:48 2019
+% Tue Mar 26 22:52:01 2019
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrr}
@@ -333,7 +339,7 @@ null_na_fold_real_fun_counts &lt;- build_fun_count_df_from_lopkgs(los)</code></p
 Type &amp; Count &amp; Percentage \\ 
   \hline
 Full Monomorphic &amp; 785.00 &amp; 85.38 \\ 
-  Monomorphic in Type &amp; 877.00 &amp; 95.35 \\ 
+  Monomorphic in Type &amp; 871.00 &amp; 94.65 \\ 
   Monomorphic in Class &amp; 831.00 &amp; 90.31 \\ 
   Monomorphic in Attribute Pattern &amp; 830.00 &amp; 90.25 \\ 
   Total Seen &amp; 920.00 &amp; 100.00 \\ 
@@ -344,17 +350,17 @@ Full Monomorphic &amp; 785.00 &amp; 85.38 \\
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHRhYmxlKG51bGxfbmFfZm9sZF9yZWFsX2Z1bl9jb3VudHMpICU+JSBwcmludChpbmNsdWRlLnJvd25hbWVzPUYpXG5gYGAifQ== -->
 <pre class="r"><code>xtable(null_na_fold_real_fun_counts) %&gt;% print(include.rownames=F)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDE3OjU5OjQ4IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG5UeXBlICYgQ291bnQgJiBQZXJjZW50YWdlIFxcXFwgXG4gIFxcaGxpbmVcbkZ1bGwgTW9ub21vcnBoaWMgJiAxNDMuMDAgJiA2NS45NiBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBUeXBlICYgMTg4LjAwICYgODYuNTggXFxcXCBcbiAgTW9ub21vcnBoaWMgaW4gQ2xhc3MgJiAxNjMuMDAgJiA3NS4xMyBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBBdHRyaWJ1dGUgUGF0dGVybiAmIDE2MS4wMCAmIDc0LjMxIFxcXFwgXG4gIFRvdGFsIFNlZW4gJiAyMTcuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUdWUgTWFyIDI2IDIyOjUyOjAxIDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG5UeXBlICYgQ291bnQgJiBQZXJjZW50YWdlIFxcXFwgXG4gIFxcaGxpbmVcbkZ1bGwgTW9ub21vcnBoaWMgJiAxNDMuMDAgJiA2NS45NSBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBUeXBlICYgMTg0LjAwICYgODQuNzcgXFxcXCBcbiAgTW9ub21vcnBoaWMgaW4gQ2xhc3MgJiAxNjMuMDAgJiA3NS4xMyBcXFxcIFxuICBNb25vbW9ycGhpYyBpbiBBdHRyaWJ1dGUgUGF0dGVybiAmIDE2MS4wMCAmIDc0LjMxIFxcXFwgXG4gIFRvdGFsIFNlZW4gJiAyMTcuMDAgJiAxMDAuMDAgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
 <pre><code>% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Tue Mar 26 17:59:48 2019
+% Tue Mar 26 22:52:01 2019
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrr}
   \hline
 Type &amp; Count &amp; Percentage \\ 
   \hline
-Full Monomorphic &amp; 143.00 &amp; 65.96 \\ 
-  Monomorphic in Type &amp; 188.00 &amp; 86.58 \\ 
+Full Monomorphic &amp; 143.00 &amp; 65.95 \\ 
+  Monomorphic in Type &amp; 184.00 &amp; 84.77 \\ 
   Monomorphic in Class &amp; 163.00 &amp; 75.13 \\ 
   Monomorphic in Attribute Pattern &amp; 161.00 &amp; 74.31 \\ 
   Total Seen &amp; 217.00 &amp; 100.00 \\ 
@@ -377,11 +383,63 @@ poly_type_args$perc &lt;- round(poly_type_args$count/sum(poly_type_args$count) *
 <p>Print top 10.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9ybWF0X2RmX2Zvcl9wcmludChwb2x5X3R5cGVfYXJnc1sxOjEwLF0pIC0+IHB1dF9tZVxucHV0X21lXG54dGFibGUocHV0X21lKSAlPiUgcHJpbnQoaW5jbHVkZS5yb3duYW1lcz1GKVxuYGBgIn0= -->
-<pre class="r"><code>format_df_for_print(poly_type_args[1:10,]) -&gt; put_me
-put_me
-xtable(put_me) %&gt;% print(include.rownames=F)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9ybWF0X2RmX2Zvcl9wcmludChwb2x5X3R5cGVfYXJnc1sxOjMwLF0pIC0+IHB1dF9tZVxucHV0X21lXG5gYGAifQ== -->
+<pre class="r"><code>format_df_for_print(poly_type_args[1:30,]) -&gt; put_me
+put_me</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MzB9LCJyZGYiOiJINHNJQUFBQUFBQUFBMzFWVFV6VVFCUWU5a2VnaEI4WFdQd0p5M29oRXBjMUVlSkphR013ZUZQZ1FneUpsbTZGeHRLV2JwZGZEM3BBRTBNQ2tZUFJFd21ZZU9LOFI0TVg0OG1EMFlzSEY2Sml3SXNKaVlrUmZOTjVMYVh0Mm1UMm0vbmVlOTk3ODJiYUhld2J2c1FOYzRTUUNJbkdLMGdrQ3ROWUJINHFTSXhVVTV3aEpOb0lFMnBwZ0pGQ1ErT0VhSm5LVENZOUpVdVdibDQwWlZGRlU3T3E1SzByb2piYm0wbmJVMnJyUldNcitrdmpvaWxLbG15R0tiVG1KVkVWanpraDQzRks1RVJMek40MXhRazVrMmJWbEN1QS9qZ0ZuUEViM1NTT1I0dFhPRmpjV1N4RjFjY1VtSVdWRmxKL1VLZmxxRGVoYVpCeTB3UmRFckpwNnFIYUNhLzJzZDV3enJrTmRTT1RMdHRzVEkxK1NVL2pnaG5iZ3FmeHY1S0RQVHN0cVhxK1lNcVpRRDFPUXp6NXk3aTBlbVRkN0g2bmM3NVRMK3ZZWHY2bWhGenNabThEM0VpbmR3R2o5MHFlOHZYTFgwajlVSGRZTDVOSFFpSDFOSXdXRk5WU3RFd2FHd3RjSFgyQmhlSWFvWS93OGoxaUw4TTFYSzkrWS9qc0pzT1ZHTU5seE1WWERKL2NZZmk0eUhDQk1IeUlPdmZURE9mUmJ4N1hjd2JER1lIaE5OcW52dmh3bGFHRmZ1WnJ4QWNNSnpIUDVESWk2aGdZYnpCL2Q5OGRhNSs0SG1OZFNCWUhkaGRTUlNHWm9wTTJvUW41azgvcDgwS282akVvSTBRM2wwYk83NzhSQ0xQemY5bWEvN05nQi9LL2tkK25hZ043L0M5cTNsemlmekpkZm0rdTFML1JOTS92VVhha2c5L0Z1Qi9BenBXdTh6dDJHWVA4ZDdyczN3amdWOVRaeHJqdEx2dmh0ekRQRnF2VHhSS3JueTh4ZmQrWFBLN0I1Y3NUOWhXUElobXpaZzNaY1pEMGdtWTVCa00ySlo5Q3RhbFBaeDJWV3RwU1FtcmFDYW42Q0xnSTR3WUVQSUsxUWtnbDJHTnZnWU5yVjNNYlBqdnZBRmNneVNITW44S0FNNnE1QnBxM3dHOGQrQjM0RDhyQnVndDQwSy8rREJvZm9OQStzRk11QWVNcXhGMmd4Zm0zSnFsaTN0bWFRM0pIcnh5c0Rud2hsYnBoS2JvR1FSSDY3eGIzQlZlWVBxSytvTkdkNXpxbDhZSjJyL015VFdDYjJhaEZUSG5tVVpZeWNvaFNjWlE2SVd0aml1WjJYUlZIWmVlTnJvTU8ydzNPR3FiaW5nVUhiRDVyNlpiNzVuT1NyanFNdlRkeThBK011eUN4eXdjQUFBPT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["count"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["perc"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"matrix, vector/real","2":"6307","3":"12.82","_rn_":"2854"},{"1":"list<any>, list<real>","2":"2792","3":"5.68","_rn_":"2262"},{"1":"vector/character, vector/real","2":"2719","3":"5.53","_rn_":"2956"},{"1":"scalar/character, scalar/real","2":"2536","3":"5.16","_rn_":"2895"},{"1":"data.frame, matrix","2":"2163","3":"4.40","_rn_":"1158"},{"1":"list<any>, list<list>","2":"1492","3":"3.03","_rn_":"2153"},{"1":"list<any>, list<character>","2":"1217","3":"2.47","_rn_":"1805"},{"1":"data.frame, vector/real","2":"1025","3":"2.08","_rn_":"1224"},{"1":"scalar/logical, scalar/real","2":"917","3":"1.86","_rn_":"2917"},{"1":"scalar/character, vector/real","2":"844","3":"1.72","_rn_":"2911"},{"1":"list<real>, vector/real","2":"759","3":"1.54","_rn_":"2762"},{"1":"vector/logical, vector/real","2":"672","3":"1.37","_rn_":"2963"},{"1":"error, vector/real","2":"570","3":"1.16","_rn_":"1535"},{"1":"list<real>, matrix","2":"450","3":"0.91","_rn_":"2706"},{"1":"matrix, S4","2":"438","3":"0.89","_rn_":"2784"},{"1":"scalar/character, scalar/logical","2":"434","3":"0.88","_rn_":"2885"},{"1":"list<any>, vector/real","2":"423","3":"0.86","_rn_":"2394"},{"1":"data.frame, matrix, vector/real","2":"388","3":"0.79","_rn_":"1188"},{"1":"error, scalar/real","2":"374","3":"0.76","_rn_":"1512"},{"1":"closure, scalar/character","2":"366","3":"0.74","_rn_":"612"},{"1":"list<any>, scalar/character","2":"366","3":"0.74","_rn_":"2355"},{"1":"scalar/real, vector/character","2":"362","3":"0.74","_rn_":"2931"},{"1":"list<character>, vector/character","2":"324","3":"0.66","_rn_":"2524"},{"1":"list<any>, list<character>, list<real>","2":"300","3":"0.61","_rn_":"2004"},{"1":"data.frame, list<any>","2":"296","3":"0.60","_rn_":"836"},{"1":"data.frame, list<list>","2":"285","3":"0.58","_rn_":"1075"},{"1":"matrix, vector/character","2":"281","3":"0.57","_rn_":"2834"},{"1":"S4, vector/real","2":"278","3":"0.57","_rn_":"2882"},{"1":"list<list>, list<real>","2":"270","3":"0.55","_rn_":"2603"},{"1":"builtin, closure","2":"268","3":"0.54","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[30]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHRhYmxlKHB1dF9tZSkgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RilcbmBgYCJ9 -->
+<pre class="r"><code>xtable(put_me) %&gt;% print(include.rownames=F)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBXZWQgTWFyIDI3IDE5OjA3OjQ5IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJyfVxuICBcXGhsaW5lXG50eXBlICYgY291bnQgJiBwZXJjIFxcXFwgXG4gIFxcaGxpbmVcbm1hdHJpeCwgdmVjdG9yL3JlYWwgJiA2MzA3LjAwICYgMTIuODIgXFxcXCBcbiAgbGlzdCQ8JGFueSQ+JCwgbGlzdCQ8JHJlYWwkPiQgJiAyNzkyLjAwICYgNS42OCBcXFxcIFxuICB2ZWN0b3IvY2hhcmFjdGVyLCB2ZWN0b3IvcmVhbCAmIDI3MTkuMDAgJiA1LjUzIFxcXFwgXG4gIHNjYWxhci9jaGFyYWN0ZXIsIHNjYWxhci9yZWFsICYgMjUzNi4wMCAmIDUuMTYgXFxcXCBcbiAgZGF0YS5mcmFtZSwgbWF0cml4ICYgMjE2My4wMCAmIDQuNDAgXFxcXCBcbiAgbGlzdCQ8JGFueSQ+JCwgbGlzdCQ8JGxpc3QkPiQgJiAxNDkyLjAwICYgMy4wMyBcXFxcIFxuICBsaXN0JDwkYW55JD4kLCBsaXN0JDwkY2hhcmFjdGVyJD4kICYgMTIxNy4wMCAmIDIuNDcgXFxcXCBcbiAgZGF0YS5mcmFtZSwgdmVjdG9yL3JlYWwgJiAxMDI1LjAwICYgMi4wOCBcXFxcIFxuICBzY2FsYXIvbG9naWNhbCwgc2NhbGFyL3JlYWwgJiA5MTcuMDAgJiAxLjg2IFxcXFwgXG4gIHNjYWxhci9jaGFyYWN0ZXIsIHZlY3Rvci9yZWFsICYgODQ0LjAwICYgMS43MiBcXFxcIFxuICBsaXN0JDwkcmVhbCQ+JCwgdmVjdG9yL3JlYWwgJiA3NTkuMDAgJiAxLjU0IFxcXFwgXG4gIHZlY3Rvci9sb2dpY2FsLCB2ZWN0b3IvcmVhbCAmIDY3Mi4wMCAmIDEuMzcgXFxcXCBcbiAgZXJyb3IsIHZlY3Rvci9yZWFsICYgNTcwLjAwICYgMS4xNiBcXFxcIFxuICBsaXN0JDwkcmVhbCQ+JCwgbWF0cml4ICYgNDUwLjAwICYgMC45MSBcXFxcIFxuICBtYXRyaXgsIFM0ICYgNDM4LjAwICYgMC44OSBcXFxcIFxuICBzY2FsYXIvY2hhcmFjdGVyLCBzY2FsYXIvbG9naWNhbCAmIDQzNC4wMCAmIDAuODggXFxcXCBcbiAgbGlzdCQ8JGFueSQ+JCwgdmVjdG9yL3JlYWwgJiA0MjMuMDAgJiAwLjg2IFxcXFwgXG4gIGRhdGEuZnJhbWUsIG1hdHJpeCwgdmVjdG9yL3JlYWwgJiAzODguMDAgJiAwLjc5IFxcXFwgXG4gIGVycm9yLCBzY2FsYXIvcmVhbCAmIDM3NC4wMCAmIDAuNzYgXFxcXCBcbiAgY2xvc3VyZSwgc2NhbGFyL2NoYXJhY3RlciAmIDM2Ni4wMCAmIDAuNzQgXFxcXCBcbiAgbGlzdCQ8JGFueSQ+JCwgc2NhbGFyL2NoYXJhY3RlciAmIDM2Ni4wMCAmIDAuNzQgXFxcXCBcbiAgc2NhbGFyL3JlYWwsIHZlY3Rvci9jaGFyYWN0ZXIgJiAzNjIuMDAgJiAwLjc0IFxcXFwgXG4gIGxpc3QkPCRjaGFyYWN0ZXIkPiQsIHZlY3Rvci9jaGFyYWN0ZXIgJiAzMjQuMDAgJiAwLjY2IFxcXFwgXG4gIGxpc3QkPCRhbnkkPiQsIGxpc3QkPCRjaGFyYWN0ZXIkPiQsIGxpc3QkPCRyZWFsJD4kICYgMzAwLjAwICYgMC42MSBcXFxcIFxuICBkYXRhLmZyYW1lLCBsaXN0JDwkYW55JD4kICYgMjk2LjAwICYgMC42MCBcXFxcIFxuICBkYXRhLmZyYW1lLCBsaXN0JDwkbGlzdCQ+JCAmIDI4NS4wMCAmIDAuNTggXFxcXCBcbiAgbWF0cml4LCB2ZWN0b3IvY2hhcmFjdGVyICYgMjgxLjAwICYgMC41NyBcXFxcIFxuICBTNCwgdmVjdG9yL3JlYWwgJiAyNzguMDAgJiAwLjU3IFxcXFwgXG4gIGxpc3QkPCRsaXN0JD4kLCBsaXN0JDwkcmVhbCQ+JCAmIDI3MC4wMCAmIDAuNTUgXFxcXCBcbiAgYnVpbHRpbiwgY2xvc3VyZSAmIDI2OC4wMCAmIDAuNTQgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
+<pre><code>% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Wed Mar 27 19:07:49 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+type &amp; count &amp; perc \\ 
+  \hline
+matrix, vector/real &amp; 6307.00 &amp; 12.82 \\ 
+  list$&lt;$any$&gt;$, list$&lt;$real$&gt;$ &amp; 2792.00 &amp; 5.68 \\ 
+  vector/character, vector/real &amp; 2719.00 &amp; 5.53 \\ 
+  scalar/character, scalar/real &amp; 2536.00 &amp; 5.16 \\ 
+  data.frame, matrix &amp; 2163.00 &amp; 4.40 \\ 
+  list$&lt;$any$&gt;$, list$&lt;$list$&gt;$ &amp; 1492.00 &amp; 3.03 \\ 
+  list$&lt;$any$&gt;$, list$&lt;$character$&gt;$ &amp; 1217.00 &amp; 2.47 \\ 
+  data.frame, vector/real &amp; 1025.00 &amp; 2.08 \\ 
+  scalar/logical, scalar/real &amp; 917.00 &amp; 1.86 \\ 
+  scalar/character, vector/real &amp; 844.00 &amp; 1.72 \\ 
+  list$&lt;$real$&gt;$, vector/real &amp; 759.00 &amp; 1.54 \\ 
+  vector/logical, vector/real &amp; 672.00 &amp; 1.37 \\ 
+  error, vector/real &amp; 570.00 &amp; 1.16 \\ 
+  list$&lt;$real$&gt;$, matrix &amp; 450.00 &amp; 0.91 \\ 
+  matrix, S4 &amp; 438.00 &amp; 0.89 \\ 
+  scalar/character, scalar/logical &amp; 434.00 &amp; 0.88 \\ 
+  list$&lt;$any$&gt;$, vector/real &amp; 423.00 &amp; 0.86 \\ 
+  data.frame, matrix, vector/real &amp; 388.00 &amp; 0.79 \\ 
+  error, scalar/real &amp; 374.00 &amp; 0.76 \\ 
+  closure, scalar/character &amp; 366.00 &amp; 0.74 \\ 
+  list$&lt;$any$&gt;$, scalar/character &amp; 366.00 &amp; 0.74 \\ 
+  scalar/real, vector/character &amp; 362.00 &amp; 0.74 \\ 
+  list$&lt;$character$&gt;$, vector/character &amp; 324.00 &amp; 0.66 \\ 
+  list$&lt;$any$&gt;$, list$&lt;$character$&gt;$, list$&lt;$real$&gt;$ &amp; 300.00 &amp; 0.61 \\ 
+  data.frame, list$&lt;$any$&gt;$ &amp; 296.00 &amp; 0.60 \\ 
+  data.frame, list$&lt;$list$&gt;$ &amp; 285.00 &amp; 0.58 \\ 
+  matrix, vector/character &amp; 281.00 &amp; 0.57 \\ 
+  S4, vector/real &amp; 278.00 &amp; 0.57 \\ 
+  list$&lt;$list$&gt;$, list$&lt;$real$&gt;$ &amp; 270.00 &amp; 0.55 \\ 
+  builtin, closure &amp; 268.00 &amp; 0.54 \\ 
+   \hline
+\end{tabular}
+\end{table}</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>I think something funky is happening. We should have matrix types, maybe I forgot. Dealing with that now:</p>
@@ -451,7 +509,7 @@ matrix, vector/real &amp; 6413.00 &amp; 13.03 \\
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUGFwZXIgUmVzdWx0cyBTZWN0aW9uIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpUaGlzIE5vdGVib29rIHdhbGtzIHRocm91Z2ggdGhlIHJlc3VsdHMgc2VjdGlvbiBvZiB0aGUgcGFwZXIuCgpGaXJzdCwgYWRtaW5pc3RyaXZpYS4KYGBge3J9CnNvdXJjZSgiLi4vY29kZS9kYXRhX3Byb2Nlc3NpbmcuUiIpICMgZ2V0IHRoZSBmdW5jdGlvbnMgd2UgbmVlZAoKbGlicmFyeSh4dGFibGUpCmBgYAoKTG9hZCB0aGUgZGF0YS4KYGBge3IsIGVjaG89RkFMU0V9CmxvcyA8LSBsaXN0LmZpbGVzKCIuLi9kYXRhL2Z1bGxfc2lncyIsIGZ1bGwubmFtZXM9VFJVRSkKbmFtZXMgPC0gbGlzdC5maWxlcygiLi4vZGF0YS9mdWxsX3NpZ3MiKQpuYW1lcyhsb3MpIDwtIHN1YnN0cihuYW1lcywgMSwgbmNoYXIobmFtZXMpLTQpCmxvcyA8LSBsYXBwbHkobG9zLCByZWFkUkRTKQpsb3MgPC0gcmVtb3ZlX2VtcHRpZXMobG9zKQojIGFubm95aW5nIHN0cmFuZ2UgZXJyb3IgdGhhdCBJIHNob3VsZCBmaXggcG9wcyB1cAoKIyBUaGVyZSdzIGF0IGxlYXN0IG9uZSB0cmFuc2Zvcm1hdGlvbiB0aGF0IHdlJ3JlIGFsd2F5cyBnb25uYSB3YW50IHRvIGFwcGx5LCBuYW1seSB0aGUgdmVjdG9yL3NjYWxhcgojIGNvbGxhcHNlIHdoZXJlIGJvdGggYXJlIHByZXNlbnQgaW4gYSBzaWduYXR1cmUuCmxvcyA8LSBsYXBwbHkobG9zLCBmdW5jdGlvbihsb2Z1bnMpIHtsYXBwbHkobG9mdW5zLCBjb21iaW5lX3NjYWxhcl92ZWN0b3Jfd2hlcmVfYXBwcm9wcmlhdGUpfSkKIyBGaWd1cmUgb3V0IHdoaWNoIG9uZXMgYXJlIG1hdHJpY2VzLiBSZW1vdmUgaWYgdGhlIGFuYWx5c2lzIHBpY2tzIHRoaXMgdXAgKGFuZCB3ZSByZXJ1bikuCmxvc19tIDwtIGxhcHBseShsb3MsIGZ1bmN0aW9uKGxvZnVuKSBsYXBwbHkobG9mdW4sIGRpc3Rpbmd1aXNoX21hdHJpY2VzX2RmKSkKYGBgCgpHZXQgdGhlIGNvdW50cy4KYGBge3J9CiMgYXJndW1lbnQgY291bnRzCmNfYmFzaWNfZGYgPC0gYnVpbGRfYXJnX2NvdW50X2RmX2Zyb21fbG9wa2dzKGxvc19tKQoKeHRhYmxlKGNfYmFzaWNfZGYpCmBgYAoKYGBge3J9CiMgZnVuY3Rpb24gY291bnRzCmNfZl9iYXNpY19kZiA8LSBidWlsZF9mdW5fY291bnRfZGZfZnJvbV9sb3BrZ3MobG9zKQoKeHRhYmxlKGNfZl9iYXNpY19kZikKYGBgCgpUb3Agc2lnbmF0dXJlcywgd2l0aCBwcmludGluZy4KVGhpcyBpcyBob3cgeW91IGdldCB0aGUgdG9wIHNpZ3MuCmBgYHtyfQpwb2x5X3R5cGVfYXJncyA8LSByZWR1Y2VfZXh0cmFjdGVkX2xvcGtnc190b19vbmUoYXBwbHlfZXh0cmFjdF90b19sb3BrZyhsb3MsIGV4dHJhY3RfcG9seV90eXBlX2FyZ3MpKQpwb2x5X3R5cGVfYXJncyA8LSBwb2x5X3R5cGVfYXJnc1tvcmRlcigtcG9seV90eXBlX2FyZ3MkY291bnQpLF0gIyBzb3J0IGJ5IGNvdW50CnBvbHlfdHlwZV9hcmdzJHBlcmMgPC0gcm91bmQocG9seV90eXBlX2FyZ3MkY291bnQvc3VtKHBvbHlfdHlwZV9hcmdzJGNvdW50KSAqIDEwMCwgMikKYGBgCgpQcmludCB0b3AgMTAuCmBgYHtyfQpmb3JtYXRfZGZfZm9yX3ByaW50KHBvbHlfdHlwZV9hcmdzWzE6MTAsXSkgLT4gcHV0X21lCnB1dF9tZQp4dGFibGUocHV0X21lKQpgYGAKCk5vdywgaGF2aW5nIG5vdGVkIHRoYXQ6CigxKSBpbnRzIGFuZCBkb3VibGVzIGFyZSBiYXNpY2FsbHkgaW50ZXJjaGFuZ2FibGUsIGFuZAooMikgbnVsbCBhbmQgTkEgc2hvdWxkIGJlIGEgcGFydCBvZiBldmVyeSB0eXBlLAp3aGlsZSBhbHNvIG5vdGluZyB0aGF0IHRvZ2V0aGVyIHRoZXNlIG1ha2UgdXAgYSBodWdlIHBvcnRpb24gb2YgdGhlIHBvbHltb3JwaGlzbSwgd2UgdHJhbnNmb3JtLgpgYGB7cn0KbG9zIDwtIGxhcHBseShsb3MsIGZ1bmN0aW9uKHMpIGxhcHBseShzLCBmb2xkX05VTExfYW5kX05BX2ludG9fb3RoZXJfdHlwZXNfZGYpKQpudWxsX25hX2ZvbGRfYXJnX2NvdW50cyA8LSBidWlsZF9hcmdfY291bnRfZGZfZnJvbV9sb3BrZ3MobG9zKQpudWxsX25hX2ZvbGRfZnVuX2NvdW50cyA8LSBidWlsZF9mdW5fY291bnRfZGZfZnJvbV9sb3BrZ3MobG9zKQoKbG9zIDwtIGxhcHBseShsb3MsIGZ1bmN0aW9uKGxvZikge2xhcHBseShsb2YsIGZ1bmN0aW9uKGRmKSB7Y2hhbmdlX3R5cGVfc3lzdGVtc19kZihkZiwgdHlwZV9tYXBfc3ZfdG9fcmVhbCl9KX0pCm51bGxfbmFfZm9sZF9yZWFsX2FyZ19jb3VudHMgPC0gYnVpbGRfYXJnX2NvdW50X2RmX2Zyb21fbG9wa2dzKGxvcykKbnVsbF9uYV9mb2xkX3JlYWxfZnVuX2NvdW50cyA8LSBidWlsZF9mdW5fY291bnRfZGZfZnJvbV9sb3BrZ3MobG9zKQpgYGAKCkdlbmVyYXRlLi4uCmBgYHtyfQp4dGFibGUobnVsbF9uYV9mb2xkX3JlYWxfYXJnX2NvdW50cykgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RikKeHRhYmxlKG51bGxfbmFfZm9sZF9yZWFsX2Z1bl9jb3VudHMpICU+JSBwcmludChpbmNsdWRlLnJvd25hbWVzPUYpCmBgYAoKVG9wIHNpZyB0aW1lLgpgYGB7cn0KcG9seV90eXBlX2FyZ3MgPC0gcmVkdWNlX2V4dHJhY3RlZF9sb3BrZ3NfdG9fb25lKGFwcGx5X2V4dHJhY3RfdG9fbG9wa2cobG9zLCBleHRyYWN0X3BvbHlfdHlwZV9hcmdzKSkKcG9seV90eXBlX2FyZ3MgPC0gcG9seV90eXBlX2FyZ3Nbb3JkZXIoLXBvbHlfdHlwZV9hcmdzJGNvdW50KSxdICMgc29ydCBieSBjb3VudApwb2x5X3R5cGVfYXJncyRwZXJjIDwtIHJvdW5kKHBvbHlfdHlwZV9hcmdzJGNvdW50L3N1bShwb2x5X3R5cGVfYXJncyRjb3VudCkgKiAxMDAsIDIpCmBgYAoKUHJpbnQgdG9wIDEwLgpgYGB7cn0KZm9ybWF0X2RmX2Zvcl9wcmludChwb2x5X3R5cGVfYXJnc1sxOjEwLF0pIC0+IHB1dF9tZQpwdXRfbWUKeHRhYmxlKHB1dF9tZSkgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RikKYGBgCgpJIHRoaW5rIHNvbWV0aGluZyBmdW5reSBpcyBoYXBwZW5pbmcuCldlIHNob3VsZCBoYXZlIG1hdHJpeCB0eXBlcywgbWF5YmUgSSBmb3Jnb3QuCkRlYWxpbmcgd2l0aCB0aGF0IG5vdzoKYGBge3J9CiMgTk9URSBtYXRyaXggc3R1ZmYgbW92ZWQgdXAsIG9vcHNpZQpgYGAKClRvcCBzaWcgdGltZS4KYGBge3J9CiMgcG9seV90eXBlX2FyZ3MgPC0gcmVkdWNlX2V4dHJhY3RlZF9sb3BrZ3NfdG9fb25lKGFwcGx5X2V4dHJhY3RfdG9fbG9wa2cobG9zLCBleHRyYWN0X3BvbHlfdHlwZV9hcmdzKSkKIyBwb2x5X3R5cGVfYXJncyA8LSBwb2x5X3R5cGVfYXJnc1tvcmRlcigtcG9seV90eXBlX2FyZ3MkY291bnQpLF0gIyBzb3J0IGJ5IGNvdW50CiMgcG9seV90eXBlX2FyZ3MkcGVyYyA8LSByb3VuZChwb2x5X3R5cGVfYXJncyRjb3VudC9zdW0ocG9seV90eXBlX2FyZ3MkY291bnQpICogMTAwLCAyKQpgYGAKClByaW50IHRvcCAxMC4KYGBge3J9CiMgZm9ybWF0X2RmX2Zvcl9wcmludChwb2x5X3R5cGVfYXJnc1sxOjEwLF0pIC0+IHB1dF9tZQojIHB1dF9tZQojIHh0YWJsZShwdXRfbWUpICU+JSBwcmludChpbmNsdWRlLnJvd25hbWVzPUYpCmBgYAoKYGBge3J9CiMgc2lnc19kZl92ZWMgPC0gZ2V0X2Z1bl9zaWdzX21hdGNoaW5nX3ByZWRfZnJvbV9sb3BrZyhsb3MsIHByZWQ9ZG9lc19kZl9oYXZlX1hfdHlwZXMsIHR5cGVzX3RvX2ZpbmQ9YygibWF0cml4IiwgInZlY3Rvci9yZWFsIiksIHN0cmljdD1UKQpgYGA=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUGFwZXIgUmVzdWx0cyBTZWN0aW9uIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpUaGlzIE5vdGVib29rIHdhbGtzIHRocm91Z2ggdGhlIHJlc3VsdHMgc2VjdGlvbiBvZiB0aGUgcGFwZXIuCgpGaXJzdCwgYWRtaW5pc3RyaXZpYS4KYGBge3J9CnNvdXJjZSgiLi4vY29kZS9kYXRhX3Byb2Nlc3NpbmcuUiIpICMgZ2V0IHRoZSBmdW5jdGlvbnMgd2UgbmVlZAoKbGlicmFyeSh4dGFibGUpCmBgYAoKTG9hZCB0aGUgZGF0YS4KYGBge3IsIGVjaG89RkFMU0V9CmxvcyA8LSBsaXN0LmZpbGVzKCIuLi9kYXRhL2Z1bGxfc2lncyIsIGZ1bGwubmFtZXM9VFJVRSkKbmFtZXMgPC0gbGlzdC5maWxlcygiLi4vZGF0YS9mdWxsX3NpZ3MiKQpuYW1lcyhsb3MpIDwtIHN1YnN0cihuYW1lcywgMSwgbmNoYXIobmFtZXMpLTQpCmxvcyA8LSBsYXBwbHkobG9zLCByZWFkUkRTKQpsb3MgPC0gcmVtb3ZlX2VtcHRpZXMobG9zKQojIGFubm95aW5nIHN0cmFuZ2UgZXJyb3IgdGhhdCBJIHNob3VsZCBmaXggcG9wcyB1cAoKIyBUaGVyZSdzIGF0IGxlYXN0IG9uZSB0cmFuc2Zvcm1hdGlvbiB0aGF0IHdlJ3JlIGFsd2F5cyBnb25uYSB3YW50IHRvIGFwcGx5LCBuYW1seSB0aGUgdmVjdG9yL3NjYWxhcgojIGNvbGxhcHNlIHdoZXJlIGJvdGggYXJlIHByZXNlbnQgaW4gYSBzaWduYXR1cmUuCmxvcyA8LSBsYXBwbHkobG9zLCBmdW5jdGlvbihsb2Z1bnMpIHtsYXBwbHkobG9mdW5zLCBjb21iaW5lX3NjYWxhcl92ZWN0b3Jfd2hlcmVfYXBwcm9wcmlhdGUpfSkKIyBGaWd1cmUgb3V0IHdoaWNoIG9uZXMgYXJlIG1hdHJpY2VzLiBSZW1vdmUgaWYgdGhlIGFuYWx5c2lzIHBpY2tzIHRoaXMgdXAgKGFuZCB3ZSByZXJ1bikuCmxvcyA8LSBsYXBwbHkobG9zLCBmdW5jdGlvbihsb2Z1bikgbGFwcGx5KGxvZnVuLCBkaXN0aW5ndWlzaF9tYXRyaWNlc19kZikpCmBgYAoKR2V0IHRoZSBjb3VudHMuCmBgYHtyfQojIGFyZ3VtZW50IGNvdW50cwpjX2Jhc2ljX2RmIDwtIGJ1aWxkX2FyZ19jb3VudF9kZl9mcm9tX2xvcGtncyhsb3MpCgp4dGFibGUoY19iYXNpY19kZikgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RikKYGBgCgpgYGB7cn0KIyBmdW5jdGlvbiBjb3VudHMKY19mX2Jhc2ljX2RmIDwtIGJ1aWxkX2Z1bl9jb3VudF9kZl9mcm9tX2xvcGtncyhsb3MpCgp4dGFibGUoY19mX2Jhc2ljX2RmKSAlPiUgcHJpbnQoaW5jbHVkZS5yb3duYW1lcz1GKQpgYGAKClRvcCBzaWduYXR1cmVzLCB3aXRoIHByaW50aW5nLgpUaGlzIGlzIGhvdyB5b3UgZ2V0IHRoZSB0b3Agc2lncy4KYGBge3J9CnBvbHlfdHlwZV9hcmdzIDwtIHJlZHVjZV9leHRyYWN0ZWRfbG9wa2dzX3RvX29uZShhcHBseV9leHRyYWN0X3RvX2xvcGtnKGxvcywgZXh0cmFjdF9wb2x5X3R5cGVfYXJncykpCnBvbHlfdHlwZV9hcmdzIDwtIHBvbHlfdHlwZV9hcmdzW29yZGVyKC1wb2x5X3R5cGVfYXJncyRjb3VudCksXSAjIHNvcnQgYnkgY291bnQKcG9seV90eXBlX2FyZ3MkcGVyYyA8LSByb3VuZChwb2x5X3R5cGVfYXJncyRjb3VudC9zdW0ocG9seV90eXBlX2FyZ3MkY291bnQpICogMTAwLCAyKQpgYGAKClByaW50IHRvcCAxMC4KYGBge3J9CmZvcm1hdF9kZl9mb3JfcHJpbnQocG9seV90eXBlX2FyZ3NbMToxMCxdKSAtPiBwdXRfbWUKcHV0X21lCnh0YWJsZShwdXRfbWUpICU+JSBwcmludChpbmNsdWRlLnJvd25hbWVzPUYpCmBgYAoKTm93LCBoYXZpbmcgbm90ZWQgdGhhdDoKKDEpIGludHMgYW5kIGRvdWJsZXMgYXJlIGJhc2ljYWxseSBpbnRlcmNoYW5nYWJsZSwgYW5kCigyKSBudWxsIGFuZCBOQSBzaG91bGQgYmUgYSBwYXJ0IG9mIGV2ZXJ5IHR5cGUsCndoaWxlIGFsc28gbm90aW5nIHRoYXQgdG9nZXRoZXIgdGhlc2UgbWFrZSB1cCBhIGh1Z2UgcG9ydGlvbiBvZiB0aGUgcG9seW1vcnBoaXNtLCB3ZSB0cmFuc2Zvcm0uCmBgYHtyfQpsb3MgPC0gbGFwcGx5KGxvcywgZnVuY3Rpb24ocykgbGFwcGx5KHMsIGZvbGRfTlVMTF9hbmRfTkFfaW50b19vdGhlcl90eXBlc19kZikpCm51bGxfbmFfZm9sZF9hcmdfY291bnRzIDwtIGJ1aWxkX2FyZ19jb3VudF9kZl9mcm9tX2xvcGtncyhsb3MpCm51bGxfbmFfZm9sZF9mdW5fY291bnRzIDwtIGJ1aWxkX2Z1bl9jb3VudF9kZl9mcm9tX2xvcGtncyhsb3MpCgpsb3MgPC0gbGFwcGx5KGxvcywgZnVuY3Rpb24obG9mKSB7bGFwcGx5KGxvZiwgZnVuY3Rpb24oZGYpIHtjaGFuZ2VfdHlwZV9zeXN0ZW1zX2RmKGRmLCB0eXBlX21hcF9zdl90b19yZWFsKX0pfSkKbnVsbF9uYV9mb2xkX3JlYWxfYXJnX2NvdW50cyA8LSBidWlsZF9hcmdfY291bnRfZGZfZnJvbV9sb3BrZ3MobG9zKQpudWxsX25hX2ZvbGRfcmVhbF9mdW5fY291bnRzIDwtIGJ1aWxkX2Z1bl9jb3VudF9kZl9mcm9tX2xvcGtncyhsb3MpCmBgYAoKR2VuZXJhdGUuLi4KYGBge3J9Cnh0YWJsZShudWxsX25hX2ZvbGRfcmVhbF9hcmdfY291bnRzKSAlPiUgcHJpbnQoaW5jbHVkZS5yb3duYW1lcz1GKQp4dGFibGUobnVsbF9uYV9mb2xkX3JlYWxfZnVuX2NvdW50cykgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RikKYGBgCgpUb3Agc2lnIHRpbWUuCmBgYHtyfQpwb2x5X3R5cGVfYXJncyA8LSByZWR1Y2VfZXh0cmFjdGVkX2xvcGtnc190b19vbmUoYXBwbHlfZXh0cmFjdF90b19sb3BrZyhsb3MsIGV4dHJhY3RfcG9seV90eXBlX2FyZ3MpKQpwb2x5X3R5cGVfYXJncyA8LSBwb2x5X3R5cGVfYXJnc1tvcmRlcigtcG9seV90eXBlX2FyZ3MkY291bnQpLF0gIyBzb3J0IGJ5IGNvdW50CnBvbHlfdHlwZV9hcmdzJHBlcmMgPC0gcm91bmQocG9seV90eXBlX2FyZ3MkY291bnQvc3VtKHBvbHlfdHlwZV9hcmdzJGNvdW50KSAqIDEwMCwgMikKYGBgCgpQcmludCB0b3AgMTAuCmBgYHtyfQpmb3JtYXRfZGZfZm9yX3ByaW50KHBvbHlfdHlwZV9hcmdzWzE6MTAsXSkgLT4gcHV0X21lCnB1dF9tZQp4dGFibGUocHV0X21lKSAlPiUgcHJpbnQoaW5jbHVkZS5yb3duYW1lcz1GKQpgYGAKCkkgdGhpbmsgc29tZXRoaW5nIGZ1bmt5IGlzIGhhcHBlbmluZy4KV2Ugc2hvdWxkIGhhdmUgbWF0cml4IHR5cGVzLCBtYXliZSBJIGZvcmdvdC4KRGVhbGluZyB3aXRoIHRoYXQgbm93OgpgYGB7cn0KIyBOT1RFIG1hdHJpeCBzdHVmZiBtb3ZlZCB1cCwgb29wc2llCmBgYAoKVG9wIHNpZyB0aW1lLgpgYGB7cn0KIyBwb2x5X3R5cGVfYXJncyA8LSByZWR1Y2VfZXh0cmFjdGVkX2xvcGtnc190b19vbmUoYXBwbHlfZXh0cmFjdF90b19sb3BrZyhsb3MsIGV4dHJhY3RfcG9seV90eXBlX2FyZ3MpKQojIHBvbHlfdHlwZV9hcmdzIDwtIHBvbHlfdHlwZV9hcmdzW29yZGVyKC1wb2x5X3R5cGVfYXJncyRjb3VudCksXSAjIHNvcnQgYnkgY291bnQKIyBwb2x5X3R5cGVfYXJncyRwZXJjIDwtIHJvdW5kKHBvbHlfdHlwZV9hcmdzJGNvdW50L3N1bShwb2x5X3R5cGVfYXJncyRjb3VudCkgKiAxMDAsIDIpCmBgYAoKUHJpbnQgdG9wIDEwLgpgYGB7cn0KIyBmb3JtYXRfZGZfZm9yX3ByaW50KHBvbHlfdHlwZV9hcmdzWzE6MTAsXSkgLT4gcHV0X21lCiMgcHV0X21lCiMgeHRhYmxlKHB1dF9tZSkgJT4lIHByaW50KGluY2x1ZGUucm93bmFtZXM9RikKYGBgCgpgYGB7cn0KIyBzaWdzX2RmX3ZlYyA8LSBnZXRfZnVuX3NpZ3NfbWF0Y2hpbmdfcHJlZF9mcm9tX2xvcGtnKGxvcywgcHJlZD1kb2VzX2RmX2hhdmVfWF90eXBlcywgdHlwZXNfdG9fZmluZD1jKCJtYXRyaXgiLCAidmVjdG9yL3JlYWwiKSwgc3RyaWN0PVQpCmBgYA==</div>
 
 
 
