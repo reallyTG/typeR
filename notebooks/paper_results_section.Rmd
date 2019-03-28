@@ -92,27 +92,9 @@ put_me
 xtable(put_me) %>% print(include.rownames=F)
 ```
 
-I think something funky is happening.
-We should have matrix types, maybe I forgot.
-Dealing with that now:
+Get the biggest signature.
 ```{r}
-# NOTE matrix stuff moved up, oopsie
-```
+big <- get_biggest_function(los, metric=size_of_signature_type)
 
-Top sig time.
-```{r}
-# poly_type_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_type_args))
-# poly_type_args <- poly_type_args[order(-poly_type_args$count),] # sort by count
-# poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 100, 2)
-```
-
-Print top 10.
-```{r}
-# format_df_for_print(poly_type_args[1:10,]) -> put_me
-# put_me
-# xtable(put_me) %>% print(include.rownames=F)
-```
-
-```{r}
-# sigs_df_vec <- get_fun_sigs_matching_pred_from_lopkg(los, pred=does_df_have_X_types, types_to_find=c("matrix", "vector/real"), strict=T)
+# it's %>%
 ```
