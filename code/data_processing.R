@@ -342,6 +342,28 @@ sanitize_lodfs <- function(lodfs) {
     lodfs
 }
 
+remove_err_df <- function(df) {
+  df$type <- lapply(df$type, function(lot) {
+    lot[lot == "error"] <- NULL
+    if (length(lot) == 0)
+      lot <- list("?")
+    lot
+  })
+  df$attr <- lapply(df$attr, function(lot) {
+    lot[lot == "error"] <- NULL
+    if (length(lot) == 0)
+      lot <- list("?")
+    lot
+  })
+  df$class <- lapply(df$class, function(lot) {
+    lot[lot == "error"] <- NULL
+    if (length(lot) == 0)
+      lot <- list("?")
+    lot
+  })
+  df
+}
+
 #
 #
 #
@@ -627,27 +649,33 @@ does_df_have_coinciding_types <- function(df, list_of_types) {
 
 }
 
-does_df_have_coinciding_types_index_and_list_reduced_TS <- function(df) {
-  check_index <- list("real", "character")
-  # distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
-  index_rows <- lapply(df$type, function(lot) {
-    length(lot) == 2 && Reduce("&&", check_index %in% lot)
-  })
-  # at least one of those needs to be true
-  if (!Reduce("||", index_rows))
-    return(FALSE)
+# does_df_have_coinciding_types_index_and_list_reduced_TS <- function(df) {
+#   check_index <- list("real", "character")
+#   # distilled_types <- lapply(df$type, function(lot) unique(lapply(lot, distill_type)))
+#   index_rows <- lapply(df$type, function(lot) {
+#     length(lot) == 2 && Reduce("&&", check_index %in% lot)
+#   })
+#   # at least one of those needs to be true
+#   if (!Reduce("||", index_rows))
+#     return(FALSE)
+#
+#   list_rows <- lapply(df$type, function(lot) {
+#     # TODO do this for vectors also? might need to modify pipeline
+#     "list" %in% lot # if there is any hope of this argument being listy
+#   })
+#   # again, at least one needs to be true
+#   if (!Reduce("||", list_rows))
+#     return(FALSE)
+#
+#   # now, probably xor the list_rows and index_rows to make sure there is a configuration
+#   # where the indexy is different from the listy
+#   Reduce("||", xor(unlist(index_rows), unlist(list_rows)))
+# }
 
-  list_rows <- lapply(df$type, function(lot) {
-    # TODO do this for vectors also? might need to modify pipeline
-    "list" %in% lot # if there is any hope of this argument being listy
-  })
-  # again, at least one needs to be true
-  if (!Reduce("||", list_rows))
-    return(FALSE)
-
-  # now, probably xor the list_rows and index_rows to make sure there is a configuration
-  # where the indexy is different from the listy
-  Reduce("||", xor(unlist(index_rows), unlist(list_rows)))
+sum_indexy_in_lopoly <- function(lopoly) {
+  check_list <- c("scalar/character", "scalar/real", "vector/character", "vector/real")
+  indices <- sapply(lopoly$type, function(l) Reduce("&&", l[[1]] %in% check_list))
+  sum(lopoly[indices,"count"])
 }
 
 # ensure that df
@@ -1225,6 +1253,24 @@ get_poly_sizes_lopkgs <- function(lopkgs, metric, X=10, normalized=T) {
   names(sizes) <- nnames
 
   sizes %>% sort(decreasing=T)
+}
+
+get_biggest_packages <- function(lopkgs, metric, normalized=T) {
+  if (normalized)
+    lo_sizes <- lapply(lopkgs, function(lofuns)
+      lapply(lofuns, function(df) size_of_signatures_in_df_normalized(df, metric))
+    )
+  else
+    lo_sizes <- lapply(lopkgs, function(lofuns)
+      lapply(lofuns, function(df) size_of_signatures_in_df(df, metric))
+    )
+
+  if (normalized)
+    poly_by_pkg <- sapply(lo_sizes, function(losi) {Reduce("+", losi) / length(losi)}) %>% sort(decreasing=T)
+  else
+    poly_by_pkg <- sapply(lo_sizes, function(losi) {Reduce("+", losi)}) %>% sort(decreasing=T)
+
+  poly_by_pkg
 }
 
 # get_X_biggest_functions <- function(lopkgs, X=10, metric) {

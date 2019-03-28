@@ -59,8 +59,8 @@
 \newcommand{\RLOC}{15,050,267\xspace}
 \newcommand{\CLOC}{9,373,542\xspace}
 \newcommand{\YEARS}{?\xspace}
-\newcommand{\INDEXCOINCIDENCE}{3,426\xspace}
-\newcommand{\TOTALINDEXY}{6,461\xspace}
+\newcommand{\INDEXCOINCIDENCE}{3,499\xspace}
+\newcommand{\TOTALINDEXY}{6,561\xspace}
 \newcommand{\INDEXYPERC}{53\%\xspace}		% TODO Not an accurate count.
 
 \begin{abstract}
@@ -792,9 +792,9 @@ The data can be found in Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFG
   \hline
  Argument Polymorphism & Count & Percentage \\ 
   \hline
-  Full Monomorphic & 780K & 85.36 \\ 
-  Monomorphic in Type & 832K & 91.03 \\ 
-  Monomorphic in Class & 827K & 90.41 \\ 
+  Full Monomorphic & 781K & 85.37 \\ 
+  Monomorphic in Type & 834K & 91.23 \\ 
+  Monomorphic in Class & 827K & 90.42 \\ 
   Monomorphic in Attribute Pattern & 825K & 90.27 \\ 
   Total Seen & 914K & --- \\ 
      \hline
@@ -811,9 +811,9 @@ The data can be found in Tables~\ref{tab:argcountsFGTS}~and~\ref{tab:funcountsFG
   \hline
  Function Polymorphism & Count & Percentage \\ 
   \hline
-  Full Monomorphic & 143K & 65.87 \\ 
-  Monomorphic in Type & 167K & 76.95 \\ 
-  Monomorphic in Class & 163K & 75.21 \\ 
+  Full Monomorphic & 143K & 65.88 \\ 
+  Monomorphic in Type & 167K & 77.25 \\ 
+  Monomorphic in Class & 163K & 75.24 \\ 
   Monomorphic in Attribute Pattern & 161K & 74.37 \\ 
   Total Seen & 216K & --- \\ 
    \hline
@@ -846,16 +846,16 @@ The answer to that question can be found in Table~\ref{tab:toppolyFDTS}.
   \hline
  Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
   \hline
-  vector/double, vector/integer & 8228 & 10.03 \\ 
-  scalar/double, scalar/integer & 7190 & 8.76 \\ 
-  matrix, vector/double & 5362 & 6.54 \\ 
-  NULL, scalar/character & 2308 & 2.81 \\ 
-  list$<$any$>$, list$<$double$>$ & 2220 & 2.71 \\ 
-  data.frame, matrix & 2115 & 2.58 \\ 
-  NULL, scalar/double & 2064 & 2.52 \\ 
-  NULL, vector/double & 2041 & 2.49 \\ 
-  list$<$any$>$, list$<$list$>$ & 1420 & 1.73 \\ 
-  NULL, vector/character & 1374 & 1.67 \\ 
+  vector/double, vector/integer & 7742 & 9.66 \\ 
+  scalar/double, scalar/integer & 7201 & 8.99 \\ 
+  matrix, vector/double & 5384 & 6.72 \\ 
+  NULL, scalar/character & 2325 & 2.90 \\ 
+  list$<$any$>$, list$<$double$>$ & 2231 & 2.78 \\ 
+  data.frame, matrix & 2116 & 2.64 \\ 
+  NULL, scalar/double & 2082 & 2.60 \\ 
+  NULL, vector/double & 2069 & 2.58 \\ 
+  list$<$any$>$, list$<$list$>$ & 1432 & 1.79 \\ 
+  NULL, vector/character & 1380 & 1.72 \\
      \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in the FDTS.}
@@ -901,8 +901,8 @@ The number of monomorphic arguments and functions can be found in Tables~\ref{ta
   \hline
  Argument Polymorphism & Count & Percentage \\ 
   \hline
-  Full Monomorphic & 781K & 85.46 \\
-  Monomorphic in Type & 867K & 94.78 \\
+  Full Monomorphic & 781K & 85.47 \\
+  Monomorphic in Type & 867K & 95.01 \\
 %  Monomorphic in Class & 831K & 90.31 \\ 
 %  Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
   Total Seen & 914K & --- \\ 
@@ -920,8 +920,8 @@ The number of monomorphic arguments and functions can be found in Tables~\ref{ta
   \hline
  Function Polymorphism & Count & Percentage \\ 
   \hline
-  Full Monomorphic & 143K & 66.02 \\ 
-  Monomorphic in Type & 184K & 84.91 \\
+  Full Monomorphic & 143K & 66.04 \\ 
+  Monomorphic in Type & 184K & 85.30 \\
 %  Monomorphic in Class & 163K & 75.13 \\ 
 %  Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
   Total Seen & 216K & --- \\ 
@@ -943,16 +943,16 @@ See Table~\ref{tab:toppolyWHATTS}.
   \hline
 Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
   \hline
-  matrix, vector/real & 6320 & 13.25 \\ 
-  list$<$any$>$, list$<$real$>$ & 2782 & 5.83 \\ 
-  vector/character, vector/real & 2706 & 5.67 \\ 
-  scalar/character, scalar/real & 2523 & 5.29 \\ 
-  data.frame, matrix & 2163 & 4.53 \\ 
-  list$<$any$>$, list$<$list$>$ & 1484 & 3.11 \\ 
-  list$<$any$>$, list$<$character$>$ & 1211 & 2.54 \\ 
-  data.frame, vector/real & 1027 & 2.15 \\ 
-  scalar/logical, scalar/real & 911 & 1.91 \\ 
-  scalar/character, vector/real & 839 & 1.76 \\ 
+  matrix, vector/real & 6360 & 13.94 \\ 
+  list$<$any$>$, list$<$real$>$ & 2799 & 6.13 \\ 
+  vector/character, vector/real & 2774 & 6.08 \\ 
+  scalar/character, scalar/real & 2552 & 5.59 \\ 
+  data.frame, matrix & 2167 & 4.75 \\ 
+  list$<$any$>$, list$<$list$>$ & 1496 & 3.28 \\ 
+  list$<$any$>$, list$<$character$>$ & 1214 & 2.66 \\ 
+  data.frame, vector/real & 1046 & 2.29 \\ 
+  scalar/logical, scalar/real & 920 & 2.02 \\ 
+  scalar/character, vector/real & 868 & 1.90 \\
    \hline
 \end{tabular}
 \caption{Top 10 argument signatures in the NEW TYPE SYSTEM.}
@@ -989,7 +989,7 @@ as.integer(as.Date(1, origin = "1900-01-01"))
 \end{lstlisting}}\caption{Dates in R.}\label{fig:date}\end{figure}
 
 This figure reveals an unfortunate truth that date ``data type'' in R is not standardized.
-That said, translating between the data types is straigthforward.
+That said, translating between the data types is straightforward.
 
 %
 %
@@ -1027,6 +1027,33 @@ magrittr & \%$>$\% & 23.00 & Tidyverse pipe function \\
 
 The size metric we use is roughly the size of each individual argument signature, divided by the number of function arguments.
 The division is performed to avoid unfairly favouring functions with many arguments.
+
+Which packages are the most polymorphic?
+Figure~\ref{tab:packagepolysize} has the answer.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Thu Mar 28 18:15:26 2019
+\begin{table}[ht]
+\label{tab:packagepolysize}
+\centering
+\begin{tabular}{lrl}
+  \hline
+Package & Total Size & Description \\ 
+  \hline
+  magrittr & 4.16 & Tidyverse pipe suite \\ 
+  types & 3.25 & Simple type annotations for R \\ 
+  r6extended & 3.00 & Utilities extending barebones R6 package \\ 
+  utils & 2.93 & Utilities for R developers \\ 
+  zeallot & 2.85 & Metaprogramming package for assignment \\ 
+  listviewer & 2.72 & R list visualizer \\ 
+  proto & 2.60 & Prototype object-based programming \\ 
+  apercu & 2.49 & Display a short view of a complex R value (list, vector, etc.) \\ 
+  pipeR & 2.46 & Another pipe suite \\ 
+  rethinker & 2.44 & RethinkDB client for R \\ 
+   \hline
+\end{tabular}
+\caption{10 most polymorphic packages.}
+\end{table}
 
 \AT{Draft}
 

@@ -26,6 +26,8 @@ los <- remove_empties(los)
 los <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_appropriate)})
 # Figure out which ones are matrices. Remove if the analysis picks this up (and we rerun).
 los <- lapply(los, function(lofun) lapply(lofun, distinguish_matrices_df))
+# remove "errors"
+los <- lapply(los, function(lofun) lapply(lofun, remove_err_df))
 ```
 
 Get the counts.
@@ -64,8 +66,8 @@ Now, having noted that:
 while also noting that together these make up a huge portion of the polymorphism, we transform.
 ```{r}
 los <- lapply(los, function(s) lapply(s, fold_NULL_and_NA_into_other_types_df))
-null_na_fold_arg_counts <- build_arg_count_df_from_lopkgs(los)
-null_na_fold_fun_counts <- build_fun_count_df_from_lopkgs(los)
+# null_na_fold_arg_counts <- build_arg_count_df_from_lopkgs(los)
+# null_na_fold_fun_counts <- build_fun_count_df_from_lopkgs(los)
 
 los <- lapply(los, function(lof) {lapply(lof, function(df) {change_type_systems_df(df, type_map_sv_to_real)})})
 null_na_fold_real_arg_counts <- build_arg_count_df_from_lopkgs(los)
@@ -92,6 +94,24 @@ put_me
 xtable(put_me) %>% print(include.rownames=F)
 ```
 
+Coindcidence stuff.
+```{r}
+index_list_coincide <- get_fun_sigs_matching_pred_from_lopkg(los, does_df_have_coinciding_types_index_and_list_or_vector)
+  
+# how many index-y things are there in here?
+poly_type_args_i <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(list(index_list_coincide), extract_poly_type_args))
+poly_type_args_i <- poly_type_args_i[order(-poly_type_args_i$count),] # sort by count
+
+# in the reduced one:
+sum_indexy_in_lopoly(poly_type_args_i)
+
+# in full poly:
+sum_indexy_in_lopoly(poly_type_args)
+
+# perc
+sum_indexy_in_lopoly(poly_type_args_i) / sum_indexy_in_lopoly(poly_type_args)
+```
+
 Get the biggest signatures.
 ```{r}
 lo_sizes <- get_X_biggest_functions(los, metric = size_of_signature_type)
@@ -107,6 +127,20 @@ top_10_big_df <- data.frame(
 
 rownames(top_10_big_df) <- NULL
 
-top_10_big_df %>% xtable
+top_10_big_df %>% xtable %>% print(include.rownames=F)
 
+```
+
+Get biggest packages.
+```{r}
+packages_by_size <- get_biggest_packages(los, metric = size_of_signature_type)
+
+top_10_size_df <- data.frame(
+  pkg = names(packages_by_size[1:10]),
+  size = packages_by_size[1:10]
+)
+
+rownames(top_10_size_df) <- NULL
+
+top_10_size_df %>% xtable %>% print(include.rownames=F)
 ```
