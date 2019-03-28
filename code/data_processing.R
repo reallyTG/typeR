@@ -1188,16 +1188,17 @@ size_of_signatures_in_df_normalized <- function(df, size_fun) {
 
 get_biggest_function <- function(lopkgs, metric, normalized=T) {
   if (normalized)
-    lo_sizes <- lapply(los, function(lofuns)
+    lo_sizes <- lapply(lopkgs, function(lofuns)
       lapply(lofuns, function(df) size_of_signatures_in_df_normalized(df, metric))
     )
   else
-    lo_sizes <- lapply(los, function(lofuns)
+    lo_sizes <- lapply(lopkgs, function(lofuns)
       lapply(lofuns, function(df) size_of_signatures_in_df(df, metric))
     )
-  m <- max(sapply(lo_sizes, function(x) max(unlist(x))))
+  maxs <- sapply(lo_sizes, function(x) max(unlist(x)))
+  m <- max(maxs)
 
-  lo_sizes[m == sapply(lo_sizes, function(x) max(unlist(x)))] -> the_lofun
+  lo_sizes[m == maxs] -> the_lofun
   pkg <- names(the_lofun)
 
   fun <- names(the_lofun[[1]][m == the_lofun[[1]]])
@@ -1206,6 +1207,24 @@ get_biggest_function <- function(lopkgs, metric, normalized=T) {
   attr(r, "pkg::fun") <- paste(pkg, fun, sep="::")
 
   r
+}
+
+get_poly_sizes_lopkgs <- function(lopkgs, metric, X=10, normalized=T) {
+  if (normalized)
+    lo_sizes <- lapply(lopkgs, function(lofuns)
+      lapply(lofuns, function(df) size_of_signatures_in_df_normalized(df, metric))
+    )
+  else
+    lo_sizes <- lapply(lopkgs, function(lofuns)
+      lapply(lofuns, function(df) size_of_signatures_in_df(df, metric))
+    )
+  nnames <- lapply(names(lo_sizes), function(n) {
+    names(lo_sizes[[n]]) <- paste0(n, "::", names(lo_sizes[[n]]))
+  }) %>% flatten %>% unlist
+  sizes <- flatten(lo_sizes) %>% unlist
+  names(sizes) <- nnames
+
+  sizes %>% sort(decreasing=T)
 }
 
 # get_X_biggest_functions <- function(lopkgs, X=10, metric) {

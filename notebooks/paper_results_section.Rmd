@@ -92,9 +92,21 @@ put_me
 xtable(put_me) %>% print(include.rownames=F)
 ```
 
-Get the biggest signature.
+Get the biggest signatures.
 ```{r}
-big <- get_biggest_function(los, metric=size_of_signature_type)
+lo_sizes <- get_X_biggest_functions(los, metric = size_of_signature_type)
 
-# it's %>%
+top_10_big <- head(lo_sizes, 10)
+
+# make df
+top_10_big_df <- data.frame(
+  pkg = sapply(names(top_10_big), function(n) strsplit(n, split="::")[[1]][1]),
+  fun = sapply(names(top_10_big), function(n) strsplit(n, split="::")[[1]][2]),
+  size = top_10_big
+)
+
+rownames(top_10_big_df) <- NULL
+
+top_10_big_df %>% xtable
+
 ```

@@ -672,7 +672,6 @@ pointest <- function (object, fn = mean, par.name, comp.label, chain.no,  ...) {
 \AT{I'll explain this better, maybe?}
 In Figure~\ref{fig:dfdbl}, we see a function that, among other things, takes in some data ({\tt dat}) and a character string ({\tt spss}) specifying either {\tt "in"} or {\tt "out"}.
 Now, depending on the value of {\tt spss}, {\tt dat} will either be a data frame or a vector of doubles.
-\AT{This ties in to the (arg, retv) coupling, which we will have data on soon.}
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 nret.translator <- function(dat, spss="out", ...) {
@@ -724,9 +723,10 @@ tee <- function (x, theta, D1, D2, phi)  {
 %
 \section{Results}\label{sec:results}
 
-\AT{Meta-Comment:} My plan for this section is to linearly go through the
+\AT{Note:} My plan for this section is to linearly go through the
 data, and show logical transitions between various type systems.  I'll start
 with the finest-grained one.
+\AT{End Note.}
 
 Having built an understanding of our data collection and analysis
 pipeline, we will turn our attention to the results of our analysis.  We
@@ -752,14 +752,18 @@ to as the {\it Fine-Grained Type System}, or FGTS.  An example of a signature in
 this type system can be found in Figure~\ref{fig:exFGTS}.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-> add_make_list <- function(x, y) as.list(x + y)
-> add_make_list(2, c(3, 1)) # => list(5, 3)
+add_make_list <- function(x, y) {
+  l <- as.list(x + y)
+  attr(l, "example") <- "this is an attribute"
+  l
+}
+add_make_list(2, c(3, 1)) # => list(5, 3)
 \end{lstlisting}}
 \begin{tabular}{@{}r|l|l|l@{}}\hline
 \bf Argument & \bf Type & \bf Class &\bf Attributes \\
 x & \tt scalar/double & \tt numeric & \tt \{\} \\
 y & \tt vector/double & \tt numeric & \tt \{\} \\
-retv & \tt list<double> & \tt list & \tt \{\}  
+retv & \tt list<double> & \tt list & \tt \{example: scalar/character\}  
 \end{tabular}
 \caption{Example call and FGTS signature}\label{fig:exFGTS}\end{figure}
 
@@ -992,9 +996,41 @@ That said, translating between the data types is straigthforward.
 %
 %
 \AT{We might want to discuss some of the most polymorphic functions in the language.}
-\subsection{Most Polymorphic Functions}
+\subsection{R's Most Polymorphic Functions}
+
+In this section, our goal is to shed some light on the most polymorphic functions in R.
+Table~\ref{tab:bigpolyfuns} shows the 10 functions with the biggest recorded signatures.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Thu Mar 28 16:01:37 2019
+\begin{table}[ht]
+\label{tab:bigpolyfuns}
+\centering
+\begin{tabular}{llrl}
+  \hline
+Package & Function & Size & Description \\ 
+  \hline
+magrittr & \%$>$\% & 23.00 & Tidyverse pipe function \\ 
+  magrittr & freduce & 17.67 & Apply a list of functions sequentially \\ 
+  rlang & captureArgInfo & 16.50 & Capture arg info \\ 
+  rlang & enquo & 16.00 & Create quosure \\ 
+  rlang & get\_expr & 15.00 & Extract expression \\ 
+  data.table & replace\_dot\_alias & 13.50 & Deals with '.' in passed expr \\ 
+  tibble & strip\_dim & 13.00 & Removes 'dim' attribute \\ 
+  data.table & copy & 11.00 & Create copy of passed value \\ 
+  htmlwidgets & shouldEval & 11.00 & Eval passed value depending on tag \\ 
+  magrittr & \%$<$$>$\% & 11.00 & Like \%$>$\% but assigns \\ 
+   \hline
+\end{tabular}
+\caption{10 most polymorphic functions.}
+\end{table}
+
+The size metric we use is roughly the size of each individual argument signature, divided by the number of function arguments.
+The division is performed to avoid unfairly favouring functions with many arguments.
 
 \AT{Draft}
+
+
 
 The most polymorphic function in the corpus of code we analyzed is {\tt magrittr}'s {\tt \%>\%} (pipe) function.
 {\tt magrittr} is part of the Tidyverse, and the pipe function is frequently used to chain function calls.
@@ -1037,7 +1073,7 @@ In addition, though, we might want to know if the list has a names attribute, yi
 Then, perhaps it would be useful to know what the names were, so "list<double>@names\{x, y\}".
 
 Now, depending on the granularity of individual argument annotations, we might want to link certain arguments together.
-Consider the code snippet in Figure~\ref{fig:indexof}
+Consider the code snippet in Figure~\ref{fig:indexof}.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 access <- function(l, i) l[[i]]
 
