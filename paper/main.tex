@@ -594,28 +594,36 @@ be made clear in Section~\ref{sec:results}.
 
 %
 %
-
+%
 %
 \subsection{Granularity of Type Information}
 
-As we mentioned in Section~\ref{sec:rlang}, R has several notions of
-``type'', ranging from the results of \code{typeof} to metadata on values
-obtainable via the \code{attributes} function.  Individually, these paint an
-incomplete picture of the type of a value: For example, recall that
-\code{typeof(5) == typeof(c(5, 5)) == "double"}.
+When constructing a type for a value, we begin with the {\tt typeof} the value.
+This alone paints an incomplete picture of the value, though, especially when it comes to vectors (recall that \code{typeof(5) == typeof(c(5, 5)) == "double"}).
+In some cases, the class or attributes of a value might enlighten us, but in many cases we can be a little more precise.
 
 To be as specific as possible, our analysis collects additional information
 to create a more specific type than the result of any of R's reflection
-functions.  For instance, if the analysis encounters {\tt typeof(x) ==
-  "double"}, it will look at the length of {\tt x} to determine if {\tt x}
-is a scalar or a vector, generating the annotation {\tt scalar/double} or
-{\tt vector/double} accordingly.  One notable imperfection in this example
-is that unit-length vectors will appear as scalars, but if some function was
-called with unit-length vectors {\it as well as} larger ones, both scalar
-and vector types will appear, and this distinction can be later collapsed.
-Another example is that our analysis builds parametric list types by
-capturing the types of list elements.  We also distinguish NAs ``in the
-wild'' with a {\tt raw\_NA} type.
+functions.  The details of the information we collect follows.
+
+\begin{itemize}
+
+	\item if the analysis encounters \code{ typeof(x) == "double"}, it will look at the length of {\tt x} to determine if {\tt x} is a scalar or a vector, generating the annotation {\tt scalar/double} or {\tt vector/double} accordingly.
+	This is also true for integer, complex, raw, logical, and character {\tt typeof}s (i.e., the primitive vectorized data types).
+	A notable imperfection here is is that unit length vectors will appear as scalars, so later in our analysis we ensure that argument signatures containing both scalar/X and vector/X are collapsed down to contain only vector/X.
+	
+	\item if the analysis encounters \code{typeof(x) == "list"}, we collect type information on all list elements in order to ascribe a general type to the contents of the list.
+	To avoid undue slowdowns, we only collect the \code{typeof} the contents, and ascribe type {\tt any} if two or more {\tt typeof}s are observed.
+	
+	\item if the analysis encounters \code{NA}, we ascribe a unique {\tt raw\_NA} type.
+	In R, \code{NA} inhabits all types, but \code{typeof(NA) == "logical"}.
+	The analysis deals with these {\tt raw\_NA}s at a later stage.
+	
+	\item if the analysis encounters a matrix (i.e. the value has matrix class and has a dims and optionally dimnames attribute), we ascribe the type {\tt matrix}.
+	
+	\item similarly, if it encounters a data frame (i.e., class {\tt data.frame} with appropriate attributes), we ascribe the type {\tt data.frame}.
+
+\end{itemize}
 
 %
 %
