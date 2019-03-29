@@ -13,6 +13,10 @@ library(ggrepel)
 library(tidyverse)
 
 count_df <- read_rds("../data/final_loc_counts.RDS")
+# rows might need to be cast to integers
+class(count_df$r_counts) <- "integer"
+class(count_df$c_counts) <- "integer"
+
 as.tibble(count_df) %>%
   mutate(names = rownames(count_df)) -> cloc
     
