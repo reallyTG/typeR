@@ -435,16 +435,32 @@ top_10_big_df %&gt;% xtable %&gt;% print(include.rownames=F)
 <p>Get biggest packages.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGFja2FnZXNfYnlfc2l6ZSA8LSBnZXRfYmlnZ2VzdF9wYWNrYWdlcyhsb3MsIG1ldHJpYyA9IHNpemVfb2Zfc2lnbmF0dXJlX3R5cGUpXG50b3BfMTBfc2l6ZV9kZiA8LSBkYXRhLmZyYW1lKFxuICBwa2cgPSBuYW1lcyhwYWNrYWdlc19ieV9zaXplWzE6MTBdKSxcbiAgc2l6ZSA9IHBhY2thZ2VzX2J5X3NpemVcbilcbmBgYCJ9 -->
-<pre class="r"><code>packages_by_size &lt;- get_biggest_packages(los, metric = size_of_signature_type)
-top_10_size_df &lt;- data.frame(
-  pkg = names(packages_by_size[1:10]),
-  size = packages_by_size
-)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudG9wXzEwX3NpemVfZGYgJT4lIHh0YWJsZSAlPiUgcHJpbnQoaW5jbHVkZS5yb3duYW1lcz1GKVxuXG5gYGAifQ== -->
+<pre class="r"><code>top_10_size_df %&gt;% xtable %&gt;% print(include.rownames=F)
+</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZGF0YS5mcmFtZShwa2cgPSBuYW1lcyhwYWNrYWdlc19ieV9zaXplWzE6MTBdKSwgc2l6ZSA9IHBhY2thZ2VzX2J5X3NpemUpIDogXG4gIGFyZ3VtZW50cyBpbXBseSBkaWZmZXJpbmcgbnVtYmVyIG9mIHJvd3M6IDEwLCAxMTY1NlxuIn0= -->
-<pre><code>Error in data.frame(pkg = names(packages_by_size[1:10]), size = packages_by_size) : 
-  arguments imply differing number of rows: 10, 11656</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiJSBsYXRleCB0YWJsZSBnZW5lcmF0ZWQgaW4gUiAzLjUuMSBieSB4dGFibGUgMS44LTMgcGFja2FnZVxuJSBUaHUgTWFyIDI4IDE4OjE1OjI2IDIwMTlcblxcYmVnaW57dGFibGV9W2h0XVxuXFxjZW50ZXJpbmdcblxcYmVnaW57dGFidWxhcn17bHJ9XG4gIFxcaGxpbmVcbnBrZyAmIHNpemUgXFxcXCBcbiAgXFxobGluZVxubWFncml0dHIgJiA0LjE2IFxcXFwgXG4gIHR5cGVzICYgMy4yNSBcXFxcIFxuICByNmV4dGVuZGVkICYgMy4wMCBcXFxcIFxuICB1dGlscyAmIDIuOTMgXFxcXCBcbiAgemVhbGxvdCAmIDIuODUgXFxcXCBcbiAgbGlzdHZpZXdlciAmIDIuNzIgXFxcXCBcbiAgcHJvdG8gJiAyLjYwIFxcXFwgXG4gIGFwZXJjdSAmIDIuNDkgXFxcXCBcbiAgcGlwZVIgJiAyLjQ2IFxcXFwgXG4gIHJldGhpbmtlciAmIDIuNDQgXFxcXCBcbiAgIFxcaGxpbmVcblxcZW5ke3RhYnVsYXJ9XG5cXGVuZHt0YWJsZX1cbiJ9 -->
+<pre><code>% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Thu Mar 28 18:15:26 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{lr}
+  \hline
+pkg &amp; size \\ 
+  \hline
+magrittr &amp; 4.16 \\ 
+  types &amp; 3.25 \\ 
+  r6extended &amp; 3.00 \\ 
+  utils &amp; 2.93 \\ 
+  zeallot &amp; 2.85 \\ 
+  listviewer &amp; 2.72 \\ 
+  proto &amp; 2.60 \\ 
+  apercu &amp; 2.49 \\ 
+  pipeR &amp; 2.46 \\ 
+  rethinker &amp; 2.44 \\ 
+   \hline
+\end{tabular}
+\end{table}</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 

@@ -62,6 +62,8 @@
 \newcommand{\INDEXCOINCIDENCE}{3,499\xspace}
 \newcommand{\TOTALINDEXY}{6,561\xspace}
 \newcommand{\INDEXYPERC}{53\%\xspace}		% TODO Not an accurate count.
+\newcommand{\DATAPKGS}{206\xspace}
+\newcommand{\DATAPKGSPERC}{1.5\%\xspace}
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -361,7 +363,9 @@ which must successfully run. From our perspective this means that each
 package in CRAN comes with several executable scripts that exercise some of
 its functionality.  Notable exceptions to this rule are packages only
 containing data, which have no runnable code but are referenced by other
-packages \AT{I should collect stats on this}.
+packages.
+In our experience, only \DATAPKGS packages had no executable test or example code,
+accounting for \DATAPKGSPERC of CRAN.
 
 Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
 for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
@@ -374,7 +378,7 @@ coverage to be around 68\% when including reverse dependencies.  As our infrastr
 adds overhead to script execution, coupled with the fact that some scripts take 
 inordinate amounts of time to run, we limit our analysis of any given package to one hour.
 We capture and record function signatures on-the-fly, though, so we do collect (partial) data even 
-for these long-running packages. \AT{We expect to extend our coverage of CRAN for the next version of this paper.}
+for these long-running packages.
 
 Figure~\ref{most} shows the ten most downloaded CRAN packages.  For each
 one, we list how many lines of R and C/C++ the packages contains.
@@ -386,7 +390,7 @@ packages we have used.  Lastly, Figure~\ref{recorded} gives the number of
 function signatures that we recorded while executing the scripts of each
 package.
 
-\AT{TODO Change "recorded" to "observed" in recordsbypkg}
+\AT{TODO Touch up graphs.}
 
 \begin{figure}[htbp]
 \begin{center}
@@ -508,7 +512,21 @@ record the contents of environments. These can be used as hash tables and
 may be big and are quite likely different from one another.
 
 In R all arguments are passed as promises, unused arguments will be
-unevaluated, for these we can not report a type. THUS WE DO WHAT? SAY MORE.
+unevaluated, for these we can not report a type. 
+\AT{Unused arguments are still picked up by genthat, so we evaluate them.
+I suppose this might lead to issues in some rare circumstances.}
+
+\AT{Do we care about this discussion? This is probably a bit too specific to the implementation.}
+Packages which implement metaprogramming mechanisms are also a bit challenging.
+For example, consider the {\tt magrittr} package, which implements the Tidyverse's pipe functions.
+Refer to Figure~\ref{fig:magpipeex} for a translation of a call to {\tt magrittr}'s pipe ({\tt \%>\%}) function.
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+mul_by <- function(x, y) { x * y }
+
+4 %>% mul_by(3) === `%>%`(lhs = 4, rhs = mul_by(3)) === mul_by(4, 3)
+\end{lstlisting}}\caption{Example and rough translation of \%$>$\% call.}\label{fig:realex}\end{figure}
+Our tracer evaluates function arguments, and here \code{rhs = mul_by(3)}, but that's erroneous code (you can't call {\tt mul\_by} without supplying two arguments).
+In this situation, our tracer will still register the entire call, but flag the {\tt rhs} argument to indicate to later stages of the analysis that there was an issue evaluating that argument.
 
 For each function of each package, we consolidate all recorded observations
 into a function signature. The details of how consolidation is parameterized
@@ -517,25 +535,18 @@ the next section.
 
 \section{Stuff}
 
-\AT{Do we want to talk about how sometimes we can't eval an argument, even if a function executes successfully?
-Like pipe from magrittr.}
-
-We will need a notion of polymorphism when undertaking this analysis. R
-is unityped, and the only notion of polymorphism in the language is its use
-of dynamic dispatch on the class of an argument.  For our purposes, we will
-define 3 simple types of polymorphism, closely connected with the reflection
-functions we use.  We start by defining what it means for an {\it argument}
-to be polymorphic.  \AT{Could be valuable to have an example here.}
+We will need a notion of polymorphism, and thus a notion of type, when undertaking this analysis. 
+R is unityped, and the only notion of polymorphism in the language is its use of dynamic dispatch on the class of an argument.  
+For our purposes, we will define a notion in type roughly in line with R's \code{typeof} reflection function, in some cases augmented by information obtained by \code{class} and \code{attributes} reflection.
+We start by defining what it means for an {\it argument} to be polymorphic. 
 
 \begin{itemize}
-\item an argument is {\it polymorphic in type} if it has been called with at
-  least two distinct ``types'' according to the \code{typeof} function and
-  our extra analysis.
-\item similarly, an argument is {\it polymorphic in class} if it has been
-  called with at least two distinct classes according to the \code{class}
-  function.
+  \item an argument is {\it polymorphic in type} if it has been called with at
+  least two distinct types according to our definition of type.
+  
+   \item an argument is {\it polymorphic in class} if it has been called with at least two distinct classes according to the \code{class} function.
 	
-\item attributes are a bit more tricky.  We can't simply count the number of
+  \item attributes are a bit more tricky.  We can't simply count the number of
   attributes that have inhabited an argument, since values can contain
   arbitrarily many attributes (and having several attributes isn't
   polymorphism---think records).  Instead, we define the {\it attribute
@@ -546,16 +557,15 @@ to be polymorphic.  \AT{Could be valuable to have an example here.}
 
 \end{itemize}
 
-There is an important distinction to be made between the result of
-\code{typeof} and that of \code{class} and \code{attributes}: In R, the
-\code{typeof} a value cannot change, and this is not the case with class and
-attributes.  As mentioned in \AT{an earlier section}, the class of values
-can be easily redefined by assigning to the value's class attribute.
-Similarly, attributes can be dynamically added, removed, or changed.
+The main ingredient of our types is the {\tt typeof} a value, and there is an important distinction to be made between the result of \code{typeof} and that of \code{class} and \code{attributes}.
+In R, the \code{typeof} a value cannot change, and this is not the case with class and attributes.  
+As mentioned in \AT{an earlier section}, the class of values can be easily redefined by assigning to the value's class attribute, and similarly attributes can be dynamically added, removed, or changed.
 
-This begs the question: what sort of classes and attribute patterns occur
-naturally, before possible user tampering?  In terms of classes, the
-discussion can be found in Section~\ref{sec:rlang}.  As for attributes:
+While we do consider some class and attribute information when constructing our types, it is also valuable to consider them entirely separate from types.
+Users are free to define their own classes, and arbitrarily add and remove attributes, and interesting patterns might arise in considering them.
+That said, not attribute patterns and classes are necessarily interesting, and indeed some of R's built-in data structures use them to some extend.
+For one, data frames have a {\tt data.frame} class (explicitly on the class attribute).
+Other standard patterns are:
 
 \begin{itemize}
 
@@ -564,7 +574,7 @@ discussion can be found in Section~\ref{sec:rlang}.  As for attributes:
   "data.frame"} upon creation).
 	
 \item matrices have at least a {\tt dim} attribute with matrix dimensions,
-  and optionally a {\tt dimnames} attribute for dimension names.
+  and optionally a {\tt dimnames} attribute for dimension names. Curiously, the {\tt dim} attribute is all that is needed to define a matrix (i.e., a list with a {\tt dim} attribute {\it is} a matrix).
 
 \item lists and vectors may have a {\tt names} attribute, which assigns
   names to locations.
