@@ -384,8 +384,13 @@ one, we list how many lines of R and C/C++ the packages contains.
 Typically, C/C++ code is used to implement performance critical portions of
 the code. We show the number of scripts that could be extracted from the
 package. Each script corresponds to either one use-case or a set of unit
-tests.  Figure~\ref{allcloc} shows the size of the code across all the
-packages we have used.  Lastly, Figure~\ref{recorded} gives the number of
+tests.  
+
+Figure~\ref{allcloc} shows the size of the code across all the packages we have used. 
+The lines of R code are above the X axis, and lines of C code below.
+All counts are $log_{10}$-scaled, an entries are in ascending order by number of lines of R
+
+ Lastly, Figure~\ref{recorded} gives the number of
 function signatures that we recorded while executing the scripts of each
 package.
 
