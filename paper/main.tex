@@ -387,14 +387,20 @@ package. Each script corresponds to either one use-case or a set of unit
 tests.  
 
 Figure~\ref{allcloc} shows the size of the code across all the packages we have used. 
-The lines of R code are above the X axis, and lines of C code below.
-All counts are $log_{10}$-scaled, an entries are in ascending order by number of lines of R
+The lines of R code are above the X-axis, and lines of C code below.
+All counts are $log_{10}$-scaled, and entries are in ascending order by number of lines of R.
+Roughly speaking, the majority of R packages have between 100 and 1000 lines of code.
+In terms of C, only ~25\% of packages have any C code.
+C and C++ are often used to implement parts of a package where performance is critical.
 
- Lastly, Figure~\ref{recorded} gives the number of
-function signatures that we recorded while executing the scripts of each
-package.
+Lastly, Figure~\ref{recorded} plots the relationship between recorded and observed signatures.
+Here, \# observed $>$ \# recorded since it's impossible to record more traces than those which pass through the tracer.
+Numbers are again $log_{10}$-scaled.
 
 \AT{TODO Touch up graphs.}
+\AT{TODO Other interesting plots? Recorded vs \# scripts?}
+
+Having built a sense for the corpus of data that we're dealing with, we will turn our attention to our methods of data collection.
 
 \begin{figure}[htbp]
 \begin{center}
