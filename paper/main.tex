@@ -343,80 +343,59 @@ try to capture attributes at the risk of increased complexity.
 \newpage
 \section{Corpus}\label{sec:corpus}
 
-In this section, we present our dataset. R aims to accommodate data
-analysts, their workflows start with data import, followed by cleaning, and
-then by steps of modeling, transformation and visualization. Often, the code
-of these analysis pipelines resides, together with the data and results, in
-notebooks. Few notebooks are publicly shared, and when they are, the data
-isn't. For this reason our analysis focuses on packages which bundle
-reusable units of R code with documentation, sample data and use-cases.
+In this section, we present our dataset. The R language aims to accommodate
+data analysts; their workflows start with data import, followed by cleaning,
+and then by steps of modeling, transformation and visualization. Often, the
+code of these analysis pipelines resides, together with the data and
+results, in notebooks. Few notebooks are publicly shared, and when they are,
+the data isn't. For this reason our analysis focuses on packages which
+bundle reusable units of R code with documentation, sample data and
+use-cases.
 
 We focus on packages hosted on the \emph{Comprehensive R Archive Network} or
 CRAN.  With over 13,000 packages, CRAN is the largest repository of software
 written in R. It is experiencing sustained growth with an average of size
 new packages a day~\cite{LIgges2017}.  Unlike sites like GitHub, CRAN is a
-curated collection of packages: A package is only accepted to CRAN if it
-abides by a number of well-formedness rules.  Most relevant for our
-purposes, packages must have data, examples, vignettes and tests, all of
-which must successfully run. From our perspective this means that each
-package in CRAN comes with several executable scripts that exercise some of
-its functionality.  Notable exceptions to this rule are packages only
-containing data, which have no runnable code but are referenced by other
-packages.
-In our experience, only \DATAPKGS packages had no executable test or example code,
-accounting for \DATAPKGSPERC of CRAN.
+\emph{curated} collection: A package is only accepted to CRAN if it abides
+by a number of well-formedness rules.  Most relevant for our purposes,
+packages must have data, examples, vignettes and tests, all of which must
+successfully run. From our perspective this means that each package in CRAN
+comes with several executable scripts that exercise some of its
+functionality.  Notable exceptions to this rule are packages only containing
+data, which have no runnable code but are referenced by other packages.
+Only \DATAPKGS packages had no executable code, accounting for \DATAPKGSPERC
+of CRAN.
 
-Our corpus is a subset of CRAN, consisting of \PACKAGES packages, accounting
-for some \PERCENTCRAN of all packages.  These packages have a total of \RLOC
-lines of R code and \CLOC lines of C code. For each package, we extracted
-all executable code snippets from documentation, vignettes and tests and ran
-them independently recording all calls to R functions.  It is noteworthy that
-in order to run the scripts in one package, it is often necessary to load a
-number of other packages.  In~\cite{issta18}, the authors estimated code
-coverage to be around 68\% when including reverse dependencies.  As our infrastructure
-adds overhead to script execution, coupled with the fact that some scripts take 
-inordinate amounts of time to run, we limit our analysis of any given package to one hour.
-We capture and record function signatures on-the-fly, though, so we do collect (partial) data even 
-for these long-running packages.
+The corpus used in this paper is a subset of CRAN. We retained packages that
+could be run by our infrastructure in less than one hour. This corpus
+consists of \PACKAGES packages, accounting for some \PERCENTCRAN of all
+packages.  These packages have a total of \RLOC lines of R code and \CLOC
+lines of C code. Figure~\ref{allcloc} shows a per-package breakdown of the
+size of each package sorted by increasing numbers of lines of R. The figure
+suggests that there is little correlation between the C/C++ parts and how
+many lines of R a package contains. The median size of a package is 541
+lines of R code and the largest package has 86K LOC. Typically, C/C++ code
+is used to implement performance critical portions of the code. The majority
+of package, 8,375 to be precise, have no C or C++ code.  The remaining 3,078
+packages, have a median 572 lines of C and the largest package has 385,839
+lines of C.
 
-Figure~\ref{most} shows the ten most downloaded CRAN packages.  For each
-one, we list how many lines of R and C/C++ the packages contains.
-Typically, C/C++ code is used to implement performance critical portions of
-the code. We show the number of scripts that could be extracted from the
-package. Each script corresponds to either one use-case or a set of unit
-tests.  
-
-Figure~\ref{allcloc} shows the size of the code across all the packages we have used. 
-The lines of R code are above the X-axis, and lines of C code below.
-All counts are $log_{10}$-scaled, and entries are in ascending order by number of lines of R.
-Roughly speaking, the majority of R packages have between 100 and 1000 lines of code.
-In terms of C, only ~25\% of packages have any C code.
-C and C++ are often used to implement parts of a package where performance is critical.
-
-Lastly, Figure~\ref{recorded} plots the relationship between recorded and observed signatures.
-Here, \# observed $>$ \# recorded since it's impossible to record more traces than those which pass through the tracer.
-Numbers are again $log_{10}$-scaled.
-
-\AT{TODO Touch up graphs.}
-\AT{TODO Other interesting plots? Recorded vs \# scripts?}
-
-Having built a sense for the corpus of data that we're dealing with, we will turn our attention to our methods of data collection.
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.6]{linesofrandccode}
-\caption{Lines of code in the analyzed corpus. \# of lines of R code are above 0, \# of lines of C code are below 0.}
-\label{allcloc}
-\end{center}
+\begin{figure}[!b]\begin{center}
+\includegraphics[width=.9\textwidth]{linesofrandccode}
+\caption{Lines of code (log scal); for each package, R is above 0, and C/C++
+  below}\label{allcloc}\end{center}
 \end{figure}
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=0.6]{recordsbypkg}
-\caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
-\label{recorded}
-\end{center}
-\end{figure}
+
+For each package, we extracted all executable code snippets from
+documentation, vignettes and tests and ran them independently recording all
+calls to R functions.  It is noteworthy that in order to run the scripts in
+one package, it is often necessary to load a number of other packages.
+In~\cite{issta18}, the authors estimated code coverage to be around 68\%
+when including reverse dependencies.  As our infrastructure adds overhead to
+script execution, coupled with the fact that some scripts take inordinate
+amounts of time to run, this is why we limited our analysis of any given
+package to one hour.  
 
 % https://www.r-pkg.org/downloaded
 \begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r|r|r@{}}\hline
@@ -435,39 +414,53 @@ Having built a sense for the corpus of data that we're dealing with, we will tur
 \end{tabular}}\caption{10 Most Downloaded Packages.}\label{most}
 \end{figure}
 
+Figure~\ref{most} shows the ten most downloaded CRAN packages.  For each
+one, we list how many lines of R and C/C++ the packages contains.  We show
+the number of scripts that could be extracted from the package. Each script
+corresponds to either one use-case or a set of unit tests. We print the
+number of function calls that were observed by our infastructure, and the
+number of unique signatures that were recorded.
+
+Our infrastructure only retains unique argument/return combinations. Thus,
+while we observe large number of functions being called with different
+values, the types of these function call are often similar. Over the entire
+corpus, we can see the relation between observed and recorded calls in
+Figure~\ref{recorded}.  The median number of observed calls is 82 and
+maximum is 19 million.  The median number of recorded signatures is 16 and
+the maxium is 8,422. These numbers are skewed by a number of scripts doing
+very few calls before plunging into C code.
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{recordsbypkg}
+\caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
+\label{recorded}\end{center}
+\end{figure}
+
 \newpage
 \section{Methods}
 
-In this section, we will detail our methodology for collecting data.  The
-basic idea we are exploring is to observe arguments and return values of
-function calls, and from these generalize possible type signatures for the
-called functions. To this end, we build on an open source tool called
-\genthat whose purpose is to generate unit tests for R
-libraries~\cite{issta18}.  To generate test cases, one must record and
-accurately recreate arguments and return values and avoid generating
-redundant tests (i.e. tests that do not increase code coverage). For our
-purposes, we change the existing tool in two main ways: We record argument
-\emph{shapes} rather than their values, and given the limited number of shapes
-this allowed us to avoid having to run the code coverage minimization phase of
-the tool. Both changes were beneficial for scalability---allowing us to
-trace more calls than was reported in~\cite{issta18}.
+In this section, we will detail our methodology for collecting data.  
+Basically, our aim is to observe arguments and return values of function calls, and from these generalize possible type signatures for the called functions. 
+To this end, we build on an open source tool called \genthat whose purpose is to generate unit tests for R libraries~\cite{issta18}.  
+\genthat achieves this by synthesizing unit tests from recorded function argument and return values, comparing the test against existing ones to avoid generating tests which do not increase code coverage.
+To suit our purposes, we change the existing tool in two main ways: 
+We record argument \emph{shapes} rather than values, and given the limited number of shapes this allowed us to avoid having to run the code coverage minimization phase of the tool. 
+Both changes were beneficial for scalability, allowing us to trace far more calls than was reported in the \genthat work~\cite{issta18}.
 
 \subsection{Example}
 
-To illustrate our approach, consider the following script which adds a double
-to an integer, and then creates a matrix and a vector, and adds them together to
-get a new matrix.
+To illustrate our approach, consider the following script which adds a double to an integer, and then creates a matrix from a vector, and adds them together to get a new matrix.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-> 1 + 2L
+> 1 + 2L                        # add double and integer
 [1] 3
-> x <- c(1,2,3,4)
-> attr(x,"dim") <- c(2,2)
-> x + c(1,2)
+> x <- c(1,2,3,4)               # save double vector
+> attr(x,"dim") <- c(2,2)       # assign to "dim" attribute
+> x + c(1,2)                    # add double 3 to each matrix element matrix
      [,1] [,2]
 [1,]    2    4
 [2,]    4    6
-\end{lstlisting}}\caption{Example script}\label{example}\end{figure}
+\end{lstlisting}}\caption{Example script.}\label{example}\end{figure}
 
 The functions being called here are \k{`+`}, \k{`<-`}, \k{c} and
 \k{`attr<-`}.  Some functions syntactic support \AT{?}, addition is infix, and the

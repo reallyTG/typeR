@@ -34,7 +34,7 @@ total_recorded_sigs %>%
   inner_join(records_by_fun, by="names") %>%
   filter(obs != 0, rec !=0) %>% 
   inner_join(cloc, by="names") %>%
-  filter(rec <= obs) %>%                      # Added this
+  filter(rec <= obs) %>%                      # Added this: FIXME, understand why
   filter(r_counts != 0) -> df
 
 top_10 <- c("Rcpp", "rlang", "glue", "tibble", "stringi", "ggplot2", "dplyr", "pillar", "R6", "stringr")
@@ -79,7 +79,7 @@ Similar to the R stuff.
 Now, we should combine these plots.
 Messy graphs, beware!
 ```{r}
-loc_of_top_10 <- lapply(1:length(combo_df$package_name), function(x) if (combo_df$package_name[[x]] %in% top_10) x else FALSE) 
+#loc_of_top_10 <- lapply(1:length(combo_df$package_name), function(x) if (combo_df$package_name[[x]] %in% top_10) x else FALSE) 
 
 df_rc %>% 
   select(names_o, r_c_log, c_c_log) %>% 
@@ -88,36 +88,32 @@ df_rc %>%
 
 zzz %>%
 ggplot(aes(x=names_o, value, group=1)) +
- geom_line(aes(colour = language), size=0.008) +
- labs(title = "Analysis of R Corpus (R and C)", y = "Lines of Code in Package (Log10-scaled)") + guides(colour=F) + 
+ geom_line(aes(colour = language), size=0.008) + guides(colour=F) + 
  theme( axis.text.x  = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(),
         axis.ticks.y = element_line(),  panel.grid.major.y = element_line(colour = "red")) + # ,
-  scale_y_continuous(name="Lines of Code in Package", breaks = c(-4, -3, -2, -1, 0, 1, 2, 3, 4), 
+  scale_y_continuous(name="", breaks = c(-4, -3, -2, -1, 0, 1, 2, 3, 4), 
                      labels = c(10000, 1000, 100, 10, 0, 10, 100, 1000, 10000)) 
 
 #+  geom_text_repel(data=subset(zzz, names %in% top_10 & language == "loc_r"), 
 #                  aes(y = 0, label=names), position=position_dodge(0.9), direction="y")
   
 
-ggsave("../paper/plots/linesofrandccode.pdf")
+ggsave("../paper/plots/linesofrandccode.pdf",width=10,height=4)
 ```
 
 Plot:
 ```{r}
 df_rc %>%
-  mutate(rec=log(rec),obs=log(obs))  %>%
-  ggplot(aes(x=rec, y=obs)) +
-                geom_point(size=0.1) + 
-                labs( title = "Numbers of Observed Signatures",
-                      y = "Obs Invocations in Pkg",
-                      x = "Rec Invocations in Pkg")
-                # theme(axis.text.x = element_blank(), axis.title.x=element_blank(),
-                #       axis.ticks.x=element_blank()) #+
-                # scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5, 6),
-                #      labels = c(0, 10, 100, 1000, 10000, 100000, 1000000))
+  mutate(rec=log10(rec),obs=log10(obs))  %>%
+  ggplot(aes(y=rec, x=obs)) + geom_point(size=0.1) + 
+    labs( x = "Observed", y = "Recorded") +
+    scale_x_continuous(breaks = c( 1, 2, 3, 4, 5, 6, 7),
+                       labels = c( 10, 100, 1000, 10000, 100000, 1000000, 10000000))+
+    scale_y_continuous(breaks = c( 1, 2, 3, 4, 5, 6, 7),
+                       labels = c( 10, 100, 1000, 10000, 100000, 1000000, 10000000))
 
 
 # generate file
-ggsave("../paper/plots/recordsbypkg.pdf")
+ggsave("../paper/plots/recordsbypkg.pdf",width=9,height=5)
 ```
 
