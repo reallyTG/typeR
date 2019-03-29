@@ -444,12 +444,12 @@ Basically, our aim is to observe arguments and return values of function calls, 
 To this end, we build on an open source tool called \genthat whose purpose is to generate unit tests for R libraries~\cite{issta18}.  
 \genthat achieves this by synthesizing unit tests from recorded function argument and return values, comparing the test against existing ones to avoid generating tests which do not increase code coverage.
 To suit our purposes, we change the existing tool in two main ways: 
-We record argument \emph{shapes} rather than values, and given the limited number of shapes this allowed us to avoid having to run the code coverage minimization phase of the tool. 
+We record argument \emph{shapes} rather than values, and given the limited number of shapes this allowed us to avoid having to run \genthat's code coverage minimization phase. 
 Both changes were beneficial for scalability, allowing us to trace far more calls than was reported in the \genthat work~\cite{issta18}.
 
 \subsection{Example}
 
-To illustrate our approach, consider the following script which adds a double to an integer, and then creates a matrix from a vector, and adds them together to get a new matrix.
+To illustrate our approach, consider the following script which adds a double to an integer, and then creates a matrix from a vector, finally adding them together to get a new matrix.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 > 1 + 2L                        # add double and integer
@@ -514,20 +514,16 @@ such a missing value results in an error. For practical reasons, we do not
 record the contents of environments. These can be used as hash tables and
 may be big and are quite likely different from one another.
 
-In R all arguments are passed as promises, unused arguments will be
-unevaluated, for these we can not report a type. 
-\AT{Unused arguments are still picked up by genthat, so we evaluate them.
-I suppose this might lead to issues in some rare circumstances.}
-
-\AT{Do we care about this discussion? This is probably a bit too specific to the implementation.}
-Packages which implement metaprogramming mechanisms are also a bit challenging.
+In R all arguments are passed as promises, and unused arguments will be unevaluated.
+Our tracer does still collect information on these arguments, as whether or not they were used doesn't change the fact that they were in fact passed. 
+In some cases, arguments aren't even intended to be evaluated.
 For example, consider the {\tt magrittr} package, which implements the Tidyverse's pipe functions.
 Refer to Figure~\ref{fig:magpipeex} for a translation of a call to {\tt magrittr}'s pipe ({\tt \%>\%}) function.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 mul_by <- function(x, y) { x * y }
 
 4 %>% mul_by(3) === `%>%`(lhs = 4, rhs = mul_by(3)) === mul_by(4, 3)
-\end{lstlisting}}\caption{Example and rough translation of \%$>$\% call.}\label{fig:realex}\end{figure}
+\end{lstlisting}}\caption{Example and rough translation of \%$>$\% call.}\label{fig:magpipeex}\end{figure}
 Our tracer evaluates function arguments, and here \code{rhs = mul_by(3)}, but that's erroneous code (you can't call {\tt mul\_by} without supplying two arguments).
 In this situation, our tracer will still register the entire call, but flag the {\tt rhs} argument to indicate to later stages of the analysis that there was an issue evaluating that argument.
 
@@ -744,10 +740,79 @@ tee <- function (x, theta, D1, D2, phi)  {
 %
 \section{Results}\label{sec:results}
 
-\AT{Note:} My plan for this section is to linearly go through the
-data, and show logical transitions between various type systems.  I'll start
-with the finest-grained one.
-\AT{End Note.}
+\AT{This is the (partial) data for the new layout.
+We need to decide how to tackle L3.}
+
+Figure~\ref{fig:L1argcounts} has arg counts for L1.
+
+Figure~\ref{fig:L1funcounts} has fun counts for L1.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Mar 29 18:10:23 2019
+\begin{table}[ht]
+\label{fig:L1argcounts}
+\centering
+\begin{tabular}{lrr}
+  \hline
+Type & Count & Percentage \\ 
+  \hline
+Full Monomorphic & 784K & 85.76 \\ 
+  Monomorphic in Type & 845K & 92.46 \\ 
+  Monomorphic in Class & 827K & 90.41 \\ 
+  Monomorphic in Attribute Pattern & 825K & 90.27 \\ 
+  Total Seen & 914K & --- \\ 
+   \hline
+\end{tabular}
+\caption{typeof type system (L1) (arguments)}
+\end{table}
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Mar 29 18:10:23 2019
+\begin{table}[ht]
+\label{fig:L1funcounts}
+\centering
+\begin{tabular}{lrr}
+  \hline
+Type & Count & Percentage \\ 
+  \hline
+Full Monomorphic & 144K & 66.54 \\ 
+  Monomorphic in Type & 173K & 80.16 \\ 
+  Monomorphic in Class & 163K & 75.21 \\ 
+  Monomorphic in Attribute Pattern & 161K & 74.37 \\ 
+  Total Seen & 216K & --- \\ 
+   \hline
+\end{tabular}
+\caption{typeof type system (L1) (functions)}
+\end{table}
+
+Table~\ref{tab:L1toppoly} has the top polymorphic signatures for L1.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Mar 29 18:13:17 2019
+\begin{table}[ht]
+\label{tab:L1toppoly}
+\centering
+\begin{tabular}{lrr}
+  \hline
+type & count & perc \\ 
+  \hline
+double, integer & 19799 & 28.73 \\ 
+  double, list & 5324 & 7.72 \\ 
+  double, NULL & 5152 & 7.48 \\ 
+  character, NULL & 3682 & 5.34 \\ 
+  double, logical & 3388 & 4.92 \\ 
+  character, double & 2842 & 4.12 \\ 
+  list, NULL & 2799 & 4.06 \\ 
+  character, list & 1836 & 2.66 \\ 
+  character, integer & 1663 & 2.41 \\ 
+  character, double, integer & 1362 & 1.98 \\ 
+   \hline
+\end{tabular}
+\caption{Top polymorphic signatures for the L1 type system.}
+\end{table}
+
+
+\AT{!!! The layout of this section will change drastically. !!!}
+\AT{Old stuff beyond.}
 
 Having built an understanding of our data collection and analysis
 pipeline, we will turn our attention to the results of our analysis.  We

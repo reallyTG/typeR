@@ -107,7 +107,8 @@ type_map_T0_to_r <- list(
   `scalar/complex`    = "complex",
   `list<>`            = "list",      # note: make sure to convert list<X> -> list<>
   raw_NA              = "logical",
-  `data.frame`        = "list"
+  `data.frame`        = "list",
+  matrix              = "list"
 )
 
 type_map_r_to_real <- list(
@@ -856,18 +857,18 @@ distinguish_matrices_df <- function(df) {
 #   df
 # }
 
-change_type_systems_lopkg <- function(lopkg_c, a_type_map) {
-  lapply(lopkg_c, function(lofun_c) change_type_systems_lofun(lofun_c, a_type_map))
+change_type_systems_lopkg <- function(lopkg_c, a_type_map, unparam=F) {
+  lapply(lopkg_c, function(lofun_c) change_type_systems_lofun(lofun_c, a_type_map, unparam))
 }
 
-change_type_systems_lofun <- function(lofun_c, a_type_map) {
-  lapply(lofun_c, function(df) change_type_systems_df(df, a_type_map))
+change_type_systems_lofun <- function(lofun_c, a_type_map, unparam=F) {
+  lapply(lofun_c, function(df) change_type_systems_df(df, a_type_map, unparam))
 }
 
-change_type_systems_df <- function(df, a_type_map) {
+change_type_systems_df <- function(df, a_type_map, unparam=F) {
   # new_types <- lapply(df$type, unlist)
   # df$type <- translate_type_list_with_type_map(new_types, a_type_map)
-  translate_df_with_type_map(df, a_type_map)
+  translate_df_with_type_map(df, a_type_map, unparam)
 }
 
 fold_NULL_into_other_types_df <- function(df) {
@@ -904,7 +905,7 @@ fold_NULL_and_NA_into_other_types_df <- function(df) {
 }
 
 fold_together_int_double_df <- function(df) {
-  translate_df_with_type_map(df, type_map_r_to_real)
+  translate_df_with_type_map(df, type_map_r_to_real, unparam=F)
 }
 
 combine_scalar_vector_where_appropriate <- function(df) {
@@ -1163,9 +1164,10 @@ process_list_for_types <- function(lot, a_type_map) {
   got <- lapply(got, translate) # max depth needed is 2, just check it
 }
 
-translate_df_with_type_map <- function(df, a_type_map) {
-  df$type <- translate_type_list_with_type_map(df$type, a_type_map)
-  combine_scalar_vector_where_appropriate(df)
+translate_df_with_type_map <- function(df, a_type_map, unparam=F) {
+  df$type <- translate_type_list_with_type_map(df$type, a_type_map, unparam)
+  # combine_scalar_vector_where_appropriate(df)
+  df
 }
 
 get_inner_type_of_list_param <- function(lt) {
