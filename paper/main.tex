@@ -828,11 +828,10 @@ type & count & perc \\
 
 Some entries in the Table~\ref{tab:L1toppoly} are clear (e.g., double, integer polymorphism is unsurprising), others are strange (e.g., character, double), but in fact they all have some explanation.
 
-\begin{itemize}
+\begin{enumerate}
 
 	\item \{double, integer\}: in R, doubles and integers are effectively interchangeable, as casting from one to the other is straightforward and automatically performed when appropriate.
 	For example, \code{c(1, 2)[1.9] == 1}.
-	We can easily consolidate these into one type, say a real number type.
 	
 	\item \{double, list\} and \{character, list\}: at first glance, these type signatures are suspect.
 	Why would so many programmers want to pass a double or a list to some function?
@@ -841,7 +840,6 @@ Some entries in the Table~\ref{tab:L1toppoly} are clear (e.g., double, integer p
 	
 	\item \{X, NULL\}: in most languages, NULL is an inhabitant of all types, and we see that this is not the case in R.
 	That said, there is a pattern of many functions having default or optional arguments, and in many of these cases NULL is the default value.
-	This is a distinction that might be worth collapsing, and further this indicates that some annotation for optional arguments would be useful.
 	
 	\item \{double, logical\}: the first values of type logical that come to mind are TRUE and FALSE, which does little to explain this strange signature.
 	Indeed, the key here is an implementation detail of R's: recall that NAs inhabit every type.
@@ -854,7 +852,24 @@ Some entries in the Table~\ref{tab:L1toppoly} are clear (e.g., double, integer p
 	Another option is dates: R has many ways to present dates, and strings and numbers feature among them.
 	Finally, many \AT{get numbers} functions in R return a string if an error occurs during execution.
 
-\end{itemize}
+\end{enumerate}
+
+How will we deal with this?
+
+\begin{enumerate}
+
+	\item consolidating doubles and integers into a single real-number type would account for all of this polymorphism.
+	
+	\item vectors!
+	
+	\item if we roll NULLs into every type, we can cleanly deal with these X, NULL signatures.
+	As we have established that an annotation for an optional argument is useful, this will allow us to reveal other interesting patterns.
+	
+	\item similarly with NULLs, if we encounter a ...
+		
+	\item indices?
+
+\end{enumerate}
 
 \AT{!!! The layout of this section will change drastically. !!!}
 \AT{Old stuff beyond.}
