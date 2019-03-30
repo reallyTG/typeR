@@ -740,12 +740,17 @@ tee <- function (x, theta, D1, D2, phi)  {
 %
 \section{Results}\label{sec:results}
 
-\AT{This is the (partial) data for the new layout.
-We need to decide how to tackle L3.}
+Having built an understanding of our data collection and analysis pipeline, we will turn our attention to the results of our analysis.  
 
-Figure~\ref{fig:L1argcounts} has arg counts for L1.
+The logical ``baseline'' for the design of a static type system for R is promotion of the language's dynamic types (in the sense of \code{typeof}) to static types; we call this type system L0.
+Such a type system exactly reflects the types of values in the R runtime environment, as the \code{typeof} an object is in direct correspondence with the runtime type tag of the value.
 
-Figure~\ref{fig:L1funcounts} has fun counts for L1.
+In this section, we will begin by breaking down our corpus of data with L0 in mind.
+From this perspective, we will see how current R programmers see types in the language, and we will leverage our newfound insight to design a type system which should be relevant to them.
+
+Without further ado, let's look at the data, first focusing on a broad overview of the polymorphism in L0.
+Figure~\ref{fig:L1argcounts} shows the polymorphicity of argument positions in R function.
+From there, we build up a picture of the polymorphicity of functions as a whole, and the data for this function polymorphism can be found in Figure~\ref{fig:L1funcounts}.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 29 18:10:23 2019
@@ -763,7 +768,7 @@ Full Monomorphic & 784K & 85.76 \\
   Total Seen & 914K & --- \\ 
    \hline
 \end{tabular}
-\caption{typeof type system (L1) (arguments)}
+\caption{typeof type system (L0) (arguments)}
 \end{table}
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 29 18:10:23 2019
@@ -781,10 +786,21 @@ Full Monomorphic & 144K & 66.54 \\
   Total Seen & 216K & --- \\ 
    \hline
 \end{tabular}
-\caption{typeof type system (L1) (functions)}
+\caption{typeof type system (L0) (functions)}
 \end{table}
 
-Table~\ref{tab:L1toppoly} has the top polymorphic signatures for L1.
+From Figure~\ref{fig:L1argcounts}, we glean that argument positions aren't very polymorphic in L0.
+An argument which is "Monomorphic in Type" is monomorphic w.r.t. \code{typeof}, in that it was only ever observed to have one \code{typeof}.
+Similarly, an argument is "Monomorphic in Class" if it is only ever called with one {\tt class}.
+As we said earlier, attributes are a little more complicated, and an argument which is "Monomorphic in Attribute Pattern" was only ever observed to have one attribute pattern (and that pattern may itself contain many attributes).
+
+As for the polymorphism of functions as a whole, we glean from Figure~\ref{fig:L1funcounts} that a sizeable number of functions are polymorphic.
+Functions are said to be polymorphic if at least one of their arguments or return are polymorphic.
+\AT{Say more?}
+
+At present, we will only concern ourselves with \code{typeof} polymorphism, and we will later worry about classes and attributes.
+To get an idea of what kinds of polymorphism occur, we will look at the most commonly occurring polymorphic argument signatures.
+Table~\ref{tab:L1toppoly} has the top polymorphic signatures for L0.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 29 18:13:17 2019
@@ -795,33 +811,56 @@ Table~\ref{tab:L1toppoly} has the top polymorphic signatures for L1.
   \hline
 type & count & perc \\ 
   \hline
-double, integer & 19799 & 28.73 \\ 
-  double, list & 5324 & 7.72 \\ 
-  double, NULL & 5152 & 7.48 \\ 
-  character, NULL & 3682 & 5.34 \\ 
-  double, logical & 3388 & 4.92 \\ 
-  character, double & 2842 & 4.12 \\ 
-  list, NULL & 2799 & 4.06 \\ 
-  character, list & 1836 & 2.66 \\ 
-  character, integer & 1663 & 2.41 \\ 
-  character, double, integer & 1362 & 1.98 \\ 
+  double, integer & 19,799 & 28.73 \\ 
+  double, list & 5,324 & 7.72 \\ 
+  double, NULL & 5,152 & 7.48 \\ 
+  character, NULL & 3,682 & 5.34 \\ 
+  double, logical & 3,388 & 4.92 \\ 
+  character, double & 2,842 & 4.12 \\ 
+  list, NULL & 2,799 & 4.06 \\ 
+  character, list & 1,836 & 2.66 \\ 
+  character, integer & 1,663 & 2.41 \\ 
+  character, double, integer & 1,362 & 1.98 \\ 
    \hline
 \end{tabular}
-\caption{Top polymorphic signatures for the L1 type system.}
+\caption{Top polymorphic signatures for the L0 type system.}
 \end{table}
 
+Some entries in the Table~\ref{tab:L1toppoly} are clear (e.g., double, integer polymorphism is unsurprising), others are strange (e.g., character, double), but in fact they all have some explanation.
+
+\begin{itemize}
+
+	\item \{double, integer\}: in R, doubles and integers are effectively interchangeable, as casting from one to the other is straightforward and automatically performed when appropriate.
+	For example, \code{c(1, 2)[1.9] == 1}.
+	We can easily consolidate these into one type, say a real number type.
+	
+	\item \{double, list\} and \{character, list\}: at first glance, these type signatures are suspect.
+	Why would so many programmers want to pass a double or a list to some function?
+	The key insight here is that doubles and characters are {\it vectorized} in R, meaning that a double is really a vector of doubles.
+	Thus, these seemingly strange signatures are revealed to be entirely reasonable: these signatures are likely to describe arguments which are either vectors or lists.
+	
+	\item \{X, NULL\}: in most languages, NULL is an inhabitant of all types, and we see that this is not the case in R.
+	That said, there is a pattern of many functions having default or optional arguments, and in many of these cases NULL is the default value.
+	This is a distinction that might be worth collapsing, and further this indicates that some annotation for optional arguments would be useful.
+	
+	\item \{double, logical\}: the first values of type logical that come to mind are TRUE and FALSE, which does little to explain this strange signature.
+	Indeed, the key here is an implementation detail of R's: recall that NAs inhabit every type.
+	As it happens, the default type of NA is logical (e.g., \code{typeof(NA) == "logical"}), and this is likely what is being seen here.
+	We will control for this by distinguishing NAs with their own type, {\tt raw\_NA}, but we will get to that in time.
+	
+	\item \{character, double\}, \{character, integer\} and \{character, double, integer\}: yet more strange signatures.
+	These signatures are a little more subtle to explain.
+	For one, indexing lists and vectors can be done with either strings (i.e., to access a named index) or with numbers.
+	Another option is dates: R has many ways to present dates, and strings and numbers feature among them.
+	Finally, many \AT{get numbers} functions in R return a string if an error occurs during execution.
+
+\end{itemize}
 
 \AT{!!! The layout of this section will change drastically. !!!}
 \AT{Old stuff beyond.}
 
-Having built an understanding of our data collection and analysis
-pipeline, we will turn our attention to the results of our analysis.  We
-approach the data with the purpose of informing the design of a static type
-system for R. 
-
-The logical ``baseline'' for the design of a static type system for R is
-promotion of the language's dynamic types (in the sense of \code{typeof}) to
-static types, but there are some clear limitations to this approach.  For
+\AT{Limitations of L0.}
+... but there are some clear limitations to this approach.  For
 example, \code{typeof} makes no distinction between vectors and scalars, as
 indeed there is no such distinction in R.  But that doesn't mean that there
 {\it couldn't} be a distinction, as an all-new runtime environment design
