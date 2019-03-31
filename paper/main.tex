@@ -63,6 +63,7 @@
 \newcommand{\INDEXYPERC}{53\%\xspace}		% TODO Not an accurate count.
 \newcommand{\DATAPKGS}{206\xspace}
 \newcommand{\DATAPKGSPERC}{1.5\%\xspace}
+\newcommand{\METAARGCOUNT}{7,051\xspace}
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -742,6 +743,8 @@ tee <- function (x, theta, D1, D2, phi)  {
 
 Having built an understanding of our data collection and analysis pipeline, we will turn our attention to the results of our analysis.  
 
+\AT{Maybe it's best to ignore attributes and classes for now?}
+
 %
 %
 %
@@ -838,6 +841,7 @@ Some entries in the Table~\ref{tab:L1toppoly} are clear (e.g., double, integer p
 
 	\item \{double, integer\}: in R, doubles and integers are effectively interchangeable, as casting from one to the other is straightforward and automatically performed when appropriate.
 	For example, \code{c(1, 2)[1.9] == 1}.
+	This distinction is mainly just relevant to the implementation, as integers and doubles are stored and dealt with differently in the runtime but programmers only see the distinction when printing.
 	
 	\item \{double, list\} and \{character, list\}: at first glance, these type signatures are suspect.
 	Why would so many programmers want to pass a double or a list to some function?
@@ -872,6 +876,7 @@ How will we deal with this?
 	
 	\item if we roll NULLs into every type, we can cleanly deal with these X, NULL signatures.
 	As we have established that an annotation for an optional argument is useful, this will allow us to reveal other interesting patterns.
+	\AT{If we feel the need to go into more details on NULL or NA, I have the old paragraphs commented out in the source.}
 	
 	\item similarly with NULLs, we're interested in rolling NAs in to all types.
 	As we mentioned, this is actually what the R runtime does, but a default type needed to be chosen for NAs appearing without context.
@@ -883,9 +888,17 @@ How will we deal with this?
 
 \end{enumerate}
 
-There are some clear limitations to the L0 type system.
+There are some clear limitations to the L0 type system that we should address before working through any of these other issues
 As we mentioned, \code{typeof} makes no distinction between vectors and scalars, as indeed there is no such distinction in R. 
 But as we saw, we might benefit from such a distinction, and indeed an all-new runtime environment design for R might benefit from e.g. not needing to vectorize scalar values.
+This is one of the many modifications we make, all of which are thoroughly explored in the following section.
+
+%In terms of programmer behavior, we observe a pattern of optional arguments throughout several R packages, wherein programmers specify a default argument value which is sometimes NULL.
+%Consider the snippet in Figure~\ref{fig:optnull} for an example.
+%\AT{TODO put that figure here}
+%The distinction between NULL and other types is not particularly useful to the programmer, so we propose to also collapse this distinction.
+%Not pictured in Table~\ref{tab:toppolyFDTS} are NAs, which are ascribed the type {\tt raw\_NA} in L1; NAs in fact inhabit every type, though the default NA type is {\tt logical}.
+%Just as we fold NULL into all types, we will do the same with NAs.
 
 %
 %
@@ -896,7 +909,8 @@ But as we saw, we might benefit from such a distinction, and indeed an all-new r
 To address these limitations, we augment the L0 with more fine-grained information.
 We will consider unit-length vectors to be scalars, collect list member type information to build an accurate list type, and promote NAs to their own type. 
 In addition, we collect attribute and class information to distinguish a type for data frames and matrices, as the \code{typeof} these is simply {\tt list} in R. 
-We refer to this as the L1 type system.  An example of a signature in this type system can be found in Figure~\ref{fig:exL1}.
+We refer to this as the L1 type system. 
+An example of a signature in this type system can be found in Figure~\ref{fig:exL1}.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 add_make_list <- function(x, y) {
@@ -906,6 +920,7 @@ add_make_list <- function(x, y) {
 }
 add_make_list(2, c(3, 1)) # => list(5, 3)
 \end{lstlisting}}
+
 \begin{tabular}{@{}r|l|l|l@{}}\hline
 \bf Argument & \bf Type & \bf Class &\bf Attributes \\
 x & \tt scalar/double & \tt numeric & \tt \{\} \\
@@ -959,13 +974,10 @@ The data can be found in Tables~\ref{tab:argcountsL1}~and~\ref{tab:funcountsL1}.
 \AT{We should figure out the pipeline to get the notebook output into here automatically.}
 
 We see that roughly 9\% of all argument positions in R are polymorphic in type.
-The numbers for attribute and class polymorphism are included for
-completeness, but the important number is that of type polymorphism (as our
-method of constructing types sometimes factors in class and attribute).
-Specifically for classes, often the class and \code{typeof} a value will
-line up (refer to Section~\ref{sec:rlang}).
+The numbers for attribute and class polymorphism are included for completeness, but the important number is that of type polymorphism (as our method of constructing types sometimes factors in class and attribute).
+Specifically for classes, often the class and \code{typeof} a value will line up (refer to Section~\ref{sec:rlang}).
 
-As for functions, roughly 22\% are polymorphic in type, or put differently 22\% have at least one polymorphic argument or a polymorphic return.
+As for functions, roughly 23\% are polymorphic in type, or put differently 23\% have at least one polymorphic argument or a polymorphic return.
 The discrepancy between this and the polymorphicity of arguments is explained by the tendency of some functions to have {\it many} arguments.
 
 These numbers alone are insufficient, so we ask: {\it of the polymorphic arguments, what are the most common patterns?}
@@ -992,36 +1004,23 @@ The answer to that question can be found in Table~\ref{tab:toppolyL1}.
   NULL, vector/character & 1380 & 1.72 \\
      \hline
 \end{tabular}
-\caption{Top polymorphic argument signatures in the FDTS.}
+\caption{Top polymorphic argument signatures in the L1.}
 \end{table}
 
 \AT{This should probably be discussed earlier.}
 Not pictured here, the most common polymorphic pattern in L1 is the {\tt scalar/X}, {\tt vector/X} pattern, but this is dealt with separately:
 If a function argument is observed to be both a unit-length and non-unit-length vector, then it's reasonable to assume that the argument is intended to be a vector, so we collapse the distinction in such cases.
 
-In Table~\ref{tab:toppolyL1}, we see the prominence of {\tt double} and {\tt integer} polymorphism.
-In many dynamic languages, primitive double and integer types can easily stand-in for each other as coercion between them is easy.
-In R, the distinction is mainly just relevant to the implementation, as integers and doubles are stored and dealt with differently in the runtime but programmers only see the distinction when printing.
-We address this by creating a new type, {\it real}, encompassing both.
-The expected coercion is evident throughout R.
-Refer to the snippet in Figure~\ref{fig:realex} for details.
+In Table~\ref{tab:toppolyL1}, we again see the prominence of {\tt double} and {\tt integer} polymorphism.
+As discussed previously, we will address this by creating a new {\it real} type encompassing both.
+Refer back to the snippet in Figure~\ref{fig:realex} for details.
 
 As we make the distinction between vectors and scalars, one other interesting question that arises is: {\it how many arguments are strictly scalar?}
 As it happens, over 40\% of monomorphic arguments with primitive vectorized types are always scalar (so, 40\% of {\it monomorphic} occurrences of {\tt scalar/X} or {\tt vector/X} are scalar).
-This is important as it shows that there is value in a scalar annotation, which could be used to communicate to an R runtime that vectorization of a value is not necessary, which may in turn lead to a performance improvement.
+This shows that there is value in a scalar annotation, which could be used to communicate to an R runtime that vectorization of a value is not necessary, which may in turn lead to a performance improvement.
 
-Another clear pattern in Table~\ref{tab:toppolyFDTS} is that of NULL, X.
-In many programming languages, NULLs inhabit every type, and this is not the case in our L1.
-L1 reflects many of R's implementation details, and this distinction is no exception:
-NULLs are represented as \AT{fill in} in the R runtime.
-
-In terms of programmer behavior, we observe a pattern of optional arguments throughout several R packages, wherein programmers specify a default argument value which is sometimes NULL.
-Consider the snippet in Figure~\ref{fig:optnull} for an example.
-\AT{TODO put that figure here}
-The distinction between NULL and other types is not particularly useful to the programmer, so we propose to also collapse this distinction.
-
-Not pictured in Table~\ref{tab:toppolyFDTS} are NAs, which are ascribed the type {\tt raw\_NA} in L1; NAs in fact inhabit every type, though the default NA type is {\tt logical}.
-Just as we fold NULL into all types, we will do the same with NAs.
+Another clear pattern in Table~\ref{tab:toppolyL1} is that of NULL, X.
+As we discussed, we will roll NULL (and raw NAs) into other types.
 
 The next type system design we will consider is ... .
 The number of monomorphic arguments and functions can be found in Tables~\ref{tab:argcountsWHATTS} and~\ref{tab:funcountsWHATTS} respectively.
@@ -1198,6 +1197,32 @@ The most polymorphic function in the corpus of code we analyzed is {\tt magrittr
 The fact that the pipe is the most polymorphic function is not shocking, as its goal is simply to take the right hand argument and apply it to the left hand argument, and this in a sense irrespective of type.
 
 ...
+
+%
+%
+%
+%
+\subsection{Metaprogramming}
+
+\AT{Will probably change.}
+
+Tidyverse owes some of its success to the new syntax defined by some of the included packages.
+One such example is the pipe operator \%$>$\% that we saw in the last section, and indeed this function was highly exercised by many other packages \AT{get counts}.
+We also grappled with the unfortunate truth that arguments to \%$>$\% can't always be evaluated, which causes some annoyances in the analysis.
+
+We would like to know how often packages contain functions designed for metaprogramming.
+As it happens, when arguments fail to evaluate during our analysis even as functions execute successfully, we are actually dealing with instances of metaprogramming.
+Some functions, such as those in the magrittr package, will take one (or more) of their arguments and use them as an AST, performing surgery on the expression to create some new expression that they evaluate.
+Sometimes, these arguments intended for metaprogramming {\it will} successfully evaluate in our tracer, but this is merely chance.
+For example, consider the code snippet in Figure~\ref{fig:metaexworks}.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+mul_by_w_defaults <- function(x=1, y=1) x * y
+
+4 %>% mul_by_w_defaults(2) == `%>%`(lhs = 4, rhs = mul_by(3)) 
+\end{lstlisting}}\caption{Dates in R.}\label{fig:metaexworks}\end{figure}
+
+In this example, our analysis will successfully evaluate the {\tt rhs} argument 
 
 %
 %

@@ -469,6 +469,15 @@ fun_count_all_mono_all <- function(lofun_c) {
   }))
 }
 
+count_args_matching_type <- function(df, loty, strict=F) {
+  sapply(df$type, function(t) {
+    (strict && length(t) == length(loty) && Reduce("&&", loty %in% t)) ||
+    (!strict && Reduce("&&", loty %in% t))
+  }) -> rme
+
+  rme[rme] %>% length
+}
+
 # # # # # # # # # # # # #
 #          END          #
 # <Counting Functions>  #
@@ -829,6 +838,18 @@ distinguish_matrices_df <- function(df) {
   typess <- lapply(types[add_me], function(x) {c(x, "matrix")})
   types[add_me] <- typess
   df$type <- types
+
+  df
+}
+
+annihilate_errors_df <- function(df) {
+  rows_w_error <- sapply(df$type, function(x) {
+    "error" %in% x
+  })
+
+  df[rows_w_error, "type"]  <- list("metaprogramming")
+  df[rows_w_error, "class"] <- list("metaprogramming")
+  df[rows_w_error, "attr"]  <- list("metaprogramming")
 
   df
 }

@@ -68,6 +68,7 @@ los <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_
 # Figure out which ones are matrices. Remove if the analysis picks this up (and we rerun).
 los <- lapply(los, function(lofun) lapply(lofun, distinguish_matrices_df))
 # remove "errors"
+# TODO: at a later stage, we should show results about the errors
 los <- lapply(los, function(lofun) lapply(lofun, remove_err_df))
 ```
 
@@ -98,4 +99,7 @@ put_me
 xtable(put_me) %>% print(include.rownames=F)
 ```
 
-
+3. Extras. What about errors? How often do we have metaprogramming.
+```{r}
+meta_los <- lapply(los, function(lof) lapply(lof, annihilate_errors_df))
+```
