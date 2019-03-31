@@ -23,7 +23,7 @@
   keywordstyle=\bfseries,
   commentstyle=\color{Gray}\em,
   stringstyle=\color{Gray},
-  numbers=left
+ % numbers=left
 }
 
 \lstdefinestyle{R}{ %
@@ -440,44 +440,52 @@ very few calls before plunging into C code.
 \newpage
 \section{Methods}
 
-In this section, we will detail our methodology for collecting data.  
-Basically, our aim is to observe arguments and return values of function calls, and from these generalize possible type signatures for the called functions. 
-To this end, we build on an open source tool called \genthat whose purpose is to generate unit tests for R libraries~\cite{issta18}.  
-\genthat achieves this by synthesizing unit tests from recorded function argument and return values, comparing the test against existing ones to avoid generating tests which do not increase code coverage.
-To suit our purposes, we change the existing tool in two main ways: 
-We record argument \emph{shapes} rather than values, and given the limited number of shapes this allowed us to avoid having to run \genthat's code coverage minimization phase. 
-Both changes were beneficial for scalability, allowing us to trace far more calls than was reported in the \genthat work~\cite{issta18}.
+In this section, we detail our methodology for collecting data.  Our aim is
+to observe arguments and return values of function calls, and from these
+generalize possible type signatures for the called functions.  We base our
+infrastructure on an open source tool called \genthat whose purpose is to
+generate unit tests for R libraries~\cite{issta18}.  \genthat achieves this
+by synthesizing unit tests from recorded function argument and return
+values, comparing the test against existing ones to avoid generating tests
+which do not increase code coverage.  To suit our purposes, we change the
+existing tool in two main ways: we record \emph{shapes} rather than values,
+and ignore the code coverage optimization phase.  Both changes are
+beneficial for scalability, allowing us to trace far more calls.
 
-\subsection{Example}
 
-To illustrate our approach, consider the following script which adds a double to an integer, and then creates a matrix from a vector, finally adding them together to get a new matrix.
+To illustrate our approach, consider the following script which adds a
+double to an integer, and then creates a matrix from a vector, finally
+adding them together to get a new matrix.
 
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-> 1 + 2L                        # add double and integer
+\begin{figure}[!hb]
+\begin{tabular}{ll}\begin{minipage}{5cm}
+{\small\begin{lstlisting}[style=R]
+> 1 + 2L                     
 [1] 3
-> x <- c(1,2,3,4)               # save double vector
-> attr(x,"dim") <- c(2,2)       # assign to "dim" attribute
-> x + c(1,2)                    # add double 3 to each matrix element matrix
+> x <- c(1,2,3,4)            
+> attr(x,"dim") <- c(2,2)    
+> x + c(1,2)                 
      [,1] [,2]
 [1,]    2    4
 [2,]    4    6
-\end{lstlisting}}\caption{Example script.}\label{example}\end{figure}
+\end{lstlisting}}
+\end{minipage} & 
+\begin{minipage}{8cm}\small
+\begin{tabular}{rl}
+\tt `+` &\tt D[1], I[1] -> D[1] \\
+\tt c& D[1], D[1], D[1], D[1] -> D[4]\\
+\tt `<-` &\tt S, D[3] -> D[3]\\
+\tt c & \tt D[1], D[1] -> D[2]\\
+\tt `attr<-1`&\tt  S, C, D[2] -> \\
+\tt c &\tt D[1], D[1] -> D[2]\\
+\tt `+` &\tt D[4]{dim=D[2]}, D[2] -> D[4]{dim=D[2]}
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\caption{Example script and recorded signature}\label{example}\end{figure}
 
 The functions being called here are \k{`+`}, \k{`<-`}, \k{c} and
-\k{`attr<-`}.  Some functions syntactic support \AT{?}, addition is infix, and the
-assignment to an attribute is written mixfix. The shapes we would expect to
-record are as follows:
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-`+`: D[1], I[1] -> D[1] # (args: double size 1, integer size 1, return: double size 1)
-c: D[1], D[1], D[1], D[1] -> D[4]
-`<-`: S, D[3] -> D[3]
-c: D[1], D[1] -> D[2]
-`attr<-1`:  S, C, D[2] -> 
-c: D[1], D[1] -> D[2]
-`+`: D[4]{dim=D[2]}, D[2] -> D[4]{dim=D[2]}
-\end{lstlisting}}\caption{Recorded shapes}\label{shapes}\end{figure}
-
+\k{`attr<-`}.  The shapes we would expect to record are as follows:
 In the above we abreviate types, \k{double}, \k{integer}, \k{symbol} and
 \k{character}. For vectorized types we record their length and for all types
 we record attributes with some of their values. Looking at the signatures
@@ -515,18 +523,25 @@ such a missing value results in an error. For practical reasons, we do not
 record the contents of environments. These can be used as hash tables and
 may be big and are quite likely different from one another.
 
-In R all arguments are passed as promises, and unused arguments will be unevaluated.
-Our tracer does still collect information on these arguments, as whether or not they were used doesn't change the fact that they were in fact passed. 
-In some cases, arguments aren't even intended to be evaluated.
-For example, consider the {\tt magrittr} package, which implements the Tidyverse's pipe functions.
-Refer to Figure~\ref{fig:magpipeex} for a translation of a call to {\tt magrittr}'s pipe ({\tt \%>\%}) function.
+In R all arguments are passed as promises, and unused arguments will be
+unevaluated.  Our tracer does still collect information on these arguments,
+as whether or not they were used doesn't change the fact that they were in
+fact passed.  In some cases, arguments aren't even intended to be evaluated.
+For example, consider the {\tt magrittr} package, which implements the
+Tidyverse's pipe functions.  Refer to Figure~\ref{fig:magpipeex} for a
+translation of a call to {\tt magrittr}'s pipe ({\tt \%>\%}) function.
+
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 mul_by <- function(x, y) { x * y }
 
 4 %>% mul_by(3) === `%>%`(lhs = 4, rhs = mul_by(3)) === mul_by(4, 3)
 \end{lstlisting}}\caption{Example and rough translation of \%$>$\% call.}\label{fig:magpipeex}\end{figure}
-Our tracer evaluates function arguments, and here \code{rhs = mul_by(3)}, but that's erroneous code (you can't call {\tt mul\_by} without supplying two arguments).
-In this situation, our tracer will still register the entire call, but flag the {\tt rhs} argument to indicate to later stages of the analysis that there was an issue evaluating that argument.
+
+Our tracer evaluates function arguments, and here \code{rhs = mul_by(3)},
+but that's erroneous code (you can't call {\tt mul\_by} without supplying
+two arguments).  In this situation, our tracer will still register the
+entire call, but flag the {\tt rhs} argument to indicate to later stages of
+the analysis that there was an issue evaluating that argument.
 
 For each function of each package, we consolidate all recorded observations
 into a function signature. The details of how consolidation is parameterized
