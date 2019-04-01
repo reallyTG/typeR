@@ -42,6 +42,18 @@
 \newcommand{\code}[1]{\lstinline|#1|\xspace}
 \newcommand{\genthat}{{\sc Genthat}\xspace}
 
+% Macros for type names?
+\newcommand{\reals}{$real$\xspace}
+\newcommand{\realv}{$\overline{real}$\xspace}
+\newcommand{\chars}{$char$\xspace}
+\newcommand{\charv}{$\overline{char}$\xspace}
+\newcommand{\logis}{$logical$\xspace}
+\newcommand{\logiv}{$\overline{logical}$\xspace}
+\newcommand{\dbls}{$double$\xspace}
+\newcommand{\dblv}{$\overline{double}$\xspace}
+\newcommand{\ints}{$integer$\xspace}
+\newcommand{\intv}{$\overline{integer}$\xspace}
+
 \setcopyright{none}
 %\setcopyright{acmcopyright}%\setcopyright{acmlicensed}
 %\acmDOI{10.475/123_4}
@@ -82,6 +94,7 @@ polymorphism that is present in the code. We do this for several potential
 notions of types. Our result suggest that polymorphism is important in some
 key parts of the system but that relatively simple type annotations could be
 used to capture most of the interesting cases.
+
 \end{abstract}
 
 \maketitle
@@ -623,7 +636,7 @@ functions.  The details of the information we collect follows.
 
 \begin{itemize}
 
-	\item if the analysis encounters \code{ typeof(x) == "double"}, it will look at the length of {\tt x} to determine if {\tt x} is a scalar or a vector, generating the annotation {\tt scalar/double} or {\tt vector/double} accordingly.
+	\item if the analysis encounters \code{ typeof(x) == "double"}, it will look at the length of {\tt x} to determine if {\tt x} is a scalar or a vector, generating the annotation {\tt \dbls} or {\tt \dblv} accordingly.
 	This is also true for integer, complex, raw, logical, and character {\tt typeof}s (i.e., the primitive vectorized data types).
 	A notable imperfection here is is that unit length vectors will appear as scalars, so later in our analysis we ensure that argument signatures containing both scalar/X and vector/X are collapsed down to contain only vector/X.
 	
@@ -719,7 +732,7 @@ nret.translator <- function(dat, spss="out", ...) {
     # here, dat is data.frame
     items.idx <- items.idx[order(names(dat[, items.idx]))]
   }
-\end{lstlisting}}\caption{Example of a data.frame/(vector/double) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
+\end{lstlisting}}\caption{Example of a data.frame/(\dblv) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
 
 In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt network}), a vector of indices of that list ({\tt fixIndices}), and a vector of values ({\tt values}).
 The locations specified by {\tt fixIndicies} in {\tt network} are updated with {\tt values}.
@@ -746,7 +759,7 @@ tee <- function (x, theta, D1, D2, phi)  {
         x <- t(x)
     }
     ...
-\end{lstlisting}}\caption{Example of matrix/(vector/double) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
+\end{lstlisting}}\caption{Example of matrix/(\dblv) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
 
 %
 %
@@ -938,9 +951,9 @@ add_make_list(2, c(3, 1)) # => list(5, 3)
 
 \begin{tabular}{@{}r|l|l|l@{}}\hline
 \bf Argument & \bf Type & \bf Class &\bf Attributes \\
-x & \tt scalar/double & \tt numeric & \tt \{\} \\
-y & \tt vector/double & \tt numeric & \tt \{\} \\
-retv & \tt list<double> & \tt list & \tt \{example: scalar/character\}  
+x & \dbls & numeric & \{\} \\
+y & \dblv & numeric & \{\} \\
+retv & list<double> & list & \{\xspace example: \chars\}  
 \end{tabular}
 \caption{Example call and L1 signature.}\label{fig:exL1}\end{figure}
 
@@ -1008,16 +1021,16 @@ The answer to that question can be found in Table~\ref{tab:toppolyL1}.
   \hline
  Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
   \hline
-  vector/double, vector/integer & 7742 & 9.66 \\ 
-  scalar/double, scalar/integer & 7201 & 8.99 \\ 
-  matrix, vector/double & 5384 & 6.72 \\ 
-  NULL, scalar/character & 2325 & 2.90 \\ 
+  \dblv, \intv & 7742 & 9.66 \\ 
+  \dbls, \ints & 7201 & 8.99 \\ 
+  matrix, \dblv & 5384 & 6.72 \\ 
+  NULL, \chars & 2325 & 2.90 \\ 
   list$<$any$>$, list$<$double$>$ & 2231 & 2.78 \\ 
   data.frame, matrix & 2116 & 2.64 \\ 
-  NULL, scalar/double & 2082 & 2.60 \\ 
-  NULL, vector/double & 2069 & 2.58 \\ 
+  NULL, \dbls & 2082 & 2.60 \\ 
+  NULL, \dblv & 2069 & 2.58 \\ 
   list$<$any$>$, list$<$list$>$ & 1432 & 1.79 \\ 
-  NULL, vector/character & 1380 & 1.72 \\
+  NULL, \charv & 1380 & 1.72 \\
      \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in the L1.}
@@ -1025,7 +1038,7 @@ The answer to that question can be found in Table~\ref{tab:toppolyL1}.
 
 We would like to make one important note before digesting the data in Table~\ref{tab:toppolyL1}.
 We drew a distinction between scalars and vectors of the same type, and that distinction would be the single largest source of polymorphism in L1 had we not dealt with it appropriately.
-We note that an argument which exhibits a signature including e.g. \{scalar/double, vector/double\} really must be an argument designed to take vectors, as recall that unit length vectors appear as scalars by our definition.
+We note that an argument which exhibits a signature including e.g. \{\dbls, \dblv\} really must be an argument designed to take vectors, as recall that unit length vectors appear as scalars by our definition.
 We have already collapsed this distinction.
 
 In Table~\ref{tab:toppolyL1}, we again see the prominence of {\tt double} and {\tt integer} polymorphism.
@@ -1097,23 +1110,23 @@ See Table~\ref{tab:toppolyL1p}.
   \hline
 Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
   \hline
-  matrix, vector/real & 6360 & 13.94 \\ 
+  matrix, \realv & 6360 & 13.94 \\ 
   list$<$any$>$, list$<$real$>$ & 2799 & 6.13 \\ 
-  vector/character, vector/real & 2774 & 6.08 \\ 
-  scalar/character, scalar/real & 2552 & 5.59 \\ 
+  \charv, \realv & 2774 & 6.08 \\ 
+  \chars, \reals & 2552 & 5.59 \\ 
   data.frame, matrix & 2167 & 4.75 \\ 
   list$<$any$>$, list$<$list$>$ & 1496 & 3.28 \\ 
   list$<$any$>$, list$<$character$>$ & 1214 & 2.66 \\ 
-  data.frame, vector/real & 1046 & 2.29 \\ 
-  scalar/logical, scalar/real & 920 & 2.02 \\ 
-  scalar/character, vector/real & 868 & 1.90 \\
+  data.frame, \realv & 1046 & 2.29 \\ 
+  \logis, \reals & 920 & 2.02 \\ 
+  \chars, \realv & 868 & 1.90 \\
    \hline
 \end{tabular}
 \caption{Top 10 argument signatures in L$1^{+}$.}
 \end{table}
 
 A few of the top polymorphic signatures stand out.
-First, the matrix/(vector/real) signature is interesting: \AT{as we showed in our polymorphism examples section}, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
+First, the matrix/\realv signature is interesting: \AT{as we showed in our polymorphism examples section}, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
 In fact, in R matrices can be used identically to vectors in many cases, and we refer the reader to Figure~\ref{fig:matasvec} for examples.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 v <- c(1, 2, 3, 4)
