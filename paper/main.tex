@@ -837,12 +837,12 @@ Functions are said to be polymorphic if at least one of their arguments or retur
 
 At present, we will only concern ourselves with \code{typeof} polymorphism, and we will later worry about classes and attributes.
 To get an idea of what kinds of polymorphism occur, we will look at the most commonly occurring polymorphic argument signatures.
-Table~\ref{tab:L1toppoly} has the top polymorphic signatures for L0.
+Table~\ref{tab:L0toppoly} has the top polymorphic signatures for L0.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 29 18:13:17 2019
 \begin{table}[ht]
-\label{tab:L1toppoly}
+\label{tab:L0toppoly}
 \centering
 \begin{tabular}{lrr}
   \hline
@@ -863,7 +863,7 @@ type & count & perc \\
 \caption{Top polymorphic signatures for the L0 type system.}
 \end{table}
 
-Some entries in the Table~\ref{tab:L1toppoly} are clear (e.g., double, integer polymorphism is unsurprising), others are strange (e.g., character, double), but in fact they all have some explanation.
+Some entries in the Table~\ref{tab:L0toppoly} are clear (e.g., double, integer polymorphism is unsurprising), others are strange (e.g., character, double), but in fact they all have some explanation.
 
 \begin{enumerate}
 
@@ -1033,7 +1033,7 @@ The answer to that question can be found in Table~\ref{tab:toppolyL1}.
   NULL, \charv & 1380 & 1.72 \\
      \hline
 \end{tabular}
-\caption{Top polymorphic argument signatures in the L1.}
+\caption{Top polymorphic argument signatures in L1.}
 \end{table}
 
 We would like to make one important note before digesting the data in Table~\ref{tab:toppolyL1}.
@@ -1126,7 +1126,7 @@ Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\
 \end{table}
 
 A few of the top polymorphic signatures stand out.
-First, the matrix/\realv signature is interesting: \AT{as we showed in our polymorphism examples section}, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
+First, the matrix/\realv signature seems interesting, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
 In fact, in R matrices can be used identically to vectors in many cases, and we refer the reader to Figure~\ref{fig:matasvec} for examples.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 v <- c(1, 2, 3, 4)
@@ -1137,19 +1137,25 @@ mb <- matrix(data=v, nrow=2, ncol=2)
 v[3] == m[3] == m[1, 2] 
 \end{lstlisting}}\caption{Using a matrix like a vector.}\label{fig:matasvec}\end{figure}
 
+This similarity is reminiscent of another pattern which was more clear in Table~\ref{tab:L0toppoly}; that of list/vector polymorphism.
+Transforming between vectors and matrices is just as easy as transforming between lists and vectors is simple.
 \AT{We should figure out how we want to deal with this polymorphism.}
 
-\AT{list<list> might be objects?}
+Another pattern that we can shed some light on the list$<$any$>$/list$<$X$>$ pattern.
+These data points are an artifact of R's three object systems: S3, S4, and R5.
+An S3 object is any value with a ``class'' attribute, and indeed many of these tend to be lists.
+For example, an S3-style point might be a list with an entry for each dimension in the point, with a ``class'' attribute set to ``Point''.
+Our next type system, L2, will account for these.
 
-Another significant source of apparently strange polymorphism is the {\tt character}, {\tt real} polymorphism.
+Another significant source of apparently strange polymorphism is the character, real polymorphism.
 Recall Figure~\ref{fig:chardbl}, which laid out an example of this polymorphic signature: lists and vectors can be accessed by strings as well as by numerics.
 This is a somewhat unusual example of polymorphism, and our argument depends on there being perhaps a list or vector passed alongside the {\tt character}- or {\tt real}-typed argument.
 So, just how often is this the case?
 Well, as it happens, character/real polymorphism coincides with some list-flavored type in \INDEXCOINCIDENCE instances (\INDEXYPERC of occurrences).
 
-Another option is a date.
+Another possible explanation for character, real polymorphism is the date data type.
 In R, dates are often represented as either strings or numbers, and many packages make use of dates.
-Dates (sometimes) manifest themselves in the {\tt class} of a value, for examples refer to Figure~\ref{fig:date}.
+Dates (sometimes) manifest themselves in the class of a value, for examples refer to Figure~\ref{fig:date}.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 class(date()) # => character
 class(Sys.Date()) # => Date
@@ -1157,8 +1163,9 @@ class(as.POSIXlt(Sys.Date())) # => POSIXlt, POSIXt
 as.integer(as.Date(1, origin = "1900-01-01"))
 \end{lstlisting}}\caption{Dates in R.}\label{fig:date}\end{figure}
 
-This figure reveals an unfortunate truth that date ``data type'' in R is not standardized.
-That said, translating between the data types is straightforward.
+This figure reveals an unfortunate truth that date data type in R is not standardized.
+That said, as before with matrices and vectors, and vectors and lists, translating between the data types is straightforward.
+Once again, this polymorphism can be captured with classes, which is the focus of our next discussion.
 
 We have seen that once we have done away with trivial sources of polymorphism, a number of interesting patterns arise.
 In many of these cases, we can appeal to other sources of reflection in R to expand our understanding.
