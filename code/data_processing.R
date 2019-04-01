@@ -67,7 +67,7 @@
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# [236936]
+# [202596]
 
 # Require tidyverse for convenience.
 require(tidyverse)

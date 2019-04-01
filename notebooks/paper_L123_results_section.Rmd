@@ -99,7 +99,34 @@ put_me
 xtable(put_me) %>% print(include.rownames=F)
 ```
 
-3. Extras. What about errors? How often do we have metaprogramming.
+3. Extra. What about errors? How often do we have metaprogramming.
 ```{r}
+# This can change depending on how we address metaprogramming.
 meta_los <- lapply(los, function(lof) lapply(lof, annihilate_errors_df))
+```
+
+Step 4. Translate to L3?
+What is L3?
+We want class info and attribute info, on some level.
+Let's do classes first.
+```{r}
+# get rid of classes we have dealt with.
+los <- lapply(los, function(lof) lapply(lof, class_to_primitive_df))
+```
+
+How do we want to deal with the classes?
+Should they become a type, if they are not primitive?
+Let's look at class poly counts maybe.
+```{r}
+L3_c_basic_df <- build_arg_count_df_from_lopkgs(los)
+
+L3_poly_class_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_class_args))
+L3_poly_class_args <- L3_poly_class_args[order(-L3_poly_class_args$count),] # sort by count
+L3_poly_class_args$perc <- round(L3_poly_class_args$count/sum(L3_poly_class_args$count) * 100, 2)
+```
+
+All the numbers are low, so there's no clear pattern, which makes sense.
+How best to incorporate this...
+```{r}
+
 ```
