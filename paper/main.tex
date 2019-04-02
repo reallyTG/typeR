@@ -1140,11 +1140,6 @@ Class & Count & Percentage \\
   data.table, primitive & 777 & 1.20 \\
   POSIXct, POSIXt & 716 & 1.11 \\
   formula, primitive & 639 & 0.99 \\
-%  xts, zoo & 588 & 0.91 \\
-%  glm, lm & 494 & 0.77 \\
-%  primitive, ts & 432 & 0.67 \\
-%  mts, primitive, ts & 384 & 0.59 \\
-%  huxtable, primitive & 318 & 0.49 \\
    \hline
 \end{tabular}
 \caption{Top 5 class signatures for class-based polymorphism in L2.}
@@ -1157,42 +1152,23 @@ The next largest contributor is the array class, which is a class for N>2-dimens
 \AT{Maybe I should also turn arrays into primitive class?}
 
 To see how we might use class information, we should see how often a monomorphic class signature co-occurs with a polymorphic type signature.
-We count \NUMPOLYTYPEMONOCLASS argument positions which match this criteria.
+We count \NUMPOLYTYPEMONOCLASS argument positions which match this criteria, which certainly doesn't explain the much higher number of list polymorphism in L1+.
 
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Mon Apr  1 16:50:22 2019
-\begin{table}[ht]
-\centering
-\begin{tabular}{llrl}
-  \hline
-  Type Sig. & Class Sig. & Count & Percentage \\
-  \hline
-  list$<$any$>$, list$<$character$>$ & roxy\_block & 38 & 2.80 \\
-  list$<$any$>$, list$<$list$>$ & Rd & 25 & 1.84 \\
-  list$<$any$>$, list$<$real$>$ & TSdata & 25 & 1.84 \\
-  list$<$any$>$, list$<$list$>$ & xml\_nodeset & 24 & 1.77 \\
-  list$<$any$>$, list$<$list$>$, list$<$real$>$ & dendrogram & 24 & 1.77 \\
-%  list$<$any$>$, list$<$real$>$ & phylo & 23 & 1.69 \\
-%  list$<$any$>$, list$<$list$>$, list$<$real$>$, scalar/real & dendrogram & 21 & 1.55 \\
-%  list$<$any$>$, list$<$language$>$ & uneval & 18 & 1.33 \\
-%  list$<$any$>$, list$<$list$>$ & dendrogram & 18 & 1.33 \\
-%  list$<$any$>$, list$<$list$>$ & lazy\_dots & 17 & 1.25 \\
-   \hline
-\end{tabular}
-\caption{Top instances of type-polymorphic but class-monomorphic signatures.}
-\end{table}
+In our analysis, we did not encounter any substantial patterns with class-based polymorphism.
+Class is nonetheless important in R, as the dynamic dispatcher uses class information to select the correct method to call.
+In short, a small optional annotation indicating the class of an argument may well be enough.
 
-\AT{I don't think this table is telling us much...}
-
-Top attributes, maybe?
+Let us now turn our attention to attributes.
+The top contributors for attribute-based polymorphism can be found in Table~\ref{tab:topattrpoly}.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Mon Apr  1 23:06:59 2019
 \begin{table}[ht]
+\label{tab:topattrpoly}
 \centering
 \begin{tabular}{lrl}
   \hline
-attr & count & perc \\
+Attribute Signature & Count & Percentage \\
   \hline
 \{\}, \{names: \C\} & 16589 & 21.11 \\
   \{\}, \{dim: \I\} & 5010 & 6.38 \\
@@ -1208,8 +1184,9 @@ attr & count & perc \\
 \end{tabular}
 \end{table}
 
-A lot of the polymorphism that we see is because we haven't propagated our changes through the attribute types.
-Will fix this.
+First, the largest source of attribute-based polymorphism is in optional list names.
+The names attribute on a vector or list allows indexing with name rather than numeric position.
+Another significant source of this polymorphism is matrices, which can be seen in all the ``dim'' and ``dimnames'' attributes.
 
 %
 %
