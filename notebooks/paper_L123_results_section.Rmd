@@ -30,7 +30,10 @@ los <- lapply(los, function(lofun) lapply(lofun, make_NAs_into_NULLs))
 los <- change_type_systems_lopkg(los, type_map_T0_to_r, unparam=T)
 
 # L <: I <: D
-los <- lapply(los, function(lofun) lapply(lofun, logical_int_double_subtype_df))
+los <- lapply(los, function(lofun) lapply(lofun, function(df) logical_int_double_subtype_df(logical_int_double_subclass_df(df))))
+
+# TODO: error -> ?
+los <- lapply(los, function(lofun) lapply(lofun, map_error_to_any))
 ```
 
 Step 2.1: Counts.
@@ -45,16 +48,34 @@ xtable(L0_c_basic_df) %>% print(include.rownames=F)
 xtable(L0_c_f_basic_df) %>% print(include.rownames=F)
 ```
 
+DEBUG: Classes
+```{r}
+L0_poly_class_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_class_args))
+L0_poly_class_args <- L0_poly_class_args[order(-L0_poly_class_args$count),] # sort by count
+L0_poly_class_args$perc <- round(L0_poly_class_args$count/sum(L0_poly_class_args$count) * 100, 1)
+```
+```
+
 Step 2.2: Top.
 ```{r}
 L0_poly_type_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_type_args))
 L0_poly_type_args <- L0_poly_type_args[order(-L0_poly_type_args$count),] # sort by count
-L0_poly_type_args$perc <- round(L0_poly_type_args$count/sum(L0_poly_type_args$count) * 100, 2)
+L0_poly_type_args$perc <- round(L0_poly_type_args$count/sum(L0_poly_type_args$count) * 100, 1)
 ```
 
 Step 2.3: Print top 10.
 ```{r}
-format_df_for_print(L0_poly_type_args[1:10,]) %>%
+format_df_for_print(L0_poly_type_args[1:20,]) %>%
+xtable %>% print(include.rownames=F)
+```
+
+Get the distribution of arguments in the monomorphic case.
+```{r}
+L0_mono_type_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_mono_type_args))
+L0_mono_type_args <- L0_mono_type_args[order(-L0_mono_type_args$count),] # sort by count
+L0_mono_type_args$perc <- round(L0_mono_type_args$count/sum(L0_mono_type_args$count) * 100, 1)
+
+format_df_for_print(L0_mono_type_args[1:20,]) %>%
 xtable %>% print(include.rownames=F)
 ```
 
@@ -100,7 +121,7 @@ poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 10
 
 Step 3.3: Print top 10.
 ```{r}
-format_df_for_print(poly_type_args[1:10,]) -> put_me
+format_df_for_print(poly_type_args[1:20,]) -> put_me
 put_me
 xtable(put_me) %>% print(include.rownames=F)
 ```
@@ -174,7 +195,7 @@ xtable(L3_c_basic_df) %>% print(include.rownames=F)
 ```
 
 ```{r}
-format_df_for_print(L3_poly_class_args[1:10,]) -> put_me
+format_df_for_print(L3_poly_class_args[1:20,]) -> put_me
 put_me
 xtable(put_me) %>% print(include.rownames=F)
 ```

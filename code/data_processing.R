@@ -582,6 +582,12 @@ extract_poly_type_args <- function(df_c) {
   r_df
 }
 
+extract_mono_type_args <- function(df_c) {
+  df_c$count <- rep(1, nrow(df_c))
+  r_df <- df_c[ lapply(df_c$type, length) == 1, c("type", "count")]
+  r_df
+}
+
 extract_poly_type_args_w_mono_class <- function(df_c) {
   df_c$count <- rep(1, nrow(df_c))
   r_df <- df_c[ apply(df_c, 1, function(x) length(x[["class"]]) == 1 && x[["class"]][[1]] != "primitive" && length(x[["type"]]) > 1), c("type", "class", "count")]
@@ -847,27 +853,35 @@ get_rows_from_df_only_scalar <- function(df) {
 #
 
 #
-# Use this after int, dbl -> real conversion
 distinguish_matrices_df <- function(df) {
   # in trans_me, we want to turn the vector/real into a real
   trans_me <- apply(df, 1, function(x)
     "matrix" %in% x[["class"]] &&
     ((! "numeric" %in% x[["class"]] && "vector/double" %in% x[["type"]]) ||
-     (! "integer" %in% x[["class"]] && "vector/integer" %in% x[["type"]])))
+     (! "integer" %in% x[["class"]] && "vector/integer" %in% x[["type"]]) ||
+     (! "logical" %in% x[["class"]] && "vector/logical" %in% x[["type"]])))
 
   types <- df$type
   typess <- lapply(types[trans_me], function(x) {
-    x[x=="vector/integer"] <- "matrix"
-    x[x=="vector/double"] <- "matrix"
-    unique(x)
+    x[x=="vector/integer"] <- "matrix/integer"
+    x[x=="vector/double"] <- "matrix/double"
+    x[x=="vector/logical"] <- "matrix/logical"
+    # unique(x)
   })
   types[trans_me] <- typess
   df$type <- types
 
-  add_me <- apply(df, 1, function(x)
+  add_me_log <- apply(df, 1, function(x)
     "matrix" %in% x[["class"]] &&
-    (("numeric" %in% x[["class"]] && "vector/double" %in% x[["type"]]) ||
-     ("integer" %in% x[["class"]] && "vector/integer" %in% x[["type"]])))
+    ("logical" %in% x[["class"]] && "vector/logical" %in% x[["type"]]))
+
+  add_me_int <- apply(df, 1, function(x)
+    "matrix" %in% x[["class"]] &&
+    ("integer" %in% x[["class"]] && "vector/integer" %in% x[["type"]]))
+
+  add_me_dbl <- apply(df, 1, function(x)
+    "matrix" %in% x[["class"]] &&
+    ("double" %in% x[["class"]] && "vector/double" %in% x[["type"]]))
 
   types <- df$type
   typess <- lapply(types[add_me], function(x) {c(x, "matrix")})
@@ -962,6 +976,18 @@ fold_NULL_and_NA_into_other_types_df <- function(df) {
 
 fold_together_int_double_df <- function(df) {
   translate_df_with_type_map(df, type_map_r_to_real, unparam=F)
+}
+
+map_error_to_any <- function(df) {
+  df$type <- lapply(df$type, function(lot) {
+    # will also annihilate all other type info, as ? :> T \forall T
+    if ("error" %in% lot)
+      lot <- list("?")
+    else
+      lot
+  })
+
+  df
 }
 
 combine_scalar_vector_where_appropriate <- function(df) {
@@ -1097,7 +1123,6 @@ make_NAs_into_NULLs <- function(df) {
   df
 }
 
-# TODO might want something similar for classes? just copy paste tho
 logical_int_double_subtype_df <- function(df) {
   df$type %>%
     lapply(function(lot) {
@@ -1108,13 +1133,13 @@ logical_int_double_subtype_df <- function(df) {
       is_log <- Reduce("||", log_in)
       is_int <- Reduce("||", int_in)
       is_dbl <- Reduce("||", dbl_in)
-      if (xor(xor(is_log, is_int), is_dbl)) {
+      if (is_log && is_int && is_dbl) {
+        t[log_in] <- "double"
+        t[int_in] <- "double"
+      } else if (xor(xor(is_log, is_int), is_dbl)) {
         # just one, nothing
       } else if (!is_log && !is_int && !is_dbl) {
         # none, nothing
-      } else if (is_log && is_int && is_dbl) {
-        t[log_in] <- "double"
-        t[int_in] <- "double"
       } else if (is_log && is_int) {
         t[log_in] <- "integer"
       } else if (is_log && is_dbl) {
@@ -1124,6 +1149,41 @@ logical_int_double_subtype_df <- function(df) {
       }
       as.list(t) %>% unique
     }) -> df$type
+
+  df
+}
+
+# los[[2000]]
+
+logical_int_double_subclass_df <- function(df) {
+  df$class %>%
+    lapply(function(loc) {
+      t <- unlist(loc)
+      t[is.na(t)] <- "NA"
+      log_in <- t == "logical"
+      int_in <- t == "integer"
+      dbl_in <- t == "numeric"
+      is_log <- Reduce("||", log_in)
+      is_int <- Reduce("||", int_in)
+      is_dbl <- Reduce("||", dbl_in)
+
+      if (is_log && is_int && is_dbl) {
+        # all 3
+        t[log_in] <- "numeric"
+        t[int_in] <- "numeric"
+      } else if (xor(xor(is_log, is_int), is_dbl)) {
+        # just one, nothing
+      } else if (!is_log && !is_int && !is_dbl) {
+        # none, nothing
+      } else if (is_log && is_int) {
+        t[log_in] <- "integer"
+      } else if (is_log && is_dbl) {
+        t[log_in] <- "numeric"
+      } else if (is_int && is_dbl) {
+        t[int_in] <- "numeric"
+      }
+      as.list(t) %>% unique
+    }) -> df$class
 
   df
 }
@@ -1468,6 +1528,8 @@ format_df_for_print <- function(df) {
   for (n in names(df)) {
     if (n != "count") {
       df[, n] <- sapply(df[, n], function(t) paste0(t, collapse=", "))
+    } else {
+      df$count <- sapply(df$count, function(c) paste0(c, "%"))
     }
   }
   df
