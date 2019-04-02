@@ -662,14 +662,6 @@ stands for a list names.  The subtype relation is extended with
 and {\tt N}$\subseteq${\tt N'}.
 
 
-All of the possible \code{typeof}s in correspond to a class, so we must control
-for these as well.
-
-Now, recall that the attributes of a value is a list of name, value pairs of metadata
-on the value accessible through the \code{attributes} function. For our purposes,
-we will only consider the names of attributes, and not values nor their types. This
-avoids expensive recursion, and including type information in attribute patterns
-creates a lot of noise in the data that hides other interesting patterns.
 
 \section{Analysis Results}\label{sec:results}
 
