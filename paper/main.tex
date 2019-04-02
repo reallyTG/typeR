@@ -1145,6 +1145,9 @@ Class & Count & Percentage \\
 \caption{Top 5 class signatures for class-based polymorphism in L2.}
 \end{table}
 
+\AT{TODO number of colocated primitive/other classes. Could use to suggest some optional class annotation.
+Maybe grab full class poly to see if there's something big? Without collapse to primitives.}
+
 The first thing to note is the low percentages overall: unlike with types in L0, L1, or L1+, there are no major contributors for class-based polymorphism.
 For instance, the single highest source of polymorphism here is due to the ``tbl'' and ``tbl\_df'' classes (of the dplyr package).
 For what it's worth, these are classes ascribed to dplyr data objects (i.e., spruced-up data frames).
@@ -1187,6 +1190,8 @@ Attribute Signature & Count & Percentage \\
 First, the largest source of attribute-based polymorphism is in optional list names.
 The names attribute on a vector or list allows indexing with name rather than numeric position.
 Another significant source of this polymorphism is matrices, which can be seen in all the ``dim'' and ``dimnames'' attributes.
+
+\AT{TODO control for the common cases?}
 
 %
 %
