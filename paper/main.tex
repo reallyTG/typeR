@@ -606,28 +606,50 @@ identical signatures for the same function.
 For a meaningful notion of polymorphism, it is necessary to settle on a set
 of basic types for R. There are several possible choices which lead to
 increasingly more expressive type systems. The simplest notion of types
-aligns with R basic types. Richers notions incorporate attributes and the
-various object systems built on top of those. For concreteness we will pick
-out three different sets of types.
-
-\begin{itemize}
-\item {\bf L0}: This level includes vectors of primitive types (integers \I,
-  double \D, character \C, logical \L, raw \R, complex \X), lists of any
-  type (\l), and scalar values (environment \sE, closures \sF, symbols \sS
-  and null \sN). We add the type \ANY for any type.
-\item {\bf L1}: The second level enhances {\bf L0} with scalar values for
-  primitive types (\sI, \sD, \sC, \sL, \sR, and \sX), type parametric lists
-  (written \lT{T} for any type {\tt T}), data frames \attr{\l}{df}, and
-  matrices \attr{\vec{\tt T}}{mat}.
-\item {\bf L2}: The third level adds attributes lists...
-\end{itemize}
+aligns with R's builtin types. Richers notions incorporate attributes and
+the various object systems built on top of those. For concreteness we will
+pick out three different sets of types.
 
 In the following we say that an argument is {\it polymorphic in type at
   level L} if it has been called with at least two values that belong to
 distinct types at level \emph{L}. This definition extends naturally to
 classes, data frames, and matrices (as these are simple attributes).
 Generalized attribute polymorphism is a bit trickier as values can have a
-large and changing set of attributes. 
+large and changing set of attributes.
+
+\subsection{L0 Types}
+
+The logical ``baseline'' for the design of a type system for R is to adopt
+the language's dynamic types (in the sense of \code{typeof}).  We call this
+L0.  The types reflects the types of values in the R runtime environment, as
+the \code{typeof} an object is in direct correspondence with the runtime
+type tag of the value.
+
+Thus L0 includes the following types: vectors of primitive types (integers
+\I, double \D, character \C, logical \L, raw \R, complex \X), lists of any
+type (\l), and scalar values (environment \sE, closures \sF, symbols \sS and
+null \sN). We add the type \ANY to stand in for any type.
+
+We also include a notion of subtyping that follows from the conversion rules
+of the language.  All types are subtypes of \ANY, thus {\tt T}<:\ANY.
+Moreover, logicals are subtypes of integers, which are subtypes of doubles,
+\L <: \I <: \D.
+
+\subsection{L1 Types}
+
+L0 is limited in expressivity. To address its limitations, we augment it
+scalars, parametrized lists.  In addition, we collect attribute and class
+information to distinguish a type for data frames and matrices, as the
+\code{typeof} these is simply {\tt list} in R. 
+
+The second level enhances {\bf L0} with scalar values for primitive types
+(\sI, \sD, \sC, \sL, \sR, and \sX), type parametric lists (written \lT{T}
+for any type {\tt T}), data frames \attr{\l}{df}, and matrices
+\attr{\vec{\tt T}}{mat}.
+
+
+\subsection{L2 Types}
+ {\bf L2}: The third level adds attributes lists...
 
 
 While we do consider some class and attribute information when constructing
@@ -657,139 +679,14 @@ attribute).  Other standard patterns are:
   factored to \texttt{"factor"}.
 \end{itemize}
 
-These naturally-occurring attribute patterns and classes can be separately
-accounted for to highlight user-defined patterns and behaviors.  This will
-be made clear in Section~\ref{sec:results}.
 
 
-%
-\section{Examples of Polymorphism}
-\label{sec:polyex}
-
-
-First, Figure~\ref{fig:realex} shows an example of how integers and doubles
-are very compatible.  \AT{TODO add matrix (dimensions) to the example.}
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-> 5L + 1L # => 6L, an integer
-> 5L + 1.2 # => 6.2, a double (5L coerced to 5.0)
-> c(10, 20, 30)[1.2] # => 10, 1.2 coerced to 1L
-\end{lstlisting}}\caption{Example of {\it real} type usage.}\label{fig:realex}\end{figure}
-
-Figure~\ref{fig:optnull} shows an example of a function with an optional
-argument.  In the function, {\tt x} is a sorted vector of income values, and
-{\tt w} is a vector of weights, optionally NULL.  The function computes
-fractional ranks required for the computation of some coefficient
-implemented by the package.  We see that if {\tt w} is NULL, then default
-unit weights are generated.
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-frac.ranks <- function(x, w=NULL) {
-  if (is.null(w)) w <- rep(1, length(x)) # if no weights passed, take all weights = 1
-  ...
-\end{lstlisting}}\caption{Example of optional argument (from {\tt acid} package).}\label{fig:optnull}\end{figure}
-
-Figure~\ref{fig:listvec} shows an example of a function with list and vector
-polymorphism.  The function takes a list or vector {\tt point} and a data
-frame {\tt polyg} representing a polygon.  In it, we see that {\tt point}
-can be either a list or a vector, and the function code casts the argument
-to a double vector.
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-is.point.inside <- function (point, polyg) {
-    p <- as.numeric(point) # as.numeric(list(1, 2)) => c(1, 2)
-    ...
-\end{lstlisting}}\caption{Example of list/vector argument (from {\tt bivrp} package).}\label{fig:listvec}\end{figure}
-
-Figure~\ref{fig:charclos} shows an example of a function with character and
-function polymorphism.  \AT{Bluh.}  At a high level, this function
-calculates point estimates for an {\tt angmcmc} object (specific to some
-packages).  The caller specifies {\tt fn}, either a function or a function
-name which will be evaluated on the object samples to estimate parameters.
-The call to lookup the function name is on line 10.
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-pointest <- function (object, fn = mean, par.name, comp.label, chain.no,  ...) {
-    ...
-    if (is.character(fn)) 
-        if (fn == "MODE" | fn == "MAP")   do_MAP <- TRUE
-        else {
-            do_MAP <- FALSE
-            fn <- match.fun(fn) # looks up the function name
-        }
-\end{lstlisting}}\caption{Example of char/closure argument (from {\tt BAMBI} package).}\label{fig:charclos}\end{figure}
-
-\AT{I'll explain this better, maybe?}  In Figure~\ref{fig:dfdbl}, we see a
-function that, among other things, takes in some data ({\tt dat}) and a
-character string ({\tt spss}) specifying either {\tt "in"} or {\tt "out"}.
-Now, depending on the value of {\tt spss}, {\tt dat} will either be a data
-frame or a vector of doubles.
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-nret.translator <- function(dat, spss="out", ...) {
-  ...
-  if(identical(spss, "out")) {
-    if(!is.vector(dat))  stop(simpleError("...'dat' must be a vector!"))
-    ...
-  } else {
-    ...
-    # here, dat is data.frame
-    items.idx <- items.idx[order(names(dat[, items.idx]))]
-  }
-\end{lstlisting}}\caption{Example of a data.frame/(\dblv) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
-
-In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt
-  network}), a vector of indices of that list ({\tt fixIndices}), and a
-vector of values ({\tt values}).  The locations specified by {\tt
-  fixIndicies} in {\tt network} are updated with {\tt values}.  Here, {\tt
-  fixIndicies} has been observed to be either a character or double vector:
-In R, list indices are typically doubles, but can be characters (if the list
-or vector being indexed has a {\tt names} attribute).
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-fixGenes <- function (network, fixIndices, values) {
-  ...
-  network$fixed[fixIndices] <- as.integer(values)
-  ...
-\end{lstlisting}}\caption{Example of character/double argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}%$
-
-In Figure~\ref{fig:matvec}, we see that the function can take in a vector,
-but immediately transforms it (transpose, with {\tt t}) into a matrix.  As
-an idea, matrix/vector polymorphism seems sensible, as mathematically
-vectors are matrices.  R echoes this by making conversion between the two
-``types'' easy: \code{as.vector(m)} flattens a matrix \code{m} into a vector
-(e.g., \code{as.vector(matrix(2, 2, 2)) == c(2, 2, 2, 2)}), and
-\code{as.matrix(v)} builds a {\tt length(v) x 1} matrix (e.g.,
-\code{as.matrix(c(1, 2)) == matrix(data=c(1, 2))}).  \AT{TODO fix line break
-  in code at end of last sentence}
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-tee <- function (x, theta, D1, D2, phi)  {
-    if (is.vector(x)) x <- t(x)
-    ...
-\end{lstlisting}}\caption{Example of matrix/(\dblv) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
-
-%
-%
-%
 \section{Results}\label{sec:results}
 
-Having built an understanding of our data collection and analysis pipeline, we will turn our attention to the results of our analysis.  
+Having built an understanding of our data collection and analysis pipeline,
+we will turn our attention to the results of our analysis.
 
-\AT{Maybe it's best to ignore attributes and classes for now?}
-
-%
-%
-%
-%
 \subsection{L0}
-
-The logical ``baseline'' for the design of a static type system for R is
-promotion of the language's dynamic types (in the sense of \code{typeof}) to
-static types; we call this type system L0.  Such a type system exactly
-reflects the types of values in the R runtime environment, as the
-\code{typeof} an object is in direct correspondence with the runtime type
-tag of the value.
 
 In this section, we will begin by breaking down our corpus of data with L0
 in mind.  From this perspective, we will see how current R programmers see
@@ -921,41 +818,45 @@ double), but in fact they all have some explanation.
 How will we deal with this?
 
 \begin{enumerate}
-
-	\item consolidating doubles and integers into a single real-number type would account for all of this polymorphism.
-	
-	\item to get an idea of how often vectors and lists co-occur in signatures, we need to expand our analysis of vectorized types.
-	Notably, when we encounter e.g. a double, we should collect length information to see if the double is a vector of doubles or just a scalar.
-	This will feature in our next type system, L1, which we will get to momentarily.
-	
-	\item if we roll NULLs into every type, we can cleanly deal with these X, NULL signatures.
-	As we have established that an annotation for an optional argument is useful, this will allow us to reveal other interesting patterns.
-	
-	\item similarly with NULLs, we're interested in rolling NAs in to all types.
-	As we mentioned, this is actually what the R runtime does, but a default type needed to be chosen for NAs appearing without context.
-	Subsuming NAs should help to reveal other interesting patterns.
-		
-	\item dealing with this polymorphism will be more tricky.
-	We might need to pull class information in (to pick up on dates), and possibly make a signature judgment depending on which argument position has the signature (e.g. a \{character, X\} signature on a return).
-	We will come back to this later.
+\item consolidating doubles and integers into a single real-number type
+  would account for all of this polymorphism.
+\item to get an idea of how often vectors and lists co-occur in signatures,
+  we need to expand our analysis of vectorized types.  Notably, when we
+  encounter e.g. a double, we should collect length information to see if
+  the double is a vector of doubles or just a scalar.  This will feature in
+  our next type system, L1, which we will get to momentarily.
+\item if we roll NULLs into every type, we can cleanly deal with these X,
+  NULL signatures.  As we have established that an annotation for an
+  optional argument is useful, this will allow us to reveal other
+  interesting patterns.
+\item similarly with NULLs, we're interested in rolling NAs in to all types.
+  As we mentioned, this is actually what the R runtime does, but a default
+  type needed to be chosen for NAs appearing without context.  Subsuming NAs
+  should help to reveal other interesting patterns.
+\item dealing with this polymorphism will be more tricky.  We might need to
+  pull class information in (to pick up on dates), and possibly make a
+  signature judgment depending on which argument position has the signature
+  (e.g. a \{character, X\} signature on a return).  We will come back to
+  this later.
 
 \end{enumerate}
 
-There are some clear limitations to the L0 type system that we should address before working through any of these other issues
-As we mentioned, \code{typeof} makes no distinction between vectors and scalars, as indeed there is no such distinction in R. 
-But as we saw, we might benefit from such a distinction, and indeed an all-new runtime environment design for R might benefit from e.g. not needing to vectorize scalar values.
-This is one of the many modifications we make, all of which are thoroughly explored in the following section.
+There are some clear limitations to the L0 type system that we should
+address before working through any of these other issues As we mentioned,
+\code{typeof} makes no distinction between vectors and scalars, as indeed
+there is no such distinction in R.  But as we saw, we might benefit from
+such a distinction, and indeed an all-new runtime environment design for R
+might benefit from e.g. not needing to vectorize scalar values.  This is one
+of the many modifications we make, all of which are thoroughly explored in
+the following section.
 %
 %
 %
 %
 \subsection{L1}
 
-To address these limitations, we augment the L0 with more fine-grained information.
-We will consider unit-length vectors to be scalars, collect list member type information to build an accurate list type, and promote NAs to their own type. 
-In addition, we collect attribute and class information to distinguish a type for data frames and matrices, as the \code{typeof} these is simply {\tt list} in R. 
-We refer to this as the L1 type system. 
-An example of a signature in this type system can be found in Figure~\ref{fig:exL1}.
+An example of a signature in this type system can be found in
+Figure~\ref{fig:exL1}.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 add_make_list <- function(x, y) {
@@ -1478,6 +1379,115 @@ The annotations could be used to generate code to check for compliance, like a c
 %
 %
 %
+\section{Examples of Polymorphism}
+\label{sec:polyex}
+
+
+First, Figure~\ref{fig:realex} shows an example of how integers and doubles
+are very compatible.  \AT{TODO add matrix (dimensions) to the example.}
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+> 5L + 1L # => 6L, an integer
+> 5L + 1.2 # => 6.2, a double (5L coerced to 5.0)
+> c(10, 20, 30)[1.2] # => 10, 1.2 coerced to 1L
+\end{lstlisting}}\caption{Example of {\it real} type usage.}\label{fig:realex}\end{figure}
+
+Figure~\ref{fig:optnull} shows an example of a function with an optional
+argument.  In the function, {\tt x} is a sorted vector of income values, and
+{\tt w} is a vector of weights, optionally NULL.  The function computes
+fractional ranks required for the computation of some coefficient
+implemented by the package.  We see that if {\tt w} is NULL, then default
+unit weights are generated.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+frac.ranks <- function(x, w=NULL) {
+  if (is.null(w)) w <- rep(1, length(x)) # if no weights passed, take all weights = 1
+  ...
+\end{lstlisting}}\caption{Example of optional argument (from {\tt acid} package).}\label{fig:optnull}\end{figure}
+
+Figure~\ref{fig:listvec} shows an example of a function with list and vector
+polymorphism.  The function takes a list or vector {\tt point} and a data
+frame {\tt polyg} representing a polygon.  In it, we see that {\tt point}
+can be either a list or a vector, and the function code casts the argument
+to a double vector.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+is.point.inside <- function (point, polyg) {
+    p <- as.numeric(point) # as.numeric(list(1, 2)) => c(1, 2)
+    ...
+\end{lstlisting}}\caption{Example of list/vector argument (from {\tt bivrp} package).}\label{fig:listvec}\end{figure}
+
+Figure~\ref{fig:charclos} shows an example of a function with character and
+function polymorphism.  \AT{Bluh.}  At a high level, this function
+calculates point estimates for an {\tt angmcmc} object (specific to some
+packages).  The caller specifies {\tt fn}, either a function or a function
+name which will be evaluated on the object samples to estimate parameters.
+The call to lookup the function name is on line 10.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+pointest <- function (object, fn = mean, par.name, comp.label, chain.no,  ...) {
+    ...
+    if (is.character(fn)) 
+        if (fn == "MODE" | fn == "MAP")   do_MAP <- TRUE
+        else {
+            do_MAP <- FALSE
+            fn <- match.fun(fn) # looks up the function name
+        }
+\end{lstlisting}}\caption{Example of char/closure argument (from {\tt BAMBI} package).}\label{fig:charclos}\end{figure}
+
+\AT{I'll explain this better, maybe?}  In Figure~\ref{fig:dfdbl}, we see a
+function that, among other things, takes in some data ({\tt dat}) and a
+character string ({\tt spss}) specifying either {\tt "in"} or {\tt "out"}.
+Now, depending on the value of {\tt spss}, {\tt dat} will either be a data
+frame or a vector of doubles.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+nret.translator <- function(dat, spss="out", ...) {
+  ...
+  if(identical(spss, "out")) {
+    if(!is.vector(dat))  stop(simpleError("...'dat' must be a vector!"))
+    ...
+  } else {
+    ...
+    # here, dat is data.frame
+    items.idx <- items.idx[order(names(dat[, items.idx]))]
+  }
+\end{lstlisting}}\caption{Example of a data.frame/(\dblv) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
+
+In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt
+  network}), a vector of indices of that list ({\tt fixIndices}), and a
+vector of values ({\tt values}).  The locations specified by {\tt
+  fixIndicies} in {\tt network} are updated with {\tt values}.  Here, {\tt
+  fixIndicies} has been observed to be either a character or double vector:
+In R, list indices are typically doubles, but can be characters (if the list
+or vector being indexed has a {\tt names} attribute).
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+fixGenes <- function (network, fixIndices, values) {
+  ...
+  network$fixed[fixIndices] <- as.integer(values)
+  ...
+\end{lstlisting}}\caption{Example of character/double argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}%$
+
+In Figure~\ref{fig:matvec}, we see that the function can take in a vector,
+but immediately transforms it (transpose, with {\tt t}) into a matrix.  As
+an idea, matrix/vector polymorphism seems sensible, as mathematically
+vectors are matrices.  R echoes this by making conversion between the two
+``types'' easy: \code{as.vector(m)} flattens a matrix \code{m} into a vector
+(e.g., \code{as.vector(matrix(2, 2, 2)) == c(2, 2, 2, 2)}), and
+\code{as.matrix(v)} builds a {\tt length(v) x 1} matrix (e.g.,
+\code{as.matrix(c(1, 2)) == matrix(data=c(1, 2))}).  \AT{TODO fix line break
+  in code at end of last sentence}
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+tee <- function (x, theta, D1, D2, phi)  {
+    if (is.vector(x)) x <- t(x)
+    ...
+\end{lstlisting}}\caption{Example of matrix/(\dblv) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
+
+%
+%
+%
 %
 \section{Related Work}
 
@@ -1496,123 +1506,4 @@ Other analysis work~\cite{milojkovic2017duck} ... .
 
 \bibliographystyle{boilerplate/ACM-Reference-Format}
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new}
-
-%%
-%%
-%%
-%%
-%\subsection{Types in R}
-%
-%\AT{I'll pull from this section when appropriate, as the discussion of the type systems becomes relevant.}
-%
-%%
-%%
-%\subsubsection{What are possible type systems?}
-%
-%Great question.
-%Some things:
-%
-%\begin{itemize}
-%
-%\item {\it The Obvious Type System (OTS)}: this type system corresponds directly with the type information that one can fetch using the {\tt typeof}, {\tt attributes}, and {\tt class} functions.
-%In this system, there is no distinction between vectors and scalars, and lists of differently-typed elements (e.g., a list of integers vs. a list of strings), and there is a distinction between integers and doubles, and the type of NULL and all other types.
-%This type system isn't particularly informative to a programmer, though it does reflect the treatment of values in the R runtime, for the {\tt typeof} a value is the type that the value has according to the R internals.
-%
-%\item {\it The Fine-Grained Type System (L1)}: this type systems includes a number of relevant additions.
-%Chiefly, it distinguishes between vectors and scalars, as it is conceivable that boxing scalars as single-element vectors might be overkill.
-%In addition, list types are parameterized over the types of their elements (e.g., list<integer> vs. list<character>).
-%Finally, NAs ``in the wild'' are given the type {\tt raw\_NA}, as {\tt typeof(NA) = logical} in R.
-%
-%\item {\it The Null-and-NA-Free Type System (NNTS)}: most languages consider NULLs to inhabit all types, and R does so for NAs \AT{elaborate}.
-%This gives us ... .
-%
-%\end{itemize}
-%
-%Of course, one could conceive of a more fine-grained type system than L1, but it's unclear that we would gain much in doing so.
-%Indeed, there is a space to explore in slightly less fine-grained type systems, which make modifications including:
-%
-%\begin{itemize}
-%
-%\item {\bf collapsing vectors and scalars}: this yields a type system slightly closer to OTS.
-%
-%\item {\bf rolling NULL into other types}: in most languages, NULL is an inhabitant of all types, and this adjustment seems interesting.
-%Note that this goes beyond even OTS, as in R {\tt typeof(NULL) = NULL}.
-%
-%\item {\bf rolling NA into other types}: \AT{i should try this}
-%similarly, NA is an inhabitant of all types, though NA standing alone has type {\tt logical}.
-%L1 distinguishes such NAs with the {\tt raw\_NA} type, and if instead we consider NA to inhabit all types we may \AT{win}.
-%
-%\item {\bf combining integers and doubles}: as in most languages, doubles and ints can stand-in for each other in nearly every scenario.
-%Even if not, it is trivial to convert from one to the other, particularly converting ints to doubles.
-%Aside, in R a double can be used to index a list, and R will floor it when performing the lookup.
-%
-%\end{itemize}
-%\subsection{Usage Patterns}
-%
-%In this section, we will discuss function usage patterns which arose in our analysis.
-%We will start by looking at the morphicity of functions.
-%
-%\subsubsection{Function Argument and Return Morphicity}
-%
-%First and foremost, we would like to know how often R programmers create polymorphic functions.
-%Recall that we define a polymorphic function to be a function with at least one polymorphic argument, or a polymorphic return.
-%We will turn our attention now to the data in \todo{Figure}, and go through each entry in the table.
-%
-%Here, we see that the vast majority of function arguments are indeed monomorphic.
-%Monomorphic arguments are easy to annotate, as the {\tt typeof} the arguments is exactly the most precise annotation we could give, at least in terms of \textit{type}.
-%That said, types alone don't always paint the whole picture:
-%recall that \textit{attributes} are an R language feature which allows programmers to stick metadata onto values.
-%So in which circumstances \textit{do} types paint the whole picture?
-%
-%The second data point in \textbf{TODO FIGURE} indicates that a
-%\isit{majority} of function arguments are monomorphic in type \textit{and}
-%have no attributes.  These represent arguments which are truly trivial to
-%annotate, as the {\tt typeof} an argument perfectly describes the usage of
-%that argument.  That said, some attributes arise naturally in R: For
-%instance, names in a named list (e.g. {\tt x} and {\tt y} in {\tt list(x=0,
-%  y=0)}) appear as an attribute on the value.  In
-%Section~\ref{sec:method:attributes}, we outlined these naturally-occurring
-%attribute patterns, and the third data point in \textbf{TODO FIGURE} shows
-%that a nontrivial amount of functions are monomorphic in type with said
-%natural attribute patterns.
-%
-%Another facet of type information in R is in the {\tt class} attribute.
-%Recall that values have a \textit{class} in addition to a type: For example,
-%a {\tt data.frame} has type {\tt list} and class {\tt data.frame}.
-%\todo{Plug classes earlier} R has a number of built-in classes, such as
-%\todo{X, Y, and Z}, but users are free to redefine the class of any value at
-%runtime, and easily define new classes.  The next data point in
-%\todo{Figure} shows that user-defined classes don't appear altogether often,
-%though they do indeed feature.  \AT{In a following section, we will discuss
-%  how the usage of these classes manifests itself.}
-%
-%\AT{Separate section for functions? Right now, this is at argument granularity.}
-%
-%\subsubsection{Type Signatures}
-%
-%In the last section, we presented a high-level overview of the morphicity ... .
-%
-%\subsubsection{Attribute Signatures}
-%
-%Recall that attributes are a way for programmers to store metadata on values in R.
-%What are the common attribute patterns?
-%And how often is the attribute pattern polymorphic?
-%
-%\subsubsection{Takeaways}
-%
-%\begin{itemize}
-%    \item the vast majority of arguments are monomorphic in type;
-%    \item of those, over 60\% have no attribute information;
-%    \item of the 40\% with attribute information, roughly 1/2 have fairly
-%      simple attributes corresponding to base R constructs (named lists and
-%      vectors, matrices, and data frames);
-%    \item now, of those arguments which are polymorphic, a sizable chunk (well over half) have defensible signatures (e.g., double and character for named list indexing, double and integer for obvious reasons, etc.).
-%\end{itemize}
-%
-%In short, it looks like R (package) programmers are reasonable.  I'd
-%conjecture that a lot of the polymorphism (e.g., double and list) is coming
-%from how easy it is to use either type in a given situation (e.g.,
-%converting from vector of doubles to list or vice versa is simple).
-
-
 \end{document}
