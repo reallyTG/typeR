@@ -681,46 +681,41 @@ At L0, the type system is aligned with the types of the core language.  We
 have observed over 173K monomorphic functions; this accounts for 80\% of our
 corpus.  In terms of argument positions, 92\% of arguments are monomorphic.
 
-
-
-Figure~\ref{fig:L1argcounts} shows the polymorphicity of argument positions
+Table~\ref{tab:L0argcounts} shows the polymorphicity of argument positions
  in R function.  From there, we build up a picture of the polymorphicity of
  functions as a whole, and the data for this function polymorphism can be
- found in Figure~\ref{fig:L1funcounts}.
+ found in Figure~\ref{tab:L0funcounts}.
 
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 29 18:10:23 2019
-\begin{table}[ht]\label{fig:L1argcounts}\centering\begin{tabular}{lrr}  \hline
+\begin{table}[ht]\label{tab:L0argcounts}\centering\begin{tabular}{lrr}  \hline
 Type                   & Count & Percentage \\  \hline
-Full Monomorphic       & 784K & 85.76 \\
-  Monomorphic in Type & 845K & 92.46 \\
-  Monomorphic in Class & 827K & 90.41 \\
-  Monomorphic in Attribute Pattern & 825K & 90.27 \\
-  Total Seen & 914K & --- \\
+%  Full Monomorphic & 785K & 85.87 \\ 
+  Monomorphic in Type & 866K & 94.76 \\ 
+%  Monomorphic in Class & 827K & 90.41 \\ 
+%  Monomorphic in Attribute Pattern & 825K & 90.27 \\ 
+  Total Seen & 914K & --- \\ 
    \hline
 \end{tabular}
-\caption{typeof type system (L0) (arguments)}
+\caption{Argument position polymorphism in L0.}
 \end{table}
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 29 18:10:23 2019
+
 \begin{table}[ht]
-\label{fig:L1funcounts}
+\label{tab:L0funcounts}
 \centering
 \begin{tabular}{lrr}
   \hline
 Type & Count & Percentage \\
   \hline
-Full Monomorphic & 144K & 66.54 \\
-  Monomorphic in Type & 173K & 80.16 \\
-  Monomorphic in Class & 163K & 75.21 \\
-  Monomorphic in Attribute Pattern & 161K & 74.37 \\
+%  Full Monomorphic & 145K & 66.77 \\ 
+  Monomorphic in Type & 186K & 85.78 \\ 
+%  Monomorphic in Class & 163K & 75.21 \\
+%  Monomorphic in Attribute Pattern & 161K & 74.37 \\
   Total Seen & 216K & --- \\
    \hline
 \end{tabular}
-\caption{typeof type system (L0) (functions)}
+\caption{Function polymorphism in L0.}
 \end{table}
 
-From Figure~\ref{fig:L1argcounts}, we glean that argument positions aren't
+From Table~\ref{tab:L0argcounts}, we glean that argument positions aren't
 very polymorphic in L0.  An argument which is "Monomorphic in Type" is
 monomorphic w.r.t. \code{typeof}, in that it was only ever observed to have
 one \code{typeof}.  Similarly, an argument is "Monomorphic in Class" if it
@@ -730,7 +725,7 @@ Attribute Pattern" was only ever observed to have one attribute pattern (and
 that pattern may itself contain many attributes).
 
 As for the polymorphism of functions as a whole, we glean from
-Figure~\ref{fig:L1funcounts} that a sizeable number of functions are
+Figure~\ref{tab:L0funcounts} that a sizeable number of functions are
 polymorphic.  Functions are said to be polymorphic if at least one of their
 arguments or return are polymorphic.  \AT{Say more?}
 
@@ -740,21 +735,20 @@ what kinds of polymorphism occur, we will look at the most commonly
 occurring polymorphic argument signatures.  Table~\ref{tab:L0toppoly} has
 the top polymorphic signatures for L0.
 
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 29 18:13:17 2019
 \begin{table}[ht]\label{tab:L0toppoly}\centering
 \begin{tabular}{lrr}  \hline
-type & count & perc \\\hline\\[-3mm]
-  \D, \I & 19,799 & 28.73 \\[1mm]
-  \D, \l & 5,324 & 7.72 \\ [1mm]
-  \D, \sN & 5,152 & 7.48 \\ [1mm]
-  \C, \sN & 3,682 & 5.34 \\ [1mm]
-  \D, \L & 3,388 & 4.92 \\ [1mm]
-  \C, \D & 2,842 & 4.12 \\ [1mm]
-  \l, \sN & 2,799 & 4.06 \\ [1mm]
-  \C, \l & 1,836 & 2.66 \\ [1mm]
-  \C, \I & 1,663 & 2.41 \\ [1mm]
-  \C, \I, \D & 1,362 & 1.98 \\[1mm]   \hline
+type & count & perc \\ 
+\hline
+  \D, \sN & 8301 & 17.33 \\ 
+  \D, \l & 6291 & 13.13 \\ 
+  \C, \D & 4338 & 9.06 \\ 
+  \C, \sN & 4162 & 8.69 \\ 
+  \l, \sN & 2912 & 6.08 \\ 
+  \C, \l & 1836 & 3.83 \\ 
+  \C, \I & 1719 & 3.59 \\ 
+  \C, \D, \sN & 1057 & 2.21 \\ 
+  \D, error & 906 & 1.89 \\ 
+  \I, \sN & 797 & 1.66 \\   \hline
 \end{tabular}
 \caption{Top polymorphic signatures for the L0 type system.}
 \end{table}
@@ -875,7 +869,7 @@ The data can be found in Tables~\ref{tab:argcountsL1}~and~\ref{tab:funcountsL1}.
   \hline
  Argument Polymorphism & Count & Percentage \\
   \hline
-  Full Monomorphic & 781K & 85.37 \\
+%  Full Monomorphic & 781K & 85.37 \\
   Monomorphic in Type & 834K & 91.23 \\
 %  Monomorphic in Class & 827K & 90.42 \\
 %  Monomorphic in Attribute Pattern & 825K & 90.27 \\
@@ -894,7 +888,7 @@ The data can be found in Tables~\ref{tab:argcountsL1}~and~\ref{tab:funcountsL1}.
   \hline
  Function Polymorphism & Count & Percentage \\
   \hline
-  Full Monomorphic & 143K & 65.88 \\
+%  Full Monomorphic & 143K & 65.88 \\
   Monomorphic in Type & 167K & 77.25 \\
 %  Monomorphic in Class & 163K & 75.24 \\
 %  Monomorphic in Attribute Pattern & 161K & 74.37 \\

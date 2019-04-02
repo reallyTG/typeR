@@ -68,7 +68,7 @@
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# [202596]
+# [215480]
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -1081,6 +1081,51 @@ convert_df_to_fun_sig <- function(df) {
 convert_list_of_traces_to_fun_df <- function(lot) {
   convert_me <- lapply(lot, function(x) x$arg_types)
   data.table::rbindlist(unique(convert_me), fill=T)
+}
+
+make_NAs_into_NULLs <- function(df) {
+  df$type %>%
+    lapply(function(lot) {
+      unique(lapply(lot, function(t) {
+        if (t == "raw_NA")
+          "NULL"
+        else
+          t
+      }))
+    }) -> df$type
+
+  df
+}
+
+# TODO might want something similar for classes? just copy paste tho
+logical_int_double_subtype_df <- function(df) {
+  df$type %>%
+    lapply(function(lot) {
+      t <- unlist(lot)
+      log_in <- t == "logical"
+      int_in <- t == "integer"
+      dbl_in <- t == "double"
+      is_log <- Reduce("||", log_in)
+      is_int <- Reduce("||", int_in)
+      is_dbl <- Reduce("||", dbl_in)
+      if (xor(xor(is_log, is_int), is_dbl)) {
+        # just one, nothing
+      } else if (!is_log && !is_int && !is_dbl) {
+        # none, nothing
+      } else if (is_log && is_int && is_dbl) {
+        t[log_in] <- "double"
+        t[int_in] <- "double"
+      } else if (is_log && is_int) {
+        t[log_in] <- "integer"
+      } else if (is_log && is_dbl) {
+        t[log_in] <- "double"
+      } else if (is_int && is_dbl) {
+        t[int_in] <- "double"
+      }
+      as.list(t) %>% unique
+    }) -> df$type
+
+  df
 }
 
 # # # # # #
