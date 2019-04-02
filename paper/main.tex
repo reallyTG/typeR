@@ -619,8 +619,8 @@ type tag of the value.
 
 Thus L0 includes the following types: vectors of primitive types (integers
 \I, double \D, character \C, logical \L, raw \R, complex \X), lists of any
-type (\l), and scalar values (environment \sE, closures \sF, symbols \sS and
-null \sN). We add the type \ANY to stand in for any type.
+type (\l), and scalar values (environment \sE, closures \sF, symbols \sY, S4
+object \sS, and null \sN). We add the type \ANY to stand in for any type.
 
 We also include a notion of subtyping that follows from the conversion rules
 of the language.  All types are subtypes of \ANY, thus {\tt T}<:\ANY.
@@ -671,34 +671,28 @@ attribute).  Other standard patterns are:
   factored to \texttt{"factor"}.
 \end{itemize}
 
-\section{Results}\label{sec:results}
+\section{Analysis Results}\label{sec:results}
 
-Having built an understanding of our data collection and analysis pipeline,
-we will turn our attention to the results of our analysis.
+This section presents our results for each of the levels we have considered.
 
-\subsection{L0}
+\subsection{L0 polymorphism}
 
-In this section, we will begin by breaking down our corpus of data with L0
-in mind.  From this perspective, we will see how current R programmers see
-types in the language, and we will leverage our newfound insight to design a
-type system which should be relevant to them.
+At L0, the type system is aligned with the types of the core language.  We
+have observed over 173K monomorphic functions; this accounts for 80\% of our
+corpus.  In terms of argument positions, 92\% of arguments are monomorphic.
 
-Without further ado, let's look at the data, first focusing on a broad
-overview of the polymorphism in L0.  Figure~\ref{fig:L1argcounts} shows the
-polymorphicity of argument positions in R function.  From there, we build up
-a picture of the polymorphicity of functions as a whole, and the data for
-this function polymorphism can be found in Figure~\ref{fig:L1funcounts}.
+
+
+Figure~\ref{fig:L1argcounts} shows the polymorphicity of argument positions
+ in R function.  From there, we build up a picture of the polymorphicity of
+ functions as a whole, and the data for this function polymorphism can be
+ found in Figure~\ref{fig:L1funcounts}.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 29 18:10:23 2019
-\begin{table}[ht]
-\label{fig:L1argcounts}
-\centering
-\begin{tabular}{lrr}
-  \hline
-Type & Count & Percentage \\
-  \hline
-Full Monomorphic & 784K & 85.76 \\
+\begin{table}[ht]\label{fig:L1argcounts}\centering\begin{tabular}{lrr}  \hline
+Type                   & Count & Percentage \\  \hline
+Full Monomorphic       & 784K & 85.76 \\
   Monomorphic in Type & 845K & 92.46 \\
   Monomorphic in Class & 827K & 90.41 \\
   Monomorphic in Attribute Pattern & 825K & 90.27 \\
@@ -735,13 +729,16 @@ are a little more complicated, and an argument which is "Monomorphic in
 Attribute Pattern" was only ever observed to have one attribute pattern (and
 that pattern may itself contain many attributes).
 
-As for the polymorphism of functions as a whole, we glean from Figure~\ref{fig:L1funcounts} that a sizeable number of functions are polymorphic.
-Functions are said to be polymorphic if at least one of their arguments or return are polymorphic.
-\AT{Say more?}
+As for the polymorphism of functions as a whole, we glean from
+Figure~\ref{fig:L1funcounts} that a sizeable number of functions are
+polymorphic.  Functions are said to be polymorphic if at least one of their
+arguments or return are polymorphic.  \AT{Say more?}
 
-At present, we will only concern ourselves with \code{typeof} polymorphism, and we will later worry about classes and attributes.
-To get an idea of what kinds of polymorphism occur, we will look at the most commonly occurring polymorphic argument signatures.
-Table~\ref{tab:L0toppoly} has the top polymorphic signatures for L0.
+At present, we will only concern ourselves with \code{typeof} polymorphism,
+and we will later worry about classes and attributes.  To get an idea of
+what kinds of polymorphism occur, we will look at the most commonly
+occurring polymorphic argument signatures.  Table~\ref{tab:L0toppoly} has
+the top polymorphic signatures for L0.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Mar 29 18:13:17 2019
