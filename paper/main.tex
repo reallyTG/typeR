@@ -76,6 +76,7 @@
 \newcommand{\DATAPKGS}{206\xspace}
 \newcommand{\DATAPKGSPERC}{1.5\%\xspace}
 \newcommand{\METAARGCOUNT}{7,051\xspace}
+\newcommand{\NUMPOLYTYPEMONOCLASS}{1,357\xspace}
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -904,7 +905,6 @@ How will we deal with this?
 	
 	\item if we roll NULLs into every type, we can cleanly deal with these X, NULL signatures.
 	As we have established that an annotation for an optional argument is useful, this will allow us to reveal other interesting patterns.
-	\AT{If we feel the need to go into more details on NULL or NA, I have the old paragraphs commented out in the source.}
 	
 	\item similarly with NULLs, we're interested in rolling NAs in to all types.
 	As we mentioned, this is actually what the R runtime does, but a default type needed to be chosen for NAs appearing without context.
@@ -920,14 +920,6 @@ There are some clear limitations to the L0 type system that we should address be
 As we mentioned, \code{typeof} makes no distinction between vectors and scalars, as indeed there is no such distinction in R. 
 But as we saw, we might benefit from such a distinction, and indeed an all-new runtime environment design for R might benefit from e.g. not needing to vectorize scalar values.
 This is one of the many modifications we make, all of which are thoroughly explored in the following section.
-
-%In terms of programmer behavior, we observe a pattern of optional arguments throughout several R packages, wherein programmers specify a default argument value which is sometimes NULL.
-%Consider the snippet in Figure~\ref{fig:optnull} for an example.
-%\AT{TODO put that figure here}
-%The distinction between NULL and other types is not particularly useful to the programmer, so we propose to also collapse this distinction.
-%Not pictured in Table~\ref{tab:toppolyFDTS} are NAs, which are ascribed the type {\tt raw\_NA} in L1; NAs in fact inhabit every type, though the default NA type is {\tt logical}.
-%Just as we fold NULL into all types, we will do the same with NAs.
-
 %
 %
 %
@@ -1069,7 +1061,7 @@ The number of monomorphic arguments and functions can be found in Tables~\ref{ta
  Argument Polymorphism & Count & Percentage \\ 
   \hline
   Full Monomorphic & 781K & 85.47 \\
-  Monomorphic in Type & 867K & 95.01 \\
+  Monomorphic in Type & 869K & 95.01 \\
 %  Monomorphic in Class & 831K & 90.31 \\ 
 %  Monomorphic in Attribute Pattern & 830K & 90.25 \\ 
   Total Seen & 914K & --- \\ 
@@ -1088,7 +1080,7 @@ The number of monomorphic arguments and functions can be found in Tables~\ref{ta
  Function Polymorphism & Count & Percentage \\ 
   \hline
   Full Monomorphic & 143K & 66.04 \\ 
-  Monomorphic in Type & 184K & 85.30 \\
+  Monomorphic in Type & 185K & 85.30 \\
 %  Monomorphic in Class & 163K & 75.13 \\ 
 %  Monomorphic in Attribute Pattern & 161K & 74.31 \\ 
   Total Seen & 216K & --- \\ 
@@ -1178,14 +1170,132 @@ The next type system addresses these concerns.
 %
 \subsection{L2}
 
-\AT{Eyy time for L2.}
+In L2, we aim to incorporate R's other reflective capabilities to address some of the more subtle instances of polymorphism.
+
+We observe that the act of ascribing a class to a value in R carries the intent of the programmer.
+Now, not all classes are user-defined, and R has a number of built-in or otherwise standard classes, ranging from truly primitive classes such as ``numeric'' to the more complex ``data.frame''.
+Thus, before considering the insights provided by the class of values, we transform each of R's standard classes into a ``primitive'' class, which will serve to highlight user-defined classes and those particular to some packages.
+
+\AT{I don't know the best way to approach this subsection, so I'm just gonna start looking at some stuff and see where it leads.}
+
+First, we consider the purpose of classes in R.
+The 
+
+As before, we start with the counts, see Table~\ref{tab:classcountsL2}.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Mon Apr  1 13:02:08 2019
+\begin{table}[ht]
+\label{tab:classcountsL2}
+\centering
+\begin{tabular}{lrr}
+  \hline
+Type & Count & Percentage \\ 
+  \hline
+Full Monomorphic & 777 & 84.96 \\ 
+%  Monomorphic in Type & 869.00 & 95.01 \\ 
+  Monomorphic in Class & 850 & 92.94 \\ 
+%  Monomorphic in Attribute Pattern & 825.00 & 90.27 \\ 
+  Total Seen & 914 & --- \\ 
+   \hline
+\end{tabular}
+\caption{Account of class-based polymorphism in L2.}
+\end{table}
+
+Top signatures in Table~\ref{tab:classpolyL2}.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Mon Apr  1 14:48:55 2019
+\begin{table}[ht]
+\label{tab:classpolyL2}
+\centering
+\begin{tabular}{lrr}
+  \hline
+Class & Count & Precentage \\ 
+  \hline
+primitive, tbl, tbl\_df & 1796 & 2.78 \\ 
+  array, primitive & 1379 & 2.14 \\ 
+  data.table, primitive & 777 & 1.20 \\ 
+  POSIXct, POSIXt & 716 & 1.11 \\ 
+  formula, primitive & 639 & 0.99 \\ 
+  xts, zoo & 588 & 0.91 \\ 
+  glm, lm & 494 & 0.77 \\ 
+  primitive, ts & 432 & 0.67 \\ 
+  mts, primitive, ts & 384 & 0.59 \\ 
+  huxtable, primitive & 318 & 0.49 \\ 
+   \hline
+\end{tabular}
+\caption{Top 10 signatures for class-based polymorphism in L2.}
+\end{table}
+
+Given the low percentages overall, we see that there are no clear patterns here.
+This data does highlight some common classes across R packages:
+tbl and tbl\_df are from the dplyr package, as classes for data objects.
+data.table is the primary data type in the data.table package, again for data objects.
+POSIXct and POSIXt are for dates.
+
+To see how we might use class information, we should see how often a monomorphic class signature co-occurs with a polymorphic type signature.
+We count \NUMPOLYTYPEMONOCLASS argument positions which match this criteria.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Mon Apr  1 16:50:22 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{llrl}
+  \hline
+  Type Sig. & Class Sig. & Count & Percentage \\ 
+  \hline
+  list$<$any$>$, list$<$character$>$ & roxy\_block & 38 & 2.80 \\ 
+  list$<$any$>$, list$<$list$>$ & Rd & 25 & 1.84 \\ 
+  list$<$any$>$, list$<$real$>$ & TSdata & 25 & 1.84 \\ 
+  list$<$any$>$, list$<$list$>$ & xml\_nodeset & 24 & 1.77 \\ 
+  list$<$any$>$, list$<$list$>$, list$<$real$>$ & dendrogram & 24 & 1.77 \\ 
+  list$<$any$>$, list$<$real$>$ & phylo & 23 & 1.69 \\ 
+  list$<$any$>$, list$<$list$>$, list$<$real$>$, scalar/real & dendrogram & 21 & 1.55 \\ 
+  list$<$any$>$, list$<$language$>$ & uneval & 18 & 1.33 \\ 
+  list$<$any$>$, list$<$list$>$ & dendrogram & 18 & 1.33 \\ 
+  list$<$any$>$, list$<$list$>$ & lazy\_dots & 17 & 1.25 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\AT{I don't think this table is telling us much...}
+
+Top attributes, maybe?
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Mon Apr  1 19:21:13 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrl}
+  \hline
+attr & count & perc \\ 
+  \hline
+\{\}, \{\xspace names: \charv\} & 9274.00 & 10.43 \\ 
+  \{\}, \{\xspace names: \chars\} & 4900.00 & 5.51 \\ 
+  \{\}, \{\xspace dim: \intv\} & 4758.00 & 5.35 \\ 
+  \{\xspace names: \chars\}, \{\xspace names: \charv\} & 3457.00 & 3.89 \\ 
+  \{\}, \{\xspace names: \chars\}, \{\xspace names: \charv\} & 2415.00 & 2.72 \\ 
+  \{\xspace dim: \intv, dimnames:list$<$any$>$ \}, \{\xspace dim:\intv\} & 2264.00 & 2.55 \\ 
+  \{\}, \{\xspace srcref: \intv\} & 2037.00 & 2.29 \\ 
+  \{\xspace dim: \intv, dimnames: list$<$character$>$\}, \{ dim:\intv\} & 1734.00 & 1.95 \\ 
+  \{\xspace class: \chars, names: \charv, row.names:\charv\}, \{class:\chars, names:\charv, row.names:\intv\} & 1464.00 & 1.65 \\ 
+  \{\xspace class: \chars, names: \charv\}, \{ class:\charv, names:\charv\} & 1277.00 & 1.44 \\ 
+   \hline
+\end{tabular}
+\caption{Top attribute patterns. \AT{TODO fix this up}}
+\end{table}\charv
+
+A lot of the polymorphism that we see is because we haven't propagated our changes through the attribute types.
+Will fix this.
 
 %
 %
 %
 %
-\AT{We might want to discuss some of the most polymorphic functions in the language.}
 \subsection{R's Most Polymorphic Functions}
+
+\AT{We might want to discuss some of the most polymorphic functions in the language.}
 
 In this section, our goal is to shed some light on the most polymorphic functions in R.
 Table~\ref{tab:bigpolyfuns} shows the 10 functions with the biggest recorded signatures.
