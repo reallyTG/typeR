@@ -662,20 +662,29 @@ stands for a list names.  The subtype relation is extended with
 and {\tt N}$\subseteq${\tt N'}.
 
 
+All of the possible \code{typeof}s in correspond to a class, so we must control
+for these as well.
+
+Now, recall that the attributes of a value is a list of name, value pairs of metadata
+on the value accessible through the \code{attributes} function. For our purposes,
+we will only consider the names of attributes, and not values nor their types. This
+avoids expensive recursion, and including type information in attribute patterns
+creates a lot of noise in the data that hides other interesting patterns.
+
 \section{Analysis Results}\label{sec:results}
 
 This section presents our results for each of the levels we have considered.
 
 \subsection{L0 polymorphism}
 
-At L0, the type system is aligned with the types of the core language.  We
-have observed over 173K monomorphic functions; this accounts for 80\% of our
-corpus.  In terms of argument positions, 92\% of arguments are monomorphic.
+At L0, the type system is mostly aligned with the types of the core language.  We
+have observed over 186K monomorphic functions; this accounts for 86\% of our
+corpus.  In terms of argument positions, 95\% of arguments are monomorphic.
 
 Table~\ref{tab:L0argcounts} shows the polymorphicity of argument positions
  in R function.  From there, we build up a picture of the polymorphicity of
  functions as a whole, and the data for this function polymorphism can be
- found in Figure~\ref{tab:L0funcounts}.
+ found in Table~\ref{tab:L0funcounts}.
 
 \begin{table}[ht]\label{tab:L0argcounts}\centering\begin{tabular}{lrr}  \hline
 Type                   & Count & Percentage \\  \hline
@@ -693,32 +702,19 @@ Type                   & Count & Percentage \\  \hline
   \hline
 Type & Count & Percentage \\
   \hline
-  Monomorphic in Type & 173K & 80.16 \\
+%  Full Monomorphic & 145K & 66.77 \\
+  Monomorphic in Type & 187K & 86.4\% \\
+%  Monomorphic in Class & 163K & 75.21 \\
+%  Monomorphic in Attribute Pattern & 161K & 74.37 \\
   Total Seen & 216K & --- \\
    \hline
 \end{tabular}
 \caption{Function polymorphism in L0.}
 \end{table}
 
-From Table~\ref{tab:L0argcounts}, we glean that argument positions aren't
-very polymorphic in L0.  An argument which is "Monomorphic in Type" is
-monomorphic w.r.t. \code{typeof}, in that it was only ever observed to have
-one \code{typeof}.  Similarly, an argument is "Monomorphic in Class" if it
-is only ever called with one {\tt class}.  As we said earlier, attributes
-are a little more complicated, and an argument which is "Monomorphic in
-Attribute Pattern" was only ever observed to have one attribute pattern (and
-that pattern may itself contain many attributes).
-
-As for the polymorphism of functions as a whole, we glean from
-Figure~\ref{tab:L0funcounts} that a sizeable number of functions are
-polymorphic.  Functions are said to be polymorphic if at least one of their
-arguments or return are polymorphic.  \AT{Say more?}
-
-At present, we will only concern ourselves with \code{typeof} polymorphism,
-and we will later worry about classes and attributes.  To get an idea of
-what kinds of polymorphism occur, we will look at the most commonly
-occurring polymorphic argument signatures.  Table~\ref{tab:L0toppoly} has
-the top polymorphic signatures for L0.
+Tables~\ref{tab:L0argcounts} and~\ref{tab:L0funcounts} show that the overall amount of polymorphism in R is quite low, but that doesn't quite tell the whole story.
+To get an idea of what kinds of polymorphism occur, we will look at the most commonly occurring polymorphic argument signatures.
+Table~\ref{tab:L0toppoly} has the top polymorphic signatures for L0.
 
 \begin{table}[ht]\label{tab:L0toppoly}\centering
 \begin{tabular}{lrr}  \hline
@@ -738,88 +734,96 @@ type & count & perc \\
 \caption{Top polymorphic signatures for the L0 type system.}
 \end{table}
 
-Some entries in the Table~\ref{tab:L0toppoly} are clear (e.g., double,
-integer polymorphism is unsurprising), others are strange (e.g., character,
-double), but in fact they all have some explanation.
+\AT{TODO explain results in table.}
 
-\begin{enumerate}
-\item \{\D, \I\}: in R, doubles and integers are effectively
-  interchangeable, as casting from one to the other is straightforward and
-  automatically performed when appropriate.  For example, \code{c(1, 2)[1.9]
-    == 1}.  This distinction is mainly just relevant to the implementation,
-  as integers and doubles are stored and dealt with differently in the
-  runtime but programmers only see the distinction when printing.
+%Some entries in the Table~\ref{tab:L0toppoly} are clear (e.g., double,
+%integer polymorphism is unsurprising), others are strange (e.g., character,
+%double), but in fact they all have some explanation.
 
-\item \{\D, \l\} and \{\C, \l\}: at first glance, these type signatures are
-  suspect.  Why would so many programmers want to pass a double or a list to
-  some function?  The key insight here is that doubles and characters are
-  {\it vectorized} in R, meaning that a double is really a vector of
-  doubles.  Thus, these seemingly strange signatures are revealed to be
-  entirely reasonable: these signatures are likely to describe arguments
-  which are either vectors or lists.
-
-\item \{\ANY,\sN\}: in most languages, NULL is an inhabitant of all types,
-  and we see that this is not the case in R.  That said, there is a pattern
-  of many functions having default or optional arguments, and in many of
-  these cases NULL is the default value.
-
-\item \{\D,\L\}: the first values of type logical that come to mind are TRUE
-  and FALSE, which does little to explain this strange signature.  Indeed,
-  the key here is an implementation detail of R's: recall that NAs inhabit
-  every type.  As it happens, the default type of NA is logical (e.g.,
-  \code{typeof(NA) == "logical"}), and this is likely what is being seen
-  here.  We will control for this by distinguishing NAs with their own type,
-  {\tt raw\_NA}, but we will get to that in time.
-
-\item \{\C,\D\}, \{\C,\I\} and \{character, double, integer\}: yet more
-  strange signatures.  These signatures are a little more subtle to explain.
-  For one, indexing lists and vectors can be done with either strings (i.e.,
-  to access a named index) or with numbers.  Another option is dates: R has
-  many ways to present dates, and strings and numbers feature among them.
-  Finally, many \AT{get numbers} functions in R return a string if an error
-  occurs during execution.
-
-\end{enumerate}
-
-How will we deal with this?
-
-\begin{enumerate}
-\item consolidating doubles and integers into a single real-number type
-  would account for all of this polymorphism.
-\item to get an idea of how often vectors and lists co-occur in signatures,
-  we need to expand our analysis of vectorized types.  Notably, when we
-  encounter e.g. a double, we should collect length information to see if
-  the double is a vector of doubles or just a scalar.  This will feature in
-  our next type system, L1, which we will get to momentarily.
-\item if we roll NULLs into every type, we can cleanly deal with these X,
-  NULL signatures.  As we have established that an annotation for an
-  optional argument is useful, this will allow us to reveal other
-  interesting patterns.
-\item similarly with NULLs, we're interested in rolling NAs in to all types.
-  As we mentioned, this is actually what the R runtime does, but a default
-  type needed to be chosen for NAs appearing without context.  Subsuming NAs
-  should help to reveal other interesting patterns.
-\item dealing with this polymorphism will be more tricky.  We might need to
-  pull class information in (to pick up on dates), and possibly make a
-  signature judgment depending on which argument position has the signature
-  (e.g. a \{character, X\} signature on a return).  We will come back to
-  this later.
-
-\end{enumerate}
+%\begin{enumerate}
+%\item \{\D, \I\}: in R, doubles and integers are effectively
+%  interchangeable, as casting from one to the other is straightforward and
+%  automatically performed when appropriate.  For example, \code{c(1, 2)[1.9]
+%    == 1}.  This distinction is mainly just relevant to the implementation,
+%  as integers and doubles are stored and dealt with differently in the
+%  runtime but programmers only see the distinction when printing.
+%
+%\item \{\D, \l\} and \{\C, \l\}: at first glance, these type signatures are
+%  suspect.  Why would so many programmers want to pass a double or a list to
+%  some function?  The key insight here is that doubles and characters are
+%  {\it vectorized} in R, meaning that a double is really a vector of
+%  doubles.  Thus, these seemingly strange signatures are revealed to be
+%  entirely reasonable: these signatures are likely to describe arguments
+%  which are either vectors or lists.
+%
+%\item \{\ANY,\sN\}: in most languages, NULL is an inhabitant of all types,
+%  and we see that this is not the case in R.  That said, there is a pattern
+%  of many functions having default or optional arguments, and in many of
+%  these cases NULL is the default value.
+%
+%\item \{\D,\L\}: the first values of type logical that come to mind are TRUE
+%  and FALSE, which does little to explain this strange signature.  Indeed,
+%  the key here is an implementation detail of R's: recall that NAs inhabit
+%  every type.  As it happens, the default type of NA is logical (e.g.,
+%  \code{typeof(NA) == "logical"}), and this is likely what is being seen
+%  here.  We will control for this by distinguishing NAs with their own type,
+%  {\tt raw\_NA}, but we will get to that in time.
+%
+%\item \{\C,\D\}, \{\C,\I\} and \{character, double, integer\}: yet more
+%  strange signatures.  These signatures are a little more subtle to explain.
+%  For one, indexing lists and vectors can be done with either strings (i.e.,
+%  to access a named index) or with numbers.  Another option is dates: R has
+%  many ways to present dates, and strings and numbers feature among them.
+%  Finally, many \AT{get numbers} functions in R return a string if an error
+%  occurs during execution.
+%
+%\end{enumerate}
+%
+%How will we deal with this?
+%
+%\begin{enumerate}
+%\item consolidating doubles and integers into a single real-number type
+%  would account for all of this polymorphism.
+%\item to get an idea of how often vectors and lists co-occur in signatures,
+%  we need to expand our analysis of vectorized types.  Notably, when we
+%  encounter e.g. a double, we should collect length information to see if
+%  the double is a vector of doubles or just a scalar.  This will feature in
+%  our next type system, L1, which we will get to momentarily.
+%\item if we roll NULLs into every type, we can cleanly deal with these X,
+%  NULL signatures.  As we have established that an annotation for an
+%  optional argument is useful, this will allow us to reveal other
+%  interesting patterns.
+%\item similarly with NULLs, we're interested in rolling NAs in to all types.
+%  As we mentioned, this is actually what the R runtime does, but a default
+%  type needed to be chosen for NAs appearing without context.  Subsuming NAs
+%  should help to reveal other interesting patterns.
+%\item dealing with this polymorphism will be more tricky.  We might need to
+%  pull class information in (to pick up on dates), and possibly make a
+%  signature judgment depending on which argument position has the signature
+%  (e.g. a \{character, X\} signature on a return).  We will come back to
+%  this later.
+%
+%\end{enumerate}
 
 There are some clear limitations to the L0 type system that we should
-address before working through any of these other issues As we mentioned,
+address before working through any of these other issues. As we mentioned,
 \code{typeof} makes no distinction between vectors and scalars, as indeed
 there is no such distinction in R.  But as we saw, we might benefit from
 such a distinction, and indeed an all-new runtime environment design for R
-might benefit from e.g. not needing to vectorize scalar values.  This is one
-of the many modifications we make, all of which are thoroughly explored in
+might benefit from e.g. not needing to vectorize scalar values.  This is only one
+of the modifications we make, all of which are thoroughly explored in
 the following section.
 %
 %
 %
 %
 \subsection{L1}
+
+As we mentioned in \AT{an earlier section}, and as was revealed in the previous section,
+L0 is somewhat limited in its expressivity. To address this, we develop L1, which espouses
+a finer-grained approach to types. Major modifications from L0 include the differentiation of
+scalars and vectors, the parameterization of list types over element types, and the use of
+attribute and class information to distinguish types for data frames and matrices.
 
 An example of a signature in this type system can be found in
 Figure~\ref{fig:exL1}.
@@ -837,7 +841,7 @@ add_make_list(2, c(3, 1)) # => list(5, 3)
 \bf Argument & \bf Type & \bf Class &\bf Attributes \\
 x & \sD & numeric & \{\} \\
 y & \D & numeric & \{\} \\
-retv & list<double> & list & \{\xspace example: \sC\}
+retv & \lT{D} & list & \{\xspace example: \sC\}
 \end{tabular}
 \caption{Example call and L1 signature.}\label{fig:exL1}\end{figure}
 
