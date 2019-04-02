@@ -43,16 +43,8 @@
 \newcommand{\genthat}{{\sc Genthat}\xspace}
 
 % Macros for type names?
-\newcommand{\reals}{$real$\xspace}
-\newcommand{\realv}{$\overline{real}$\xspace}
-\newcommand{\chars}{$char$\xspace}
-\newcommand{\charv}{$\overline{char}$\xspace}
-\newcommand{\logis}{$logical$\xspace}
-\newcommand{\logiv}{$\overline{logical}$\xspace}
-\newcommand{\dbls}{$double$\xspace}
-\newcommand{\dblv}{$\overline{double}$\xspace}
-\newcommand{\ints}{$integer$\xspace}
-\newcommand{\intv}{$\overline{integer}$\xspace}
+\newcommand{\reals}{$\mathtt {\rm I\!R}$\xspace}
+\newcommand{\realv}{$\overline{\rm I\!R}$\xspace}
 
 \setcopyright{none}
 %\setcopyright{acmcopyright}%\setcopyright{acmlicensed}
@@ -669,7 +661,7 @@ functions.  The details of the information we collect follows.
 \begin{itemize}
 \item if the analysis encounters \code{ typeof(x) == "double"}, it will look
   at the length of {\tt x} to determine if {\tt x} is a scalar or a vector,
-  generating the annotation {\tt \dbls} or {\tt \dblv} accordingly.  This is
+  generating the annotation {\tt \sD} or {\tt \D} accordingly.  This is
   also true for integer, complex, raw, logical, and character {\tt typeof}s
   (i.e., the primitive vectorized data types).  A notable imperfection here
   is is that unit length vectors will appear as scalars, so later in our
@@ -772,7 +764,7 @@ nret.translator <- function(dat, spss="out", ...) {
     # here, dat is data.frame
     items.idx <- items.idx[order(names(dat[, items.idx]))]
   }
-\end{lstlisting}}\caption{Example of a data.frame/(\dblv) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
+\end{lstlisting}}\caption{Example of a data.frame/(\D) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
 
 In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt
   network}), a vector of indices of that list ({\tt fixIndices}), and a
@@ -803,7 +795,7 @@ vectors are matrices.  R echoes this by making conversion between the two
 tee <- function (x, theta, D1, D2, phi)  {
     if (is.vector(x)) x <- t(x)
     ...
-\end{lstlisting}}\caption{Example of matrix/(\dblv) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
+\end{lstlisting}}\caption{Example of matrix/(\D) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
 
 %
 %
@@ -1004,9 +996,9 @@ add_make_list(2, c(3, 1)) # => list(5, 3)
 
 \begin{tabular}{@{}r|l|l|l@{}}\hline
 \bf Argument & \bf Type & \bf Class &\bf Attributes \\
-x & \dbls & numeric & \{\} \\
-y & \dblv & numeric & \{\} \\
-retv & list<double> & list & \{\xspace example: \chars\}  
+x & \sD & numeric & \{\} \\
+y & \D & numeric & \{\} \\
+retv & list<double> & list & \{\xspace example: \sC\}  
 \end{tabular}
 \caption{Example call and L1 signature.}\label{fig:exL1}\end{figure}
 
@@ -1074,16 +1066,16 @@ The answer to that question can be found in Table~\ref{tab:toppolyL1}.
   \hline
  Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\ 
   \hline
-  \dblv, \intv & 7742 & 9.66 \\ 
-  \dbls, \ints & 7201 & 8.99 \\ 
-  matrix, \dblv & 5384 & 6.72 \\ 
-  NULL, \chars & 2325 & 2.90 \\ 
+  \D, \I & 7742 & 9.66 \\ 
+  \sD, \sI & 7201 & 8.99 \\ 
+  matrix, \D & 5384 & 6.72 \\ 
+  NULL, \sC & 2325 & 2.90 \\ 
   list$<$any$>$, list$<$double$>$ & 2231 & 2.78 \\ 
   data.frame, matrix & 2116 & 2.64 \\ 
-  NULL, \dbls & 2082 & 2.60 \\ 
-  NULL, \dblv & 2069 & 2.58 \\ 
+  NULL, \sD & 2082 & 2.60 \\ 
+  NULL, \D & 2069 & 2.58 \\ 
   list$<$any$>$, list$<$list$>$ & 1432 & 1.79 \\ 
-  NULL, \charv & 1380 & 1.72 \\
+  NULL, \C & 1380 & 1.72 \\
      \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in L1.}
@@ -1091,7 +1083,7 @@ The answer to that question can be found in Table~\ref{tab:toppolyL1}.
 
 We would like to make one important note before digesting the data in Table~\ref{tab:toppolyL1}.
 We drew a distinction between scalars and vectors of the same type, and that distinction would be the single largest source of polymorphism in L1 had we not dealt with it appropriately.
-We note that an argument which exhibits a signature including e.g. \{\dbls, \dblv\} really must be an argument designed to take vectors, as recall that unit length vectors appear as scalars by our definition.
+We note that an argument which exhibits a signature including e.g. \{\sD, \D\} really must be an argument designed to take vectors, as recall that unit length vectors appear as scalars by our definition.
 We have already collapsed this distinction.
 
 In Table~\ref{tab:toppolyL1}, we again see the prominence of {\tt double} and {\tt integer} polymorphism.
@@ -1165,14 +1157,14 @@ Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\
   \hline
   matrix, \realv & 6360 & 13.94 \\ 
   list$<$any$>$, list$<$real$>$ & 2799 & 6.13 \\ 
-  \charv, \realv & 2774 & 6.08 \\ 
-  \chars, \reals & 2552 & 5.59 \\ 
+  \C, \realv & 2774 & 6.08 \\ 
+  \sC, \reals & 2552 & 5.59 \\ 
   data.frame, matrix & 2167 & 4.75 \\ 
   list$<$any$>$, list$<$list$>$ & 1496 & 3.28 \\ 
   list$<$any$>$, list$<$character$>$ & 1214 & 2.66 \\ 
   data.frame, \realv & 1046 & 2.29 \\ 
-  \logis, \reals & 920 & 2.02 \\ 
-  \chars, \realv & 868 & 1.90 \\
+  \sL, \reals & 920 & 2.02 \\ 
+  \sC, \realv & 868 & 1.90 \\
    \hline
 \end{tabular}
 \caption{Top 10 argument signatures in L$1^{+}$.}
@@ -1231,18 +1223,22 @@ The next type system addresses these concerns.
 %
 \subsection{L2}
 
-In L2, we aim to incorporate R's other reflective capabilities to address some of the more subtle instances of polymorphism.
+In L2, we aim to incorporate R's other reflective capabilities to address some of the more subtle instances of polymorphism that we have observed.
 
-We observe that the act of ascribing a class to a value in R carries the intent of the programmer.
-Now, not all classes are user-defined, and R has a number of built-in or otherwise standard classes, ranging from truly primitive classes such as ``numeric'' to the more complex ``data.frame''.
-Thus, before considering the insights provided by the class of values, we transform each of R's standard classes into a ``primitive'' class, which will serve to highlight user-defined classes and those particular to some packages.
+First, we reiterate that there are a finite number of results from the {\tt typeof} function, and this is not the case for \code{class} and \code{attributes}.
+Classes and attributes can be arbitrarily defined by the user, and users create their own classes and assign their own attributes frequently.
+Unlike types (in the sense of \code{typeof}), the number of possible classes and attributes is arbitrary.
 
-\AT{I don't know the best way to approach this subsection, so I'm just gonna start looking at some stuff and see where it leads.}
+Of course, not all classes are user-defined, and R has a number of built-in or otherwise standard classes, ranging from truly primitive classes such as ``numeric'' to the more complex ``data.frame''.
+We have already used these when building our more refined types, and so we transform each of R's standard classes into a ``primitive'' class, which will minimize their impact and thus highlight user-defined classes.
 
-First, we consider the purpose of classes in R.
-The 
+As for attributes, again some patterns arise naturally, for instance all matrices have a ``dims'' attribute (indeed, it's this attribute that makes a matrix a matrix).
+\AT{This sounds like it's implying that we should do something about that, but I'm not sure if that's a good idea.}
+In principle, attributes are name, value pairs, but to keep things simple we will reduce these to name, type pairs, so the name of an attribute and the type that it was observed to have.
+We will show an L0 type for attributes.
 
-As before, we start with the counts, see Table~\ref{tab:classcountsL2}.
+To see how often arguments are polymorphic with respect to class and attributes, we refer to Table~\ref{tab:classcountsL2}.
+\AT{Showing full monomorphic all the time might be a bit confusing?}
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Mon Apr  1 13:02:08 2019
@@ -1253,17 +1249,19 @@ As before, we start with the counts, see Table~\ref{tab:classcountsL2}.
   \hline
 Type & Count & Percentage \\ 
   \hline
-Full Monomorphic & 777 & 84.96 \\ 
+Full Monomorphic & 783K & 85.59 \\ 
 %  Monomorphic in Type & 869.00 & 95.01 \\ 
-  Monomorphic in Class & 850 & 92.94 \\ 
-%  Monomorphic in Attribute Pattern & 825.00 & 90.27 \\ 
-  Total Seen & 914 & --- \\ 
+  Monomorphic in Class & 850K & 92.94 \\ 
+  Monomorphic in Attribute Pattern & 836K & 91.41 \\ 
+  Total Seen & 914K & --- \\ 
    \hline
 \end{tabular}
-\caption{Account of class-based polymorphism in L2.}
+\caption{Account of class- and attribute-based polymorphism in L2.}
 \end{table}
 
-Top signatures in Table~\ref{tab:classpolyL2}.
+The numbers here are in line with the type-based polymorphism of L1.
+As before, to build up a better sense of what kind of polymorphism we're dealing with, we extract some of the most common signatures.
+We begin with classes, and refer to Table~\ref{tab:classpolyL2}.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Mon Apr  1 14:48:55 2019
@@ -1272,28 +1270,28 @@ Top signatures in Table~\ref{tab:classpolyL2}.
 \centering
 \begin{tabular}{lrr}
   \hline
-Class & Count & Precentage \\ 
+Class & Count & Percentage \\ 
   \hline
-primitive, tbl, tbl\_df & 1796 & 2.78 \\ 
+  primitive, tbl, tbl\_df & 1796 & 2.78 \\ 
   array, primitive & 1379 & 2.14 \\ 
   data.table, primitive & 777 & 1.20 \\ 
   POSIXct, POSIXt & 716 & 1.11 \\ 
   formula, primitive & 639 & 0.99 \\ 
-  xts, zoo & 588 & 0.91 \\ 
-  glm, lm & 494 & 0.77 \\ 
-  primitive, ts & 432 & 0.67 \\ 
-  mts, primitive, ts & 384 & 0.59 \\ 
-  huxtable, primitive & 318 & 0.49 \\ 
+%  xts, zoo & 588 & 0.91 \\ 
+%  glm, lm & 494 & 0.77 \\ 
+%  primitive, ts & 432 & 0.67 \\ 
+%  mts, primitive, ts & 384 & 0.59 \\ 
+%  huxtable, primitive & 318 & 0.49 \\ 
    \hline
 \end{tabular}
-\caption{Top 10 signatures for class-based polymorphism in L2.}
+\caption{Top 5 class signatures for class-based polymorphism in L2.}
 \end{table}
 
-Given the low percentages overall, we see that there are no clear patterns here.
-This data does highlight some common classes across R packages:
-tbl and tbl\_df are from the dplyr package, as classes for data objects.
-data.table is the primary data type in the data.table package, again for data objects.
-POSIXct and POSIXt are for dates.
+The first thing to note is the low percentages overall: unlike with types in L0, L1, or L1+, there are no major contributors for class-based polymorphism.
+For instance, the single highest source of polymorphism here is due to the ``tbl'' and ``tbl\_df'' classes (of the dplyr package).
+For what it's worth, these are classes ascribed to dplyr data objects (i.e., spruced-up data frames).
+The next largest contributor is the array class, which is a class for N>2-dimensional matrices (part of the core R language).
+\AT{Maybe I should also turn arrays into primitive class?}
 
 To see how we might use class information, we should see how often a monomorphic class signature co-occurs with a polymorphic type signature.
 We count \NUMPOLYTYPEMONOCLASS argument positions which match this criteria.
@@ -1311,13 +1309,14 @@ We count \NUMPOLYTYPEMONOCLASS argument positions which match this criteria.
   list$<$any$>$, list$<$real$>$ & TSdata & 25 & 1.84 \\ 
   list$<$any$>$, list$<$list$>$ & xml\_nodeset & 24 & 1.77 \\ 
   list$<$any$>$, list$<$list$>$, list$<$real$>$ & dendrogram & 24 & 1.77 \\ 
-  list$<$any$>$, list$<$real$>$ & phylo & 23 & 1.69 \\ 
-  list$<$any$>$, list$<$list$>$, list$<$real$>$, scalar/real & dendrogram & 21 & 1.55 \\ 
-  list$<$any$>$, list$<$language$>$ & uneval & 18 & 1.33 \\ 
-  list$<$any$>$, list$<$list$>$ & dendrogram & 18 & 1.33 \\ 
-  list$<$any$>$, list$<$list$>$ & lazy\_dots & 17 & 1.25 \\ 
+%  list$<$any$>$, list$<$real$>$ & phylo & 23 & 1.69 \\ 
+%  list$<$any$>$, list$<$list$>$, list$<$real$>$, scalar/real & dendrogram & 21 & 1.55 \\ 
+%  list$<$any$>$, list$<$language$>$ & uneval & 18 & 1.33 \\ 
+%  list$<$any$>$, list$<$list$>$ & dendrogram & 18 & 1.33 \\ 
+%  list$<$any$>$, list$<$list$>$ & lazy\_dots & 17 & 1.25 \\ 
    \hline
 \end{tabular}
+\caption{Top instances of type-polymorphic but class-monomorphic signatures.}
 \end{table}
 
 \AT{I don't think this table is telling us much...}
@@ -1325,27 +1324,26 @@ We count \NUMPOLYTYPEMONOCLASS argument positions which match this criteria.
 Top attributes, maybe?
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Mon Apr  1 19:21:13 2019
+% Mon Apr  1 23:06:59 2019
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrl}
   \hline
 attr & count & perc \\ 
   \hline
-\{\}, \{\xspace names: \charv\} & 9274.00 & 10.43 \\ 
-  \{\}, \{\xspace names: \chars\} & 4900.00 & 5.51 \\ 
-  \{\}, \{\xspace dim: \intv\} & 4758.00 & 5.35 \\ 
-  \{\xspace names: \chars\}, \{\xspace names: \charv\} & 3457.00 & 3.89 \\ 
-  \{\}, \{\xspace names: \chars\}, \{\xspace names: \charv\} & 2415.00 & 2.72 \\ 
-  \{\xspace dim: \intv, dimnames:list$<$any$>$ \}, \{\xspace dim:\intv\} & 2264.00 & 2.55 \\ 
-  \{\}, \{\xspace srcref: \intv\} & 2037.00 & 2.29 \\ 
-  \{\xspace dim: \intv, dimnames: list$<$character$>$\}, \{ dim:\intv\} & 1734.00 & 1.95 \\ 
-  \{\xspace class: \chars, names: \charv, row.names:\charv\}, \{class:\chars, names:\charv, row.names:\intv\} & 1464.00 & 1.65 \\ 
-  \{\xspace class: \chars, names: \charv\}, \{ class:\charv, names:\charv\} & 1277.00 & 1.44 \\ 
+\{\}, \{names: \C\} & 16589 & 21.11 \\ 
+  \{\}, \{dim: \I\} & 5010 & 6.38 \\ 
+  \{dim:\I,dimnames:list$<$any$>$\}, \{dim:\I\} & 2264 & 2.88 \\ 
+  \{class:\C,names:\C,row.names:\C\}, \{class:\C,names:\C,row.names:\I\} & 2102 & 2.68 \\ 
+  \{\}, \{srcref:\I\} & 2037 & 2.59 \\ 
+  \{dim:\I,dimnames:list$<$\C$>$\}, \{dim:\I\} & 1740 & 2.21 \\ 
+  \{\}, \{class:\C\} & 1673 & 2.13 \\ 
+  \{\}, \{class:\C,levels:\C\} & 1437 & 1.83 \\ 
+  \{\}, \{class:\C,names:\C\} & 1324 & 1.69 \\ 
+  \{\}, \{class:\C,names:\C,row.names:\I\} & 1251 & 1.59 \\ 
    \hline
 \end{tabular}
-\caption{Top attribute patterns. \AT{TODO fix this up}}
-\end{table}\charv
+\end{table}
 
 A lot of the polymorphism that we see is because we haven't propagated our changes through the attribute types.
 Will fix this.
