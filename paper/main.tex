@@ -1448,13 +1448,10 @@ nret.translator <- function(dat, spss="out", ...) {
     # here, dat is data.frame
     items.idx <- items.idx[order(names(dat[, items.idx]))]
   }
-\end{lstlisting}}\caption{Example of a data.frame/(\dblv) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
+\end{lstlisting}}\caption{Example of a data.frame/(\D) argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
 
-In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt
-  network}), a vector of indices of that list ({\tt fixIndices}), and a
-vector of values ({\tt values}).  The locations specified by {\tt
-  fixIndicies} in {\tt network} are updated with {\tt values}.  Here, {\tt
-  fixIndicies} has been observed to be either a character or double vector:
+In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt network}), a vector of indices of that list ({\tt fixIndices}), and a
+vector of values ({\tt values}).  The locations specified by {\tt fixIndicies} in {\tt network} are updated with {\tt values}.  Here, {\tt fixIndicies} has been observed to be either a character or double vector:
 In R, list indices are typically doubles, but can be characters (if the list
 or vector being indexed has a {\tt names} attribute).
 
@@ -1479,7 +1476,7 @@ vectors are matrices.  R echoes this by making conversion between the two
 tee <- function (x, theta, D1, D2, phi)  {
     if (is.vector(x)) x <- t(x)
     ...
-\end{lstlisting}}\caption{Example of matrix/(\dblv) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
+\end{lstlisting}}\caption{Example of matrix/(\D) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
 
 %
 %

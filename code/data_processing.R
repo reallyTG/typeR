@@ -40,6 +40,7 @@
 # [ ] do we want anything more out of the data? names? dims? could be fun to get
 # [ ] skip retv in coincidence checking?
 # [ ] better author name metric (just last name?)
+# [ ] attribute types figure out
 
 # Issues:
 # [ ] list<any> happens even for ints, doubles... we end up with list<any>, list<real>
@@ -420,6 +421,13 @@ args_count_all_mono_attr_pattern <- function(lofun_c) {
   }))
 }
 
+args_count_all_poly_type_mono_class <- function(lofun_c) {
+  Reduce("+", lapply(lofun_c, function(fun_df) {
+    want <- apply(fun_df, 1, function(x) (length(x[["class"]]) == 1 && x[["class"]][[1]] != "primitive") && length(x[["type"]]) > 1)
+    length(want[want])
+  }))
+}
+
 #      #       #      #
 #      Functions      #
 #      #       #      #
@@ -490,52 +498,73 @@ count_args_matching_type <- function(df, loty, strict=F) {
 #           ,,,           #
 # # # # # # # # # # # # # #
 
+
 reduce_extracted_lopkgs_to_one <- function(lopkgs_c_e) {
-  r <- Reduce(rbind, lapply(lopkgs_c_e, reduce_extracted_lofuns_to_one))
-  r$count <- unlist(r$count) # why
-  which <- names(r)[1]
-  if (is.null(which)) {
-    # skip
-    which
-  } else {
-    group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
+  flattened <- Reduce(rbind, flatten(lopkgs_c_e))
+  nn <- names(flattened)
+  nn <- nn[nn != "count"]
+  for (n in nn) {
+    flattened[, n] <- flattened[, n] %>% sapply(function(x) paste(sort(unlist(x)), collapse="~"))
+  }
+  flattened %>%
+    group_by_at(vars(nn)) %>%
     do(count=sum(.$count)) %>%
     as.data.frame -> r
-    r$count <- unlist(r$count)
-    rep <- lapply(r[, 1], function(x) {strsplit(x, split="~")})
-    if (which == "type") {
-      r$type <- rep
-    } else if (which == "attr") {
-      r$attr <- rep
-    } else if (which == "class") {
-      r$class <- rep
-    }
-    r
+
+  r$count <- unlist(r$count)
+  for (n in nn) {
+    r[, n] <- list(r[, n] %>% lapply(function(x) unlist(strsplit(x, split="~"))))
   }
+
+  r
 }
 
-reduce_extracted_lofuns_to_one <- function(lofuns_c_e) {
-  r <- Reduce(rbind, lofuns_c_e)           # bind everything together
-  collapse_me <- lapply(r[, 1], function(x) sort(unlist(x)))
-  rep <- sapply(collapse_me, function(x) {paste(x, collapse="~")})
-  which <- names(r)[1]
-  if (is.null(which)) {
-    # nothing to do
-  } else if (which == "type") {
-    r$type <- rep
-  } else if (which == "attr") {
-    r$attr <- rep
-  } else if (which == "class") {
-    r$class <- rep
-  }
-  if (is.null(which)) {
-    NULL
-  } else {
-    group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
-    do(count=sum(.$count)) %>%
-    as.data.frame
-  }
-}
+# reduce_extracted_lopkgs_to_one <- function(lopkgs_c_e) {
+#   r <- Reduce(rbind, lapply(lopkgs_c_e, reduce_extracted_lofuns_to_one))
+#   r$count <- unlist(r$count) # why
+#   which <- names(r)[1]
+#   if (is.null(which)) {
+#     # skip
+#     which
+#   } else {
+#     group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
+#     do(count=sum(.$count)) %>%
+#     as.data.frame -> r
+#     r$count <- unlist(r$count)
+#     rep <- lapply(r[, 1], function(x) {strsplit(x, split="~")})
+#     if (which == "type") {
+#       r$type <- rep
+#     } else if (which == "attr") {
+#       r$attr <- rep
+#     } else if (which == "class") {
+#       r$class <- rep
+#     }
+#     r
+#   }
+# }
+#
+# reduce_extracted_lofuns_to_one <- function(lofuns_c_e) {
+#   r <- Reduce(rbind, lofuns_c_e)           # bind everything together
+#   collapse_me <- lapply(r[, 1], function(x) sort(unlist(x)))
+#   rep <- sapply(collapse_me, function(x) {paste(x, collapse="~")})
+#   which <- names(r)[1]
+#   if (is.null(which)) {
+#     # nothing to do
+#   } else if (which == "type") {
+#     r$type <- rep
+#   } else if (which == "attr") {
+#     r$attr <- rep
+#   } else if (which == "class") {
+#     r$class <- rep
+#   }
+#   if (is.null(which)) {
+#     NULL
+#   } else {
+#     group_by(r, .dots=list(which)) %>% # this is a dumb ass hack
+#     do(count=sum(.$count)) %>%
+#     as.data.frame
+#   }
+# }
 
 apply_extract_to_lopkg <- function(lopkg_c, extract_fun) {
   r <- lapply(lopkg_c, function(x) {apply_extract_to_lofun(x, extract_fun)})
@@ -550,6 +579,12 @@ apply_extract_to_lofun <- function(lofun_c, extract_fun) {
 extract_poly_type_args <- function(df_c) {
   df_c$count <- rep(1, nrow(df_c))
   r_df <- df_c[ lapply(df_c$type, length) > 1, c("type", "count")]
+  r_df
+}
+
+extract_poly_type_args_w_mono_class <- function(df_c) {
+  df_c$count <- rep(1, nrow(df_c))
+  r_df <- df_c[ apply(df_c, 1, function(x) length(x[["class"]]) == 1 && x[["class"]][[1]] != "primitive" && length(x[["type"]]) > 1), c("type", "class", "count")]
   r_df
 }
 
@@ -1139,6 +1174,35 @@ add_count_lists <- function(l1, l2) {
   })
 }
 
+# takes a TS map, changes the attribute types in df
+convert_df_attr_to_ts <- function(df, amap) {
+  attr_list <- df$attr
+  attr_list <- lapply(attr_list, function(l) lapply(l, function(s) substr(s, 2, nchar(s)-1)))
+  attr_list <- lapply(attr_list, function(l) {
+    lapply(l, function(l2) {
+      unlist(strsplit(l2, split=","))
+    })
+  })
+  attr_list <- lapply(attr_list, function(l) {
+    lapply(l, function(l2) {
+      lapply(l2, function(nvp) {
+        spli <- unlist(strsplit(nvp, split=":"))
+        if (spli[2] %in% names(amap))
+          spli[2] <- amap[[spli[2]]]
+        paste0(spli, collapse=":")
+      })
+    })
+  })
+  attr_list <- lapply(attr_list, function(l) {
+    unique(lapply(l, function(l2) {
+      paste0("{", paste(l2, collapse=","), "}")
+    }))
+  })
+
+  df$attr <- attr_list
+  df
+}
+
 # need: for (n in union(names(r$dapr), names(f$dapr))) { l_combo[n] <- get_w_name_def_0(r$dapr, n) + get_w_name_def_0(f$dapr, n) }
 get_w_name_def_0 <- function(v, n) {
   if (is.na(v[n])) 0 else v[n]
@@ -1355,18 +1419,27 @@ distill_type_to_shape <- function(t) {
     t
 }
 
-# get a df ready for printing in a Rmd file
 format_df_for_print <- function(df) {
-  which <- names(df)[1]
-  if (which == "type") {
-    df$type <- sapply(df$type, function(t) paste0(t[[1]], collapse=", "))
-  } else if (which == "attr") {
-    df$attr <- sapply(df$attr, function(t) paste0(t[[1]], collapse=", "))
-  } else if (which == "class") {
-    df$class <- sapply(df$class, function(t) paste0(t[[1]], collapse=", "))
+  for (n in names(df)) {
+    if (n != "count") {
+      df[, n] <- sapply(df[, n], function(t) paste0(t, collapse=", "))
+    }
   }
   df
 }
+
+# get a df ready for printing in a Rmd file
+# format_df_for_print <- function(df) {
+#   which <- names(df)[1]
+#   if (which == "type") {
+#     df$type <- sapply(df$type, function(t) paste0(t[[1]], collapse=", "))
+#   } else if (which == "attr") {
+#     df$attr <- sapply(df$attr, function(t) paste0(t[[1]], collapse=", "))
+#   } else if (which == "class") {
+#     df$class <- sapply(df$class, function(t) paste0(t[[1]], collapse=", "))
+#   }
+#   df
+# }
 
 # get rid of empty lofuns from a lopkg
 remove_empties <- function(lopkg) {

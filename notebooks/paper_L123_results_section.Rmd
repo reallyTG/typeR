@@ -105,7 +105,43 @@ xtable(put_me) %>% print(include.rownames=F)
 meta_los <- lapply(los, function(lof) lapply(lof, annihilate_errors_df))
 ```
 
-Step 4. Translate to L3?
+Step 4: Translate to L1+.
+
+In L1+, we will collapse some obviously collapsible distinctions (e.g., reals).
+```{r}
+los <- lapply(los, function(s) lapply(s, fold_NULL_and_NA_into_other_types_df))
+
+los <- lapply(los, function(lof) {lapply(lof, function(df) {change_type_systems_df(df, type_map_sv_to_real)})})
+
+los <- lapply(los, function(lofuns) {lapply(lofuns, combine_scalar_vector_where_appropriate)})
+
+null_na_fold_real_arg_counts <- build_arg_count_df_from_lopkgs(los)
+null_na_fold_real_fun_counts <- build_fun_count_df_from_lopkgs(los)
+```
+
+TODO oops scalar vector thing.
+
+Write counts.
+```{r}
+xtable(null_na_fold_real_arg_counts) %>% print(include.rownames=F)
+xtable(null_na_fold_real_fun_counts) %>% print(include.rownames=F)
+```
+
+Breakdown by argument signature.
+```{r}
+poly_type_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_type_args))
+poly_type_args <- poly_type_args[order(-poly_type_args$count),] # sort by count
+poly_type_args$perc <- round(poly_type_args$count/sum(poly_type_args$count) * 100, 2)
+```
+
+Print top 10.
+```{r}
+format_df_for_print(poly_type_args[1:10,]) -> put_me
+put_me
+xtable(put_me) %>% print(include.rownames=F)
+```
+
+Step 5. Translate to L3?
 What is L3?
 We want class info and attribute info, on some level.
 Let's do classes first.
@@ -128,5 +164,40 @@ L3_poly_class_args$perc <- round(L3_poly_class_args$count/sum(L3_poly_class_args
 All the numbers are low, so there's no clear pattern, which makes sense.
 How best to incorporate this...
 ```{r}
+xtable(L3_c_basic_df) %>% print(include.rownames=F)
+```
 
+```{r}
+format_df_for_print(L3_poly_class_args[1:10,]) -> put_me
+put_me
+xtable(put_me) %>% print(include.rownames=F)
+```
+
+Let's find out when class is monomorphic and type is polymorphic.
+```{r}
+num_poly_type_not_poly_class <- apply_count_to_lopkg_c(los, args_count_all_poly_type_mono_class)
+```
+
+Are there patterns?
+```{r}
+lo_pt_mc <- reduce_extracted_lopkgs_to_one_new(apply_extract_to_lopkg(los, extract_poly_type_args_w_mono_class))
+lo_pt_mc <- lo_pt_mc[order(-lo_pt_mc$count),] # sort by count
+lo_pt_mc$perc <- round(lo_pt_mc$count/sum(lo_pt_mc$count) * 100, 2)
+
+format_df_for_print_new(lo_pt_mc[1:10,]) -> put_me
+put_me
+xtable(put_me) %>% print(include.rownames=F)
+```
+
+How about attributes?
+```{r}
+los_a <- lapply(los, function(lofun) lapply(lofun, function(df) convert_df_attr_to_ts(df, type_map_T0_to_r)))
+
+L3_poly_attr_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los_a, extract_poly_attr_args))
+L3_poly_attr_args <- L3_poly_attr_args[order(-L3_poly_attr_args$count),] # sort by count
+L3_poly_attr_args$perc <- round(L3_poly_attr_args$count/sum(L3_poly_attr_args$count) * 100, 2)
+
+format_df_for_print_new(L3_poly_attr_args[1:10,]) -> put_me
+put_me
+xtable(put_me) %>% print(include.rownames=F)
 ```
