@@ -78,7 +78,7 @@
 \newcommand{\METAARGCOUNT}{7,051\xspace}
 \newcommand{\NUMPOLYTYPEMONOCLASS}{1,357\xspace}
 
-\newcommand{\attr}[2]{\ensuremath{#1\,({\mathit #2})}\xspace}
+\newcommand{\attr}[2]{\ensuremath{#1_{\mathtt{#2}}}\xspace}
 \renewcommand{\to}{\ensuremath{\rightarrow}\xspace}
 \newcommand{\D}{\ensuremath{\small\vec{\mathtt D}}\xspace} % Double
 \newcommand{\I}{\ensuremath{\small\vec{\mathtt I}}\xspace} % Integer
@@ -563,63 +563,72 @@ record the contents of environments. These can be used as hash tables and
 may be big and are quite likely different from one another.
 
 In R all arguments are passed as promises, and unused arguments will be
-unevaluated.  Our tracer does still collect information on these arguments,
-as whether or not they were used doesn't change the fact that they were in
-fact passed.  In some cases, arguments aren't even intended to be evaluated.
-For example, consider the {\tt magrittr} package, which implements the
-Tidyverse's pipe functions.  Refer to Figure~\ref{fig:magpipeex} for a
-translation of a call to {\tt magrittr}'s pipe ({\tt \%>\%}) function.
+unevaluated.  Our tracer does not collect information on arguments that were
+not evaluated as they may not be valid expressions.  Consider the {\tt
+  magrittr} package, which implements the pipe function that performs a kind
+of currying.
 
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-mul_by <- function(x, y) { x * y }
+{\small\begin{lstlisting}[style=R]
+mul <- function(x,y)  x*y
+4 %>% mul(3) 
+\end{lstlisting}}
 
-4 %>% mul_by(3) === `%>%`(lhs = 4, rhs = mul_by(3)) === mul_by(4, 3)
-\end{lstlisting}}\caption{Example and rough translation of \%$>$\% call.}\label{fig:magpipeex}\end{figure}
+The call to the pipe desugars to \code{`\%>\%`(lhs=4, rhs=mul(3))} where the
+\code{rhs} is not a valid expression. It is treated as code that will
+manipulated to add one argument (the \code{lhs}).
 
-Our tracer evaluates function arguments, and here \code{rhs = mul_by(3)},
-but that's erroneous code (you can't call {\tt mul\_by} without supplying
-two arguments).  In this situation, our tracer will still register the
-entire call, but flag the {\tt rhs} argument to indicate to later stages of
-the analysis that there was an issue evaluating that argument.
+To be as specific as possible, our analysis collects shape information about
+arguments and return values. The details of the information we collect follows.
 
-For each function of each package, we consolidate all recorded observations
-into a function signature. The details of how consolidation is parameterized
-by the definition of a potential type system for R and will be discussed in
-the next section.
+\begin{itemize}
+\item If the analysis encounters a primitive vector, say
+  \code{typeof(x)=="double"}, it records the length of {\tt x} to determine
+  if it can be treated as a scalar.
+\item For a list, \code{typeof(x)=="list"}, shape information on all
+  elements is used to describe the list's shape.  To avoid undue slowdowns,
+  we only collect the content's \code{typeof}, and ascribe \ANY (any) if the
+  elements are not of the same kind.k
+\item If the analysis encounters a scalar \code{NA}, we ascribe a unique
+  NULL type.  In R, \code{NA} inhabits all types, but for a scalar NA,
+  \code{typeof(NA)=="logical"}. Scalar NAs are used as uninitialized values.
+\item For a matrix (i.e. the value has matrix class and has a dims and
+  optionally dimnames attribute), we ascribe the shape \attr{\tt T}{mat}
+  where {\tt T} is the primitive element type.
+\item For a data frame (i.e., class {\tt data.frame} with appropriate
+  attributes), we ascribe the shape \attr{\l}{df}.
+\end{itemize}
 
+The infrastructure memoizes emitted signatures to avoid writing multiple
+identical signatures for the same function.
 
 \section{Types for R}
 
-We will need a notion of polymorphism, and thus a notion of type, when
-undertaking this analysis.  R is unityped, and the only notion of
-polymorphism in the language is its use of dynamic dispatch on the class of
-an argument.  For our purposes, we will define a notion in type roughly in
-line with R's \code{typeof} reflection function, in some cases augmented by
-information obtained by \code{class} and \code{attributes} reflection.  We
-start by defining what it means for an {\it argument} to be polymorphic.
+For a meaningful notion of polymorphism, it is necessary to settle on a set
+of basic types for R. There are several possible choices which lead to
+increasingly more expressive type systems. The simplest notion of types
+aligns with R basic types. Richers notions incorporate attributes and the
+various object systems built on top of those. For concreteness we will pick
+out three different sets of types.
 
 \begin{itemize}
-\item an argument is {\it polymorphic in type} if it has been called with at
-  least two distinct types according to our definition of type.
-\item an argument is {\it polymorphic in class} if it has been called with
-  at least two distinct classes according to the \code{class} function.
-\item attributes are a bit more tricky.  We can't simply count the number of
-  attributes that have inhabited an argument, since values can contain
-  arbitrarily many attributes (and having several attributes isn't
-  polymorphism---think records).  Instead, we define the {\it attribute
-    pattern} of a value to be the set of all attribute name and type pairs
-  in the attribute list of a value (obtained via \code{attributes}).  And so
-  an argument is {\it polymorphic in attribute} if it has been called with
-  at least two distinct attribute patterns.
+\item {\bf L0}: This level includes vectors of primitive types (integers \I,
+  double \D, character \C, logical \L, raw \R, complex \X), lists of any
+  type (\l), and scalar values (environment \sE, closures \sF, symbols \sS
+  and null \sN). We add the type \ANY for any type.
+\item {\bf L1}: The second level enhances {\bf L0} with scalar values for
+  primitive types (\sI, \sD, \sC, \sL, \sR, and \sX), type parametric lists
+  (written \lT{T} for any type {\tt T}), data frames \attr{\l}{df}, and
+  matrices \attr{\vec{\tt T}}{mat}.
+\item {\bf L2}: The third level adds attributes lists...
 \end{itemize}
 
-The main ingredient of our types is the {\tt typeof} a value, and there is
-an important distinction to be made between the result of \code{typeof} and
-that of \code{class} and \code{attributes}.  In R, the \code{typeof} a value
-cannot change, and this is not the case with class and attributes.  As
-mentioned in \AT{an earlier section}, the class of values can be easily
-redefined by assigning to the value's class attribute, and similarly
-attributes can be dynamically added, removed, or changed.
+In the following we say that an argument is {\it polymorphic in type at
+  level L} if it has been called with at least two values that belong to
+distinct types at level \emph{L}. This definition extends naturally to
+classes, data frames, and matrices (as these are simple attributes).
+Generalized attribute polymorphism is a bit trickier as values can have a
+large and changing set of attributes. 
+
 
 While we do consider some class and attribute information when constructing
 our types, it is also valuable to consider them entirely separate from
@@ -653,51 +662,6 @@ accounted for to highlight user-defined patterns and behaviors.  This will
 be made clear in Section~\ref{sec:results}.
 
 
-\subsection{Granularity of Type Information}
-
-When constructing a type for a value, we begin with the {\tt typeof} the
-value.  This alone paints an incomplete picture of the value, though,
-especially when it comes to vectors (recall that \code{typeof(5) ==
-  typeof(c(5, 5)) == "double"}).  In some cases, the class or attributes of
-a value might enlighten us, but in many cases we can be a little more
-precise.
-
-To be as specific as possible, our analysis collects additional information
-to create a more specific type than the result of any of R's reflection
-functions.  The details of the information we collect follows.
-
-\begin{itemize}
-\item if the analysis encounters \code{ typeof(x) == "double"}, it will look
-  at the length of {\tt x} to determine if {\tt x} is a scalar or a vector,
-  generating the annotation {\tt \dbls} or {\tt \dblv} accordingly.  This is
-  also true for integer, complex, raw, logical, and character {\tt typeof}s
-  (i.e., the primitive vectorized data types).  A notable imperfection here
-  is is that unit length vectors will appear as scalars, so later in our
-  analysis we ensure that argument signatures containing both scalar/X and
-  vector/X are collapsed down to contain only vector/X.
-	
-\item if the analysis encounters \code{typeof(x) == "list"}, we collect type
-  information on all list elements in order to ascribe a general type to the
-  contents of the list.  To avoid undue slowdowns, we only collect the
-  \code{typeof} the contents, and ascribe type {\tt any} if two or more {\tt
-    typeof}s are observed.
-	
-\item if the analysis encounters \code{NA}, we ascribe a unique {\tt
-  raw\_NA} type.  In R, \code{NA} inhabits all types, but \code{typeof(NA)
-  == "logical"}.  The analysis deals with these {\tt raw\_NA}s at a later
-  stage.
-	
-\item if the analysis encounters a matrix (i.e. the value has matrix class
-  and has a dims and optionally dimnames attribute), we ascribe the type
-  {\tt matrix}.
-	
-\item similarly, if it encounters a data frame (i.e., class {\tt data.frame}
-  with appropriate attributes), we ascribe the type {\tt data.frame}.
-\end{itemize}
-
-
-%
-%
 %
 \section{Examples of Polymorphism}
 \label{sec:polyex}
