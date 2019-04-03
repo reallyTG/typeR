@@ -65,6 +65,7 @@ public class CSVRecord implements Iterable<String> {
 			}
 		}
 		starts[fieldCount] = start;
+		if(line.charAt(i-1)=='\"') {i--;} //UGLY HACK
 		ends[fieldCount++] = i;
 	}
 
