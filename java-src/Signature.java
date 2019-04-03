@@ -246,7 +246,7 @@ public class Signature {
 		f.pkg = r.getS();
 		f.fun = r.getS();
 		f.has_dots = r.getS().equals("TRUE");
-		String arg1_t = r.getS();
+		f.arg1_t = r.getS();
 		f.arg2_t = r.getS();
 		f.arg3_t = r.getS();
 		f.arg4_t = r.getS();

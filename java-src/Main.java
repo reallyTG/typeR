@@ -25,12 +25,11 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException {
 		if (args.length == 0)
-			args = new String[] { "../data/per_partial.csv.gz" };
+			args = new String[] { "../data/partial_L0.csv.gz" };
 		Args args_ = new Args(args);
 		inputDir = args_.getOption("-input");
 		outputDir = args_.getOption("-output");
-		Reader empty = new Reader();
-		args = getFileList(inputDir);
+		//args = getFileList(inputDir);
 		for (int i = 0; i < args.length; i++)
 			doIt(args[i], i);
 
@@ -45,6 +44,7 @@ public class Main {
 			throw new Error(e);
 		}
 		for (Signature f : reader) {
+			System.out.println(f);
 		}
 	}
 
