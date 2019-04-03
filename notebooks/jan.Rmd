@@ -15,7 +15,7 @@ library(tidyverse)
 
 Load the data.
 ```{r, echo=FALSE}
-df <- readRDS("../data/row_sig_df.RDS")
+df <- readRDS("../data/per_sig_partial.RDS")
 df <- as.tibble(df)
 df %>% select(pkg, fun, arg1_t,  arg2_t, arg3_t, arg4_t, arg5_t, arg6_t, arg7_t,
               arg8_t, arg9_t, arg10_t, ret_t) %>% distinct() -> df2
