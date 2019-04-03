@@ -331,45 +331,6 @@ lists_to_chars_sig_df <- function(df) {
   df
 }
 
-
-# TODO need subtype map
-is_subtype <- function(t1, t2, stmap) {
-
-}
-
-# Assuming L0
-# Assuming only one fun
-collapse_df_subtyping <- function(df) {
-  num_args <- length(df[1,4:23][df[1,4:23] != ""])
-  # for each fun
-  for (i in 1:nrow(df)) {
-    this <- df[i,4:23]
-    # for each other fun
-    for (j in 1:nrow(df)) {
-      # don't want this
-      if (i != j) {
-        # for each arg
-        that <- df[j,4:23]
-        st <- TRUE
-        for (k in 1:num_args) {
-          if (!is_subtype(this[k], that[k])) {
-            st <- FALSE
-            break
-          }
-        }
-        if (st) {
-          df[i, 67] <- FALSE
-        } else {
-          df[i, 67] <- TRUE
-        }
-      }
-    }
-  }
-  names(df)[67] <- "keep"
-
-  df
-}
-
 # collapse <- function(df) {
 #   col <- lapply(names(df), function(n) {as.list(union(df[, n], c()))})
 #   names(col) <- names(df)

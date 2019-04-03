@@ -11,7 +11,7 @@ import java.util.zip.GZIPInputStream;
 
 /**
  * Reading in a CSV file with OTP information
- * 
+ *
  * @author jan
  */
 public class Reader implements Iterator<Signature>, Iterable<Signature> {
@@ -28,7 +28,7 @@ public class Reader implements Iterator<Signature>, Iterable<Signature> {
 
 	/**
 	 * Builds a file reader.
-	 * 
+	 *
 	 * @param filename
 	 * @throws FileNotFoundException
 	 * @throws IOException
@@ -109,7 +109,7 @@ public class Reader implements Iterator<Signature>, Iterable<Signature> {
 	 * Reads the information contained in on comma separated value, a line of the
 	 * input. The trickiest bit has been to diagnose errors in the data and in the
 	 * parsing code. Support for debugging is extensive.
-	 * 
+	 *
 	 * @param rec a record
 	 * @return A sane flight
 	 */
@@ -130,7 +130,7 @@ public class Reader implements Iterator<Signature>, Iterable<Signature> {
 	/**
 	 * Merges the error information contained in two readers. This is used for
 	 * reporting aggregate error counts. Updates the receiver.
-	 * 
+	 *
 	 * @param p the reader from which the information is taken.
 	 */
 	public void reduce(Reader p) {
@@ -145,7 +145,7 @@ public class Reader implements Iterator<Signature>, Iterable<Signature> {
 
 	/**
 	 * Increment the error counter.
-	 * 
+	 *
 	 * @param s the class of read error.
 	 */
 	void badData(String s) {

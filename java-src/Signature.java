@@ -5,7 +5,7 @@
  * errors, and discard the whole flight. On the other hand a few fields are
  * almost always missing. We use different representations of missing in
  * different cases.
- * 
+ *
  * @author jan
  */
 public class Signature {

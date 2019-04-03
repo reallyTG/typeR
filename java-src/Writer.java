@@ -9,7 +9,7 @@ import java.util.zip.GZIPOutputStream;
 /**
  * Write CSV files. Any IO error is considered fatal and will terminate
  * execution.
- * 
+ *
  * @author jan
  */
 public class Writer {
@@ -25,9 +25,9 @@ public class Writer {
 	int line;
 	int offset;
 	final java.io.Writer w;
-	boolean DEBUG;
+	boolean DEBUG = false;
 	String file = "";
- 
+
 	public Writer(String file) {
 		try {
 			this.file = file;
@@ -49,7 +49,7 @@ public class Writer {
 
 	public void close() {
 		try {
-			w.flush();	
+			w.flush();
 			w.close();
 		} catch (IOException e) {
 			throw new Error(e + " in " + file);
@@ -92,7 +92,7 @@ public class Writer {
 		}
 	}
 
-	
+
 	void toB(boolean b) {
 		if (filter[offset] == 1) return;
 		try {

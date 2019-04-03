@@ -6,9 +6,9 @@ import java.util.List;
 
 /**
  * Main file for running all queries.
- * 
+ *
  * Average CRS flight times 125 minutes (for all files) and 147,735,126 flights.
- * 
+ *
  * @author jv
  */
 public class Main {
@@ -71,8 +71,15 @@ public class Main {
 				sigs.add(f);
 				prev = f;
 			}
-
 		}
+		// write all
+		String out_file = file.substring(0, file.length()-7);
+		out_file = out_file.concat("_subtype.csv");
+		Writer w = new Writer(out_file);
+		for (Signature f : all) {
+			f.write(w);
+		}
+		w.close();
 	}
 
 	private static String[] getFileList(String dir) {
@@ -86,7 +93,7 @@ public class Main {
 
 	/**
 	 * Simple command line argument processing
-	 * 
+	 *
 	 * @author Jan Vitek
 	 */
 	static class Args {
