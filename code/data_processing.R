@@ -70,6 +70,16 @@
 # Current RUNID:
 # [85474]
 
+#
+# SUBTYPING
+# mixxing <: T \forall T --
+# uneval <: T  \forall T --
+# both are bot until they're top
+# first try to annihilate them into others, then promote to any if still around
+#
+# Distinct in dplyr?
+
+
 # Require tidyverse for convenience.
 require(tidyverse)
 
@@ -109,7 +119,9 @@ type_map_T0_to_r <- list(
   `list<>`            = "list",      # note: make sure to convert list<X> -> list<>
   raw_NA              = "logical",
   `data.frame`        = "list",
-  matrix              = "list"
+  `matrix/logical`    = "list",
+  `matrix/integer`    = "list",
+  `matrix/double`     = "list"
 )
 
 type_map_r_to_real <- list(
@@ -151,6 +163,8 @@ complex_pack     = c("vector/complex",    "scalar/complex")
 raw_pack         = c("vector/raw",        "scalar/raw")
 logical_pack     = c("vector/logical",    "scalar/logical")
 real_pack        = c("vector/real",       "scalar/real")
+
+
 
 # # # # # #
 #
@@ -227,6 +241,7 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
   fnames <- names(lolodfs)
   num_sigs <- Reduce("+", lapply(lolodfs, length))
 
+  # IF YOU CHANGE THIS, CHANGE IT IN transform_new_df_w_TS_map
   MAX_ARGS <- 20
 
   m <- matrix("", num_sigs, 1 + 1 + 1 + 3 * MAX_ARGS + 1 + 1 + 1)
@@ -293,6 +308,67 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
 
 }
 
+transform_new_df_w_TS_map <- function(df, type_map, unparam=F) {
+  MAX_ARGS <- 20
+  df[, c(paste0("arg", 1:MAX_ARGS, "_t"), "ret_t")] <- apply(df[, c(paste0("arg", 1:MAX_ARGS, "_t"), "ret_t")], 2, function(r) {
+    lapply(r, function(t) {
+      if (unparam)
+        t <- unparametrify(t)
+      if (t %in% names(type_map))
+        type_map[[t]]
+      else
+        t
+    })
+  })
+
+  df
+}
+
+lists_to_chars_sig_df <- function(df) {
+  for (i in 1:length(df)) {
+    df[, i] <- unlist(df[, i])
+  }
+  df
+}
+
+
+# TODO need subtype map
+is_subtype <- function(t1, t2, stmap) {
+
+}
+
+# Assuming L0
+# Assuming only one fun
+collapse_df_subtyping <- function(df) {
+  num_args <- length(df[1,4:23][df[1,4:23] != ""])
+  # for each fun
+  for (i in 1:nrow(df)) {
+    this <- df[i,4:23]
+    # for each other fun
+    for (j in 1:nrow(df)) {
+      # don't want this
+      if (i != j) {
+        # for each arg
+        that <- df[j,4:23]
+        st <- TRUE
+        for (k in 1:num_args) {
+          if (!is_subtype(this[k], that[k])) {
+            st <- FALSE
+            break
+          }
+        }
+        if (st) {
+          df[i, 67] <- FALSE
+        } else {
+          df[i, 67] <- TRUE
+        }
+      }
+    }
+  }
+  names(df)[67] <- "keep"
+
+  df
+}
 
 # collapse <- function(df) {
 #   col <- lapply(names(df), function(n) {as.list(union(df[, n], c()))})
