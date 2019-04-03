@@ -14,14 +14,6 @@ import java.util.zip.GZIPOutputStream;
  */
 public class Writer {
 
-	static short[] passive = new short[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
-
-	static short[] filter = passive;
 	int line;
 	int offset;
 	final java.io.Writer w;
@@ -57,7 +49,6 @@ public class Writer {
 	}
 
 	void toI(int i) {
-		if (filter[offset] == 1) return;
 		try {
 			if (i != Integer.MIN_VALUE) w.write(Integer.toString(i));
 		} catch (IOException e) {
@@ -66,7 +57,6 @@ public class Writer {
 	}
 
 	void toI(short i) {
-		if (filter[offset] == 1) return;
 		try {
 			if (i != Short.MIN_VALUE) w.write(Short.toString(i));
 		} catch (IOException e) {
@@ -75,7 +65,6 @@ public class Writer {
 	}
 
 	public void toS(String s) {
-		if (filter[offset] == 1) return;
 		try {
 			w.write("\"" + s + "\"");
 		} catch (IOException e) {
@@ -84,7 +73,6 @@ public class Writer {
 	}
 
 	public void toSnoQuotes(String s) {
-		if (filter[offset] == 1) return;
 		try {
 			w.write(s);
 		} catch (IOException e) {
@@ -94,7 +82,6 @@ public class Writer {
 
 
 	void toB(boolean b) {
-		if (filter[offset] == 1) return;
 		try {
 			w.write(b ? "1" : "0");
 		} catch (IOException e) {
@@ -123,7 +110,6 @@ public class Writer {
 	}
 
 	public void toD(double d) {
-		if (filter[offset] == 1) return;
 		try {
 			w.write(Double.toString(d));
 		} catch (IOException e) {

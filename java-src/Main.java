@@ -79,7 +79,7 @@ public class Main {
 						}
 						if (ab && !ba) {
 							a.pkg = "SUBTYPE";
-						} else if (ba && !ab) {
+						} else if (ba) {
 							b.pkg = "SUBTYPE";
 						}
 					}
@@ -90,12 +90,28 @@ public class Main {
 				prev = f;
 			}
 		}
+		int len = sigs.size();
+		for (int i = 0; i < len - 1; i++) {
+			Signature a = sigs.get(i);
+			for (int j = i + 1; j < len; j++) {
+				Signature b = sigs.get(j);
+				boolean ab = a.isSubtypeL0(b);
+				boolean ba = b.isSubtypeL0(a);
+				if (ab && !ba) {
+					a.pkg = "SUBTYPE";
+				} else if (ba) {
+					b.pkg = "SUBTYPE";
+				}
+			}
+		}
+		all.addAll(sigs);
+
 		// write all
 		String out_file = file.substring(0, file.length()-7);
 		out_file = out_file.concat("_subtype.csv");
 		Writer w = new Writer(out_file);
 		for (Signature f : all) {
-			f.write(w);
+ 			f.write(w);
 		}
 		w.close();
 	}
