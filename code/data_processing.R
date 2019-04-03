@@ -68,7 +68,7 @@
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# [215480]
+# [173090]
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -219,6 +219,76 @@ emit_signature <- function(synth_sig) {
   })
 }
 
+
+make_new_df <- function(pname, dir="trace_exports_final_reduced") {
+  lolodfs <- readRDS(paste0(file.path(dir, pname), ".RDS"))
+  fnames <- names(lolodfs)
+
+  num_sigs <- Reduce("+", lapply(lolodfs, length))
+
+  MAX_ARGS <- 20
+
+  m <- matrix("", num_sigs, 1 + 1 + 3 * MAX_ARGS + 1 + 1 + 1)
+
+  dimnames(m) <- list(c(), c("pkg", "fun", paste0("arg", 1:MAX_ARGS, "_t"), paste0("arg", 1:MAX_ARGS, "_c"), paste0("arg", 1:MAX_ARGS, "_a"), "ret_t", "ret_c", "ret_a"))
+  m[,"pkg"] <- rep(pname, num_sigs)
+  m[,"fun"] <- Reduce(c, sapply(fnames, function(n) rep(n, length(lolodfs[[n]]))))
+
+  i_in_df <- 1
+  for (n in fnames) {
+    for (df in lolodfs[[n]]) {
+      if (nrow(df) == 0) {
+        m[i_in_df, "pkg"] <- "no_data"
+        m[i_in_df, "fun"] <- "no_data"
+        i_in_df <- i_in_df + 1
+        next
+      }
+      df$arg_name <- df$arg_name %>% as.character
+      for (i in 1:nrow(df)) { # give unique names
+        if (df$arg_name[i] == "")
+          df$arg_name[i] <- i
+      }
+      # print(paste("i_in_df: ", i_in_df)) # debug stat
+      names_not_retv <- df$arg_name[df$arg_name != "retv"]
+      hm <- length(names_not_retv)
+
+      if (hm > MAX_ARGS) {
+        hm <- MAX_ARGS
+        names_not_retv <- names_not_retv[1:MAX_ARGS]
+      }
+
+      df$class <- lapply(df$class, function(loc) paste(unique(unlist(loc)), collapse=","))
+      df$attr <- lapply(df$attr, function(loa) paste0("{", paste(names(loa), collapse=","), "}"))
+
+      if (hm != 0) {
+        grab <- df$arg_name %in% names_not_retv
+
+        m[i_in_df, 1:hm+2 ] <- unlist(df[grab, "type"])
+        m[i_in_df, 1:hm+22] <- unlist(df[grab, "class"])
+        m[i_in_df, 1:hm+42] <- unlist(df[grab, "attr"])
+      } else {
+
+      }
+
+      if ("retv" %in% df$arg_name) {
+        m[i_in_df, 63] <- unlist(df[df$arg_name == "retv", "type"])
+        m[i_in_df, 64] <- unlist(df[df$arg_name == "retv", "class"])
+        m[i_in_df, 65] <- unlist(df[df$arg_name == "retv", "attr"])
+      } else {
+        m[i_in_df, 63] <- "retv_missing"
+        m[i_in_df, 64] <- "retv_missing"
+        m[i_in_df, 65] <- "retv_missing"
+      }
+
+      i_in_df <- i_in_df + 1
+    }
+  }
+
+  m %>% as.data.frame
+
+}
+
+
 # collapse <- function(df) {
 #   col <- lapply(names(df), function(n) {as.list(union(df[, n], c()))})
 #   names(col) <- names(df)
@@ -327,6 +397,11 @@ sanitize_lofuns <- function(lofuns) {
   intermed <- lapply(lofuns, sanitize_lodfs)
   intermed[sapply(intermed, is.null)] <- NULL
   intermed
+}
+
+fix_classes_in_df <- function(df) {
+  df$class <- unique(lapply(df$class, unlist))
+  df
 }
 
 sanitize_lodfs <- function(lodfs) {
@@ -891,6 +966,7 @@ distinguish_matrices_df <- function(df) {
   df
 }
 
+# another way to deal with errors
 annihilate_errors_df <- function(df) {
   rows_w_error <- sapply(df$type, function(x) {
     "error" %in% x
@@ -1153,8 +1229,6 @@ logical_int_double_subtype_df <- function(df) {
   df
 }
 
-# los[[2000]]
-
 logical_int_double_subclass_df <- function(df) {
   df$class %>%
     lapply(function(loc) {
@@ -1188,6 +1262,8 @@ logical_int_double_subclass_df <- function(df) {
   df
 }
 
+# 6585
+
 # # # # # #
 #
 # Functions for doing things sequentially, but by reading files.
@@ -1213,7 +1289,7 @@ build_arg_count_df_from_lopkgs <- function(lopkgs) {
   tot_arg_df <- data.frame(
     Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
     Count=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / 1000, 0),
-    Percentage=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / total_arguments * 100, 2)
+    Percentage=round(c(total_mono_all, total_mono_type, total_mono_clas, total_mono_attr, total_arguments) / total_arguments * 100, 1)
   )
 
   tot_arg_df
@@ -1229,7 +1305,7 @@ build_fun_count_df_from_lopkgs <- function(lopkgs) {
   tot_fun_df <- data.frame(
     Type=c("Full Monomorphic", "Monomorphic in Type", "Monomorphic in Class", "Monomorphic in Attribute Pattern", "Total Seen"),
     Count=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / 1000, 0),
-    Percentage=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / total_functions * 100, 2)
+    Percentage=round(c(total_mono_all_functions, total_mono_type_functions, total_mono_clas_functions, total_mono_attr_functions, total_functions) / total_functions * 100, 1)
   )
   tot_fun_df
 }
@@ -1329,7 +1405,7 @@ convert_class_to_primitive <- function(cl) {
 
 # the loaps[[1]] thing is annoying
 attr_name_type_to_name_df <- function(df) {
-  df$attr <- lapply(df$attr, function(loaps) lapply(loaps[[1]], function(ap) attr_name_type_to_name(ap)))
+  df$attr <- lapply(df$attr, function(loaps) lapply(loaps, function(ap) attr_name_type_to_name(ap)))
   df
 }
 

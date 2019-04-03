@@ -32,8 +32,11 @@ los <- change_type_systems_lopkg(los, type_map_T0_to_r, unparam=T)
 # L <: I <: D
 los <- lapply(los, function(lofun) lapply(lofun, function(df) logical_int_double_subtype_df(logical_int_double_subclass_df(df))))
 
-# TODO: error -> ?
+# error -> ?
 los <- lapply(los, function(lofun) lapply(lofun, map_error_to_any))
+
+# ?? Attribute name, type to name only
+los <- lapply(los, function(lofun) lapply(lofun, attr_name_type_to_name_df))
 ```
 
 Step 2.1: Counts.
@@ -46,14 +49,6 @@ L0_c_f_basic_df <- build_fun_count_df_from_lopkgs(los)
 ```{r}
 xtable(L0_c_basic_df) %>% print(include.rownames=F)
 xtable(L0_c_f_basic_df) %>% print(include.rownames=F)
-```
-
-DEBUG: Classes
-```{r}
-L0_poly_class_args <- reduce_extracted_lopkgs_to_one(apply_extract_to_lopkg(los, extract_poly_class_args))
-L0_poly_class_args <- L0_poly_class_args[order(-L0_poly_class_args$count),] # sort by count
-L0_poly_class_args$perc <- round(L0_poly_class_args$count/sum(L0_poly_class_args$count) * 100, 1)
-```
 ```
 
 Step 2.2: Top.
