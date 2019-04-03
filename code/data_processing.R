@@ -68,7 +68,7 @@
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# [173090]
+# [85474]
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -219,18 +219,19 @@ emit_signature <- function(synth_sig) {
   })
 }
 
-
 make_new_df <- function(pname, dir="trace_exports_final_reduced") {
   lolodfs <- readRDS(paste0(file.path(dir, pname), ".RDS"))
+  if (length(lolodfs) == 0) {
+    return()
+  }
   fnames <- names(lolodfs)
-
   num_sigs <- Reduce("+", lapply(lolodfs, length))
 
   MAX_ARGS <- 20
 
-  m <- matrix("", num_sigs, 1 + 1 + 3 * MAX_ARGS + 1 + 1 + 1)
+  m <- matrix("", num_sigs, 1 + 1 + 1 + 3 * MAX_ARGS + 1 + 1 + 1)
 
-  dimnames(m) <- list(c(), c("pkg", "fun", paste0("arg", 1:MAX_ARGS, "_t"), paste0("arg", 1:MAX_ARGS, "_c"), paste0("arg", 1:MAX_ARGS, "_a"), "ret_t", "ret_c", "ret_a"))
+  dimnames(m) <- list(c(), c("pkg", "fun", "has_dots", paste0("arg", 1:MAX_ARGS, "_t"), paste0("arg", 1:MAX_ARGS, "_c"), paste0("arg", 1:MAX_ARGS, "_a"), "ret_t", "ret_c", "ret_a"))
   m[,"pkg"] <- rep(pname, num_sigs)
   m[,"fun"] <- Reduce(c, sapply(fnames, function(n) rep(n, length(lolodfs[[n]]))))
 
@@ -243,6 +244,10 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
         i_in_df <- i_in_df + 1
         next
       }
+
+      # fill in has dots
+      m[i_in_df, "has_dots"] <- attr(df, "has_dots")
+
       df$arg_name <- df$arg_name %>% as.character
       for (i in 1:nrow(df)) { # give unique names
         if (df$arg_name[i] == "")
@@ -263,21 +268,21 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
       if (hm != 0) {
         grab <- df$arg_name %in% names_not_retv
 
-        m[i_in_df, 1:hm+2 ] <- unlist(df[grab, "type"])
-        m[i_in_df, 1:hm+22] <- unlist(df[grab, "class"])
-        m[i_in_df, 1:hm+42] <- unlist(df[grab, "attr"])
+        m[i_in_df, 1:hm+3 ] <- unlist(df[grab, "type"])
+        m[i_in_df, 1:hm+23] <- unlist(df[grab, "class"])
+        m[i_in_df, 1:hm+43] <- unlist(df[grab, "attr"])
       } else {
 
       }
 
       if ("retv" %in% df$arg_name) {
-        m[i_in_df, 63] <- unlist(df[df$arg_name == "retv", "type"])
-        m[i_in_df, 64] <- unlist(df[df$arg_name == "retv", "class"])
-        m[i_in_df, 65] <- unlist(df[df$arg_name == "retv", "attr"])
+        m[i_in_df, 64] <- unlist(df[df$arg_name == "retv", "type"])
+        m[i_in_df, 65] <- unlist(df[df$arg_name == "retv", "class"])
+        m[i_in_df, 66] <- unlist(df[df$arg_name == "retv", "attr"])
       } else {
-        m[i_in_df, 63] <- "retv_missing"
         m[i_in_df, 64] <- "retv_missing"
         m[i_in_df, 65] <- "retv_missing"
+        m[i_in_df, 66] <- "retv_missing"
       }
 
       i_in_df <- i_in_df + 1
@@ -332,7 +337,9 @@ read_and_make_lofun <- function(pname, path_to_exports="trace_exports") {
         tryCatch({trace_to_convert <- readRDS(z)}, error = function(e) {})
         if (class(trace_to_convert) != "genthat_trace")
           trace_to_convert <- NULL
-        convert_trace_to_df(trace_to_convert)
+        r <- convert_trace_to_df(trace_to_convert)
+        attr(r, "has_dots") <- trace_to_convert[["has_dots"]]
+        r
       })
     })
   }) -> fix_me
@@ -575,7 +582,7 @@ count_args_matching_type <- function(df, loty, strict=F) {
 
 
 reduce_extracted_lopkgs_to_one <- function(lopkgs_c_e) {
-  flattened <- Reduce(rbind, flatten(lopkgs_c_e))
+  flattened <- data.table::rbindlist(latten(lopkgs_c_e))
   nn <- names(flattened)
   nn <- nn[nn != "count"]
   for (n in nn) {
