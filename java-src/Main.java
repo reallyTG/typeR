@@ -29,22 +29,49 @@ public class Main {
 		Args args_ = new Args(args);
 		inputDir = args_.getOption("-input");
 		outputDir = args_.getOption("-output");
-		//args = getFileList(inputDir);
+		// args = getFileList(inputDir);
 		for (int i = 0; i < args.length; i++)
 			doIt(args[i], i);
 
 	}
 
 	/* Factoring some common code out. */
-	private static void doIt(String file, int i) {
+	private static void doIt(String file, int noti) {
 		Reader reader = null;
 		try {
 			reader = new Reader(file);
 		} catch (IOException e) {
 			throw new Error(e);
 		}
+		Signature prev = null;
+		ArrayList<Signature> all = new ArrayList<>();
+		ArrayList<Signature> sigs = new ArrayList<>();
 		for (Signature f : reader) {
-			System.out.println(f);
+			if (prev == null)
+				prev = f;
+			if (prev.pkg.equals(f.pkg) && prev.fun.equals(f.fun)) {
+				sigs.add(f);
+			} else {
+				int len = sigs.size();
+				for (int i = 0; i < len - 1; i++) {
+					Signature a = sigs.get(i);
+					for (int j = i + 1; j < len; j++) {
+						Signature b = sigs.get(j);
+						boolean ab = a.isSubtypeL0(b);
+						boolean ba = b.isSubtypeL0(a);
+						if (ab && !ba) {
+							a.pkg = "SUBTYPE";
+						} else if (ba && !ab) {
+							b.pkg = "SUBTYPE";
+						}
+					}
+				}
+				all.addAll(sigs);
+				sigs = new ArrayList<>();
+				sigs.add(f);
+				prev = f;
+			}
+
 		}
 	}
 
