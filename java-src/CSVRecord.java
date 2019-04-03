@@ -1,4 +1,4 @@
- 
+
 import java.util.Iterator;
 
 /**
@@ -9,7 +9,7 @@ import java.util.Iterator;
  * Performance-wise, we could speed it up the parsing by avoiding the
  * construction by reusing instances for multiple lines. As parsing does not
  * appear to be the bottle neck, it may not be worth the effort.
- * 
+ *
  * @author Jan Vitek
  *
  */
@@ -27,7 +27,7 @@ public class CSVRecord implements Iterable<String> {
 
 	/**
 	 * The constructor does all the work of parsing out the fields.
-	 * 
+	 *
 	 * @param line
 	 *            a csv input
 	 */
@@ -70,7 +70,7 @@ public class CSVRecord implements Iterable<String> {
 
 	/**
 	 * Return a new substring corresponding the request field in the object.
-	 * 
+	 *
 	 * @param i
 	 *            a value between 0 and fieldCount.
 	 * @return a new string
@@ -86,7 +86,7 @@ public class CSVRecord implements Iterable<String> {
 
 	/**
 	 * A simple iterator.
-	 * 
+	 *
 	 * @author Jan Vitek
 	 */
 	class Iter implements Iterator<String> {

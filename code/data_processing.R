@@ -138,6 +138,12 @@ type_map_sv_to_real <- list(
    integer            = "real"
 )
 
+type_map_to_fun <- list(
+  special             = "function",
+  builtin             = "function",
+  closure             = "function"
+)
+
 primitive_classes <- list(
   "character",
   "complex",
@@ -308,14 +314,38 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
 
 }
 
+# use this to get rid of the extra empty slots
+minimize_new_df <- function(df, pkg, fun) {
+  subset <- df[df$pkg == pkg & df$fun == fun, ]
+
+  has_dots <- "has_dots"
+  if ("0" %in% names(subset))
+    has_dots <- "0"
+
+  subset[1, paste0("arg", 1:20, "_t")] %>% unlist %>% is.na -> me
+  me[!me] %>% length -> arg_len
+
+  subset[, c("pkg", "fun", has_dots, paste0("arg", 1:arg_len, "_t"), paste0("arg", 1:arg_len, "_c"), paste0("arg", 1:arg_len, "_a"), "ret_t", "ret_c", "ret_a")]
+}
+
 transform_new_df_w_TS_map <- function(df, type_map, unparam=F) {
   MAX_ARGS <- 20
+
+  translate <- function(x) {
+    if (x %in% names(type_map))
+      type_map[[x]]
+    else
+      x
+  }
+
   df[, c(paste0("arg", 1:MAX_ARGS, "_t"), "ret_t")] <- apply(df[, c(paste0("arg", 1:MAX_ARGS, "_t"), "ret_t")], 2, function(r) {
     lapply(r, function(t) {
       if (unparam)
         t <- unparametrify(t)
       if (t %in% names(type_map))
         type_map[[t]]
+      else if (substr(t, 1, 5) == "list<")
+        paste0("list<", translate(get_inner_type_of_list_param(t)), ">")
       else
         t
     })

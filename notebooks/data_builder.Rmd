@@ -1,0 +1,61 @@
+---
+title: "Data Builder"
+output: html_notebook
+---
+
+```{r}
+source("../code/data_processing.R")
+```
+
+```{r}
+# load the data
+psp <- read_rds("../data/per_sig_partial.RDS")
+
+# get rid of empties
+# they are due to packages having no data, this may get resolved as the prl3 run finishes
+psp <- psp[!psp$pkg == "no_data",]
+
+# do this otherwise there are lists
+psp <- lists_to_chars_sig_df(psp)
+```
+
+```{r}
+# first, turn specials, closures, and builtins to functions
+psp <- transform_new_df_w_TS_map(psp, type_map_to_fun)
+```
+
+```{r}
+# make it T0
+psp_L0 <- transform_new_df_w_TS_map(psp, type_map_T0_to_r)
+```
+
+```{r}
+# write it to file for Java processing
+write_csv(psp_L0, "../data/partial_L0.csv")
+```
+
+```{r}
+# read in new one
+# DONT FORGET TO GET RID OF }"" lol
+psp_L0 <- read_csv("../data/partial_L0_subtype.csv")
+
+# remove SUBTYPE rows
+psp_L0 <- psp_L0[!psp_L0$pkg == "SUBTYPE",]
+```
+
+```{r}
+# write L1 (which is just psp) to file for Java
+write_csv(psp, "../data/partial_L1.csv")
+
+# go to terminal, gzip it for Java
+# DONT FORGET TO GET RID OF }"" lol
+```
+
+```{r}
+# read it back
+psp <- read_csv("../data/partial_L1_subtype.csv")
+
+# remove SUBTYPE rows
+psp <- psp[!psp$pkg == "SUBTYPE",]
+```
+

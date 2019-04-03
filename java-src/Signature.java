@@ -93,6 +93,42 @@ public class Signature {
 		return a.equals(b);
 	}
 
+	boolean isSubtypeL1(String a, String b) {
+		if (b.equals("any"))
+			return true;
+		if (a.equals("scalar/logical") && b.equals("vector/logical")) 		// scalar <: vector
+			return true; // will collapse scalar/vector where appropriate
+		if (a.equals("scalar/integer") && b.equals("vector/integer"))
+			return true; // will collapse scalar/vector where appropriate
+		if (a.equals("scalar/double") && b.equals("vector/double"))
+			return true; // will collapse scalar/vector where appropriate
+		if (a.equals("scalar/character") && b.equals("vector/character"))
+			return true; // will collapse scalar/vector where appropriate
+		if (a.equals("scalar/raw") && b.equals("vector/raw"))
+			return true; // will collapse scalar/vector where appropriate
+		if (a.equals("scalar/complex") && b.equals("vector/complex"))
+			return true; // will collapse scalar/vector where appropriate
+		if (a.equals("scalar/logical") && b.equals("scalar/double"))			// logical <: double
+			return true;
+		if (a.equals("vector/logical") && b.equals("vector/double"))
+			return true;
+		if (a.equals("scalar/logical") && b.equals("scalar/integer"))			// logical <: integer
+			return true;
+		if (a.equals("vector/logical") && b.equals("vector/integer"))
+			return true;
+		if (a.equals("scalar/integer") && b.equals("scalar/double")) 			// integer <: double
+			return true;
+		if (a.equals("vector/integer") && b.equals("vector/double"))
+			return true;
+		if (a.equals("unevaled"))																					// unevaled <: T
+			return true;
+		if (a.equals("missing"))																					// missing <: T
+			return true;
+		if (a.equals("null"))																							// null <: T
+			return true;
+		return a.equals(b);
+	}
+
 	boolean isSubtypeL0(Signature o) {
 		return pkg.equals(o.pkg) && fun.equals(o.fun) && isSubtypeL0(arg1_t, o.arg1_t) && isSubtypeL0(arg2_t, o.arg2_t)
 				&& isSubtypeL0(arg3_t, o.arg3_t) && isSubtypeL0(arg4_t, o.arg4_t) && isSubtypeL0(arg5_t, o.arg5_t)
@@ -103,6 +139,31 @@ public class Signature {
 				&& isSubtypeL0(arg18_t, o.arg18_t) && isSubtypeL0(arg19_t, o.arg19_t)
 				&& isSubtypeL0(arg20_t, o.arg20_t);
 	}
+
+	boolean isSubtypeL1(Signature o) {
+		return pkg.equals(o.pkg) && fun.equals(o.fun) && isSubtypeL1(arg1_t, o.arg1_t) && isSubtypeL1(arg2_t, o.arg2_t)
+				&& isSubtypeL1(arg3_t, o.arg3_t) && isSubtypeL1(arg4_t, o.arg4_t) && isSubtypeL1(arg5_t, o.arg5_t)
+				&& isSubtypeL1(arg6_t, o.arg6_t) && isSubtypeL1(arg7_t, o.arg7_t) && isSubtypeL1(arg8_t, o.arg8_t)
+				&& isSubtypeL1(arg9_t, o.arg9_t) && isSubtypeL1(arg10_t, o.arg10_t) && isSubtypeL1(arg11_t, o.arg11_t)
+				&& isSubtypeL1(arg12_t, o.arg12_t) && isSubtypeL1(arg13_t, o.arg13_t) && isSubtypeL1(arg14_t, o.arg14_t)
+				&& isSubtypeL1(arg15_t, o.arg15_t) && isSubtypeL1(arg16_t, o.arg16_t) && isSubtypeL1(arg17_t, o.arg17_t)
+				&& isSubtypeL1(arg18_t, o.arg18_t) && isSubtypeL1(arg19_t, o.arg19_t)
+				&& isSubtypeL1(arg20_t, o.arg20_t);
+	}
+
+  // how to do this...
+	// boolean isSubtypeL2(Signature o) {
+	// 	return pkg.equals(o.pkg) && fun.equals(o.fun) && isSubtypeL2
+	//
+	// 	    // ... isSubtypeL1(arg1_t, o.arg1_t) && isSubtypeL1(arg2_t, o.arg2_t)
+	// 			// && isSubtypeL1(arg3_t, o.arg3_t) && isSubtypeL1(arg4_t, o.arg4_t) && isSubtypeL1(arg5_t, o.arg5_t)
+	// 			// && isSubtypeL1(arg6_t, o.arg6_t) && isSubtypeL1(arg7_t, o.arg7_t) && isSubtypeL1(arg8_t, o.arg8_t)
+	// 			// && isSubtypeL1(arg9_t, o.arg9_t) && isSubtypeL1(arg10_t, o.arg10_t) && isSubtypeL1(arg11_t, o.arg11_t)
+	// 			// && isSubtypeL1(arg12_t, o.arg12_t) && isSubtypeL1(arg13_t, o.arg13_t) && isSubtypeL1(arg14_t, o.arg14_t)
+	// 			// && isSubtypeL1(arg15_t, o.arg15_t) && isSubtypeL1(arg16_t, o.arg16_t) && isSubtypeL1(arg17_t, o.arg17_t)
+	// 			// && isSubtypeL1(arg18_t, o.arg18_t) && isSubtypeL1(arg19_t, o.arg19_t)
+	// 			// && isSubtypeL1(arg20_t, o.arg20_t);
+	// }
 
 	public void write(Writer w) {
 		w.toS(pkg);

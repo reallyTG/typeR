@@ -14,6 +14,7 @@ import java.util.List;
 public class Main {
 	static String inputDir;
 	static String outputDir;
+	static String ts;
 
 	/**
 	 * @param args The name of the CSV files to be processed prefixed with command
@@ -24,14 +25,24 @@ public class Main {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		if (args.length == 0)
-			args = new String[] { "../data/partial_L0.csv.gz" };
 		Args args_ = new Args(args);
+
+		if (args.length == 0) {
+			ts = "L0";
+		} else {
+			ts = args_.getOption("-L");
+		}
+
 		inputDir = args_.getOption("-input");
 		outputDir = args_.getOption("-output");
+
 		// args = getFileList(inputDir);
-		for (int i = 0; i < args.length; i++)
-			doIt(args[i], i);
+		// for (int i = 0; i < args.length; i++)
+		String the_file = "../data/partial_L0.csv.gz";
+		if (ts.equals("L1"))
+		  the_file = "../data/partial_L1.csv.gz";
+
+		doIt(the_file, 0);
 
 	}
 
@@ -57,8 +68,15 @@ public class Main {
 					Signature a = sigs.get(i);
 					for (int j = i + 1; j < len; j++) {
 						Signature b = sigs.get(j);
-						boolean ab = a.isSubtypeL0(b);
-						boolean ba = b.isSubtypeL0(a);
+						boolean ab = false;
+						boolean ba = false;
+						if (ts.equals("L0")) {
+							ab = a.isSubtypeL0(b);
+							ba = b.isSubtypeL0(a);
+						} else if (ts.equals("L1")) {
+							ab = a.isSubtypeL1(b);
+							ba = b.isSubtypeL1(a);
+						}
 						if (ab && !ba) {
 							a.pkg = "SUBTYPE";
 						} else if (ba && !ab) {
