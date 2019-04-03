@@ -1,0 +1,23 @@
+---
+title: "Paper Results Section"
+output: html_notebook
+---
+
+This Notebook walks through the results section of the paper.
+
+First, administrivia.
+```{r}
+source("../code/data_processing.R") # get the functions we need
+
+library(xtable)
+library(tidyverse)
+```
+
+Load the data.
+```{r, echo=FALSE}
+df <- readRDS("../data/row_sig_df.RDS")
+df <- as.tibble(df)
+df %>% select(pkg, fun, arg1_t,  arg2_t, arg3_t, arg4_t, arg5_t, arg6_t, arg7_t,
+              arg8_t, arg9_t, arg10_t, ret_t) %>% distinct() -> df2
+df2
+```
