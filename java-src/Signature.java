@@ -77,14 +77,17 @@ public class Signature {
 	String ret_c;
 	String ret_a;
 
+	// set this manually to enable the simplifcation of types
+	static boolean simplify = true;
+
 	boolean isSubtypeL0(String a, String b) {
-		if (b.equals("any"))
+		if (b.equals("?"))
 			return true;
-		if (a.equals("logical") && b.equals("integer"))
+		if (a.equals("L") && b.equals("I"))
 			return true;
-		if (a.equals("logical") && b.equals("double"))
+		if (a.equals("L") && b.equals("D"))
 			return true;
-		if (a.equals("integer") && b.equals("double"))
+		if (a.equals("I") && b.equals("D"))
 			return true;
 		if (a.equals("unevaled"))
 			return true;
@@ -94,31 +97,31 @@ public class Signature {
 	}
 
 	boolean isSubtypeL1(String a, String b) {
-		if (b.equals("any"))
+		if (b.equals("?"))
 			return true;
-		if (a.equals("scalar/logical") && b.equals("vector/logical")) 		// scalar <: vector
+		if (a.equals("sL") && b.equals("L")) 		// scalar <: vector
 			return true; // will collapse scalar/vector where appropriate
-		if (a.equals("scalar/integer") && b.equals("vector/integer"))
+		if (a.equals("sI") && b.equals("I"))
 			return true; // will collapse scalar/vector where appropriate
-		if (a.equals("scalar/double") && b.equals("vector/double"))
+		if (a.equals("sD") && b.equals("D"))
 			return true; // will collapse scalar/vector where appropriate
-		if (a.equals("scalar/character") && b.equals("vector/character"))
+		if (a.equals("sC") && b.equals("C"))
 			return true; // will collapse scalar/vector where appropriate
-		if (a.equals("scalar/raw") && b.equals("vector/raw"))
+		if (a.equals("sR") && b.equals("R"))
 			return true; // will collapse scalar/vector where appropriate
-		if (a.equals("scalar/complex") && b.equals("vector/complex"))
+		if (a.equals("sX") && b.equals("X"))
 			return true; // will collapse scalar/vector where appropriate
-		if (a.equals("scalar/logical") && b.equals("scalar/double"))			// logical <: double
+		if (a.equals("sL") && b.equals("sD"))			// logical <: double
 			return true;
-		if (a.equals("vector/logical") && b.equals("vector/double"))
+		if (a.equals("L") && b.equals("D"))
 			return true;
-		if (a.equals("scalar/logical") && b.equals("scalar/integer"))			// logical <: integer
+		if (a.equals("sL") && b.equals("sI"))			// logical <: integer
 			return true;
-		if (a.equals("vector/logical") && b.equals("vector/integer"))
+		if (a.equals("L") && b.equals("I"))
 			return true;
-		if (a.equals("scalar/integer") && b.equals("scalar/double")) 			// integer <: double
+		if (a.equals("sI") && b.equals("sD")) 			// integer <: double
 			return true;
-		if (a.equals("vector/integer") && b.equals("vector/double"))
+		if (a.equals("I") && b.equals("D"))
 			return true;
 		if (a.equals("unevaled"))																					// unevaled <: T
 			return true;
@@ -149,6 +152,81 @@ public class Signature {
 				&& isSubtypeL1(arg15_t, o.arg15_t) && isSubtypeL1(arg16_t, o.arg16_t) && isSubtypeL1(arg17_t, o.arg17_t)
 				&& isSubtypeL1(arg18_t, o.arg18_t) && isSubtypeL1(arg19_t, o.arg19_t)
 				&& isSubtypeL1(arg20_t, o.arg20_t);
+	}
+
+	static String simplifyType(String aT) {
+		if (aT.equals("vector/double"))
+			return "D";
+		else if (aT.equals("matrix/double"))
+			return "M{D}";
+		else if (aT.equals("scalar/double"))
+			return "sD";
+		else if (aT.equals("vector/integer"))
+			return "I";
+		else if (aT.equals("matrix/integer"))
+			return "M{I}";
+		else if (aT.equals("scalar/integer"))
+			return "sI";
+		else if (aT.equals("vector/character"))
+			return "C";
+		else if (aT.equals("matrix/character"))
+			return "M{C}";
+		else if (aT.equals("scalar/character"))
+			return "sC";
+		else if (aT.equals("vector/logical"))
+			return "L";
+		else if (aT.equals("matrix/logical"))
+			return "M{L}";
+		else if (aT.equals("scalar/logical"))
+			return "sL";
+		else if (aT.equals("vector/raw"))
+			return "R";
+		else if (aT.equals("matrix/raw"))
+			return "M{R}";
+		else if (aT.equals("scalar/raw"))
+			return "sR";
+		else if (aT.equals("vector/complex"))
+			return "X";
+		else if (aT.equals("matrix/complex"))
+			return "M{X}";
+		else if (aT.equals("scalar/complex"))
+			return "sX";
+		else if (aT.equals("symbol"))
+			return "Y";
+		else if (aT.equals("S4"))
+			return "sS";
+		else if (aT.equals("closure"))
+			return "sF";
+		else if (aT.equals("builtin"))
+			return "sF";
+		else if (aT.equals("special"))
+			return "sF";
+		else if (aT.equals("function"))
+			return "sF";
+		else if (aT.equals("environment"))
+			return "sE";
+		else if (aT.equals("NULL"))
+			return "sN";
+		else if (aT.equals("double"))
+			return "D";
+		else if (aT.equals("integer"))
+			return "I";
+		else if (aT.equals("logical"))
+			return "L";
+		else if (aT.equals("raw"))
+			return "R";
+		else if (aT.equals("complex"))
+			return "X";
+		else if (aT.equals("character"))
+			return "C";
+		else if (aT.equals("list"))
+			return "l{?}";
+		else if (aT.equals("any"))
+			return "?";
+		else if (aT.length() > 5 && aT.substring(0, 5).equals("list<"))
+			return "l{" + simplifyType(aT.substring(5, aT.length()-1)) + "}";
+		else
+			return aT;
 	}
 
   // how to do this...
@@ -292,7 +370,10 @@ public class Signature {
 		w.comma();
 		w.toS(arg20_a);
 		w.comma();
-		w.toS(ret_t);
+		if (simplify)
+			w.toS(simplifyType(ret_t));
+		else
+			w.toS(ret_t);
 		w.comma();
 		w.toS(ret_c);
 		w.comma();
@@ -307,26 +388,49 @@ public class Signature {
 		f.pkg = r.getS();
 		f.fun = r.getS();
 		f.has_dots = r.getS().equals("TRUE");
-		f.arg1_t = r.getS();
-		f.arg2_t = r.getS();
-		f.arg3_t = r.getS();
-		f.arg4_t = r.getS();
-		f.arg5_t = r.getS();
-		f.arg6_t = r.getS();
-		f.arg7_t = r.getS();
-		f.arg8_t = r.getS();
-		f.arg9_t = r.getS();
-		f.arg10_t = r.getS();
-		f.arg11_t = r.getS();
-		f.arg12_t = r.getS();
-		f.arg13_t = r.getS();
-		f.arg14_t = r.getS();
-		f.arg15_t = r.getS();
-		f.arg16_t = r.getS();
-		f.arg17_t = r.getS();
-		f.arg18_t = r.getS();
-		f.arg19_t = r.getS();
-		f.arg20_t = r.getS();
+		if (!simplify) {
+			f.arg1_t = r.getS();
+			f.arg2_t = r.getS();
+			f.arg3_t = r.getS();
+			f.arg4_t = r.getS();
+			f.arg5_t = r.getS();
+			f.arg6_t = r.getS();
+			f.arg7_t = r.getS();
+			f.arg8_t = r.getS();
+			f.arg9_t = r.getS();
+			f.arg10_t = r.getS();
+			f.arg11_t = r.getS();
+			f.arg12_t = r.getS();
+			f.arg13_t = r.getS();
+			f.arg14_t = r.getS();
+			f.arg15_t = r.getS();
+			f.arg16_t = r.getS();
+			f.arg17_t = r.getS();
+			f.arg18_t = r.getS();
+			f.arg19_t = r.getS();
+			f.arg20_t = r.getS();
+		} else {
+			f.arg1_t = simplifyType(r.getS());
+			f.arg2_t = simplifyType(r.getS());
+			f.arg3_t = simplifyType(r.getS());
+			f.arg4_t = simplifyType(r.getS());
+			f.arg5_t = simplifyType(r.getS());
+			f.arg6_t = simplifyType(r.getS());
+			f.arg7_t = simplifyType(r.getS());
+			f.arg8_t = simplifyType(r.getS());
+			f.arg9_t = simplifyType(r.getS());
+			f.arg10_t = simplifyType(r.getS());
+			f.arg11_t = simplifyType(r.getS());
+			f.arg12_t = simplifyType(r.getS());
+			f.arg13_t = simplifyType(r.getS());
+			f.arg14_t = simplifyType(r.getS());
+			f.arg15_t = simplifyType(r.getS());
+			f.arg16_t = simplifyType(r.getS());
+			f.arg17_t = simplifyType(r.getS());
+			f.arg18_t = simplifyType(r.getS());
+			f.arg19_t = simplifyType(r.getS());
+			f.arg20_t = simplifyType(r.getS());
+		}
 		f.arg1_c = r.getS();
 		f.arg2_c = r.getS();
 		f.arg3_c = r.getS();
@@ -367,7 +471,10 @@ public class Signature {
 		f.arg18_a = r.getS();
 		f.arg19_a = r.getS();
 		f.arg20_a = r.getS();
-		f.ret_t = r.getS();
+		if (! simplify)
+			f.ret_t = r.getS();
+		else
+			f.ret_t = simplifyType(r.getS());
 		f.ret_c = r.getS();
 		f.ret_a = r.getS();
 		return f;

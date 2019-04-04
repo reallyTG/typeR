@@ -36,7 +36,6 @@ write_csv(psp_L0, "../data/partial_L0.csv")
 
 ```{r}
 # read in new one
-# DONT FORGET TO GET RID OF }"" lol
 psp_L0 <- read_csv("../data/partial_L0_subtype.csv")
 
 # remove SUBTYPE rows
@@ -48,7 +47,6 @@ psp_L0 <- psp_L0[!psp_L0$pkg == "SUBTYPE",]
 write_csv(psp, "../data/partial_L1.csv")
 
 # go to terminal, gzip it for Java
-# DONT FORGET TO GET RID OF }"" lol
 ```
 
 ```{r}

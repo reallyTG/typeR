@@ -68,7 +68,7 @@
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# [85474]
+# [217722]
 
 #
 # SUBTYPING
