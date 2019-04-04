@@ -354,6 +354,62 @@ transform_new_df_w_TS_map <- function(df, type_map, unparam=F) {
   df
 }
 
+# too slow ........
+new_df_collapse_per_arg <- function(df, debug=F) {
+  r_df <- data.frame()
+  pnames <- unique(df$pkg)
+  for (n in pnames) {
+    if (debug)
+      print(paste("n:", n))
+    # print(paste("n:", n))
+    for (f in unique(df[df$pkg == n, "fun"]$fun)) {
+      # print(paste("f:", f))
+      wwm <- df[df$pkg == n & df$fun == f,]
+      apply(wwm, 2, function(r) paste(sort(Reduce(union, r)), collapse=",")) %>% t %>%
+        as.data.frame -> wwm
+      r_df <- rbind(r_df, wwm)
+    }
+  }
+  r_df
+}
+
+new_df_collapse_per_arg_new <- function(df) {
+  r_df <- data.frame()
+  last_pname <- ""
+  last_fname <- ""
+  seen <- rep(list(list()), 60)
+  for (i in 1:nrow(df)) {
+    print(paste("i:", i))
+
+    if (last_pname == "") {
+      last_pname <- df[i, "pkg"]
+      last_fname <- df[i, "fun"]
+    }
+
+    if (last_pname != df[i, "pkg"] || last_fname != df[i, "fun"]) {
+      # new
+      r_df[]
+    }
+
+    for (j in 4:63) {
+      seen[[j-3]] <- union(seen[[j-3]], df[i, j])
+    }
+
+    last_pname <- df[i, "pkg"]
+    last_fname <- df[i, "fun"]
+
+  }
+}
+
+new_df_count_arg_sigs <- function(df) {
+  c_df <- data.frame(sig=c("D"), count=c(0))
+  for (i in 1:nrow(df)) {
+    for (j in 4:23) {
+      this_sig <- df[i,j]
+    }
+  }
+}
+
 lists_to_chars_sig_df <- function(df) {
   for (i in 1:length(df)) {
     df[, i] <- unlist(df[, i])
