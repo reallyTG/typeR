@@ -669,64 +669,141 @@ and {\tt N}$\subseteq${\tt N'}.
 
 This section presents our results for each of the levels we have considered.
 
-\subsection{L0 polymorphism}
+\AT{NOTE: I am updating this with new numbers as we get them.
+The fixed tracer is still running, I should be able to fill in final numbers by tomorrow night.}
+
+\subsection{L0}
 
 At L0, the type system is mostly aligned with the types of the core language.  We
 have observed over 186K monomorphic functions; this accounts for 86\% of our
-corpus.  In terms of argument positions, 95\% of arguments are monomorphic.
+corpus. 
 
-Table~\ref{tab:L0argcounts} shows the polymorphicity of argument positions
- in R function.  From there, we build up a picture of the polymorphicity of
- functions as a whole, and the data for this function polymorphism can be
- found in Table~\ref{tab:L0funcounts}.
-
-\begin{table}[ht]\label{tab:L0argcounts}\centering\begin{tabular}{lrr}  \hline
-Type                   & Count & Percentage \\  \hline
-  Monomorphic in Type & 845K & 92.46 \\
-  Total Seen & 914K & --- \\
+Across all of the arguments that we've observed, the vast majority are monomorphic.
+Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurring argument signatures.
+\begin{table}[ht]
+\label{tab:L0top10arg}
+\centering
+\begin{tabular}{lrr}
+  \hline
+ Argument Signature & Count & Percentage \\ 
+  \hline
+  \D & 69806 & 26.3\% \\ 
+  \l\ & 55311 & 20.8\% \\ 
+  \C & 27789 & 10.5\% \\ 
+  \L & 26230 & 9.9\% \\ 
+  \sF & 16806 & 6.3\% \\ 
+  \sN & 13976 & 5.3\% \\ 
+  unevaled & 9125 & 3.4\% \\ 
+  \I & 8971 & 3.4\% \\ 
+  \sS & 4748 & 1.8\% \\ 
+  \D, \I & 3256 & 1.2\% \\ 
    \hline
 \end{tabular}
-\caption{Argument position polymorphism in L0.}
+\caption{Most frequent argument signatures.}
 \end{table}
+
+We see that doubles are the most common argument type, which is not entirely surprising as doubles are the backbone of any numeric data.
+Next is lists, which seems reasonable given that lists are often used to store the aforementioned data.
+Recall that in L0, data frames will appear as lists.
+As for ``unevaled'', first recall the discussion that all function arguments are wrapped in promises in R from \AT{where?}.
+The ``unevaled'' signature appears whenever an argument was provided but unused, and one might wonder why such a signature might be so common.
+As it happens, many R functions metaprogram on some of their arguments, and this metaprogramming does not force the argument promise, so it will appear as ``unevaled''.
+The magrittr package's pipe \%$>$\% function is an example of this.
+\AT{Move magrittr discussion up.}
+
+One of our chief goals is to generate useful function signatures.
+After tracing and capturing unique signatures from function call sites, \AT{recall} that we collapse some of the more obvious ones together.
+After this, we are curious to know: {\it how many functions have more than one signature?}
+Table~\ref{tab:L0funcounts} has the answer.
 
 \begin{table}[ht]
 \label{tab:L0funcounts}
 \centering
-\begin{tabular}{lrr}
+\begin{tabular}{llr}
   \hline
-Type & Count & Percentage \\
+Signature Type & Count & Percentage \\ 
   \hline
-%  Full Monomorphic & 145K & 66.77 \\
-  Monomorphic in Type & 187K & 86.4\% \\
-%  Monomorphic in Class & 163K & 75.21 \\
-%  Monomorphic in Attribute Pattern & 161K & 74.37 \\
-  Total Seen & 216K & --- \\
+Monomorphic & 46K & 83\% \\ 
+  Total Seen & 56K & --- \\ 
    \hline
 \end{tabular}
 \caption{Function polymorphism in L0.}
 \end{table}
 
-Tables~\ref{tab:L0argcounts} and~\ref{tab:L0funcounts} show that the overall amount of polymorphism in R is quite low, but that doesn't quite tell the whole story.
-To get an idea of what kinds of polymorphism occur, we will look at the most commonly occurring polymorphic argument signatures.
-Table~\ref{tab:L0toppoly} has the top polymorphic signatures for L0.
+Here, we see that the vast majority of functions are monomorphic in L0.
+To choosing how to express the polymorphicity of a function, there are two main options one might consider:
+First, having several separate whole-function signatures, e.g. \D $\rightarrow$ \D and \C $\rightarrow$ \D, or alternatively expressing the polymorphism at the argument level with a union type, e.g. (\D $\cup$ \C) $\rightarrow$ \C.
+Earlier in Table~\ref{tab:L0top10arg} we saw the most frequently occurring argument signatures.
+To get an idea of how expressing polymorphism at the argument level would look, we ask: {\it what are the most frequently occurring polymorphic argument signatures?}
+Table~\ref{tab:L0toppoly} has the answer.
 
 \begin{table}[ht]\label{tab:L0toppoly}\centering
 \begin{tabular}{lrr}  \hline
-type & count & perc \\
+Signature & Count & \% of All Signatures \\
 \hline
-  \D, \sN & 8301 & 17.33 \\
-  \D, \l & 6291 & 13.13 \\
-  \C, \D & 4338 & 9.06 \\
-  \C, \sN & 4162 & 8.69 \\
-  \l, \sN & 2912 & 6.08 \\
-  \C, \l & 1836 & 3.83 \\
-  \C, \I & 1719 & 3.59 \\
-  \C, \D, \sN & 1057 & 2.21 \\
-  \D, error & 906 & 1.89 \\
-  \I, \sN & 797 & 1.66 \\   \hline
+  \D, \l & 2799 & 1\% \\ 
+  \D, \sN & 2290 & 0.9\% \\ 
+  \C, \sN & 1527 & 0.6\% \\ 
+  \l, \sN & 1193 & 0.4\% \\ 
+  \C, \D & 858 & 0.3\% \\ 
+  \D, \sF & 413 & 0.2\% \\ 
+  \C, \I & 382 & 0.1\% \\ 
+  \I, \sN & 378 & 0.1\% \\ 
+  \C, \l & 371 & 0.1\% \\ 
+  \C, \sF & 334 & 0.1\% \\ 
 \end{tabular}
-\caption{Top polymorphic signatures for the L0 type system.}
+\caption{Top polymorphic argument signatures for the L0 type system.}
 \end{table}
+
+Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
+
+\begin{itemize}
+
+	\item \D, \l (and \C, \l): L0 doesn't parameterize list types, and it's very likely that this signature describes vectors of doubles and lists of doubles.
+	Coercing vectors to lists is trivial in R, and indeed many of the functions with such an argument signature do.
+	The story is similar with vectors of characters and lists of characters.
+	
+	\item $\square$, \sN: there are a few instances of this ``null'' polymorphism.
+	The frequency of these signatures indicates a tendency to create ``optional arguments'', where some argument's default value might be NULL.
+	This pattern is quite frequent in R code, \AT{and there are a number of examples sprinkled throughout the paper.}
+
+	\item \C, \D and \C, \I: these are interesting patterns.
+	In R, lists can always be indexed with numerics (\L, \D, \I) {\it and also} characters.
+	When a list is indexed by character, the character is matched against the element names in the list and the corresponding element is selected.
+	If there is no match, the lookup returns NULL.
+	Another possible explanation for these signatures are dates, which can be represented by numerics or characters and the value usually has one of the date classes.
+	L0 doesn't deal with classes, which are one of the topics of L2.
+
+	\item \D, \sF: this signature appears more strange than it is.
+	Some arguments with this signature are either parameters for a function, or the function itself already constructed.
+	Another examples, such as the {\tt br} argument of the {\tt rtree} function in the {\tt ape} package, are parameters for a complex data generation process, or a function to be used during the generation.
+	It would appear that this pattern is used to make complex simulation, modelling, or data generation functions more flexible.
+	
+	\item \C, \sF: another puzzling signature, though its explanation is surprisingly straightforward:
+	In R, programmers are free to look functions up {\it by name}, and indeed the frequently encountered {\tt UseMethod} function for dynamic class-based function dispatch is one such example.
+	In short, this signature usually represents a function or a function name.
+
+\end{itemize}
+
+Now, we have some understanding of argument polymorphism in L0.
+The next question we address is: {\it just how pervasive is argument polymorphism?}.
+Refer to Table~\ref{tab:L0argcounts}.
+
+\begin{table}[ht]\label{tab:L0argcounts}\centering
+\begin{tabular}{lrl}
+  \hline
+Signature.Type & Count & Percentage \\ 
+  \hline
+Monomorphic & 250K & 94\% \\ 
+  Total Seen & 266K & --- \\ 
+   \hline
+\end{tabular}
+\caption{Argument position polymorphism in L0.}
+\end{table}
+
+Tables~\ref{tab:L0argcounts} and~\ref{tab:L0funcounts} show that the overall amount of polymorphism in R is quite low, but that doesn't quite tell the whole story.
+To get an idea of what kinds of polymorphism occur, we will look at the most commonly occurring polymorphic argument signatures.
+Table~\ref{tab:L0toppoly} has the top polymorphic signatures for L0.
 
 \AT{TODO explain results in table.}
 

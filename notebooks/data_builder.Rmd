@@ -57,3 +57,79 @@ psp <- read_csv("../data/partial_L1_subtype.csv")
 psp <- psp[!psp$pkg == "SUBTYPE",]
 ```
 
+```{r}
+# collapse
+# make sure the right function is uncommented in Java
+
+psp_col <- read_csv("../data/partial_L1_collapsed.csv.gz")
+psp_L0_col <- read_csv("../data/partial_L0_collapsed.csv.gz")
+```
+
+```{r}
+# arg counts
+# again, Java
+L0_arg_sig_c <- read_csv("../data/partial_L0_arg_sig_counts.csv")
+L1_arg_sig_c <- read_csv("../data/partial_L1_arg_sig_counts.csv")
+
+# sort
+L0_arg_sig_c[order(-L0_arg_sig_c$count),] -> L0_arg_sig_c
+L1_arg_sig_c[order(-L1_arg_sig_c$count),] -> L1_arg_sig_c
+
+# rm []
+L0_arg_sig_c[1,"count"] <- 0
+L1_arg_sig_c[1,"count"] <- 0
+
+# re sort
+L0_arg_sig_c[order(-L0_arg_sig_c$count),] -> L0_arg_sig_c
+L1_arg_sig_c[order(-L1_arg_sig_c$count),] -> L1_arg_sig_c
+
+# percentages
+L0_arg_sig_c$perc_tot <- round(L0_arg_sig_c$count / sum(L0_arg_sig_c$count) * 100, 2)
+L1_arg_sig_c$perc_tot <- round(L1_arg_sig_c$count / sum(L1_arg_sig_c$count) * 100, 2)
+
+# collapse the obvious signatures
+L0_arg_sig_c <- new_df_count_collape_arg_sigs(L0_arg_sig_c, "L0")
+L1_arg_sig_c <- new_df_count_collape_arg_sigs(L1_arg_sig_c, "L1")
+
+# poly arg counts only
+L0_poly_sig <- L0_arg_sig_c[L0_arg_sig_c$arg_sig %>% strsplit(split=",") %>% lapply(function(x) length(x) != 1) %>% unlist, ]
+L1_poly_sig <- L1_arg_sig_c[L1_arg_sig_c$arg_sig %>% strsplit(split=",") %>% lapply(function(x) length(x) != 1) %>% unlist, ]
+
+# display
+L0_poly_sig[1:10,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
+L1_poly_sig[1:10,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
+```
+
+```{r}
+# all pckg (w/ dups)
+pf_L0 <- psp_L0 %>% mutate(pkgfun = paste(pkg, fun, sep="::")) %>% select(pkgfun)
+pf_L1 <- psp %>% mutate(pkgfun = paste(pkg, fun, sep="::")) %>% select(pkgfun)
+
+# tot fun counts
+pf_L0 %>% unique %>% nrow -> tot_L0_funs
+pf_L1 %>% unique %>% nrow -> tot_L1_funs
+
+# poly fun counts
+pf_L0[duplicated(pf_L0),] %>% unique -> poly_L0_funs
+pf_L1[duplicated(pf_L1),] %>% unique -> poly_L1_funs
+
+poly_L0_funs_c <- poly_L0_funs %>% nrow
+poly_L1_funs_c <- poly_L1_funs %>% nrow
+
+# mono fun count (sanity check)
+setdiff(pf_L0 %>% unique, poly_L0_funs) %>% nrow -> mono_L0_funs_c
+setdiff(pf_L1 %>% unique, poly_L1_funs) %>% nrow -> mono_L1_funs_c
+
+data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=paste0(c(mono_L0_funs_c/1000, tot_L0_funs/1000) %>% as.integer, "K"), Percentage=c(paste0(round(mono_L0_funs_c/tot_L0_funs * 100, 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
+```
+
+```{r}
+# arg poly count
+
+# L0
+data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=c(L0_arg_sig_c$count %>% sum - L0_poly_sig$count %>% sum, L0_arg_sig_c$count %>% sum), Percentage=c(paste0(round(100 * (1 - (L0_poly_sig$count %>% sum / L0_arg_sig_c$count %>% sum)), 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
+
+
+
+```
+

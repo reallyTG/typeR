@@ -69,7 +69,7 @@ public class Main {
 		for (Signature f : reader) {
 			mapTypes(map, f);
 		}
-		
+
 		String out_file = file.substring(0, file.length()-7);
 		out_file = out_file.concat("_arg_sig_counts.csv");
 		Writer w = new Writer(out_file);

@@ -111,23 +111,17 @@ public class Signature {
 			return true; // will collapse scalar/vector where appropriate
 		if (a.equals("sX") && b.equals("X"))
 			return true; // will collapse scalar/vector where appropriate
-		if (a.equals("sL") && b.equals("sD"))			// logical <: double
+		if ((a.equals("sL") || a.equals("L")) && (b.equals("sD") || b.equals("D")))			// logical <: double
 			return true;
-		if (a.equals("L") && b.equals("D"))
+		if ((a.equals("sL") || a.equals("L")) && (b.equals("sI") || b.equals("I")))			// logical <: integer
 			return true;
-		if (a.equals("sL") && b.equals("sI"))			// logical <: integer
-			return true;
-		if (a.equals("L") && b.equals("I"))
-			return true;
-		if (a.equals("sI") && b.equals("sD")) 			// integer <: double
-			return true;
-		if (a.equals("I") && b.equals("D"))
+		if ((a.equals("sI") || a.equals("I")) && (b.equals("sD") || b.equals("D"))) 		// integer <: double
 			return true;
 		if (a.equals("unevaled"))																					// unevaled <: T
 			return true;
 		if (a.equals("missing"))																					// missing <: T
 			return true;
-		if (a.equals("null"))																							// null <: T
+		if (a.equals("sN"))																							// null <: T
 			return true;
 		return a.equals(b);
 	}

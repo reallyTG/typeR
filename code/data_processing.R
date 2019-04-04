@@ -358,53 +358,6 @@ new_df_fix_names <- function(df) {
   lapply(names(df), function(s) if (substr(s, 1, 1) == "[") substr(s, 2, nchar(s)-1) else if (s == "0") "has_dots" else s)
 }
 
-# too slow ........
-new_df_collapse_per_arg <- function(df, debug=F) {
-  r_df <- data.frame()
-  pnames <- unique(df$pkg)
-  for (n in pnames) {
-    if (debug)
-      print(paste("n:", n))
-    # print(paste("n:", n))
-    for (f in unique(df[df$pkg == n, "fun"]$fun)) {
-      # print(paste("f:", f))
-      wwm <- df[df$pkg == n & df$fun == f,]
-      apply(wwm, 2, function(r) paste(sort(Reduce(union, r)), collapse=",")) %>% t %>%
-        as.data.frame -> wwm
-      r_df <- rbind(r_df, wwm)
-    }
-  }
-  r_df
-}
-
-new_df_collapse_per_arg_new <- function(df) {
-  r_df <- data.frame()
-  last_pname <- ""
-  last_fname <- ""
-  seen <- rep(list(list()), 60)
-  for (i in 1:nrow(df)) {
-    print(paste("i:", i))
-
-    if (last_pname == "") {
-      last_pname <- df[i, "pkg"]
-      last_fname <- df[i, "fun"]
-    }
-
-    if (last_pname != df[i, "pkg"] || last_fname != df[i, "fun"]) {
-      # new
-      r_df[]
-    }
-
-    for (j in 4:63) {
-      seen[[j-3]] <- union(seen[[j-3]], df[i, j])
-    }
-
-    last_pname <- df[i, "pkg"]
-    last_fname <- df[i, "fun"]
-
-  }
-}
-
 new_df_count_arg_sigs <- function(df) {
   c_df <- data.frame(sig=c("D"), count=c(0))
   for (i in 1:nrow(df)) {
@@ -412,6 +365,142 @@ new_df_count_arg_sigs <- function(df) {
       this_sig <- df[i,j]
     }
   }
+}
+
+
+
+# keep this in correspondence with subtying in Signature.java
+# good opportunity to remove error?
+collapse_subtype <- function(l, ts) {
+  pairwise_st <- function(a, b, ts) {
+    if (ts == "L0") {
+      if (b == "?")
+        TRUE
+      else if (a == "L" && b == "I")
+        TRUE
+      else if (a == "L" && b == "D")
+        TRUE
+      else if (a == "I" && b == "D")
+        TRUE
+      else if (a == "unevaled")
+        TRUE
+      else if (a == "missing")
+        TRUE
+      else
+        a == b
+    } else if (ts == "L1") {
+      if (b == "?")
+        TRUE
+      else if (a == "sL" && b == "L")
+        TRUE
+      else if (a == "sI" && b == "I")
+        TRUE
+      else if (a == "sD" && b == "D")
+        TRUE
+      else if (a == "sC" && b == "C")
+        TRUE
+      else if (a == "sR" && b == "R")
+        TRUE
+      else if (a == "sX" && b == "X")
+        TRUE
+      else if ((a == "L" || a == "sL") && (b == "D" || b == "sD"))
+        TRUE
+      else if ((a == "L" || a == "sL") && (b == "sI" || b == "I"))
+        TRUE
+      else if ((a == "I" || a == "sI") && (b == "D" || b == "sD"))
+        TRUE
+      else if (a == "unevaled")
+        TRUE
+      else if (a == "missing")
+        TRUE
+      else if (a == "sN")
+        TRUE
+      else
+        a == b
+    }
+  }
+
+  if (length(l) == 1 || length(l) == 0)
+    return(l)
+
+  for (i in 1:(length(l)-1)) {
+    for (j in (i+1):length(l)) {
+      if (pairwise_st(l[[i]], l[[j]], ts)) {
+        # remove
+        l[[i]] <- "REMOVE"
+        break # next i
+      } else if (pairwise_st(l[[j]], l[[i]], ts)) {
+        l[[j]] <- "REMOVE"
+        # no break
+      }
+    }
+  }
+
+  l[l != "REMOVE"]
+
+}
+
+ready_print_count_fun <- function(df) {
+  # not working
+  # df$arg_sig <- sapply(df$arg_sig, function(lot) {
+  #   lapply(lot, function(t) {
+  #     if (t == "l{?}")
+  #       "\\l"
+  #     else
+  #       paste0("\\", t)
+  #   })
+  # })
+  df$count <- as.integer(df$count)
+  df$perc_tot <- paste0(round(df$perc_tot, 1), "%")
+
+  names(df) <- c("Signature", "Count", "% of All Signatures")
+
+  df
+}
+
+sanitize_errors <- function(l) {
+  l <- l[l != "error"]
+  if (length(l) == 0)
+    l <- c("error")
+  l
+}
+
+new_df_count_collape_arg_sigs <- function(df, ts="L0") {
+  # this might be easiest way
+  sapply(df$arg_sig, function(s) {
+    s <- substr(s, 2, nchar(s) - 1)
+    strsplit(s, split=", ")[[1]] %>% sanitize_errors %>% collapse_subtype(ts) -> col
+    paste(col, collapse=", ")
+  }) -> df$arg_sig
+
+  # now its collapse, add up the lads and resort
+  df %>% group_by(arg_sig) %>%
+    do(count=sum(.$count), perc_tot=sum(.$perc_tot)) -> df
+
+  df$count <- as.integer(unlist(df$count))
+  df$perc_tot <- unlist(df$perc_tot)
+
+  df[order(-df$count),]
+}
+
+new_df_get_sigs_with_arg <- function(df, find_me, how_many=10) {
+  # annoying formatting
+  find_me <- paste0("[", paste(find_me, collapse=", "), "]")
+  get <- c()
+  for (i in 1:nrow(df)) {
+    for (j in 4:23) {
+      if (df[i, j] == find_me) {
+        get <- c(get, i)
+        how_many <- how_many - 1
+        break
+      } else if (df[i, j] == "[]") {
+        break
+      }
+    }
+    if (how_many == 0)
+      break
+  }
+  df[get,]
 }
 
 lists_to_chars_sig_df <- function(df) {
