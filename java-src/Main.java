@@ -49,9 +49,9 @@ public class Main {
 
 		// uncomment depending on what you want to do
 		// not the best approach
-		doIt(the_file, 0);
+		// doIt(the_file, 0);
 		// collapsePerArg(the_file);
-		// makeOccurences(the_file);
+		makeOccurences(the_file);
 
 	}
 
@@ -69,10 +69,14 @@ public class Main {
 		for (Signature f : reader) {
 			mapTypes(map, f);
 		}
-
+		
 		String out_file = file.substring(0, file.length()-7);
 		out_file = out_file.concat("_arg_sig_counts.csv");
 		Writer w = new Writer(out_file);
+		w.toS("arg_sig");
+		w.comma();
+		w.toS("count");
+		w.nl();
 		for (HashMap.Entry<String, Integer> entry : map.entrySet()) {
 			w.toS(entry.getKey());
 			w.comma();

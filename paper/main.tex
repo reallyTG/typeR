@@ -1412,7 +1412,6 @@ fixGenes <- function (network, fixIndices, values) {
   network$fixed[fixIndices] <- as.integer(values)
   ...
 \end{lstlisting}}\caption{Example of character/double argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}%$
-
 In Figure~\ref{fig:matvec}, we see that the function can take in a vector,
 but immediately transforms it (transpose, with {\tt t}) into a matrix.  As
 an idea, matrix/vector polymorphism seems sensible, as mathematically
@@ -1422,32 +1421,24 @@ vectors are matrices.  R echoes this by making conversion between the two
 \code{as.matrix(v)} builds a {\tt length(v) x 1} matrix (e.g.,
 \code{as.matrix(c(1, 2)) == matrix(data=c(1, 2))}).  \AT{TODO fix line break
   in code at end of last sentence}
-
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 tee <- function (x, theta, D1, D2, phi)  {
     if (is.vector(x)) x <- t(x)
     ...
 \end{lstlisting}}\caption{Example of matrix/(\D) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
-
 %
 %
 %
 %
 \section{Related Work}
-
 \AT{Not sure what the best place for this is, but we should discuss these papers somewhere.}
-
 The idea of measuring polymorphism via some program analysis isn't new.
 For instance, some work~\cite{aakerblom2015measuring} ... .
-
 More generally, there is an existing literature on analyzing usage patterns
 of language features.  For instance, the dynamic features of Smalltalk were
 analyzed in some work~\cite{callau2011howdevelopers}, ...
-
 Other analysis work~\cite{milojkovic2017duck} ... .
-
 \section{Conclusions and Future Work}
-
 \bibliographystyle{boilerplate/ACM-Reference-Format}
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new}
 \end{document}
