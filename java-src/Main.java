@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Main file for running all queries.
@@ -45,9 +47,142 @@ public class Main {
 		if (ts.equals("L1"))
 		  the_file = "../data/partial_L1.csv.gz";
 
-		// doIt(the_file, 0);
-		collapsePerArg(the_file);
+		// uncomment depending on what you want to do
+		// not the best approach
+		doIt(the_file, 0);
+		// collapsePerArg(the_file);
+		// makeOccurences(the_file);
 
+	}
+
+	private static void makeOccurences(String file) {
+		String the_real_file = file.substring(0, file.length()-7) + "_collapsed.csv.gz";
+		Reader reader = null;
+		try {
+			reader = new Reader(the_real_file);
+		} catch (IOException e) {
+			throw new Error(e);
+		}
+
+		HashMap<String, Integer> map = new HashMap<>();
+
+		for (Signature f : reader) {
+			mapTypes(map, f);
+		}
+
+		String out_file = file.substring(0, file.length()-7);
+		out_file = out_file.concat("_arg_sig_counts.csv");
+		Writer w = new Writer(out_file);
+		for (HashMap.Entry<String, Integer> entry : map.entrySet()) {
+			w.toS(entry.getKey());
+			w.comma();
+			w.toI(entry.getValue());
+			w.nl();
+		}
+		w.close();
+
+	}
+
+	private static void mapTypes(HashMap<String, Integer> map, Signature s) {
+		if (map.containsKey(s.arg1_t))
+			map.put(s.arg1_t, map.get(s.arg1_t) + 1);
+		else
+			map.put(s.arg1_t, 1);
+
+		if (map.containsKey(s.arg2_t))
+			map.put(s.arg2_t, map.get(s.arg2_t) + 1);
+		else
+			map.put(s.arg2_t, 1);
+
+		if (map.containsKey(s.arg3_t))
+			map.put(s.arg3_t, map.get(s.arg3_t) + 1);
+		else
+			map.put(s.arg3_t, 1);
+
+		if (map.containsKey(s.arg4_t))
+			map.put(s.arg4_t, map.get(s.arg4_t) + 1);
+		else
+			map.put(s.arg4_t, 1);
+
+		if (map.containsKey(s.arg5_t))
+			map.put(s.arg5_t, map.get(s.arg5_t) + 1);
+		else
+			map.put(s.arg5_t, 1);
+
+		if (map.containsKey(s.arg6_t))
+			map.put(s.arg6_t, map.get(s.arg6_t) + 1);
+		else
+			map.put(s.arg6_t, 1);
+
+		if (map.containsKey(s.arg7_t))
+			map.put(s.arg7_t, map.get(s.arg7_t) + 1);
+		else
+			map.put(s.arg7_t, 1);
+
+		if (map.containsKey(s.arg8_t))
+			map.put(s.arg8_t, map.get(s.arg8_t) + 1);
+		else
+			map.put(s.arg8_t, 1);
+
+		if (map.containsKey(s.arg9_t))
+			map.put(s.arg9_t, map.get(s.arg9_t) + 1);
+		else
+			map.put(s.arg9_t, 1);
+
+		if (map.containsKey(s.arg10_t))
+			map.put(s.arg10_t, map.get(s.arg10_t) + 1);
+		else
+			map.put(s.arg10_t, 1);
+
+		if (map.containsKey(s.arg11_t))
+			map.put(s.arg11_t, map.get(s.arg11_t) + 1);
+		else
+			map.put(s.arg11_t, 1);
+
+		if (map.containsKey(s.arg12_t))
+			map.put(s.arg12_t, map.get(s.arg12_t) + 1);
+		else
+			map.put(s.arg12_t, 1);
+
+		if (map.containsKey(s.arg13_t))
+			map.put(s.arg13_t, map.get(s.arg13_t) + 1);
+		else
+			map.put(s.arg13_t, 1);
+
+		if (map.containsKey(s.arg14_t))
+			map.put(s.arg14_t, map.get(s.arg14_t) + 1);
+		else
+			map.put(s.arg14_t, 1);
+
+		if (map.containsKey(s.arg15_t))
+			map.put(s.arg15_t, map.get(s.arg15_t) + 1);
+		else
+			map.put(s.arg15_t, 1);
+
+		if (map.containsKey(s.arg16_t))
+			map.put(s.arg16_t, map.get(s.arg16_t) + 1);
+		else
+			map.put(s.arg16_t, 1);
+
+		if (map.containsKey(s.arg17_t))
+			map.put(s.arg17_t, map.get(s.arg17_t) + 1);
+		else
+			map.put(s.arg17_t, 1);
+
+		if (map.containsKey(s.arg18_t))
+			map.put(s.arg18_t, map.get(s.arg18_t) + 1);
+		else
+			map.put(s.arg18_t, 1);
+
+		if (map.containsKey(s.arg19_t))
+			map.put(s.arg19_t, map.get(s.arg19_t) + 1);
+		else
+			map.put(s.arg19_t, 1);
+
+		if (map.containsKey(s.ret_t))
+			map.put(s.ret_t, map.get(s.ret_t) + 1);
+		else
+			map.put(s.ret_t, 1);
 	}
 
   private static void collapsePerArg(String file) {

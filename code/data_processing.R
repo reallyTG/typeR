@@ -354,6 +354,10 @@ transform_new_df_w_TS_map <- function(df, type_map, unparam=F) {
   df
 }
 
+new_df_fix_names <- function(df) {
+  lapply(names(df), function(s) if (substr(s, 1, 1) == "[") substr(s, 2, nchar(s)-1) else if (s == "0") "has_dots" else s)
+}
+
 # too slow ........
 new_df_collapse_per_arg <- function(df, debug=F) {
   r_df <- data.frame()
