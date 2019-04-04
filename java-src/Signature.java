@@ -96,6 +96,13 @@ public class Signature {
 		return a.equals(b);
 	}
 
+	// if ((a.equals("sL") || a.equals("L")) && (b.equals("sD") || b.equals("D")))			// logical <: double
+	// 	return true;
+	// if ((a.equals("sL") || a.equals("L")) && (b.equals("sI") || b.equals("I")))			// logical <: integer
+	// 	return true;
+	// if ((a.equals("sI") || a.equals("I")) && (b.equals("sD") || b.equals("D"))) 		// integer <: double
+	// 	return true;
+
 	boolean isSubtypeL1(String a, String b) {
 		if (b.equals("?"))
 			return true;
@@ -111,11 +118,17 @@ public class Signature {
 			return true; // will collapse scalar/vector where appropriate
 		if (a.equals("sX") && b.equals("X"))
 			return true; // will collapse scalar/vector where appropriate
-		if ((a.equals("sL") || a.equals("L")) && (b.equals("sD") || b.equals("D")))			// logical <: double
+		if (a.equals("sL") && b.equals("sD"))			// logical <: double
 			return true;
-		if ((a.equals("sL") || a.equals("L")) && (b.equals("sI") || b.equals("I")))			// logical <: integer
+		if (a.equals("L") && b.equals("D"))			// logical <: double
 			return true;
-		if ((a.equals("sI") || a.equals("I")) && (b.equals("sD") || b.equals("D"))) 		// integer <: double
+		if (a.equals("sL") && b.equals("sI"))			// logical <: int
+			return true;
+		if (a.equals("L") && b.equals("I"))			// logical <: int
+			return true;
+		if (a.equals("sI") && b.equals("sD"))			// int <: double
+			return true;
+		if (a.equals("I") && b.equals("D"))			// int <: double
 			return true;
 		if (a.equals("unevaled"))																					// unevaled <: T
 			return true;

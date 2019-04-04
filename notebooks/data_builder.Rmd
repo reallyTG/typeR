@@ -95,7 +95,11 @@ L1_arg_sig_c <- new_df_count_collape_arg_sigs(L1_arg_sig_c, "L1")
 L0_poly_sig <- L0_arg_sig_c[L0_arg_sig_c$arg_sig %>% strsplit(split=",") %>% lapply(function(x) length(x) != 1) %>% unlist, ]
 L1_poly_sig <- L1_arg_sig_c[L1_arg_sig_c$arg_sig %>% strsplit(split=",") %>% lapply(function(x) length(x) != 1) %>% unlist, ]
 
-# display
+# display all args 
+L0_arg_sig_c[1:10,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
+L1_arg_sig_c[1:10,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
+
+# display poly
 L0_poly_sig[1:10,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
 L1_poly_sig[1:10,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
 ```
@@ -121,6 +125,8 @@ setdiff(pf_L0 %>% unique, poly_L0_funs) %>% nrow -> mono_L0_funs_c
 setdiff(pf_L1 %>% unique, poly_L1_funs) %>% nrow -> mono_L1_funs_c
 
 data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=paste0(c(mono_L0_funs_c/1000, tot_L0_funs/1000) %>% as.integer, "K"), Percentage=c(paste0(round(mono_L0_funs_c/tot_L0_funs * 100, 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
+
+data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=paste0(c(mono_L1_funs_c/1000, tot_L1_funs/1000) %>% as.integer, "K"), Percentage=c(paste0(round(mono_L1_funs_c/tot_L1_funs * 100, 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
 ```
 
 ```{r}
@@ -129,7 +135,17 @@ data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=paste0(c(mono_
 # L0
 data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=c(L0_arg_sig_c$count %>% sum - L0_poly_sig$count %>% sum, L0_arg_sig_c$count %>% sum), Percentage=c(paste0(round(100 * (1 - (L0_poly_sig$count %>% sum / L0_arg_sig_c$count %>% sum)), 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
 
-
+# L1
+data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=c(L1_arg_sig_c$count %>% sum - L1_poly_sig$count %>% sum, L1_arg_sig_c$count %>% sum), Percentage=c(paste0(round(100 * (1 - (L1_poly_sig$count %>% sum / L1_arg_sig_c$count %>% sum)), 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
 
 ```
 
+```{r}
+prim_scal <- c("sD", "sL", "sC", "sX", "sI", "sR")
+# compute scalars 
+L1_sc_c <- L1_arg_sig_c[unlist(lapply(L1_arg_sig_c$arg_sig, function(s) nchar(s) == 2 && substr(s, 1, 1) == "s")), ]
+L1_sc_c <- L1_sc_c[L1_sc_c$arg_sig %in% prim_scal,]
+num_scal <- sum(L1_sc_c$count)
+
+percent_scalar_mono <- round( 100 * num_scal / sum(L1_arg_sig_c$count), 1)
+```

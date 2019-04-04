@@ -69,6 +69,8 @@
 \newcommand{\DATAPKGSPERC}{1.5\%\xspace}
 \newcommand{\METAARGCOUNT}{7,051\xspace}
 \newcommand{\NUMPOLYTYPEMONOCLASS}{1,357\xspace}
+\newcommand{\PERCSCALARMONO}{37.6\%\xspace}
+
 
 \newcommand{\attr}[2]{\ensuremath{#1_{\mathtt{#2}}}\xspace}
 \newcommand{\attrclass}[3]{\ensuremath{#1^{\mathtt{#3}}_{\mathtt{#2}}}\xspace}
@@ -94,7 +96,12 @@
 \newcommand{\sX}{\ensuremath{\small{\mathtt X}}\xspace} % Complex
 \newcommand{\sR}{\ensuremath{\small{\mathtt R}}\xspace} % Raw
 \newcommand{\ANY}{\ensuremath{\small{\mathtt ?}}\xspace}     % Any
-\newcommand{\lT}[1]{\ensuremath{\small\underline{\mathtt #1}}\xspace}     % Any
+\newcommand{\lT}[1]{\ensuremath{\small\underline{\mathtt #1}}\xspace}     % list<T>
+\newcommand{\M}[1]{\ensuremath{\attr{\vec{\tt #1}}{mat}}\xspace}     % matrix
+\newcommand{\df}{\ensuremath{\attr{\l}{df}}\xspace}     % data.frame
+
+
+
 
 \begin{abstract}
 The R programming language is widely used in a variety of scientific domains
@@ -611,6 +618,7 @@ Generalized attribute polymorphism is a bit trickier as values can have a
 large and changing set of attributes.
 
 \subsection{L0 Types}
+\label{sec:L0def}
 
 The logical ``baseline'' for the design of a type system for R is to adopt
 the language's builtin types.  Types in this system, which we call {\bf L0}
@@ -628,8 +636,9 @@ thus {\tt T}<:\ANY for an type {\tt T}.
 %
 %
 \subsection{L1 Types}
+\label{sec:L1def}
 
-{\bf L0} is limited in expressivity as it supports polymoprhism for list in
+{\bf L0} is limited in expressivity as it supports polymorphism for list in
 a trivial way, it does not address some of the popular constructed data
 types such as matrices and data frames, and cannot differentiate between
 scalar values and vectors.  {\bf L1} types build on and extend the previous
@@ -642,6 +651,7 @@ type {\tt T}. There is no subtyping relation between lists of different
 types.
 
 \subsection{L2 Types}
+\label{sec:L2def}
 
 {\bf L2} extends the previous system with more support for attributes.
 While there is a finite number of results from the {\tt typeof} function,
@@ -699,7 +709,7 @@ Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurri
   \D, \I & 3256 & 1.2\% \\ 
    \hline
 \end{tabular}
-\caption{Most frequent argument signatures.}
+\caption{Most frequent argument signatures in L0.}
 \end{table}
 
 We see that doubles are the most common argument type, which is not entirely surprising as doubles are the backbone of any numeric data.
@@ -777,6 +787,7 @@ Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 	\item \D, \sF: this signature appears more strange than it is.
 	Some arguments with this signature are either parameters for a function, or the function itself already constructed.
 	Another examples, such as the {\tt br} argument of the {\tt rtree} function in the {\tt ape} package, are parameters for a complex data generation process, or a function to be used during the generation.
+	\AT{Do we want to put the fun def and arg documentation here?}
 	It would appear that this pattern is used to make complex simulation, modelling, or data generation functions more flexible.
 	
 	\item \C, \sF: another puzzling signature, though its explanation is surprisingly straightforward:
@@ -786,115 +797,49 @@ Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 \end{itemize}
 
 Now, we have some understanding of argument polymorphism in L0.
-The next question we address is: {\it just how pervasive is argument polymorphism?}.
+The next question we address is: {\it just how pervasive is this argument polymorphism?}
 Refer to Table~\ref{tab:L0argcounts}.
 
 \begin{table}[ht]\label{tab:L0argcounts}\centering
 \begin{tabular}{lrl}
   \hline
-Signature.Type & Count & Percentage \\ 
+Signature Type & Count & Percentage \\ 
   \hline
-Monomorphic & 250K & 94\% \\ 
+  Monomorphic & 250K & 94\% \\ 
   Total Seen & 266K & --- \\ 
    \hline
 \end{tabular}
 \caption{Argument position polymorphism in L0.}
 \end{table}
 
-Tables~\ref{tab:L0argcounts} and~\ref{tab:L0funcounts} show that the overall amount of polymorphism in R is quite low, but that doesn't quite tell the whole story.
-To get an idea of what kinds of polymorphism occur, we will look at the most commonly occurring polymorphic argument signatures.
-Table~\ref{tab:L0toppoly} has the top polymorphic signatures for L0.
+From Table~\ref{tab:L0argcounts} we see that, with our definition of subtyping on L0 and other simplifications we made, an overwhelming amount of argument polymorphism is accounted for.
+We also saw in Table~\ref{tab:L0toppoly} that each of the most frequently occurring argument signatures had some explanation.
+That said, L0 is not without limitations.
 
-\AT{TODO explain results in table.}
+The main issues with L0 stem from a lack of adequate information, as the type system doesn't capture precise list types, and does not distinguish scalars from vectors.
+The next type system we will explore, L1, tackles these issues by collecting more information to build more precise types.
+While the L1 types are less ``in-tune'' with current R implementations, one can imagine designing an all-new R runtime which may benefit from the more specific information in L1, e.g. by not needing to vectorize scalar values, or designing a static analysis which uses precise list types to give programmers better information in an IDE.
+L1 is discussed next.
 
-%Some entries in the Table~\ref{tab:L0toppoly} are clear (e.g., double,
-%integer polymorphism is unsurprising), others are strange (e.g., character,
-%double), but in fact they all have some explanation.
+\AT{TODO do function signatures maybe? Maybe just an example that we can run with.
+Plots also.}
 
-%\begin{enumerate}
-%\item \{\D, \I\}: in R, doubles and integers are effectively
-%  interchangeable, as casting from one to the other is straightforward and
-%  automatically performed when appropriate.  For example, \code{c(1, 2)[1.9]
-%    == 1}.  This distinction is mainly just relevant to the implementation,
-%  as integers and doubles are stored and dealt with differently in the
-%  runtime but programmers only see the distinction when printing.
-%
-%\item \{\D, \l\} and \{\C, \l\}: at first glance, these type signatures are
-%  suspect.  Why would so many programmers want to pass a double or a list to
-%  some function?  The key insight here is that doubles and characters are
-%  {\it vectorized} in R, meaning that a double is really a vector of
-%  doubles.  Thus, these seemingly strange signatures are revealed to be
-%  entirely reasonable: these signatures are likely to describe arguments
-%  which are either vectors or lists.
-%
-%\item \{\ANY,\sN\}: in most languages, NULL is an inhabitant of all types,
-%  and we see that this is not the case in R.  That said, there is a pattern
-%  of many functions having default or optional arguments, and in many of
-%  these cases NULL is the default value.
-%
-%\item \{\D,\L\}: the first values of type logical that come to mind are TRUE
-%  and FALSE, which does little to explain this strange signature.  Indeed,
-%  the key here is an implementation detail of R's: recall that NAs inhabit
-%  every type.  As it happens, the default type of NA is logical (e.g.,
-%  \code{typeof(NA) == "logical"}), and this is likely what is being seen
-%  here.  We will control for this by distinguishing NAs with their own type,
-%  {\tt raw\_NA}, but we will get to that in time.
-%
-%\item \{\C,\D\}, \{\C,\I\} and \{character, double, integer\}: yet more
-%  strange signatures.  These signatures are a little more subtle to explain.
-%  For one, indexing lists and vectors can be done with either strings (i.e.,
-%  to access a named index) or with numbers.  Another option is dates: R has
-%  many ways to present dates, and strings and numbers feature among them.
-%  Finally, many \AT{get numbers} functions in R return a string if an error
-%  occurs during execution.
-%
-%\end{enumerate}
-%
-%How will we deal with this?
-%
-%\begin{enumerate}
-%\item consolidating doubles and integers into a single real-number type
-%  would account for all of this polymorphism.
-%\item to get an idea of how often vectors and lists co-occur in signatures,
-%  we need to expand our analysis of vectorized types.  Notably, when we
-%  encounter e.g. a double, we should collect length information to see if
-%  the double is a vector of doubles or just a scalar.  This will feature in
-%  our next type system, L1, which we will get to momentarily.
-%\item if we roll NULLs into every type, we can cleanly deal with these X,
-%  NULL signatures.  As we have established that an annotation for an
-%  optional argument is useful, this will allow us to reveal other
-%  interesting patterns.
-%\item similarly with NULLs, we're interested in rolling NAs in to all types.
-%  As we mentioned, this is actually what the R runtime does, but a default
-%  type needed to be chosen for NAs appearing without context.  Subsuming NAs
-%  should help to reveal other interesting patterns.
-%\item dealing with this polymorphism will be more tricky.  We might need to
-%  pull class information in (to pick up on dates), and possibly make a
-%  signature judgment depending on which argument position has the signature
-%  (e.g. a \{character, X\} signature on a return).  We will come back to
-%  this later.
-%
-%\end{enumerate}
-
-There are some clear limitations to the L0 type system that we should
-address before working through any of these other issues. As we mentioned,
-\code{typeof} makes no distinction between vectors and scalars, as indeed
-there is no such distinction in R.  But as we saw, we might benefit from
-such a distinction, and indeed an all-new runtime environment design for R
-might benefit from e.g. not needing to vectorize scalar values.  This is only one
-of the modifications we make, all of which are thoroughly explored in
-the following section.
 %
 %
 %
 %
 \subsection{L1}
 
-As we mentioned in \AT{an earlier section}, and as was revealed in the previous section,
-L0 is somewhat limited in its expressivity. To address this, we develop L1, which espouses
-a finer-grained approach to types. Major modifications from L0 include the differentiation of
-scalars and vectors, the parameterization of list types over element types, and the use of
-attribute and class information to distinguish types for data frames and matrices.
+As we mentioned in Section~\ref{sec:L1def}, L0 is somewhat limited in its expressivity. 
+To address this, we develop L1, which espouses a finer-grained approach to types. 
+Major modifications from L0 include:
+
+\begin{enumerate}
+	\item the differentiation of scalars and vectors;
+	\item the parameterization of list types over element types;
+	\item the use of attribute and class information to distinguish types for data frames and matrices, and;
+	\item subtyping of \sN (i.e., $\forall T$, \sN $<:$ $T$).
+\end{enumerate}
 
 An example of a signature in this type system can be found in
 Figure~\ref{fig:exL1}.
@@ -907,221 +852,164 @@ add_make_list <- function(x, y) {
 }
 add_make_list(2, c(3, 1)) # => list(5, 3)
 \end{lstlisting}}
+\caption{Call signature in L1: x: \sD, y: \D $\rightarrow$ \lT{D}.}\label{fig:exL1}\end{figure}
 
-\begin{tabular}{@{}r|l|l|l@{}}\hline
-\bf Argument & \bf Type & \bf Class &\bf Attributes \\
-x & \sD & numeric & \{\} \\
-y & \D & numeric & \{\} \\
-retv & \lT{D} & list & \{\xspace example: \sC\}
-\end{tabular}
-\caption{Example call and L1 signature.}\label{fig:exL1}\end{figure}
-
-Let us begin as we did in L0 by looking at the amount of polymorphism in L1.
-The data can be found in Tables~\ref{tab:argcountsL1}~and~\ref{tab:funcountsL1}.
-\AT{TODO: have these tables be generated automatically}
-
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 22 18:03:30 2019
+Let us begin as we did in L0 by looking at the breakdown of argument signatures in L1.
+Consult Table~\ref{tab:L1top10arg}.
 \begin{table}[ht]
-\label{tab:argcountsL1}
+\label{tab:L1top10arg}
 \centering
 \begin{tabular}{lrr}
   \hline
- Argument Polymorphism & Count & Percentage \\
+ Argument Signature & Count & Percentage \\ 
   \hline
-%  Full Monomorphic & 781K & 85.37 \\
-  Monomorphic in Type & 834K & 91.23 \\
-%  Monomorphic in Class & 827K & 90.42 \\
-%  Monomorphic in Attribute Pattern & 825K & 90.27 \\
-  Total Seen & 914K & --- \\
-     \hline
+  \sD & 48815 & 18.4\% \\ 
+  \D & 27367 & 10.3\% \\ 
+  \sL & 24284 & 9.2\% \\ 
+  \sC & 22025 & 8.3\% \\ 
+  \l & 20062 & 7.6\% \\ 
+  \sF & 18480 & 7\% \\ 
+  \M{D} & 14315 & 5.4\% \\ 
+  \sN & 14016 & 5.3\% \\ 
+  unevaled & 9093 & 3.4\% \\ 
+  \C & 7731 & 2.9\% \\
+   \hline
 \end{tabular}
-\caption{Account of {\it argument} polymorphism in L1.}
+\caption{Most frequent argument signatures in L1.}
 \end{table}
 
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 22 18:10:46 2019
+From Table~\ref{tab:L1top10arg}, we see that all of the most frequent argument signatures are monomorphic even though we increased the precision of the types.
+We see that scalars actually figure quite prominently, which is encouraging, supporting our suggestion of an explicit scalar annotation.
+We also see that matrices (\M{D}) are quite popular, a testament to the versatility of the data structure, as they can easily be converted to vectors and data frames.
+
+Now that we have a picture of how arguments look in L1, let's see: {\it how many L1 functions have more than one type signature?}
+The answer can be found in Table~\ref{tab:funcountsL1}.
+
 \begin{table}[ht]
 \label{tab:funcountsL1}
 \centering
-\begin{tabular}{lrr}
+\begin{tabular}{lll}
   \hline
- Function Polymorphism & Count & Percentage \\
+Signature Type & Count & Percentage \\ 
   \hline
-  Monomorphic in Type & 167K & 77.25 \\
-  Total Seen & 216K & --- \\
+Monomorphic & 44K & 79.6\% \\ 
+  Total Seen & 56K & --- \\ 
    \hline
 \end{tabular}
 \caption{Account of {\it function} polymorphism in L1.}
 \end{table}
 
-\AT{We should figure out the pipeline to get the notebook output into here automatically.}
+We see that we increased the polymorphism with our transition to L1, despite the monomorphic nature of the most frequently appearing argument signatures.
+As we were in L0, we are curious to know how argument-level polymorphism looks in L1.
+Refer to Table~\ref{tab:toppolyL1}.
 
-We see that roughly 9\% of all argument positions in L1 are polymorphic in
-type, as opposed to 7.5\% in L0.  This small difference is perhaps
-surprising, as we did define a number of additional types and might expect
-for there to be a lot more polymorphism.  This is explained by the fact that
-drawing the distinctions added a lot of polymorphism to already polymorphic
-arguments.  \AT{We can get numbers on this.}
-
-As for functions, roughly 23\% are polymorphic in type, or put differently
-23\% have at least one polymorphic argument or a polymorphic return.  Again,
-the small difference between L0 and L1 in this regard is explained by a
-tendency to make already polymorphic functions more polymorphic.
-
-As before, these numbers alone are insufficient, so we ask again: {\it of the polymorphic arguments, what are the most common patterns?}
-The answer to that question can be found in Table~\ref{tab:toppolyL1}.
-
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 22 21:27:37 2019
 \begin{table}[ht]
 \label{tab:toppolyL1}
 \centering
-\begin{tabular}{lrr}
+\begin{tabular}{lrl}
   \hline
- Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\
+Signature & Count & \% of All Signatures \\ 
   \hline
-  \D, \I & 7742 & 9.66 \\
-  \sD, \sI & 7201 & 8.99 \\
-  matrix, \D & 5384 & 6.72 \\
-  NULL, \sC & 2325 & 2.90 \\
-  list$<$any$>$, list$<$double$>$ & 2231 & 2.78 \\
-  data.frame, matrix & 2116 & 2.64 \\
-  NULL, \sD & 2082 & 2.60 \\
-  NULL, \D & 2069 & 2.58 \\
-  list$<$any$>$, list$<$list$>$ & 1432 & 1.79 \\
-  NULL, \C & 1380 & 1.72 \\
-     \hline
+  \D, \M{D} & 1440 & 0.5\% \\ 
+  \l, \lT{D} & 525 & 0.2\% \\ 
+  \M{D}, \M{I} & 383 & 0.1\% \\ 
+  \sC, \sD & 382 & 0.1\% \\ 
+  \I, \sD & 370 & 0.1\% \\ 
+  \l, \lT{list} & 337 & 0.1\% \\ 
+  \df, \M{D} & 305 & 0.1\% \\ 
+  \C, \D & 294 & 0.1\% \\ 
+  \sD, \sF & 290 & 0.1\% \\ 
+  \sC, \sF & 273 & 0.1\% \\
+   \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in L1.}
 \end{table}
 
-We would like to make one important note before digesting the data in
-Table~\ref{tab:toppolyL1}.  We drew a distinction between scalars and
-vectors of the same type, and that distinction would be the single largest
-source of polymorphism in L1 had we not dealt with it appropriately.  We
-note that an argument which exhibits a signature including e.g. \{\sD, \D\}
-really must be an argument designed to take vectors, as recall that unit
-length vectors appear as scalars by our definition.  We have already
-collapsed this distinction.
+So what do these signatures mean?
 
-In Table~\ref{tab:toppolyL1}, we again see the prominence of {\tt double} and {\tt integer} polymorphism.
-As discussed previously, we will address this by creating a new {\it real} type encompassing both.
-Refer back to the snippet in Figure~\ref{fig:realex} for details.
-Also, another clear pattern in Table~\ref{tab:toppolyL1} is that of NULL, X.
-As we discussed, we will roll NULL (and raw NAs) into other types.
+\begin{itemize}
+	\item \D, \M{D}: vectors are just one-dimensional matrices.
+	Indeed, the only thing separating a vector from a matrix in R is a {\tt dims} attribute.
+	
+	\item \l, \lT{D}: this hearkens back to L0, where we discussed how this very same signature was explained by the list being a list of doubles.
+	So why is it still here?
+	Well, first note that there are far less of these signatures in L1 than in L0, so clearly we captured {\it something}.
+	Next, note the method with which we parameterize lists: we ascribe some type $T$ to a list type \lT{T} if and only if {\it all} list elements have {\it exactly} type {\it T}---in our analysis, we have encountered lists with integers as well as doubles, and unfortunately those currently appear as \l.
+	This could be addressed by doing some subtyping computation while exploring list elements.
+	
+	\item \M{D}, \M{I}: this signature is reasonable, as any computation in R on \M{D} would work on \M{I} and vice versa.
+	
+	\item \sC, \sD and \C, \D: we discussed this in L0---this signature likely captures an index or a date.
+	
+	\item \I, \sD: subtyping between primitives does not hold between scalars and vectors (i.e., \I $\not<:$ \sD) even though it's likely that the programmer intended for the argument to be a vector of the supertype (here, these arguments were likely intended to be of type \D).
+
+	\item \l, \lT{list}: here we have a list of any and a list of lists.
+	One explanation for this is that lists of lists sometimes contain NULL as an element, and this would show up with type \l, again as we don't do any subtyping while computing precise list types.
+	Another explanation is the way R handles object-orientation, which we discuss shortly in Section~\ref{sec:S3S4R5}.
+	
+	\item \df, \M{D}: in R, it's easy to transform a matrix into a data frame, and this argument is likely a result of that:
+	Simply calling \code{as.data.frame} on a matrix is enough.
+	
+	\item \sD, \sF and \sC, \sF: these were thoroughly discussed in the context of L0.
+	
+\end{itemize}
+
+With an understanding of argument polymorphism in L1, we wonder: {\it how many argument positions are polymorphic in L1?}
+Refer to Table~\ref{tab:argcountsL1}.
+
+\begin{table}[ht]
+\label{tab:argcountsL1}
+\centering
+\begin{tabular}{lrl}
+  \hline
+Signature Type & Count & Percentage \\ 
+  \hline
+  Monomorphic & 252K & 94.9\% \\ 
+  Total Seen & 265K & --- \\ 
+   \hline
+\end{tabular}
+\caption{Argument position polymorphism in L1.}
+\end{table}
+
+In spite of drastically increasing the precision of our types, we are still happily only dealing with a small amount of polymorphism.
+This suggests that with a good notion of subtyping, precise type annotations won't cause an undue increase in the polymorphism of the language.
+
+\AT{Something more about functions. Plots...}
+
+Before presenting L2, we will digress slightly and explore some of the ramifications of our transition from L0 to L1.
 
 %
 %
 \subsubsection{Scalars}
+\label{sec:scalars}
 
-As we make the distinction between vectors and scalars, one other
-interesting question that arises is: {\it how many arguments are strictly
-  scalar?}  As it happens, over 40\% of monomorphic arguments with primitive
-vectorized types are always scalar (so, 40\% of {\it monomorphic}
-occurrences of {\tt scalar/X} and {\tt vector/X} are scalar).  This shows
-that there is value in a scalar annotation, which could be used to
-communicate to an R runtime that vectorization of a value is not necessary,
-which may in turn lead to a performance improvement.
+Our suggestion to add an explicit scalar type is not unfounded, though it is not compatible with current R implementations.
+We saw in this section that strictly scalar values appear quite frequently, making up some of the most frequently occurring argument signatures.
+In fact, \PERCSCALARMONO of arguments have a strictly scalar monomorphic signature.
+This suggests that such a distinction would more accurately capture current use of the language, and would also be beneficial to future implementations which can perform optimizations based on the type (e.g., not vectorizing scalar-only values).
 
-At this point, we have seen a number of reasonable polymorphic patterns that arise in R, both in L0 and L1.
-The next type system design we consider will deal with these, and we refer to it as L$1^{+}$.
-The number of monomorphic arguments and functions can be found in Tables~\ref{tab:argcountsL1p} and~\ref{tab:funcountsL1p} respectively.
+%
+%
+\subsubsection{Object-Oriented Programming in R}
+\label{sec:S3S4R5}
 
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 22 18:03:30 2019
-\begin{table}[ht]
-\label{tab:argcountsL1p}
-\centering
-\begin{tabular}{lrr}
-  \hline
- Argument Polymorphism & Count & Percentage \\
-  \hline
-  Monomorphic in Type & 869K & 95.01 \\
-%  Monomorphic in Class & 831K & 90.31 \\
-%  Monomorphic in Attribute Pattern & 830K & 90.25 \\
-  Total Seen & 914K & --- \\
-     \hline
-\end{tabular}
-\caption{Account of {\it argument} polymorphism in L$1^{+}$.}
-\end{table}
-
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Mar 22 18:10:46 2019
-\begin{table}[ht]
-\label{tab:funcountsL1p}
-\centering
-\begin{tabular}{lrr}
-  \hline
- Function Polymorphism & Count & Percentage \\
-  \hline
-  Monomorphic in Type & 185K & 85.30 \\
-%  Monomorphic in Class & 163K & 75.13 \\
-%  Monomorphic in Attribute Pattern & 161K & 74.31 \\
-  Total Seen & 216K & --- \\
-   \hline
-\end{tabular}
-\caption{Account of {\it function} polymorphism in L$1^{+}$.}
-\end{table}
-
-We had some big wins here, with only ~5\% of argument polymorphism unaccounted for.
-To get an idea of what more we can do, let's see what the most frequent remaining polymorphic signatures are.
-See Table~\ref{tab:toppolyL1p}.
-
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Tue Mar 26 17:46:45 2019
-\begin{table}[ht]
-\label{tab:toppolyL1p}
-\centering
-\begin{tabular}{lrr}
-  \hline
-Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\
-  \hline
-  matrix, \realv & 6360 & 13.94 \\
-  list$<$any$>$, list$<$real$>$ & 2799 & 6.13 \\
-  \C, \realv & 2774 & 6.08 \\
-  \sC, \reals & 2552 & 5.59 \\
-  data.frame, matrix & 2167 & 4.75 \\
-  list$<$any$>$, list$<$list$>$ & 1496 & 3.28 \\
-  list$<$any$>$, list$<$character$>$ & 1214 & 2.66 \\
-  data.frame, \realv & 1046 & 2.29 \\
-  \sL, \reals & 920 & 2.02 \\
-  \sC, \realv & 868 & 1.90 \\
-   \hline
-\end{tabular}
-\caption{Top 10 argument signatures in L$1^{+}$.}
-\end{table}
-
-A few of the top polymorphic signatures stand out.
-First, the matrix/\realv signature seems interesting, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
-In fact, in R matrices can be used identically to vectors in many cases, and we refer the reader to Figure~\ref{fig:matasvec} for examples.
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-v <- c(1, 2, 3, 4)
-ma <- matrix(data=v, nrow=4, ncol=1)
-v[2] == m[2] == m[2, 1]
-
-mb <- matrix(data=v, nrow=2, ncol=2)
-v[3] == m[3] == m[1, 2]
-\end{lstlisting}}\caption{Using a matrix like a vector.}\label{fig:matasvec}\end{figure}
-
-This similarity is reminiscent of another pattern which was more clear in Table~\ref{tab:L0toppoly}; that of list/vector polymorphism.
-Transforming between vectors and matrices is just as easy as transforming between lists and vectors is simple.
-\AT{We should figure out how we want to deal with this polymorphism.}
-
-Another pattern that we can shed some light on the list$<$any$>$/list$<$X$>$ pattern.
-These data points are an artifact of R's three object systems: S3, S4, and R5.
+There is something more to be said about the \l type, namely that it is sometimes linked to (one of) R's takes on object-oriented programming.
+R has three object systems: S3, S4, and R5, and S3 objects will often manifest themselves with this signatures in L1.
 An S3 object is any value with a ``class'' attribute, and indeed many of these tend to be lists.
-For example, an S3-style point might be a list with an entry for each dimension in the point, with a ``class'' attribute set to ``Point''.
-Our next type system, L2, will account for these.
+For example, an S3-style ``Point'' might be a list with an entry for each dimension in the point, with a ``class'' attribute set to ``Point''.
+When these S3 objects have contents with a variety of types, their L1 type will appear as \l, which leaves something to be desired:
+Our next type system, L2, will remedy this.
 
-Another significant source of apparently strange polymorphism is the character, real polymorphism.
-Recall Figure~\ref{fig:chardbl}, which laid out an example of this polymorphic signature: lists and vectors can be accessed by strings as well as by numerics.
-This is a somewhat unusual example of polymorphism, and our argument depends on there being perhaps a list or vector passed alongside the {\tt character}- or {\tt real}-typed argument.
-So, just how often is this the case?
-Well, as it happens, character/real polymorphism coincides with some list-flavored type in \INDEXCOINCIDENCE instances (\INDEXYPERC of occurrences).
+%
+%
+\subsubsection{\C, \I, \D Polymorphism}
+Another significant source of apparently strange polymorphism is the character, integer, double polymorphism.
+Figure~\ref{fig:chardbl} lays out an example of this polymorphic signature, showing that lists and vectors can be accessed by strings as well as by numerics.
+One could conceive of an ``index'' type to capture this, but there are certain limitations to such a type, as such an ``index'' cannot be incremented as it could be a string.
+An even more sophisticated dependent type system could capture this, but it's far from clear if such a sophisticated type system would be for a language like R.
 
-Another possible explanation for character, real polymorphism is the date data type.
-In R, dates are often represented as either strings or numbers, and many packages make use of dates.
+One other possible explanation for this polymorphism is the ``date'' data type.
+In R, dates are often represented as either strings or numbers, and they are widely used.
 Dates (sometimes) manifest themselves in the class of a value, for examples refer to Figure~\ref{fig:date}.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 class(date()) # => character
@@ -1130,14 +1018,13 @@ class(as.POSIXlt(Sys.Date())) # => POSIXlt, POSIXt
 as.integer(as.Date(1, origin = "1900-01-01"))
 \end{lstlisting}}\caption{Dates in R.}\label{fig:date}\end{figure}
 
-This figure reveals an unfortunate truth that date data type in R is not standardized.
-That said, as before with matrices and vectors, and vectors and lists, translating between the data types is straightforward.
-Once again, this polymorphism can be captured with classes, which is the focus of our next discussion.
+Unfortunately, the truth is that dates in R are not standardized.
+That said, translating between date representations is straightforward.
+As most dates are classes, L2 will be able to capture their use.
 
-We have seen that once we have done away with trivial sources of polymorphism, a number of interesting patterns arise.
-In many of these cases, we can appeal to other sources of reflection in R to expand our understanding.
-For example, to deal with the possibility of dates, we can appeal to the \code{class} of values, and to gain more information on matrices we might be interested in looking at attributes.
-The next type system addresses these concerns.
+Throughout this section, we have seen that even though we substantially increased the precision of our type annotations, we have not increased the amount of polymorphism that we observe.
+The transition from L0 to L1 revealed some interesting patterns that L1 cannot quite capture---for these, we will need to appeal to the class and attributes of values.
+The next type system we consider is L2, and is designed to achieve this.
 
 %
 %
@@ -1519,3 +1406,93 @@ Other analysis work~\cite{milojkovic2017duck} ... .
 \bibliographystyle{boilerplate/ACM-Reference-Format}
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new}
 \end{document}
+
+
+%
+% L1+ Stuff? We don't need this anymore.
+% 
+% 
+%
+%At this point, we have seen a number of reasonable polymorphic patterns that arise in R, both in L0 and L1.
+%The next type system design we consider will deal with these, and we refer to it as L$1^{+}$.
+%The number of monomorphic arguments and functions can be found in Tables~\ref{tab:argcountsL1p} and~\ref{tab:funcountsL1p} respectively.
+%
+%% latex table generated in R 3.5.1 by xtable 1.8-3 package
+%% Fri Mar 22 18:03:30 2019
+%\begin{table}[ht]
+%\label{tab:argcountsL1p}
+%\centering
+%\begin{tabular}{lrr}
+%  \hline
+% Argument Polymorphism & Count & Percentage \\
+%  \hline
+%  Monomorphic in Type & 869K & 95.01 \\
+%%  Monomorphic in Class & 831K & 90.31 \\
+%%  Monomorphic in Attribute Pattern & 830K & 90.25 \\
+%  Total Seen & 914K & --- \\
+%     \hline
+%\end{tabular}
+%\caption{Account of {\it argument} polymorphism in L$1^{+}$.}
+%\end{table}
+%
+%% latex table generated in R 3.5.1 by xtable 1.8-3 package
+%% Fri Mar 22 18:10:46 2019
+%\begin{table}[ht]
+%\label{tab:funcountsL1p}
+%\centering
+%\begin{tabular}{lrr}
+%  \hline
+% Function Polymorphism & Count & Percentage \\
+%  \hline
+%  Monomorphic in Type & 185K & 85.30 \\
+%%  Monomorphic in Class & 163K & 75.13 \\
+%%  Monomorphic in Attribute Pattern & 161K & 74.31 \\
+%  Total Seen & 216K & --- \\
+%   \hline
+%\end{tabular}
+%\caption{Account of {\it function} polymorphism in L$1^{+}$.}
+%\end{table}
+%
+%We had some big wins here, with only ~5\% of argument polymorphism unaccounted for.
+%To get an idea of what more we can do, let's see what the most frequent remaining polymorphic signatures are.
+%See Table~\ref{tab:toppolyL1p}.
+%
+%% latex table generated in R 3.5.1 by xtable 1.8-3 package
+%% Tue Mar 26 17:46:45 2019
+%\begin{table}[ht]
+%\label{tab:toppolyL1p}
+%\centering
+%\begin{tabular}{lrr}
+%  \hline
+%Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\
+%  \hline
+%  matrix, \realv & 6360 & 13.94 \\
+%  list$<$any$>$, list$<$real$>$ & 2799 & 6.13 \\
+%  \C, \realv & 2774 & 6.08 \\
+%  \sC, \reals & 2552 & 5.59 \\
+%  data.frame, matrix & 2167 & 4.75 \\
+%  list$<$any$>$, list$<$list$>$ & 1496 & 3.28 \\
+%  list$<$any$>$, list$<$character$>$ & 1214 & 2.66 \\
+%  data.frame, \realv & 1046 & 2.29 \\
+%  \sL, \reals & 920 & 2.02 \\
+%  \sC, \realv & 868 & 1.90 \\
+%   \hline
+%\end{tabular}
+%\caption{Top 10 argument signatures in L$1^{+}$.}
+%\end{table}
+%
+%A few of the top polymorphic signatures stand out.
+%First, the matrix/\realv signature seems interesting, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
+%In fact, in R matrices can be used identically to vectors in many cases, and we refer the reader to Figure~\ref{fig:matasvec} for examples.
+%\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+%v <- c(1, 2, 3, 4)
+%ma <- matrix(data=v, nrow=4, ncol=1)
+%v[2] == m[2] == m[2, 1]
+%
+%mb <- matrix(data=v, nrow=2, ncol=2)
+%v[3] == m[3] == m[1, 2]
+%\end{lstlisting}}\caption{Using a matrix like a vector.}\label{fig:matasvec}\end{figure}
+%
+%This similarity is reminiscent of another pattern which was more clear in Table~\ref{tab:L0toppoly}; that of list/vector polymorphism.
+%Transforming between vectors and matrices is just as easy as transforming between lists and vectors is simple.
+%\AT{We should figure out how we want to deal with this polymorphism.}

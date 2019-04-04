@@ -180,10 +180,21 @@ $(document).ready(function () {
 <p>First, administrivia.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi4vY29kZS9kYXRhX3Byb2Nlc3NpbmcuUlwiKSAjIGdldCB0aGUgZnVuY3Rpb25zIHdlIG5lZWRcbmxpYnJhcnkoeHRhYmxlKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi4vY29kZS9kYXRhX3Byb2Nlc3NpbmcuUlwiKSAjIGdldCB0aGUgZnVuY3Rpb25zIHdlIG5lZWRcblxuYGBgIn0= -->
 <pre class="r"><code>source(&quot;../code/data_processing.R&quot;) # get the functions we need
-library(xtable)</code></pre>
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiB0aWR5dmVyc2Vcblx1MDAxYlszMG3ilIDilIAgXHUwMDFiWzFtQXR0YWNoaW5nIHBhY2thZ2VzXHUwMDFiWzIybSDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMi4xIOKUgOKUgFx1MDAxYlszOW1cblx1MDAxYlszMG1cdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtZ2dwbG90Mlx1MDAxYlszMG0gMy4xLjAgICAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bXB1cnJyICBcdTAwMWJbMzBtIDAuMy4yICBcblx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG10aWJibGUgXHUwMDFiWzMwbSAyLjEuMSAgICAgICBcdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtZHBseXIgIFx1MDAxYlszMG0gMC44LjAuXHUwMDFiWzMxbTFcdTAwMWJbMzBtXG5cdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtdGlkeXIgIFx1MDAxYlszMG0gMC44LjEgICAgICAgXHUwMDFiWzMybeKclFx1MDAxYlszMG0gXHUwMDFiWzM0bXN0cmluZ3JcdTAwMWJbMzBtIDEuNC4wICBcblx1MDAxYlszMm3inJRcdTAwMWJbMzBtIFx1MDAxYlszNG1yZWFkciAgXHUwMDFiWzMwbSAxLjEuMSAgICAgICBcdTAwMWJbMzJt4pyUXHUwMDFiWzMwbSBcdTAwMWJbMzRtZm9yY2F0c1x1MDAxYlszMG0gMC4zLjAgIFx1MDAxYlszOW1cblx1MDAxYlszMG3ilIDilIAgXHUwMDFiWzFtQ29uZmxpY3RzXHUwMDFiWzIybSDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgFxuXHUwMDFiWzMxbeKcllx1MDAxYlszMG0gXHUwMDFiWzM0bWRwbHlyXHUwMDFiWzMwbTo6XHUwMDFiWzMybWZpbHRlcigpXHUwMDFiWzMwbSBtYXNrcyBcdTAwMWJbMzRtc3RhdHNcdTAwMWJbMzBtOjpmaWx0ZXIoKVxuXHUwMDFiWzMxbeKcllx1MDAxYlszMG0gXHUwMDFiWzM0bWRwbHlyXHUwMDFiWzMwbTo6XHUwMDFiWzMybWxhZygpXHUwMDFiWzMwbSAgICBtYXNrcyBcdTAwMWJbMzRtc3RhdHNcdTAwMWJbMzBtOjpsYWcoKVx1MDAxYlszOW1cbiJ9 -->
+<pre><code>Loading required package: tidyverse
+[30m── [1mAttaching packages[22m ─────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──[39m
+[30m[32m✔[30m [34mggplot2[30m 3.1.0       [32m✔[30m [34mpurrr  [30m 0.3.2  
+[32m✔[30m [34mtibble [30m 2.1.1       [32m✔[30m [34mdplyr  [30m 0.8.0.[31m1[30m
+[32m✔[30m [34mtidyr  [30m 0.8.1       [32m✔[30m [34mstringr[30m 1.4.0  
+[32m✔[30m [34mreadr  [30m 1.1.1       [32m✔[30m [34mforcats[30m 0.3.0  [39m
+[30m── [1mConflicts[22m ────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+[31m✖[30m [34mdplyr[30m::[32mfilter()[30m masks [34mstats[30m::filter()
+[31m✖[30m [34mdplyr[30m::[32mlag()[30m    masks [34mstats[30m::lag()[39m</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Load the data.</p>

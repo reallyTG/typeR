@@ -391,6 +391,12 @@ collapse_subtype <- function(l, ts) {
     } else if (ts == "L1") {
       if (b == "?")
         TRUE
+      else if (a == "sD" && b == "M{D}")  # TEMPORARY
+        TRUE
+      else if (a == "sI" && b == "M{I}")  # TEMPORARY
+        TRUE
+      else if (a == "sL" && b == "M{L}")  # TEMPORARY
+        TRUE
       else if (a == "sL" && b == "L")
         TRUE
       else if (a == "sI" && b == "I")
@@ -403,11 +409,17 @@ collapse_subtype <- function(l, ts) {
         TRUE
       else if (a == "sX" && b == "X")
         TRUE
-      else if ((a == "L" || a == "sL") && (b == "D" || b == "sD"))
+      else if (a == "sL" && b == "sD")
         TRUE
-      else if ((a == "L" || a == "sL") && (b == "sI" || b == "I"))
+      else if (a == "L" && b == "D")
         TRUE
-      else if ((a == "I" || a == "sI") && (b == "D" || b == "sD"))
+      else if (a == "sI" && b == "sD")
+        TRUE
+      else if (a == "I" && b == "D")
+        TRUE
+      else if (a == "sL" && b == "sI")
+        TRUE
+      else if (a == "L" && b == "I")
         TRUE
       else if (a == "unevaled")
         TRUE
@@ -470,7 +482,7 @@ new_df_count_collape_arg_sigs <- function(df, ts="L0") {
   sapply(df$arg_sig, function(s) {
     s <- substr(s, 2, nchar(s) - 1)
     strsplit(s, split=", ")[[1]] %>% sanitize_errors %>% collapse_subtype(ts) -> col
-    paste(col, collapse=", ")
+    paste(sort(col), collapse=", ")
   }) -> df$arg_sig
 
   # now its collapse, add up the lads and resort
