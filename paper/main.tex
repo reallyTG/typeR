@@ -536,6 +536,7 @@ starts with the addition of two scalar numbers of different types, and then
 adds a matrix to a vector returning a matrix.
 
 \subsection{Implementation}
+\label{sec:Impl}
 
 A high-level description of the workflow of our tool for one package
 retrieved from CRAN is as follows:
@@ -685,14 +686,13 @@ and {\tt N}$\subseteq${\tt N'}.
 \section{Analysis Results}\label{sec:results}
 
 This section presents our results for each of the levels we have considered.
-
-\AT{NOTE: I am updating this with new numbers as we get them.
-The fixed tracer is still running, I should be able to fill in final numbers by tomorrow night.}
+\AT{New numbers will be available tonight (Apr 5).}
+\AT{Will use that to fill in some blanks.}
 
 \subsection{L0}
 
 At {\bf L0}, the type system is mostly aligned with the types of the core language.  We
-have observed over 186K monomorphic functions; this accounts for 86\% of our
+have observed over \AT{how many?} monomorphic functions; this accounts for \AT{what \%?} of our
 corpus. 
 
 Across all of the arguments that we've observed, the vast majority are monomorphic.
@@ -724,7 +724,7 @@ Next is lists, which seems reasonable given that lists are often used to store t
 Recall that in {\bf L0}, data frames will appear as lists.
 The \ANY type is not an R type per se: we ascribe such a type to arguments which were {\it always} unevaluated across all calls.
 As it happens, many R functions metaprogram on some of their arguments, and this metaprogramming does not force the argument promise, and if this metaprogramming is always performed in every recorded call we will ascribe the \ANY type, as we cannot say what the argument {\it is} without possibly forcing a promise.
-The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of metaprogramming.
+The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of metaprogramming; we will discuss it in a little more detail shortly.
 
 One of our chief goals is to generate useful function signatures.
 After tracing and capturing unique signatures from function call sites, \AT{recall} that we collapse some of the more obvious ones together.
@@ -738,14 +738,24 @@ Figure~\ref{fig:L0funcounts} has the answer with a breakdown by function.
 \end{figure}
 
 Here, we see that the vast majority of functions are monomorphic in L0.
-Indeed, there are a few functions with a disproportionately large number of signatures.
-One such function is the magrittr package's pipe \%$>$\%:
+That said, there are a few functions with a disproportionately large number of signatures.
+One such function is the magrittr package's pipe \%$>$\%, which is used to implement a kind of currying (as per discussion in Section~\ref{sec:Impl}).
+Many of the metaprogramming functions in the Tidyverse are quite sophisticated, and are designed with the explicit goal of being very usable.
+This usability maps to polymorphism in our analysis, so it's no surprise that a Tidyverse function features so prominently here.
+
+Another function with many signatures is the data.table package's [ function, which is overloaded for objects with data.table class.
+This function has 16 formal arguments, and call configurations vary widely.
+Essentially, [ is {\it the} main function for data.tables, and performs very different tasks based on which arguments are provided.
+Two wildly different uses are:
+\code{DT[i, j, by]}, where columns \code{i} and \code{j} are accessed and grouped by \code{by}, and \code{DT[x == "some" & y > 42]}, which selects all rows who's \code{x} column is the string \code{"some"} and who's \code{y} column is greater than \code{42}.
+Given that, we find it unsurprising that the function is so polymorphic.
 
 In choosing how to express the polymorphicity of a function, there are two main options one might consider:
 First, having several separate whole-function signatures, e.g. \D $\rightarrow$ \D and \C $\rightarrow$ \D, or alternatively expressing the polymorphism at the argument level with a union type, e.g. (\D $\cup$ \C) $\rightarrow$ \C.
-Earlier in Table~\ref{tab:L0top10arg} we saw the most frequently occurring argument signatures.
-To get an idea of how expressing polymorphism at the argument level would look, we ask: {\it what are the most frequently occurring polymorphic argument signatures?}
-Table~\ref{tab:L0toppoly} has the answer.
+The former is referred to as {\it per-function} or {\it function-level polymorphism}, and the latter as {\it per-argument} or {\it argument-level polymorphism}.
+Earlier in Table~\ref{tab:L0top10arg} we saw the most frequently occurring argument-level signatures, and Figure~\ref{fig:L0funcounts} broke our corpus down by function-level polymorphism.
+
+To get an idea of the most common forms of argument-level polymorphism, we refer toTable~\ref{tab:L0toppoly}.
 
 \begin{table}[ht]\label{tab:L0toppoly}\centering
 \begin{tabular}{lrr}  \hline
@@ -785,18 +795,19 @@ Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 	L0 doesn't deal with classes, which are one of the topics of L2.
 
 	\item \D, \sF: this signature appears more strange than it is.
-	Some arguments with this signature are either parameters for a function, or the function itself already constructed.
-	Another examples, such as the {\tt br} argument of the {\tt rtree} function in the {\tt ape} package, are parameters for a complex data generation process, or a function to be used during the generation.
-	\AT{Do we want to put the fun def and arg documentation here?}
-	It would appear that this pattern is used to make complex simulation, modelling, or data generation functions more flexible.
+	Many models, processes, simulations, etc. that are prevalent throughout R are are {\it parameterized}.
+	Some arguments with the \D, \sF signature are either parameters for a function (\D), or the function itself already constructed (\sF).
+	Others, such as the {\tt br} argument of the {\tt rtree} function in the {\tt ape} package, are either parameters for complex data generation processes (\D), or a function to be used during the generation (\sF).
+	It would appear that this pattern is used to make complex simulation, modelling, or data generation functions more flexible for programmers.
 	
-	\item \C, \sF: another puzzling signature, though its explanation is surprisingly straightforward:
+	\item \C, \sF: yet another puzzling signature, though its explanation is surprisingly straightforward:
 	In R, programmers are free to look functions up {\it by name}, and indeed the frequently encountered {\tt UseMethod} function for dynamic class-based function dispatch is one such example.
 	In short, this signature usually represents a function or a function name.
 
 \end{itemize}
 
-Now, we have some understanding of argument polymorphism in L0.
+We have established and discussed some of the most common polymorphic attribute signatures, and have built up an understanding of argument-level polymorphism in the {\bf L0} type system.
+This matches almost exactly with the language as it is today, as {\bf L0} is in (nearly) 1:1 correspondence with how types are currently represented in the language.
 The next question we address is: {\it just how pervasive is this argument polymorphism?}
 Refer to Table~\ref{tab:L0argcounts}.
 
