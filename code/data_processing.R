@@ -68,7 +68,7 @@
 # [X] Corpus table -- signatures observed and recorded in top 10
 
 # Current RUNID:
-# [217722]
+# [29421]
 
 #
 # SUBTYPING
@@ -454,6 +454,117 @@ collapse_subtype <- function(l, ts) {
 
 }
 
+collapse_subtype_L2 <- function(l, ts) {
+  pairwise_st <- function(a, b, ts) {
+    if (ts == "L0") {
+      if (b == "?")
+        TRUE
+      else if (a == "L" && b == "I")
+        TRUE
+      else if (a == "L" && b == "D")
+        TRUE
+      else if (a == "I" && b == "D")
+        TRUE
+      else if (a == "unevaled")
+        TRUE
+      else if (a == "missing")
+        TRUE
+      else
+        a == b
+    } else if (ts == "L1") {
+      if (b == "?")
+        TRUE
+      else if (a == "sD" && b == "M{D}")  # TEMPORARY
+        TRUE
+      else if (a == "sI" && b == "M{I}")  # TEMPORARY
+        TRUE
+      else if (a == "sL" && b == "M{L}")  # TEMPORARY
+        TRUE
+      else if (a == "sL" && b == "L")
+        TRUE
+      else if (a == "sI" && b == "I")
+        TRUE
+      else if (a == "sD" && b == "D")
+        TRUE
+      else if (a == "sC" && b == "C")
+        TRUE
+      else if (a == "sR" && b == "R")
+        TRUE
+      else if (a == "sX" && b == "X")
+        TRUE
+      else if (a == "sL" && (b == "sD" || b == "D"))
+        TRUE
+      else if (a == "L" && b == "D")
+        TRUE
+      else if (a == "sI" && (b == "sD" || b == "D"))
+        TRUE
+      else if (a == "I" && b == "D")
+        TRUE
+      else if (a == "sL" && (b == "sI" || b == "I"))
+        TRUE
+      else if (a == "L" && b == "I")
+        TRUE
+      else if (a == "unevaled")
+        TRUE
+      else if (a == "missing")
+        TRUE
+      else if (a == "sN")
+        TRUE
+      else
+        a == b
+    }
+  }
+
+  class_subset <- function(lc1, lc2) {
+    if (lc1 == "" && lc2 == "")
+      return(TRUE)
+    if (lc1 != "" && lc2 == "")
+      return(FALSE)
+    if (lc1 == "" && lc2 != "")
+      return(FALSE)
+    Reduce("&&", strsplit(lc1, split=",")[[1]] %in% strsplit(lc2, split=",")[[1]])
+  }
+
+  attr_subset <- function(la1, la2) {
+    la1 <- substr(la1, 2, nchar(la1)-1)
+    la2 <- substr(la2, 2, nchar(la2)-1)
+    if (la1 == "")
+      return(TRUE)
+    if (la2 == "")
+      return(FALSE)
+    Reduce("&&", strsplit(la1, split=",")[[1]] %in% strsplit(la2, split=",")[[1]])
+  }
+
+  if (length(l) == 1 || length(l) == 0)
+    return(l)
+
+  for (i in 1:(length(l)-1)) {
+    if (l[[i]] == "REMOVE")
+      next
+    li <- strsplit(l[[i]], split="/")[[1]][1]
+    lic <- strsplit(l[[i]], split="/")[[1]][2]
+    lia <- strsplit(l[[i]], split="/")[[1]][3]
+    for (j in (i+1):length(l)) {
+      if (l[[j]] == "REMOVE")
+        next
+      lj <- strsplit(l[[j]], split="/")[[1]][1]
+      ljc <- strsplit(l[[j]], split="/")[[1]][2]
+      lja <- strsplit(l[[j]], split="/")[[1]][3]
+      if (pairwise_st(li, lj, ts) && class_subset(lic, ljc) && attr_subset(lia, lja)) {
+        # remove
+        l[[i]] <- "REMOVE"
+        break # next i
+      } else if (pairwise_st(lj, li, ts) && class_subset(ljc, lic) && attr_subset(lja, lia)) {
+        l[[j]] <- "REMOVE"
+        # no break
+      }
+    }
+  }
+
+  l[l != "REMOVE"]
+
+}
+
 split_L2_df <- function(df) {
   split_at <- function(x, a) {
     want <- strsplit(x, split="/")[[1]][a]
@@ -501,6 +612,21 @@ sanitize_errors <- function(l) {
   l
 }
 
+sanitize_errors_L2 <- function(l) {
+  keep <- c()
+  for (i in 1:length(l)) {
+    if ("error" == strsplit(l[i], split="/")[[1]][1])
+      keep[i] <- F
+    else
+      keep[i] <- T
+  }
+
+  l <- l[keep]
+  if (length(l) == 0)
+    l <- c("error")
+  l
+}
+
 new_df_count_collape_arg_sigs <- function(df, ts="L0") {
   # this might be easiest way
   sapply(df$arg_sig, function(s) {
@@ -526,6 +652,25 @@ new_df_count_collape_arg_sigs_L2 <- function(df) {
     s <- substr(sigs_l[[1]], 2, nchar(sigs_l[[1]]) - 1)
     strsplit(s, split=", ")[[1]] %>% sanitize_errors %>% collapse_subtype("L1") -> col
     paste0("[", paste(sort(col), collapse=", "), "]/", sigs_l[[2]], "/", sigs_l[[3]])
+  }) -> df$arg_sig
+
+  # now its collapse, add up the lads and resort
+  df %>% group_by(arg_sig) %>%
+    do(count=sum(.$count), perc_tot=sum(.$perc_tot)) -> df
+
+  df$count <- as.integer(unlist(df$count))
+  df$perc_tot <- unlist(df$perc_tot)
+
+  df[order(-df$count),]
+}
+
+new_df_count_collape_arg_sigs_L2_actual <- function(df) {
+  # this might be easiest way
+  sapply(df$arg_sig, function(sb) {
+    sigs_l <- substr(sb, 2, nchar(sb) - 1)
+
+    strsplit(sigs_l, split=", ")[[1]] %>% sanitize_errors_L2 %>% collapse_subtype_L2("L1") -> col
+    paste0("[", paste(sort(col), collapse=", "), "]")
   }) -> df$arg_sig
 
   # now its collapse, add up the lads and resort

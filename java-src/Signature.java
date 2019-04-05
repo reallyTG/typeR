@@ -197,6 +197,71 @@ public class Signature {
 		int i;
 		ArrayList<String> lookingAt;
 
+		// sanitize types -- remove raw_NA
+
+		if (arg1_t.equals("raw_NA"))
+			arg1_t = "null";
+
+		if (arg2_t.equals("raw_NA"))
+			arg2_t = "null";
+
+		if (arg3_t.equals("raw_NA"))
+			arg3_t = "null";
+
+		if (arg4_t.equals("raw_NA"))
+			arg4_t = "null";
+
+		if (arg5_t.equals("raw_NA"))
+			arg5_t = "null";
+
+		if (arg6_t.equals("raw_NA"))
+			arg6_t = "null";
+
+		if (arg7_t.equals("raw_NA"))
+			arg7_t = "null";
+
+		if (arg8_t.equals("raw_NA"))
+			arg8_t = "null";
+
+		if (arg9_t.equals("raw_NA"))
+			arg9_t = "null";
+
+		if (arg10_t.equals("raw_NA"))
+			arg10_t = "null";
+
+		if (arg11_t.equals("raw_NA"))
+			arg11_t = "null";
+
+		if (arg12_t.equals("raw_NA"))
+			arg12_t = "null";
+
+		if (arg13_t.equals("raw_NA"))
+			arg13_t = "null";
+
+		if (arg14_t.equals("raw_NA"))
+			arg14_t = "null";
+
+		if (arg15_t.equals("raw_NA"))
+			arg15_t = "null";
+
+		if (arg16_t.equals("raw_NA"))
+			arg16_t = "null";
+
+		if (arg17_t.equals("raw_NA"))
+			arg17_t = "null";
+
+		if (arg18_t.equals("raw_NA"))
+			arg18_t = "null";
+
+		if (arg19_t.equals("raw_NA"))
+			arg19_t = "null";
+
+		if (arg20_t.equals("raw_NA"))
+			arg20_t = "null";
+
+		if (ret_t.equals("raw_NA"))
+			ret_t = "null";
+
 		// sanitize classes -- removing all primitive ones
 
 		if (!arg1_c.equals("")) {

@@ -261,6 +261,23 @@ data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=c(list_of_L2_s
 ```
 
 ```{r}
+# packages with the most polymorphism
+# which TS to use for this?
+
+num_funs_by_pkg <- psp_L0 %>% group_by(pkg, fun) %>% select(pkg, fun) %>% distinct(fun) %>% mutate(count=1) %>% group_by(pkg) %>% summarize(count=sum(count))
+
+num_sigs_by_pkg <- psp_L0 %>% mutate(sig_count = 1) %>% group_by(pkg) %>% summarize(sig_count=sum(sig_count))
+
+poly_count_normalized <- inner_join(num_funs_by_pkg, num_sigs_by_pkg, by="pkg") %>% mutate(poly_norm=sig_count/count)
+
+poly_count_normalized %>% arrange(-poly_norm) %>% slice(2:6)
+
+# print
+
+```
+
+Old stuff.
+```{r}
 # arg sig counts?
 # L2_arg_sig_c <- read_csv("../data/partial_L1_sanitized_class_arg_sig_counts_L2.csv.gz")
 # 

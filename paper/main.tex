@@ -977,8 +977,6 @@ Signature Type & Count & Percentage \\
 In spite of drastically increasing the precision of our types, we are still happily only dealing with a small amount of polymorphism.
 This suggests that with a good notion of subtyping, precise type annotations won't cause an undue increase in the polymorphism of the language.
 
-\AT{Something more about functions. Plots...}
-
 Before presenting L2, we will digress slightly and explore some of the ramifications of our transition from L0 to L1.
 
 %
@@ -1129,116 +1127,98 @@ Signature Type & Count & Percentage \\
 \end{table}
 
 Surprisingly, even with the added precision of classes and attributes, there is still a relatively small amount of polymorphism in {\bf L2}.
-Indeed, our notion of subtying on classes is rather weak, and one extension would be to include class hierarchies in the subtyping of classes;
+Indeed, our notion of subtyping on classes is rather weak, and one extension would be to include class hierarchies in the subtyping of classes;
 this would further reduce the amount of polymorphism.
 
-%% latex table generated in R 3.5.1 by xtable 1.8-3 package
-%% Mon Apr  1 14:48:55 2019
-%\begin{table}[ht]
-%\label{tab:classpolyL2}
-%\centering
-%\begin{tabular}{lrr}
-%  \hline
-%Class & Count & Percentage \\
-%  \hline
-%  primitive, tbl, tbl\_df & 1796 & 2.78 \\
-%  array, primitive & 1379 & 2.14 \\
-%  data.table, primitive & 777 & 1.20 \\
-%  POSIXct, POSIXt & 716 & 1.11 \\
-%  formula, primitive & 639 & 0.99 \\
-%   \hline
-%\end{tabular}
-%\caption{Top 5 class signatures for class-based polymorphism in L2.}
-%\end{table}
-%
-%The first thing to note is the low percentages overall: unlike with types in L0, L1, or L1+, there are no major contributors for class-based polymorphism.
-%For instance, the single highest source of polymorphism here is due to the ``tbl'' and ``tbl\_df'' classes (of the dplyr package).
-%For what it's worth, these are classes ascribed to dplyr data objects (i.e., spruced-up data frames).
-%The next largest contributor is the array class, which is a class for N>2-dimensional matrices (part of the core R language).
-%\AT{Maybe I should also turn arrays into primitive class?}
-%
-%In our analysis, we did not encounter any substantial patterns with class-based polymorphism.
-%Class is nonetheless important in R, as the dynamic dispatcher uses class information to select the correct method to call.
-%In short, a small optional annotation indicating the class of an argument may well be enough.
-%
-%First, the largest source of attribute-based polymorphism is in optional list names.
-%The names attribute on a vector or list allows indexing with name rather than numeric position.
-%Another significant source of this polymorphism is matrices, which can be seen in all the ``dim'' and ``dimnames'' attributes.
+\AT{Conclude L2}
 
 %
 %
 %
 %
-\subsection{R's Most Polymorphic Functions}
+\subsection{Notable Patterns and Observations}
 
-\AT{We might want to discuss some of the most polymorphic functions in the language.}
+Besides exploring the patterns highlighted by our various type systems, we can address some interesting and tangentially related questions about the usage of types in R.
 
-In this section, our goal is to shed some light on the most polymorphic functions in R.
-Table~\ref{tab:bigpolyfuns} shows the 10 functions with the biggest recorded signatures.
+%
+%
+%
+%
+\subsubsection{R's Most Polymorphic Functions}
 
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Thu Mar 28 16:01:37 2019
-\begin{table}[ht]
-\label{tab:bigpolyfuns}
-\centering
-\begin{tabular}{llrl}
-  \hline
-Package & Function & Size & Description \\
-  \hline
-magrittr & \%$>$\% & 23.00 & Tidyverse pipe function \\
-  magrittr & freduce & 17.67 & Apply a list of functions sequentially \\
-  rlang & captureArgInfo & 16.50 & Capture arg info \\
-  rlang & enquo & 16.00 & Create quosure \\
-  rlang & get\_expr & 15.00 & Extract expression \\
-  data.table & replace\_dot\_alias & 13.50 & Deals with '.' in passed expr \\
-  tibble & strip\_dim & 13.00 & Removes 'dim' attribute \\
-  data.table & copy & 11.00 & Create copy of passed value \\
-  htmlwidgets & shouldEval & 11.00 & Eval passed value depending on tag \\
-  magrittr & \%$<$$>$\% & 11.00 & Like \%$>$\% but assigns \\
-   \hline
-\end{tabular}
-\caption{10 most polymorphic functions.}
-\end{table}
-
-The size metric we use is roughly the size of each individual argument signature, divided by the number of function arguments.
-The division is performed to avoid unfairly favouring functions with many arguments.
-
-Which packages are the most polymorphic?
-Figure~\ref{tab:packagepolysize} has the answer.
+Given the data that we've collected, it's natural to wonder what the most polymorphic packages are.
+Indeed, we have shed some light on some of the most polymorphic {\it functions}, but what about the packages that these functions belong to?
+What is their purpose, and why are they so polymorphic?
+Figure~\ref{tab:packagepolysize} has some answers.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Thu Mar 28 18:15:26 2019
 \begin{table}[ht]
 \label{tab:packagepolysize}
 \centering
-\begin{tabular}{lrl}
+\begin{tabular}{lrrr}
   \hline
-Package & Total Size & Description \\
+  Package & \# of Functions &\# of Signatures & Description \\ 
   \hline
-  magrittr & 4.16 & Tidyverse pipe suite \\
-  types & 3.25 & Simple type annotations for R \\
-  r6extended & 3.00 & Utilities extending barebones R6 package \\
-  utils & 2.93 & Utilities for R developers \\
-  zeallot & 2.85 & Metaprogramming package for assignment \\
-  listviewer & 2.72 & R list visualizer \\
-  proto & 2.60 & Prototype object-based programming \\
-  apercu & 2.49 & Display a short view of a complex R value (list, vector, etc.) \\
-  pipeR & 2.46 & Another pipe suite \\
-  rethinker & 2.44 & RethinkDB client for R \\
+  knitLatex & 4 & 41 & \LaTeX \xspace generator from R data \\ 
+  magrittr & 17 & 126 & Tidyverse pipe suite \\ 
+  proto & 5 & 30 & Prototype object-based programming \\ 
+  gnlm & 10 & 53 & ?? \\ 
+  Formula & 17 & 82 & ?? \\ 
    \hline
 \end{tabular}
-\caption{10 most polymorphic packages.}
+\caption{5 most polymorphic packages.}
 \end{table}
 
-\AT{Draft}
+Now, what makes these so polymorphic?
+\AT{maybe first score functions, penalizing big ones, and then consolidate?}
 
+\begin{enumerate}
 
+	\item knitLatex: two functions are largely responsible for this level of polymorphism: sTab, which produces \LaTeX \xspace supertabular environments, and lTab, which produces \LaTeX \xspace longtable environments.
+	These functions both have over 15 arguments, and there are a large number of recorded configurations, with many of the arguments being optional.
+	
+	\item magrittr: we discussed magrittr earlier in the context of its pipe \%$>$\% function. 
+	It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
+	
+	\iitem proto: 
 
-The most polymorphic function in the corpus of code we analyzed is {\tt magrittr}'s {\tt \%>\%} (pipe) function.
-{\tt magrittr} is part of the Tidyverse, and the pipe function is frequently used to chain function calls.
-The fact that the pipe is the most polymorphic function is not shocking, as its goal is simply to take the right hand argument and apply it to the left hand argument, and this in a sense irrespective of type.
+\end{enumerate}
 
-...
+%  magrittr & 4.16 &  \\
+%  types & 3.25 & Simple type annotations for R \\
+%  r6extended & 3.00 & Utilities extending barebones R6 package \\
+%  utils & 2.93 & Utilities for R developers \\
+%  zeallot & 2.85 & Metaprogramming package for assignment \\
+%  listviewer & 2.72 & R list visualizer \\
+%  proto & 2.60 &  \\
+%  apercu & 2.49 & Display a short view of a complex R value (list, vector, etc.) \\
+%  pipeR & 2.46 & Another pipe suite \\
+%  rethinker & 2.44 & RethinkDB client for R \\
+
+%% latex table generated in R 3.5.1 by xtable 1.8-3 package
+%% Thu Mar 28 16:01:37 2019
+%\begin{table}[ht]
+%\label{tab:bigpolyfuns}
+%\centering
+%\begin{tabular}{llrl}
+%  \hline
+%Package & Function & Size & Description \\
+%  \hline
+%  magrittr & \%$>$\% & 23.00 & Tidyverse pipe function \\
+%  magrittr & freduce & 17.67 & Apply a list of functions sequentially \\
+%  rlang & captureArgInfo & 16.50 & Capture arg info \\
+%  rlang & enquo & 16.00 & Create quosure \\
+%  rlang & get\_expr & 15.00 & Extract expression \\
+%  data.table & replace\_dot\_alias & 13.50 & Deals with '.' in passed expr \\
+%  tibble & strip\_dim & 13.00 & Removes 'dim' attribute \\
+%  data.table & copy & 11.00 & Create copy of passed value \\
+%  htmlwidgets & shouldEval & 11.00 & Eval passed value depending on tag \\
+%  magrittr & \%$<$$>$\% & 11.00 & Like \%$>$\% but assigns \\
+%   \hline
+%\end{tabular}
+%\caption{10 most polymorphic functions.}
+%\end{table}
 
 %
 %

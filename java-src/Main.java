@@ -45,18 +45,18 @@ public class Main {
 		// for (int i = 0; i < args.length; i++)
 		String the_file = "../data/partial_L0.csv.gz";
 		if (ts.equals("L1"))
-		  the_file = "../data/partial_L1_sanitized_class.csv.gz";
-			// the_file = "../data/partial_L1.csv.gz";
+		  // the_file = "../data/partial_L1_sanitized_class.csv.gz";
+			the_file = "../data/partial_L1.csv.gz";
 
 		// uncomment depending on what you want to do
 		// not the best approach
 		// doIt(the_file, 0);
 		// collapsePerArg(the_file);
-		// makeOccurences(the_file);
+		makeOccurences(the_file);
 		// doIt_L2(the_file);
 		// collapsePerArg_L2(the_file);
 		// sanitizeClass(the_file);
-		makeOccurences_L2(the_file);
+		// makeOccurences_L2(the_file);
 
 	}
 
@@ -88,7 +88,8 @@ public class Main {
 	}
 
 	private static void makeOccurences(String file) {
-		String the_real_file = file.substring(0, file.length()-7) + "_collapsed.csv.gz";
+		// String the_real_file = file.substring(0, file.length()-7) + "_collapsed.csv.gz";
+		String the_real_file = file.substring(0, file.length()-7) + "_collapsed_L2_new.csv.gz";
 		Reader reader = null;
 		try {
 			reader = new Reader(the_real_file);
@@ -204,7 +205,7 @@ public class Main {
 
 			// push strings in i guess
 			pushAll_L2(sig_els, f);
-			ret_t.add(f.ret_t);
+			ret_t.add(f.ret_t + "/" + f.ret_c + "/" + f.ret_a);
 			ret_c.addAll(Arrays.asList(f.ret_c.split(",")));
 			if (!f.ret_a.equals("") && !f.ret_a.equals("{}"))
 				ret_a.addAll(Arrays.asList(f.ret_a.substring(1, f.ret_a.length()-1).split(",")));
@@ -223,7 +224,7 @@ public class Main {
 
 		// write
 		String out_file = file.substring(0, file.length()-7);
-		out_file = out_file.concat("_collapsed_L2.csv");
+		out_file = out_file.concat("_collapsed_L2_new.csv");
 		Writer w = new Writer(out_file);
 		for (Signature f : out) {
  			f.write(w);
@@ -1144,26 +1145,26 @@ public class Main {
 	}
 
 	private static void pushAll_L2(ArrayList<HashSet<String>> in, Signature s) {
-		in.get(0).add(s.arg1_t);
-		in.get(1).add(s.arg2_t);
-		in.get(2).add(s.arg3_t);
-		in.get(3).add(s.arg4_t);
-		in.get(4).add(s.arg5_t);
-		in.get(5).add(s.arg6_t);
-		in.get(6).add(s.arg7_t);
-		in.get(7).add(s.arg8_t);
-		in.get(8).add(s.arg9_t);
-		in.get(9).add(s.arg10_t);
-		in.get(10).add(s.arg11_t);
-		in.get(11).add(s.arg12_t);
-		in.get(12).add(s.arg13_t);
-		in.get(13).add(s.arg14_t);
-		in.get(14).add(s.arg15_t);
-		in.get(15).add(s.arg16_t);
-		in.get(16).add(s.arg17_t);
-		in.get(17).add(s.arg18_t);
-		in.get(18).add(s.arg19_t);
-		in.get(19).add(s.arg20_t);
+		in.get(0).add(s.arg1_t + "/" + s.arg1_c + "/" + s.arg1_a);
+		in.get(1).add(s.arg2_t + "/" + s.arg2_c + "/" + s.arg2_a);
+		in.get(2).add(s.arg3_t + "/" + s.arg3_c + "/" + s.arg3_a);
+		in.get(3).add(s.arg4_t + "/" + s.arg4_c + "/" + s.arg4_a);
+		in.get(4).add(s.arg5_t + "/" + s.arg5_c + "/" + s.arg5_a);
+		in.get(5).add(s.arg6_t + "/" + s.arg6_c + "/" + s.arg6_a);
+		in.get(6).add(s.arg7_t + "/" + s.arg7_c + "/" + s.arg7_a);
+		in.get(7).add(s.arg8_t + "/" + s.arg8_c + "/" + s.arg8_a);
+		in.get(8).add(s.arg9_t + "/" + s.arg9_c + "/" + s.arg9_a);
+		in.get(9).add(s.arg10_t + "/" + s.arg10_c + "/" + s.arg10_a);
+		in.get(10).add(s.arg11_t + "/" + s.arg11_c + "/" + s.arg11_a);
+		in.get(11).add(s.arg12_t + "/" + s.arg12_c + "/" + s.arg12_a);
+		in.get(12).add(s.arg13_t + "/" + s.arg13_c + "/" + s.arg13_a);
+		in.get(13).add(s.arg14_t + "/" + s.arg14_c + "/" + s.arg14_a);
+		in.get(14).add(s.arg15_t + "/" + s.arg15_c + "/" + s.arg15_a);
+		in.get(15).add(s.arg16_t + "/" + s.arg16_c + "/" + s.arg16_a);
+		in.get(16).add(s.arg17_t + "/" + s.arg17_c + "/" + s.arg17_a);
+		in.get(17).add(s.arg18_t + "/" + s.arg18_c + "/" + s.arg18_a);
+		in.get(18).add(s.arg19_t + "/" + s.arg19_c + "/" + s.arg19_a);
+		in.get(19).add(s.arg20_t + "/" + s.arg20_c + "/" + s.arg20_a);
 		in.get(20).addAll(Arrays.asList(s.arg1_c.split(",")));
 		in.get(21).addAll(Arrays.asList(s.arg2_c.split(",")));
 		in.get(22).addAll(Arrays.asList(s.arg3_c.split(",")));
