@@ -53,7 +53,7 @@
 %\acmYear{1997}%\copyrightyear{2016}%\acmPrice{15.00}
 \begin{document}
 
-\title{A Large-scale Study of Polymorphism in R}
+\title{A Large-Scale Study of Polymorphism in R}
 
 \newcommand{\PACKAGES}{11,463\xspace}
 \newcommand{\PROGRAMMERS}{?\xspace}
@@ -61,7 +61,7 @@
 \newcommand{\CRANTOTAL}{13,841\xspace}
 \newcommand{\RLOC}{15,050,267\xspace}
 \newcommand{\CLOC}{9,373,542\xspace}
-\newcommand{\YEARS}{?\xspace}
+\newcommand{\YEARS}{20\xspace}
 \newcommand{\INDEXCOINCIDENCE}{3,499\xspace}
 \newcommand{\TOTALINDEXY}{6,561\xspace}
 \newcommand{\INDEXYPERC}{53\%\xspace}		% TODO Not an accurate count.
@@ -117,7 +117,7 @@ dynamically checked at runtime. The starting point for our work is the
 question: \emph{what could a static type system for R look like?}  To answer
 that question we study the polymorphism that is present in \RLOC lines of R
 code spread among some \PACKAGES packages, written over a
-period of over \YEARS years by \PROGRAMMERS programmers.  We perform a dynamic
+period of over \YEARS years by thousands of programmers.  We perform a dynamic
 analysis, leveraging tests and use-cases, to determine the level of
 polymorphism that is present in the code. We do this for several potential
 notions of types. Our result suggest that polymorphism is important in some
@@ -651,7 +651,7 @@ and \sX), type parametric lists (written \lT{T} for any type {\tt T}), data
 frames (written \attr{\l}{df} as they are built up from lists of type any),
 and matrices (\attr{\vec{\tt T}}{mat} where {\tt T} is a primitive type).
 Subtyping is extended such that {\tt T}<:{$\vec{\tt T}$} for any primitive
-type {\tt T}. There is no subtyping relation between lists of different
+type {\tt T}. The subtype relation is undefined for lists of different
 types.
 
 \subsection{L2 Types}
@@ -671,11 +671,12 @@ matrix).  Attributes are name-value pairs, to keep things simple we reduce
 these to names. The only attribute that we treat specially is the {\tt
   class} for those we will recurse and capture the set of values defined by
 the user (these are the class names for the object).  Thus, we extend {\bf
-  L1} with attribute lists and classes: \attrclass{T}{C}{N} where {\tt T}
-can be any L1 type other than data frame or matrix, {\tt C} and {\tt N}
-stands for a list names.  The subtype relation is extended with
-\attrclass{T}{C}{N}<:\attrclass{T}{C'}{D'} if {\tt C} $\subseteq$ {\tt C'}
-and {\tt N}$\subseteq${\tt N'}.
+  L1} with attribute lists and classes: \attrclass{T}{C}{A} where {\tt T}
+can be any L1 type other than data frame or matrix, and {\tt C} and {\tt A}
+are lists of classes and attribute names respectively.  The subtype relation is defined as:
+\attrclass{T}{C}{A} $<:_{\mathbf{L2}}$ \xspace \attrclass{\dot T}{C'}{A'} if 
+$ T <:_{\mathbf{L1}} \dot T$, $C \subseteq C'$, and $A \subseteq A'$.
+
 
 %
 %
@@ -1035,6 +1036,16 @@ The next type system we consider is L2, and is designed to achieve this.
 
 {\bf L2} works class and attribute information into its type signatures.
 As per the discussion in Section~\ref{sec:L2def}, we omit builtin classes in order to highlight those which are user-defined.
+{\bf L2} differs from {\bf L1} in the following ways:
+
+\begin{enumerate}
+
+	\item where {\bf L1} and {\bf L0} only considered classes and attributes when ascribing matrix or data frame types, {\bf L2} considers classes and attributes to be an integral part of the type system.
+	Annotations in {\bf L2} include classes and attribute names when they are present.
+	
+	\item recall that subtyping between two {\bf L2} types is defined as 
+	
+\end{enumerate}
 
 As in {\bf L0} and {\bf L1}, we will begin by showing a breakdown of the top argument signatures in Table~\ref{tab:L2top10arg}.
 
@@ -1051,7 +1062,7 @@ Signature & Count & \% of All Signatures \\
   \D & 20900 & 7.8\% \\ 
   \sF & 14556 & 5.5\% \\ 
   \sN & 14016 & 5.3\% \\ 
-  unevaled & 9093 & 3.4\% \\ 
+  \ANY & 9093 & 3.4\% \\ 
   \attrclass{\D}{}{dim} & 6974 & 2.5\% \\ 
   \C& 6939 & 2.6\% \\ 
   \attrclass{\l}{}{names} & 6137 & 2.2\% \\ 
@@ -1126,11 +1137,11 @@ Signature Type & Count & Percentage \\
 \caption{Account of {\it argument} polymorphism in {\bf L2}.}
 \end{table}
 
-Surprisingly, even with the added precision of classes and attributes, there is still a relatively small amount of polymorphism in {\bf L2}.
-Indeed, our notion of subtyping on classes is rather weak, and one extension would be to include class hierarchies in the subtyping of classes;
-this would further reduce the amount of polymorphism.
+Surprisingly, even with the added precision of classes and attributes, there is still a relatively small amount of argument-level polymorphism in {\bf L2}.
+Our notion of subtyping on classes is rather weak, and one extension would be to include class hierarchies in the subtyping of classes;
+this would further reduce the amount of polymorphism in this type system.
 
-\AT{Conclude L2}
+
 
 %
 %
@@ -1150,6 +1161,7 @@ Given the data that we've collected, it's natural to wonder what the most polymo
 Indeed, we have shed some light on some of the most polymorphic {\it functions}, but what about the packages that these functions belong to?
 What is their purpose, and why are they so polymorphic?
 Figure~\ref{tab:packagepolysize} has some answers.
+Note that we are in the context of {\bf L0}, here, to highlight current language patterns.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Thu Mar 28 18:15:26 2019
@@ -1163,15 +1175,16 @@ Figure~\ref{tab:packagepolysize} has some answers.
   knitLatex & 4 & 41 & \LaTeX \xspace generator from R data \\ 
   magrittr & 17 & 126 & Tidyverse pipe suite \\ 
   proto & 5 & 30 & Prototype object-based programming \\ 
-  gnlm & 10 & 53 & ?? \\ 
+  gnlm & 10 & 53 & Regression fit package \\ 
   Formula & 17 & 82 & ?? \\ 
    \hline
 \end{tabular}
-\caption{5 most polymorphic packages.}
+\caption{5 most polymorphic packages (in {\bf L0}).}
 \end{table}
 
 Now, what makes these so polymorphic?
-\AT{maybe first score functions, penalizing big ones, and then consolidate?}
+
+\AT{TODO if time: fix to score per fun, then tally per package.}
 
 \begin{enumerate}
 
@@ -1181,9 +1194,19 @@ Now, what makes these so polymorphic?
 	\item magrittr: we discussed magrittr earlier in the context of its pipe \%$>$\% function. 
 	It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
 	
-	\iitem proto: 
+	\item proto: most of the polymorphism in this package comes from its implementation of assignment ({\tt \$<-}) for proto class objects.
+	It's a small, 3 argument function which is exceedingly polymorphic, with over 20 unique call signatures.
+	As theoretically any R object can have a proto class, it stands to reason that this function ought to be quite polymorphic indeed.
+	
+	\item 
+	
+	\item 
 
 \end{enumerate}
+
+It's highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
+It's also unclear how useful a type system would be if it {\it did} capture everything.
+Indeed, many of the packages discussed here are really designed to take in anything for particular arguments (e.g., left-hand side of \%$>$\%), and restricting these functions should not be the goal of any static type system designed after a language has matured.
 
 %  magrittr & 4.16 &  \\
 %  types & 3.25 & Simple type annotations for R \\
@@ -1224,33 +1247,31 @@ Now, what makes these so polymorphic?
 %
 %
 %
-\subsection{Metaprogramming}
+\subsubsection{Metaprogramming and Unevaluated Arguments}
 
-\AT{Make into subsection at the end of analysis? Or in global results, as a takeaway.}
+Our analysis uncovered a non-negligible amount of argument positions which were {\it never} evaluated across all observed function calls.
+This is indicative of a desire to metaprogram arguments and otherwise deconstruct their AST, as the \%$>$\% function does.
+This is an incredibly powerful language feature, and may well be at the source of R's popularity, if in a roundabout way.
+Tidyverse, by far the most popular package suite in R, owes some of its success to the new syntax defined by some of the included packages, and it's this ability to metaprogram arguments which allowed Tidyverse to define its unique syntax.
+An example of that syntax is \%$>$\%, and indeed this function was highly exercised by over 100 other packages.
 
-Tidyverse owes some of its success to the new syntax defined by some of the included packages.
-One such example is the pipe operator \%$>$\% that we saw in the last section, and indeed this function was highly exercised by many other packages \AT{get counts}.
-We also grappled with the unfortunate truth that arguments to \%$>$\% can't always be evaluated, which causes some annoyances in the analysis.
+%
+%
+%
+%
+%
+%
+\section{Discussion}
 
-We would like to know how often packages contain functions designed for metaprogramming.
-As it happens, when arguments fail to evaluate during our analysis even as functions execute successfully, we are actually dealing with instances of metaprogramming.
-Some functions, such as those in the magrittr package, will take one (or more) of their arguments and use them as an AST, performing surgery on the expression to create some new expression that they evaluate.
-Sometimes, these arguments intended for metaprogramming {\it will} successfully evaluate in our tracer, but this is merely chance.
-For example, consider the code snippet in Figure~\ref{fig:metaexworks}.
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-mul_by_w_defaults <- function(x=1, y=1) x * y
-
-4 %>% mul_by_w_defaults(2) == `%>%`(lhs = 4, rhs = mul_by(3))
-\end{lstlisting}}\caption{Dates in R.}\label{fig:metaexworks}\end{figure}
-
-In this example, our analysis will successfully evaluate the {\tt rhs} argument
+\AT{Short section to recap the analysis results, discuss trends, consolidate our suggestions, talk about argument vs. function poly.}
 
 %
 %
 %
 %
 \subsection{Function Polymorphism}
+
+\AT{Retool this into possible meta discussion after results}
 
 Now, we will turn our attention to whole function polymorphism.
 
