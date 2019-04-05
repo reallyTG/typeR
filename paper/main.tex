@@ -744,6 +744,14 @@ Monomorphic & 46K & 83\% \\
 \caption{Function polymorphism in L0.}
 \end{table}
 
+\AT{TODO Replace table with plot in Fig.}
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{L0_by_fun}
+\caption{Record of Function Polymorphism in {\bf L0}.}
+\label{recorded}\end{center}
+\end{figure}
+
 Here, we see that the vast majority of functions are monomorphic in L0.
 To choosing how to express the polymorphicity of a function, there are two main options one might consider:
 First, having several separate whole-function signatures, e.g. \D $\rightarrow$ \D and \C $\rightarrow$ \D, or alternatively expressing the polymorphism at the argument level with a union type, e.g. (\D $\cup$ \C) $\rightarrow$ \C.
@@ -902,6 +910,14 @@ Monomorphic & 44K & 79.6\% \\
 \end{tabular}
 \caption{Account of {\it function} polymorphism in L1.}
 \end{table}
+
+\AT{TODO Replace table with plot in Fig.}
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{L1_by_fun}
+\caption{Record of Function Polymorphism in {\bf L1}.}
+\label{recorded}\end{center}
+\end{figure}
 
 We see that we increased the polymorphism with our transition to L1, despite the monomorphic nature of the most frequently appearing argument signatures.
 As we were in L0, we are curious to know how argument-level polymorphism looks in L1.
