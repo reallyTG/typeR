@@ -3,6 +3,14 @@ title: "Data Builder"
 output: html_notebook
 ---
 
+WORKFLOW
+0. build data on prl3
+  0.1. reduce traces
+  0.2. make_new_df \forall the packages
+  0.3. rbindlist them all
+1. get data from prl3 and do the notebook up to 2.
+  
+
 ```{r}
 source("../code/data_processing.R")
 ```
@@ -22,12 +30,18 @@ psp <- lists_to_chars_sig_df(psp)
 ```{r}
 # first, turn specials, closures, and builtins to functions
 psp <- transform_new_df_w_TS_map(psp, type_map_to_fun)
+
+# any other transformations?
 ```
 
 ```{r}
 # make it T0
 psp_L0 <- transform_new_df_w_TS_map(psp, type_map_T0_to_r)
 ```
+
+WORKFLOW
+2. write the partials out to csv for java
+3. in java, call doIt (remember -L=L0 for L0, -L=L1 for L1) ALSO NOTE FILE NAMES
 
 ```{r}
 # write it to file for Java processing
@@ -127,6 +141,41 @@ setdiff(pf_L1 %>% unique, poly_L1_funs) %>% nrow -> mono_L1_funs_c
 data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=paste0(c(mono_L0_funs_c/1000, tot_L0_funs/1000) %>% as.integer, "K"), Percentage=c(paste0(round(mono_L0_funs_c/tot_L0_funs * 100, 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
 
 data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=paste0(c(mono_L1_funs_c/1000, tot_L1_funs/1000) %>% as.integer, "K"), Percentage=c(paste0(round(mono_L1_funs_c/tot_L1_funs * 100, 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
+
+# actually want plots, next
+```
+
+```{r}
+# Actually, want per fun plots
+pf_L0 %>% mutate(num_sigs = 1) %>% group_by(pkgfun) %>% summarize(num_sigs=sum(num_sigs)) -> plot_L0
+pf_L1 %>% mutate(num_sigs = 1) %>% group_by(pkgfun) %>% summarize(num_sigs=sum(num_sigs)) -> plot_L1
+
+plot_L0 %>% arrange(num_sigs) %>% mutate(pkgfun_o = factor(pkgfun, pkgfun)) -> plot_L0_df
+plot_L1 %>% arrange(num_sigs) %>% mutate(pkgfun_o = factor(pkgfun, pkgfun)) -> plot_L1_df
+
+# if L0 has no data entry, get rid of it
+if (plot_L0_df[plot_L0_df$pkgfun == "no_data::no_data",] %>% nrow == 1)
+  plot_L0_df <- plot_L0_df[!plot_L0_df$pkgfun == "no_data::no_data",]
+
+L0_perc_poly <- round(100 * nrow(plot_L0_df[plot_L0_df$num_sigs > 1, ] )/nrow(plot_L0_df), 1)
+L1_perc_poly <- round(100 * nrow(plot_L1_df[plot_L1_df$num_sigs > 1, ] )/nrow(plot_L1_df), 1)
+
+# maybe only plot those with more than 1 sig?
+plot_L0_df %>%
+  ggplot(aes(x=pkgfun_o, y=num_sigs, group=1)) +
+  geom_line() + labs(title = "Number of Function Signatures per Function (L0)",
+                                    x = "",
+                                    y = "Number of L0 Signatures") + theme(axis.text.x = element_blank())
+
+ggsave("../paper/plots/L0_by_fun.pdf",width=10,height=4)
+
+plot_L1_df %>%
+  ggplot(aes(x=pkgfun_o, y=num_sigs, group=1)) +
+  geom_line() + labs(title = "Number of Function Signatures per Function (L1)",
+                                    x = "",
+                                    y = "Number of L1 Signatures") + theme(axis.text.x = element_blank())
+
+ggsave("../paper/plots/L1_by_fun.pdf",width=10,height=4)
 ```
 
 ```{r}
@@ -154,7 +203,28 @@ percent_scalar_mono <- round( 100 * num_scal / sum(L1_arg_sig_c$count), 1)
 # L2 Time
 psp_L2 <- read_csv("../data/partial_L1_L2.csv.gz")
 psp_L2 <- psp_L2[!psp_L2$pkg == "SUBTYPE",]
+```
 
+```{r}
+# Plot it
+pf_L2 <- psp_L2 %>% mutate(pkgfun = paste(pkg, fun, sep="::")) %>% select(pkgfun)
+
+pf_L2 %>% mutate(num_sigs = 1) %>% group_by(pkgfun) %>% summarize(num_sigs=sum(num_sigs)) -> plot_L2
+
+plot_L2 %>% arrange(num_sigs) %>% mutate(pkgfun_o = factor(pkgfun, pkgfun)) -> plot_L2_df
+
+L2_perc_poly <- round(100 * nrow(plot_L2_df[plot_L2_df$num_sigs > 1, ] )/nrow(plot_L2_df), 1)
+
+plot_L2_df %>%
+  ggplot(aes(x=pkgfun_o, y=num_sigs, group=1)) +
+  geom_line() + labs(title = "Number of Function Signatures per Function (L2)",
+                                    x = "",
+                                    y = "Number of L2 Signatures") + theme(axis.text.x = element_blank())
+
+ggsave("../paper/plots/L2_by_fun.pdf",width=10,height=4)
+```
+
+```{r}
 # L2 collapsed?
 # what <- read_csv("../data/partial_L1_sanitized_class_collapsed.csv.gz")
 what <- read_csv("../data/partial_L1_collapsed_L2_new.csv.gz")

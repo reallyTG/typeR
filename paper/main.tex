@@ -71,6 +71,9 @@
 \newcommand{\NUMPOLYTYPEMONOCLASS}{1,357\xspace}
 \newcommand{\PERCSCALARMONO}{37.6\%\xspace}
 
+\newcommand{\LZEROPERCPOLY}{17\%\xspace}
+\newcommand{\LONEPERCPOLY}{20.4\%\xspace}
+\newcommand{\LTWOPERCPOLY}{23\%\xspace}
 
 \newcommand{\attr}[2]{\ensuremath{#1_{\mathtt{#2}}}\xspace}
 \newcommand{\attrclass}[3]{\ensuremath{#1^{\mathtt{#3}}_{\mathtt{#2}}}\xspace}
@@ -707,7 +710,7 @@ Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurri
   \L & 26230 & 9.9\% \\ 
   \sF & 16806 & 6.3\% \\ 
   \sN & 13976 & 5.3\% \\ 
-  unevaled & 9125 & 3.4\% \\ 
+  \ANY & 9125 & 3.4\% \\ 
   \I & 8971 & 3.4\% \\ 
   \sS & 4748 & 1.8\% \\ 
   \D, \I & 3256 & 1.2\% \\ 
@@ -719,41 +722,26 @@ Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurri
 We see that doubles are the most common argument type, which is not entirely surprising as doubles are the backbone of any numeric data.
 Next is lists, which seems reasonable given that lists are often used to store the aforementioned data.
 Recall that in {\bf L0}, data frames will appear as lists.
-As for ``unevaled'', first recall the discussion that all function arguments are wrapped in promises in R from \AT{where?}.
-The ``unevaled'' signature appears whenever an argument was provided but unused, and one might wonder why such a signature might be so common.
-As it happens, many R functions metaprogram on some of their arguments, and this metaprogramming does not force the argument promise, so it will appear as ``unevaled''.
-The magrittr package's pipe \%$>$\% function is an example of this.
-\AT{Move magrittr discussion up.}
+The \ANY type is not an R type per se: we ascribe such a type to arguments which were {\it always} unevaluated across all calls.
+As it happens, many R functions metaprogram on some of their arguments, and this metaprogramming does not force the argument promise, and if this metaprogramming is always performed in every recorded call we will ascribe the \ANY type, as we cannot say what the argument {\it is} without possibly forcing a promise.
+The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of metaprogramming.
 
 One of our chief goals is to generate useful function signatures.
 After tracing and capturing unique signatures from function call sites, \AT{recall} that we collapse some of the more obvious ones together.
 After this, we are curious to know: {\it how many functions have more than one signature?}
-Table~\ref{tab:L0funcounts} has the answer.
-
-\begin{table}[ht]
-\label{tab:L0funcounts}
-\centering
-\begin{tabular}{llr}
-  \hline
-Signature Type & Count & Percentage \\ 
-  \hline
-Monomorphic & 46K & 83\% \\ 
-  Total Seen & 56K & --- \\ 
-   \hline
-\end{tabular}
-\caption{Function polymorphism in L0.}
-\end{table}
-
-\AT{TODO Replace table with plot in Fig.}
+Figure~\ref{fig:L0funcounts} has the answer with a breakdown by function.
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{L0_by_fun}
-\caption{Record of Function Polymorphism in {\bf L0}.}
-\label{recorded}\end{center}
+\caption{Record of Function Polymorphism in {\bf L0}. \LZEROPERCPOLY of functions are polymorphic.}
+\label{fig:L0funcounts}\end{center}
 \end{figure}
 
 Here, we see that the vast majority of functions are monomorphic in L0.
-To choosing how to express the polymorphicity of a function, there are two main options one might consider:
+Indeed, there are a few functions with a disproportionately large number of signatures.
+One such function is the magrittr package's pipe \%$>$\%:
+
+In choosing how to express the polymorphicity of a function, there are two main options one might consider:
 First, having several separate whole-function signatures, e.g. \D $\rightarrow$ \D and \C $\rightarrow$ \D, or alternatively expressing the polymorphism at the argument level with a union type, e.g. (\D $\cup$ \C) $\rightarrow$ \C.
 Earlier in Table~\ref{tab:L0top10arg} we saw the most frequently occurring argument signatures.
 To get an idea of how expressing polymorphism at the argument level would look, we ask: {\it what are the most frequently occurring polymorphic argument signatures?}
@@ -883,7 +871,7 @@ Consult Table~\ref{tab:L1top10arg}.
   \sF & 18480 & 7\% \\ 
   \M{D} & 14315 & 5.4\% \\ 
   \sN & 14016 & 5.3\% \\ 
-  unevaled & 9093 & 3.4\% \\ 
+  \ANY & 9093 & 3.4\% \\ 
   \C & 7731 & 2.9\% \\
    \hline
 \end{tabular}
@@ -895,28 +883,12 @@ We see that scalars actually figure quite prominently, which is encouraging, sup
 We also see that matrices (\M{D}) are quite popular, a testament to the versatility of the data structure, as they can easily be converted to vectors and data frames.
 
 Now that we have a picture of how arguments look in L1, let's see: {\it how many L1 functions have more than one type signature?}
-The answer can be found in Table~\ref{tab:funcountsL1}.
-
-\begin{table}[ht]
-\label{tab:funcountsL1}
-\centering
-\begin{tabular}{lll}
-  \hline
-Signature Type & Count & Percentage \\ 
-  \hline
-Monomorphic & 44K & 79.6\% \\ 
-  Total Seen & 56K & --- \\ 
-   \hline
-\end{tabular}
-\caption{Account of {\it function} polymorphism in L1.}
-\end{table}
-
-\AT{TODO Replace table with plot in Fig.}
+The answer can be found in Figure~\ref{fig:L1funcounts}.
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{L1_by_fun}
-\caption{Record of Function Polymorphism in {\bf L1}.}
-\label{recorded}\end{center}
+\caption{Record of Function Polymorphism in {\bf L1}. \LONEPERCPOLY of functions are polymorphic.}
+\label{fig:L1funcounts}\end{center}
 \end{figure}
 
 We see that we increased the polymorphism with our transition to L1, despite the monomorphic nature of the most frequently appearing argument signatures.
@@ -1083,62 +1055,19 @@ As you can see, the most frequent signatures in {\bf L1} are represented here.
 The inclusion of class and attribute information has changed the counts slightly.
 One tidbit of interest here is that monomorphic named lists are more common than their unnamed counterparts.
 The lack of classes is explained by our elimination of builtin classes, and it's doubtful that a user-defined class would be so pervasive as to feature in this breakdown.
-%On that note, we wonder: {\it what are most frequent argument signatures with an interesting class?}
-%Table~\ref{tab:L2top10argwclass} has the answer.
-
-%% latex table generated in R 3.5.1 by xtable 1.8-3 package
-%% Fri Apr  5 02:38:12 2019
-%\begin{table}[ht]
-%\label{tab:L2top10argwclass}
-%\centering
-%\begin{tabular}{lllrl}
-%  \hline
-%Type & Class & Attr Ptrn & Count & \% of All Signatures \\ 
-%  \hline
-%  \sE & environment & \{\} & 704 & 0.3\% \\ 
-%  language & formula & \{.Environment\} & 544 & 0.2\% \\ 
-%  \D & array & \{dim\} & 395 & 0.1\% \\ 
-%  externalptr & externalptr & \{\} & 301 & 0.1\% \\ 
-%  \sF & standardGeneric & \{default,...,srcref,valueClass\} & 255 & 0.1\% \\ 
-%  \df & tbl\_df,tbl & \{names,row.names\} & 239 & 0.1\% \\ 
-%  \sF & standardGeneric & \{default,...,valueClass\} & 239 & 0.1\% \\ 
-%  \l & phylo & \{names,order\} & 199 & 0.1\% \\ 
-%  \l & lm & \{names\} & 175 & 0.1\% \\ 
-%  \l & lvm & \{names\} & 157 & 0.1\% \\ 
-%   \hline
-%\end{tabular}
-%\caption{Most frequent argument signatures with class in {\bf L2}.}
-%\end{table}
-%
-%Table~\ref{tab:L2top10argwclass} does indeed showcase some interesting classes.
-%The three builtin classes which we have not yet seen are environment, formula, and array.
-%An environments is a list which has a references to a parent environment (another list with environment class).
-%A formula is a \AT{small explanation}.
-%An array is a generalization of a matrix in R, where an array can have more than 2 dimensions.
-%Each of the other classes pictured here are defined in some package, and are not part of the base language.
-%An interesting fact about this table is that all of the pictures signatures are monomorphic.
 
 Now that we have a sense for argument-level type signatures in {\bf L2}, we will see just how many functions are polymorphic.
 Now, {\bf L2} builds directly off of {\bf L1}, and as such at the argument level the type-based polymorphism shouldn't change.
 For this account of polymorphism, we deem an argument to be polymorphic if it was polymorphic in type, class, or attribute pattern.
-Consider Table~\ref{tab:funcountsL2}.
-\AT{This is where the per fun plot should go, will do.}
+Consider Figure~\ref{fig:L2funcounts}.
 
-\begin{table}[ht]
-\label{tab:funcountsL2}
-\centering
-\begin{tabular}{lll}
-  \hline
-Signature Type & Count & Percentage \\ 
-  \hline
-  Monomorphic & 44K & 79.6\% \\ 
-  Total Seen & 56K & --- \\ 
-   \hline
-\end{tabular}
-\caption{Account of {\it function} polymorphism in {\bf L2}.}
-\end{table}
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{L2_by_fun}
+\caption{Record of Function Polymorphism in {\bf L2}. \LTWOPERCPOLY of functions are polymorphic.}
+\label{fig:L2funcounts}\end{center}
+\end{figure}
 
-\AT{Connect, talk about increase/decrease in poly.}
+
 
 Having built a sense for how polymorphic whole-function signatures are in {\bf L2}, we will turn our attention to polymorphic arguments.
 Given the added class and attribute information, {\it what do the more frequent polymorphic argument signatures look like?}
@@ -1306,7 +1235,7 @@ The fact that the pipe is the most polymorphic function is not shocking, as its 
 %
 \subsection{Metaprogramming}
 
-\AT{Will probably change.}
+\AT{Make into subsection at the end of analysis? Or in global results, as a takeaway.}
 
 Tidyverse owes some of its success to the new syntax defined by some of the included packages.
 One such example is the pipe operator \%$>$\% that we saw in the last section, and indeed this function was highly exercised by many other packages \AT{get counts}.
