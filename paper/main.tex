@@ -1095,9 +1095,17 @@ Type & Class & Attr Ptrn & Count & \% of All Signatures \\
 \caption{Most frequent argument signatures with class in {\bf L2}.}
 \end{table}
 
-Here, we've made a number of small discoveries.
-We see environments, which are essentially dignified lists (i.e., they are lists with a parent list, and are used to implement scoping).
-\AT{Possibly explain some of these? Dunno.}
+Table~\ref{tab:L2top10argwclass} does indeed showcase some interesting classes.
+The three builtin classes which we have not yet seen are environment, formula, and array.
+An environments is a list which has a references to a parent environment (another list with environment class).
+A formula is a \AT{small explanation}.
+An array is a generalization of a matrix in R, where an array can have more than 2 dimensions.
+Each of the other classes pictured here are defined in some package, and are not part of the base language.
+An interesting fact about this table is that all of the pictures signatures are monomorphic.
+
+%Here, we've made a number of small discoveries.
+%We see environments, which are essentially dignified lists (i.e., they are lists with a parent list, and are used to implement scoping).
+%\AT{Possibly explain some of these? Dunno.}
 
 \AT{Alexi is here.}
 
