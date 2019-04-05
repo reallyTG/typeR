@@ -314,6 +314,8 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
 
 }
 
+
+
 # use this to get rid of the extra empty slots
 minimize_new_df <- function(df, pkg, fun) {
   subset <- df[df$pkg == pkg & df$fun == fun, ]
@@ -452,20 +454,42 @@ collapse_subtype <- function(l, ts) {
 
 }
 
+split_L2_df <- function(df) {
+  split_at <- function(x, a) {
+    want <- strsplit(x, split="/")[[1]][a]
+    substr(want, 2, nchar(want)-1)
+  }
+  types <- sapply(df$arg_sig, function(x) { split_at(x, 1) })
+  classes <- sapply(df$arg_sig, function(x) { split_at(x, 2) })
+  attrs <- sapply(df$arg_sig, function(x) { split_at(x, 3) })
+
+  data.frame(
+    Type = types,
+    Class = classes,
+    Attr = attrs,
+    Count = df$count,
+    Percent = df$perc_tot
+  ) -> df
+
+  row.names(df) <- 1:nrow(df)
+
+  df
+}
+
 ready_print_count_fun <- function(df) {
-  # not working
-  # df$arg_sig <- sapply(df$arg_sig, function(lot) {
-  #   lapply(lot, function(t) {
-  #     if (t == "l{?}")
-  #       "\\l"
-  #     else
-  #       paste0("\\", t)
-  #   })
-  # })
   df$count <- as.integer(df$count)
   df$perc_tot <- paste0(round(df$perc_tot, 1), "%")
 
   names(df) <- c("Signature", "Count", "% of All Signatures")
+
+  df
+}
+
+ready_print_count_fun_L2 <- function(df) {
+  df$Count <- as.integer(df$Count)
+  df$Percent <- paste0(round(df$Percent, 1), "%")
+
+  names(df) <- c("Type", "Class", "Attr Ptrn", "Count", "% of All Signatures")
 
   df
 }
@@ -483,6 +507,25 @@ new_df_count_collape_arg_sigs <- function(df, ts="L0") {
     s <- substr(s, 2, nchar(s) - 1)
     strsplit(s, split=", ")[[1]] %>% sanitize_errors %>% collapse_subtype(ts) -> col
     paste(sort(col), collapse=", ")
+  }) -> df$arg_sig
+
+  # now its collapse, add up the lads and resort
+  df %>% group_by(arg_sig) %>%
+    do(count=sum(.$count), perc_tot=sum(.$perc_tot)) -> df
+
+  df$count <- as.integer(unlist(df$count))
+  df$perc_tot <- unlist(df$perc_tot)
+
+  df[order(-df$count),]
+}
+
+new_df_count_collape_arg_sigs_L2 <- function(df) {
+  # this might be easiest way
+  sapply(df$arg_sig, function(sb) {
+    sigs_l <- strsplit(sb, split="/") %>% unlist
+    s <- substr(sigs_l[[1]], 2, nchar(sigs_l[[1]]) - 1)
+    strsplit(s, split=", ")[[1]] %>% sanitize_errors %>% collapse_subtype("L1") -> col
+    paste0("[", paste(sort(col), collapse=", "), "]/", sigs_l[[2]], "/", sigs_l[[3]])
   }) -> df$arg_sig
 
   # now its collapse, add up the lads and resort

@@ -673,8 +673,12 @@ stands for a list names.  The subtype relation is extended with
 \attrclass{T}{C}{N}<:\attrclass{T}{C'}{D'} if {\tt C} $\subseteq$ {\tt C'}
 and {\tt N}$\subseteq${\tt N'}.
 
-
-
+%
+%
+%
+%
+%
+%
 \section{Analysis Results}\label{sec:results}
 
 This section presents our results for each of the levels we have considered.
@@ -684,7 +688,7 @@ The fixed tracer is still running, I should be able to fill in final numbers by 
 
 \subsection{L0}
 
-At L0, the type system is mostly aligned with the types of the core language.  We
+At {\bf L0}, the type system is mostly aligned with the types of the core language.  We
 have observed over 186K monomorphic functions; this accounts for 86\% of our
 corpus. 
 
@@ -709,12 +713,12 @@ Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurri
   \D, \I & 3256 & 1.2\% \\ 
    \hline
 \end{tabular}
-\caption{Most frequent argument signatures in L0.}
+\caption{Most frequent argument signatures in {\bf L0}.}
 \end{table}
 
 We see that doubles are the most common argument type, which is not entirely surprising as doubles are the backbone of any numeric data.
 Next is lists, which seems reasonable given that lists are often used to store the aforementioned data.
-Recall that in L0, data frames will appear as lists.
+Recall that in {\bf L0}, data frames will appear as lists.
 As for ``unevaled'', first recall the discussion that all function arguments are wrapped in promises in R from \AT{where?}.
 The ``unevaled'' signature appears whenever an argument was provided but unused, and one might wonder why such a signature might be so common.
 As it happens, many R functions metaprogram on some of their arguments, and this metaprogramming does not force the argument promise, so it will appear as ``unevaled''.
@@ -1004,7 +1008,7 @@ Our next type system, L2, will remedy this.
 %
 \subsubsection{\C, \I, \D Polymorphism}
 Another significant source of apparently strange polymorphism is the character, integer, double polymorphism.
-Figure~\ref{fig:chardbl} lays out an example of this polymorphic signature, showing that lists and vectors can be accessed by strings as well as by numerics.
+Figure~\ref{fig:chardbl} lays out an example of this polymorphic signature, showing that lists and vectors can be accessed by strings as well as numerics.
 One could conceive of an ``index'' type to capture this, but there are certain limitations to such a type, as such an ``index'' cannot be incremented as it could be a string.
 An even more sophisticated dependent type system could capture this, but it's far from clear if such a sophisticated type system would be for a language like R.
 
@@ -1018,7 +1022,7 @@ class(as.POSIXlt(Sys.Date())) # => POSIXlt, POSIXt
 as.integer(as.Date(1, origin = "1900-01-01"))
 \end{lstlisting}}\caption{Dates in R.}\label{fig:date}\end{figure}
 
-Unfortunately, the truth is that dates in R are not standardized.
+Unfortunately, the format of dates in R is not standardized.
 That said, translating between date representations is straightforward.
 As most dates are classes, L2 will be able to capture their use.
 
@@ -1032,6 +1036,70 @@ The next type system we consider is L2, and is designed to achieve this.
 %
 \subsection{L2}
 
+{\bf L2} works class and attribute information into its type signatures.
+As per the discussion in Section~\ref{sec:L2def}, we omit builtin classes in order to highlight those which are user-defined.
+
+Now, {\bf L2} builds directly off of {\bf L1}, and as such at the argument level the type-based polymorphism shouldn't change.
+As in {\bf L0} and {\bf L1}, we will begin by showing a breakdown of the top argument signatures in Table~\ref{tab:L2top10arg}.
+
+\begin{table}[ht]
+\label{tab:L2top10arg}
+\centering
+\begin{tabular}{lllrl}
+  \hline
+Type & Class & Attr Ptrn & Count & \% of All Signatures \\ 
+  \hline
+  \sD &  & \{\} & 47069 & 17.6\% \\ 
+  \sL &  & \{\} & 24203 & 9\% \\ 
+  \sC &  & \{\} & 21437 & 8\% \\ 
+  \D &  & \{\} & 20928 & 7.8\% \\ 
+  \sF &  & \{\} & 14585 & 5.5\% \\ 
+  \sN &  & \{\} & 14070 & 5.3\% \\ 
+  unevaled &  & \{\} & 9116 & 3.4\% \\ 
+  \C &  & \{\} & 6949 & 2.6\% \\ 
+  \M{D} &  & \{dim\} & 6612 & 2.4\% \\ 
+  \l &  & \{names\} & 5936 & 2.2\% \\ 
+   \hline
+\end{tabular}
+\caption{Most frequent argument signatures in {\bf L2}.}
+\end{table}
+
+As you can see, the most frequent signatures in {\bf L1} are represented here.
+The inclusion of class and attribute information has changed the counts slightly.
+One tidbit of interest here is that monomorphic named lists are more common than their unnamed counterparts.
+The lack of classes is explained by our elimination of builtin classes, and it's doubtful that a user-defined class would be so pervasive as to feature in this breakdown.
+On that note, we wonder: {\it what are most frequent argument signatures with an interesting class?}
+Table~\ref{tab:L2top10argwclass} has the answer.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Apr  5 02:38:12 2019
+\begin{table}[ht]
+\label{tab:L2top10argwclass}
+\centering
+\begin{tabular}{lllrl}
+  \hline
+Type & Class & Attr Ptrn & Count & \% of All Signatures \\ 
+  \hline
+  \sE & environment & \{\} & 704 & 0.3\% \\ 
+  language & formula & \{.Environment\} & 544 & 0.2\% \\ 
+  \D & array & \{dim\} & 395 & 0.1\% \\ 
+  externalptr & externalptr & \{\} & 301 & 0.1\% \\ 
+  \sF & standardGeneric & \{default,...,srcref,valueClass\} & 255 & 0.1\% \\ 
+  \df & tbl\_df,tbl & \{names,row.names\} & 239 & 0.1\% \\ 
+  \sF & standardGeneric & \{default,...,valueClass\} & 239 & 0.1\% \\ 
+  \l & phylo & \{names,order\} & 199 & 0.1\% \\ 
+  \l & lm & \{names\} & 175 & 0.1\% \\ 
+  \l & lvm & \{names\} & 157 & 0.1\% \\ 
+   \hline
+\end{tabular}
+\caption{Most frequent argument signatures with class in {\bf L2}.}
+\end{table}
+
+Here, we've made a number of small discoveries.
+We see environments, which are essentially dignified lists (i.e., they are lists with a parent list, and are used to implement scoping).
+\AT{Possibly explain some of these? Dunno.}
+
+\AT{Alexi is here.}
 
 To see how often arguments are polymorphic with respect to class and attributes, we refer to Table~\ref{tab:classcountsL2}.
 \AT{Showing full monomorphic all the time might be a bit confusing?}

@@ -45,14 +45,46 @@ public class Main {
 		// for (int i = 0; i < args.length; i++)
 		String the_file = "../data/partial_L0.csv.gz";
 		if (ts.equals("L1"))
-		  the_file = "../data/partial_L1.csv.gz";
+		  the_file = "../data/partial_L1_sanitized_class.csv.gz";
+			// the_file = "../data/partial_L1.csv.gz";
 
 		// uncomment depending on what you want to do
 		// not the best approach
 		// doIt(the_file, 0);
 		// collapsePerArg(the_file);
-		makeOccurences(the_file);
+		// makeOccurences(the_file);
+		// doIt_L2(the_file);
+		// collapsePerArg_L2(the_file);
+		// sanitizeClass(the_file);
+		makeOccurences_L2(the_file);
 
+	}
+
+	private static void sanitizeClass(String file) {
+		Reader reader = null;
+		try {
+			reader = new Reader(file);
+		} catch (IOException e) {
+			throw new Error(e);
+		}
+
+		ArrayList<Signature> out = new ArrayList<>();
+		for (Signature f : reader) {
+			if (f.ret_t.equals("ret_t")) {
+				out.add(f);
+				continue;
+			}
+			f.sanitizeClass();
+			out.add(f);
+		}
+
+		String out_file = file.substring(0, file.length()-7);
+		out_file = out_file.concat("_sanitized_class.csv");
+		Writer w = new Writer(out_file);
+		for (Signature f : out) {
+			f.write(w);
+		}
+		w.close();
 	}
 
 	private static void makeOccurences(String file) {
@@ -67,6 +99,8 @@ public class Main {
 		HashMap<String, Integer> map = new HashMap<>();
 
 		for (Signature f : reader) {
+			if (f.ret_t.equals("ret_t"))
+				continue;
 			mapTypes(map, f);
 		}
 
@@ -87,109 +121,117 @@ public class Main {
 
 	}
 
-	private static void mapTypes(HashMap<String, Integer> map, Signature s) {
-		if (map.containsKey(s.arg1_t))
-			map.put(s.arg1_t, map.get(s.arg1_t) + 1);
-		else
-			map.put(s.arg1_t, 1);
+	private static void makeOccurences_L2(String file) {
+		String the_real_file = file.substring(0, file.length()-7) + "_collapsed.csv.gz";
+		Reader reader = null;
+		try {
+			reader = new Reader(the_real_file);
+		} catch (IOException e) {
+			throw new Error(e);
+		}
 
-		if (map.containsKey(s.arg2_t))
-			map.put(s.arg2_t, map.get(s.arg2_t) + 1);
-		else
-			map.put(s.arg2_t, 1);
+		HashMap<String, Integer> map = new HashMap<>();
 
-		if (map.containsKey(s.arg3_t))
-			map.put(s.arg3_t, map.get(s.arg3_t) + 1);
-		else
-			map.put(s.arg3_t, 1);
+		for (Signature f : reader) {
+			if (f.ret_t.equals("ret_t"))
+				continue;
+			mapTypes_L2(map, f);
+		}
 
-		if (map.containsKey(s.arg4_t))
-			map.put(s.arg4_t, map.get(s.arg4_t) + 1);
-		else
-			map.put(s.arg4_t, 1);
+		String out_file = file.substring(0, file.length()-7);
+		out_file = out_file.concat("_arg_sig_counts_L2.csv");
+		Writer w = new Writer(out_file);
+		w.toS("arg_sig");
+		w.comma();
+		w.toS("count");
+		w.nl();
+		for (HashMap.Entry<String, Integer> entry : map.entrySet()) {
+			w.toS(entry.getKey());
+			w.comma();
+			w.toI(entry.getValue());
+			w.nl();
+		}
+		w.close();
 
-		if (map.containsKey(s.arg5_t))
-			map.put(s.arg5_t, map.get(s.arg5_t) + 1);
-		else
-			map.put(s.arg5_t, 1);
-
-		if (map.containsKey(s.arg6_t))
-			map.put(s.arg6_t, map.get(s.arg6_t) + 1);
-		else
-			map.put(s.arg6_t, 1);
-
-		if (map.containsKey(s.arg7_t))
-			map.put(s.arg7_t, map.get(s.arg7_t) + 1);
-		else
-			map.put(s.arg7_t, 1);
-
-		if (map.containsKey(s.arg8_t))
-			map.put(s.arg8_t, map.get(s.arg8_t) + 1);
-		else
-			map.put(s.arg8_t, 1);
-
-		if (map.containsKey(s.arg9_t))
-			map.put(s.arg9_t, map.get(s.arg9_t) + 1);
-		else
-			map.put(s.arg9_t, 1);
-
-		if (map.containsKey(s.arg10_t))
-			map.put(s.arg10_t, map.get(s.arg10_t) + 1);
-		else
-			map.put(s.arg10_t, 1);
-
-		if (map.containsKey(s.arg11_t))
-			map.put(s.arg11_t, map.get(s.arg11_t) + 1);
-		else
-			map.put(s.arg11_t, 1);
-
-		if (map.containsKey(s.arg12_t))
-			map.put(s.arg12_t, map.get(s.arg12_t) + 1);
-		else
-			map.put(s.arg12_t, 1);
-
-		if (map.containsKey(s.arg13_t))
-			map.put(s.arg13_t, map.get(s.arg13_t) + 1);
-		else
-			map.put(s.arg13_t, 1);
-
-		if (map.containsKey(s.arg14_t))
-			map.put(s.arg14_t, map.get(s.arg14_t) + 1);
-		else
-			map.put(s.arg14_t, 1);
-
-		if (map.containsKey(s.arg15_t))
-			map.put(s.arg15_t, map.get(s.arg15_t) + 1);
-		else
-			map.put(s.arg15_t, 1);
-
-		if (map.containsKey(s.arg16_t))
-			map.put(s.arg16_t, map.get(s.arg16_t) + 1);
-		else
-			map.put(s.arg16_t, 1);
-
-		if (map.containsKey(s.arg17_t))
-			map.put(s.arg17_t, map.get(s.arg17_t) + 1);
-		else
-			map.put(s.arg17_t, 1);
-
-		if (map.containsKey(s.arg18_t))
-			map.put(s.arg18_t, map.get(s.arg18_t) + 1);
-		else
-			map.put(s.arg18_t, 1);
-
-		if (map.containsKey(s.arg19_t))
-			map.put(s.arg19_t, map.get(s.arg19_t) + 1);
-		else
-			map.put(s.arg19_t, 1);
-
-		if (map.containsKey(s.ret_t))
-			map.put(s.ret_t, map.get(s.ret_t) + 1);
-		else
-			map.put(s.ret_t, 1);
 	}
 
-  private static void collapsePerArg(String file) {
+  private static void collapsePerArg_L2(String file) {
+		String the_real_file = file.substring(0, file.length()-7) + "_sanitized_class.csv.gz";
+		Reader reader = null;
+		try {
+			reader = new Reader(the_real_file);
+		} catch (IOException e) {
+			throw new Error(e);
+		}
+
+		ArrayList<Signature> out = new ArrayList<>();
+		ArrayList<HashSet<String>> sig_els = new ArrayList<>();
+		HashSet<String> ret_t = new HashSet<>();
+		HashSet<String> ret_c = new HashSet<>();
+		HashSet<String> ret_a = new HashSet<>();
+		for (int i = 0; i < 60; i ++) {
+			sig_els.add(new HashSet<>());
+		}
+
+		Signature prev = null;
+		for (Signature f : reader) {
+			if (f.ret_t.equals("ret_t")) {
+				out.add(f);
+				continue;
+			}
+
+			if (prev == null)
+				prev = f;
+
+			if (!prev.pkg.equals(f.pkg) || !prev.fun.equals(f.fun)) {
+				// deal with change
+				// flush into sig
+				Signature put = flush(sig_els, prev);
+				put.ret_t = ret_t.toString();
+				put.ret_c = ret_c.toString();
+				put.ret_a = ret_a.toString();
+				out.add(put);
+
+				sig_els = new ArrayList<>();
+				for (int i = 0; i < 60; i ++) {
+					sig_els.add(new HashSet<>());
+				}
+
+				ret_t = new HashSet<>();
+				ret_c = new HashSet<>();
+				ret_a = new HashSet<>();
+			}
+
+			// push strings in i guess
+			pushAll_L2(sig_els, f);
+			ret_t.add(f.ret_t);
+			ret_c.addAll(Arrays.asList(f.ret_c.split(",")));
+			if (!f.ret_a.equals("") && !f.ret_a.equals("{}"))
+				ret_a.addAll(Arrays.asList(f.ret_a.substring(1, f.ret_a.length()-1).split(",")));
+			// else
+			// 	ret_a.add("");
+
+			prev = f;
+		}
+
+		// last flush
+		Signature put = flush(sig_els, prev);
+		put.ret_t = ret_t.toString();
+		put.ret_c = ret_c.toString();
+		put.ret_a = ret_a.toString();
+		out.add(put);
+
+		// write
+		String out_file = file.substring(0, file.length()-7);
+		out_file = out_file.concat("_collapsed_L2.csv");
+		Writer w = new Writer(out_file);
+		for (Signature f : out) {
+ 			f.write(w);
+		}
+		w.close();
+	}
+
+	private static void collapsePerArg(String file) {
 		Reader reader = null;
 		try {
 			reader = new Reader(file);
@@ -256,7 +298,87 @@ public class Main {
 		w.close();
 	}
 
+	private static String L2_combo(String t, String c, String a) {
+		String r = "";
 
+		if (t.equals(""))
+			return ""; 			// nothing to do
+
+		r += t;
+
+		if (!c.equals("[]"))
+			r += "@c{" + c + "}";
+
+		if (!a.equals("[]"))
+			r += "@a[" + a + "]";
+
+		return r;
+	}
+
+	private static void doIt_L2(String file) {
+		String the_real_file = file.substring(0, file.length()-7) + "_sanitized_class.csv.gz";
+		Reader reader = null;
+		try {
+			reader = new Reader(the_real_file);
+		} catch (IOException e) {
+			throw new Error(e);
+		}
+		Signature prev = null;
+		ArrayList<Signature> all = new ArrayList<>();
+		ArrayList<Signature> sigs = new ArrayList<>();
+		for (Signature f : reader) {
+			if (prev == null)
+				prev = f;
+			if (prev.pkg.equals(f.pkg) && prev.fun.equals(f.fun)) {
+				sigs.add(f);
+			} else {
+				int len = sigs.size();
+				for (int i = 0; i < len - 1; i++) {
+					Signature a = sigs.get(i);
+					for (int j = i + 1; j < len; j++) {
+						Signature b = sigs.get(j);
+						boolean ab = false;
+						boolean ba = false;
+						ab = a.isSubtypeL2(b);
+						ba = b.isSubtypeL2(a);
+						if (ab && !ba) {
+							a.pkg = "SUBTYPE";
+						} else if (ba) {
+							b.pkg = "SUBTYPE";
+						}
+					}
+				}
+				all.addAll(sigs);
+				sigs = new ArrayList<>();
+				sigs.add(f);
+				prev = f;
+			}
+		}
+		int len = sigs.size();
+		for (int i = 0; i < len - 1; i++) {
+			Signature a = sigs.get(i);
+			for (int j = i + 1; j < len; j++) {
+				Signature b = sigs.get(j);
+				boolean ab = a.isSubtypeL2(b);
+				boolean ba = b.isSubtypeL2(a);
+				if (ab && !ba) {
+					a.pkg = "SUBTYPE";
+				} else if (ba) {
+					b.pkg = "SUBTYPE";
+				}
+			}
+		}
+		all.addAll(sigs);
+
+		// write all
+		String out_file = file.substring(0, file.length()-7);
+		out_file = out_file.concat("_L2.csv");
+		Writer w = new Writer(out_file);
+		for (Signature f : all) {
+			f.write(w);
+		}
+		w.close();
+	}
 
 	/* Factoring some common code out. */
 	private static void doIt(String file, int noti) {
@@ -307,8 +429,15 @@ public class Main {
 			Signature a = sigs.get(i);
 			for (int j = i + 1; j < len; j++) {
 				Signature b = sigs.get(j);
-				boolean ab = a.isSubtypeL0(b);
-				boolean ba = b.isSubtypeL0(a);
+				boolean ab = false;
+				boolean ba = false;
+				if (ts.equals("L0")) {
+					ab = a.isSubtypeL0(b);
+					ba = b.isSubtypeL0(a);
+				} else if (ts.equals("L1")) {
+					ab = a.isSubtypeL1(b);
+					ba = b.isSubtypeL1(a);
+				}
 				if (ab && !ba) {
 					a.pkg = "SUBTYPE";
 				} else if (ba) {
@@ -335,6 +464,202 @@ public class Main {
 			if (file.isFile() && file.getName().endsWith(".csv.gz"))
 				res.add(dir + "/" + file.getName());
 		return res.toArray(new String[0]);
+	}
+
+	static String al_ts(ArrayList<String> ts) {
+		String r = "";
+		int len = ts.size();
+		for (int i = 0; i < len; i++) {
+			r += ts.get(i);
+			if (i != len-1)
+				r += ",";
+		}
+		return r;
+	}
+
+	// please don't look at this hideous code im not proud of it at all
+	private static Signature flush_L2(ArrayList<HashSet<String>> in, Signature s) {
+		ArrayList<String> m = new ArrayList<String>(in.get(0));
+		Collections.sort(m);
+		s.arg1_t = al_ts(m);
+		m = new ArrayList<>(in.get(1));
+		Collections.sort(m);
+		s.arg2_t = al_ts(m);
+		m = new ArrayList<>(in.get(2));
+		Collections.sort(m);
+		s.arg3_t = al_ts(m);
+		m = new ArrayList<>(in.get(3));
+		Collections.sort(m);
+		s.arg4_t = al_ts(m);
+		m = new ArrayList<>(in.get(4));
+		Collections.sort(m);
+		s.arg5_t = al_ts(m);
+		m = new ArrayList<>(in.get(5));
+		Collections.sort(m);
+		s.arg6_t = al_ts(m);
+		m = new ArrayList<>(in.get(6));
+		Collections.sort(m);
+		s.arg7_t = al_ts(m);
+		m = new ArrayList<>(in.get(7));
+		Collections.sort(m);
+		s.arg8_t = al_ts(m);
+		m = new ArrayList<>(in.get(8));
+		Collections.sort(m);
+		s.arg9_t = al_ts(m);
+		m = new ArrayList<>(in.get(9));
+		Collections.sort(m);
+		s.arg10_t = al_ts(m);
+		m = new ArrayList<>(in.get(10));
+		Collections.sort(m);
+		s.arg11_t = al_ts(m);
+		m = new ArrayList<>(in.get(11));
+		Collections.sort(m);
+		s.arg12_t = al_ts(m);
+		m = new ArrayList<>(in.get(12));
+		Collections.sort(m);
+		s.arg13_t = al_ts(m);
+		m = new ArrayList<>(in.get(13));
+		Collections.sort(m);
+		s.arg14_t = al_ts(m);
+		m = new ArrayList<>(in.get(14));
+		Collections.sort(m);
+		s.arg15_t = al_ts(m);
+		m = new ArrayList<>(in.get(15));
+		Collections.sort(m);
+		s.arg16_t = al_ts(m);
+		m = new ArrayList<>(in.get(16));
+		Collections.sort(m);
+		s.arg17_t = al_ts(m);
+		m = new ArrayList<>(in.get(17));
+		Collections.sort(m);
+		s.arg18_t = al_ts(m);
+		m = new ArrayList<>(in.get(18));
+		Collections.sort(m);
+		s.arg19_t = al_ts(m);
+		m = new ArrayList<>(in.get(19));
+		Collections.sort(m);
+		s.arg20_t = al_ts(m);
+		m = new ArrayList<>(in.get(20));
+		Collections.sort(m);
+		s.arg1_c = al_ts(m);
+		m = new ArrayList<>(in.get(21));
+		Collections.sort(m);
+		s.arg2_c = al_ts(m);
+		m = new ArrayList<>(in.get(22));
+		Collections.sort(m);
+		s.arg3_c = al_ts(m);
+		m = new ArrayList<>(in.get(23));
+		Collections.sort(m);
+		s.arg4_c = al_ts(m);
+		m = new ArrayList<>(in.get(24));
+		Collections.sort(m);
+		s.arg5_c = al_ts(m);
+		m = new ArrayList<>(in.get(25));
+		Collections.sort(m);
+		s.arg6_c = al_ts(m);
+		m = new ArrayList<>(in.get(26));
+		Collections.sort(m);
+		s.arg7_c = al_ts(m);
+		m = new ArrayList<>(in.get(27));
+		Collections.sort(m);
+		s.arg8_c = al_ts(m);
+		m = new ArrayList<>(in.get(28));
+		Collections.sort(m);
+		s.arg9_c = al_ts(m);
+		m = new ArrayList<>(in.get(29));
+		Collections.sort(m);
+		s.arg10_c = al_ts(m);
+		m = new ArrayList<>(in.get(30));
+		Collections.sort(m);
+		s.arg11_c = al_ts(m);
+		m = new ArrayList<>(in.get(31));
+		Collections.sort(m);
+		s.arg12_c = al_ts(m);
+		m = new ArrayList<>(in.get(32));
+		Collections.sort(m);
+		s.arg13_c = al_ts(m);
+		m = new ArrayList<>(in.get(33));
+		Collections.sort(m);
+		s.arg14_c = al_ts(m);
+		m = new ArrayList<>(in.get(34));
+		Collections.sort(m);
+		s.arg15_c = al_ts(m);
+		m = new ArrayList<>(in.get(35));
+		Collections.sort(m);
+		s.arg16_c = al_ts(m);
+		m = new ArrayList<>(in.get(36));
+		Collections.sort(m);
+		s.arg17_c = al_ts(m);
+		m = new ArrayList<>(in.get(37));
+		Collections.sort(m);
+		s.arg18_c = al_ts(m);
+		m = new ArrayList<>(in.get(38));
+		Collections.sort(m);
+		s.arg19_c = al_ts(m);
+		m = new ArrayList<>(in.get(39));
+		Collections.sort(m);
+		s.arg20_c = al_ts(m);
+		m = new ArrayList<>(in.get(40));
+		Collections.sort(m);
+		s.arg1_a = al_ts(m);
+		m = new ArrayList<>(in.get(41));
+		Collections.sort(m);
+		s.arg2_a = al_ts(m);
+		m = new ArrayList<>(in.get(42));
+		Collections.sort(m);
+		s.arg3_a = al_ts(m);
+		m = new ArrayList<>(in.get(43));
+		Collections.sort(m);
+		s.arg4_a = al_ts(m);
+		m = new ArrayList<>(in.get(44));
+		Collections.sort(m);
+		s.arg5_a = al_ts(m);
+		m = new ArrayList<>(in.get(45));
+		Collections.sort(m);
+		s.arg6_a = al_ts(m);
+		m = new ArrayList<>(in.get(46));
+		Collections.sort(m);
+		s.arg7_a = al_ts(m);
+		m = new ArrayList<>(in.get(47));
+		Collections.sort(m);
+		s.arg8_a = al_ts(m);
+		m = new ArrayList<>(in.get(48));
+		Collections.sort(m);
+		s.arg9_a = al_ts(m);
+		m = new ArrayList<>(in.get(49));
+		Collections.sort(m);
+		s.arg10_a = al_ts(m);
+		m = new ArrayList<>(in.get(50));
+		Collections.sort(m);
+		s.arg11_a = al_ts(m);
+		m = new ArrayList<>(in.get(51));
+		Collections.sort(m);
+		s.arg12_a = al_ts(m);
+		m = new ArrayList<>(in.get(52));
+		Collections.sort(m);
+		s.arg13_a = al_ts(m);
+		m = new ArrayList<>(in.get(53));
+		Collections.sort(m);
+		s.arg14_a = al_ts(m);
+		m = new ArrayList<>(in.get(54));
+		Collections.sort(m);
+		s.arg15_a = al_ts(m);
+		m = new ArrayList<>(in.get(55));
+		Collections.sort(m);
+		s.arg16_a = al_ts(m);
+		m = new ArrayList<>(in.get(56));
+		Collections.sort(m);
+		s.arg17_a = al_ts(m);
+		m = new ArrayList<>(in.get(57));
+		Collections.sort(m);
+		s.arg18_a = al_ts(m);
+		m = new ArrayList<>(in.get(58));
+		Collections.sort(m);
+		s.arg19_a = al_ts(m);
+		m = new ArrayList<>(in.get(59));
+		Collections.sort(m);
+		s.arg20_a = al_ts(m);
+		return s;
 	}
 
 	// please don't look at this hideous code im not proud of it at all
@@ -522,6 +847,238 @@ public class Main {
 		return s;
 	}
 
+	private static void mapTypes(HashMap<String, Integer> map, Signature s) {
+		if (map.containsKey(s.arg1_t))
+			map.put(s.arg1_t, map.get(s.arg1_t) + 1);
+		else
+			map.put(s.arg1_t, 1);
+
+		if (map.containsKey(s.arg2_t))
+			map.put(s.arg2_t, map.get(s.arg2_t) + 1);
+		else
+			map.put(s.arg2_t, 1);
+
+		if (map.containsKey(s.arg3_t))
+			map.put(s.arg3_t, map.get(s.arg3_t) + 1);
+		else
+			map.put(s.arg3_t, 1);
+
+		if (map.containsKey(s.arg4_t))
+			map.put(s.arg4_t, map.get(s.arg4_t) + 1);
+		else
+			map.put(s.arg4_t, 1);
+
+		if (map.containsKey(s.arg5_t))
+			map.put(s.arg5_t, map.get(s.arg5_t) + 1);
+		else
+			map.put(s.arg5_t, 1);
+
+		if (map.containsKey(s.arg6_t))
+			map.put(s.arg6_t, map.get(s.arg6_t) + 1);
+		else
+			map.put(s.arg6_t, 1);
+
+		if (map.containsKey(s.arg7_t))
+			map.put(s.arg7_t, map.get(s.arg7_t) + 1);
+		else
+			map.put(s.arg7_t, 1);
+
+		if (map.containsKey(s.arg8_t))
+			map.put(s.arg8_t, map.get(s.arg8_t) + 1);
+		else
+			map.put(s.arg8_t, 1);
+
+		if (map.containsKey(s.arg9_t))
+			map.put(s.arg9_t, map.get(s.arg9_t) + 1);
+		else
+			map.put(s.arg9_t, 1);
+
+		if (map.containsKey(s.arg10_t))
+			map.put(s.arg10_t, map.get(s.arg10_t) + 1);
+		else
+			map.put(s.arg10_t, 1);
+
+		if (map.containsKey(s.arg11_t))
+			map.put(s.arg11_t, map.get(s.arg11_t) + 1);
+		else
+			map.put(s.arg11_t, 1);
+
+		if (map.containsKey(s.arg12_t))
+			map.put(s.arg12_t, map.get(s.arg12_t) + 1);
+		else
+			map.put(s.arg12_t, 1);
+
+		if (map.containsKey(s.arg13_t))
+			map.put(s.arg13_t, map.get(s.arg13_t) + 1);
+		else
+			map.put(s.arg13_t, 1);
+
+		if (map.containsKey(s.arg14_t))
+			map.put(s.arg14_t, map.get(s.arg14_t) + 1);
+		else
+			map.put(s.arg14_t, 1);
+
+		if (map.containsKey(s.arg15_t))
+			map.put(s.arg15_t, map.get(s.arg15_t) + 1);
+		else
+			map.put(s.arg15_t, 1);
+
+		if (map.containsKey(s.arg16_t))
+			map.put(s.arg16_t, map.get(s.arg16_t) + 1);
+		else
+			map.put(s.arg16_t, 1);
+
+		if (map.containsKey(s.arg17_t))
+			map.put(s.arg17_t, map.get(s.arg17_t) + 1);
+		else
+			map.put(s.arg17_t, 1);
+
+		if (map.containsKey(s.arg18_t))
+			map.put(s.arg18_t, map.get(s.arg18_t) + 1);
+		else
+			map.put(s.arg18_t, 1);
+
+		if (map.containsKey(s.arg19_t))
+			map.put(s.arg19_t, map.get(s.arg19_t) + 1);
+		else
+			map.put(s.arg19_t, 1);
+
+		if (map.containsKey(s.ret_t))
+			map.put(s.ret_t, map.get(s.ret_t) + 1);
+		else
+			map.put(s.ret_t, 1);
+	}
+
+	private static void mapTypes_L2(HashMap<String, Integer> map, Signature s) {
+		String key;
+
+		key = s.arg1_t + "/" + s.arg1_c + "/" + s.arg1_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg2_t + "/" + s.arg2_c + "/" + s.arg2_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg3_t + "/" + s.arg3_c + "/" + s.arg3_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg4_t + "/" + s.arg4_c + "/" + s.arg4_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg5_t + "/" + s.arg5_c + "/" + s.arg5_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg6_t + "/" + s.arg6_c + "/" + s.arg6_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg7_t + "/" + s.arg7_c + "/" + s.arg7_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg8_t + "/" + s.arg8_c + "/" + s.arg8_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg9_t + "/" + s.arg9_c + "/" + s.arg9_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg10_t + "/" + s.arg10_c + "/" + s.arg10_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg11_t + "/" + s.arg11_c + "/" + s.arg11_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg12_t + "/" + s.arg12_c + "/" + s.arg12_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg13_t + "/" + s.arg13_c + "/" + s.arg13_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg14_t + "/" + s.arg14_c + "/" + s.arg14_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg15_t + "/" + s.arg15_c + "/" + s.arg15_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg16_t + "/" + s.arg16_c + "/" + s.arg16_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg17_t + "/" + s.arg17_c + "/" + s.arg17_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg18_t + "/" + s.arg18_c + "/" + s.arg18_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg19_t + "/" + s.arg19_c + "/" + s.arg19_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.arg20_t + "/" + s.arg20_c + "/" + s.arg20_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+
+		key = s.ret_t + "/" + s.ret_c + "/" + s.ret_a;
+		if (map.containsKey(key))
+			map.put(key, map.get(key) + 1);
+		else
+			map.put(key, 1);
+	}
+
   // please don't look at this hideous code im not proud of it at all
 	private static void pushAll(ArrayList<HashSet<String>> in, Signature s) {
 		in.get(0).add(s.arg1_t);
@@ -584,6 +1141,129 @@ public class Main {
 		in.get(57).add(s.arg18_a);
 		in.get(58).add(s.arg19_a);
 		in.get(59).add(s.arg20_a);
+	}
+
+	private static void pushAll_L2(ArrayList<HashSet<String>> in, Signature s) {
+		in.get(0).add(s.arg1_t);
+		in.get(1).add(s.arg2_t);
+		in.get(2).add(s.arg3_t);
+		in.get(3).add(s.arg4_t);
+		in.get(4).add(s.arg5_t);
+		in.get(5).add(s.arg6_t);
+		in.get(6).add(s.arg7_t);
+		in.get(7).add(s.arg8_t);
+		in.get(8).add(s.arg9_t);
+		in.get(9).add(s.arg10_t);
+		in.get(10).add(s.arg11_t);
+		in.get(11).add(s.arg12_t);
+		in.get(12).add(s.arg13_t);
+		in.get(13).add(s.arg14_t);
+		in.get(14).add(s.arg15_t);
+		in.get(15).add(s.arg16_t);
+		in.get(16).add(s.arg17_t);
+		in.get(17).add(s.arg18_t);
+		in.get(18).add(s.arg19_t);
+		in.get(19).add(s.arg20_t);
+		in.get(20).addAll(Arrays.asList(s.arg1_c.split(",")));
+		in.get(21).addAll(Arrays.asList(s.arg2_c.split(",")));
+		in.get(22).addAll(Arrays.asList(s.arg3_c.split(",")));
+		in.get(23).addAll(Arrays.asList(s.arg4_c.split(",")));
+		in.get(24).addAll(Arrays.asList(s.arg5_c.split(",")));
+		in.get(25).addAll(Arrays.asList(s.arg6_c.split(",")));
+		in.get(26).addAll(Arrays.asList(s.arg7_c.split(",")));
+		in.get(27).addAll(Arrays.asList(s.arg8_c.split(",")));
+		in.get(28).addAll(Arrays.asList(s.arg9_c.split(",")));
+		in.get(29).addAll(Arrays.asList(s.arg10_c.split(",")));
+		in.get(30).addAll(Arrays.asList(s.arg11_c.split(",")));
+		in.get(31).addAll(Arrays.asList(s.arg12_c.split(",")));
+		in.get(32).addAll(Arrays.asList(s.arg13_c.split(",")));
+		in.get(33).addAll(Arrays.asList(s.arg14_c.split(",")));
+		in.get(34).addAll(Arrays.asList(s.arg15_c.split(",")));
+		in.get(35).addAll(Arrays.asList(s.arg16_c.split(",")));
+		in.get(36).addAll(Arrays.asList(s.arg17_c.split(",")));
+		in.get(37).addAll(Arrays.asList(s.arg18_c.split(",")));
+		in.get(38).addAll(Arrays.asList(s.arg19_c.split(",")));
+		in.get(39).addAll(Arrays.asList(s.arg20_c.split(",")));
+		if (!s.arg1_a.equals("") && !s.arg1_a.equals("{}"))
+			in.get(40).addAll(Arrays.asList(s.arg1_a.substring(1, s.arg1_a.length()-1).split(",")));
+		// else
+		// 	in.get(40).add("");
+		if (!s.arg2_a.equals("") && !s.arg2_a.equals("{}"))
+			in.get(41).addAll(Arrays.asList(s.arg2_a.substring(1, s.arg2_a.length()-1).split(",")));
+		// else
+		// 	in.get(41).add("");
+		if (!s.arg3_a.equals("") && !s.arg3_a.equals("{}"))
+			in.get(42).addAll(Arrays.asList(s.arg3_a.substring(1, s.arg3_a.length()-1).split(",")));
+		// else
+		// 	in.get(42).add("");
+		if (!s.arg4_a.equals("") && !s.arg4_a.equals("{}"))
+			in.get(43).addAll(Arrays.asList(s.arg4_a.substring(1, s.arg4_a.length()-1).split(",")));
+		// else
+		// 	in.get(43).add("");
+		if (!s.arg5_a.equals("") && !s.arg5_a.equals("{}"))
+			in.get(44).addAll(Arrays.asList(s.arg5_a.substring(1, s.arg5_a.length()-1).split(",")));
+		// else
+		// 	in.get(44).add("");
+		if (!s.arg6_a.equals("") && !s.arg6_a.equals("{}"))
+			in.get(45).addAll(Arrays.asList(s.arg6_a.substring(1, s.arg6_a.length()-1).split(",")));
+		// else
+		// 	in.get(45).add("");
+		if (!s.arg7_a.equals("") && !s.arg7_a.equals("{}"))
+			in.get(46).addAll(Arrays.asList(s.arg7_a.substring(1, s.arg7_a.length()-1).split(",")));
+		// else
+		// 	in.get(46).add("");
+		if (!s.arg8_a.equals("") && !s.arg8_a.equals("{}"))
+			in.get(47).addAll(Arrays.asList(s.arg8_a.substring(1, s.arg8_a.length()-1).split(",")));
+		// else
+		// 	in.get(47).add("");
+		if (!s.arg9_a.equals("") && !s.arg9_a.equals("{}"))
+			in.get(48).addAll(Arrays.asList(s.arg9_a.substring(1, s.arg9_a.length()-1).split(",")));
+		// else
+		// 	in.get(48).add("");
+		if (!s.arg10_a.equals("") && !s.arg10_a.equals("{}"))
+			in.get(49).addAll(Arrays.asList(s.arg10_a.substring(1, s.arg10_a.length()-1).split(",")));
+		// else
+		// 	in.get(49).add("");
+		if (!s.arg11_a.equals("") && !s.arg11_a.equals("{}"))
+			in.get(50).addAll(Arrays.asList(s.arg11_a.substring(1, s.arg11_a.length()-1).split(",")));
+		// else
+		// 	in.get(50).add("");
+		if (!s.arg12_a.equals("") && !s.arg12_a.equals("{}"))
+			in.get(51).addAll(Arrays.asList(s.arg12_a.substring(1, s.arg12_a.length()-1).split(",")));
+		// else
+		// 	in.get(51).add("");
+		if (!s.arg13_a.equals("") && !s.arg13_a.equals("{}"))
+			in.get(52).addAll(Arrays.asList(s.arg13_a.substring(1, s.arg13_a.length()-1).split(",")));
+		// else
+		// 	in.get(52).add("");
+		if (!s.arg14_a.equals("") && !s.arg14_a.equals("{}"))
+			in.get(53).addAll(Arrays.asList(s.arg14_a.substring(1, s.arg14_a.length()-1).split(",")));
+		// else
+		// 	in.get(53).add("");
+		if (!s.arg15_a.equals("") && !s.arg15_a.equals("{}"))
+			in.get(54).addAll(Arrays.asList(s.arg15_a.substring(1, s.arg15_a.length()-1).split(",")));
+		// else
+		// 	in.get(54).add("");
+		if (!s.arg16_a.equals("") && !s.arg16_a.equals("{}"))
+			in.get(55).addAll(Arrays.asList(s.arg16_a.substring(1, s.arg16_a.length()-1).split(",")));
+		// else
+		// 	in.get(55).add("");
+		if (!s.arg17_a.equals("") && !s.arg17_a.equals("{}"))
+			in.get(56).addAll(Arrays.asList(s.arg17_a.substring(1, s.arg17_a.length()-1).split(",")));
+		// else
+		// 	in.get(56).add("");
+		if (!s.arg18_a.equals("") && !s.arg18_a.equals("{}"))
+			in.get(57).addAll(Arrays.asList(s.arg18_a.substring(1, s.arg18_a.length()-1).split(",")));
+		// else
+		// 	in.get(57).add("");
+		if (!s.arg19_a.equals("") && !s.arg19_a.equals("{}"))
+			in.get(58).addAll(Arrays.asList(s.arg19_a.substring(1, s.arg19_a.length()-1).split(",")));
+		// else
+		// 	in.get(58).add("");
+		if (!s.arg20_a.equals("") && !s.arg20_a.equals("{}"))
+			in.get(59).addAll(Arrays.asList(s.arg20_a.substring(1, s.arg20_a.length()-1).split(",")));
+		// else
+		// 	in.get(59).add("");
 	}
 
 	/**

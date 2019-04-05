@@ -149,3 +149,42 @@ num_scal <- sum(L1_sc_c$count)
 
 percent_scalar_mono <- round( 100 * num_scal / sum(L1_arg_sig_c$count), 1)
 ```
+
+```{r}
+# L2 Time
+psp_L2 <- read_csv("../data/partial_L1_L2.csv.gz")
+psp_L2 <- psp_L2[!psp_L2$pkg == "SUBTYPE",]
+
+# L2 collapsed?
+what <- read_csv("../data/partial_L1_sanitized_class_collapsed.csv.gz")
+```
+
+```{r}
+# arg sig counts?
+L2_arg_sig_c <- read_csv("../data/partial_L1_sanitized_class_arg_sig_counts_L2.csv.gz")
+
+# sort
+L2_arg_sig_c[order(-L2_arg_sig_c$count),] -> L2_arg_sig_c
+
+# rm []/[]/[]
+L2_arg_sig_c[1,"count"] <- 0
+
+# resort
+L2_arg_sig_c[order(-L2_arg_sig_c$count),] -> L2_arg_sig_c
+
+# %
+L2_arg_sig_c$perc_tot <- round(L2_arg_sig_c$count / sum(L2_arg_sig_c$count) * 100, 1)
+
+# collapse obvious subtypes
+# gets rid of stuff in the first box
+L2_arg_sig_c <- new_df_count_collape_arg_sigs_L2(L2_arg_sig_c)
+
+# what counts do we want?
+# split typeclassattr into type class attr
+L2_split <- split_L2_df(L2_arg_sig_c)
+
+# display some
+L2_split[1:10,] %>% ready_print_count_fun_L2 %>% xtable %>% print(include.rownames=F)
+
+L2_split %>% filter(Class != "") %>% slice(1:10) %>% as.data.frame %>% ready_print_count_fun_L2 %>% xtable %>% print(include.rownames=F)
+```
