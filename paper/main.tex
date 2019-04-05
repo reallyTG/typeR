@@ -840,7 +840,7 @@ As it happens, many R functions metaprogram on some of their arguments, and this
 The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of metaprogramming; we will discuss it in a little more detail shortly.
 
 One of our chief goals is to generate useful function signatures.
-After tracing and capturing unique signatures from function call sites, \AT{recall} that we collapse some of the more obvious ones together.
+After tracing and capturing unique signatures from function call sites, recall from Section~\ref{sec:autosub} that we collapse some of the more obvious ones together.
 After this, we are curious to know: {\it how many functions have more than one signature?}
 Figure~\ref{fig:L0funcounts} has the answer with a breakdown by function.
 
@@ -940,8 +940,7 @@ The next type system we will explore, L1, tackles these issues by collecting mor
 While the L1 types are less ``in-tune'' with current R implementations, one can imagine designing an all-new R runtime which may benefit from the more specific information in L1, e.g. by not needing to vectorize scalar values, or designing a static analysis which uses precise list types to give programmers better information in an IDE.
 L1 is discussed next.
 
-\AT{TODO do function signatures maybe? Maybe just an example that we can run with.
-Plots also.}
+\AT{TODO simple running example}
 
 %
 %
@@ -1194,8 +1193,6 @@ Consider Figure~\ref{fig:L2funcounts}.
 \label{fig:L2funcounts}\end{center}
 \end{figure}
 
-
-
 Having built a sense for how polymorphic whole-function signatures are in {\bf L2}, we will turn our attention to polymorphic arguments.
 Given the added class and attribute information, {\it what do the more frequent polymorphic argument signatures look like?}
 Table~\ref{tab:toppolyL2} has the breakdown.
@@ -1222,8 +1219,6 @@ Signature & Count & \% of All Signatures \\
 \end{tabular}
 \caption{Top polymorphic argument signatures in {\bf L2}.}
 \end{table}
-
-\AT{Will have new numbers by tonight.}
 
 When comparing this table with Table~\ref{tab:toppolyL1}, we see that the distribution of signature frequencies is more uniform, as attributes and classes differentiated some signatures which were not distinct in {\bf L1}.
 
@@ -1372,19 +1367,57 @@ An example of that syntax is \%$>$\%, and indeed this function was highly exerci
 
 \AT{Short section to recap the analysis results, discuss trends, consolidate our suggestions, talk about argument vs. function poly.}
 
+Throughout Section~\ref{sec:results}, we have thoroughly explored the trends and patterns of polymorphism observed in our analysis of a large subset of existing R code.
+By now, we have an understanding of how each of our type levels captures the polymorphic patterns that exist in R.
+
+\AT{DRAFT}
+
+In this section, we aim to comment globally on the things we learned during our analysis, and propose a type system which is reasonable given its coverage of existing code.
+
+We will look at argument-level polymorphism, and then function level polymorphism.
+
+%
+%
+%
+%
+\subsection{Argument-Level Polymorphisms}
+
+From our analysis, we discovered a number of interesting patterns at the argument level.
+To summarize:
+
+\begin{itemize}
+
+	\item {\bf scalars}: according to our analysis, many instances of vectorized values are always scalar.
+	This is strong evidence that an annotation denoting a scalar value would be useful to R programmers, and further such an annotation could be used by future implementations to statically determine when not to vectorize a vectorizable type.
+	
+	\item {\bf missing}: our analysis has found a number of instances of argument positions remaining unevaluated across all calls to a function.
+	A small annotation, such as a tag on an argument position, would capture this behavior and could be used to warn programmers if they try to use the unevaluated value, and also warn them if an operation might evaluate it accidentally.
+	Techniques to avoid forcing promises in R are not well understood by most programmers, and such an annotation would be useful to assist them in avoiding unwanted forcing of promises.
+
+	\item {\bf classes}: in transitioning from {\bf L1} to {\bf L2}, we found that the prevalence of \l, \lT{X} polymorphism decreased significantly.
+	In many cases, these lists share a class, and so the signature which was prominent in {\bf L1} was broken down into several less prominent {\bf L2} signatures with added class information.
+	Classes could also be used to capture the usage of dates (two of the standard date formats have class ``Date'' and ``POSIXct, POSIXt''), and could help package writers enforce usage of package functions.
+
+\end{itemize}
+
+Generating the code to dynamically enforce these signatures is also possible, with varying levels of complexity.
+Simple checks include checking the class of a value, or checking for the presence of certain attributes.
+R makes it easy to exit a function prematurely, and in fact many functions already exhibit this behavior.
+For example: \AT{example}.
+
+We also saw that, despite being far more specific and descriptive than previous levels, the {\bf L2} type system didn't bring about an undue increase in the amount of overall polymorphism in the language.
+This signifies that {\bf L2} captures the vast majority of already existing polymorphic patterns, and very few functions would need to resort to an \ANY annotation, and indeed many arguments are really \ANY-typed (e.g., \%$>$\% from magrittr and the prototype assignment operator {\tt \$<-} from proto).
+
 %
 %
 %
 %
 \subsection{Function Polymorphism}
 
-\AT{Retool this into possible meta discussion after results}
+\AT{Working through this now.}
 
-Now, we will turn our attention to whole function polymorphism.
+Now we wonder: {\it what kinds of function-level annotations are useful?}
 
-This is different because we can now look at argument polymorphism across several arguments, like we did when thinking about character/real polymorphism.
-
-We're interested to see what kinds of ``meta-annotations'' we can make at the function level.
 For instance, should we link argument types with return types?
 Consider Figure~\ref{fig:funanno}.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
@@ -1397,8 +1430,7 @@ f(list(1, 2, 3)) # x: list<double> -> list<double>
 # possible annotations:
 # [1] x: {double, list<double>} -> {double, list<double>}
 # [2] x: {double -> double, x: list<double> -> list<double>}
-\end{lstlisting}}\caption{Possible function annotations.}\label{fig:funanno}\end{figure}
-\AT{Say more about this?}
+\end{lstlisting}}\caption{Simple identity function.}\label{fig:funanno}\end{figure}
 
 Harkening back to our discussion of character/real polymorphism, we mentioned that we might want to consider such a type signature to be a list or vector index only if a list or vector was present as another argument.
 Now, this may be moving well beyond the purview of R programmers, but perhaps there is value in such a scenario, particularly if we include even {\it more} information in a type system.
@@ -1430,9 +1462,9 @@ The annotations could be used to generate code to check for compliance, like a c
 %
 %
 %
-\subsection{Coverage}
-
-\AT{What is the coverage of these new annotations?}
+%\subsection{Coverage}
+%
+%\AT{Manual check of some functions.}
 
 %
 %
