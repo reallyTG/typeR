@@ -488,7 +488,7 @@ generalize possible type signatures for the called functions.  We base our
 infrastructure on an open source tool called \genthat whose purpose is to
 generate unit tests for R libraries~\cite{issta18}.  \genthat achieves this
 by synthesizing unit tests from recorded function argument and return
-values, comparing the test against existing ones to avoid generating tests
+values, comparing candidate tests against existing ones to avoid generating tests
 which do not increase code coverage.  To suit our purposes, we change the
 existing tool in two main ways: we record \emph{shapes} rather than values,
 and ignore the code coverage optimization phase.  Both changes are
@@ -520,20 +520,18 @@ adding them together to get a new matrix.
 \tt c: & \tt \sD \sD \to \D\\
 \tt `attr<-`:&\tt  \sY \C \D \to \\
 \tt c: &\tt \sD \sD \to \D\\
-\tt `+`: &\tt \attr\D{dim=\D} \D \to \attr\D{dim=\D}
+\tt `+`: &\tt \attr\D{dim} \D \to \attr\D{dim}
 \end{tabular}
 \end{minipage}
 \end{tabular}
 \caption{Example script and recorded signature}\label{example}\end{figure}
 
 The functions being called here are \k{`+`}, \k{`<-`}, \k{c} and
-\k{`attr<-`}.  The shapes we would expect to record are as follows:
-In the above we abreviate types, \k{double}, \k{integer}, \k{symbol} and
-\k{character}. For vectorized types we record their length and for all types
-we record attributes with some of their values. Looking at the signatures
-observed for addition, it is clear that the function is polymorphic as it
-starts with the addition of two scalar numbers of different types, and then
-adds a matrix to a vector returning a matrix.
+\k{`attr<-`}, and the shapes we expect to record are given to the right of the figure.
+We abbreviate the types \k{double}, \k{integer}, \k{symbol} and \k{character} to \sD, \sI, \sY, and \sC for simplicity.
+\D, \I, \Y, and \C denote vectors, whereas \sD, \sI, \sY, and \sC denote scalars.
+We record the lengths of all vectorized-typed values, and for all types we record their classes and attribute names. 
+Looking at the signatures observed for addition, it is clear that the function is polymorphic: it starts with the addition of two scalar numbers of different types, and later adds a matrix to a vector returning a matrix.
 
 \subsection{Implementation}
 \label{sec:Impl}
@@ -553,24 +551,19 @@ retrieved from CRAN is as follows:
 \item {\bf Recording:} When a hook is called, arguments and return value are
   inspected. We record \k{typeof}, \k{class} and \k{attributes} recursively.
   For \code{list} values, an extra bit of analysis is performed to record
-  the element type.
+  the element types.
 \item {\bf Writing:} Unique signatures are recorded to file with information
   about which package triggered the recording.
 \end{enumerate}
 
-Our recording mechanism does not remember the order in which arguments were
-passed, nor does it record which arguments were not passed (and for which
-default values were used). If an argument was not passed, and no default
-value was specified, we record it as \emph{missing}. In R, trying to use
-such a missing value results in an error. For practical reasons, we do not
-record the contents of environments. These can be used as hash tables and
-may be big and are quite likely different from one another.
+In R, all arguments are passed as promises, and unused arguments will be unevaluated. 
+Our recording mechanism captures the order in which arguments are passed, can figure out which arguments were {\it not} provided (recording them as {\it missing} if the missing argument has no default value), and does {\it not} force unforced promises, recording unforced promises as {\it unevaled}.
+In R, trying to use missing values results in an error and thus an exception, triggering our recording phase: arguments which cause errors in this way are recorded as {\it error}.
+For practical reasons, we do not record the contents of environments:
+These can be used as hash tables, may be large, and are quite likely different from one another.
 
-In R all arguments are passed as promises, and unused arguments will be
-unevaluated.  Our tracer does not collect information on arguments that were
-not evaluated as they may not be valid expressions.  Consider the {\tt
-  magrittr} package, which implements the pipe function that performs a kind
-of currying.
+Unevaluated arguments in R are sometimes {\it carefully} used by their functions to implement some form of metaprogramming.
+Consider the {\tt magrittr} package, which implements a pipe function \%$>$\% that implements a flavor of function currying:
 
 {\small\begin{lstlisting}[style=R]
 mul <- function(x,y)  x*y
@@ -579,10 +572,12 @@ mul <- function(x,y)  x*y
 
 The call to the pipe desugars to \code{`\%>\%`(lhs=4, rhs=mul(3))} where the
 \code{rhs} is not a valid expression. It is treated as code that will
-manipulated to add one argument (the \code{lhs}).
+manipulated to add one argument (the \code{lhs}), resulting in the function
+actually performing a call of the form \code{mul(4, 3)}.
 
-To be as specific as possible, our analysis collects shape information about
-arguments and return values. The details of the information we collect follows.
+As we alluded to at the beginning of this section, our analysis collects shape information about
+arguments and return values in order to be as specific as possible. The details of the information we collect follows.
+Note that the first step of any type collection in our analysis begins with \code{typeof}.
 
 \begin{itemize}
 \item If the analysis encounters a primitive vector, say
@@ -591,15 +586,15 @@ arguments and return values. The details of the information we collect follows.
 \item For a list, \code{typeof(x)=="list"}, shape information on all
   elements is used to describe the list's shape.  To avoid undue slowdowns,
   we only collect the content's \code{typeof}, and ascribe \ANY (any) if the
-  elements are not of the same kind.k
+  elements are not of the same kind.
 \item If the analysis encounters a scalar \code{NA}, we ascribe a unique
   NULL type.  In R, \code{NA} inhabits all types, but for a scalar NA,
   \code{typeof(NA)=="logical"}. Scalar NAs are used as uninitialized values.
-\item For a matrix (i.e. the value has matrix class and has a dims and
-  optionally dimnames attribute), we ascribe the shape \attr{\tt T}{mat}
+\item For a matrix, \code{typeof(m)=="some\_primitive\_type"}, and\code{m} will have matrix class and also a dims and
+  optionally dimnames attribute. Here, we ascribe the shape \attr{\tt T}{mat}
   where {\tt T} is the primitive element type.
-\item For a data frame (i.e., class {\tt data.frame} with appropriate
-  attributes), we ascribe the shape \attr{\l}{df}.
+\item For a data frame, \code{typeof(df)=="list"}, and \code{df} will have class {\tt data.frame}, and {\tt names} and {\tt row.names} attributes.
+ To reflect this, we ascribe the shape \attr{\l}{df}.
 \end{itemize}
 
 The infrastructure memoizes emitted signatures to avoid writing multiple
@@ -610,7 +605,7 @@ identical signatures for the same function.
 For a meaningful notion of polymorphism, it is necessary to settle on a set
 of basic types for R. There are several possible choices which lead to
 increasingly more expressive type systems. The simplest notion of types
-aligns with R's builtin types. Richers notions incorporate attributes and
+aligns with R's builtin types. Richer notions incorporate attributes and
 the various object systems built on top of those. For concreteness we will
 pick out three different sets of types.
 
