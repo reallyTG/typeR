@@ -602,34 +602,27 @@ identical signatures for the same function.
 
 \section{Types for R}
 
-For a meaningful notion of polymorphism, it is necessary to settle on a set
-of basic types for R. There are several possible choices which lead to
-increasingly more expressive type systems. The simplest notion of types
-aligns with R's builtin types. Richer notions incorporate attributes and
-the various object systems built on top of those. For concreteness we will
-pick out three different sets of types.
+Our aim is to capture the polymorphism in R, and to do so we must define a meaningful set of basic types for the language.
+There are several possible choices, with a variety of levels of expressivity and complexity.
+For concreteness, we will pick out three different sets of types.
+To start simple, we define a set of types which closely align with R's builtin types, and later define richer notions of type which incorporate attributes, classes, and capture the various object systems of R.
 
-In the following we say that an argument is {\it polymorphic in type at
-  level L} if it has been called with at least two values that belong to
-distinct types at level \emph{L}. This definition extends naturally to
-classes, data frames, and matrices (as these are simple attributes).
-Generalized attribute polymorphism is a bit trickier as values can have a
-large and changing set of attributes.
+Throughout this paper, we will say that an argument is {\it polymorphic at} \textbf{\emph{LX}} (read: level X) if it has been called with at least two values that belong to distinct types at {\bf LX}.
+\textbf{L2} will incorporate class and attribute lists, which are slightly trickier to ``type'', and we defer discussion of this until Section~\ref{sec:L2def}.
 
 \subsection{L0 Types}
 \label{sec:L0def}
 
-The logical ``baseline'' for the design of a type system for R is to adopt
-the language's builtin types.  Types in this system, which we call {\bf L0}
-reflect the types of values in the runtime environment, the \code{typeof} an
-object is in direct correspondence with the runtime type tag of the value.
-Thus we include the following types: vectors of primitive types (integers
+The logical ``baseline'' for the design of a type system for R is to adopt the language's builtin types.
+We dub these {\bf L0} types, and they are primarily built on the \code{typeof} values, which reflects the implementation of the type in the runtime environment.
+More specifically, the \code{typeof} a value is simply the runtime type tag of the value.
+Given that, {\bf L0} includes the following types: vectors of primitive types (integers
 \I, double \D, character \C, logical \L, raw \R, complex \X), lists of any
 type (\l), and scalar values (environment \sE, closures \sF, symbols \sY, S4
-object \sS, and null \sN). We add one type stand in for unevaluated values,
-the type any (written \ANY). In {\bf L0} subtyping follows from the
-conversion rules of the language.  Logicals are subtypes of integers, which
-are subtypes of doubles, \L <: \I <: \D.  All types are subtypes of \ANY,
+object \sS, and null \sN). We omit short forms for some of R's more esoteric types (e.g., {\tt environment}s).
+ We add the any (written \ANY)  type to stand in for unevaluated values
+Subtyping in {\bf L0} follows from the conversion rules of the language:  Logicals are subtypes of integers, which
+are themselves subtypes of doubles (so \L <: \I <: \D).  All types are subtypes of \ANY,
 thus {\tt T}<:\ANY for an type {\tt T}.
 
 %
@@ -637,40 +630,27 @@ thus {\tt T}<:\ANY for an type {\tt T}.
 \subsection{L1 Types}
 \label{sec:L1def}
 
-{\bf L0} is limited in expressivity as it supports polymorphism for list in
-a trivial way, it does not address some of the popular constructed data
-types such as matrices and data frames, and cannot differentiate between
-scalar values and vectors.  {\bf L1} types build on and extend the previous
-level with with scalar values for primitive types (\sI, \sD, \sC, \sL, \sR,
-and \sX), type parametric lists (written \lT{T} for any type {\tt T}), data
-frames (written \attr{\l}{df} as they are built up from lists of type any),
-and matrices (\attr{\vec{\tt T}}{mat} where {\tt T} is a primitive type).
+{\bf L0} is limited in expressivity as it (1) supports polymorphism for list in
+a trivial way, (2) does not address some of the popular constructed data
+types such as matrices and data frames, and (3) cannot differentiate between
+scalar values and vectors.  
+{\bf L1} types build on and extend {\bf L0} with with scalar values for primitive types (\sI, \sD, \sC, \sL, \sR, and \sX), type-parametric lists (written \lT{T} for any type {\tt T}), data frames (written \attr{\l}{df} as they are built up from lists of type any), and matrices (\attr{\vec{\tt T}}{mat} where {\tt T} is a primitive type).
 Subtyping is extended such that {\tt T}<:{$\vec{\tt T}$} for any primitive
-type {\tt T}. The subtype relation is undefined for lists of different
-types.
+type {\tt T}. The subtype relation is undefined for lists of different types, as well as for matrices and data frames.
 
 \subsection{L2 Types}
 \label{sec:L2def}
 
-{\bf L2} extends the previous system with more support for attributes.
-While there is a finite number of results from the {\tt typeof} function,
-this is not the case for \code{class} and \code{attributes}.  Classes and
-attributes are user-defined.  Of course, not all classes are user-defined,
-and R has a number of built-in or otherwise standard classes, ranging from
-truly primitive classes such as {\tt numeric} to the more complex {\tt
-  data.frame}.  We have already used the latter in {\bf L1}. We will ignore
-those classes and thus highlight user-defined ones.  As for attributes,
-again some patterns arise naturally, for instance all matrices have a {\tt
-  dims} attribute (indeed, it's this attribute that makes a matrix a
-matrix).  Attributes are name-value pairs, to keep things simple we reduce
-these to names. The only attribute that we treat specially is the {\tt
-  class} for those we will recurse and capture the set of values defined by
-the user (these are the class names for the object).  Thus, we extend {\bf
-  L1} with attribute lists and classes: \attrclass{T}{C}{A} where {\tt T}
-can be any L1 type other than data frame or matrix, and {\tt C} and {\tt A}
-are lists of classes and attribute names respectively.  The subtype relation is defined as:
-\attrclass{T}{C}{A} $<:_{\mathbf{L2}}$ \xspace \attrclass{\dot T}{C'}{A'} if 
-$ T <:_{\mathbf{L1}} \dot T$, $C \subseteq C'$, and $A \subseteq A'$.
+{\bf L2} extends the previous system with support for classes and attributes.
+While there are a finite number of results from the \code{typeof} function, this is {\it not} the case for \code{class} and \code{attributes}, as classes and attributes {\it can} be user-defined. 
+In terms of classes, R has a number of built-in or otherwise standard classes, ranging from truly primitive classes such as {\tt numeric} to the more complex {\tt data.frame}. 
+{\bf L1} already incorporates these builtin classes, namely through its data frame and matrix types, so we will ignore those classes and thus highlight those which are user-defined.  
+As for attributes, again some patterns arise naturally in R, e.g. all matrices have a {\tt dims} attribute, but even these are somewhat interesting, as a programmer could in theory set their own {\it dims} attribute on an arbitrary value.
+The only attribute we ignore is the {\tt class} attribute, as we collect the class of values separately (and the {\tt class} attribute, if present, is always equal to the class of a value).
+Attributes are name-value pairs, and to keep things simple we consider only attribute names.
+
+In sum, we extend {\bf L1} with attribute lists and classes: \attrclass{T}{C}{A} where {\tt T} can be any L1 type other than data frame or matrix, and {\tt C} and {\tt A} are lists of classes and attribute names respectively.  
+The subtype relation is defined as: \attrclass{T}{C}{A} $<:_{\mathbf{L2}}$ \xspace \attrclass{\dot T}{C'}{A'} if $ T <:_{\mathbf{L1}} \dot T$ (i.e. are subtypes in the sense of {\bf L1}), $C \subseteq C'$, and $A \subseteq A'$.
 
 
 %
