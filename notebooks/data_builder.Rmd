@@ -156,35 +156,76 @@ psp_L2 <- read_csv("../data/partial_L1_L2.csv.gz")
 psp_L2 <- psp_L2[!psp_L2$pkg == "SUBTYPE",]
 
 # L2 collapsed?
-what <- read_csv("../data/partial_L1_sanitized_class_collapsed.csv.gz")
+# what <- read_csv("../data/partial_L1_sanitized_class_collapsed.csv.gz")
+what <- read_csv("../data/partial_L1_collapsed_L2_new.csv.gz")
+```
+
+```{r}
+# ...
+list_of_L2_sig_c <- read_csv("../data/partial_L1_arg_sig_counts.csv.gz")
+
+list_of_L2_sig_c[order(-list_of_L2_sig_c$count),] -> list_of_L2_sig_c
+
+list_of_L2_sig_c[1,"count"] <- 0
+
+list_of_L2_sig_c[order(-list_of_L2_sig_c$count),] -> list_of_L2_sig_c
+
+list_of_L2_sig_c$perc_tot <- round(list_of_L2_sig_c$count / sum(list_of_L2_sig_c$count) * 100, 1)
+
+list_of_L2_sig_c <- new_df_count_collape_arg_sigs_L2_actual(list_of_L2_sig_c)
+
+list_of_L2_sig_c[1:10,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
+
+# poly arg counts only
+L2_poly_sig <- list_of_L2_sig_c[list_of_L2_sig_c$arg_sig %>% strsplit(split="/") %>% lapply(function(x) length(x) != 3) %>% unlist, ]
+
+# remove error 
+L2_poly_sig[1, "count"] <- 0
+L2_poly_sig[1, "perc_tot"] <- 0
+
+# display poly
+L2_poly_sig[2:11,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
+
+# Arg Poly Count L2
+data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=c(list_of_L2_sig_c$count %>% sum - L2_poly_sig$count %>% sum, list_of_L2_sig_c$count %>% sum), Percentage=c(paste0(round(100 * (1 - (L2_poly_sig$count %>% sum / list_of_L2_sig_c$count %>% sum)), 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
 ```
 
 ```{r}
 # arg sig counts?
-L2_arg_sig_c <- read_csv("../data/partial_L1_sanitized_class_arg_sig_counts_L2.csv.gz")
-
-# sort
-L2_arg_sig_c[order(-L2_arg_sig_c$count),] -> L2_arg_sig_c
-
-# rm []/[]/[]
-L2_arg_sig_c[1,"count"] <- 0
-
-# resort
-L2_arg_sig_c[order(-L2_arg_sig_c$count),] -> L2_arg_sig_c
-
-# %
-L2_arg_sig_c$perc_tot <- round(L2_arg_sig_c$count / sum(L2_arg_sig_c$count) * 100, 1)
-
-# collapse obvious subtypes
-# gets rid of stuff in the first box
-L2_arg_sig_c <- new_df_count_collape_arg_sigs_L2(L2_arg_sig_c)
-
-# what counts do we want?
-# split typeclassattr into type class attr
-L2_split <- split_L2_df(L2_arg_sig_c)
-
-# display some
-L2_split[1:10,] %>% ready_print_count_fun_L2 %>% xtable %>% print(include.rownames=F)
-
-L2_split %>% filter(Class != "") %>% slice(1:10) %>% as.data.frame %>% ready_print_count_fun_L2 %>% xtable %>% print(include.rownames=F)
+# L2_arg_sig_c <- read_csv("../data/partial_L1_sanitized_class_arg_sig_counts_L2.csv.gz")
+# 
+# # sort
+# L2_arg_sig_c[order(-L2_arg_sig_c$count),] -> L2_arg_sig_c
+# 
+# # rm []/[]/[]
+# L2_arg_sig_c[1,"count"] <- 0
+# 
+# # resort
+# L2_arg_sig_c[order(-L2_arg_sig_c$count),] -> L2_arg_sig_c
+# 
+# # %
+# L2_arg_sig_c$perc_tot <- round(L2_arg_sig_c$count / sum(L2_arg_sig_c$count) * 100, 1)
+# 
+# # collapse obvious subtypes
+# # gets rid of stuff in the first box
+# L2_arg_sig_c <- new_df_count_collape_arg_sigs_L2(L2_arg_sig_c)
+# 
+# # what counts do we want?
+# # split typeclassattr into type class attr
+# L2_split <- split_L2_df(L2_arg_sig_c)
+# 
+# # group class
+# L2_split$Class <- L2_split$Class %>% as.character %>% strsplit(split=", ") %>% sapply(function(x) sapply(x, function(y) paste0("[", paste(y, collapse=", "), "]"))) %>% sapply(function(s) paste(s, collapse=", "))
+# 
+# # display top
+# L2_split[1:10,] %>% ready_print_count_fun_L2 %>% xtable %>% print(include.rownames=F)
+# L2_split %>% filter(Class != "") %>% slice(1:10) %>% as.data.frame %>% ready_print_count_fun_L2 %>% xtable %>% print(include.rownames=F)
+# 
+# L2_poly_ind <- sapply(as.character(L2_split$Type), function(s) length(unlist(strsplit(s, split=", "))) > 1) |
+#                sapply(as.character(L2_split$Class), function(s) length(unlist(strsplit(s, split=", "))) > 1) |
+#                sapply(as.character(L2_split$Attr), function(s) length(unlist(strsplit(s, split=", "))) > 1)
+# L2_poly_sig <- L2_split[L2_poly_ind, ]
+# 
+# # display
+# head(L2_poly_sig, 10) %>% ready_print_count_fun_L2 %>% xtable %>% print(include.rownames=F)
 ```

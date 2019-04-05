@@ -1039,26 +1039,25 @@ The next type system we consider is L2, and is designed to achieve this.
 {\bf L2} works class and attribute information into its type signatures.
 As per the discussion in Section~\ref{sec:L2def}, we omit builtin classes in order to highlight those which are user-defined.
 
-Now, {\bf L2} builds directly off of {\bf L1}, and as such at the argument level the type-based polymorphism shouldn't change.
 As in {\bf L0} and {\bf L1}, we will begin by showing a breakdown of the top argument signatures in Table~\ref{tab:L2top10arg}.
 
 \begin{table}[ht]
 \label{tab:L2top10arg}
 \centering
-\begin{tabular}{lllrl}
+\begin{tabular}{lrl}
   \hline
-Type & Class & Attr Ptrn & Count & \% of All Signatures \\ 
+Signature & Count & \% of All Signatures \\ 
   \hline
-  \sD &  & \{\} & 47069 & 17.6\% \\ 
-  \sL &  & \{\} & 24203 & 9\% \\ 
-  \sC &  & \{\} & 21437 & 8\% \\ 
-  \D &  & \{\} & 20928 & 7.8\% \\ 
-  \sF &  & \{\} & 14585 & 5.5\% \\ 
-  \sN &  & \{\} & 14070 & 5.3\% \\ 
-  unevaled &  & \{\} & 9116 & 3.4\% \\ 
-  \C &  & \{\} & 6949 & 2.6\% \\ 
-  \M{D} &  & \{dim\} & 6612 & 2.4\% \\ 
-  \l &  & \{names\} & 5936 & 2.2\% \\ 
+  \sD & 46938 & 17.6\% \\ 
+  \sL & 24113 & 9\% \\ 
+  \sC & 21387 & 8\% \\ 
+  \D & 20900 & 7.8\% \\ 
+  \sF & 14556 & 5.5\% \\ 
+  \sN & 14016 & 5.3\% \\ 
+  unevaled & 9093 & 3.4\% \\ 
+  \attrclass{\D}{}{dim} & 6974 & 2.5\% \\ 
+  \C& 6939 & 2.6\% \\ 
+  \attrclass{\l}{}{names} & 6137 & 2.2\% \\ 
    \hline
 \end{tabular}
 \caption{Most frequent argument signatures in {\bf L2}.}
@@ -1068,139 +1067,147 @@ As you can see, the most frequent signatures in {\bf L1} are represented here.
 The inclusion of class and attribute information has changed the counts slightly.
 One tidbit of interest here is that monomorphic named lists are more common than their unnamed counterparts.
 The lack of classes is explained by our elimination of builtin classes, and it's doubtful that a user-defined class would be so pervasive as to feature in this breakdown.
-On that note, we wonder: {\it what are most frequent argument signatures with an interesting class?}
-Table~\ref{tab:L2top10argwclass} has the answer.
+%On that note, we wonder: {\it what are most frequent argument signatures with an interesting class?}
+%Table~\ref{tab:L2top10argwclass} has the answer.
 
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Fri Apr  5 02:38:12 2019
+%% latex table generated in R 3.5.1 by xtable 1.8-3 package
+%% Fri Apr  5 02:38:12 2019
+%\begin{table}[ht]
+%\label{tab:L2top10argwclass}
+%\centering
+%\begin{tabular}{lllrl}
+%  \hline
+%Type & Class & Attr Ptrn & Count & \% of All Signatures \\ 
+%  \hline
+%  \sE & environment & \{\} & 704 & 0.3\% \\ 
+%  language & formula & \{.Environment\} & 544 & 0.2\% \\ 
+%  \D & array & \{dim\} & 395 & 0.1\% \\ 
+%  externalptr & externalptr & \{\} & 301 & 0.1\% \\ 
+%  \sF & standardGeneric & \{default,...,srcref,valueClass\} & 255 & 0.1\% \\ 
+%  \df & tbl\_df,tbl & \{names,row.names\} & 239 & 0.1\% \\ 
+%  \sF & standardGeneric & \{default,...,valueClass\} & 239 & 0.1\% \\ 
+%  \l & phylo & \{names,order\} & 199 & 0.1\% \\ 
+%  \l & lm & \{names\} & 175 & 0.1\% \\ 
+%  \l & lvm & \{names\} & 157 & 0.1\% \\ 
+%   \hline
+%\end{tabular}
+%\caption{Most frequent argument signatures with class in {\bf L2}.}
+%\end{table}
+%
+%Table~\ref{tab:L2top10argwclass} does indeed showcase some interesting classes.
+%The three builtin classes which we have not yet seen are environment, formula, and array.
+%An environments is a list which has a references to a parent environment (another list with environment class).
+%A formula is a \AT{small explanation}.
+%An array is a generalization of a matrix in R, where an array can have more than 2 dimensions.
+%Each of the other classes pictured here are defined in some package, and are not part of the base language.
+%An interesting fact about this table is that all of the pictures signatures are monomorphic.
+
+Now that we have a sense for argument-level type signatures in {\bf L2}, we will see just how many functions are polymorphic.
+Now, {\bf L2} builds directly off of {\bf L1}, and as such at the argument level the type-based polymorphism shouldn't change.
+For this account of polymorphism, we deem an argument to be polymorphic if it was polymorphic in type, class, or attribute pattern.
+Consider Table~\ref{tab:funcountsL2}.
+\AT{This is where the per fun plot should go, will do.}
+
 \begin{table}[ht]
-\label{tab:L2top10argwclass}
+\label{tab:funcountsL2}
 \centering
-\begin{tabular}{lllrl}
+\begin{tabular}{lll}
   \hline
-Type & Class & Attr Ptrn & Count & \% of All Signatures \\ 
+Signature Type & Count & Percentage \\ 
   \hline
-  \sE & environment & \{\} & 704 & 0.3\% \\ 
-  language & formula & \{.Environment\} & 544 & 0.2\% \\ 
-  \D & array & \{dim\} & 395 & 0.1\% \\ 
-  externalptr & externalptr & \{\} & 301 & 0.1\% \\ 
-  \sF & standardGeneric & \{default,...,srcref,valueClass\} & 255 & 0.1\% \\ 
-  \df & tbl\_df,tbl & \{names,row.names\} & 239 & 0.1\% \\ 
-  \sF & standardGeneric & \{default,...,valueClass\} & 239 & 0.1\% \\ 
-  \l & phylo & \{names,order\} & 199 & 0.1\% \\ 
-  \l & lm & \{names\} & 175 & 0.1\% \\ 
-  \l & lvm & \{names\} & 157 & 0.1\% \\ 
+  Monomorphic & 44K & 79.6\% \\ 
+  Total Seen & 56K & --- \\ 
    \hline
 \end{tabular}
-\caption{Most frequent argument signatures with class in {\bf L2}.}
+\caption{Account of {\it function} polymorphism in {\bf L2}.}
 \end{table}
 
-Table~\ref{tab:L2top10argwclass} does indeed showcase some interesting classes.
-The three builtin classes which we have not yet seen are environment, formula, and array.
-An environments is a list which has a references to a parent environment (another list with environment class).
-A formula is a \AT{small explanation}.
-An array is a generalization of a matrix in R, where an array can have more than 2 dimensions.
-Each of the other classes pictured here are defined in some package, and are not part of the base language.
-An interesting fact about this table is that all of the pictures signatures are monomorphic.
+\AT{Connect, talk about increase/decrease in poly.}
 
-%Here, we've made a number of small discoveries.
-%We see environments, which are essentially dignified lists (i.e., they are lists with a parent list, and are used to implement scoping).
-%\AT{Possibly explain some of these? Dunno.}
-
-\AT{Alexi is here.}
-
-To see how often arguments are polymorphic with respect to class and attributes, we refer to Table~\ref{tab:classcountsL2}.
-\AT{Showing full monomorphic all the time might be a bit confusing?}
+Having built a sense for how polymorphic whole-function signatures are in {\bf L2}, we will turn our attention to polymorphic arguments.
+Given the added class and attribute information, {\it what do the more frequent polymorphic argument signatures look like?}
+Table~\ref{tab:toppolyL2} has the breakdown.
 
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Mon Apr  1 13:02:08 2019
+% Fri Apr  5 09:50:59 2019
 \begin{table}[ht]
-\label{tab:classcountsL2}
-\centering
-\begin{tabular}{lrr}
-  \hline
-Type & Count & Percentage \\
-  \hline
-Full Monomorphic & 783K & 85.59 \\
-%  Monomorphic in Type & 869.00 & 95.01 \\
-  Monomorphic in Class & 850K & 92.94 \\
-  Monomorphic in Attribute Pattern & 836K & 91.41 \\
-  Total Seen & 914K & --- \\
-   \hline
-\end{tabular}
-\caption{Account of class- and attribute-based polymorphism in L2.}
-\end{table}
-
-The numbers here are in line with the type-based polymorphism of L1.
-As before, to build up a better sense of what kind of polymorphism we're dealing with, we extract some of the most common signatures.
-We begin with classes, and refer to Table~\ref{tab:classpolyL2}.
-
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Mon Apr  1 14:48:55 2019
-\begin{table}[ht]
-\label{tab:classpolyL2}
-\centering
-\begin{tabular}{lrr}
-  \hline
-Class & Count & Percentage \\
-  \hline
-  primitive, tbl, tbl\_df & 1796 & 2.78 \\
-  array, primitive & 1379 & 2.14 \\
-  data.table, primitive & 777 & 1.20 \\
-  POSIXct, POSIXt & 716 & 1.11 \\
-  formula, primitive & 639 & 0.99 \\
-   \hline
-\end{tabular}
-\caption{Top 5 class signatures for class-based polymorphism in L2.}
-\end{table}
-
-\AT{TODO number of colocated primitive/other classes. Could use to suggest some optional class annotation.
-Maybe grab full class poly to see if there's something big? Without collapse to primitives.}
-
-The first thing to note is the low percentages overall: unlike with types in L0, L1, or L1+, there are no major contributors for class-based polymorphism.
-For instance, the single highest source of polymorphism here is due to the ``tbl'' and ``tbl\_df'' classes (of the dplyr package).
-For what it's worth, these are classes ascribed to dplyr data objects (i.e., spruced-up data frames).
-The next largest contributor is the array class, which is a class for N>2-dimensional matrices (part of the core R language).
-\AT{Maybe I should also turn arrays into primitive class?}
-
-To see how we might use class information, we should see how often a monomorphic class signature co-occurs with a polymorphic type signature.
-We count \NUMPOLYTYPEMONOCLASS argument positions which match this criteria, which certainly doesn't explain the much higher number of list polymorphism in L1+.
-
-In our analysis, we did not encounter any substantial patterns with class-based polymorphism.
-Class is nonetheless important in R, as the dynamic dispatcher uses class information to select the correct method to call.
-In short, a small optional annotation indicating the class of an argument may well be enough.
-
-Let us now turn our attention to attributes.
-The top contributors for attribute-based polymorphism can be found in Table~\ref{tab:topattrpoly}.
-
-% latex table generated in R 3.5.1 by xtable 1.8-3 package
-% Mon Apr  1 23:06:59 2019
-\begin{table}[ht]
-\label{tab:topattrpoly}
+\label{tab:toppolyL2}
 \centering
 \begin{tabular}{lrl}
   \hline
-Attribute Signature & Count & Percentage \\
+Signature & Count & \% of All Signatures \\ 
   \hline
-\{\}, \{names: \C\} & 16589 & 21.11 \\
-  \{\}, \{dim: \I\} & 5010 & 6.38 \\
-  \{dim:\I,dimnames:list$<$any$>$\}, \{dim:\I\} & 2264 & 2.88 \\
-  \{class:\C,names:\C,row.names:\C\}, \{class:\C,names:\C,row.names:\I\} & 2102 & 2.68 \\
-  \{\}, \{srcref:\I\} & 2037 & 2.59 \\
-  \{dim:\I,dimnames:list$<$\C$>$\}, \{dim:\I\} & 1740 & 2.21 \\
-  \{\}, \{class:\C\} & 1673 & 2.13 \\
-  \{\}, \{class:\C,levels:\C\} & 1437 & 1.83 \\
-  \{\}, \{class:\C,names:\C\} & 1324 & 1.69 \\
-  \{\}, \{class:\C,names:\C,row.names:\I\} & 1251 & 1.59 \\
+  \D, \attrclass{\D}{}{dim} & 553 & 0.2\% \\ 
+  \sC, \sD & 336 & 0.1\% \\ 
+  \I, \sD & 320 & 0.1\% \\ 
+  \attrclass{\l}{}{names}, \attrclass{\D}{}{names} & 269 & 0.1\% \\ 
+  \D, \attrclass{\D}{}{dim, dimnames} & 218 & 0\% \\ 
+  \sD, \sF & 173 & 0\% \\ 
+  \attrclass{\l}{}{names, row.names}, \attrclass{\D}{}{dim, dimnames} & 167 & 0\% \\ 
+  \attrclass{\D}{}{names}, \attrclass{\D}{}{dim, dimnames} & 155 & 0\% \\ 
+  \C, \I & 149 & 0\% \\ 
    \hline
 \end{tabular}
+\caption{Top polymorphic argument signatures in {\bf L2}.}
 \end{table}
 
-First, the largest source of attribute-based polymorphism is in optional list names.
-The names attribute on a vector or list allows indexing with name rather than numeric position.
-Another significant source of this polymorphism is matrices, which can be seen in all the ``dim'' and ``dimnames'' attributes.
+\AT{Will have new numbers by tonight.}
 
-\AT{TODO control for the common cases?}
+When comparing this table with Table~\ref{tab:toppolyL1}, we see that the distribution of signature frequencies is more uniform, as attributes and classes differentiated some signatures which were not distinct in {\bf L1}.
+
+Now that we have seen the most frequently appearing argument signatures, we ask: {\it how many argument positions are polymorphic?}.
+Table~\ref{tbl:argcountsL2} has the answer.
+
+\begin{table}[ht]
+\label{tab:argcountsL2}
+\centering
+\begin{tabular}{lll}
+  \hline
+Signature Type & Count & Percentage \\ 
+  \hline
+  Monomorphic & 248K & 93.4\% \\ 
+  Total Seen & 265K & --- \\ 
+   \hline
+\end{tabular}
+\caption{Account of {\it argument} polymorphism in {\bf L2}.}
+\end{table}
+
+Surprisingly, even with the added precision of classes and attributes, there is still a relatively small amount of polymorphism in {\bf L2}.
+Indeed, our notion of subtying on classes is rather weak, and one extension would be to include class hierarchies in the subtyping of classes;
+this would further reduce the amount of polymorphism.
+
+%% latex table generated in R 3.5.1 by xtable 1.8-3 package
+%% Mon Apr  1 14:48:55 2019
+%\begin{table}[ht]
+%\label{tab:classpolyL2}
+%\centering
+%\begin{tabular}{lrr}
+%  \hline
+%Class & Count & Percentage \\
+%  \hline
+%  primitive, tbl, tbl\_df & 1796 & 2.78 \\
+%  array, primitive & 1379 & 2.14 \\
+%  data.table, primitive & 777 & 1.20 \\
+%  POSIXct, POSIXt & 716 & 1.11 \\
+%  formula, primitive & 639 & 0.99 \\
+%   \hline
+%\end{tabular}
+%\caption{Top 5 class signatures for class-based polymorphism in L2.}
+%\end{table}
+%
+%The first thing to note is the low percentages overall: unlike with types in L0, L1, or L1+, there are no major contributors for class-based polymorphism.
+%For instance, the single highest source of polymorphism here is due to the ``tbl'' and ``tbl\_df'' classes (of the dplyr package).
+%For what it's worth, these are classes ascribed to dplyr data objects (i.e., spruced-up data frames).
+%The next largest contributor is the array class, which is a class for N>2-dimensional matrices (part of the core R language).
+%\AT{Maybe I should also turn arrays into primitive class?}
+%
+%In our analysis, we did not encounter any substantial patterns with class-based polymorphism.
+%Class is nonetheless important in R, as the dynamic dispatcher uses class information to select the correct method to call.
+%In short, a small optional annotation indicating the class of an argument may well be enough.
+%
+%First, the largest source of attribute-based polymorphism is in optional list names.
+%The names attribute on a vector or list allows indexing with name rather than numeric position.
+%Another significant source of this polymorphism is matrices, which can be seen in all the ``dim'' and ``dimnames'' attributes.
 
 %
 %
