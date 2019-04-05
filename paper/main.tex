@@ -652,7 +652,16 @@ Attributes are name-value pairs, and to keep things simple we consider only attr
 In sum, we extend {\bf L1} with attribute lists and classes: \attrclass{T}{C}{A} where {\tt T} can be any L1 type other than data frame or matrix, and {\tt C} and {\tt A} are lists of classes and attribute names respectively.  
 The subtype relation is defined as: \attrclass{T}{C}{A} $<:_{\mathbf{L2}}$ \xspace \attrclass{\dot T}{C'}{A'} if $ T <:_{\mathbf{L1}} \dot T$ (i.e. are subtypes in the sense of {\bf L1}), $C \subseteq C'$, and $A \subseteq A'$.
 
+\subsection{Automatic Subtyping}
+\label{sec:autosub}
+
+When analyzing our data, we perform a certain amount of subtyping automatically to minimize the footprint of obviously equivalent signatures.
+This subtyping is performed at the function level of granularity.
+For example, if a function is observed to have two signatures \sD \to \df to \D \to \df, we collapse the signature to \D \to \df as \sD $<:$ \D and \df $<:$ \df.
+We would not collapse \sD, \I \to \df and \D, \sI \to \df, as \I $\not <:$ \sI and \D $\not<:$ \sD.
+
 Before presenting the results of our analysis, we will quickly survey examples of real, polymorphic R functions that we have analyzed, to build up a global sense of how types manifest themselves in current R code.
+
 
 %
 %
