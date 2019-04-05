@@ -50,8 +50,8 @@ write_csv(psp_L0, "../data/partial_L0.csv")
 
 ```{r}
 # read in new one
-psp_L0 <- read_csv("../data/partial_L0_subtype.csv")
-
+psp_L0 <- read_csv("../data/partial_L0_subtype.csv.gz")
+p
 # remove SUBTYPE rows
 psp_L0 <- psp_L0[!psp_L0$pkg == "SUBTYPE",]
 ```
@@ -65,7 +65,7 @@ write_csv(psp, "../data/partial_L1.csv")
 
 ```{r}
 # read it back
-psp <- read_csv("../data/partial_L1_subtype.csv")
+psp <- read_csv("../data/partial_L1_subtype.csv.gz")
 
 # remove SUBTYPE rows
 psp <- psp[!psp$pkg == "SUBTYPE",]
