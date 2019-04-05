@@ -761,7 +761,7 @@ types easy: \code{as.vector(m)} flattens a matrix \code{m} into a vector
 tee <- function (x, theta, D1, D2, phi)  {
     if (is.vector(x)) x <- t(x)
     ...
-\end{lstlisting}}\caption{Example of matrix/(\D) argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
+\end{lstlisting}}\caption{Example of \M{D}/\D argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
 
 Throughout this short section, we have shown real examples of polymorphic R functions.
 Our goal is to capture these instances of polymorphism across a large subset of existing R code, and to highlight and discuss patterns which arise.
@@ -775,9 +775,23 @@ We present the results of our analysis in the following section.
 %
 \section{Analysis Results}\label{sec:results}
 
-This section presents our results for each of the levels we have considered.
-\AT{New numbers will be available tonight (Apr 5).}
-\AT{Will use that to fill in some blanks.}
+In this section, we will present the results of our analysis at each of our type levels, describing the types of polymorphism that we have observed and shedding light on the frequency of polymorphic patterns in R.
+
+Before we begin, we define the kinds of polymorphism we will consider.
+In choosing how to express the polymorphicity of a function, there are two main options:
+First, having several separate whole-function signatures, e.g. \D $\rightarrow$ \D and \C $\rightarrow$ \D, or alternatively expressing the polymorphism at the argument level with a union type, e.g. (\D $\cup$ \C) $\rightarrow$ \C.
+We refer to the former as {\it per-function} or {\it function-level polymorphism}, and to the latter as {\it per-argument} or {\it argument-level polymorphism}.
+
+We believe that both of these notions of polymorphism are valuable for different reasons.
+Per-argument polymorphism highlights the type-based behavior of function arguments themselves, and helps to describe the type-based behavior of all R values.
+For instance, we observe that many arguments have (\sC, \sF) as a signature, from which we deduce that many R programmers are taking advantage of functions such as \code{match.fun("fun\_name")} to call functions by name.
+On the other hand, per-function polymorphism highlights how R programmers interact with functions as a whole, and allows us to discern more subtle patterns.
+For example, observing two function signatures such as \D \to \D and \sF \to \sF may lead us to ascribe a more useful and precise type for the function than if we had simply collapsed the argument and return types (e.g., $X$ \to $X$ vs. \D $\cup$ \sF \to \D $\cup$ \sF).
+
+The layout of this section is as follows:
+In order, we present analysis results for {\bf L0}, {\bf L1}, and {\bf L2}, speaking to both per-argument and per-function polymorphism at each level.
+Where appropriate, we digress to highlight interesting tidbits of tangential information which help us understand the style of code that R programmers write.
+We begin with {\bf L0}.
 
 \subsection{L0}
 
@@ -839,11 +853,6 @@ Essentially, [ is {\it the} main function for data.tables, and performs very dif
 Two wildly different uses are:
 \code{DT[i, j, by]}, where columns \code{i} and \code{j} are accessed and grouped by \code{by}, and \code{DT[x == "some" & y > 42]}, which selects all rows who's \code{x} column is the string \code{"some"} and who's \code{y} column is greater than \code{42}.
 Given that, we find it unsurprising that the function is so polymorphic.
-
-In choosing how to express the polymorphicity of a function, there are two main options one might consider:
-First, having several separate whole-function signatures, e.g. \D $\rightarrow$ \D and \C $\rightarrow$ \D, or alternatively expressing the polymorphism at the argument level with a union type, e.g. (\D $\cup$ \C) $\rightarrow$ \C.
-The former is referred to as {\it per-function} or {\it function-level polymorphism}, and the latter as {\it per-argument} or {\it argument-level polymorphism}.
-Earlier in Table~\ref{tab:L0top10arg} we saw the most frequently occurring argument-level signatures, and Figure~\ref{fig:L0funcounts} broke our corpus down by function-level polymorphism.
 
 To get an idea of the most common forms of argument-level polymorphism, we refer toTable~\ref{tab:L0toppoly}.
 
