@@ -91,7 +91,7 @@
 \newcommand{\sE}{\ensuremath{\small{\mathtt E}}\xspace} % Env
 \renewcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
 \newcommand{\sN}{\ensuremath{\small{\mathtt N}}\xspace}     % Null
-%\renewcommand{\l}{\ensuremath{\small L<{\mathtt ?}>}\xspace}     % List
+%\renewcommand{\l}{\ensuremath{\small L<?>}\xspace}     % List
 \renewcommand{\l}{\ensuremath{\small\underline{\mathtt ?}}\xspace}     % List
 \newcommand{\sD}{\ensuremath{\small{\mathtt D}}\xspace} % Double
 \newcommand{\sI}{\ensuremath{\small{\mathtt I}}\xspace} % Integer
@@ -706,7 +706,7 @@ This showcases the ease with which lists and vectors may be converted in R (the 
 is.point.inside <- function (point, polyg) {
     p <- as.numeric(point) # as.numeric(list(1, 2)) => c(1, 2)
     ...
-\end{lstlisting}}\caption{Example of \l/\D argument (from {\tt bivrp} package).}\label{fig:listvec}\end{figure}
+\end{lstlisting}}\caption{Example of \l or \D (list or vector of doubles) argument (from {\tt bivrp} package).}\label{fig:listvec}\end{figure}
 
 Figure~\ref{fig:charclos} shows an example of a function with character and
 function polymorphism.  At a high level, this function
@@ -997,7 +997,7 @@ Consult Table~\ref{tab:L1top10arg}.
 \end{table}
 
 From Table~\ref{tab:L1top10arg}, we see that all of the most frequent argument signatures are monomorphic even though we increased the precision of the types.
-We see that scalars actually figure quite prominently, which is encouraging: this supports an idea that an explicit scalar annotation or type may be useful {\it for programmers}---indeed, such an annotation would be helpful for compiler optimizations (e.g., scalar-only values need not have vectors allocated to store them).
+We see that scalars actually feature quite prominently, which is encouraging: this supports an idea that an explicit scalar annotation or type may be useful {\it for programmers}---indeed, such an annotation would also be helpful for compiler optimizations (e.g., scalar-only values need not have vectors allocated to store them).
 We also see that matrices (\M{D}) are quite popular, a testament to the versatility of the data structure, as they can easily be converted to vectors and data frames.
 
 Now that we have a picture of how arguments look in L1, let's see: {\it how many L1 functions have more than one type signature?}
@@ -1315,9 +1315,9 @@ Indeed, many of the packages discussed here are really designed with an \ANY-typ
 \subsubsection{Metaprogramming and Unevaluated Arguments}
 
 Our analysis uncovered a non-negligible amount of argument positions which were {\it never} evaluated across all observed function calls.
-This is indicative of a desire to metaprogram arguments and otherwise deconstruct their AST, as the \%$>$\% function does.
+This is indicative of a desire to meta-program arguments and otherwise deconstruct their AST, as the \%$>$\% function does.
 This is an incredibly powerful language feature, and may well be at the source of R's popularity, if in a roundabout way.
-Tidyverse, by far the most popular package suite in R, owes some of its success to the new syntax defined by some of the included packages, and it's this ability to metaprogram arguments which allowed Tidyverse to define its unique syntax.
+Tidyverse, by far the most popular package suite in R, owes some of its success to the new syntax defined by some of the included packages, and it's this ability to meta-program arguments which allowed Tidyverse to define its unique syntax.
 An example of that syntax is \%$>$\%, and indeed this function was highly exercised by over 100 other packages.
 
 %
