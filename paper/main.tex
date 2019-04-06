@@ -813,30 +813,34 @@ We present the results of our analysis in the following section.
 %
 \section{Analysis Results}\label{sec:results}
 
-In this section, we will present the results of our analysis at each of our type levels, describing the types of polymorphism that we have observed and shedding light on the frequency of polymorphic patterns in R.
+This section,  presents the results of our analysis at each of our type levels, describing the types of polymorphism that we have observed and shedding light on the frequency of polymorphic patterns in R.
 
-Before we begin, we define the kinds of polymorphism we will consider.
-In choosing how to express the polymorphicity of a function, there are two main options:
-First, having several separate whole-function signatures, e.g. \D $\rightarrow$ \D and \C $\rightarrow$ \D, or alternatively expressing the polymorphism at the argument level with a union type, e.g. (\D $\cup$ \C) $\rightarrow$ \C.
-We refer to the former as {\it per-function} or {\it function-level polymorphism}, and to the latter as {\it per-argument} or {\it argument-level polymorphism}.
+Before we begin, we define the kinds of polymorphism we will consider.  In
+choosing how to express the polymorphism of a function, we consider two
+simple options: First, having the union of signatures, e.g. \D $\rightarrow$
+\D and \C $\rightarrow$ \D, or a union types for each argument, e.g. (\D
+$\cup$ \C) $\rightarrow$ \C.  We refer to the former as {\it function-level}
+and the latter as {\it argument-level polymorphism}.
 
-We believe that both of these notions of polymorphism are valuable for different reasons.
-Per-argument polymorphism highlights the type-based behavior of function arguments themselves, and helps to describe the type-based behavior of all R values.
-For instance, we observe that many arguments have (\sC, \sF) as a signature, from which we deduce that many R programmers are taking advantage of functions such as \code{match.fun("fun\_name")} to call functions by name.
-On the other hand, per-function polymorphism highlights how R programmers interact with functions as a whole, and allows us to discern more subtle patterns.
-For example, observing two function signatures such as \D \to \D and \sF \to \sF may lead us to ascribe a more useful and precise type for the function than if we had simply collapsed the argument and return types (e.g., $X$ \to $X$ vs. \D $\cup$ \sF \to \D $\cup$ \sF).
+Per-argument polymorphism highlights the type-based behavior of function
+arguments themselves, and helps to describe the type-based behavior of all R
+values.  For instance, we observe that many arguments have (\sC, \sF) as a
+signature, from which we deduce that many R programmers are taking advantage
+of functions such as \code{match.fun("fun\_name")} to call functions by
+name.  On the other hand, function-level polymorphism highlights how R
+programmers interact with functions as a whole, and allows us to discern
+more subtle patterns.  For example, observing two function signatures such
+as \D \to \D and \sF \to \sF may lead us to ascribe a more useful and
+precise type for the function than if we had simply collapsed the argument
+and return types (e.g., $X$ \to $X$ vs. \D $\cup$ \sF \to \D $\cup$ \sF).
 
-The layout of this section is as follows:
-In order, we present analysis results for {\bf L0}, {\bf L1}, and {\bf L2}, speaking to both per-argument and per-function polymorphism at each level.
-Where appropriate, we digress to highlight interesting tidbits of tangential information which help us understand the style of code that R programmers write.
-We begin with {\bf L0}.
 
 \subsection{L0}
 
-At {\bf L0}, the type system is mostly aligned with the types of the core language.
-
-Across all of the arguments that we've observed, the vast majority are monomorphic.
-Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurring argument signatures.
+At {\bf L0}, the type system is mostly aligned with the types of the core
+language. Across all of the arguments that we have observed, the vast
+majority are monomorphic.  Table~\ref{tab:L0top10arg} shows the breakdown of
+the 10 most frequently occurring argument signatures.
 
 \begin{table}[ht]
 \centering
@@ -861,39 +865,49 @@ Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurri
 \label{tab:L0top10arg}
 \end{table}
 
-We see that doubles are the most common argument type, which is not entirely surprising as doubles are the backbone of any numeric data.
-Next is lists, which seems reasonable given that lists are often used to store the aforementioned data.
-Recall that in {\bf L0}, data frames will appear as lists.
-The \ANY type is not an R type per se: we ascribe such a type to arguments which were {\it always} unevaluated across all calls.
-As it happens, many R functions meta-program on some of their arguments, and this meta-programming does not force the argument promise, and if this meta-programming is always performed in every recorded call we will ascribe the \ANY type, as we cannot say what the argument {\it is} without possibly forcing a promise.
-The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of meta-programming; we will discuss it in a little more detail shortly.
-Interestingly, a polymorphic attribute signature \D, \l is among the top 10 overall---this is the vector and list polymorphism (shown in Figure~\ref{fig:listvec}) made manifest.
+Doubles are the most common argument type, which is not entirely surprising
+as doubles are the backbone of most statistical functions.  Next is lists,
+which is reasonable as lists are used to build data frames and other widely
+used data structures.  The \ANY type is not an R type per se: we ascribe
+such a type to arguments which were {\it always} unevaluated across all
+calls.  As it happens, many R functions meta-program on some of their
+arguments, and this meta-programming does not force the argument promise,
+and if this meta-programming is always performed in every recorded call we
+will ascribe the \ANY type, as we cannot say what the argument {\it is}
+without possibly forcing a promise.  The magrittr package's pipe \%$>$\%
+function is an example of a function which does meta-programming; we will
+discuss it shortly.  Interestingly, a polymorphic attribute signature \D, \l
+is among the top 10 overall---this is the vector and list polymorphism made
+manifest.
 
-Now that we've seen the most common attribute-level signatures, we will turn our attention to function-level polymorphism.
-Indeed, one of our goals is to generate useful function signatures, so we ask: {\it how many functions have more than one recorded signature?}
+We turn our attention to function-level polymorphism.  Indeed, one of our
+goals is to generate useful function signatures, so we ask: {\it how many
+  functions have more than one recorded signature?}
 Figure~\ref{fig:L0funcounts} has the answer, with a breakdown by function.
+Most functions are monomorphic.  That said, a few functions have
+disproportionately large number of signatures.  One such function is the
+magrittr package's pipe \%$>$\%, which is used to implement a kind of
+currying. It has nearly 100 unique signatures!  
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{L0_by_fun}
-\caption{Record of Function Polymorphism in {\bf L0}. \LZEROPERCPOLY of functions are polymorphic.}
+\caption{Record of Function Polymorphism in {\bf L0}; \LZEROPERCPOLY of
+  functions are polymorphic}
 \label{fig:L0funcounts}\end{center}
 \end{figure}
 
-Here, we see that the vast majority of functions are monomorphic in L0.
-That said, there are a few functions with a disproportionately large number of signatures.
-One such function is the magrittr package's pipe \%$>$\%, which is used to implement a kind of currying (as per discussion in Section~\ref{sec:Impl})---here, \%$>$\% has nearly 100 unique signatures!
-Many of the meta-programming functions in the Tidyverse are quite sophisticated, and are designed with the explicit goal of being very usable.
-This usability maps to polymorphism in our analysis, so it's no surprise that a Tidyverse function features so prominently here.
+Another function with many signatures is the data.table package's \code{[}
+  function, which is a reimplementation of the square bracket operator for
+  selecting values in a data.table.  This function has 16 formal arguments,
+  and call configurations vary widely.  Essentially, the function is {\it
+    the} main function for data.tables, and performs very different tasks
+  based on which arguments are provided.  Two wildly different uses are:
+  \code{dtT[i,j,by]}, where columns \code{i} and \code{j} are accessed and
+  grouped by \code{by}, and \code{dt[x=="some" & y>42]}, which selects
+  all rows who's \code{x} column is the string \code{"some"} and who's
+  \code{y} column is greater than \code{42}.  Given that, we find it
+  unsurprising that the function is so polymorphic.
 
-Another function with many signatures is the data.table package's [ function, which is a reimplementation of the square bracket operator for data.tables.
-This function has 16 formal arguments, and call configurations vary widely.
-Essentially, [ is {\it the} main function for data.tables, and performs very different tasks based on which arguments are provided.
-Two wildly different uses are:
-\code{DT[i, j, by]}, where columns \code{i} and \code{j} are accessed and grouped by \code{by}, and \code{DT[x == "some" & y > 42]}, which selects all rows who's \code{x} column is the string \code{"some"} and who's \code{y} column is greater than \code{42}.
-Given that, we find it unsurprising that the function is so polymorphic.
-
-Having had a taste for function-level polymorphism, we will now explore common patterns in argument-level polymorphism.
-For this, refer to Table~\ref{tab:L0toppoly}.
 
 \begin{table}[ht]\centering
 \begin{tabular}{lrr}  \hline
@@ -915,11 +929,13 @@ Signature & Count & \% of All Signatures \\
 \label{tab:L0toppoly}
 \end{table}
 
+Having had a taste for function-level polymorphism, we will now explore
+common patterns in argument-level polymorphism.  For this, refer to
+Table~\ref{tab:L0toppoly}.
 Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 
 \begin{itemize}
-
-	\item \D, \l (and \C, \l): L0 doesn't parameterize list types, and it's very likely that this signature describes vectors of doubles and lists of doubles.
+\item \D, \l (and \C, \l): L0 doesn't parameterize list types, and it's very likely that this signature describes vectors of doubles and lists of doubles.
 	Coercing vectors to lists is trivial in R, and indeed many of the functions with such an argument signature do.
 	The story is similar with vectors of characters and lists of characters.
 	
@@ -943,44 +959,33 @@ Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 	\item \C, \sF: yet another puzzling signature, though its explanation is surprisingly straightforward:
 	In R, programmers are free to look functions up {\it by name}, and indeed the frequently encountered {\tt UseMethod} function for dynamic class-based function dispatch is one such example.
 	In short, this signature usually represents a function or a function name.
-
 \end{itemize}
 
-We have established and discussed some of the most common polymorphic attribute signatures, and have built up an understanding of argument-level polymorphism in the {\bf L0} type system.
-This matches almost exactly with the language as it is today, as {\bf L0} is in (nearly) 1:1 correspondence with how types are currently represented in the language.
-The next question we address is: {\it just how pervasive is this argument polymorphism?}
-Refer to Table~\ref{tab:L0argcounts}.
+We have established and discussed some of the most common polymorphic
+attribute signatures, and have built up an understanding of argument-level
+polymorphism in the {\bf L0} type system.  This matches almost exactly with
+the language as it is today, as {\bf L0} is in (nearly) 1:1 correspondence
+with how types are currently represented in the language.  The next question
+we address is: {\it just how pervasive is this argument polymorphism?}
+We find that 94\% of arguments are monomorphic.
 
-\begin{table}[ht]\centering
-\begin{tabular}{lrl}
-  \hline
-Signature Type & Count & Percentage \\ 
-  \hline
-Monomorphic & 852K & 94\% \\ 
-  Total Seen & 906K & --- \\ 
-   \hline
-\end{tabular}
-\caption{Argument position polymorphism in L0.}
-\label{tab:L0argcounts}
-\end{table}
+From Table~\ref{tab:L0argcounts} we see that, with our definition of
+subtyping on L0 and other simplifications we made, an overwhelming amount of
+argument polymorphism is accounted for.  We also saw in
+Table~\ref{tab:L0toppoly} that each of the most frequently occurring
+argument signatures had some explanation.
 
-From Table~\ref{tab:L0argcounts} we see that, with our definition of subtyping on L0 and other simplifications we made, an overwhelming amount of argument polymorphism is accounted for.
-We also saw in Table~\ref{tab:L0toppoly} that each of the most frequently occurring argument signatures had some explanation.
+That said, L0 is not without limitations, and the main issues stem from a
+lack of adequate information, as the type system doesn't capture precise
+list types, and does not distinguish scalars from vectors. 
 
-That said, L0 is not without limitations, and the main issues stem from a lack of adequate information, as the type system doesn't capture precise list types, and does not distinguish scalars from vectors.
-The next type system we will explore, L1, tackles these issues by collecting more information to build more precise types.
-While the L1 types are less ``in-tune'' with current R implementations, one can imagine designing an all-new R runtime which may benefit from the more specific information in L1, e.g. by not needing to vectorize scalar values, or designing a static analysis which uses precise list types to give programmers better information in an IDE.
-L1 is discussed next.
 
-%
-%
 %
 %
 \subsection{L1}
 
-As we mentioned in Section~\ref{sec:L1def}, L0 is somewhat limited in its expressivity. 
-To address this, we develop L1, which espouses a finer-grained approach to types. 
-Major modifications from L0 include:
+L1 espouses a finer-grained approach to types.  Major modifications from L0
+include:
 
 \begin{enumerate}
 	\item the differentiation of scalars and vectors;
@@ -1002,8 +1007,8 @@ add_make_list(2, c(3, 1)) # => list(5, 3)
 \end{lstlisting}}
 \caption{Call signature in L1: x: \sD, y: \D $\rightarrow$ \lT{D}.}\label{fig:exL1}\end{figure}
 
-Let us begin as we did in L0 by looking at the breakdown of argument signatures in L1.
-Consult Table~\ref{tab:L1top10arg}.
+Let us begin as we did in L0 by looking at the breakdown of argument
+signatures in L1.  Consult Table~\ref{tab:L1top10arg}.
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrr}
@@ -1026,9 +1031,16 @@ Consult Table~\ref{tab:L1top10arg}.
 \label{tab:L1top10arg}
 \end{table}
 
-From Table~\ref{tab:L1top10arg}, we see that all of the most frequent argument signatures are monomorphic even though we increased the precision of the types.
-We see that scalars actually feature quite prominently, which is encouraging: this supports an idea that an explicit scalar annotation or type may be useful {\it for programmers}---indeed, such an annotation would also be helpful for compiler optimizations (e.g., scalar-only values need not have vectors allocated to store them).
-We also see that matrices (\M{D}) are quite popular, a testament to the versatility of the data structure, as they can easily be converted to vectors and data frames.
+From Table~\ref{tab:L1top10arg}, we see that all of the most frequent
+argument signatures are monomorphic even though we increased the precision
+of the types.  We see that scalars actually figure quite prominently, which
+is encouraging: this supports an idea that an explicit scalar annotation or
+type may be useful {\it for programmers}---indeed, such an annotation would
+be helpful for compiler optimizations (e.g., scalar-only values need not
+have vectors allocated to store them).  We also see that matrices (\M{D})
+are quite popular, a testament to the versatility of the data structure, as
+they can easily be converted to vectors and data frames.
+
 
 Now that we have a picture of how arguments look in L1, let's see: {\it how many L1 functions have more than one type signature?}
 The answer can be found in Figure~\ref{fig:L1funcounts}.
@@ -1039,20 +1051,17 @@ The answer can be found in Figure~\ref{fig:L1funcounts}.
 \label{fig:L1funcounts}\end{center}
 \end{figure}
 
-We see that we barely increased the polymorphism with our transition to L1, despite the far richer type information.
-The biggest outlier here is indeed \%$>$\%, as was the case in {\bf L0}.
-Otherwise, the shape is very similar.
-In short: even though {\L1} types are more expressive, the breakdown of per-function polymorphism is largely unchanged from {\bf L0}.
+We see that we barely increased the polymorphism with our transition to L1,
+despite the far richer type information.  The biggest outlier here is indeed
+\%$>$\%, as was the case in {\bf L0}.  Otherwise, the shape is very similar.
+In short: even though {\L1} types are more expressive, the breakdown of
+per-function polymorphism is largely unchanged from {\bf L0}.
 
-As we were in L0, we are curious to know how argument-level polymorphism looks in L1.
-Refer to Table~\ref{tab:toppolyL1}.
+As we were in L0, we are curious to know how argument-level polymorphism
+looks in L1.  Refer to Table~\ref{tab:toppolyL1}.
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{lrl}
-  \hline
-Signature & Count & \% of All Signatures \\ 
-  \hline
+\begin{table}[ht]\centering\begin{tabular}{lrl}  \hline
+Signature & Count & \% of All Signatures \\   \hline
   \D, \M{D} & 4848 & 0.5\% \\ 
   \l, \lT{D} & 1843 & 0.2\% \\ 
   \sC, \sD & 1590 & 0.2\% \\ 
@@ -1062,11 +1071,9 @@ Signature & Count & \% of All Signatures \\
   \C, \D & 1019 & 0.1\% \\ 
   \sD, \sF & 1005 & 0.1\% \\ 
   \I, \sD & 997 & 0.1\% \\ 
-  \sC, \sF & 991 & 0.1\% \\ 
-   \hline
+  \sC, \sF & 991 & 0.1\% \\    \hline
 \end{tabular}
-\caption{Top polymorphic argument signatures in L1.}
-\label{tab:toppolyL1}
+\caption{Top polymorphic argument signatures in L1.}\label{tab:toppolyL1}
 \end{table}
 
 So what do these signatures mean?
@@ -1098,57 +1105,56 @@ So what do these signatures mean?
 	
 \end{itemize}
 
-With an understanding of argument polymorphism in L1, we wonder: {\it how many argument positions are polymorphic in L1?}
-Refer to Table~\ref{tab:argcountsL1}.
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{lrl}
-  \hline
-Signature Type & Count & Percentage \\ 
-  \hline
-Monomorphic & 864K & 95.3\% \\ 
-  Total Seen & 906K & --- \\ 
-   \hline
-\end{tabular}
-\caption{Argument position polymorphism in L1.}
-\label{tab:argcountsL1}
-\end{table}
-
-In spite of drastically increasing the precision of our types, we have actually {\it reduced} the amount of polymorphism.
-This suggests that with a good notion of subtyping, precise type annotations won't cause an undue increase in the polymorphism of the language.
+With an understanding of argument polymorphism in L1, we wonder: {\it how
+  many argument positions are polymorphic in L1?}  95.3\% of arguments are
+monomorphic.  In spite of drastically increasing the precision of our types,
+we have actually {\it reduced} the amount of polymorphism.  This suggests
+that with a good notion of subtyping, precise type annotations won't cause
+an undue increase in the polymorphism of the language.
 
 Before presenting L2, we will digress slightly and explore some of the ramifications of our transition from L0 to L1.
 
 %
 %
-\subsubsection{Scalars}
-\label{sec:scalars}
+\subsubsection{Scalars}\label{sec:scalars}
 
-It seems that there is a place for a scalar annotation in R.
-We saw in this section that strictly scalar values appear quite frequently, making up some of the most frequently occurring argument signatures.
-In fact, \PERCSCALARMONO of arguments have a strictly scalar monomorphic signature.
-This suggests that such a distinction would more accurately capture current use of the language, and would also be beneficial to future implementations which can perform optimizations based on the type (e.g., not vectorizing scalar-only values).
+It seems that there is a place for a scalar annotation in R.  We saw in this
+section that strictly scalar values appear quite frequently, making up some
+of the most frequently occurring argument signatures.  In fact,
+\PERCSCALARMONO of arguments have a strictly scalar monomorphic signature.
+This suggests that such a distinction would more accurately capture current
+use of the language, and would also be beneficial to future implementations
+which can perform optimizations based on the type (e.g., not vectorizing
+scalar-only values).
 
 %
 %
 \subsubsection{Object-Oriented Programming in R}
 \label{sec:S3S4R5}
 
-There is something more to be said about the \l type, namely that it is sometimes linked to (one of) R's takes on object-oriented programming.
-R has three object systems: S3, S4, and R5, and S3 objects will often manifest themselves with this signatures in L1.
-An S3 object is any value with a ``class'' attribute, and indeed many of these tend to be lists.
-For example, an S3-style ``Point'' might be a list with an entry for each dimension in the point, with a ``class'' attribute set to ``Point''.
-When these S3 objects have contents with a variety of types, their L1 type will appear as \l, which leaves something to be desired:
-Our next type system, L2, will remedy this.
+There is something more to be said about the \l type, namely that it is
+sometimes linked to (one of) R's takes on object-oriented programming.  R
+has three object systems: S3, S4, and R5, and S3 objects will often manifest
+themselves with this signatures in L1.  An S3 object is any value with a
+``class'' attribute, and indeed many of these tend to be lists.  For
+example, an S3-style ``Point'' might be a list with an entry for each
+dimension in the point, with a ``class'' attribute set to ``Point''.  When
+these S3 objects have contents with a variety of types, their L1 type will
+appear as \l, which leaves something to be desired: Our next type system,
+L2, will remedy this.
 
 %
 %
 \subsubsection{\C, \I, \D Polymorphism}
-Another significant source of apparently strange polymorphism is the character, integer, double polymorphism.
-Figure~\ref{fig:chardbl} lays out an example of this polymorphic signature, showing that lists and vectors can be accessed by strings as well as numerics.
-One could conceive of an ``index'' type to capture this, but there are certain limitations to such a type, as such an ``index'' cannot be incremented as it could be a string.
-An even more sophisticated dependent type system could capture this, but it's far from clear if such a sophisticated type system would be for a language like R.
+Another significant source of apparently strange polymorphism is the
+character, integer, double polymorphism.  Figure~\ref{fig:chardbl} lays out
+an example of this polymorphic signature, showing that lists and vectors can
+be accessed by strings as well as numerics.  One could conceive of an
+``index'' type to capture this, but there are certain limitations to such a
+type, as such an ``index'' cannot be incremented as it could be a string.
+An even more sophisticated dependent type system could capture this, but
+it's far from clear if such a sophisticated type system would be for a
+language like R.
 
 One other possible explanation for this polymorphism is the ``date'' data type.
 In R, dates are often represented as either strings or numbers, and they are widely used.
@@ -1164,8 +1170,12 @@ Unfortunately, the format of dates in R is not standardized.
 That said, translating between date representations is straightforward.
 As most dates are classes, L2 will be able to capture their use.
 
-Throughout this section, we have seen that even though we substantially increased the precision of our type annotations, we have not increased the amount of polymorphism that we observe.
-The transition from L0 to L1 revealed some interesting patterns that L1 cannot quite capture---for these, we will need to appeal to the class and attributes of values, which are incorporated into {\bf L2}, discussed next.
+Throughout this section, we have seen that even though we substantially
+increased the precision of our type annotations, we have not increased the
+amount of polymorphism that we observe.  The transition from L0 to L1
+revealed some interesting patterns that L1 cannot quite capture---for these,
+we will need to appeal to the class and attributes of values, which are
+incorporated into {\bf L2}, discussed next.
 
 %
 %
