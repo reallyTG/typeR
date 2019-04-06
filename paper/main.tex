@@ -91,6 +91,7 @@
 \newcommand{\sE}{\ensuremath{\small{\mathtt E}}\xspace} % Env
 \renewcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
 \newcommand{\sN}{\ensuremath{\small{\mathtt N}}\xspace}     % Null
+%\renewcommand{\l}{\ensuremath{\small L<{\mathtt ?}>}\xspace}     % List
 \renewcommand{\l}{\ensuremath{\small\underline{\mathtt ?}}\xspace}     % List
 \newcommand{\sD}{\ensuremath{\small{\mathtt D}}\xspace} % Double
 \newcommand{\sI}{\ensuremath{\small{\mathtt I}}\xspace} % Integer
@@ -115,12 +116,12 @@ but is not well suited to generating performant code or catching programming
 errors.  In particular, R has no type annotations and all operations are
 dynamically checked at runtime. The starting point for our work is the
 question: \emph{what could a static type system for R look like?}  To answer
-that question we study the polymorphism that is present in \RLOC lines of R
+it, we study the polymorphism that is present in \RLOC lines of R
 code spread among some \PACKAGES packages, written over a
 period of over \YEARS years by thousands of programmers.  We perform a dynamic
 analysis, leveraging tests and use-cases, to determine the level of
 polymorphism that is present in the code. We do this for several potential
-notions of types. Our result suggest that polymorphism is important in some
+notions of types. Our results suggest that polymorphism is important in some
 key parts of the system but that relatively simple type annotations could be
 used to capture most of the interesting cases.
 
@@ -140,7 +141,7 @@ apply to domain-specific languages, languages designed for and by a specific
 group of users to solve very specific needs. This is the case of the data
 science language R.
 
-R and its ancestor S are languages designed, implemented and maintained by
+R and its ancestor S are languages designed, implemented, and maintained by
 statisticians. Originally they were designed as glue languages, languages
 that would allow to read data into vectors and call statistical routines
 written in Fortran. Over three decades, the languages became widely used
@@ -171,9 +172,9 @@ optional type system that would allow us to capture as much of behavior of
 library functions as possible while remaining easy to understand for
 end-users and library developers alike.
 
-This papers is a data-driven study of what a type system for the R language
-could look like. Longer term, our intention is to propose changes to
-language, but for any changes to be accepted by the user community, they
+This paper is a data-driven study of what a type system for the R language
+could look like. Our intention is to propose changes to the
+language, and for any changes to be accepted by the user community they
 must clearly benefit the language without endangering backwards
 compatibility. Our goal is thus to find a compromise between simplicity and
 usefulness; the proposed type system should cover most common programming
@@ -199,8 +200,8 @@ The contributions of this paper are thus as follows:
   signatures of \PACKAGES widely used and actively maintained R packages.
 \item A tracing and analysis pipeline that extends a previously published
   test generation tool named \genthat.
-\item Manual analysis of 100 functions to validate the dynamic analysis
-  results.
+\item A set of type annotations that captures how programmers use types
+in existing R code.
 \end{itemize}
 
 One threat to validity of our work is that we rely on dynamic analysis, so
@@ -280,7 +281,7 @@ the reference count on that object is 1.  This semantics gives R a
 functional flavor while allowing updating in place within loops (the first
 update copies, subsequent updates are performed on the copy). Arguments to
 functions are evaluated only when needed, they are bundled in so-called
-promises which package the original expression (as an AST), its environment
+promises which package the original expression (as an abstract syntax tree, or AST), its environment
 as well as the result of evaluating the expression. Promises can be
 leveraged for meta-programming as it is possible to retrieve the text of a
 promise and evaluate that in a different environment.
@@ -296,7 +297,7 @@ be.
 
 R has one builtin notion of type that can be queried by the \k{typeof}
 function. Over the years, programmers have found the need for a richer type
-structure and have added attributes. The best way to think of attributes is
+structure and have added {\it attributes}. The best way to think of attributes is
 as an optional map from name to values that can be attached to any object.
 Attributes are used to encode various type structures. They can be queried
 with functions such as \k{attributes} and \k{class}.
@@ -761,10 +762,9 @@ but immediately transforms it (transpose, with {\tt t}) into a matrix.  As
 an idea, matrix/vector polymorphism seems sensible, as mathematically
 vectors {\it are} one-dimensional matrices.  R echoes this by making conversion between the two
 types easy: \code{as.vector(m)} flattens a matrix \code{m} into a vector
-(e.g., \code{as.vector(matrix(2, 2, 2)) == c(2, 2, 2, 2)}), and
+(e.g., \code{as.vector(matrix(1, 2))} is equivalent to \code{c(1, 1)}), and
 \code{as.matrix(v)} builds a {\tt length(v) x 1} matrix (e.g.,
-\code{as.matrix(c(1, 2)) == matrix(data=c(1, 2))}).  \AT{TODO fix line break
-  in code at end of last sentence}
+\code{as.matrix(c(1, 2))} is equivalent to \code{matrix(data=c(1, 2))}). 
   
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 tee <- function (x, theta, D1, D2, phi)  {
@@ -808,8 +808,8 @@ At {\bf L0}, the type system is mostly aligned with the types of the core langua
 
 Across all of the arguments that we've observed, the vast majority are monomorphic.
 Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurring argument signatures.
+
 \begin{table}[ht]
-\label{tab:L0top10arg}
 \centering
 \begin{tabular}{lrr}
   \hline
@@ -829,6 +829,7 @@ Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurri
    \hline
 \end{tabular}
 \caption{Most frequent argument signatures in {\bf L0}.}
+\label{tab:L0top10arg}
 \end{table}
 
 We see that doubles are the most common argument type, which is not entirely surprising as doubles are the backbone of any numeric data.
@@ -865,7 +866,7 @@ Given that, we find it unsurprising that the function is so polymorphic.
 Having had a taste for function-level polymorphism, we will now explore common patterns in argument-level polymorphism.
 For this, refer to Table~\ref{tab:L0toppoly}.
 
-\begin{table}[ht]\label{tab:L0toppoly}\centering
+\begin{table}[ht]\centering
 \begin{tabular}{lrr}  \hline
 Signature & Count & \% of All Signatures \\
 \hline
@@ -882,6 +883,7 @@ Signature & Count & \% of All Signatures \\
    \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures for the L0 type system.}
+\label{tab:L0toppoly}
 \end{table}
 
 Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
@@ -920,7 +922,7 @@ This matches almost exactly with the language as it is today, as {\bf L0} is in 
 The next question we address is: {\it just how pervasive is this argument polymorphism?}
 Refer to Table~\ref{tab:L0argcounts}.
 
-\begin{table}[ht]\label{tab:L0argcounts}\centering
+\begin{table}[ht]\centering
 \begin{tabular}{lrl}
   \hline
 Signature Type & Count & Percentage \\ 
@@ -930,6 +932,7 @@ Monomorphic & 852K & 94\% \\
    \hline
 \end{tabular}
 \caption{Argument position polymorphism in L0.}
+\label{tab:L0argcounts}
 \end{table}
 
 From Table~\ref{tab:L0argcounts} we see that, with our definition of subtyping on L0 and other simplifications we made, an overwhelming amount of argument polymorphism is accounted for.
@@ -973,7 +976,6 @@ add_make_list(2, c(3, 1)) # => list(5, 3)
 Let us begin as we did in L0 by looking at the breakdown of argument signatures in L1.
 Consult Table~\ref{tab:L1top10arg}.
 \begin{table}[ht]
-\label{tab:L1top10arg}
 \centering
 \begin{tabular}{lrr}
   \hline
@@ -992,6 +994,7 @@ Consult Table~\ref{tab:L1top10arg}.
    \hline
 \end{tabular}
 \caption{Most frequent argument signatures in L1.}
+\label{tab:L1top10arg}
 \end{table}
 
 From Table~\ref{tab:L1top10arg}, we see that all of the most frequent argument signatures are monomorphic even though we increased the precision of the types.
@@ -1016,7 +1019,6 @@ As we were in L0, we are curious to know how argument-level polymorphism looks i
 Refer to Table~\ref{tab:toppolyL1}.
 
 \begin{table}[ht]
-\label{tab:toppolyL1}
 \centering
 \begin{tabular}{lrl}
   \hline
@@ -1035,6 +1037,7 @@ Signature & Count & \% of All Signatures \\
    \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in L1.}
+\label{tab:toppolyL1}
 \end{table}
 
 So what do these signatures mean?
@@ -1070,7 +1073,6 @@ With an understanding of argument polymorphism in L1, we wonder: {\it how many a
 Refer to Table~\ref{tab:argcountsL1}.
 
 \begin{table}[ht]
-\label{tab:argcountsL1}
 \centering
 \begin{tabular}{lrl}
   \hline
@@ -1081,6 +1083,7 @@ Monomorphic & 864K & 95.3\% \\
    \hline
 \end{tabular}
 \caption{Argument position polymorphism in L1.}
+\label{tab:argcountsL1}
 \end{table}
 
 In spite of drastically increasing the precision of our types, we have actually {\it reduced} the amount of polymorphism.
@@ -1157,7 +1160,6 @@ As per the discussion in Section~\ref{sec:L2def}, we omit builtin classes in ord
 As in {\bf L0} and {\bf L1}, we will begin by showing a breakdown of the top argument signatures in Table~\ref{tab:L2top10arg}.
 
 \begin{table}[ht]
-\label{tab:L2top10arg}
 \centering
 \begin{tabular}{lrl}
   \hline
@@ -1176,6 +1178,7 @@ Signature & Count & \% of All Signatures \\
    \hline
 \end{tabular}
 \caption{Most frequent argument signatures in {\bf L2}.}
+\label{tab:L2top10arg}
 \end{table}
 
 As you can see, the most frequent signatures in {\bf L1} are represented here.
@@ -1209,7 +1212,6 @@ Table~\ref{tab:toppolyL2} has the breakdown.
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Fri Apr  5 09:50:59 2019
 \begin{table}[ht]
-\label{tab:toppolyL2}
 \centering
 \begin{tabular}{lrl}
   \hline
@@ -1228,6 +1230,7 @@ Signature & Count & \% of All Signatures \\
    \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in {\bf L2}.}
+\label{tab:toppolyL2}
 \end{table}
 
 When comparing this table with Table~\ref{tab:toppolyL1}, we see that by-and-large the same types are represented.
@@ -1236,10 +1239,9 @@ In the 10th signature, we see a function with attribute {\tt srcref}: functions 
 As for why such a function would share an argument position with scalar double, there are other representations of open files, and numbers feature among them.
 
 Now that we have seen the most frequently appearing argument signatures, we ask: {\it how many argument positions are polymorphic?}.
-Table~\ref{tbl:argcountsL2} has the answer.
+Table~\ref{tab:argcountsL2} has the answer.
 
 \begin{table}[ht]
-\label{tab:argcountsL2}
 \centering
 \begin{tabular}{lll}
   \hline
@@ -1250,6 +1252,7 @@ Signature Type & Count & Percentage \\
    \hline
 \end{tabular}
 \caption{Account of {\it argument} polymorphism in {\bf L2}.}
+\label{tab:argcountsL2}
 \end{table}
 
 Surprisingly, even with the added precision of classes and attributes, there is still a relatively small amount of argument-level polymorphism in {\bf L2}.
@@ -1279,7 +1282,6 @@ Note that we are in the context of {\bf L0}, here, to highlight current language
 % latex table generated in R 3.5.1 by xtable 1.8-3 package
 % Thu Mar 28 18:15:26 2019
 \begin{table}[ht]
-\label{tab:packagepolysize}
 \centering
 \begin{tabular}{lrrr}
   \hline
@@ -1293,6 +1295,7 @@ Note that we are in the context of {\bf L0}, here, to highlight current language
    \hline
 \end{tabular}
 \caption{5 of the most polymorphic packages (in {\bf L0}).}
+\label{tab:packagepolysize}
 \end{table}
 
 Now, what makes these so polymorphic?
@@ -1305,41 +1308,6 @@ This is a trend we have observed: {\it the most polymorphic functions in R are m
 It's highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
 It's also unclear how useful a type system would be if it {\it did} capture everything.
 Indeed, many of the packages discussed here are really designed with an \ANY-typed argument in mind (e.g., left-hand side of \%$>$\%), and restricting these functions should not be the goal of any static type system designed for a language after it has matured.
-
-%  magrittr & 4.16 &  \\
-%  types & 3.25 & Simple type annotations for R \\
-%  r6extended & 3.00 & Utilities extending barebones R6 package \\
-%  utils & 2.93 & Utilities for R developers \\
-%  zeallot & 2.85 & Metaprogramming package for assignment \\
-%  listviewer & 2.72 & R list visualizer \\
-%  proto & 2.60 &  \\
-%  apercu & 2.49 & Display a short view of a complex R value (list, vector, etc.) \\
-%  pipeR & 2.46 & Another pipe suite \\
-%  rethinker & 2.44 & RethinkDB client for R \\
-
-%% latex table generated in R 3.5.1 by xtable 1.8-3 package
-%% Thu Mar 28 16:01:37 2019
-%\begin{table}[ht]
-%\label{tab:bigpolyfuns}
-%\centering
-%\begin{tabular}{llrl}
-%  \hline
-%Package & Function & Size & Description \\
-%  \hline
-%  magrittr & \%$>$\% & 23.00 & Tidyverse pipe function \\
-%  magrittr & freduce & 17.67 & Apply a list of functions sequentially \\
-%  rlang & captureArgInfo & 16.50 & Capture arg info \\
-%  rlang & enquo & 16.00 & Create quosure \\
-%  rlang & get\_expr & 15.00 & Extract expression \\
-%  data.table & replace\_dot\_alias & 13.50 & Deals with '.' in passed expr \\
-%  tibble & strip\_dim & 13.00 & Removes 'dim' attribute \\
-%  data.table & copy & 11.00 & Create copy of passed value \\
-%  htmlwidgets & shouldEval & 11.00 & Eval passed value depending on tag \\
-%  magrittr & \%$<$$>$\% & 11.00 & Like \%$>$\% but assigns \\
-%   \hline
-%\end{tabular}
-%\caption{10 most polymorphic functions.}
-%\end{table}
 
 %
 %
@@ -1354,7 +1322,7 @@ Tidyverse, by far the most popular package suite in R, owes some of its success 
 An example of that syntax is \%$>$\%, and indeed this function was highly exercised by over 100 other packages.
 
 %
-%  ls trace_export_promises > promise_packages_FINAL.txt
+%  
 %
 %
 %
@@ -1409,7 +1377,7 @@ f(42, z=2, y=4) # in f, will perform g(42, z=2, y=4)
 \end{lstlisting}}\caption{Simple ... example.}\label{fig:dotdotdot}\end{figure}
 
 Our analysis ignores these extra arguments, instead it simply flags functions which have a {\tt ...} in their definition.
-If building an annotation for such a function, the ... argument is always ascribed the \l type, as it can indeed be inhabited by anything.
+If building an annotation for such a function, the {\tt ...} argument is always ascribed the \l type, as it can indeed be inhabited by anything.
 
 Ultimately, to determine which kinds of whole function signatures would be useful, a more sophisticated analysis is required, which would need to develop a correlation between function arguments and return types.
 There may also be other interesting per-function trends which our current analysis does not pick up on that are hidden in our data.
@@ -1479,11 +1447,11 @@ Based on our analysis of the data, we conclude that {\it a type system such as} 
 \section{Related Work}
 
 The idea of measuring polymorphism via some program analysis isn't new.
-For instance, some work~\cite{aakerblom2015measuring} ... .
+For instance, some work~\cite{aakerblom2015measuring} measures the polymorphism of Python programs, but with a slightly different goal than ours: authors seek to assess the need for expressiveness in type systems that are retrofit onto dynamic languages.
+Interestingly, they draw some similar conclusions to us: they find that monomorphism is far more frequent than polymorphism, and even find that typically very few functions are very highly polymorphic.
 
-More generally, there is an existing literature on analyzing usage patterns
-of language features.  
-For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, ...
+More generally, there is an existing literature on analyzing usage patterns of language features.  
+For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, 
 
 Other analysis work~\cite{milojkovic2017duck} ... .
 
@@ -1508,29 +1476,27 @@ As more and more domain-experts, who may not have a traditional programming back
 The R programming language is an example of this.
 R was developed to foster an easy and interactive programming experience, and the language is not very restrictive and highly expressive.
 Unfortunately, these liberties are not without a cost: debugging R code is challenging, and given how easy it is to do anything in the language, it's no surprise that it's easy to make a mistake.
-Further, R is a very slow, and the poor performance is quickly becomes prohibitive if programmers are not careful when coding analysis for large data sets.
+Further, R is very slow, and the poor performance quickly becomes prohibitive if programmers are not careful when coding analysis for large data sets.
 
-Types are a perfect way to both make the language easier to debug and make it run faster.
+Types are a perfect way to both make a language easier to debug and make it run faster.
 For debugging, some level of static type enforcement would give programmers more direct feedback if they are misusing values.
 As for performance, type information is crucial for many optimizations performed by JITs and other language implementations.
-If we're interested in developing an easily adoptable type system for this language, we must ensure that it captures how existing code is being used.
+If we're interested in developing an easily adoptable type system for R language, we must ensure that it captures how existing code is being used.
 That is precisely what we have accomplished in this work.
 
 Throughout this paper, we have built up an understanding of types and polymorphism in R by analyzing the usage of types across a large corpus of R code.
 With this knowledge, we highlighted some interesting patterns of type usage in the language, and developed a number of type systems with differing levels of granularity to describe and capture the use of types by programmers in existing code.
-Leveraging the \genthat~\cite{issta18} tool, we analyzed tests, examples, and vignettes of over ten thousand packages on CRAN (over \PERCENTCRAN of available packages), and traced over 15 million lines of R code.
-Analyzing package examples mitigates the lack of end-user R code, 
+We analyzed the tests, examples, and vignettes of over ten thousand packages on CRAN (over \PERCENTCRAN of available packages), and traced over 15 million lines of R code.
 
-\AT{Need something more, stuff commented in source.}
-
-%Our final type system, {\bf L2}, consolidated information from 3 of R's main reflective functions (\code{typeof}, \code{class}, and \code{attributes}), as well as some extra information about certain values (e.g. the type of list elements, and the length of vectorized types) to be as precise as reasonable.
-%We found that a type system such as {\bf L2} captures an overwhelming majority (>90\%) of argument-level type usage, and in it a vast majority ($\approx$80\%) of functions were monomorphic.
-%Among other interesting data points, we discovered that many argument positions with a vectorized type in R are monomorphic {\it and strictly scalar}, suggesting that types or annotations for scalar-only values is useful.
+We believe that a type system akin to {\bf L2} is well suited for R, as it is expressive enough to capture current use of the language without being so specific as to make everything polymorphic.
+In fact, the levels of polymorphism observed were rather low overall, with only 6\% of function arguments and 21\% of functions being polymorphic.
+Importantly, {\bf L2} carries enough information to be useful to R implementations and IDEs:
+language implementations would surely benefit from statically-available type information, and IDEs could use the rich type and attribute information to give programmers immediate feedback during the programming process.
 
 %
 %
 %
 \bibliographystyle{boilerplate/ACM-Reference-Format}
-\bibliography{bib/biblio,bib/jv,bib/r,bib/new}
+\bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 \end{document}
 
