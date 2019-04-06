@@ -1468,30 +1468,42 @@ for R.
 %
 \section{Conclusion}
 
-Truly understanding how programmers use a programming language is critical to building usable and effective language features.
-When working on a general purpose languages (such as JavaScript), we as programmers can appeal to our own intuitions, as many of us have had at least some interaction with said languages.
-This intuition does not extend to domain-specific languages (DSLs), which are not really designed for members of our community.
-As more and more domain-experts, who may not have a traditional programming background, are exposed to the practice of programming, DSLs are developed to suit their needs.
+Truly understanding how programmers use a programming language is critical
+to building usable and effective language features.  When working on a
+general purpose languages (such as JavaScript), we as programmers can appeal
+to our own intuitions, as many of us have had at least some interaction with
+said languages.  This intuition does not extend to domain-specific languages
+(DSLs), which are not really designed for members of our community.  
 
-The R programming language is an example of this.
-R was developed to foster an easy and interactive programming experience, and the language is not very restrictive and highly expressive.
-Unfortunately, these liberties are not without a cost: debugging R code is challenging, and given how easy it is to do anything in the language, it's no surprise that it's easy to make a mistake.
-Further, R is very slow, and the poor performance quickly becomes prohibitive if programmers are not careful when coding analysis for large data sets.
+The R programming language is an example of this.  R was developed to foster
+an easy and interactive programming experience. For this reason R is very
+flexible and expressive.  Unfortunately, these liberties come at a cost:
+debugging R code is challenging. Further, performance quickly becomes
+prohibitive if programmers are not careful.
 
-Types are a perfect way to both make a language easier to debug and make it run faster.
-For debugging, some level of static type enforcement would give programmers more direct feedback if they are misusing values.
-As for performance, type information is crucial for many optimizations performed by JITs and other language implementations.
-If we're interested in developing an easily adoptable type system for R language, we must ensure that it captures how existing code is being used.
-That is precisely what we have accomplished in this work.
+Types can make a language easier to debug and run faster.  For debugging,
+some level of static type enforcement would give programmers more direct
+feedback.  As for performance, type information enables optimizations. If we
+are interested in developing an easily adoptable type system for R, we must
+ensure that it captures how existing code is being used.  
 
-Throughout this paper, we have built up an understanding of types and polymorphism in R by analyzing the usage of types across a large corpus of R code.
-With this knowledge, we highlighted some interesting patterns of type usage in the language, and developed a number of type systems with differing levels of granularity to describe and capture the use of types by programmers in existing code.
-We analyzed the tests, examples, and vignettes of over ten thousand packages on CRAN (over \PERCENTCRAN of available packages), and traced over 15 million lines of R code.
+Throughout this paper, we have built up an understanding of types and
+polymorphism in R by analyzing the usage of types across a large corpus of
+code.  We highlighted some patterns of type usage, and developed a number of
+type systems with differing levels of granularity. We analyzed the tests,
+examples, and vignettes of over ten thousand packages on CRAN (over
+\PERCENTCRAN of available packages), and traced over 15 million lines of R
+code.
 
-We believe that a type system akin to {\bf L2} is well suited for R, as it is expressive enough to capture current use of the language without being so specific as to make everything polymorphic.
-In fact, the levels of polymorphism observed were rather low overall, with only 6\% of function arguments and 21\% of functions being polymorphic.
-Importantly, {\bf L2} carries enough information to be useful to R implementations and IDEs:
-language implementations would surely benefit from statically-available type information, and IDEs could use the rich type and attribute information to give programmers immediate feedback during the programming process.
+We believe that a type system akin to {\bf L2} is well suited for R, as it
+is expressive enough to capture current use of the language without being so
+specific as to make everything polymorphic.  In fact, the levels of
+polymorphism observed were rather low overall, with only 6\% of function
+arguments and 21\% of functions being polymorphic.  Importantly, {\bf L2}
+carries enough information to be useful to R implementations and IDEs:
+language implementations would surely benefit from statically-available type
+information, and IDEs could use the rich type and attribute information to
+give programmers immediate feedback during the programming process.
 
 %
 %
