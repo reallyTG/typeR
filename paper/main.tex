@@ -1414,12 +1414,9 @@ This signifies that {\bf L2} captures the vast majority of already existing poly
 %
 \subsection{Function Polymorphism}
 
-\AT{Working through this now.}
+We saw that argument-level signatures and polymorphism are insufficient to capture some interesting patterns at the function level.
+For instance, consider Figure~\ref{fig:funanno}.
 
-Now we wonder: {\it what kinds of function-level annotations are useful?}
-
-For instance, should we link argument types with return types?
-Consider Figure~\ref{fig:funanno}.
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 iden <- function(x) x;
 
@@ -1432,31 +1429,13 @@ f(list(1, 2, 3)) # x: list<double> -> list<double>
 # [2] x: {double -> double, x: list<double> -> list<double>}
 \end{lstlisting}}\caption{Simple identity function.}\label{fig:funanno}\end{figure}
 
-Harkening back to our discussion of character/real polymorphism, we mentioned that we might want to consider such a type signature to be a list or vector index only if a list or vector was present as another argument.
-Now, this may be moving well beyond the purview of R programmers, but perhaps there is value in such a scenario, particularly if we include even {\it more} information in a type system.
-For example, say we have a function which takes in a 2D point list.
-There are a plethora of useful annotations, here, and of varying degrees of granularity.
-We might want simply a "list" annotation, or we might want a "list<double>" annotation to be more specific.
-In addition, though, we might want to know if the list has a names attribute, yielding "list<double>@names".
-Then, perhaps it would be useful to know what the names were, so "list<double>@names\{x, y\}".
+In certain cases, language implementations could benefit from knowing the return type of a function when the function is fed certain arguments.
+In Figure~\ref{fig:funanno}, we can assign the function a more sophisticated signature if we don't simply collapse the observed argument signatures element-wise.
+This gets more interesting with attributes, as we might want to annotate a function to communicate that it adds an attribute to whatever the list of attributes of its input value.
 
-Now, depending on the granularity of individual argument annotations, we might want to link certain arguments together.
-Consider the code snippet in Figure~\ref{fig:indexof}.
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-access <- function(l, i) l[[i]]
-
-L <- list(a=1, b=2, c=3)
-access(L, 2) # => 2
-access(L, "c") # => 3
-
-# possible annotations:
-# [1] l: list, i: {character, real} -> real
-# [2] l: list<double>, i: {character, real} -> real
-# [3] l: list<X>, i: {character, real} -> X
-# [4] l: list<double>@names, i: index -> double
-# [5] l: list<double>@names{a, b, c}, i: index@indexOf(l) -> double
-\end{lstlisting}}\caption{Linking annotations.}\label{fig:indexof}\end{figure}
-The annotations could be used to generate code to check for compliance, like a contract.
+One drawback of function-level polymorphism is that functions with many arguments tend to be sensitive to small changes in argument types, which inflates the number of unique signatures observed.
+We saw this in Figure~\ref{fig:L2funcounts}, where the distribution of signatures per function was roughly in line with those from Figures~\ref{fig:L0funcounts} and~\ref{fig:L1funcounts} but the peak (i.e., the function with the most signatures) was far more pronounced.
+That said, overall the number of polymorphic functions did not increase by too large a margin considering the added expressivity of {\bf L2}'s types.
 
 %
 %
