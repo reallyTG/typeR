@@ -1303,12 +1303,12 @@ Now, what makes these so polymorphic?
 The first package, magrittr, is one that we discussed earlier in the context of its pipe \%$>$\% function. 
 It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
 In fact, all but knitLatex implement some form of metaprogramming:
-oshka metaprograms in the same style as Tidyverse, scatterD3 metaprograms on plot objects, and yaml converts R expressions to YAML expressions.
+the oshka package metaprograms in the same style as Tidyverse, the scatterD3 package metaprograms on plot objects, and the yaml package converts R expressions to YAML expressions.
 This is a trend we have observed: {\it the most polymorphic functions in R are metaprogramming their arguments}.
 
 It's highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
 It's also unclear how useful a type system would be if it {\it did} capture everything.
-Indeed, many of the packages discussed here are really designed to take in anything for particular arguments (e.g., left-hand side of \%$>$\%), and restricting these functions should not be the goal of any static type system designed after a language has matured.
+Indeed, many of the packages discussed here are really designed with an \ANY-typed argument in mind (e.g., left-hand side of \%$>$\%), and restricting these functions should not be the goal of any static type system designed for a language after it has matured.
 
 %  magrittr & 4.16 &  \\
 %  types & 3.25 & Simple type annotations for R \\
@@ -1475,25 +1475,30 @@ For instance, the dynamic features of Smalltalk were analyzed in some work~\cite
 Other analysis work~\cite{milojkovic2017duck} ... .
 
 %
-%. nohup parallel -j55 -a promise_reduce_me.txt Rscript mar_new_processing_files/promise_processed_reduced_to_new_form.R &
+%.
 %
 %
 %
 %
 \section{Conclusions and Future Work}
 
-OUTLINE
+Truly understanding how programmers use a programming language is critical to building usable and effective language features.
+When working on a general purpose language such as JavaScript, we as programmers can appeal to our own intuitions, as many of us have had at least some interaction with the language.
+This intuition does not extend to domain-specific languages (DSLs), which are not really designed for members of our community.
+DSLs are gaining in popularity as more and more domain-experts, who may not have a traditional programming background, are exposed to the practice of programming, and the needs of these experts differ from our own.
 
-Ours is a community which strives to improve the lives of programmers, and understanding programmers is key to ensure that our vision aligns with their needs.
-Increasingly, programming is becoming accessible to a wider audience, with many domain-specific languages being developed to address the concerns of specialists such as analysts, mathematicians, and data scientists.
-Designing systems and languages to meet the specific needs of these domain experts can prove to be challenging, as our own intuitions as (often) classically-trained programmers may fail us, and in many cases they know their own needs better than we do.
 
-One particularly interesting language which falls into this category, and indeed the object of this work, is R.
-R is a language made by statisticians, for statisticians. 
-The language itself is fascinating: it is a vectorized, dynamically
-typed, lazy, and functional, with limited side-effects, extensive
-reflective facilities and retrofitted object-oriented programming support.
-Understanding how these disparate and sometimes adversarial features interact is critical to improving or otherwise further developing the language.
+
+%Ours is a community which strives to improve the lives of programmers, and understanding programmers is key to ensure that our vision aligns with their needs.
+%Increasingly, programming is becoming accessible to a wider audience, with many domain-specific languages being developed to address the concerns of specialists such as analysts, mathematicians, and data scientists.
+%Designing systems and languages to meet the specific needs of these domain experts can prove to be challenging, as our own intuitions as (often) classically-trained programmers may fail us, and in many cases they know their own needs better than we do.
+%
+%One particularly interesting language which falls into this category, and indeed the object of this work, is R.
+%R is a language made by statisticians, for statisticians. 
+%The language itself is fascinating: it is a vectorized, dynamically
+%typed, lazy, and functional, with limited side-effects, extensive
+%reflective facilities and retrofitted object-oriented programming support.
+%Understanding how these disparate and sometimes adversarial features interact is critical to improving or otherwise further developing the language.
 
 In our work, we built up an understanding of R by analyzing the usage of types across a large corpus of R code.
 With this knowledge, we highlighted some interesting patterns of type usage, and developed a number of type systems with differing levels of granularity to describe and capture the use of types in the language.
