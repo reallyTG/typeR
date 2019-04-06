@@ -443,7 +443,7 @@ package to one hour.
 
 % https://www.r-pkg.org/downloaded
 \begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r|r|r@{}}\hline
-\bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts & \bf Calls Observed & \bf Calls Recorded \\
+\bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts & \bf Calls Observed & \bf Signatures Recorded \\
 \hline
 \tt Rcpp  & Seamless C++ integration & 2.2K & 4.2K & 25 & 55K & 340 \\
 \tt rlang & Functions for 'Tidyverse' & 7.0K & 6.1K & 122 & 3,924K & 8,422 \\
@@ -462,8 +462,8 @@ Figure~\ref{most} shows the ten most downloaded CRAN packages.  For each
 one, we list how many lines of R and C/C++ the packages contains.  We show
 the number of scripts that could be extracted from the package. Each script
 corresponds to either one use-case or a set of unit tests. We print the
-number of function calls that were observed by our infastructure, and the
-number of unique signatures that were recorded.
+number of function calls that were observed by our infrastructure, and the
+number of unique call signatures that were recorded. 
 
 Our infrastructure only retains unique argument/return combinations. Thus,
 while we observe large number of functions being called with different
@@ -471,7 +471,7 @@ values, the types of these function call are often similar. Over the entire
 corpus, we can see the relation between observed and recorded calls in
 Figure~\ref{recorded}.  The median number of observed calls is 82 and
 maximum is 19 million.  The median number of recorded signatures is 16 and
-the maxium is 8,422. These numbers are skewed by a number of scripts doing
+the maximum is 8,422. These numbers are skewed by a number of scripts doing
 very few calls before plunging into C code.
 
 \begin{figure}[htbp]\begin{center}
@@ -481,7 +481,7 @@ very few calls before plunging into C code.
 \end{figure}
 
 \newpage
-\section{Methods}
+\section{Methodology}
 
 In this section, we detail our methodology for collecting data.  Our aim is
 to observe arguments and return values of function calls, and from these
@@ -1451,7 +1451,8 @@ For instance, some work~\cite{aakerblom2015measuring} measures the polymorphism 
 Interestingly, they draw some similar conclusions to us: they find that monomorphism is far more frequent than polymorphism, and even find that typically very few functions are very highly polymorphic.
 
 More generally, there is an existing literature on analyzing usage patterns of language features.  
-For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, 
+For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, which aimed to see how often the highly dynamic capabilities of Smalltalk were used and in which kinds of projects.
+
 
 Other analysis work~\cite{milojkovic2017duck} ... .
 
@@ -1466,7 +1467,7 @@ Gradually-typed languages are becoming increasingly popular, with languages such
 %
 %
 %
-\section{Conclusions and Future Work}
+\section{Conclusion}
 
 Truly understanding how programmers use a programming language is critical to building usable and effective language features.
 When working on a general purpose languages (such as JavaScript), we as programmers can appeal to our own intuitions, as many of us have had at least some interaction with said languages.
