@@ -69,11 +69,11 @@
 \newcommand{\DATAPKGSPERC}{1.5\%\xspace}
 \newcommand{\METAARGCOUNT}{7,051\xspace}
 \newcommand{\NUMPOLYTYPEMONOCLASS}{1,357\xspace}
-\newcommand{\PERCSCALARMONO}{37.6\%\xspace}
+\newcommand{\PERCSCALARMONO}{38.2\%\xspace}
 
-\newcommand{\LZEROPERCPOLY}{17\%\xspace}
-\newcommand{\LONEPERCPOLY}{20.4\%\xspace}
-\newcommand{\LTWOPERCPOLY}{23\%\xspace}
+\newcommand{\LZEROPERCPOLY}{19\%\xspace}
+\newcommand{\LONEPERCPOLY}{18.1\%\xspace}
+\newcommand{\LTWOPERCPOLY}{21.3\%\xspace}
 
 \newcommand{\attr}[2]{\ensuremath{#1_{\mathtt{#2}}}\xspace}
 \newcommand{\attrclass}[3]{\ensuremath{#1^{\mathtt{#3}}_{\mathtt{#2}}}\xspace}
@@ -817,16 +817,17 @@ Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurri
   \hline
  Argument Signature & Count & Percentage \\ 
   \hline
-  \D & 69806 & 26.3\% \\ 
-  \l\ & 55311 & 20.8\% \\ 
-  \C & 27789 & 10.5\% \\ 
-  \L & 26230 & 9.9\% \\ 
-  \sF & 16806 & 6.3\% \\ 
-  \sN & 13976 & 5.3\% \\ 
-  \ANY & 9125 & 3.4\% \\ 
-  \I & 8971 & 3.4\% \\ 
-  \sS & 4748 & 1.8\% \\ 
-  \D, \I & 3256 & 1.2\% \\ 
+  \D & 269K & 29.7\% \\ 
+  \l & 193K & 21.3\% \\ 
+  \C & 96K & 10.6\% \\ 
+  \L & 83K & 9.2\% \\ 
+  \sF & 60K & 6.6\% \\ 
+  \sN & 47K & 5.2\% \\ 
+  \ANY & 31K & 3.4\% \\ 
+  \I & 30K & 3.2\% \\ 
+  \sS & 16K & 1.7\% \\ 
+  \D, \l & 10K & 1.1\% \\ 
+   \hline
    \hline
 \end{tabular}
 \caption{Most frequent argument signatures in {\bf L0}.}
@@ -838,11 +839,11 @@ Recall that in {\bf L0}, data frames will appear as lists.
 The \ANY type is not an R type per se: we ascribe such a type to arguments which were {\it always} unevaluated across all calls.
 As it happens, many R functions metaprogram on some of their arguments, and this metaprogramming does not force the argument promise, and if this metaprogramming is always performed in every recorded call we will ascribe the \ANY type, as we cannot say what the argument {\it is} without possibly forcing a promise.
 The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of metaprogramming; we will discuss it in a little more detail shortly.
+Interestingly, a polymorphic attribute signature \D, \l is among the top 10 overall---this is the vector and list polymorphism (shown in Figure~\ref{fig:listvec}) made manifest.
 
-One of our chief goals is to generate useful function signatures.
-After tracing and capturing unique signatures from function call sites, recall from Section~\ref{sec:autosub} that we collapse some of the more obvious ones together.
-After this, we are curious to know: {\it how many functions have more than one signature?}
-Figure~\ref{fig:L0funcounts} has the answer with a breakdown by function.
+Now that we've seen the most common attribute-level signatures, we will turn our attention to function-level polymorphism.
+Indeed, one of our goals is to generate useful function signatures, so we ask: {\it how many functions have more than one recorded signature?}
+Figure~\ref{fig:L0funcounts} has the answer, with a breakdown by function.
 
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{L0_by_fun}
@@ -852,33 +853,35 @@ Figure~\ref{fig:L0funcounts} has the answer with a breakdown by function.
 
 Here, we see that the vast majority of functions are monomorphic in L0.
 That said, there are a few functions with a disproportionately large number of signatures.
-One such function is the magrittr package's pipe \%$>$\%, which is used to implement a kind of currying (as per discussion in Section~\ref{sec:Impl}).
+One such function is the magrittr package's pipe \%$>$\%, which is used to implement a kind of currying (as per discussion in Section~\ref{sec:Impl})---here, \%$>$\% has nearly 100 unique signatures!
 Many of the metaprogramming functions in the Tidyverse are quite sophisticated, and are designed with the explicit goal of being very usable.
 This usability maps to polymorphism in our analysis, so it's no surprise that a Tidyverse function features so prominently here.
 
-Another function with many signatures is the data.table package's [ function, which is overloaded for objects with data.table class.
+Another function with many signatures is the data.table package's [ function, which is a reimplementation of the square bracket operator for data.tables.
 This function has 16 formal arguments, and call configurations vary widely.
 Essentially, [ is {\it the} main function for data.tables, and performs very different tasks based on which arguments are provided.
 Two wildly different uses are:
 \code{DT[i, j, by]}, where columns \code{i} and \code{j} are accessed and grouped by \code{by}, and \code{DT[x == "some" & y > 42]}, which selects all rows who's \code{x} column is the string \code{"some"} and who's \code{y} column is greater than \code{42}.
 Given that, we find it unsurprising that the function is so polymorphic.
 
-To get an idea of the most common forms of argument-level polymorphism, we refer toTable~\ref{tab:L0toppoly}.
+Having had a taste for function-level polymorphism, we will now explore common patterns in argument-level polymorphism.
+For this, refer to Table~\ref{tab:L0toppoly}.
 
 \begin{table}[ht]\label{tab:L0toppoly}\centering
 \begin{tabular}{lrr}  \hline
 Signature & Count & \% of All Signatures \\
 \hline
-  \D, \l & 2799 & 1\% \\ 
-  \D, \sN & 2290 & 0.9\% \\ 
-  \C, \sN & 1527 & 0.6\% \\ 
-  \l, \sN & 1193 & 0.4\% \\ 
-  \C, \D & 858 & 0.3\% \\ 
-  \D, \sF & 413 & 0.2\% \\ 
-  \C, \I & 382 & 0.1\% \\ 
-  \I, \sN & 378 & 0.1\% \\ 
-  \C, \l & 371 & 0.1\% \\ 
-  \C, \sF & 334 & 0.1\% \\ 
+  \D, \l & 9566 & 1.1\% \\ 
+  \D, \sN & 8801 & 1\% \\ 
+  \C, \sN & 5590 & 0.6\% \\ 
+  \l, \sN & 5016 & 0.6\% \\ 
+  \C, \D & 2887 & 0.3\% \\ 
+  \D, \sF & 1608 & 0.2\% \\ 
+  \l, \sF & 1345 & 0.1\% \\ 
+  \C, \l & 1283 & 0.1\% \\ 
+  \C, \sF & 1168 & 0.1\% \\ 
+  \C, \I & 1104 & 0.1\% \\ 
+   \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures for the L0 type system.}
 \end{table}
@@ -903,10 +906,10 @@ Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 	L0 doesn't deal with classes, which are one of the topics of L2.
 
 	\item \D, \sF: this signature appears more strange than it is.
-	Many models, processes, simulations, etc. that are prevalent throughout R are are {\it parameterized}.
-	Some arguments with the \D, \sF signature are either parameters for a function (\D), or the function itself already constructed (\sF).
+	Many models, processes, simulations, etc. that are prevalent throughout R have parameters to fine-tune their behavior.
+	This pattern manifests itself here: some arguments with the \D, \sF signature are either parameters for a function (\D), or the function itself already constructed (\sF).
 	Others, such as the {\tt br} argument of the {\tt rtree} function in the {\tt ape} package, are either parameters for complex data generation processes (\D), or a function to be used during the generation (\sF).
-	It would appear that this pattern is used to make complex simulation, modelling, or data generation functions more flexible for programmers.
+	It would appear that this pattern is used to make complex simulation, modelling, or data generation functions more flexible for programmers by allowing them to supply parameters or the parameterized function itself.
 	
 	\item \C, \sF: yet another puzzling signature, though its explanation is surprisingly straightforward:
 	In R, programmers are free to look functions up {\it by name}, and indeed the frequently encountered {\tt UseMethod} function for dynamic class-based function dispatch is one such example.
@@ -924,8 +927,8 @@ Refer to Table~\ref{tab:L0argcounts}.
   \hline
 Signature Type & Count & Percentage \\ 
   \hline
-  Monomorphic & 250K & 94\% \\ 
-  Total Seen & 266K & --- \\ 
+Monomorphic & 852K & 94\% \\ 
+  Total Seen & 906K & --- \\ 
    \hline
 \end{tabular}
 \caption{Argument position polymorphism in L0.}
@@ -933,9 +936,8 @@ Signature Type & Count & Percentage \\
 
 From Table~\ref{tab:L0argcounts} we see that, with our definition of subtyping on L0 and other simplifications we made, an overwhelming amount of argument polymorphism is accounted for.
 We also saw in Table~\ref{tab:L0toppoly} that each of the most frequently occurring argument signatures had some explanation.
-That said, L0 is not without limitations.
 
-The main issues with L0 stem from a lack of adequate information, as the type system doesn't capture precise list types, and does not distinguish scalars from vectors.
+That said, L0 is not without limitations, and the main issues stem from a lack of adequate information, as the type system doesn't capture precise list types, and does not distinguish scalars from vectors.
 The next type system we will explore, L1, tackles these issues by collecting more information to build more precise types.
 While the L1 types are less ``in-tune'' with current R implementations, one can imagine designing an all-new R runtime which may benefit from the more specific information in L1, e.g. by not needing to vectorize scalar values, or designing a static analysis which uses precise list types to give programmers better information in an IDE.
 L1 is discussed next.
@@ -981,23 +983,23 @@ Consult Table~\ref{tab:L1top10arg}.
   \hline
  Argument Signature & Count & Percentage \\ 
   \hline
-  \sD & 48815 & 18.4\% \\ 
-  \D & 27367 & 10.3\% \\ 
-  \sL & 24284 & 9.2\% \\ 
-  \sC & 22025 & 8.3\% \\ 
-  \l & 20062 & 7.6\% \\ 
-  \sF & 18480 & 7\% \\ 
-  \M{D} & 14315 & 5.4\% \\ 
-  \sN & 14016 & 5.3\% \\ 
-  \ANY & 9093 & 3.4\% \\ 
-  \C & 7731 & 2.9\% \\
+  \sD & 179K & 19.7\% \\ 
+  \D & 97K & 10.7\% \\ 
+  \sL & 77K & 8.6\% \\ 
+  \sC & 75K & 8.3\% \\ 
+  \l & 67K & 7.4\% \\ 
+  \sF & 61K & 6.7\% \\ 
+  \sN & 50K & 5.5\% \\ 
+  \M{D} & 49K & 5.5\% \\ 
+  \ANY & 31K & 3.4\% \\ 
+  \df & 29K & 3.2\% \\ 
    \hline
 \end{tabular}
 \caption{Most frequent argument signatures in L1.}
 \end{table}
 
 From Table~\ref{tab:L1top10arg}, we see that all of the most frequent argument signatures are monomorphic even though we increased the precision of the types.
-We see that scalars actually figure quite prominently, which is encouraging, supporting our suggestion of an explicit scalar annotation.
+We see that scalars actually figure quite prominently, which is encouraging: this supports an idea that an explicit scalar annotation or type may be useful {\it for programmers}---indeed, such an annotation would be helpful for compiler optimizations (e.g., scalar-only values need not have vectors allocated to store them).
 We also see that matrices (\M{D}) are quite popular, a testament to the versatility of the data structure, as they can easily be converted to vectors and data frames.
 
 Now that we have a picture of how arguments look in L1, let's see: {\it how many L1 functions have more than one type signature?}
@@ -1009,7 +1011,11 @@ The answer can be found in Figure~\ref{fig:L1funcounts}.
 \label{fig:L1funcounts}\end{center}
 \end{figure}
 
-We see that we increased the polymorphism with our transition to L1, despite the monomorphic nature of the most frequently appearing argument signatures.
+We see that we barely increased the polymorphism with our transition to L1, despite the far richer type information.
+The biggest outlier here is indeed \%$>$\%, as was the case in {\bf L0}.
+Otherwise, the shape is very similar.
+In short: even though {\L1} types are more expressive, the breakdown of per-function polymorphism is largely unchanged from {\bf L0}.
+
 As we were in L0, we are curious to know how argument-level polymorphism looks in L1.
 Refer to Table~\ref{tab:toppolyL1}.
 
@@ -1020,16 +1026,16 @@ Refer to Table~\ref{tab:toppolyL1}.
   \hline
 Signature & Count & \% of All Signatures \\ 
   \hline
-  \D, \M{D} & 1440 & 0.5\% \\ 
-  \l, \lT{D} & 525 & 0.2\% \\ 
-  \M{D}, \M{I} & 383 & 0.1\% \\ 
-  \sC, \sD & 382 & 0.1\% \\ 
-  \I, \sD & 370 & 0.1\% \\ 
-  \l, \lT{list} & 337 & 0.1\% \\ 
-  \df, \M{D} & 305 & 0.1\% \\ 
-  \C, \D & 294 & 0.1\% \\ 
-  \sD, \sF & 290 & 0.1\% \\ 
-  \sC, \sF & 273 & 0.1\% \\
+  \D, \M{D} & 4848 & 0.5\% \\ 
+  \l, \lT{D} & 1843 & 0.2\% \\ 
+  \sC, \sD & 1590 & 0.2\% \\ 
+  \M{D}, \M{I} & 1502 & 0.2\% \\ 
+  \l, \lT{list} & 1199 & 0.1\% \\ 
+  \df, \M{D} & 1180 & 0.1\% \\ 
+  \C, \D & 1019 & 0.1\% \\ 
+  \sD, \sF & 1005 & 0.1\% \\ 
+  \I, \sD & 997 & 0.1\% \\ 
+  \sC, \sF & 991 & 0.1\% \\ 
    \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in L1.}
@@ -1047,12 +1053,10 @@ So what do these signatures mean?
 	Next, note the method with which we parameterize lists: we ascribe some type $T$ to a list type \lT{T} if and only if {\it all} list elements have {\it exactly} type {\it T}---in our analysis, we have encountered lists with integers as well as doubles, and unfortunately those currently appear as \l.
 	This could be addressed by doing some subtyping computation while exploring list elements.
 	
-	\item \M{D}, \M{I}: this signature is reasonable, as any computation in R on \M{D} would work on \M{I} and vice versa.
-	
 	\item \sC, \sD and \C, \D: we discussed this in L0---this signature likely captures an index or a date.
 	
-	\item \I, \sD: subtyping between primitives does not hold between scalars and vectors (i.e., \I $\not<:$ \sD) even though it's likely that the programmer intended for the argument to be a vector of the supertype (here, these arguments were likely intended to be of type \D).
-
+	\item \M{D}, \M{I}: this signature is reasonable, as any computation in R on \M{D} would work on \M{I} and vice versa.
+	
 	\item \l, \lT{list}: here we have a list of any and a list of lists.
 	One explanation for this is that lists of lists sometimes contain NULL as an element, and this would show up with type \l, again as we don't do any subtyping while computing precise list types.
 	Another explanation is the way R handles object-orientation, which we discuss shortly in Section~\ref{sec:S3S4R5}.
@@ -1060,7 +1064,9 @@ So what do these signatures mean?
 	\item \df, \M{D}: in R, it's easy to transform a matrix into a data frame, and this argument is likely a result of that:
 	Simply calling \code{as.data.frame} on a matrix is enough.
 	
-	\item \sD, \sF and \sC, \sF: these were thoroughly discussed in the context of L0.
+	\item \sD, \sF and \sC, \sF: these were discussed in the context of L0.
+	
+	\item \I, \sD: subtyping between primitives does not hold between scalars and vectors (i.e., \I $\not<:$ \sD) even though it's likely that the programmer intended for the argument to be a vector of the supertype (here, these arguments were likely intended to be of type \D).
 	
 \end{itemize}
 
@@ -1074,14 +1080,14 @@ Refer to Table~\ref{tab:argcountsL1}.
   \hline
 Signature Type & Count & Percentage \\ 
   \hline
-  Monomorphic & 252K & 94.9\% \\ 
-  Total Seen & 265K & --- \\ 
+Monomorphic & 864K & 95.3\% \\ 
+  Total Seen & 906K & --- \\ 
    \hline
 \end{tabular}
 \caption{Argument position polymorphism in L1.}
 \end{table}
 
-In spite of drastically increasing the precision of our types, we are still happily only dealing with a small amount of polymorphism.
+In spite of drastically increasing the precision of our types, we have actually {\it reduced} the amount of polymorphism.
 This suggests that with a good notion of subtyping, precise type annotations won't cause an undue increase in the polymorphism of the language.
 
 Before presenting L2, we will digress slightly and explore some of the ramifications of our transition from L0 to L1.
@@ -1091,7 +1097,7 @@ Before presenting L2, we will digress slightly and explore some of the ramificat
 \subsubsection{Scalars}
 \label{sec:scalars}
 
-Our suggestion to add an explicit scalar type is not unfounded, though it is not compatible with current R implementations.
+It seems that there is a place for a scalar annotation in R.
 We saw in this section that strictly scalar values appear quite frequently, making up some of the most frequently occurring argument signatures.
 In fact, \PERCSCALARMONO of arguments have a strictly scalar monomorphic signature.
 This suggests that such a distinction would more accurately capture current use of the language, and would also be beneficial to future implementations which can perform optimizations based on the type (e.g., not vectorizing scalar-only values).
@@ -1131,8 +1137,7 @@ That said, translating between date representations is straightforward.
 As most dates are classes, L2 will be able to capture their use.
 
 Throughout this section, we have seen that even though we substantially increased the precision of our type annotations, we have not increased the amount of polymorphism that we observe.
-The transition from L0 to L1 revealed some interesting patterns that L1 cannot quite capture---for these, we will need to appeal to the class and attributes of values.
-The next type system we consider is L2, and is designed to achieve this.
+The transition from L0 to L1 revealed some interesting patterns that L1 cannot quite capture---for these, we will need to appeal to the class and attributes of values, which are incorporated into {\bf L2}, discussed next.
 
 %
 %
@@ -1162,16 +1167,16 @@ As in {\bf L0} and {\bf L1}, we will begin by showing a breakdown of the top arg
   \hline
 Signature & Count & \% of All Signatures \\ 
   \hline
-  \sD & 46938 & 17.6\% \\ 
-  \sL & 24113 & 9\% \\ 
-  \sC & 21387 & 8\% \\ 
-  \D & 20900 & 7.8\% \\ 
-  \sF & 14556 & 5.5\% \\ 
-  \sN & 14016 & 5.3\% \\ 
-  \ANY & 9093 & 3.4\% \\ 
-  \attrclass{\D}{}{dim} & 6974 & 2.5\% \\ 
-  \C& 6939 & 2.6\% \\ 
-  \attrclass{\l}{}{names} & 6137 & 2.2\% \\ 
+ \sD & 172K & 19\% \\ 
+  \sL & 77K & 8.5\% \\ 
+  \D & 77K & 8.4\% \\ 
+  \sC & 73K & 8\% \\ 
+  \sN & 50K & 5.5\% \\ 
+  \sF & 45K & 5\% \\ 
+  \ANY & 31K & 3.4\% \\ 
+  \attrclass{\D}{}{dim} & 25K & 2.6\% \\ 
+  \C & 25K & 2.6\% \\ 
+   \attrclass{\l}{}{names, row.names}  & 21K & 2.2\% \\ 
    \hline
 \end{tabular}
 \caption{Most frequent argument signatures in {\bf L2}.}
@@ -1179,12 +1184,12 @@ Signature & Count & \% of All Signatures \\
 
 As you can see, the most frequent signatures in {\bf L1} are represented here.
 The inclusion of class and attribute information has changed the counts slightly.
-One tidbit of interest here is that monomorphic named lists are more common than their unnamed counterparts.
-The lack of classes is explained by our elimination of builtin classes, and it's doubtful that a user-defined class would be so pervasive as to feature in this breakdown.
+Not pictures here, but interesting: named lists are more frequent than their unnamed counterparts.
+No classes are represented here since (1) we eliminated builtin classes, as we've used them to construct types already, and (2) most other classes are specific to some package or set of packages---it's doubtful that such a class would be so pervasive as to feature in this breakdown.
+
+
 
 Now that we have a sense for argument-level type signatures in {\bf L2}, we will see just how many functions are polymorphic.
-Now, {\bf L2} builds directly off of {\bf L1}, and as such at the argument level the type-based polymorphism shouldn't change.
-For this account of polymorphism, we deem an argument to be polymorphic if it was polymorphic in type, class, or attribute pattern.
 Consider Figure~\ref{fig:L2funcounts}.
 
 \begin{figure}[htbp]\begin{center}
@@ -1192,6 +1197,14 @@ Consider Figure~\ref{fig:L2funcounts}.
 \caption{Record of Function Polymorphism in {\bf L2}. \LTWOPERCPOLY of functions are polymorphic.}
 \label{fig:L2funcounts}\end{center}
 \end{figure}
+
+Not pictured here are two outlier values: the summary and print functions of the base R package.
+Summary is a generic function which is used to summarize various types of data, and print is used to convert values to string format and print them to the console.
+These functions really {\it should} be outliers, as they are really operating over any type.
+They feature so prominently here since many of the values which flowed into them had some amount of attribute or class information.
+
+Overall, the amount of polymorphism only slightly increased, even though we added two new dimensions of type information.
+Again, far richer types do not increase the amount of polymorphism by significant amounts, perhaps a testament to the monomorphic nature of many R functions.
 
 Having built a sense for how polymorphic whole-function signatures are in {\bf L2}, we will turn our attention to polymorphic arguments.
 Given the added class and attribute information, {\it what do the more frequent polymorphic argument signatures look like?}
@@ -1206,21 +1219,25 @@ Table~\ref{tab:toppolyL2} has the breakdown.
   \hline
 Signature & Count & \% of All Signatures \\ 
   \hline
-  \D, \attrclass{\D}{}{dim} & 553 & 0.2\% \\ 
-  \sC, \sD & 336 & 0.1\% \\ 
-  \I, \sD & 320 & 0.1\% \\ 
-  \attrclass{\l}{}{names}, \attrclass{\D}{}{names} & 269 & 0.1\% \\ 
-  \D, \attrclass{\D}{}{dim, dimnames} & 218 & 0\% \\ 
-  \sD, \sF & 173 & 0\% \\ 
-  \attrclass{\l}{}{names, row.names}, \attrclass{\D}{}{dim, dimnames} & 167 & 0\% \\ 
-  \attrclass{\D}{}{names}, \attrclass{\D}{}{dim, dimnames} & 155 & 0\% \\ 
-  \C, \I & 149 & 0\% \\ 
+  \D, \attrclass{\D}{}{dim} & 1942 & 0.2\% \\ 
+  \sC, \sD & 1431 & 0.2\% \\ 
+  \attrclass{\l}{}{names}, \attrclass{\D}{}{names}  & 1046 & 0.1\% \\ 
+  \I, \sD & 855 & 0.1\% \\ 
+  \D, \attrclass{\D}{}{dim, dimnames} & 810 & 0\% \\ 
+  \attrclass{\l}{}{names, row.names}, \attrclass{\D}{}{dim, dimnames} & 708 & 0.1\% \\ 
+  \C, \D & 672 & 0\% \\ 
+   \attrclass{\D}{}{names}, \attrclass{\D}{}{dim, dimnames} & 591 & 0\% \\ 
+  \attrclass{\D}{}{dim}, \attrclass{\I}{}{dim}  & 445 & 0\% \\ 
+  \sD, \attrclass{\sF}{}{srcref} & 445 & 0\% \\ 
    \hline
 \end{tabular}
 \caption{Top polymorphic argument signatures in {\bf L2}.}
 \end{table}
 
-When comparing this table with Table~\ref{tab:toppolyL1}, we see that the distribution of signature frequencies is more uniform, as attributes and classes differentiated some signatures which were not distinct in {\bf L1}.
+When comparing this table with Table~\ref{tab:toppolyL1}, we see that by-and-large the same types are represented.
+We note the {\tt names} attributes on the lists in row 3: these named lists are, in general, more common than their unnamed counterparts.
+In the 10th signature, we see a function with attribute {\tt srcref}: functions with this attribute are for dealing with open files in the context of the srcfile set of functions in the base package.
+As for why such a function would share an argument position with scalar double, there are other representations of open files, and numbers feature among them.
 
 Now that we have seen the most frequently appearing argument signatures, we ask: {\it how many argument positions are polymorphic?}.
 Table~\ref{tbl:argcountsL2} has the answer.
@@ -1232,8 +1249,8 @@ Table~\ref{tbl:argcountsL2} has the answer.
   \hline
 Signature Type & Count & Percentage \\ 
   \hline
-  Monomorphic & 248K & 93.4\% \\ 
-  Total Seen & 265K & --- \\ 
+  Monomorphic & 851K & 93.9\% \\ 
+  Total Seen & 906K & --- \\ 
    \hline
 \end{tabular}
 \caption{Account of {\it argument} polymorphism in {\bf L2}.}
@@ -1242,8 +1259,6 @@ Signature Type & Count & Percentage \\
 Surprisingly, even with the added precision of classes and attributes, there is still a relatively small amount of argument-level polymorphism in {\bf L2}.
 Our notion of subtyping on classes is rather weak, and one extension would be to include class hierarchies in the subtyping of classes;
 this would further reduce the amount of polymorphism in this type system.
-
-
 
 %
 %
@@ -1274,31 +1289,25 @@ Note that we are in the context of {\bf L0}, here, to highlight current language
   \hline
   Package & \# of Functions &\# of Signatures & Description \\ 
   \hline
-  knitLatex & 4 & 41 & \LaTeX \xspace generator from R data \\ 
-  magrittr & 17 & 126 & Tidyverse pipe suite \\ 
-  proto & 5 & 30 & Prototype object-based programming \\ 
-  gnlm & 10 & 53 & Regression fit package \\ 
-  Formula & 17 & 82 & ?? \\ 
+  magrittr & 20 & 225 & Tidyverse pipe suite \\ 
+  oshka & 4 & 38 & quoted expression expansion \\ 
+  scatterD3 & 1 & 9 & create D3 (JS) scatter plots from R \\ 
+  yaml & 4 & 33 & convert R to YAML \\ 
+  knitLatex & 4 & 32 & \LaTeX \xspace generator from R data \\ 
    \hline
 \end{tabular}
-\caption{5 most polymorphic packages (in {\bf L0}).}
+\caption{5 of the most polymorphic packages (in {\bf L0}).}
 \end{table}
 
 Now, what makes these so polymorphic?
-
-\AT{TODO if time: fix to score per fun, then tally per package.}
-
+The first package, magrittr, is one that we discussed earlier in the context of its pipe \%$>$\% function. 
+It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
+In fact, all but knitLatex implement some form of metaprogramming:
+oshka meta
 \begin{enumerate}
 
 	\item knitLatex: two functions are largely responsible for this level of polymorphism: sTab, which produces \LaTeX \xspace supertabular environments, and lTab, which produces \LaTeX \xspace longtable environments.
 	These functions both have over 15 arguments, and there are a large number of recorded configurations, with many of the arguments being optional.
-	
-	\item magrittr: we discussed magrittr earlier in the context of its pipe \%$>$\% function. 
-	It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
-	
-	\item proto: most of the polymorphism in this package comes from its implementation of assignment ({\tt \$<-}) for proto class objects.
-	It's a small, 3 argument function which is exceedingly polymorphic, with over 20 unique call signatures.
-	As theoretically any R object can have a proto class, it stands to reason that this function ought to be quite polymorphic indeed.
 	
 	\item 
 	
@@ -1432,7 +1441,22 @@ One drawback of function-level polymorphism is that functions with many argument
 We saw this in Figure~\ref{fig:L2funcounts}, where the distribution of signatures per function was roughly in line with those from Figures~\ref{fig:L0funcounts} and~\ref{fig:L1funcounts} but the peak (i.e., the function with the most signatures) was far more pronounced.
 That said, overall the number of polymorphic functions did not increase by too large a margin considering the added expressivity of {\bf L2}'s types.
 
-To determine which kinds of whole function signatures would be useful, a more sophisticated analysis is required, which would need to develop a correlation between function arguments and return types.
+Another note regarding function signatures is the {\tt ...} function argument.
+Functions with such an argument can be passed an arbitrary number of extra arguments, see Figure~\ref{fig:dotdotdot} for a small example.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+f <- function(x, ...) {
+  g(x, ...)
+}
+
+f(42, z=2, y=4) # in f, will perform g(42, z=2, y=4)
+
+\end{lstlisting}}\caption{Simple ... example.}\label{fig:dotdotdot}\end{figure}
+
+Our analysis ignores these extra arguments, instead flagging functions which have them.
+If building an annotation for such a function, the ... argument is always ascribed the \l type.
+
+Ultimately, to determine which kinds of whole function signatures would be useful, a more sophisticated analysis is required, which would need to develop a correlation between function arguments and return types.
 There may also be other interesting per-function trends which our current analysis does not pick up on.
 We aim to make our data available for this purpose.
 
@@ -1466,6 +1490,8 @@ Other analysis work~\cite{milojkovic2017duck} ... .
 %
 %
 \section{Conclusions and Future Work}
+
+OUTLINE
 
 Ours is a community which strives to improve the lives of programmers, and understanding programmers is key to ensure that our vision aligns with their needs.
 Increasingly, programming is becoming accessible to a wider audience, with many domain-specific languages being developed to address the concerns of specialists such as analysts, mathematicians, and data scientists.

@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * Parse multiple lines of input from a BufferedReader, each line is in comma
  * separated format.
- * 
+ *
  * @author Jan Vitek
  *
  */

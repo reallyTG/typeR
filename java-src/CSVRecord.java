@@ -15,10 +15,10 @@ import java.util.Iterator;
  */
 public class CSVRecord implements Iterable<String> {
 	String line;
-	short fieldPos, fieldCount;
-	static final short MAX_FIELDS = 125;
-	short[] starts = new short[MAX_FIELDS];
-	short[] ends = new short[MAX_FIELDS];
+	int fieldPos, fieldCount;
+	static final int MAX_FIELDS = 125;
+	int[] starts = new int[MAX_FIELDS];
+	int[] ends = new int[MAX_FIELDS];
 
 	static final char C = ',';
 	static final char Q = '\"';
@@ -34,7 +34,7 @@ public class CSVRecord implements Iterable<String> {
 	public CSVRecord(String line) {
 		this.line = line;
 		boolean inString = false, inputSeen = false, stringClosed = false;
-		short start = 0, end = 0, i;
+		int start = 0, end = 0, i;
 		for (i = 0; i < line.length(); i++) {
 			char c = line.charAt(i);
 			if (c == Q) {
@@ -42,7 +42,7 @@ public class CSVRecord implements Iterable<String> {
 					if (inputSeen) throw new Error("CSV Maformed, multiple elements in a field");
 					inputSeen = false;
 					inString = true;
-					start = (short) (i + 1);
+					start = (int) (i + 1);
 				} else { // inString
 					stringClosed = true;
 					inputSeen = inString = false;
@@ -56,7 +56,7 @@ public class CSVRecord implements Iterable<String> {
 					inputSeen = stringClosed = false;
 				} else end = start;
 				ends[fieldCount++] = end;
-				start = (short) (i + 1);
+				start = (int) (i + 1);
 			} else if (!(c == S || c == T)) {
 				if (!(inString || inputSeen)) {
 					if (stringClosed) throw new Error("CSV Maformed, multiple elements in a field (2)");

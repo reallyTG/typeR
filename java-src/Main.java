@@ -43,10 +43,10 @@ public class Main {
 
 		// args = getFileList(inputDir);
 		// for (int i = 0; i < args.length; i++)
-		String the_file = "../data/partial_L0.csv.gz";
+		String the_file = "../data/L0.csv.gz";
 		if (ts.equals("L1"))
-		  // the_file = "../data/partial_L1_sanitized_class.csv.gz";
-			the_file = "../data/partial_L1.csv.gz";
+		  // the_file = "../data/L1_sanitized_class.csv.gz";
+			the_file = "../data/L1.csv.gz";
 
 		// uncomment depending on what you want to do
 		// not the best approach
@@ -56,7 +56,7 @@ public class Main {
 		// doIt_L2(the_file);
 		// collapsePerArg_L2(the_file);
 		// sanitizeClass(the_file);
-		// makeOccurences_L2(the_file);
+		// makeOccurences_L2(the_file); // bad dont use
 
 	}
 
@@ -106,7 +106,8 @@ public class Main {
 		}
 
 		String out_file = file.substring(0, file.length()-7);
-		out_file = out_file.concat("_arg_sig_counts.csv");
+		// out_file = out_file.concat("_arg_sig_counts.csv");
+		out_file = out_file.concat("_arg_sig_counts_L2.csv");
 		Writer w = new Writer(out_file);
 		w.toS("arg_sig");
 		w.comma();
@@ -154,82 +155,6 @@ public class Main {
 		}
 		w.close();
 
-	}
-
-  private static void collapsePerArg_L2(String file) {
-		String the_real_file = file.substring(0, file.length()-7) + "_sanitized_class.csv.gz";
-		Reader reader = null;
-		try {
-			reader = new Reader(the_real_file);
-		} catch (IOException e) {
-			throw new Error(e);
-		}
-
-		ArrayList<Signature> out = new ArrayList<>();
-		ArrayList<HashSet<String>> sig_els = new ArrayList<>();
-		HashSet<String> ret_t = new HashSet<>();
-		HashSet<String> ret_c = new HashSet<>();
-		HashSet<String> ret_a = new HashSet<>();
-		for (int i = 0; i < 60; i ++) {
-			sig_els.add(new HashSet<>());
-		}
-
-		Signature prev = null;
-		for (Signature f : reader) {
-			if (f.ret_t.equals("ret_t")) {
-				out.add(f);
-				continue;
-			}
-
-			if (prev == null)
-				prev = f;
-
-			if (!prev.pkg.equals(f.pkg) || !prev.fun.equals(f.fun)) {
-				// deal with change
-				// flush into sig
-				Signature put = flush(sig_els, prev);
-				put.ret_t = ret_t.toString();
-				put.ret_c = ret_c.toString();
-				put.ret_a = ret_a.toString();
-				out.add(put);
-
-				sig_els = new ArrayList<>();
-				for (int i = 0; i < 60; i ++) {
-					sig_els.add(new HashSet<>());
-				}
-
-				ret_t = new HashSet<>();
-				ret_c = new HashSet<>();
-				ret_a = new HashSet<>();
-			}
-
-			// push strings in i guess
-			pushAll_L2(sig_els, f);
-			ret_t.add(f.ret_t + "/" + f.ret_c + "/" + f.ret_a);
-			ret_c.addAll(Arrays.asList(f.ret_c.split(",")));
-			if (!f.ret_a.equals("") && !f.ret_a.equals("{}"))
-				ret_a.addAll(Arrays.asList(f.ret_a.substring(1, f.ret_a.length()-1).split(",")));
-			// else
-			// 	ret_a.add("");
-
-			prev = f;
-		}
-
-		// last flush
-		Signature put = flush(sig_els, prev);
-		put.ret_t = ret_t.toString();
-		put.ret_c = ret_c.toString();
-		put.ret_a = ret_a.toString();
-		out.add(put);
-
-		// write
-		String out_file = file.substring(0, file.length()-7);
-		out_file = out_file.concat("_collapsed_L2_new.csv");
-		Writer w = new Writer(out_file);
-		for (Signature f : out) {
- 			f.write(w);
-		}
-		w.close();
 	}
 
 	private static void collapsePerArg(String file) {
@@ -454,6 +379,83 @@ public class Main {
 		Writer w = new Writer(out_file);
 		for (Signature f : all) {
  			f.write(w);
+		}
+		w.close();
+	}
+
+	private static void collapsePerArg_L2(String file) {
+
+		String the_real_file = file.substring(0, file.length()-7) + "_sanitized_class.csv.gz";
+		Reader reader = null;
+		try {
+			reader = new Reader(the_real_file);
+		} catch (IOException e) {
+			throw new Error(e);
+		}
+
+		ArrayList<Signature> out = new ArrayList<>();
+		ArrayList<HashSet<String>> sig_els = new ArrayList<>();
+		HashSet<String> ret_t = new HashSet<>();
+		HashSet<String> ret_c = new HashSet<>();
+		HashSet<String> ret_a = new HashSet<>();
+		for (int i = 0; i < 60; i ++) {
+			sig_els.add(new HashSet<>());
+		}
+
+		Signature prev = null;
+		for (Signature f : reader) {
+			if (f.ret_t.equals("ret_t")) {
+				out.add(f);
+				continue;
+			}
+
+			if (prev == null)
+				prev = f;
+
+			if (!prev.pkg.equals(f.pkg) || !prev.fun.equals(f.fun)) {
+				// deal with change
+				// flush into sig
+				Signature put = flush(sig_els, prev);
+				put.ret_t = ret_t.toString();
+				put.ret_c = ret_c.toString();
+				put.ret_a = ret_a.toString();
+				out.add(put);
+
+				sig_els = new ArrayList<>();
+				for (int i = 0; i < 60; i ++) {
+					sig_els.add(new HashSet<>());
+				}
+
+				ret_t = new HashSet<>();
+				ret_c = new HashSet<>();
+				ret_a = new HashSet<>();
+			}
+
+			// push strings in i guess
+			pushAll_L2(sig_els, f);
+			ret_t.add(f.ret_t + "/" + f.ret_c + "/" + f.ret_a);
+			ret_c.addAll(Arrays.asList(f.ret_c.split(",")));
+			if (!f.ret_a.equals("") && !f.ret_a.equals("{}"))
+				ret_a.addAll(Arrays.asList(f.ret_a.substring(1, f.ret_a.length()-1).split(",")));
+			// else
+			// 	ret_a.add("");
+
+			prev = f;
+		}
+
+		// last flush
+		Signature put = flush(sig_els, prev);
+		put.ret_t = ret_t.toString();
+		put.ret_c = ret_c.toString();
+		put.ret_a = ret_a.toString();
+		out.add(put);
+
+		// write
+		String out_file = file.substring(0, file.length()-7);
+		out_file = out_file.concat("_collapsed_L2_new.csv");
+		Writer w = new Writer(out_file);
+		for (Signature f : out) {
+			f.write(w);
 		}
 		w.close();
 	}

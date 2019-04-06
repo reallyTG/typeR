@@ -7,78 +7,8 @@
 
 # -a
 
-# TODO list
-#
-# [X] use attribute patterns, not just attributes
-# [X] write getters (get sigs with a type, attr, class)
-# [-] consider putting attr names as their own column still
-# [X] make sure that you can pull out signatures that you're interested in,
-#     try it with a few examples (class, and coinciding)
-# [X] print function for notebook
-# [X] full monomorphic
-# [X] how many are just scalar A: 40%
-# [X] see numbers (1) without vector/scalar distinction, and
-# [X] (2) without NULL / X distinction
-# [X]     also w/o NA / X distinction
-# [X] different type systems
-# [X] breakdown by package
-# [X] get top poly packages
-# [ ] make more metrics for polymorphism
-# [X] make all non-attribute classes primitive
-# [-] CLEAN UP THE DATA FRAMES -- right now, the type list has useless sublists
-# [X] how many lines of code were analyzed?
-# [X] how old is the oldest version of a package we analyzed? > 20 years
-# [X] how many R programmers were involved? > 10k programmers
-# [ ] deal with errors
-# [X] develop notion of size of polymorphism
-# [ ] develop more/better notions of size of polymorphism
-# [X] get numbers for coninciding ... list or vector X character or numeric
-# [ ] " " ... argument and return type signatures
-# [X] fold new data in with old data --- newer runs generate more info for a number
-#     of already seen packages. It would be best if we could combine that information.
-#     Probably easy enough, just take the traces, process them, and bind them.
-# [ ] do we want anything more out of the data? names? dims? could be fun to get
-# [ ] skip retv in coincidence checking?
-# [ ] better author name metric (just last name?)
-# [ ] attribute types figure out
-
-# Issues:
-# [ ] list<any> happens even for ints, doubles... we end up with list<any>, list<real>
-#     polymorphism. what should we do about this?
-
-# Notes:
-# re: char/real poly: retvs with char/X could be communicating error messages
-
-# Rerun:
-# [X] count all things that happened
-# [X] execution time (per script in genthat) (genthat_runtimes)
-# [X] number of recorded events
-# [X] deal with overlap in saving -- seems to not be a problem, actually
-# [X] move extraced code to reasonable location (genthat_extracted_code)
-# [X] set up for ``trace everything just once'':
-#     package_info(pname) gives all dependencies, maybe want to trace those
-# [X] how to deal with base??? -- don't
-# [X] !! re-reduce, but remove_failures_lot first
-# [X]    remove empties? convert to df puts empties
-
-
-# [X] map args to retvs
-
-# Paper
-# [X] Corpus table -- signatures observed and recorded in top 10
-
 # Current RUNID:
-# [29421]
-
-#
-# SUBTYPING
-# mixxing <: T \forall T --
-# uneval <: T  \forall T --
-# both are bot until they're top
-# first try to annihilate them into others, then promote to any if still around
-#
-# Distinct in dplyr?
-
+# [127342]
 
 # Require tidyverse for convenience.
 require(tidyverse)
@@ -528,6 +458,8 @@ collapse_subtype_L2 <- function(l, ts) {
   attr_subset <- function(la1, la2) {
     la1 <- substr(la1, 2, nchar(la1)-1)
     la2 <- substr(la2, 2, nchar(la2)-1)
+    if (is.null(la1) || is.null(la2) || is.na(la1) || is.na(la2))  # stupid hack
+      return(TRUE)
     if (la1 == "")
       return(TRUE)
     if (la2 == "")
@@ -705,6 +637,7 @@ new_df_get_sigs_with_arg <- function(df, find_me, how_many=10) {
 
 lists_to_chars_sig_df <- function(df) {
   for (i in 1:length(df)) {
+    # df[, i] <- sapply(df[, i], as.character)
     df[, i] <- unlist(df[, i])
   }
   df

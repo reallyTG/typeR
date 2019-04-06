@@ -17,26 +17,25 @@ source("../code/data_processing.R")
 
 ```{r}
 # load the data
-psp <- read_rds("../data/per_sig_partial.RDS")
+psp <- read_rds("../data/promise_big_final.RDS")
+
+psp <- as.tibble(psp)
 
 # get rid of empties
 # they are due to packages having no data, this may get resolved as the prl3 run finishes
 psp <- psp[!psp$pkg == "no_data",]
+
+# first, turn specials, closures, and builtins to functions
+psp <- transform_new_df_w_TS_map(psp, type_map_to_fun)
 
 # do this otherwise there are lists
 psp <- lists_to_chars_sig_df(psp)
 ```
 
 ```{r}
-# first, turn specials, closures, and builtins to functions
-psp <- transform_new_df_w_TS_map(psp, type_map_to_fun)
-
-# any other transformations?
-```
-
-```{r}
 # make it T0
-psp_L0 <- transform_new_df_w_TS_map(psp, type_map_T0_to_r)
+psp_L0 <- transform_new_df_w_TS_map(psp, type_map_T0_to_r, unparam = T)
+psp_L0 <- lists_to_chars_sig_df(psp_L0)
 ```
 
 WORKFLOW
@@ -45,27 +44,27 @@ WORKFLOW
 
 ```{r}
 # write it to file for Java processing
-write_csv(psp_L0, "../data/partial_L0.csv")
+write_csv(psp_L0, "../data/L0.csv")
 ```
 
 ```{r}
 # read in new one
-psp_L0 <- read_csv("../data/partial_L0_subtype.csv.gz")
-p
+psp_L0 <- read_csv("../data/L0_subtype.csv.gz")
+
 # remove SUBTYPE rows
 psp_L0 <- psp_L0[!psp_L0$pkg == "SUBTYPE",]
 ```
 
 ```{r}
 # write L1 (which is just psp) to file for Java
-write_csv(psp, "../data/partial_L1.csv")
+write_csv(psp, "../data/L1.csv")
 
 # go to terminal, gzip it for Java
 ```
 
 ```{r}
 # read it back
-psp <- read_csv("../data/partial_L1_subtype.csv.gz")
+psp <- read_csv("../data/L1_subtype.csv.gz")
 
 # remove SUBTYPE rows
 psp <- psp[!psp$pkg == "SUBTYPE",]
@@ -75,27 +74,30 @@ psp <- psp[!psp$pkg == "SUBTYPE",]
 # collapse
 # make sure the right function is uncommented in Java
 
-psp_col <- read_csv("../data/partial_L1_collapsed.csv.gz")
-psp_L0_col <- read_csv("../data/partial_L0_collapsed.csv.gz")
+psp_L0_col <- read_csv("../data/L0_collapsed.csv.gz")
+psp_col <- read_csv("../data/L1_collapsed.csv.gz")
+
 ```
 
 ```{r}
 # arg counts
 # again, Java
-L0_arg_sig_c <- read_csv("../data/partial_L0_arg_sig_counts.csv")
-L1_arg_sig_c <- read_csv("../data/partial_L1_arg_sig_counts.csv")
+L0_arg_sig_c <- read_csv("../data/L0_arg_sig_counts.csv.gz")
+L1_arg_sig_c <- read_csv("../data/L1_arg_sig_counts.csv.gz")
 
 # sort
 L0_arg_sig_c[order(-L0_arg_sig_c$count),] -> L0_arg_sig_c
 L1_arg_sig_c[order(-L1_arg_sig_c$count),] -> L1_arg_sig_c
 
 # rm []
-L0_arg_sig_c[1,"count"] <- 0
-L1_arg_sig_c[1,"count"] <- 0
+# L0_arg_sig_c[1,"count"] <- 0
+# L1_arg_sig_c[1,"count"] <- 0
+L0_arg_sig_c <- L0_arg_sig_c[2:nrow(L0_arg_sig_c), ]
+L1_arg_sig_c <- L1_arg_sig_c[2:nrow(L1_arg_sig_c), ]
 
 # re sort
-L0_arg_sig_c[order(-L0_arg_sig_c$count),] -> L0_arg_sig_c
-L1_arg_sig_c[order(-L1_arg_sig_c$count),] -> L1_arg_sig_c
+# L0_arg_sig_c[order(-L0_arg_sig_c$count),] -> L0_arg_sig_c
+# L1_arg_sig_c[order(-L1_arg_sig_c$count),] -> L1_arg_sig_c
 
 # percentages
 L0_arg_sig_c$perc_tot <- round(L0_arg_sig_c$count / sum(L0_arg_sig_c$count) * 100, 2)
@@ -169,6 +171,9 @@ plot_L0_df %>%
 
 ggsave("../paper/plots/L0_by_fun.pdf",width=10,height=4)
 
+# if want top 10
+plot_L0_df %>% tail
+
 plot_L1_df %>%
   ggplot(aes(x=pkgfun_o, y=num_sigs, group=1)) +
   geom_line() + labs(title = "Number of Function Signatures per Function (L1)",
@@ -176,6 +181,8 @@ plot_L1_df %>%
                                     y = "Number of L1 Signatures") + theme(axis.text.x = element_blank())
 
 ggsave("../paper/plots/L1_by_fun.pdf",width=10,height=4)
+
+plot_L1_df %>% tail
 ```
 
 ```{r}
@@ -201,7 +208,7 @@ percent_scalar_mono <- round( 100 * num_scal / sum(L1_arg_sig_c$count), 1)
 
 ```{r}
 # L2 Time
-psp_L2 <- read_csv("../data/partial_L1_L2.csv.gz")
+psp_L2 <- read_csv("../data/L1_L2.csv.gz")
 psp_L2 <- psp_L2[!psp_L2$pkg == "SUBTYPE",]
 ```
 
@@ -215,6 +222,11 @@ plot_L2 %>% arrange(num_sigs) %>% mutate(pkgfun_o = factor(pkgfun, pkgfun)) -> p
 
 L2_perc_poly <- round(100 * nrow(plot_L2_df[plot_L2_df$num_sigs > 1, ] )/nrow(plot_L2_df), 1)
 
+# gonna remove 2 outliers and talk about them separately
+plot_L2_df <- plot_L2_df[1:(nrow(plot_L2_df)-2), ]
+
+# THE L2 PLOT
+
 plot_L2_df %>%
   ggplot(aes(x=pkgfun_o, y=num_sigs, group=1)) +
   geom_line() + labs(title = "Number of Function Signatures per Function (L2)",
@@ -222,6 +234,8 @@ plot_L2_df %>%
                                     y = "Number of L2 Signatures") + theme(axis.text.x = element_blank())
 
 ggsave("../paper/plots/L2_by_fun.pdf",width=10,height=4)
+
+plot_L2_df %>% tail
 ```
 
 ```{r}
@@ -232,7 +246,7 @@ what <- read_csv("../data/partial_L1_collapsed_L2_new.csv.gz")
 
 ```{r}
 # ...
-list_of_L2_sig_c <- read_csv("../data/partial_L1_arg_sig_counts.csv.gz")
+list_of_L2_sig_c <- read_csv("../data/L1_arg_sig_counts_L2.csv.gz")
 
 list_of_L2_sig_c[order(-list_of_L2_sig_c$count),] -> list_of_L2_sig_c
 
@@ -240,7 +254,10 @@ list_of_L2_sig_c[1,"count"] <- 0
 
 list_of_L2_sig_c[order(-list_of_L2_sig_c$count),] -> list_of_L2_sig_c
 
-list_of_L2_sig_c$perc_tot <- round(list_of_L2_sig_c$count / sum(list_of_L2_sig_c$count) * 100, 1)
+# remove last
+list_of_L2_sig_c <- list_of_L2_sig_c[1:nrow(list_of_L2_sig_c)-1,]
+
+list_of_L2_sig_c$perc_tot <- round(list_of_L2_sig_c$count / sum(list_of_L2_sig_c$count) * 100, 2)
 
 list_of_L2_sig_c <- new_df_count_collape_arg_sigs_L2_actual(list_of_L2_sig_c)
 
@@ -257,7 +274,7 @@ L2_poly_sig[1, "perc_tot"] <- 0
 L2_poly_sig[2:11,] %>% ready_print_count_fun %>% xtable %>% print(include.rownames=F)
 
 # Arg Poly Count L2
-data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=c(list_of_L2_sig_c$count %>% sum - L2_poly_sig$count %>% sum, list_of_L2_sig_c$count %>% sum), Percentage=c(paste0(round(100 * (1 - (L2_poly_sig$count %>% sum / list_of_L2_sig_c$count %>% sum)), 1), "%"), "---")) %>% xtable %>% print(include.rownames=F)
+data.frame(`Signature Type`=c("Monomorphic", "Total Seen"), Count=c(list_of_L2_sig_c$count %>% sum - L2_poly_sig$count %>% sum, list_of_L2_sig_c$count %>% sum), Percentage=c(paste0(round(100 * (1 - (L2_poly_sig$count %>% sum / list_of_L2_sig_c$count %>% sum)), 2), "%"), "---")) %>% xtable %>% print(include.rownames=F)
 ```
 
 ```{r}
@@ -270,7 +287,7 @@ num_sigs_by_pkg <- psp_L0 %>% mutate(sig_count = 1) %>% group_by(pkg) %>% summar
 
 poly_count_normalized <- inner_join(num_funs_by_pkg, num_sigs_by_pkg, by="pkg") %>% mutate(poly_norm=sig_count/count)
 
-poly_count_normalized %>% arrange(-poly_norm) %>% slice(2:6)
+poly_count_normalized %>% arrange(-poly_norm) %>% slice(1:10) %>% xtable %>% print(include.rownames=F)
 
 # print
 

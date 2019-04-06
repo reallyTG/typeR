@@ -97,6 +97,8 @@ public class Signature {
 			return true;
 		if (a.equals("missing"))
 			return true;
+		if (a.equals("error"))
+			return true;
 		return a.equals(b);
 	}
 
@@ -124,13 +126,19 @@ public class Signature {
 			return true; // will collapse scalar/vector where appropriate
 		if (a.equals("sL") && b.equals("sD"))			// logical <: double
 			return true;
+		if (a.equals("sL") && b.equals("D"))			// logical <: double
+			return true;
 		if (a.equals("L") && b.equals("D"))			// logical <: double
 			return true;
 		if (a.equals("sL") && b.equals("sI"))			// logical <: int
 			return true;
+		if (a.equals("sL") && b.equals("I"))			// logical <: int
+			return true;
 		if (a.equals("L") && b.equals("I"))			// logical <: int
 			return true;
 		if (a.equals("sI") && b.equals("sD"))			// int <: double
+			return true;
+		if (a.equals("sI") && b.equals("D"))			// int <: double
 			return true;
 		if (a.equals("I") && b.equals("D"))			// int <: double
 			return true;
@@ -139,6 +147,8 @@ public class Signature {
 		if (a.equals("missing"))																					// missing <: T
 			return true;
 		if (a.equals("sN"))																							// null <: T
+			return true;
+		if (a.equals("error"))
 			return true;
 		return a.equals(b);
 	}
@@ -743,6 +753,8 @@ public class Signature {
 			return "sN";
 		else if (aT.equals("double"))
 			return "D";
+		else if (aT.equals("raw_NA"))
+			return "sN";
 		else if (aT.equals("integer"))
 			return "I";
 		else if (aT.equals("logical"))
@@ -904,10 +916,7 @@ public class Signature {
 		w.comma();
 		w.toS(arg20_a);
 		w.comma();
-		if (simplify)
-			w.toS(simplifyType(ret_t));
-		else
-			w.toS(ret_t);
+		w.toS(ret_t);
 		w.comma();
 		w.toS(ret_c);
 		w.comma();
