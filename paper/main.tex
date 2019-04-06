@@ -710,8 +710,7 @@ is.point.inside <- function (point, polyg) {
 
 Figure~\ref{fig:charclos} shows an example of a function with character and
 function polymorphism.  At a high level, this function
-calculates point estimates for an {\tt angmcmc} object (specific to some
-packages).  The caller specifies {\tt fn}, which is either a function {\it or} the name of a function which will be evaluated on the object samples to estimate parameters.
+calculates point estimates for some object. The caller specifies {\tt fn}, which is either a function {\it or} the name of a function which will be evaluated on the object samples to estimate parameters.
 If {\tt fn} is a string, the function lookup is performed by \code{match.fun}.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
@@ -755,7 +754,7 @@ fixGenes <- function (network, fixIndices, values) {
   ...
   network$fixed[fixIndices] <- as.integer(values)
   ...
-\end{lstlisting}}\caption{Example of \C/\D argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}
+\end{lstlisting}}\caption{Example of \C/\D argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}%$
 
 In Figure~\ref{fig:matvec}, we see that a function which can take in a vector,
 but immediately transforms it (transpose, with {\tt t}) into a matrix.  As
@@ -1453,14 +1452,13 @@ Interestingly, they draw some similar conclusions to us: they find that monomorp
 More generally, there is an existing literature on analyzing usage patterns of language features.  
 For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, which aimed to see how often the highly dynamic capabilities of Smalltalk were used and in which kinds of projects.
 Other work~\cite{pldi10a} explores how the dynamic features of JavaScript are used.
-An interesting finding of theirs is that 
-
-Other analysis work~\cite{milojkovic2017duck} ... .
+An interesting finding of theirs is that only 81\% of calls are monomorphic, which is very similar to what we observed in R.
+Other analysis work~\cite{milojkovic2017duck} looks into the usage patterns of duck typing.
 
 The type system we propose in this work could be incorporated into R as a {\it gradual type system}.
 Gradual type systems~\cite{SiekTaha06} aim to bridge the gap between dynamic and static typing by allowing programmers to gradually add type annotations to their programs.
 Gradually-typed languages are becoming increasingly popular, with languages such as TypeScript~\cite{typescript13} becoming more mainstream.
-...
+An eventual implementation of a type system for R will surely be inspired by this work.
 
 %
 %.
