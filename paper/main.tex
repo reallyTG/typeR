@@ -1358,22 +1358,17 @@ Tidyverse, by far the most popular package suite in R, owes some of its success 
 An example of that syntax is \%$>$\%, and indeed this function was highly exercised by over 100 other packages.
 
 %
-%
+%  ls trace_export_promises > promise_packages_FINAL.txt
 %
 %
 %
 %
 \section{Discussion}
 
-\AT{Short section to recap the analysis results, discuss trends, consolidate our suggestions, talk about argument vs. function poly.}
-
 Throughout Section~\ref{sec:results}, we have thoroughly explored the trends and patterns of polymorphism observed in our analysis of a large subset of existing R code.
 By now, we have an understanding of how each of our type levels captures the polymorphic patterns that exist in R.
 
-\AT{DRAFT}
-
-In this section, we aim to comment globally on the things we learned during our analysis, and propose a type system which is reasonable given its coverage of existing code.
-
+In this section, we aim to comment globally on the things we learned during our analysis, and propose a type system for R which is supported by empirical evidence that it captures the patterns of existing R code.
 We will look at argument-level polymorphism, and then function level polymorphism.
 
 %
@@ -1437,6 +1432,10 @@ One drawback of function-level polymorphism is that functions with many argument
 We saw this in Figure~\ref{fig:L2funcounts}, where the distribution of signatures per function was roughly in line with those from Figures~\ref{fig:L0funcounts} and~\ref{fig:L1funcounts} but the peak (i.e., the function with the most signatures) was far more pronounced.
 That said, overall the number of polymorphic functions did not increase by too large a margin considering the added expressivity of {\bf L2}'s types.
 
+To determine which kinds of whole function signatures would be useful, a more sophisticated analysis is required, which would need to develop a correlation between function arguments and return types.
+There may also be other interesting per-function trends which our current analysis does not pick up on.
+We aim to make our data available for this purpose.
+
 %
 %
 %
@@ -1450,104 +1449,50 @@ That said, overall the number of polymorphic functions did not increase by too l
 %
 %
 \section{Related Work}
-\AT{Not sure what the best place for this is, but we should discuss these papers somewhere.}
+
 The idea of measuring polymorphism via some program analysis isn't new.
 For instance, some work~\cite{aakerblom2015measuring} ... .
+
 More generally, there is an existing literature on analyzing usage patterns
-of language features.  For instance, the dynamic features of Smalltalk were
-analyzed in some work~\cite{callau2011howdevelopers}, ...
+of language features.  
+For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, ...
+
 Other analysis work~\cite{milojkovic2017duck} ... .
+
+%
+%. nohup parallel -j55 -a promise_reduce_me.txt Rscript mar_new_processing_files/promise_processed_reduced_to_new_form.R &
+%
+%
+%
+%
 \section{Conclusions and Future Work}
+
+Ours is a community which strives to improve the lives of programmers, and understanding programmers is key to ensure that our vision aligns with their needs.
+Increasingly, programming is becoming accessible to a wider audience, with many domain-specific languages being developed to address the concerns of specialists such as analysts, mathematicians, and data scientists.
+Designing systems and languages to meet the specific needs of these domain experts can prove to be challenging, as our own intuitions as (often) classically-trained programmers may fail us, and in many cases they know their own needs better than we do.
+
+One particularly interesting language which falls into this category, and indeed the object of this work, is R.
+R is a language made by statisticians, for statisticians. 
+The language itself is fascinating: it is a vectorized, dynamically
+typed, lazy, and functional, with limited side-effects, extensive
+reflective facilities and retrofitted object-oriented programming support.
+Understanding how these disparate and sometimes adversarial features interact is critical to improving or otherwise further developing the language.
+
+In our work, we built up an understanding of R by analyzing the usage of types across a large corpus of R code.
+With this knowledge, we highlighted some interesting patterns of type usage, and developed a number of type systems with differing levels of granularity to describe and capture the use of types in the language.
+This task was complicated by the many notions of type in R, as well as the lack of non-package R code, but we persevered:
+leveraging the \genthat tool, we analyzed tests, examples, and vignettes of said packages as a close approximation for how these packages would in fact be used by programmers.
+Our final type system, {\bf L2}, consolidated information from 3 of R's main reflective functions (\code{typeof}, \code{class}, and \code{attributes}), as well as some extra information about certain values (e.g. the type of list elements, and the length of vectorized types) to be as precise as reasonable.
+
+We found that a type system such as {\bf L2} captures an overwhelming majority (>90\%) of argument-level type usage, and in it a vast majority ($\approx$80\%) of functions were monomorphic.
+Among other interesting data points, we discovered that many argument positions with a vectorized type in R are monomorphic {\it and strictly scalar}, suggesting that types or annotations for scalar-only values is useful.
+
+\AT{Need a somewhat stronger conclusion.}
+
+%
+%
+%
 \bibliographystyle{boilerplate/ACM-Reference-Format}
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new}
 \end{document}
 
-
-%
-% L1+ Stuff? We don't need this anymore.
-% 
-% 
-%
-%At this point, we have seen a number of reasonable polymorphic patterns that arise in R, both in L0 and L1.
-%The next type system design we consider will deal with these, and we refer to it as L$1^{+}$.
-%The number of monomorphic arguments and functions can be found in Tables~\ref{tab:argcountsL1p} and~\ref{tab:funcountsL1p} respectively.
-%
-%% latex table generated in R 3.5.1 by xtable 1.8-3 package
-%% Fri Mar 22 18:03:30 2019
-%\begin{table}[ht]
-%\label{tab:argcountsL1p}
-%\centering
-%\begin{tabular}{lrr}
-%  \hline
-% Argument Polymorphism & Count & Percentage \\
-%  \hline
-%  Monomorphic in Type & 869K & 95.01 \\
-%%  Monomorphic in Class & 831K & 90.31 \\
-%%  Monomorphic in Attribute Pattern & 830K & 90.25 \\
-%  Total Seen & 914K & --- \\
-%     \hline
-%\end{tabular}
-%\caption{Account of {\it argument} polymorphism in L$1^{+}$.}
-%\end{table}
-%
-%% latex table generated in R 3.5.1 by xtable 1.8-3 package
-%% Fri Mar 22 18:10:46 2019
-%\begin{table}[ht]
-%\label{tab:funcountsL1p}
-%\centering
-%\begin{tabular}{lrr}
-%  \hline
-% Function Polymorphism & Count & Percentage \\
-%  \hline
-%  Monomorphic in Type & 185K & 85.30 \\
-%%  Monomorphic in Class & 163K & 75.13 \\
-%%  Monomorphic in Attribute Pattern & 161K & 74.31 \\
-%  Total Seen & 216K & --- \\
-%   \hline
-%\end{tabular}
-%\caption{Account of {\it function} polymorphism in L$1^{+}$.}
-%\end{table}
-%
-%We had some big wins here, with only ~5\% of argument polymorphism unaccounted for.
-%To get an idea of what more we can do, let's see what the most frequent remaining polymorphic signatures are.
-%See Table~\ref{tab:toppolyL1p}.
-%
-%% latex table generated in R 3.5.1 by xtable 1.8-3 package
-%% Tue Mar 26 17:46:45 2019
-%\begin{table}[ht]
-%\label{tab:toppolyL1p}
-%\centering
-%\begin{tabular}{lrr}
-%  \hline
-%Polymorphic Type Signature & \# Occurrences & \% of Total Polymorphism \\
-%  \hline
-%  matrix, \realv & 6360 & 13.94 \\
-%  list$<$any$>$, list$<$real$>$ & 2799 & 6.13 \\
-%  \C, \realv & 2774 & 6.08 \\
-%  \sC, \reals & 2552 & 5.59 \\
-%  data.frame, matrix & 2167 & 4.75 \\
-%  list$<$any$>$, list$<$list$>$ & 1496 & 3.28 \\
-%  list$<$any$>$, list$<$character$>$ & 1214 & 2.66 \\
-%  data.frame, \realv & 1046 & 2.29 \\
-%  \sL, \reals & 920 & 2.02 \\
-%  \sC, \realv & 868 & 1.90 \\
-%   \hline
-%\end{tabular}
-%\caption{Top 10 argument signatures in L$1^{+}$.}
-%\end{table}
-%
-%A few of the top polymorphic signatures stand out.
-%First, the matrix/\realv signature seems interesting, converting between vectors and matrices is very simple, and indeed numeric vectors are mathematically {\tt 1 x n} matrices.
-%In fact, in R matrices can be used identically to vectors in many cases, and we refer the reader to Figure~\ref{fig:matasvec} for examples.
-%\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-%v <- c(1, 2, 3, 4)
-%ma <- matrix(data=v, nrow=4, ncol=1)
-%v[2] == m[2] == m[2, 1]
-%
-%mb <- matrix(data=v, nrow=2, ncol=2)
-%v[3] == m[3] == m[1, 2]
-%\end{lstlisting}}\caption{Using a matrix like a vector.}\label{fig:matasvec}\end{figure}
-%
-%This similarity is reminiscent of another pattern which was more clear in Table~\ref{tab:L0toppoly}; that of list/vector polymorphism.
-%Transforming between vectors and matrices is just as easy as transforming between lists and vectors is simple.
-%\AT{We should figure out how we want to deal with this polymorphism.}
