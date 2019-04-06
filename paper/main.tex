@@ -1303,17 +1303,8 @@ Now, what makes these so polymorphic?
 The first package, magrittr, is one that we discussed earlier in the context of its pipe \%$>$\% function. 
 It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
 In fact, all but knitLatex implement some form of metaprogramming:
-oshka meta
-\begin{enumerate}
-
-	\item knitLatex: two functions are largely responsible for this level of polymorphism: sTab, which produces \LaTeX \xspace supertabular environments, and lTab, which produces \LaTeX \xspace longtable environments.
-	These functions both have over 15 arguments, and there are a large number of recorded configurations, with many of the arguments being optional.
-	
-	\item 
-	
-	\item 
-
-\end{enumerate}
+oshka metaprograms in the same style as Tidyverse, scatterD3 metaprograms on plot objects, and yaml converts R expressions to YAML expressions.
+This is a trend we have observed: {\it the most polymorphic functions in R are metaprogramming their arguments}.
 
 It's highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
 It's also unclear how useful a type system would be if it {\it did} capture everything.
