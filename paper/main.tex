@@ -100,7 +100,7 @@
 \newcommand{\sX}{\ensuremath{\small{\mathtt X}}\xspace} % Complex
 \newcommand{\sR}{\ensuremath{\small{\mathtt R}}\xspace} % Raw
 \newcommand{\ANY}{\ensuremath{\small{\mathtt ?}}\xspace}     % Any
-\newcommand{\lT}[1]{\ensuremath{\small\underline{\mathtt #1}}\xspace}     % list<T>
+\newcommand{\lT}[1]{\ensuremath{\small\underline{\mathtt{#1}}}\xspace}     % list<T>
 \newcommand{\M}[1]{\ensuremath{\attr{\vec{\tt #1}}{mat}}\xspace}     % matrix
 \newcommand{\df}{\ensuremath{\attr{\l}{df}}\xspace}     % data.frame
 
@@ -489,10 +489,10 @@ generalize possible type signatures for the called functions.  We base our
 infrastructure on an open source tool called \genthat whose purpose is to
 generate unit tests for R libraries~\cite{issta18}.  \genthat achieves this
 by synthesizing unit tests from recorded function argument and return
-values, comparing candidate tests against existing ones to avoid generating tests
-which do not increase code coverage.  To suit our purposes, we change the
-existing tool in two main ways: we record \emph{shapes} rather than values,
-and ignore the code coverage optimization phase.  Both changes are
+values, comparing candidate tests against existing ones to avoid generating
+tests which do not increase code coverage.  To suit our purposes, we change
+the existing tool in two main ways: we record \emph{shapes} rather than
+values, and ignore the code coverage optimization phase.  Both changes are
 beneficial for scalability, allowing us to trace far more calls.
 
 
@@ -603,151 +603,181 @@ identical signatures for the same function.
 
 \section{Types for R}
 
-Our aim is to capture the polymorphism in R, and to do so we must define a meaningful set of basic types for the language.
-There are several possible choices, with a variety of levels of expressivity and complexity.
-For concreteness, we will pick out three different sets of types.
-To start simple, we define a set of types which closely align with R's builtin types, and later define richer notions of type which incorporate attributes, classes, and capture the various object systems of R.
+Our aim is to capture the polymorphism in R, and to do so we must define a
+meaningful set of basic types for the language. Also, we are interested in
+finding a type system that could be adopted, for this we aim to investigate
+the simplest possible solution.  There are several possible choices, with a
+variety of levels of expressivity and complexity.  For concreteness, we will
+pick out three different sets of types.  To start simple, we define a set of
+types which closely align with R's builtin types, and later define richer
+notions of type which incorporate attributes, classes, and capture the
+various object systems of R.
 
-Throughout this paper, we will say that an argument is {\it polymorphic at} \textbf{\emph{LX}} (read: level X) if it has been called with at least two values that belong to distinct types at {\bf LX}.
-\textbf{L2} will incorporate class and attribute lists, which are slightly trickier to ``type'', and we defer discussion of this until Section~\ref{sec:L2def}.
+Throughout this paper, we will say that an argument is {\it polymorphic at}
+\textbf{\emph{LX}} (read: level X) if it has been called with at least two
+values that belong to distinct types at {\bf LX}.  \textbf{L2} will
+incorporate class and attribute lists, which are slightly trickier to
+``type'', and we defer discussion of this until Section~\ref{sec:L2def}.
 
 \subsection{L0 Types}
 \label{sec:L0def}
 
-The logical ``baseline'' for the design of a type system for R is to adopt the language's builtin types.
-We dub these {\bf L0} types, and they are primarily built on the \code{typeof} values, which reflects the implementation of the type in the runtime environment.
-More specifically, the \code{typeof} a value is simply the runtime type tag of the value.
-Given that, {\bf L0} includes the following types: vectors of primitive types (integers
-\I, double \D, character \C, logical \L, raw \R, complex \X), lists of any
-type (\l), and scalar values (environment \sE, closures \sF, symbols \sY, S4
-object \sS, and null \sN). We omit short forms for some of R's more esoteric types (e.g., {\tt environment}s).
- We add the any (written \ANY)  type to stand in for unevaluated values
-Subtyping in {\bf L0} follows from the conversion rules of the language:  Logicals are subtypes of integers, which
-are themselves subtypes of doubles (so \L <: \I <: \D).  All types are subtypes of \ANY,
-thus {\tt T}<:\ANY for an type {\tt T}.
+The logical ``baseline'' for the design of a type system for R is to adopt
+the language's builtin types.  We dub these {\bf L0} types, and they are
+primarily built on the \code{typeof} values, which reflects the
+implementation of the type in the runtime environment.  More specifically,
+the \code{typeof} a value is simply the runtime type tag of the value.
+Given that, {\bf L0} includes the following types: vectors of primitive
+types (integers \I, double \D, character \C, logical \L, raw \R, complex
+\X), lists of any type (\l), and scalar values (environment \sE, closures
+\sF, symbols \sY, S4 object \sS, and null \sN). We omit short forms for some
+of R's more esoteric types (e.g., {\tt environment}s).  We add the any
+(written \ANY) type to stand in for unevaluated values Subtyping in {\bf L0}
+follows from the conversion rules of the language: Logicals are subtypes of
+integers, which are themselves subtypes of doubles (so \L <: \I <: \D).  All
+types are subtypes of \ANY, thus {\tt T}<:\ANY for an type {\tt T}.
 
-%
 %
 \subsection{L1 Types}
 \label{sec:L1def}
 
-{\bf L0} is limited in expressivity as it (1) supports polymorphism for list in
-a trivial way, (2) does not address some of the popular constructed data
-types such as matrices and data frames, and (3) cannot differentiate between
-scalar values and vectors.  
-{\bf L1} types build on and extend {\bf L0} with with scalar values for primitive types (\sI, \sD, \sC, \sL, \sR, and \sX), type-parametric lists (written \lT{T} for any type {\tt T}), data frames (written \attr{\l}{df} as they are built up from lists of type any), and matrices (\attr{\vec{\tt T}}{mat} where {\tt T} is a primitive type).
+{\bf L0} is limited in expressivity as it (1) supports polymorphism for
+lists in a trivial way, (2) does not address some of the popular constructed
+data types such as matrices and data frames, and (3) cannot differentiate
+between scalar values and vectors.  {\bf L1} types build on and extend {\bf
+  L0} with with scalar values for primitive types (\sI, \sD, \sC, \sL, \sR,
+and \sX), type-parametric lists (written \lT{T} for any type {\tt T}), data
+frames (written \attr{\l}{df} as they are built up from lists of type any),
+and matrices (\attr{\vec{\tt T}}{mat} where {\tt T} is a primitive type).
 Subtyping is extended such that {\tt T}<:{$\vec{\tt T}$} for any primitive
-type {\tt T}. The subtype relation is undefined for lists of different types, as well as for matrices and data frames.
+type {\tt T}. The subtype relation is undefined for lists of different
+types, as well as for matrices and data frames.
 
-\subsection{L2 Types}
-\label{sec:L2def}
+\subsection{L2 Types}\label{sec:L2def}
 
-{\bf L2} extends the previous system with support for classes and attributes.
-While there are a finite number of results from the \code{typeof} function, this is {\it not} the case for \code{class} and \code{attributes}, as classes and attributes {\it can} be user-defined. 
-In terms of classes, R has a number of built-in or otherwise standard classes, ranging from truly primitive classes such as {\tt numeric} to the more complex {\tt data.frame}. 
-{\bf L1} already incorporates these builtin classes, namely through its data frame and matrix types, so we will ignore those classes and thus highlight those which are user-defined.  
-As for attributes, again some patterns arise naturally in R, e.g. all matrices have a {\tt dims} attribute, but even these are somewhat interesting, as a programmer could in theory set their own {\it dims} attribute on an arbitrary value.
-The only attribute we ignore is the {\tt class} attribute, as we collect the class of values separately (and the {\tt class} attribute, if present, is always equal to the class of a value).
-Attributes are name-value pairs, and to keep things simple we consider only attribute names.
+{\bf L2} extends the previous system with support for classes and
+attributes.  While there are a finite number of results from the
+\code{typeof} function, this is {\it not} the case for \code{class} and
+\code{attributes}, as classes and attributes {\it can} be user-defined.  In
+terms of classes, R has a number of built-in or otherwise standard classes,
+ranging from truly primitive classes such as {\tt numeric} to the more
+complex {\tt data.frame}.  {\bf L1} already incorporates these builtin
+classes, namely through its data frame and matrix types, so we will ignore
+those classes and thus highlight those which are user-defined.  As for
+attributes, again some patterns arise naturally in R, e.g. all matrices have
+a {\tt dims} attribute, but even these are somewhat interesting, as a
+programmer could in theory set their own {\it dims} attribute on an
+arbitrary value.  The only attribute we ignore is the {\tt class} attribute,
+as we collect the class of values separately (and the {\tt class} attribute,
+if present, is always equal to the class of a value).  Attributes are
+name-value pairs, and to keep things simple we consider only attribute
+names.
 
-In sum, we extend {\bf L1} with attribute lists and classes: \attrclass{T}{C}{A} where {\tt T} can be any L1 type other than data frame or matrix, and {\tt C} and {\tt A} are lists of classes and attribute names respectively.  
-The subtype relation is defined as: \attrclass{T}{C}{A} $<:_{\mathbf{L2}}$ \xspace \attrclass{\dot T}{C'}{A'} if $ T <:_{\mathbf{L1}} \dot T$ (i.e. are subtypes in the sense of {\bf L1}), $C \subseteq C'$, and $A \subseteq A'$.
+In sum, we extend {\bf L1} with attribute lists and classes:
+\attrclass{T}{C}{A} where {\tt T} can be any L1 type other than data frame
+or matrix, and {\tt C} and {\tt A} are lists of classes and attribute names
+respectively.  The subtype relation is defined as: \attrclass{T}{C}{A}
+$<:_{\mathbf{L2}}$ \xspace \attrclass{S}{C'}{A'} if $ T
+<:_{\mathbf{L1}} S$ (i.e. are subtypes in the sense of {\bf L1}), $C
+\subseteq C'$, and $A \subseteq A'$.
 
-\subsection{Automatic Subtyping}
-\label{sec:autosub}
+\subsection{Simplification by Subtyping}\label{sec:autosub}
 
-When analyzing our data, we perform a certain amount of subtyping automatically to minimize the footprint of obviously equivalent signatures.
-This subtyping is performed at the function level of granularity.
-For example, if a function is observed to have two signatures \sD \to \df to \D \to \df, we collapse the signature to \D \to \df as \sD $<:$ \D and \df $<:$ \df.
-We would not collapse \sD, \I \to \df and \D, \sI \to \df, as \I $\not <:$ \sI and \D $\not<:$ \sD.
+When analyzing our data, we perform a certain amount of simplifications
+automatically to minimize the footprint of equivalent signatures.  This
+subtyping is performed at the function level of granularity.  For example,
+if a function is observed to have two signatures \sD \to \df to \D \to \df,
+we collapse the signature to \D \to \df as \sD $<:$ \D and \df $<:$ \df.  We
+would not collapse \sD, \I \to \df and \D, \sI \to \df, as \I $\not <:$ \sI
+and \D $\not<:$ \sD.
 
-Before presenting the results of our analysis, we will quickly survey examples of real, polymorphic R functions that we have analyzed, to build up a global sense of how types manifest themselves in current R code.
 
 
 %
 %
 %
-%
-%
-%
-\section{Examples of Polymorphism}
-\label{sec:polyex}
+\section{Examples of Polymorphism}\label{sec:polyex}
 
-In this section, we will present an eclectic mix of R functions which exhibit polymorphic behavior at {\bf L0}.
+Before presenting the results of our analysis, we  quickly survey
+examples of real, polymorphic R functions that we have analyzed, to build up
+a global sense of how types manifest themselves in current R code.
 
-We begin by referring the reader to Figure~\ref{fig:realex}, which showcases the compatibility of integers and doubles.
-Coercion from integer to double is performed automatically where appropriate (e.g., here when a double and integer are added together), and likewise coercion from double to integer is automatically performed when integers are strictly required (e.g., here when doubles are being used to index a vector or list).
+We begin by referring the reader to Figure~\ref{fig:realex}, which showcases
+the compatibility of integers and doubles.  Coercion from integer to double
+is performed automatically where appropriate, and likewise coercion from
+double to integer is automatically performed when integers are strictly
+required.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 > 5L + 1L # => 6L, an integer
 > 5L + 1.2 # => 6.2, a double (5L coerced to 5.0)
 > c(10, 20, 30)[1.2] # => 10, 1.2 coerced to 1L
-\end{lstlisting}}\caption{Example of \sD, \sI type usage.}\label{fig:realex}\end{figure}
+\end{lstlisting}}\caption{Example of \sD, \sI type usage}\label{fig:realex}\end{figure}
 
-Figure~\ref{fig:optnull} shows an example of a function with an optional NULL argument. 
-In the function, {\tt x} is a sorted vector of income values, and {\tt w} is a vector of weights with default value NULL.
-The function computes fractional ranks required in other package functions.
-We see that if {\tt w} is NULL, then default unit weights are generated.
-This pattern of default NULL (or NA) arguments is very prevalent in R.
+Figure~\ref{fig:optnull} shows a function with an optional NULL argument.
+In the function, {\tt x} is a sorted vector, and {\tt w} a vector with
+default value NULL.  If {\tt w} is NULL, then default unit weights are
+generated.  This pattern of default NULL (or NA) arguments is prevalent.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 frac.ranks <- function(x, w=NULL) {
   if (is.null(w)) w <- rep(1, length(x)) # if no weights passed, take all weights = 1
   ...
-\end{lstlisting}}\caption{Example of optional argument (from {\tt acid} package).}\label{fig:optnull}\end{figure}
+\end{lstlisting}}\caption{Optional argument ({\tt acid} package)}\label{fig:optnull}\end{figure}
 
-Figure~\ref{fig:listvec} shows an example of a function with list and vector
-polymorphism.  The function takes a list or vector {\tt point} and a data
-frame {\tt polyg} representing a polygon.  In it, we see that {\tt point} is explicitly converted
-to a vector (via the \code{as.numeric} function) regardless of its type.
-This showcases the ease with which lists and vectors may be converted in R (the corresponding vector-to-list function is \code{as.list}).
+Figure~\ref{fig:listvec} shows a function with list and vector polymorphism.
+It takes a list or a vector {\tt point} and a data frame {\tt polyg}.  The
+{\tt point} is explicitly converted to a vector (by \code{as.numeric})
+regardless of type.  This showcases the ease of going from lists to vectors
+(and conversely).
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 is.point.inside <- function (point, polyg) {
     p <- as.numeric(point) # as.numeric(list(1, 2)) => c(1, 2)
     ...
-\end{lstlisting}}\caption{Example of \l or \D (list or vector of doubles) argument (from {\tt bivrp} package).}\label{fig:listvec}\end{figure}
+\end{lstlisting}}\caption{List and vector polymorphism ({\tt bivrp} package)}\label{fig:listvec}\end{figure}
 
-Figure~\ref{fig:charclos} shows an example of a function with character and
-function polymorphism.  At a high level, this function
-calculates point estimates for some object. The caller specifies {\tt fn}, which is either a function {\it or} the name of a function which will be evaluated on the object samples to estimate parameters.
-If {\tt fn} is a string, the function lookup is performed by \code{match.fun}.
+Figure~\ref{fig:charclos} is a function with character and function
+polymorphism.  The caller specifies {\tt fn}, which is either a function
+{\it or} the name of a function which will be looked up by name (a string).
+
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 pointest <- function (object, fn = mean, par.name, comp.label, chain.no,  ...) {
-    ...
     if (is.character(fn))
         if (fn == "MODE" | fn == "MAP")   do_MAP <- TRUE
         else {
             do_MAP <- FALSE
             fn <- match.fun(fn) # looks up the function name
         }
-\end{lstlisting}}\caption{Example of \sC/\sF argument (from {\tt BAMBI} package).}\label{fig:charclos}\end{figure}
+\end{lstlisting}}\caption{Character and function polymorphism ({\tt BAMBI} package)}\label{fig:charclos}\end{figure}
 
-In Figure~\ref{fig:dfdbl}, we see a function that, among other things, takes in some data ({\tt dat}) and a
-character string ({\tt spss}) specifying either {\tt "in"} or {\tt "out"}.
-Here, the type of {\tt dat} is {\it dependent} on the value of {\tt spss}:
-if {\tt spss == "in"}, {\tt dat} must be a data frame, and otherwise if {\tt spss == "out"}, {\tt dat} must be a vector.
-Our analysis does not capture this granularity of dependency, as we only collect type information.
+In Figure~\ref{fig:dfdbl}, we see a function that, among other things, takes
+in some data ({\tt dat}) and a character string ({\tt spss}) specifying
+either {\tt "in"} or {\tt "out"}.  Here, the type of {\tt dat} is {\it
+  dependent} on the value of {\tt spss}: if {\tt spss == "in"}, {\tt dat}
+must be a data frame, and otherwise if {\tt spss == "out"}, {\tt dat} must
+be a vector.  Our analysis does not capture this granularity of dependency,
+as we only collect type information.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-nret.translator <- function(dat, spss="out", ...) {
-  ...
+nret.translator <- function(dat, spss="out", ...) {  ...
   if(identical(spss, "out")) {
-    if(!is.vector(dat))  stop(simpleError("...'dat' must be a vector!"))
-    ...
+    if(!is.vector(dat))  stop(simpleError("...'dat' must be a vector!")) ...
   } else {
     ...
-    # here, dat is data.frame
     items.idx <- items.idx[order(names(dat[, items.idx]))]
   }
 \end{lstlisting}}\caption{Example of a \df/\D argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
 
-In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt network}), a vector of indices of that list ({\tt fixIndices}), and a
-vector of values ({\tt values}).  The locations specified by {\tt fixIndicies} in {\tt network} are updated with {\tt values}.  Here, {\tt fixIndicies} has been observed to be either a character or double vector:
+In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt
+  network}), a vector of indices of that list ({\tt fixIndices}), and a
+vector of values ({\tt values}).  The locations specified by {\tt
+  fixIndicies} in {\tt network} are updated with {\tt values}.  Here, {\tt
+  fixIndicies} has been observed to be either a character or double vector:
 In R, list indices are typically doubles, but can be characters (if the list
-or vector being indexed has a {\tt names} attribute).
-Note that type level {\bf L2} can capture the presence of a {\tt names} attribute.
+or vector being indexed has a {\tt names} attribute).  Note that type level
+{\bf L2} can capture the presence of a {\tt names} attribute.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
 fixGenes <- function (network, fixIndices, values) {
@@ -1027,7 +1057,7 @@ Signature & Count & \% of All Signatures \\
   \l, \lT{D} & 1843 & 0.2\% \\ 
   \sC, \sD & 1590 & 0.2\% \\ 
   \M{D}, \M{I} & 1502 & 0.2\% \\ 
-  \l, \lT{list} & 1199 & 0.1\% \\ 
+%  \l, \lT{list} & 1199 & 0.1\% \\ 
   \df, \M{D} & 1180 & 0.1\% \\ 
   \C, \D & 1019 & 0.1\% \\ 
   \sD, \sF & 1005 & 0.1\% \\ 
@@ -1055,9 +1085,9 @@ So what do these signatures mean?
 	
 	\item \M{D}, \M{I}: this signature is reasonable, as any computation in R on \M{D} would work on \M{I} and vice versa.
 	
-	\item \l, \lT{list}: here we have a list of any and a list of lists.
-	One explanation for this is that lists of lists sometimes contain NULL as an element, and this would show up with type \l, again as we don't do any subtyping while computing precise list types.
-	Another explanation is the way R handles object-orientation, which we discuss shortly in Section~\ref{sec:S3S4R5}.
+%	\item \l, \lT{list}: here we have a list of any and a list of lists.
+%	One explanation for this is that lists of lists sometimes contain NULL as an element, and this would show up with type \l, again as we don't do any subtyping while computing precise list types.
+%	Another explanation is the way R handles object-orientation, which we discuss shortly in Section~\ref{sec:S3S4R5}.
 	
 	\item \df, \M{D}: in R, it's easy to transform a matrix into a data frame, and this argument is likely a result of that:
 	Simply calling \code{as.data.frame} on a matrix is enough.
