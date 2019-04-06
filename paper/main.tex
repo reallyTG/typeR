@@ -562,7 +562,7 @@ In R, trying to use missing values results in an error and thus an exception, tr
 For practical reasons, we do not record the contents of environments:
 These can be used as hash tables, may be large, and are quite likely different from one another.
 
-Unevaluated arguments in R are sometimes {\it carefully} used by their functions to implement some form of metaprogramming.
+Unevaluated arguments in R are sometimes {\it carefully} used by their functions to implement some form of meta-programming.
 Consider the {\tt magrittr} package, which implements a pipe function \%$>$\% that implements a flavor of function currying:
 
 {\small\begin{lstlisting}[style=R]
@@ -804,9 +804,7 @@ We begin with {\bf L0}.
 
 \subsection{L0}
 
-At {\bf L0}, the type system is mostly aligned with the types of the core language.  We
-have observed over \AT{how many?} monomorphic functions; this accounts for \AT{what \%?} of our
-corpus. 
+At {\bf L0}, the type system is mostly aligned with the types of the core language.
 
 Across all of the arguments that we've observed, the vast majority are monomorphic.
 Table~\ref{tab:L0top10arg} shows the breakdown of the 10 most frequently occurring argument signatures.
@@ -837,8 +835,8 @@ We see that doubles are the most common argument type, which is not entirely sur
 Next is lists, which seems reasonable given that lists are often used to store the aforementioned data.
 Recall that in {\bf L0}, data frames will appear as lists.
 The \ANY type is not an R type per se: we ascribe such a type to arguments which were {\it always} unevaluated across all calls.
-As it happens, many R functions metaprogram on some of their arguments, and this metaprogramming does not force the argument promise, and if this metaprogramming is always performed in every recorded call we will ascribe the \ANY type, as we cannot say what the argument {\it is} without possibly forcing a promise.
-The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of metaprogramming; we will discuss it in a little more detail shortly.
+As it happens, many R functions meta-program on some of their arguments, and this meta-programming does not force the argument promise, and if this meta-programming is always performed in every recorded call we will ascribe the \ANY type, as we cannot say what the argument {\it is} without possibly forcing a promise.
+The magrittr package's pipe \%$>$\% function is an example of a function which performs a lot of meta-programming; we will discuss it in a little more detail shortly.
 Interestingly, a polymorphic attribute signature \D, \l is among the top 10 overall---this is the vector and list polymorphism (shown in Figure~\ref{fig:listvec}) made manifest.
 
 Now that we've seen the most common attribute-level signatures, we will turn our attention to function-level polymorphism.
@@ -854,7 +852,7 @@ Figure~\ref{fig:L0funcounts} has the answer, with a breakdown by function.
 Here, we see that the vast majority of functions are monomorphic in L0.
 That said, there are a few functions with a disproportionately large number of signatures.
 One such function is the magrittr package's pipe \%$>$\%, which is used to implement a kind of currying (as per discussion in Section~\ref{sec:Impl})---here, \%$>$\% has nearly 100 unique signatures!
-Many of the metaprogramming functions in the Tidyverse are quite sophisticated, and are designed with the explicit goal of being very usable.
+Many of the meta-programming functions in the Tidyverse are quite sophisticated, and are designed with the explicit goal of being very usable.
 This usability maps to polymorphism in our analysis, so it's no surprise that a Tidyverse function features so prominently here.
 
 Another function with many signatures is the data.table package's [ function, which is a reimplementation of the square bracket operator for data.tables.
@@ -941,8 +939,6 @@ That said, L0 is not without limitations, and the main issues stem from a lack o
 The next type system we will explore, L1, tackles these issues by collecting more information to build more precise types.
 While the L1 types are less ``in-tune'' with current R implementations, one can imagine designing an all-new R runtime which may benefit from the more specific information in L1, e.g. by not needing to vectorize scalar values, or designing a static analysis which uses precise list types to give programmers better information in an IDE.
 L1 is discussed next.
-
-\AT{TODO simple running example}
 
 %
 %
@@ -1200,8 +1196,8 @@ Consider Figure~\ref{fig:L2funcounts}.
 
 Not pictured here are two outlier values: the summary and print functions of the base R package.
 Summary is a generic function which is used to summarize various types of data, and print is used to convert values to string format and print them to the console.
-These functions really {\it should} be outliers, as they are really operating over any type.
-They feature so prominently here since many of the values which flowed into them had some amount of attribute or class information.
+These functions have over 1,000 unique signatures each, which is within reason as they are really operating over any type.
+They feature so prominently in {\bf L2} (and not in {\bf L1} or {\bf L0}) since many of the values which flowed into them had some amount of attribute or class information, and indeed these functions are very frequently exercised by other packages which may implement package-specific classes.
 
 Overall, the amount of polymorphism only slightly increased, even though we added two new dimensions of type information.
 Again, far richer types do not increase the amount of polymorphism by significant amounts, perhaps a testament to the monomorphic nature of many R functions.
@@ -1302,9 +1298,9 @@ Note that we are in the context of {\bf L0}, here, to highlight current language
 Now, what makes these so polymorphic?
 The first package, magrittr, is one that we discussed earlier in the context of its pipe \%$>$\% function. 
 It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
-In fact, all but knitLatex implement some form of metaprogramming:
-the oshka package metaprograms in the same style as Tidyverse, the scatterD3 package metaprograms on plot objects, and the yaml package converts R expressions to YAML expressions.
-This is a trend we have observed: {\it the most polymorphic functions in R are metaprogramming their arguments}.
+In fact, all but knitLatex implement some form of meta-programming:
+the oshka package meta-programs in the same style as Tidyverse, the scatterD3 package meta-programs on plot objects, and the yaml package converts R expressions to YAML expressions.
+This is a trend we have observed: {\it the most polymorphic functions in R are meta-programming their arguments}.
 
 It's highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
 It's also unclear how useful a type system would be if it {\it did} capture everything.
@@ -1369,39 +1365,7 @@ Throughout Section~\ref{sec:results}, we have thoroughly explored the trends and
 By now, we have an understanding of how each of our type levels captures the polymorphic patterns that exist in R.
 
 In this section, we aim to comment globally on the things we learned during our analysis, and propose a type system for R which is supported by empirical evidence that it captures the patterns of existing R code.
-We will look at argument-level polymorphism, and then function level polymorphism.
-
-%
-%
-%
-%
-\subsection{Argument-Level Polymorphisms}
-
-From our analysis, we discovered a number of interesting patterns at the argument level.
-To summarize:
-
-\begin{itemize}
-
-	\item {\bf scalars}: according to our analysis, many instances of vectorized values are always scalar.
-	This is strong evidence that an annotation denoting a scalar value would be useful to R programmers, and further such an annotation could be used by future implementations to statically determine when not to vectorize a vectorizable type.
-	
-	\item {\bf missing}: our analysis has found a number of instances of argument positions remaining unevaluated across all calls to a function.
-	A small annotation, such as a tag on an argument position, would capture this behavior and could be used to warn programmers if they try to use the unevaluated value, and also warn them if an operation might evaluate it accidentally.
-	Techniques to avoid forcing promises in R are not well understood by most programmers, and such an annotation would be useful to assist them in avoiding unwanted forcing of promises.
-
-	\item {\bf classes}: in transitioning from {\bf L1} to {\bf L2}, we found that the prevalence of \l, \lT{X} polymorphism decreased significantly.
-	In many cases, these lists share a class, and so the signature which was prominent in {\bf L1} was broken down into several less prominent {\bf L2} signatures with added class information.
-	Classes could also be used to capture the usage of dates (two of the standard date formats have class ``Date'' and ``POSIXct, POSIXt''), and could help package writers enforce usage of package functions.
-
-\end{itemize}
-
-Generating the code to dynamically enforce these signatures is also possible, with varying levels of complexity.
-Simple checks include checking the class of a value, or checking for the presence of certain attributes.
-R makes it easy to exit a function prematurely, and in fact many functions already exhibit this behavior.
-For example: \AT{example}.
-
-We also saw that, despite being far more specific and descriptive than previous levels, the {\bf L2} type system didn't bring about an undue increase in the amount of overall polymorphism in the language.
-This signifies that {\bf L2} captures the vast majority of already existing polymorphic patterns, and very few functions would need to resort to an \ANY annotation, and indeed many arguments are really \ANY-typed (e.g., \%$>$\% from magrittr and the prototype assignment operator {\tt \$<-} from proto).
+We will first look at function level polymorphism before moving on to argument-level polymorphism.
 
 %
 %
@@ -1409,7 +1373,7 @@ This signifies that {\bf L2} captures the vast majority of already existing poly
 %
 \subsection{Function Polymorphism}
 
-We saw that argument-level signatures and polymorphism are insufficient to capture some interesting patterns at the function level.
+There are some function-level polymorphic patterns that cannot be captures solely with polymorphic function arguments.
 For instance, consider Figure~\ref{fig:funanno}.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
@@ -1421,18 +1385,18 @@ f(list(1, 2, 3)) # x: list<double> -> list<double>
 
 # possible annotations:
 # [1] x: {double, list<double>} -> {double, list<double>}
-# [2] x: {double -> double, x: list<double> -> list<double>}
+# [2] x: {double -> double, list<double> -> list<double>}
 \end{lstlisting}}\caption{Simple identity function.}\label{fig:funanno}\end{figure}
 
-In certain cases, language implementations could benefit from knowing the return type of a function when the function is fed certain arguments.
-In Figure~\ref{fig:funanno}, we can assign the function a more sophisticated signature if we don't simply collapse the observed argument signatures element-wise.
+Sophisticated dependent type signatures such as these could benefit language implementations in a myriad of ways.
+For instance, a language implementation could perform type-based optimization in the context of a function return simply by knowing the function argument type.
+In Figure~\ref{fig:funanno}, we can assign the function a more sophisticated signature ({\tt [2]}) if we don't simply collapse the observed argument signatures element-wise ({\tt [1]}).
 This gets more interesting with attributes, as we might want to annotate a function to communicate that it adds an attribute to whatever the list of attributes of its input value.
 
-One drawback of function-level polymorphism is that functions with many arguments tend to be sensitive to small changes in argument types, which inflates the number of unique signatures observed.
-We saw this in Figure~\ref{fig:L2funcounts}, where the distribution of signatures per function was roughly in line with those from Figures~\ref{fig:L0funcounts} and~\ref{fig:L1funcounts} but the peak (i.e., the function with the most signatures) was far more pronounced.
-That said, overall the number of polymorphic functions did not increase by too large a margin considering the added expressivity of {\bf L2}'s types.
+A clear drawback to function-level polymorphism is that functions with many arguments tend to be sensitive to small changes in argument types, which inflates the number of unique signatures observed.
+Even so, overall the number of polymorphic functions did not increase by too large a margin when adding and specializing types (from {\bf L0} to {\bf L1}, and from {\bf L1} to {\bf L2})---for the most part, monomorphic functions in {\bf L0} stayed monomorphic throughout.
 
-Another note regarding function signatures is the {\tt ...} function argument.
+One tidbit about function signatures that we have not thoroughly discussed is the {\tt ...} function argument.
 Functions with such an argument can be passed an arbitrary number of extra arguments, see Figure~\ref{fig:dotdotdot} for a small example.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
@@ -1444,12 +1408,61 @@ f(42, z=2, y=4) # in f, will perform g(42, z=2, y=4)
 
 \end{lstlisting}}\caption{Simple ... example.}\label{fig:dotdotdot}\end{figure}
 
-Our analysis ignores these extra arguments, instead flagging functions which have them.
-If building an annotation for such a function, the ... argument is always ascribed the \l type.
+Our analysis ignores these extra arguments, instead it simply flags functions which have a {\tt ...} in their definition.
+If building an annotation for such a function, the ... argument is always ascribed the \l type, as it can indeed be inhabited by anything.
 
 Ultimately, to determine which kinds of whole function signatures would be useful, a more sophisticated analysis is required, which would need to develop a correlation between function arguments and return types.
-There may also be other interesting per-function trends which our current analysis does not pick up on.
-We aim to make our data available for this purpose.
+There may also be other interesting per-function trends which our current analysis does not pick up on that are hidden in our data.
+
+%
+%
+%
+%
+\subsection{Argument-Level Polymorphism}
+
+From our analysis, we discovered a number of interesting patterns at the argument level.
+To summarize:
+
+\begin{itemize}
+
+	\item {\bf scalars}: according to our analysis, many instances of vectorized values are always scalar.
+	This is strong evidence that {\it an annotation denoting a scalar value would be useful to R programmers}, and further such an annotation could be used by future implementations to statically determine when not to vectorize a vectorizable type.
+	
+	\item {\bf missing}: our analysis has found a number of instances of argument positions remaining unevaluated across all calls to a function.
+	{\it A small annotation, such as a tag on an argument position, would capture this behavior} and could be used to warn programmers if they try to use the unevaluated value, and also warn them if an operation might evaluate it accidentally.
+	Techniques to avoid forcing promises in R are not well understood by most programmers, and such an annotation would be useful to assist them in avoiding unwanted forcing of promises.
+
+	\item {\bf classes}: in transitioning from {\bf L1} to {\bf L2}, we found that the prevalence of \l, \lT{X} polymorphism decreased significantly.
+	In many cases, these lists share a class, and so the signature which was prominent in {\bf L1} was broken down into several less prominent {\bf L2} signatures with added class information.
+	Classes could also be used to capture the usage of dates (two of the standard date formats have class ``Date'' and ``POSIXct, POSIXt''), and could help package writers enforce usage of package functions.
+	R's dynamic dispatch system is class-based, so including annotations for these would help programmers determine which functions are being dispatched for which values.
+
+\end{itemize}
+
+Generating the code to dynamically enforce these signatures is also possible, with varying levels of complexity.
+Simple checks include checking the class of a value, or checking for the presence of certain attributes.
+R makes it easy to exit a function prematurely, and in fact many functions already exhibit this behavior.
+For example, see Figure~\ref{fig:stopifnot}.
+In it, the function exits if the {\tt encoding} argument is provided, and is not a character.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+is_character <- function(x, n = NULL, encoding = NULL) {
+  ...
+  if (!is_null(encoding)) {
+    stopifnot(typeof(encoding) == "character")
+    ...
+  }
+  ...
+}
+\end{lstlisting}}\caption{Real example of premature function exit.}\label{fig:stopifnot}\end{figure}
+
+We also saw that, despite being far more specific and descriptive than previous levels, the {\bf L2} type system didn't bring about an undue increase in the amount of overall polymorphism in the language.
+This signifies that {\bf L2} captures the vast majority of already existing polymorphic patterns, and very few functions would need to resort to an \ANY annotation, and indeed many arguments are really \ANY-typed (e.g., \%$>$\% from magrittr and the prototype assignment operator {\tt \$<-} from proto).
+
+Based on our analysis of the data, we conclude that {\it a type system such as} \textbf{\emph{L2}} {\it captures the vast majority of argument and function usage in the language}.
+{\bf L2} also contains a wealth of useful information about values that could be used for optimizations and IDE tooling.
+
+
 
 %
 %
@@ -1474,6 +1487,11 @@ For instance, the dynamic features of Smalltalk were analyzed in some work~\cite
 
 Other analysis work~\cite{milojkovic2017duck} ... .
 
+The type system we propose in this work could be incorporated into R as a {\it gradual type system}.
+Gradual type systems~\cite{SiekTaha06} aim to bridge the gap between dynamic and static typing by allowing programmers to gradually add type annotations to their programs.
+Gradually-typed languages are becoming increasingly popular, with languages such as TypeScript~\cite{typescript13} becoming more mainstream.
+...
+
 %
 %.
 %
@@ -1483,33 +1501,31 @@ Other analysis work~\cite{milojkovic2017duck} ... .
 \section{Conclusions and Future Work}
 
 Truly understanding how programmers use a programming language is critical to building usable and effective language features.
-When working on a general purpose language such as JavaScript, we as programmers can appeal to our own intuitions, as many of us have had at least some interaction with the language.
+When working on a general purpose languages (such as JavaScript), we as programmers can appeal to our own intuitions, as many of us have had at least some interaction with said languages.
 This intuition does not extend to domain-specific languages (DSLs), which are not really designed for members of our community.
-DSLs are gaining in popularity as more and more domain-experts, who may not have a traditional programming background, are exposed to the practice of programming, and the needs of these experts differ from our own.
+As more and more domain-experts, who may not have a traditional programming background, are exposed to the practice of programming, DSLs are developed to suit their needs.
 
+The R programming language is an example of this.
+R was developed to foster an easy and interactive programming experience, and the language is not very restrictive and highly expressive.
+Unfortunately, these liberties are not without a cost: debugging R code is challenging, and given how easy it is to do anything in the language, it's no surprise that it's easy to make a mistake.
+Further, R is a very slow, and the poor performance is quickly becomes prohibitive if programmers are not careful when coding analysis for large data sets.
 
+Types are a perfect way to both make the language easier to debug and make it run faster.
+For debugging, some level of static type enforcement would give programmers more direct feedback if they are misusing values.
+As for performance, type information is crucial for many optimizations performed by JITs and other language implementations.
+If we're interested in developing an easily adoptable type system for this language, we must ensure that it captures how existing code is being used.
+That is precisely what we have accomplished in this work.
 
-%Ours is a community which strives to improve the lives of programmers, and understanding programmers is key to ensure that our vision aligns with their needs.
-%Increasingly, programming is becoming accessible to a wider audience, with many domain-specific languages being developed to address the concerns of specialists such as analysts, mathematicians, and data scientists.
-%Designing systems and languages to meet the specific needs of these domain experts can prove to be challenging, as our own intuitions as (often) classically-trained programmers may fail us, and in many cases they know their own needs better than we do.
-%
-%One particularly interesting language which falls into this category, and indeed the object of this work, is R.
-%R is a language made by statisticians, for statisticians. 
-%The language itself is fascinating: it is a vectorized, dynamically
-%typed, lazy, and functional, with limited side-effects, extensive
-%reflective facilities and retrofitted object-oriented programming support.
-%Understanding how these disparate and sometimes adversarial features interact is critical to improving or otherwise further developing the language.
+Throughout this paper, we have built up an understanding of types and polymorphism in R by analyzing the usage of types across a large corpus of R code.
+With this knowledge, we highlighted some interesting patterns of type usage in the language, and developed a number of type systems with differing levels of granularity to describe and capture the use of types by programmers in existing code.
+Leveraging the \genthat~\cite{issta18} tool, we analyzed tests, examples, and vignettes of over ten thousand packages on CRAN (over \PERCENTCRAN of available packages), and traced over 15 million lines of R code.
+Analyzing package examples mitigates the lack of end-user R code, 
 
-In our work, we built up an understanding of R by analyzing the usage of types across a large corpus of R code.
-With this knowledge, we highlighted some interesting patterns of type usage, and developed a number of type systems with differing levels of granularity to describe and capture the use of types in the language.
-This task was complicated by the many notions of type in R, as well as the lack of non-package R code, but we persevered:
-leveraging the \genthat tool, we analyzed tests, examples, and vignettes of said packages as a close approximation for how these packages would in fact be used by programmers.
-Our final type system, {\bf L2}, consolidated information from 3 of R's main reflective functions (\code{typeof}, \code{class}, and \code{attributes}), as well as some extra information about certain values (e.g. the type of list elements, and the length of vectorized types) to be as precise as reasonable.
+\AT{Need something more, stuff commented in source.}
 
-We found that a type system such as {\bf L2} captures an overwhelming majority (>90\%) of argument-level type usage, and in it a vast majority ($\approx$80\%) of functions were monomorphic.
-Among other interesting data points, we discovered that many argument positions with a vectorized type in R are monomorphic {\it and strictly scalar}, suggesting that types or annotations for scalar-only values is useful.
-
-\AT{Need a somewhat stronger conclusion.}
+%Our final type system, {\bf L2}, consolidated information from 3 of R's main reflective functions (\code{typeof}, \code{class}, and \code{attributes}), as well as some extra information about certain values (e.g. the type of list elements, and the length of vectorized types) to be as precise as reasonable.
+%We found that a type system such as {\bf L2} captures an overwhelming majority (>90\%) of argument-level type usage, and in it a vast majority ($\approx$80\%) of functions were monomorphic.
+%Among other interesting data points, we discovered that many argument positions with a vectorized type in R are monomorphic {\it and strictly scalar}, suggesting that types or annotations for scalar-only values is useful.
 
 %
 %
