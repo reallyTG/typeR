@@ -755,7 +755,7 @@ fixGenes <- function (network, fixIndices, values) {
   ...
   network$fixed[fixIndices] <- as.integer(values)
   ...
-\end{lstlisting}}\caption{Example of \C/\D argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}
+\end{lstlisting}}\caption{Example of \C/\D argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}%$
 
 In Figure~\ref{fig:matvec}, we see that a function which can take in a vector,
 but immediately transforms it (transpose, with {\tt t}) into a matrix.  As
@@ -1446,20 +1446,19 @@ Based on our analysis of the data, we conclude that {\it a type system such as} 
 %
 \section{Related Work}
 
-The idea of measuring polymorphism via some program analysis isn't new.
-For instance, some work~\cite{aakerblom2015measuring} measures the polymorphism of Python programs, but with a slightly different goal than ours: authors seek to assess the need for expressiveness in type systems that are retrofit onto dynamic languages.
-Interestingly, they draw some similar conclusions to us: they find that monomorphism is far more frequent than polymorphism, and even find that typically very few functions are very highly polymorphic.
-
-More generally, there is an existing literature on analyzing usage patterns of language features.  
-For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, which aimed to see how often the highly dynamic capabilities of Smalltalk were used and in which kinds of projects.
-
-
-Other analysis work~\cite{milojkovic2017duck} ... .
-
-The type system we propose in this work could be incorporated into R as a {\it gradual type system}.
-Gradual type systems~\cite{SiekTaha06} aim to bridge the gap between dynamic and static typing by allowing programmers to gradually add type annotations to their programs.
-Gradually-typed languages are becoming increasingly popular, with languages such as TypeScript~\cite{typescript13} becoming more mainstream.
-...
+The idea of measuring polymorphism via some program analysis is not new.
+For instance, \citep{aakerblom2015measuring} measured the polymorphism of
+Python programs. Their goals were related to our, they wanted to assess the
+need for expressiveness in type systems that are retrofitted onto dynamic
+languages.  Interestingly, they drew similar conclusions: monomorphism is
+far more frequent than polymorphism, and very few functions are very highly
+polymorphic.  More generally, the dynamic features of Smalltalk were
+analyzed by~\citep{callau2011howdevelopers} and duck typing was studied
+by~\citep{milojkovic2017duck}.  Adding type systems to untyped language was
+proposed by~\citep{SiekTaha06} who aim to bridge the gap between dynamic and
+static typing.  Gradually-typed languages such as
+TypeScript~\cite{typescript13} are pointing the way to what we could do
+for R.
 
 %
 %.
