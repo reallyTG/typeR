@@ -134,9 +134,9 @@ used to capture most of the interesting cases.
 Our community builds, improves, and reasons about programming languages.  To
 make design decisions that benefit most users, we need to understand the
 language we are working with as well as the real-world needs it
-answers. Often, we, as researchers, can appeal to our intuition as many
-languages are intended to be general purpose and appeal to users with some
-computer science training. Unfortunately, these intuitions don't always
+answers. Often, we as researchers can appeal to our intuition, as many
+languages are intended to be general purpose and attract users with some
+computer science training. Unfortunately, these intuitions do not always
 apply to domain-specific languages, languages designed for and by a specific
 group of users to solve very specific needs. This is the case of the data
 science language R.
@@ -152,12 +152,12 @@ typed, lazy functional language with limited side-effects, extensive
 reflective facilities and retrofitted object-oriented programming support.
 
 Many of the design decisions that gave us R were intended to foster an
-interactive, exploratory, programming style. This includes, to name a few,
+interactive, exploratory, programming style. These include, to name a few,
 the lack of type annotations on variables and functions, the ability to use
 syntactic shortcut, and the automatic conversion between data types.  While
-these choices have led to a language that is surprisingly easy to use by
-beginners --many data science programs do not teach the language itself but
-simply introduce some of its key libraries-- they have also created a
+these choices have led to a language that is surprisingly easy to use for
+beginners---many data science programs do not teach the language itself but
+simply introduce some of its key libraries---they have also created a
 language where almost all computations yield a numeric result and where
 errors can go undetected.
 
@@ -183,7 +183,7 @@ understand the degree of polymorphism present in R code, that is to say, how
 programmers leverage the dynamic nature of R to write code that can accept
 arguments of different types.  This understanding will drive our design.
 
-We propose to capture the degree of polymorphism present in R by the means
+We propose to capture the degree of polymorphism present in R by means
 of a dynamic analysis of widely used libraries. For each function call we
 can record the types of its arguments and of its return value. This allows
 us to observe how many different combination of types are accepted by any
@@ -206,7 +206,7 @@ in existing R code.
 
 One threat to validity of our work is that we rely on dynamic analysis, so
 our conclusions are only as good as the coverage of the possibly function
-behaviors. Previous work~\cite{issta18}, reported that running all the
+behaviors. Previous work~\cite{issta18} reported that running all the
 scripts that come with CRAN packages gives, on average, 68\% test coverage.
 We attempted to mitigate the threat coming from the fact that only part of
 the code is being exercised by manual analysis. It would be reasonable to
@@ -284,7 +284,7 @@ functions are evaluated only when needed, they are bundled in so-called
 promises which package the original expression (as an abstract syntax tree, or AST), its environment
 as well as the result of evaluating the expression. Promises can be
 leveraged for meta-programming as it is possible to retrieve the text of a
-promise and evaluate that in a different environment.
+promise and evaluate it in a different environment.
 
 \subsection{Types of Data}
 
@@ -392,7 +392,7 @@ data analysts; their workflows start with data import, followed by cleaning,
 and then by steps of modeling, transformation and visualization. Often, the
 code of these analysis pipelines resides, together with the data and
 results, in notebooks. Few notebooks are publicly shared, and when they are,
-the data isn't. For this reason our analysis focuses on packages which
+the data is not. For this reason our analysis focuses on packages which
 bundle reusable units of R code with documentation, sample data and
 use-cases.
 
@@ -420,8 +420,8 @@ suggests that there is little correlation between the C/C++ parts and how
 many lines of R a package contains. The median size of a package is 541
 lines of R code and the largest package has 86K LOC. Typically, C/C++ code
 is used to implement performance critical portions of the code. The majority
-of package, 8,375 to be precise, have no C or C++ code.  The remaining 3,078
-packages, have a median 572 lines of C and the largest package has 385,839
+of packages, 8,375 to be precise, have no C or C++ code.  The remaining 3,078
+packages have a median 572 lines of C and the largest package has 385,839
 lines of C.
 
 \begin{figure}[!b]\begin{center}
@@ -432,13 +432,13 @@ lines of C.
 
 
 For each package, we extracted all executable code snippets from
-documentation, vignettes and tests and ran them independently recording all
+documentation, vignettes and tests and ran them independently, recording all
 calls to R functions.  It is noteworthy that in order to run the scripts in
 one package, it is often necessary to load a number of other packages.
 In~\cite{issta18}, the authors estimated code coverage to be around 68\%
 when including reverse dependencies.  As our infrastructure adds overhead to
 script execution, coupled with the fact that some scripts take inordinate
-amounts of time to run, this is why we limited our analysis of any given
+amounts of time to run, we limited our analysis of any one
 package to one hour.
 
 % https://www.r-pkg.org/downloaded
@@ -935,7 +935,7 @@ Table~\ref{tab:L0toppoly}.
 Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 
 \begin{itemize}
-\item \D, \l (and \C, \l): L0 doesn't parameterize list types, and it's very likely that this signature describes vectors of doubles and lists of doubles.
+\item \D, \l (and \C, \l): L0 does not parameterize list types, and it is very likely that this signature describes vectors of doubles and lists of doubles.
 	Coercing vectors to lists is trivial in R, and indeed many of the functions with such an argument signature do.
 	The story is similar with vectors of characters and lists of characters.
 	
@@ -948,7 +948,7 @@ Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
 	When a list is indexed by character, the character is matched against the element names in the list and the corresponding element is selected.
 	If there is no match, the lookup returns NULL.
 	Another possible explanation for these signatures are dates, which can be represented by numerics or characters and the value usually has one of the date classes.
-	L0 doesn't deal with classes, which are one of the topics of L2.
+	L0 does not deal with classes, which are one of the topics of L2.
 
 	\item \D, \sF: this signature appears more strange than it is.
 	Many models, processes, simulations, etc. that are prevalent throughout R have parameters to fine-tune their behavior.
@@ -976,7 +976,7 @@ Table~\ref{tab:L0toppoly} that each of the most frequently occurring
 argument signatures had some explanation.
 
 That said, L0 is not without limitations, and the main issues stem from a
-lack of adequate information, as the type system doesn't capture precise
+lack of adequate information, as the type system does not capture precise
 list types, and does not distinguish scalars from vectors. 
 
 
@@ -1093,15 +1093,15 @@ So what do these signatures mean?
 	\item \M{D}, \M{I}: this signature is reasonable, as any computation in R on \M{D} would work on \M{I} and vice versa.
 	
 %	\item \l, \lT{list}: here we have a list of any and a list of lists.
-%	One explanation for this is that lists of lists sometimes contain NULL as an element, and this would show up with type \l, again as we don't do any subtyping while computing precise list types.
+%	One explanation for this is that lists of lists sometimes contain NULL as an element, and this would show up with type \l, again as we do not do any subtyping while computing precise list types.
 %	Another explanation is the way R handles object-orientation, which we discuss shortly in Section~\ref{sec:S3S4R5}.
 	
-	\item \df, \M{D}: in R, it's easy to transform a matrix into a data frame, and this argument is likely a result of that:
+	\item \df, \M{D}: in R, it is easy to transform a matrix into a data frame, and this argument is likely a result of that:
 	Simply calling \code{as.data.frame} on a matrix is enough.
 	
 	\item \sD, \sF and \sC, \sF: these were discussed in the context of L0.
 	
-	\item \I, \sD: subtyping between primitives does not hold between scalars and vectors (i.e., \I $\not<:$ \sD) even though it's likely that the programmer intended for the argument to be a vector of the supertype (here, these arguments were likely intended to be of type \D).
+	\item \I, \sD: subtyping between primitives does not hold between scalars and vectors (i.e., \I $\not<:$ \sD) even though it is likely that the programmer intended for the argument to be a vector of the supertype (here, these arguments were likely intended to be of type \D).
 	
 \end{itemize}
 
@@ -1109,7 +1109,7 @@ With an understanding of argument polymorphism in L1, we wonder: {\it how
   many argument positions are polymorphic in L1?}  95.3\% of arguments are
 monomorphic.  In spite of drastically increasing the precision of our types,
 we have actually {\it reduced} the amount of polymorphism.  This suggests
-that with a good notion of subtyping, precise type annotations won't cause
+that with a good notion of subtyping, precise type annotations will not cause
 an undue increase in the polymorphism of the language.
 
 Before presenting L2, we will digress slightly and explore some of the ramifications of our transition from L0 to L1.
@@ -1153,7 +1153,7 @@ be accessed by strings as well as numerics.  One could conceive of an
 ``index'' type to capture this, but there are certain limitations to such a
 type, as such an ``index'' cannot be incremented as it could be a string.
 An even more sophisticated dependent type system could capture this, but
-it's far from clear if such a sophisticated type system would be for a
+it is far from clear if such a sophisticated type system would be for a
 language like R.
 
 One other possible explanation for this polymorphism is the ``date'' data type.
@@ -1223,7 +1223,7 @@ Signature & Count & \% of All Signatures \\
 As you can see, the most frequent signatures in {\bf L1} are represented here.
 The inclusion of class and attribute information has changed the counts slightly.
 Not pictures here, but interesting: named lists are more frequent than their unnamed counterparts.
-No classes are represented here since (1) we eliminated builtin classes, as we've used them to construct types already, and (2) most other classes are specific to some package or set of packages---it's doubtful that such a class would be so pervasive as to feature in this breakdown.
+No classes are represented here since (1) we eliminated builtin classes, as we've used them to construct types already, and (2) most other classes are specific to some package or set of packages---it is doubtful that such a class would be so pervasive as to feature in this breakdown.
 
 
 
@@ -1312,7 +1312,7 @@ Besides exploring the patterns highlighted by our various type systems, we can a
 %
 \subsubsection{R's Most Polymorphic Functions}
 
-Given the data that we've collected, it's natural to wonder what the most polymorphic packages are.
+Given the data that we've collected, it is natural to wonder what the most polymorphic packages are.
 Indeed, we have shed some light on some of the most polymorphic {\it functions}, but what about the packages that these functions belong to?
 What is their purpose, and why are they so polymorphic?
 Figure~\ref{tab:packagepolysize} has some answers.
@@ -1339,13 +1339,13 @@ Note that we are in the context of {\bf L0}, here, to highlight current language
 
 Now, what makes these so polymorphic?
 The first package, magrittr, is one that we discussed earlier in the context of its pipe \%$>$\% function. 
-It's not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
+It is not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
 In fact, all but knitLatex implement some form of meta-programming:
 the oshka package meta-programs in the same style as Tidyverse, the scatterD3 package meta-programs on plot objects, and the yaml package converts R expressions to YAML expressions.
 This is a trend we have observed: {\it the most polymorphic functions in R are meta-programming their arguments}.
 
-It's highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
-It's also unclear how useful a type system would be if it {\it did} capture everything.
+It is highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
+It is also unclear how useful a type system would be if it {\it did} capture everything.
 Indeed, many of the packages discussed here are really designed with an \ANY-typed argument in mind (e.g., left-hand side of \%$>$\%), and restricting these functions should not be the goal of any static type system designed for a language after it has matured.
 
 %
@@ -1357,7 +1357,7 @@ Indeed, many of the packages discussed here are really designed with an \ANY-typ
 Our analysis uncovered a non-negligible amount of argument positions which were {\it never} evaluated across all observed function calls.
 This is indicative of a desire to meta-program arguments and otherwise deconstruct their AST, as the \%$>$\% function does.
 This is an incredibly powerful language feature, and may well be at the source of R's popularity, if in a roundabout way.
-Tidyverse, by far the most popular package suite in R, owes some of its success to the new syntax defined by some of the included packages, and it's this ability to meta-program arguments which allowed Tidyverse to define its unique syntax.
+Tidyverse, by far the most popular package suite in R, owes some of its success to the new syntax defined by some of the included packages, and it is this ability to meta-program arguments which allowed Tidyverse to define its unique syntax.
 An example of that syntax is \%$>$\%, and indeed this function was highly exercised by over 100 other packages.
 
 %
@@ -1397,7 +1397,7 @@ f(list(1, 2, 3)) # x: list<double> -> list<double>
 
 Sophisticated dependent type signatures such as these could benefit language implementations in a myriad of ways.
 For instance, a language implementation could perform type-based optimization in the context of a function return simply by knowing the function argument type.
-In Figure~\ref{fig:funanno}, we can assign the function a more sophisticated signature ({\tt [2]}) if we don't simply collapse the observed argument signatures element-wise ({\tt [1]}).
+In Figure~\ref{fig:funanno}, we can assign the function a more sophisticated signature ({\tt [2]}) if we do not simply collapse the observed argument signatures element-wise ({\tt [1]}).
 This gets more interesting with attributes, as we might want to annotate a function to communicate that it adds an attribute to whatever the list of attributes of its input value.
 
 A clear drawback to function-level polymorphism is that functions with many arguments tend to be sensitive to small changes in argument types, which inflates the number of unique signatures observed.
@@ -1446,7 +1446,7 @@ To summarize:
 
 \end{itemize}
 
-Generating the code to dynamically enforce these signatures is also possible, with varying levels of complexity.
+Generating the code to dynamically enforce these signatures is also possible.
 Simple checks include checking the class of a value, or checking for the presence of certain attributes.
 R makes it easy to exit a function prematurely, and in fact many functions already exhibit this behavior.
 For example, see Figure~\ref{fig:stopifnot}.
@@ -1463,7 +1463,7 @@ is_character <- function(x, n = NULL, encoding = NULL) {
 }
 \end{lstlisting}}\caption{Real example of premature function exit.}\label{fig:stopifnot}\end{figure}
 
-We also saw that, despite being far more specific and descriptive than previous levels, the {\bf L2} type system didn't bring about an undue increase in the amount of overall polymorphism in the language.
+We also saw that, despite being far more specific and descriptive than previous levels, the {\bf L2} type system did not bring about an undue increase in the amount of overall polymorphism in the language.
 This signifies that {\bf L2} captures the vast majority of already existing polymorphic patterns, and very few functions would need to resort to an \ANY annotation, and indeed many arguments are really \ANY-typed (e.g., \%$>$\% from magrittr and the prototype assignment operator {\tt \$<-} from proto).
 
 Based on our analysis of the data, we conclude that {\it a type system such as} \textbf{\emph{L2}} {\it captures the vast majority of argument and function usage in the language}.
@@ -1485,7 +1485,7 @@ Based on our analysis of the data, we conclude that {\it a type system such as} 
 %
 \section{Related Work}
 
-The idea of measuring polymorphism via some program analysis isn't new.
+The idea of measuring polymorphism via some program analysis is not new.
 For instance, some work~\cite{aakerblom2015measuring} measures the polymorphism of Python programs, but with a slightly different goal than ours: authors seek to assess the need for expressiveness in type systems that are retrofit onto dynamic languages.
 Interestingly, they draw some similar conclusions to us: they find that monomorphism is far more frequent than polymorphism, and even find that typically very few functions are very highly polymorphic.
 
