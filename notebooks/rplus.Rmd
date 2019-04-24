@@ -1,0 +1,43 @@
+---
+title: "Tracing R Base: +"
+output: html_notebook
+---
+
+Preamble.
+
+```{r}
+source("../code/data_processing.R")
+```
+
+In this notebook, you'll find our results from tracing part of the R base package.
+
+Unfortunately, tracing base isn't going to be quite so straightforward.
+The first and most relevant issue is that a number of the base package's functions are primitives (i.e. builtins) and are not amenable to the Genthat framework.
+I needed to transform the + function into a closure in order to get this to shake out, and needed to make a number of light modifications to Genthat altogether.
+
+For the record, this is what I needed to do to get + to trace:
+
+```{r}
+# unlock binding so we can write to it
+# unlockBinding(as.symbol("+"), baseenv())
+# This makes + into a closure, so we can deal with it
+# assign("+", function(e1, e2) .Primitive("+")(e1, e2), envir=baseenv())
+# Actually decorate the base env functions
+# genthat::decorate_function(`+`, env=baseenv())
+```
+
+The above takes place in the genthat-tracing-site-file.
+
+To load the data, run:
+
+```{r}
+# technically in L2
+base_df <- readRDS("../data/some_plus_examples.RDS")
+
+# for L0
+base_df_L0 <- transform_new_df_w_TS_map(base_df, type_map_T0_to_r, unparam = T)
+
+# just types
+base_df_just_types <- base_df %>% select(arg1_t, arg2_t, ret_t)
+```
+

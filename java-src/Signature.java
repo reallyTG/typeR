@@ -2,6 +2,18 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.HashMap;
+
+// enum Name {
+// 	filename, pkg, fun, has_dots,
+// 	arg1_t,  arg2_t,  arg3_t,  arg4_t,  arg5_t,  arg6_t,  arg7_t,  arg8_t,  arg9_t,  arg10_t,
+// 	arg11_t, arg12_t, arg13_t, arg14_t, arg15_t, arg16_t, arg17_t, arg18_t, arg19_t, arg20_t,
+// 	arg1_c,  arg2_c,  arg3_c,  arg4_c,  arg5_c,  arg6_c,  arg7_c,  arg8_c,  arg9_c,  arg10_c,
+// 	arg11_c, arg12_c, arg13_c, arg14_c, arg15_c, arg16_c, arg17_c, arg18_c, arg19_c, arg20_c,
+// 	arg1_a,  arg2_a,  arg3_a,  arg4_a,  arg5_a,  arg6_a,  arg7_a,  arg8_a,  arg9_a,  arg10_a,
+// 	arg11_a, arg12_a, arg13_a, arg14_a, arg15_a, arg16_a, arg17_a, arg18_a, arg19_a, arg20_a,
+// 	ret_t, ret_c, ret_a
+// }
 
 /**
  * Denotes one flight. Representing missing values is tricky. There are many
@@ -13,73 +25,74 @@ import java.util.ArrayList;
  * @author jan
  */
 public class Signature {
-	public String filename;
-	public String pkg;
-	public String fun;
-	public boolean has_dots;
-	public String arg1_t;
-	public String arg2_t;
-	public String arg3_t;
-	public String arg4_t;
-	public String arg5_t;
-	public String arg6_t;
-	public String arg7_t;
-	public String arg8_t;
-	public String arg9_t;
-	public String arg10_t;
-	public String arg11_t;
-	public String arg12_t;
-	public String arg13_t;
-	public String arg14_t;
-	public String arg15_t;
-	public String arg16_t;
-	public String arg17_t;
-	public String arg18_t;
-	public String arg19_t;
-	public String arg20_t;
-	public String arg1_c;
-	public String arg2_c;
-	public String arg3_c;
-	public String arg4_c;
-	public String arg5_c;
-	public String arg6_c;
-	public String arg7_c;
-	public String arg8_c;
-	public String arg9_c;
-	public String arg10_c;
-	public String arg11_c;
-	public String arg12_c;
-	public String arg13_c;
-	public String arg14_c;
-	public String arg15_c;
-	public String arg16_c;
-	public String arg17_c;
-	public String arg18_c;
-	public String arg19_c;
-	public String arg20_c;
-	public String arg1_a;
-	public String arg2_a;
-	public String arg3_a;
-	public String arg4_a;
-	public String arg5_a;
-	public String arg6_a;
-	public String arg7_a;
-	public String arg8_a;
-	public String arg9_a;
-	public String arg10_a;
-	public String arg11_a;
-	public String arg12_a;
-	public String arg13_a;
-	public String arg14_a;
-	public String arg15_a;
-	public String arg16_a;
-	public String arg17_a;
-	public String arg18_a;
-	public String arg19_a;
-	public String arg20_a;
-	public String ret_t;
-	public String ret_c;
-	public String ret_a;
+	public HashMap<Integer, String> theMap = new HashMap<Integer, String>();
+	public static final int filename=0;
+	public static final int pkg=1;
+	public static final int fun=2;
+	public static final int has_dots=3;
+	public static final int arg1_t=4;
+	public static final int arg2_t=5;
+	public static final int arg3_t=6;
+	public static final int arg4_t=7;
+	public static final int arg5_t=8;
+	public static final int arg6_t=9;
+	public static final int arg7_t=10;
+	public static final int arg8_t=11;
+	public static final int arg9_t=12;
+	public static final int arg10_t=13;
+	public static final int arg11_t=14;
+	public static final int arg12_t=15;
+	public static final int arg13_t=16;
+	public static final int arg14_t=17;
+	public static final int arg15_t=18;
+	public static final int arg16_t=19;
+	public static final int arg17_t=20;
+	public static final int arg18_t=21;
+	public static final int arg19_t=22;
+	public static final int arg20_t=23;
+	public static final int arg1_c=24;
+	public static final int arg2_c=25;
+	public static final int arg3_c=26;
+	public static final int arg4_c=27;
+	public static final int arg5_c=28;
+	public static final int arg6_c=29;
+	public static final int arg7_c=30;
+	public static final int arg8_c=31;
+	public static final int arg9_c=32;
+	public static final int arg10_c=33;
+	public static final int arg11_c=34;
+	public static final int arg12_c=35;
+	public static final int arg13_c=36;
+	public static final int arg14_c=37;
+	public static final int arg15_c=38;
+	public static final int arg16_c=39;
+	public static final int arg17_c=40;
+	public static final int arg18_c=41;
+	public static final int arg19_c=42;
+	public static final int arg20_c=43;
+	public static final int arg1_a=44;
+	public static final int arg2_a=45;
+	public static final int arg3_a=46;
+	public static final int arg4_a=47;
+	public static final int arg5_a=48;
+	public static final int arg6_a=49;
+	public static final int arg7_a=50;
+	public static final int arg8_a=51;
+	public static final int arg9_a=52;
+	public static final int arg10_a=53;
+	public static final int arg11_a=54;
+	public static final int arg12_a=55;
+	public static final int arg13_a=56;
+	public static final int arg14_a=57;
+	public static final int arg15_a=58;
+	public static final int arg16_a=59;
+	public static final int arg17_a=60;
+	public static final int arg18_a=61;
+	public static final int arg19_a=62;
+	public static final int arg20_a=63;
+	public static final int ret_t=64;
+	public static final int ret_c=65;
+	public static final int ret_a=66;
 
 	// set this manually to enable the simplifcation of types
 	static boolean simplify = true;
@@ -101,13 +114,6 @@ public class Signature {
 			return true;
 		return a.equals(b);
 	}
-
-	// if ((a.equals("sL") || a.equals("L")) && (b.equals("sD") || b.equals("D")))			// logical <: double
-	// 	return true;
-	// if ((a.equals("sL") || a.equals("L")) && (b.equals("sI") || b.equals("I")))			// logical <: integer
-	// 	return true;
-	// if ((a.equals("sI") || a.equals("I")) && (b.equals("sD") || b.equals("D"))) 		// integer <: double
-	// 	return true;
 
 	boolean isSubtypeL1(String a, String b) {
 		if (b.equals("?"))
@@ -204,498 +210,122 @@ public class Signature {
 	}
 
 	void sanitizeClass() {
-		int i;
+		int i, j;
 		ArrayList<String> lookingAt;
 
 		// sanitize types -- remove raw_NA
+		for (i = arg1_t; i <= arg20_t; i ++) {
+			if (theMap.get(i).equals("raw_NA"))
+				theMap.put(i, "null");
+		}
 
-		if (arg1_t.equals("raw_NA"))
-			arg1_t = "null";
-
-		if (arg2_t.equals("raw_NA"))
-			arg2_t = "null";
-
-		if (arg3_t.equals("raw_NA"))
-			arg3_t = "null";
-
-		if (arg4_t.equals("raw_NA"))
-			arg4_t = "null";
-
-		if (arg5_t.equals("raw_NA"))
-			arg5_t = "null";
-
-		if (arg6_t.equals("raw_NA"))
-			arg6_t = "null";
-
-		if (arg7_t.equals("raw_NA"))
-			arg7_t = "null";
-
-		if (arg8_t.equals("raw_NA"))
-			arg8_t = "null";
-
-		if (arg9_t.equals("raw_NA"))
-			arg9_t = "null";
-
-		if (arg10_t.equals("raw_NA"))
-			arg10_t = "null";
-
-		if (arg11_t.equals("raw_NA"))
-			arg11_t = "null";
-
-		if (arg12_t.equals("raw_NA"))
-			arg12_t = "null";
-
-		if (arg13_t.equals("raw_NA"))
-			arg13_t = "null";
-
-		if (arg14_t.equals("raw_NA"))
-			arg14_t = "null";
-
-		if (arg15_t.equals("raw_NA"))
-			arg15_t = "null";
-
-		if (arg16_t.equals("raw_NA"))
-			arg16_t = "null";
-
-		if (arg17_t.equals("raw_NA"))
-			arg17_t = "null";
-
-		if (arg18_t.equals("raw_NA"))
-			arg18_t = "null";
-
-		if (arg19_t.equals("raw_NA"))
-			arg19_t = "null";
-
-		if (arg20_t.equals("raw_NA"))
-			arg20_t = "null";
-
-		if (ret_t.equals("raw_NA"))
-			ret_t = "null";
+		// ret_t
+		if (theMap.get(ret_t).equals("raw_NA"))
+			theMap.put(ret_t, "null");
 
 		// sanitize classes -- removing all primitive ones
-
-		if (!arg1_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg1_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
+		for (i = arg1_c; i <= arg20_c; i ++) {
+			if (theMap.get(i).equals("")) {
+				lookingAt = new ArrayList<String>(Arrays.asList(theMap.get(i).split(",")));
+				for (j = 0; j < lookingAt.size(); j++) {
+					if(primitiveClassesSet.contains(lookingAt.get(j)))
+						lookingAt.remove(j);
+				}
+				theMap.put(i, al_ts(lookingAt));
 			}
-			arg1_c = al_ts(lookingAt);
 		}
 
-		if (!arg2_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg2_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
+		// ret_c
+		if (theMap.get(ret_c).equals("")) {
+			lookingAt = new ArrayList<String>(Arrays.asList(theMap.get(ret_c).split(",")));
+			for (j = 0; j < lookingAt.size(); j++) {
+				if(primitiveClassesSet.contains(lookingAt.get(j)))
+					lookingAt.remove(j);
 			}
-			arg2_c = al_ts(lookingAt);
-		}
-
-		if (!arg3_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg3_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg3_c = al_ts(lookingAt);
-		}
-
-		if (!arg4_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg4_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg4_c = al_ts(lookingAt);
-		}
-
-		if (!arg5_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg5_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg5_c = al_ts(lookingAt);
-		}
-
-		if (!arg6_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg6_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg6_c = al_ts(lookingAt);
-		}
-
-		if (!arg7_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg7_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg7_c = al_ts(lookingAt);
-		}
-
-		if (!arg8_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg8_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg8_c = al_ts(lookingAt);
-		}
-
-		if (!arg9_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg9_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg9_c = al_ts(lookingAt);
-		}
-
-		if (!arg10_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg10_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg10_c = al_ts(lookingAt);
-		}
-
-		if (!arg11_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg11_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg11_c = al_ts(lookingAt);
-		}
-
-		if (!arg12_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg12_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg12_c = al_ts(lookingAt);
-		}
-
-		if (!arg13_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg13_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg13_c = al_ts(lookingAt);
-		}
-
-		if (!arg14_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg14_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg14_c = al_ts(lookingAt);
-		}
-
-		if (!arg15_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg15_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg15_c = al_ts(lookingAt);
-		}
-
-		if (!arg16_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg16_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg16_c = al_ts(lookingAt);
-		}
-
-		if (!arg17_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg17_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg17_c = al_ts(lookingAt);
-		}
-
-		if (!arg18_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg18_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg18_c = al_ts(lookingAt);
-		}
-
-		if (!arg19_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg19_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg19_c = al_ts(lookingAt);
-		}
-
-		if (!arg20_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg20_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			arg20_c = al_ts(lookingAt);
-		}
-
-		if (!ret_c.equals("")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(ret_c.split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(primitiveClassesSet.contains(lookingAt.get(i)))
-					lookingAt.remove(i);
-			}
-			ret_c = al_ts(lookingAt);
+			theMap.put(ret_c, al_ts(lookingAt));
 		}
 
 		// sanitize attributes -- remove class, as if it's important it'll be in
-		//
-		//
-
-		if (arg1_a.length() > 0 && !arg1_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg1_a.substring(1, arg1_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
+		for (i = arg1_a; i <= arg20_a; i ++) {
+			if (theMap.get(i).length() > 0 && !theMap.get(i).equals("{}")) {
+				lookingAt = new ArrayList<String>(Arrays.asList(theMap.get(i).substring(1, theMap.get(i).length()-1).split(",")));
+				for (j = 0; j < lookingAt.size(); j++) {
+					if(lookingAt.get(j).equals("class"))
+						lookingAt.remove(j);
+				}
+				theMap.put(i, al_ts_a(lookingAt));
 			}
-			arg1_a = al_ts_a(lookingAt);
 		}
 
-		if (arg2_a.length() > 0 && !arg2_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg2_a.substring(1, arg2_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
+		if (theMap.get(ret_a).length() > 0 && !theMap.get(ret_a).equals("{}")) {
+			lookingAt = new ArrayList<String>(Arrays.asList(theMap.get(ret_a).substring(1, theMap.get(ret_a).length()-1).split(",")));
+			for (j = 0; j < lookingAt.size(); j++) {
+				if(lookingAt.get(j).equals("class"))
+					lookingAt.remove(j);
 			}
-			arg2_a = al_ts_a(lookingAt);
-		}
-
-		if (arg3_a.length() > 0 && !arg3_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg3_a.substring(1, arg3_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg3_a = al_ts_a(lookingAt);
-		}
-
-		if (arg4_a.length() > 0 && !arg4_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg4_a.substring(1, arg4_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg4_a = al_ts_a(lookingAt);
-		}
-
-		if (arg5_a.length() > 0 && !arg5_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg5_a.substring(1, arg5_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg5_a = al_ts_a(lookingAt);
-		}
-
-		if (arg6_a.length() > 0 && !arg6_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg6_a.substring(1, arg6_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg6_a = al_ts_a(lookingAt);
-		}
-
-		if (arg7_a.length() > 0 && !arg7_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg7_a.substring(1, arg7_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg7_a = al_ts_a(lookingAt);
-		}
-
-		if (arg8_a.length() > 0 && !arg8_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg8_a.substring(1, arg8_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg8_a = al_ts_a(lookingAt);
-		}
-
-		if (arg9_a.length() > 0 && !arg9_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg9_a.substring(1, arg9_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg9_a = al_ts_a(lookingAt);
-		}
-
-		if (arg10_a.length() > 0 && !arg10_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg10_a.substring(1, arg10_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg10_a = al_ts_a(lookingAt);
-		}
-
-		if (arg11_a.length() > 0 && !arg11_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg11_a.substring(1, arg11_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg11_a = al_ts_a(lookingAt);
-		}
-
-		if (arg12_a.length() > 0 && !arg12_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg12_a.substring(1, arg12_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg12_a = al_ts_a(lookingAt);
-		}
-
-		if (arg13_a.length() > 0 && !arg13_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg13_a.substring(1, arg13_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg13_a = al_ts_a(lookingAt);
-		}
-
-		if (arg14_a.length() > 0 && !arg14_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg14_a.substring(1, arg14_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg14_a = al_ts_a(lookingAt);
-		}
-
-		if (arg15_a.length() > 0 && !arg15_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg15_a.substring(1, arg15_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg15_a = al_ts_a(lookingAt);
-		}
-
-		if (arg16_a.length() > 0 && !arg16_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg16_a.substring(1, arg16_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg16_a = al_ts_a(lookingAt);
-		}
-
-		if (arg17_a.length() > 0 && !arg17_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg17_a.substring(1, arg17_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg17_a = al_ts_a(lookingAt);
-		}
-
-		if (arg18_a.length() > 0 && !arg18_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg18_a.substring(1, arg18_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg18_a = al_ts_a(lookingAt);
-		}
-
-		if (arg19_a.length() > 0 && !arg19_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg19_a.substring(1, arg19_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg19_a = al_ts_a(lookingAt);
-		}
-
-		if (arg20_a.length() > 0 && !arg20_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(arg20_a.substring(1, arg20_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			arg20_a = al_ts_a(lookingAt);
-		}
-
-		if (ret_a.length() > 0 && !ret_a.equals("{}")) {
-			lookingAt = new ArrayList<String>(Arrays.asList(ret_a.substring(1, ret_a.length()-1).split(",")));
-			for (i = 0; i < lookingAt.size(); i++) {
-				if(lookingAt.get(i).equals("class"))
-					lookingAt.remove(i);
-			}
-			ret_a = al_ts_a(lookingAt);
+			theMap.put(ret_a, al_ts_a(lookingAt));
 		}
 
 	}
 
 	boolean isSubtypeL0(Signature o) {
-		return pkg.equals(o.pkg) && fun.equals(o.fun) && isSubtypeL0(arg1_t, o.arg1_t) && isSubtypeL0(arg2_t, o.arg2_t)
-				&& isSubtypeL0(arg3_t, o.arg3_t) && isSubtypeL0(arg4_t, o.arg4_t) && isSubtypeL0(arg5_t, o.arg5_t)
-				&& isSubtypeL0(arg6_t, o.arg6_t) && isSubtypeL0(arg7_t, o.arg7_t) && isSubtypeL0(arg8_t, o.arg8_t)
-				&& isSubtypeL0(arg9_t, o.arg9_t) && isSubtypeL0(arg10_t, o.arg10_t) && isSubtypeL0(arg11_t, o.arg11_t)
-				&& isSubtypeL0(arg12_t, o.arg12_t) && isSubtypeL0(arg13_t, o.arg13_t) && isSubtypeL0(arg14_t, o.arg14_t)
-				&& isSubtypeL0(arg15_t, o.arg15_t) && isSubtypeL0(arg16_t, o.arg16_t) && isSubtypeL0(arg17_t, o.arg17_t)
-				&& isSubtypeL0(arg18_t, o.arg18_t) && isSubtypeL0(arg19_t, o.arg19_t)
-				&& isSubtypeL0(arg20_t, o.arg20_t) && isSubtypeL0(ret_t, o.ret_t);
+		boolean retv = theMap.get(pkg).equals(o.theMap.get(pkg)) && theMap.get(fun).equals(o.theMap.get(fun)) &&
+									 isSubtypeL0(theMap.get(ret_t), o.theMap.get(ret_t));
+
+		if (!retv) {
+			return retv;
+		}
+
+		for (int i = arg1_t; i <= arg20_t; i ++) {
+			retv = retv && isSubtypeL0(theMap.get(i), o.theMap.get(i));
+			if (!retv)
+				return retv;
+		}
+
+		return retv;
 	}
 
 	boolean isSubtypeL1(Signature o) {
-		return pkg.equals(o.pkg) && fun.equals(o.fun) && isSubtypeL1(arg1_t, o.arg1_t) && isSubtypeL1(arg2_t, o.arg2_t)
-				&& isSubtypeL1(arg3_t, o.arg3_t) && isSubtypeL1(arg4_t, o.arg4_t) && isSubtypeL1(arg5_t, o.arg5_t)
-				&& isSubtypeL1(arg6_t, o.arg6_t) && isSubtypeL1(arg7_t, o.arg7_t) && isSubtypeL1(arg8_t, o.arg8_t)
-				&& isSubtypeL1(arg9_t, o.arg9_t) && isSubtypeL1(arg10_t, o.arg10_t) && isSubtypeL1(arg11_t, o.arg11_t)
-				&& isSubtypeL1(arg12_t, o.arg12_t) && isSubtypeL1(arg13_t, o.arg13_t) && isSubtypeL1(arg14_t, o.arg14_t)
-				&& isSubtypeL1(arg15_t, o.arg15_t) && isSubtypeL1(arg16_t, o.arg16_t) && isSubtypeL1(arg17_t, o.arg17_t)
-				&& isSubtypeL1(arg18_t, o.arg18_t) && isSubtypeL1(arg19_t, o.arg19_t)
-				&& isSubtypeL1(arg20_t, o.arg20_t) && isSubtypeL1(ret_t, o.ret_t);
+		boolean retv = theMap.get(pkg).equals(o.theMap.get(pkg)) && theMap.get(fun).equals(o.theMap.get(fun)) &&
+									 isSubtypeL1(theMap.get(ret_t), o.theMap.get(ret_t));
+
+		if (!retv) {
+			return retv;
+		}
+
+		for (int i = arg1_t; i <= arg20_t; i ++) {
+			retv = retv && isSubtypeL1(theMap.get(i), o.theMap.get(i));
+			if (!retv)
+				return retv;
+		}
+
+		return retv;
 	}
 
 	boolean isSubtypeL2(Signature o) {
-		return this.isSubtypeL1(o) && pkg.equals(o.pkg) && fun.equals(o.fun) && isSubtypeL2_a(arg1_a, o.arg1_a) && isSubtypeL2_a(arg2_a, o.arg2_a)
-				&& isSubtypeL2_a(arg3_a, o.arg3_a) && isSubtypeL2_a(arg4_a, o.arg4_a) && isSubtypeL2_a(arg5_a, o.arg5_a)
-				&& isSubtypeL2_a(arg6_a, o.arg6_a) && isSubtypeL2_a(arg7_a, o.arg7_a) && isSubtypeL2_a(arg8_a, o.arg8_a)
-				&& isSubtypeL2_a(arg9_a, o.arg9_a) && isSubtypeL2_a(arg10_a, o.arg10_a) && isSubtypeL2_a(arg11_a, o.arg11_a)
-				&& isSubtypeL2_a(arg12_a, o.arg12_a) && isSubtypeL2_a(arg13_a, o.arg13_a) && isSubtypeL2_a(arg14_a, o.arg14_a)
-				&& isSubtypeL2_a(arg15_a, o.arg15_a) && isSubtypeL2_a(arg16_a, o.arg16_a) && isSubtypeL2_a(arg17_a, o.arg17_a)
-				&& isSubtypeL2_a(arg18_a, o.arg18_a) && isSubtypeL2_a(arg19_a, o.arg19_a)
-				&& isSubtypeL2_a(arg20_a, o.arg20_a) && isSubtypeL2_a(ret_a, o.ret_a) && isSubtypeL2_c(arg1_c, o.arg1_c) && isSubtypeL2_c(arg2_c, o.arg2_c)
-				&& isSubtypeL2_c(arg3_c, o.arg3_c) && isSubtypeL2_c(arg4_c, o.arg4_c) && isSubtypeL2_c(arg5_c, o.arg5_c)
-				&& isSubtypeL2_c(arg6_c, o.arg6_c) && isSubtypeL2_c(arg7_c, o.arg7_c) && isSubtypeL2_c(arg8_c, o.arg8_c)
-				&& isSubtypeL2_c(arg9_c, o.arg9_c) && isSubtypeL2_c(arg10_c, o.arg10_c) && isSubtypeL2_c(arg11_c, o.arg11_c)
-				&& isSubtypeL2_c(arg12_c, o.arg12_c) && isSubtypeL2_c(arg13_c, o.arg13_c) && isSubtypeL2_c(arg14_c, o.arg14_c)
-				&& isSubtypeL2_c(arg15_c, o.arg15_c) && isSubtypeL2_c(arg16_c, o.arg16_c) && isSubtypeL2_c(arg17_c, o.arg17_c)
-				&& isSubtypeL2_c(arg18_c, o.arg18_c) && isSubtypeL2_c(arg19_c, o.arg19_c)
-				&& isSubtypeL2_c(arg20_c, o.arg20_c) && isSubtypeL2_c(ret_c, o.ret_c);
+		boolean retv = theMap.get(pkg).equals(o.theMap.get(pkg)) && theMap.get(fun).equals(o.theMap.get(fun)) &&
+									 isSubtypeL2_c(theMap.get(ret_c), o.theMap.get(ret_c)) &&
+									 isSubtypeL2_a(theMap.get(ret_a), o.theMap.get(ret_a)) && this.isSubtypeL1(o);
+
+	  if (!retv) {
+ 			return retv;
+ 		}
+
+ 		for (int i = arg1_c; i <= arg20_c; i ++) {
+ 			retv = retv && isSubtypeL2_c(theMap.get(i), o.theMap.get(i));
+ 			if (!retv)
+ 				return retv;
+ 		}
+
+		for (int i = arg1_a; i <= arg20_a; i ++) {
+ 			retv = retv && isSubtypeL2_a(theMap.get(i), o.theMap.get(i));
+ 			if (!retv)
+ 				return retv;
+ 		}
+
+		return retv;
+
+
 	}
 
 	static String simplifyType(String aT) {
@@ -775,251 +405,44 @@ public class Signature {
 			return aT;
 	}
 
-  // how to do this...
-	// boolean isSubtypeL2(Signature o) {
-	// 	return pkg.equals(o.pkg) && fun.equals(o.fun) && isSubtypeL2
-	//
-	// 	    // ... isSubtypeL1(arg1_t, o.arg1_t) && isSubtypeL1(arg2_t, o.arg2_t)
-	// 			// && isSubtypeL1(arg3_t, o.arg3_t) && isSubtypeL1(arg4_t, o.arg4_t) && isSubtypeL1(arg5_t, o.arg5_t)
-	// 			// && isSubtypeL1(arg6_t, o.arg6_t) && isSubtypeL1(arg7_t, o.arg7_t) && isSubtypeL1(arg8_t, o.arg8_t)
-	// 			// && isSubtypeL1(arg9_t, o.arg9_t) && isSubtypeL1(arg10_t, o.arg10_t) && isSubtypeL1(arg11_t, o.arg11_t)
-	// 			// && isSubtypeL1(arg12_t, o.arg12_t) && isSubtypeL1(arg13_t, o.arg13_t) && isSubtypeL1(arg14_t, o.arg14_t)
-	// 			// && isSubtypeL1(arg15_t, o.arg15_t) && isSubtypeL1(arg16_t, o.arg16_t) && isSubtypeL1(arg17_t, o.arg17_t)
-	// 			// && isSubtypeL1(arg18_t, o.arg18_t) && isSubtypeL1(arg19_t, o.arg19_t)
-	// 			// && isSubtypeL1(arg20_t, o.arg20_t);
-	// }
-
 	public void write(Writer w) {
-		w.toS(pkg);
-		w.comma();
-		w.toS(fun);
-		w.comma();
-		w.toI(has_dots ? 1 : 0);
-		w.comma();
-		w.toS(arg1_t);
-		w.comma();
-		w.toS(arg2_t);
-		w.comma();
-		w.toS(arg3_t);
-		w.comma();
-		w.toS(arg4_t);
-		w.comma();
-		w.toS(arg5_t);
-		w.comma();
-		w.toS(arg6_t);
-		w.comma();
-		w.toS(arg7_t);
-		w.comma();
-		w.toS(arg8_t);
-		w.comma();
-		w.toS(arg9_t);
-		w.comma();
-		w.toS(arg10_t);
-		w.comma();
-		w.toS(arg11_t);
-		w.comma();
-		w.toS(arg12_t);
-		w.comma();
-		w.toS(arg13_t);
-		w.comma();
-		w.toS(arg14_t);
-		w.comma();
-		w.toS(arg15_t);
-		w.comma();
-		w.toS(arg16_t);
-		w.comma();
-		w.toS(arg17_t);
-		w.comma();
-		w.toS(arg18_t);
-		w.comma();
-		w.toS(arg19_t);
-		w.comma();
-		w.toS(arg20_t);
-		w.comma();
-		w.toS(arg1_c);
-		w.comma();
-		w.toS(arg2_c);
-		w.comma();
-		w.toS(arg3_c);
-		w.comma();
-		w.toS(arg4_c);
-		w.comma();
-		w.toS(arg5_c);
-		w.comma();
-		w.toS(arg6_c);
-		w.comma();
-		w.toS(arg7_c);
-		w.comma();
-		w.toS(arg8_c);
-		w.comma();
-		w.toS(arg9_c);
-		w.comma();
-		w.toS(arg10_c);
-		w.comma();
-		w.toS(arg11_c);
-		w.comma();
-		w.toS(arg12_c);
-		w.comma();
-		w.toS(arg13_c);
-		w.comma();
-		w.toS(arg14_c);
-		w.comma();
-		w.toS(arg15_c);
-		w.comma();
-		w.toS(arg16_c);
-		w.comma();
-		w.toS(arg17_c);
-		w.comma();
-		w.toS(arg18_c);
-		w.comma();
-		w.toS(arg19_c);
-		w.comma();
-		w.toS(arg20_c);
-		w.comma();
-		w.toS(arg1_a);
-		w.comma();
-		w.toS(arg2_a);
-		w.comma();
-		w.toS(arg3_a);
-		w.comma();
-		w.toS(arg4_a);
-		w.comma();
-		w.toS(arg5_a);
-		w.comma();
-		w.toS(arg6_a);
-		w.comma();
-		w.toS(arg7_a);
-		w.comma();
-		w.toS(arg8_a);
-		w.comma();
-		w.toS(arg9_a);
-		w.comma();
-		w.toS(arg10_a);
-		w.comma();
-		w.toS(arg11_a);
-		w.comma();
-		w.toS(arg12_a);
-		w.comma();
-		w.toS(arg13_a);
-		w.comma();
-		w.toS(arg14_a);
-		w.comma();
-		w.toS(arg15_a);
-		w.comma();
-		w.toS(arg16_a);
-		w.comma();
-		w.toS(arg17_a);
-		w.comma();
-		w.toS(arg18_a);
-		w.comma();
-		w.toS(arg19_a);
-		w.comma();
-		w.toS(arg20_a);
-		w.comma();
-		w.toS(ret_t);
-		w.comma();
-		w.toS(ret_c);
-		w.comma();
-		w.toS(ret_a);
+		for (int i = 1; i <= ret_a; i ++) {
+			w.toS(theMap.get(i));
+			if (i != ret_a)
+				w.comma();
+		}
 		w.nl();
 	}
 
 	static Signature read(Reader r) {
 		Signature f = new Signature();
-		f.filename = r.filename; // for debugging purposes
+		f.theMap.put(filename, r.filename); // debugging
 
-		f.pkg = r.getS();
-		f.fun = r.getS();
-		f.has_dots = r.getS().equals("TRUE");
+		f.theMap.put(pkg, r.getS());
+		f.theMap.put(fun, r.getS());
+		f.theMap.put(has_dots, r.getS());
+
 		if (!simplify) {
-			f.arg1_t = r.getS();
-			f.arg2_t = r.getS();
-			f.arg3_t = r.getS();
-			f.arg4_t = r.getS();
-			f.arg5_t = r.getS();
-			f.arg6_t = r.getS();
-			f.arg7_t = r.getS();
-			f.arg8_t = r.getS();
-			f.arg9_t = r.getS();
-			f.arg10_t = r.getS();
-			f.arg11_t = r.getS();
-			f.arg12_t = r.getS();
-			f.arg13_t = r.getS();
-			f.arg14_t = r.getS();
-			f.arg15_t = r.getS();
-			f.arg16_t = r.getS();
-			f.arg17_t = r.getS();
-			f.arg18_t = r.getS();
-			f.arg19_t = r.getS();
-			f.arg20_t = r.getS();
+			for (int i = arg1_t; i <= arg20_t; i ++) {
+				f.theMap.put(i, r.getS());
+			}
 		} else {
-			f.arg1_t = simplifyType(r.getS());
-			f.arg2_t = simplifyType(r.getS());
-			f.arg3_t = simplifyType(r.getS());
-			f.arg4_t = simplifyType(r.getS());
-			f.arg5_t = simplifyType(r.getS());
-			f.arg6_t = simplifyType(r.getS());
-			f.arg7_t = simplifyType(r.getS());
-			f.arg8_t = simplifyType(r.getS());
-			f.arg9_t = simplifyType(r.getS());
-			f.arg10_t = simplifyType(r.getS());
-			f.arg11_t = simplifyType(r.getS());
-			f.arg12_t = simplifyType(r.getS());
-			f.arg13_t = simplifyType(r.getS());
-			f.arg14_t = simplifyType(r.getS());
-			f.arg15_t = simplifyType(r.getS());
-			f.arg16_t = simplifyType(r.getS());
-			f.arg17_t = simplifyType(r.getS());
-			f.arg18_t = simplifyType(r.getS());
-			f.arg19_t = simplifyType(r.getS());
-			f.arg20_t = simplifyType(r.getS());
+			for (int i = arg1_t; i <= arg20_t; i ++) {
+				f.theMap.put(i, simplifyType(r.getS()));
+			}
 		}
-		f.arg1_c = r.getS();
-		f.arg2_c = r.getS();
-		f.arg3_c = r.getS();
-		f.arg4_c = r.getS();
-		f.arg5_c = r.getS();
-		f.arg6_c = r.getS();
-		f.arg7_c = r.getS();
-		f.arg8_c = r.getS();
-		f.arg9_c = r.getS();
-		f.arg10_c = r.getS();
-		f.arg11_c = r.getS();
-		f.arg12_c = r.getS();
-		f.arg13_c = r.getS();
-		f.arg14_c = r.getS();
-		f.arg15_c = r.getS();
-		f.arg16_c = r.getS();
-		f.arg17_c = r.getS();
-		f.arg18_c = r.getS();
-		f.arg19_c = r.getS();
-		f.arg20_c = r.getS();
-		f.arg1_a = r.getS();
-		f.arg2_a = r.getS();
-		f.arg3_a = r.getS();
-		f.arg4_a = r.getS();
-		f.arg5_a = r.getS();
-		f.arg6_a = r.getS();
-		f.arg7_a = r.getS();
-		f.arg8_a = r.getS();
-		f.arg9_a = r.getS();
-		f.arg10_a = r.getS();
-		f.arg11_a = r.getS();
-		f.arg12_a = r.getS();
-		f.arg13_a = r.getS();
-		f.arg14_a = r.getS();
-		f.arg15_a = r.getS();
-		f.arg16_a = r.getS();
-		f.arg17_a = r.getS();
-		f.arg18_a = r.getS();
-		f.arg19_a = r.getS();
-		f.arg20_a = r.getS();
+
+		for (int i = arg1_c; i <= arg20_a; i ++) {
+			f.theMap.put(i, r.getS());
+		}
+
 		if (! simplify)
-			f.ret_t = r.getS();
+			f.theMap.put(ret_t, r.getS());
 		else
-			f.ret_t = simplifyType(r.getS());
-		f.ret_c = r.getS();
-		f.ret_a = r.getS();
+			f.theMap.put(ret_t, simplifyType(r.getS()));
+
+		f.theMap.put(ret_c, r.getS());
+		f.theMap.put(ret_a, r.getS());
 		return f;
 	}
 
