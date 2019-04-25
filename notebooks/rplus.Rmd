@@ -65,8 +65,8 @@ subtype_df_L2 <- subtype_df_L2[!subtype_df_L2$pkg == "SUBTYPE",]
 ```{r}
 # just get +
 
-subtype_df_L0_p <- filter(subtype_df_L0, fun == "+")
-subtype_df_L1_p <- filter(subtype_df_L1, fun == "+")
-subtype_df_L2_p <- filter(subtype_df_L2, fun == "+")
+subtype_df_L0_p <- filter(subtype_df_L0, fun == "+") %>% salient_only_one_fun
+subtype_df_L1_p <- filter(subtype_df_L1, fun == "+") %>% salient_only_one_fun
+subtype_df_L2_p <- filter(subtype_df_L2, fun == "+") %>% salient_only_one_fun(just_types=F)
 
 ```

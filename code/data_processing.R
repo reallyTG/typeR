@@ -244,6 +244,19 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
 
 }
 
+salient_only_one_fun <- function(df, just_types=T) {
+  df_names <- names(df)
+  for (i in 1:length(df)) {
+    this_name <- df_names[[i]]
+    if (just_types && "_t" != substr(this_name, nchar(this_name)-1, nchar(this_name)))
+      df[, this_name] <- NULL
+    else if (is.na(df[1,this_name]))
+      df[, this_name] <- NULL
+  }
+
+  df
+}
+
 unlist_new_df <- function(df) {
   for (i in 1:length(df)) {
     df[, i] <- unlist(df[, i])
