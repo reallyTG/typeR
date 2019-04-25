@@ -90,6 +90,8 @@ public class Main {
 	public static final int ret_c=65;
 	public static final int ret_a=66;
 
+	public static String file_prefix = "";
+
 	/**
 	 * @param args The name of the CSV files to be processed prefixed with command
 	 *             line arguments. "-p" request parallel processing, "-p=N" requests
@@ -110,22 +112,25 @@ public class Main {
 		inputDir = args_.getOption("-input");
 		outputDir = args_.getOption("-output");
 
+		// file prefix, if you dont just want to deal with L0 and shit
+		file_prefix = "plus_80_";
+
 		// args = getFileList(inputDir);
 		// for (int i = 0; i < args.length; i++)
-		String the_file = "../data/L0.csv.gz";
+		String the_file = "../data/" + file_prefix + "L0.csv.gz";
 		if (ts.equals("L1"))
 		  // the_file = "../data/L1_sanitized_class.csv.gz";
-			the_file = "../data/L1.csv.gz";
+			the_file = "../data/" + file_prefix + "L1.csv.gz";
 
 		// uncomment depending on what you want to do
 		// not the best approach
 		// doIt(the_file, 0);
 	  // collapsePerArg(the_file);
-		// makeOccurences(the_file);
-		// sanitizeClass(the_file);
-		// doIt_L2(the_file);
-		// collapsePerArg_L2(the_file);
-		makeOccurences(the_file); // do this but uncomment the L2 file names
+		// makeOccurences(the_file, false);
+		sanitizeClass(the_file);
+		doIt_L2(the_file);
+		collapsePerArg_L2(the_file);
+		makeOccurences(the_file, true); // do this but uncomment the L2 file names
 		// makeOccurences_L2(the_file); // bad dont use
 
 	}
@@ -234,9 +239,12 @@ public class Main {
 		w.close();
 	}
 
-	private static void makeOccurences(String file) {
-		// String the_real_file = file.substring(0, file.length()-7) + "_collapsed.csv.gz";
-		String the_real_file = file.substring(0, file.length()-7) + "_collapsed_L2_new.csv.gz";
+	private static void makeOccurences(String file, boolean isL2) {
+		String the_real_file = "";
+		if (!isL2)
+			the_real_file = file.substring(0, file.length()-7) + "_collapsed.csv.gz";
+		else
+			the_real_file = file.substring(0, file.length()-7) + "_collapsed_L2_new.csv.gz";
 		Reader reader = null;
 		try {
 			reader = new Reader(the_real_file);
@@ -253,8 +261,10 @@ public class Main {
 		}
 
 		String out_file = file.substring(0, file.length()-7);
-		// out_file = out_file.concat("_arg_sig_counts.csv");
-		out_file = out_file.concat("_arg_sig_counts_L2.csv");
+		if (!isL2)
+			out_file = out_file.concat("_arg_sig_counts.csv");
+		else
+			out_file = out_file.concat("_arg_sig_counts_L2.csv");
 		Writer w = new Writer(out_file);
 		w.toS("arg_sig");
 		w.comma();

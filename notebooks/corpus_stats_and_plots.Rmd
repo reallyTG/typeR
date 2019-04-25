@@ -106,7 +106,7 @@ Plot:
 df_rc %>%
   mutate(rec=log10(rec),obs=log10(obs))  %>%
   ggplot(aes(y=rec, x=obs)) + geom_point(size=0.1) + 
-    labs( x = "Observed", y = "Recorded") +
+    labs( x = "Calls Observed", y = "Signatures Recorded") +
     scale_x_continuous(breaks = c( 1, 2, 3, 4, 5, 6, 7),
                        labels = c( 10, 100, 1000, 10000, 100000, 1000000, 10000000))+
     scale_y_continuous(breaks = c( 1, 2, 3, 4, 5, 6, 7),

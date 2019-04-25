@@ -36,8 +36,37 @@ base_df <- readRDS("../data/some_plus_examples.RDS")
 
 # for L0
 base_df_L0 <- transform_new_df_w_TS_map(base_df, type_map_T0_to_r, unparam = T)
+base_df_L0 <- unlist_new_df(base_df_L0)
 
 # just types
 base_df_just_types <- base_df %>% select(arg1_t, arg2_t, ret_t)
 ```
 
+```{r}
+# pass things over to java
+# dont forget to tar
+
+# save L0
+write_csv(base_df_L0, "../data/plus_80_L0.csv")
+# save L1
+write_csv(base_df, "../data/plus_80_L1.csv")
+
+# do the java
+
+# read subtype
+subtype_df_L0 <- read_csv("../data/plus_80_L0_subtype.csv.gz")
+subtype_df_L0 <- subtype_df_L0[!subtype_df_L0$pkg == "SUBTYPE",]
+subtype_df_L1 <- read_csv("../data/plus_80_L1_subtype.csv.gz")
+subtype_df_L1 <- subtype_df_L1[!subtype_df_L1$pkg == "SUBTYPE",]
+subtype_df_L2 <- read_csv("../data/plus_80_L1_L2.csv.gz")
+subtype_df_L2 <- subtype_df_L2[!subtype_df_L2$pkg == "SUBTYPE",]
+```
+
+```{r}
+# just get +
+
+subtype_df_L0_p <- filter(subtype_df_L0, fun == "+")
+subtype_df_L1_p <- filter(subtype_df_L1, fun == "+")
+subtype_df_L2_p <- filter(subtype_df_L2, fun == "+")
+
+```

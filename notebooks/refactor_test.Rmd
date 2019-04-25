@@ -1,0 +1,38 @@
+---
+title: "Test Changes to Java Code"
+output: html_notebook
+---
+
+This notebook is just to test the changes that were made to the Java code to make it more reasonable.
+The main change was making Signatures contain a List of stuff, rather than just a bunch of fields.
+It's easier to iterate through the fields this way, but a bit slower.
+
+Ok. We ran Main with doIt uncommented.
+What does L0_subtype look like?
+
+```{r}
+source("../code/data_processing.R")
+```
+
+```{r}
+psp_L0 <- read_csv("../data/L0_subtype.csv.gz")
+# ok that seems fine, try something else
+
+psp_L0_col <- read_csv("../data/L0_collapsed.csv.gz")
+# seems ok
+
+L0_arg_sig_c <- read_csv("../data/L0_arg_sig_counts.csv.gz")
+# seems fine
+
+L0_sanitized <- read_csv("../data/L0_sanitized_class.csv.gz")
+# yeah
+
+psp_L2 <- read_csv("../data/L1_L2.csv.gz")
+# yeah seems ok
+
+list_of_L2_sig_c <- read_csv("../data/L1_arg_sig_counts_L2.csv.gz")
+# yeah 
+
+```
+
+Ok, things seem to have worked out.

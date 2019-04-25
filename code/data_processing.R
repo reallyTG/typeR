@@ -244,7 +244,13 @@ make_new_df <- function(pname, dir="trace_exports_final_reduced") {
 
 }
 
+unlist_new_df <- function(df) {
+  for (i in 1:length(df)) {
+    df[, i] <- unlist(df[, i])
+  }
 
+  df
+}
 
 # use this to get rid of the extra empty slots
 minimize_new_df <- function(df, pkg, fun) {
