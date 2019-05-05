@@ -79,10 +79,10 @@ subtype_df_L2_b <- filter(subtype_df_L2, fun == "[") %>% salient_only_one_fun(ju
 
 ```
 
-] is somewhat interesting.
-There were some issues with ].
+[ is somewhat interesting.
+There were some issues with [.
 The number of arguments that it takes is somewhat related to the dimensions of the thing being indexed.
-For example, in data frames you can have a call to ] with 3 arguments: the data frame first, followed by the row and then column numbers (optionally).
+For example, in data frames you can have a call to [ with 3 arguments: the data frame first, followed by the row and then column numbers (optionally).
 For lists, it's always just 2 arguments.
 Not sure how ... best to deal with this.
 Right now, I just have it take 2 arguments: the thing being accessed, and an index variable.
@@ -90,10 +90,10 @@ Right now, I just have it take 2 arguments: the thing being accessed, and an ind
 There is perhaps room for a more sophisticateed analysis here, looking at the domensions of the first argument.
 I don't think it'll be too challenging, but again, do we want to go that far?
 I think that would be useful for some IDE tool or something: for instance, telling the programmer that they aren't using the thing with the right amount of dimensions.
-Then again, you can totally do that and it's completely fine...
+Then again, you can totally do that and it's completely fine, you just might not get what you expect.
 
-TODO: What package has the call with 1 argument?
-
-
+Cool:
+src/main/names.c contains ~ function headers for builtin and special functions (minus types).
+Notably, it includes the arity of the functions.
 
 
