@@ -127,10 +127,12 @@ public class Main {
 		// doIt(the_file, 0);
 	  // collapsePerArg(the_file);
 		// makeOccurences(the_file, false);
-		sanitizeClass(the_file);
+
+		sanitizeClass(the_file); // here
 		doIt_L2(the_file);
 		collapsePerArg_L2(the_file);
 		makeOccurences(the_file, true); // do this but uncomment the L2 file names
+
 		// makeOccurences_L2(the_file); // bad dont use
 
 	}

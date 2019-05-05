@@ -32,7 +32,9 @@ To load the data, run:
 
 ```{r}
 # technically in L2
-base_df <- readRDS("../data/some_plus_examples.RDS")
+# base_df <- readRDS("../data/some_plus_examples.RDS")
+# base_df <- readRDS("../data/base_with_plus_and_brack.RDS")
+base_df <- readRDS("../data/base_with_brack_fixed.RDS")
 
 # for L0
 base_df_L0 <- transform_new_df_w_TS_map(base_df, type_map_T0_to_r, unparam = T)
@@ -69,4 +71,29 @@ subtype_df_L0_p <- filter(subtype_df_L0, fun == "+") %>% salient_only_one_fun
 subtype_df_L1_p <- filter(subtype_df_L1, fun == "+") %>% salient_only_one_fun
 subtype_df_L2_p <- filter(subtype_df_L2, fun == "+") %>% salient_only_one_fun(just_types=F)
 
+# just get [
+
+subtype_df_L0_b <- filter(subtype_df_L0, fun == "[") %>% salient_only_one_fun(just_types = F)
+subtype_df_L1_b <- filter(subtype_df_L1, fun == "[") %>% salient_only_one_fun(just_types = F)
+subtype_df_L2_b <- filter(subtype_df_L2, fun == "[") %>% salient_only_one_fun(just_types=F)
+
 ```
+
+] is somewhat interesting.
+There were some issues with ].
+The number of arguments that it takes is somewhat related to the dimensions of the thing being indexed.
+For example, in data frames you can have a call to ] with 3 arguments: the data frame first, followed by the row and then column numbers (optionally).
+For lists, it's always just 2 arguments.
+Not sure how ... best to deal with this.
+Right now, I just have it take 2 arguments: the thing being accessed, and an index variable.
+
+There is perhaps room for a more sophisticateed analysis here, looking at the domensions of the first argument.
+I don't think it'll be too challenging, but again, do we want to go that far?
+I think that would be useful for some IDE tool or something: for instance, telling the programmer that they aren't using the thing with the right amount of dimensions.
+Then again, you can totally do that and it's completely fine...
+
+TODO: What package has the call with 1 argument?
+
+
+
+
