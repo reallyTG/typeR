@@ -1,0 +1,202 @@
+#5 A Large-Scale Study of Polymorphism in R
+
+We thank the reviewers for their comments.  
+
+TAKEAWAYS
+
+The R language is highly dynamic, and we set out to see if R code was as dynamic as the language allows. Our data suggest that while dynamism is prevalent, a majority of functions have a simple type signature.  We put forward three sets of potential type annotations for R. L0, a language of types which is closely related to R's existing runtime types, L1, which is designed to capture many of the polymorphic patterns that were observed in L0, and finally L2, which incorporates attributes and classes. 
+
+We will make our framework and data set available: our data contains over 460K call signature recordings from over 190K functions across over 11K packages. 
+
+CORPUS
+
+Little end-user code is available online. Based on our experience, end-users do not use R as a general purpose language, they glue library calls together. Thus, we focus on analyzing libraries. Luckily, libraries are shipped with tests, examples and vignettes which showcase how they are used.
+
+PARAMETRIC POLYMORPHISM
+
+We have not included parametric polymorphism in the proposed type annotation languages because our intuition suggests that it may not help as much as in languages with user-defined types, and it may be more difficult to get adopted. We will consider it in a revision.
+
+In case this paper were accepted, our plans for changes are as follows:
+
+Typographical errors will be fixed.
+We will add a section on parametric polymorphism in Sec.5.
+We will add a section comparing our choices with those taken in other gradual language designs (e.g. TypeScript) in Sec.8.
+Clarify and emphasize the takeaways of our study.
+
+# Review #5A C/X
+
+> The present paper, however, does not quite answer this question. The take-away message
+that I read from this paper are: 1) L2 is an obvious candidate for classifying types, 2) in that 80% of the functions are monomorphic, and 3) 95% of the arguments are monomorphic (always instantiated by the same type). Yet, I am not quite sure what can be concluded from these points.
+
+R highly dynamic and domain specific (data analysis), our hope was to find that actual uses of R are not as dynamic because the domain does not require it. This is what argument/function monomorphism tells us. For most arguments a simple type is enough. From the point of view of proposing a language of types that can be adopted by the community, we believe L1 is our best bet. While L2 is more expressive, it leads to more complex signatures (which we know to be a turn off) and its benefits are not as obvious (L1 gives the most direct performance benefits). 
+
+> One conclusion is that an R programmer would (in principle) be better off annotating with a type any function argument for which there exists an obvious type. The present study shows that in numerous place it would be straightforward to do so. (This remark would probably apply equally well to many other programming languages, btw.)
+
+We agree with the last point -- our work quantifies that bit of common wisdom in one specific language.
+
+> Yet, a proposed "type system" should strive to provide more than just type annotation for obvious monomorphic types. And, with that respect, the present paper does not make any explicit proposal.
+
+True. We are not proposing a type system, at least not yet -- but rather a type annotation language that is sufficiently rich to express most observed function signature compactly. That type annotation language will drive the design of an actual (gradual) type system. Knowing our audience, our goal was the simplest language not the one that would be the most expressive. 
+
+> Even without going as far as proposing a full-blown type system, I would have found it interesting to evaluate how the handling in polymorphism in existing type systems for other languages (e.g. Typescript) could, or could not, be applied to handle the form of polymorphisms most commonly exploited in R code.
+
+We will add a discussion in Sec.8. 
+
+> Another potential criticism is that, as the author rightfully acknowledge, there is a significant bias in the study due to the fact that the code base considered consists of reusable libraries, which differ quite significantly in flavor from what is commonly found in end-user R code. Thus, all measured figures must be taken with a grain of salt.
+
+We have reason to believe (but no proof) that the code is representative. In our limited experience, R end-users do not define functions or write data types, they have in fact no CS training. So, our working hypothesis is that the majority of R “user” code is calls to libraries. We agree with the above grain of salt, but betting it is only a grain and not the whole shaker.
+
+> Question: what about types of the form:   'a matrix -> 'a   (where 'a could be integer or double or complex) I do not understand how the types and shapes considered in the study cover such form of polymorphism.   
+
+The annotation language we have explored does not support bounded parametric polymorphism. Given the paucity of types in R, the proposals we have put on the table seem sufficient. More broadly, parametric polymorphism is tricky when the code performs explicit type tests.
+
+>Typos:
+
+Thanks.
+
+# Review #5B A/X
+
+> Can you measure what fraction of the 15 million lines of code are actually executed by the test suites you use, or otherwise discuss its coverage?   Please comment on this in the response.
+
+In the ISSTA’18 paper by Krikava, the same set up with tests, vignettes, and examples for a corpus of 1.5K R packages exercised, on average, 68% of package code.
+
+> 117: Explain 'c'. 
+
+‘c’ is a function for building vectors. c(1, 2, 3) is the vector [1, 2, 3].
+
+> 187: This example doesn't explain what a data frame in general is, and later we need to know. 
+
+A data frame is a list of lists where each row represents an observation, and each column represents an observed characteristic. E.g., a data frame for students has a row for each person, and a column for their grades, etc.
+
+> 236: It would be more useful to show the C data as a separate cumulative distribution, not a bar per package, especially as the real bars are presumably much less than one pixel wide.
+
+We wanted to show the relationship between lines of R and of C code. We will revisit.
+
+> 262: Are these signatures exactly the Fig. 2 argument+return types of the call?  Or do they include attributes, or attribute values, or maybe even vector lengths?  For functions with very large numbers of recorded signatures, can you explain why?  I see later you say this in Section 4, but it's needed here to understand the relationship between the number of function calls and the number of recorded signatures. Re-order the two parts?
+
+The “unique signatures” are indeed unique function signatures (including all arg/ret shapes), with the shape defined in Sec.4. We will reorder. Functions with many recorded signatures typically have many (> 10) arguments, or simply have essentially any-typed arguments (e.g. the %>% pipe function accepts and returns anything). For details see Sec.7 (e.g. 591-594, 611-617).
+
+> 400: Does "We omit short forms for..." just mean you don't have an abbreviated syntax, or are these "esoteric" types not in L0 at all?
+
+They are in L0, we just didn’t shorten their names.
+
+> 406: It looks as if L1 doesn't include any parametric polymorphism, e.g. to identify functions that are called on matching T and list(T) types, but it's not totally clear.  This is worth some discussion up-front, explaining why you only consider subtype polymorphism (if that's what you do).  I would have thought it was easy enough to try anti-unifying the observed signatures. 
+
+We held back from looking at parametric polymorphism, because our analysis cannot ensure that a function would indeed work for all possible types (unless it witnessed all types). This is related to reflection and run-time type checking in R, programmers test types of arguments and, for example, stop execution---our framework does not analyze the code, and thus cannot rule this out. Beyond that, we are rather confident that the R community would not accept a type system that they think of as “fancy” (if they accept any type system), and parametric polymorphism is likely “fancy” in their view. We will add a discussion elaborating on this in Sec.5.
+
+> In the same vein, it would be useful to discuss explicitly whether you're doing any approximation, eg taking least upper bounds in your subtype orders.  If, based on your observations, you give an L0/L1/L2 type for some function, what assurance is there that the function will  work for any argument with that type?  If types exactly capture observations, then we'd know at least there is a test case, but if they approximate (which presumably they have to), we know less. Please discuss this in the response.
+
+Each signature is based on an observation which had that exact signature. When taking a LUB, such as A = LUB(B,C), B and C are observed and A is always either B or C. Thus we never generalize to a type that has not been observed.
+
+> 435: This gives an example, but it doesn't say what you actually do just "a certain amount".  Do you discard all observed types that are subsumed by another observed type?
+
+Noted. We do discard subsumed signatures when simplifying.
+
+> 442: Throughout this section, could you give the L0/L1/L2 typings for these examples?
+
+Good suggestion, we will.
+
+> 448: 402 says I<:D, but here it looks like D<:I too ?   And what does "strictly required" mean?
+
+We will adjust the wording here. Indeed, I <: D. Line 448 is not an indication that D <: I, only that the bracket function [ is equipped to coerce doubles to integers. “Strictly required” here means: [ needs an integer argument, and will coerce doubles to integers.  (And the coercion is a runtime operation, and not subtyping.)
+
+> 525: do you mean c(1,2) not c(1,1)?  And vectors can be regarded as matrices in two different ways (1xN vs Nx1)...
+
+Yes, good catch. And indeed they can.
+
+> 548: I can't make sense of this.
+
+We will fix the wording in this paragraph.
+
+> 560: are you counting \underbar{?} as monomorphic here?  That's confusing. 
+
+In L0, the only list type is “list”, and indeed we do not differentiate between all possible elements.
+
+> 808: "would be" what?
+
+Bad edit.  It’s unclear if a dependent type system would be well-received by R programmers.
+
+> 837: "Is defined as" what?
+
+Bad edit, this was intended to repeat from 5.3: for T1 <: T2, they must be subtypes in the sense of L1, and also the attribute and class lists of T1 are subsets of the attribute and class lists of T2.
+
+> 840: It would be better to make these three tables somehow comparable without paging around.
+
+Point taken. We will group them together.
+
+> 1073-1075: I don't find this persuasive.  The "overall polymorphism" numbers are dominated by the monomorphic functions in all cases, so why is this evidence that "L2 captures the vast majority of existing polymorphism patterns"?  It seems quite possible that parametric (or maybe even dependent) types would capture existing patterns much better - I don't see that your data rules that out. Please discuss this in the response. 
+
+Given a set of observed signatures for each function, the “goodness” of an annotation language (L0-2) is determined by the tradeoff between compactness of the representation and precision of the types described. So a type is “better” if it capture more precisely the set of values and is more compact. Here we are thinking of ease of use (compactness) and benefits for compilation/verification (precision).
+
+Adding parametric polymorphism to one of our systems will improve the compactness of type terms but come at a cost in complexity (and thus decrease the likelihood of adoption). 
+
+Also parametric polymorphism may be less useful in R where users do not define new types, and most of the values of interest are vectors of some basic types.
+
+Lastly the presence of runtime type tests complicates life.
+
+> 1084 This anonymous ("some work", etc.) style of discussing related work reads poorly.
+
+Point taken.
+
+# Review #5C D/Y
+
+> Points against:  - I am not sure I agree with the authors' understanding of "polymorphism". This term is so fundamental to the work, it needs a crisp unambiguous definition early on in the paper. For that reason, throughout the paper, it remained unclear to me what exactly the study wanted to measure. I was hoping the analysis results would clarify this, but it did not. How were individual function signatures aggregated? 
+
+Our working definition of polymorphism is the “ad hoc” polymorphism attributed to Strachey [1967] and defined “as a kind of polymorphism in which polymorphic functions can be applied to arguments of different types, because a polymorphic function can denote a number of distinct and potentially heterogeneous implementations depending on the type of argument(s) to which it is applied.” [Wiki]
+
+> What is an "argument signature" in Table 1–4? Why is `C, F` a polymorphic signature? 
+
+An argument signature here is a list of all the types that have inhabited a particular argument. E.g., if we observe two calls to a function: C->D and F->D, the signature for its argument is (C, F).  It is polymorphic because it has been called with both a character and a function.
+
+> Why is the identity function `function(x) x` said to require a "sophisticated dependent type" rather than "polymorphic function arguments?
+
+Typo.
+
+>  I fail to see what ultimately learned from this study. There are a certain amount of polymorphic functions, and most functions are not used polymorphically. Ok, so what now? It would have helped to make the goals and hypotheses explicit. 
+
+This study is a step towards creating a full-fledged type system for R. We have established just how pervasive polymorphism is in R, through the lens of 3 potential type annotation languages. Not only do we know how many polymorphic functions are out there, we have brought forward the common usage patterns of these polymorphic functions. This information has allowed us to devise and subsequently evaluate candidate sets of types for which embody existing programming paradigms.  
+
+>  I find it problematic that the paper mixes the empirical study of types in R with the design of a specific R type system. The problem is that the study does _not_ generate knowledge about R itself but about the specific notion of type proposed in this paper. Thus, the empirical results do not inform the design of the type system, but instead try to confirm the design. That's a fine approach too, but the paper is sold as a study of R code.
+
+We have struggled with this ourselves. The reviewer has a point. The reason we chose the paper’s approach is that since R does not have a type system it is difficult to present data about polymorphism. Polymorphism is only meaningful with a notion of type. So, we chose three type annotation languages and tried to fit them to the data.  Evidently, if the R community picks a different set of annotations, we will be able to fit that proposal too.
+
+>  Corpus selection: Are the test cases and use cases of packages really a reliable source of representative R code? I would expect most package use cases demonstrate and focus on the functionality of a single package. I wouldn't be surprised if the use of more packages in the same program increases the likelihood of polymorphic function invocations, because different packages might use slightly different data representations. 
+
+We believe that they are representative. Anecdotally, based on looking at notebooks stored on public repositories and our own code, we believe that most “user” code merely glues libraries together. They don’t define many functions or any new data types.  The package tests are more like use-cases and show representative uses of the package. So they are not a bad starting point. 
+
+> The raw data should be made available.
+
+All of our data and code is open source. We did not link it because we ran out of time to anonymize the code and find a place where to store all of the data. Our intent is to have it ready for artifact evaluation in case our paper is accepted.
+
+> Section 4, Fig 6: It seems to me standard functions like `+`, `c`, and `<-` should be excluded from the study. In other languages these constructs would be primitive syntactic forms with an exceptional high polymorphic usage. 
+
+In R, all functions can be redefined.  So there is no guarantee that + is standard.
+This said, we want to know how polymorphic these “worst case” scenarios looked like.
+
+> Section 6: I did not understand the point of this section. I also did not understand what about these examples was polymorphic exactly. For example, how is the code in Fig 8 polymorphic? Wouldn't it permit a standard monomorphic type annotation `w: int vec`? Maybe the code snippets in Section 6 can be used to motivate this work directly after Section 2?
+
+Fig. 8 is polymorphic as it takes either the value NULL or a vector.  NULL is not a “subtype” of vector, it is an unrelated value of a different kind. Sometimes, R libraries use the value NA for the same purpose, and in other cases they may pick other sentinels.
+
+> Section 7, line 548ff: I couldn't make sense of this paragraph.
+
+We will fix the wording in this paragraph.
+
+> Table1: What is an argument signature?
+
+An argument signature here is the types that have inhabited a particular argument. E.g., if we observe two calls to a function: D->D and I->D, the signature for its argument is (D, I).  
+
+> Sec 7.1, "each of the most frequently occurring argument signatures had some explanation": more like a guess, at best a potential explanation. Such interpretation of the data should be clearly separated from the data itself.
+
+Point taken.
+
+> Sec 7.4, "the most polymorphic functions in R are meta-programming their arguments." What does that mean "meta-programming their arguments"?
+
+In R, arguments are passed in a lazy fashion, thus a function can take any of its arguments, and obtain the source code of that argument and its environment, then the function can modify that code and that environment before executing it. This is how, for instance, control structures can be implemented.
+
+> Sec 8.2, "missing": Isn't this also an artifact of the corpus being too small?
+
+We have seen R functions with up to 80 arguments. It is not too surprising that some arguments may not be evaluated. Some programs have dead code, R has dead arguments.
+
+> Fig 21: What is the point of this code?
+
+It shows one implementation of ad hoc type checking in user code that causes the program to stop if the argument is neither NULL or Character.
