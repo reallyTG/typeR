@@ -1,4 +1,4 @@
-\documentclass[acmsmall,10pt,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
+\documentclass[sigconf,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
 \usepackage{booktabs,listings,xspace,wrapfig}
 \lstset{language=R}
 \usepackage{my_style}
@@ -129,6 +129,29 @@ used to capture most of the interesting cases.
 
 \maketitle
 
+\section{ICSE TODO}
+
+For one, the page limit is way less.
+This is probably fine. 
+I took out the graphs for now, maybe we`ll just want one giant page for all the figures?
+We can figure out where to place them.
+
+We want to beef up the contribution.
+Some low hanging fruit include a call-site analysis, and developing a metric to judge whether we trust a suggested annotation. 
+This might involve a rerun, for the call site stuff.
+We should think of anything else we want in the rerun before I spend the cycles to do it.
+
+Broadly, I think we should focus on the study and what we learned from it.
+There are some fluffy sections (like 8.2) that can probably be removed.
+
+We probably want something to generate code from the type annotations we have. 
+I'm working on a prototype. 
+
+Better justify the experiment.
+Why is looking at tests, examples, vignettes ok?
+
+Address parametric polymorphism.
+
 \section{Introduction}
 
 Our community builds, improves, and reasons about programming languages.  To
@@ -219,7 +242,7 @@ repository. While this may bias our findings towards code written to be
 reusable and, possibly, better engineered than typical user code. This is
 also the code that would most benefit from type annotations.
 
-\newpage  %%Leave here
+% \newpage 
 
 \section{The R Programming Language}\label{sec:rlang}
 
@@ -424,12 +447,15 @@ of packages, 8,375 to be precise, have no C or C++ code.  The remaining 3,078
 packages have a median 572 lines of C and the largest package has 385,839
 lines of C.
 
+\begin{comment}
+
 \begin{figure}[!b]\begin{center}
 \includegraphics[width=.9\textwidth]{linesofrandccode}
 \caption{Lines of code (log scal); for each package, R is above 0, and C/C++
   below}\label{allcloc}\end{center}
 \end{figure}
 
+\end{comment}
 
 For each package, we extracted all executable code snippets from
 documentation, vignettes and tests and ran them independently, recording all
@@ -474,13 +500,17 @@ maximum is 19 million.  The median number of recorded signatures is 16 and
 the maximum is 8,422. These numbers are skewed by a number of scripts doing
 very few calls before plunging into C code.
 
+\begin{comment}
+
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{recordsbypkg}
 \caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
 \label{recorded}\end{center}
 \end{figure}
 
-\newpage
+\end{comment}
+
+% \newpage
 \section{Methodology}
 
 In this section, we detail our methodology for collecting data.  Our aim is
@@ -889,12 +919,16 @@ disproportionately large number of signatures.  One such function is the
 magrittr package's pipe \%$>$\%, which is used to implement a kind of
 currying. It has nearly 100 unique signatures!  
 
+\begin{comment}
+
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{L0_by_fun}
 \caption{Record of Function Polymorphism in {\bf L0}; \LZEROPERCPOLY of
   functions are polymorphic}
 \label{fig:L0funcounts}\end{center}
 \end{figure}
+
+\end{comment}
 
 Another function with many signatures is the data.table package's \code{[}
   function, which is a reimplementation of the square bracket operator for
@@ -1045,11 +1079,15 @@ they can easily be converted to vectors and data frames.
 Now that we have a picture of how arguments look in L1, let's see: {\it how many L1 functions have more than one type signature?}
 The answer can be found in Figure~\ref{fig:L1funcounts}.
 
+\begin{comment}
+
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{L1_by_fun}
 \caption{Record of Function Polymorphism in {\bf L1}. \LONEPERCPOLY of functions are polymorphic.}
 \label{fig:L1funcounts}\end{center}
 \end{figure}
+
+\end{comment}
 
 We see that we barely increased the polymorphism with our transition to L1,
 despite the far richer type information.  The biggest outlier here is indeed
@@ -1230,11 +1268,15 @@ No classes are represented here since (1) we eliminated builtin classes, as we'v
 Now that we have a sense for argument-level type signatures in {\bf L2}, we will see just how many functions are polymorphic.
 Consider Figure~\ref{fig:L2funcounts}.
 
+\begin{comment}
+
 \begin{figure}[htbp]\begin{center}
 \includegraphics[width=.9\textwidth]{L2_by_fun}
 \caption{Record of Function Polymorphism in {\bf L2}. \LTWOPERCPOLY of functions are polymorphic.}
 \label{fig:L2funcounts}\end{center}
 \end{figure}
+
+\end{comment}
 
 Not pictured here are two outlier values: the summary and print functions of the base R package.
 Summary is a generic function which is used to summarize various types of data, and print is used to convert values to string format and print them to the console.
