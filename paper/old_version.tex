@@ -1,0 +1,1628 @@
+\documentclass[sigplan,10pt,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
+\usepackage{booktabs,listings,xspace,wrapfig}
+\lstset{language=R}
+\usepackage{my_style}
+\definecolor{LightGray}{rgb}{.95,.95,.95}
+\definecolor{Gray}{rgb}{.3,.3,.3}
+\definecolor{DarkGray}{rgb}{.5,.5,.5}
+
+\graphicspath{ {./plots/} }
+
+\lstset{ %
+  columns=flexible,
+  captionpos=b,
+  frame=single,
+  framerule=0pt,
+  framexleftmargin=-1mm,
+  framexrightmargin=-1mm,
+  tabsize=2,
+  belowskip=0pt,
+  basicstyle=\small\ttfamily,
+  backgroundcolor=\color{LightGray},
+  emphstyle=\sffamily,
+  keywordstyle=\bfseries,
+  commentstyle=\color{Gray}\em,
+  stringstyle=\color{Gray},
+ % numbers=left
+}
+
+\lstdefinestyle{R}{ %
+  language=R,
+  deletekeywords={env, equal, c, runif, trace, args},
+  breaklines=true
+}
+
+\lstdefinestyle{Rin}{ %
+  style=R,
+  numberstyle=none,
+  basicstyle=\normalsize\ttfamily,
+  breaklines=false
+}
+
+\newcommand{\code}[1]{\lstinline|#1|\xspace}
+\newcommand{\genthat}{{\sc Genthat}\xspace}
+
+% Macros for type names?
+\newcommand{\reals}{$\mathtt {\rm I\!R}$\xspace}
+\newcommand{\realv}{$\overline{\rm I\!R}$\xspace}
+
+\setcopyright{none}
+%\setcopyright{acmcopyright}%\setcopyright{acmlicensed}
+%\acmDOI{10.475/123_4}
+%\acmConference[OOPSLAs]{Woodstock conference}{July 1997}{El Paso, Texas USA}
+%\acmYear{1997}%\copyrightyear{2016}%\acmPrice{15.00}
+\begin{document}
+
+\title{A Type System for R: Empirically Designed and Evaluated}
+
+\newcommand{\PACKAGES}{11,463\xspace}
+\newcommand{\PROGRAMMERS}{?\xspace}
+\newcommand{\PERCENTCRAN}{83\%\xspace}
+\newcommand{\CRANTOTAL}{13,841\xspace}
+\newcommand{\RLOC}{15,050,267\xspace}
+\newcommand{\CLOC}{9,373,542\xspace}
+\newcommand{\YEARS}{20\xspace}
+\newcommand{\INDEXCOINCIDENCE}{3,499\xspace}
+\newcommand{\TOTALINDEXY}{6,561\xspace}
+\newcommand{\INDEXYPERC}{53\%\xspace}		% TODO Not an accurate count.
+\newcommand{\DATAPKGS}{206\xspace}
+\newcommand{\DATAPKGSPERC}{1.5\%\xspace}
+\newcommand{\METAARGCOUNT}{7,051\xspace}
+\newcommand{\NUMPOLYTYPEMONOCLASS}{1,357\xspace}
+\newcommand{\PERCSCALARMONO}{38.2\%\xspace}
+
+\newcommand{\LZEROPERCPOLY}{19\%\xspace}
+\newcommand{\LONEPERCPOLY}{18.1\%\xspace}
+\newcommand{\LTWOPERCPOLY}{21.3\%\xspace}
+
+\newcommand{\attr}[2]{\ensuremath{#1_{\mathtt{#2}}}\xspace}
+\newcommand{\attrclass}[3]{\ensuremath{#1^{\mathtt{#3}}_{\mathtt{#2}}}\xspace}
+\renewcommand{\to}{\ensuremath{\rightarrow}\xspace}
+\newcommand{\D}{\ensuremath{\small\vec{\mathtt D}}\xspace} % Double
+\newcommand{\I}{\ensuremath{\small\vec{\mathtt I}}\xspace} % Integer
+\renewcommand{\C}{\ensuremath{\small\vec{\mathtt C}}\xspace} % Character
+\renewcommand{\L}{\ensuremath{\small\vec{\mathtt L}}\xspace} % Logical
+\newcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
+\newcommand{\X}{\ensuremath{\small\vec{\mathtt X}}\xspace} % Complex
+\newcommand{\Y}{\ensuremath{\small\vec{\mathtt Y}}\xspace} % Symbol
+\newcommand{\sY}{\ensuremath{\small{\mathtt Y}}\xspace} % Symbol
+\newcommand{\sS}{\ensuremath{\small{\mathtt S}}\xspace} % S4
+\newcommand{\sF}{\ensuremath{\small{\mathtt F}}\xspace} % Closure
+\newcommand{\sE}{\ensuremath{\small{\mathtt E}}\xspace} % Env
+\renewcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
+\newcommand{\sN}{\ensuremath{\small{\mathtt N}}\xspace}     % Null
+%\renewcommand{\l}{\ensuremath{\small L<?>}\xspace}     % List
+\renewcommand{\l}{\ensuremath{\small\underline{\mathtt ?}}\xspace}     % List
+\newcommand{\sD}{\ensuremath{\small{\mathtt D}}\xspace} % Double
+\newcommand{\sI}{\ensuremath{\small{\mathtt I}}\xspace} % Integer
+\newcommand{\sC}{\ensuremath{\small{\mathtt C}}\xspace} % Character
+\newcommand{\sL}{\ensuremath{\small{\mathtt L}}\xspace} % Logical
+\newcommand{\sX}{\ensuremath{\small{\mathtt X}}\xspace} % Complex
+\newcommand{\sR}{\ensuremath{\small{\mathtt R}}\xspace} % Raw
+\newcommand{\ANY}{\ensuremath{\small{\mathtt ?}}\xspace}     % Any
+\newcommand{\lT}[1]{\ensuremath{\small\underline{\mathtt{#1}}}\xspace}     % list<T>
+\newcommand{\M}[1]{\ensuremath{\attr{\vec{\tt #1}}{mat}}\xspace}     % matrix
+\newcommand{\df}{\ensuremath{\attr{\l}{df}}\xspace}     % data.frame
+
+
+
+
+\begin{abstract}
+The R programming language is widely used in a variety of scientific domains
+for tasks related to data science. The language was designed to favor an
+interactive style of programming with minimal syntactic and conceptual
+overhead. This design is well suited to support interactive data analysis,
+but is not well suited to generating performant code or catching programming
+errors.  In particular, R has no type annotations and all operations are
+dynamically checked at runtime. The starting point for our work is the
+question: \emph{what could a static type system for R look like?}  In order to answer
+it, we study the polymorphism that is present in \RLOC lines of R
+code spread among some \PACKAGES packages, written over a
+period of over \YEARS years by thousands of programmers.  We perform a dynamic
+analysis, leveraging tests and use-cases, to determine the level of
+polymorphism that is present in the code. We do this for several potential
+notions of types. Our results suggest that polymorphism is important in some
+key parts of the system but that relatively simple type annotations could be
+used to capture most of the interesting cases.
+
+\end{abstract}
+
+\maketitle
+
+\section{PLDI TODO}
+
+For one, the page limit is way less (12).
+This is probably fine. 
+I took out the graphs for now, maybe we`ll just want one giant page for all the figures?
+We can figure out where to place them.
+
+We want to beef up the contribution.
+For this, we should:
+\begin{itemize}
+\item generate annotations, and turn those annotations to contracts, and check the contracts.
+\item try to propagate information from inner functions to outer ones.
+\end{itemize}
+
+Refocus on: we analyze nearly all of the existing, readily-available code base for R, and from that analysis we develop a type system for the language.
+Can abstract: analyze code for a language to develop a type system for that language.
+We use R cause of the tests.
+
+Remove fluff.
+
+Address parametric polymorphism.
+
+\AT{PLDI Layout:}
+
+\begin{itemize}
+
+\item Introduction
+
+\item The R Language: R intro, types, introduce tracers
+
+\item The Corpus: CRAN, talk about the code we looked at
+
+\item Methodology: what is the methodology for developing our types, and of testing the packages?
+
+\item Results: what are the results?
+
+\item Related Work: plug related work
+
+\item Conclusion
+
+\end{itemize}
+
+\section{Introduction}
+
+Our community builds, improves, and reasons about programming languages.  To
+make design decisions that benefit most users, we need to understand the
+language we are working with as well as the real-world needs it
+answers. Often, we as researchers can appeal to our intuition, as many
+languages are intended to be general purpose and attract users with some
+computer science training. Unfortunately, these intuitions do not always
+apply to domain-specific languages, languages designed for and by a specific
+group of users to solve very specific needs. This is the case of the data
+science language R.
+
+R and its ancestor S are languages designed, implemented, and maintained by
+statisticians. Originally they were designed as glue languages, languages
+that would allow users to read data into vectors and call statistical routines
+written in Fortran. Over three decades, the languages became widely used
+across many fields of science and in industry for data analysis and data
+visualization; with time additional features were added.  Modern R, as a
+linguistic object of study, is fascinating. It is a vectorized, dynamically
+typed, lazy functional language with limited side-effects, extensive
+reflective facilities and retrofitted object-oriented programming support.
+
+Many of the design decisions that gave us R were intended to foster an
+interactive, exploratory, programming style. These include, to name a few,
+the lack of type annotations on variables and functions, the ability to use
+syntactic shortcut, and the automatic conversion between data types.  While
+these choices have led to a language that is surprisingly easy to use for
+beginners---many data science programs do not teach the language itself but
+simply introduce some of its key libraries---they have also created a
+language where almost all computations yield a numeric result and where
+errors can go undetected.
+
+One way to increase assurance in the results obtained when using R would be
+to add type annotations to functions and variable declarations. These
+annotations could then be used, either statically or (more likely)
+dynamically, to catch mismatches between expected and provided data values.
+The nature of R is such that it is unlikely to be ever fully statically
+checked, furthermore end users may not be willing to write types when
+carrying out exploratory programming tasks. So, we are looking for an
+optional type system that would allow us to capture as much of behavior of
+library functions as possible while remaining easy to understand for
+end-users and library developers alike.
+
+This paper is a data-driven study of what a type system for the R language
+could look like. Our intention is to propose changes to the
+language, and for any changes to be accepted by the user community they
+must clearly benefit the language without endangering backwards
+compatibility. Our goal is thus to find a compromise between simplicity and
+usefulness; the proposed type system should cover most common programming
+idioms while remaining easy to use. In order to do this, we need to
+understand the degree of polymorphism present in R code, that is to say, how
+programmers leverage the dynamic nature of R to write code that can accept
+arguments of different types.  This understanding will drive our design.
+
+We propose to capture the degree of polymorphism present in R by means
+of a dynamic analysis of widely used libraries. For each function call we
+can record the types of its arguments and of its return value. This allows
+us to observe how many different combination of types are accepted by any
+given function. Unlike many other languages, R has a carefully curated
+software repository called CRAN. To be deposited in CRAN, a package must
+come with sample dataset, tests and executable use-cases. As part of normal
+operations these tests are run regularly and failing packages are removed.
+This allowed us to have access to \PACKAGES libraries and about an order of
+magnitude more runnable scripts that exercise those libraries.
+
+The contributions of this paper are thus as follows:
+\begin{itemize}
+\item A large-scale analysis of the polymorphism present in function
+  signatures of \PACKAGES widely used and actively maintained R packages.
+\item A tracing and analysis pipeline that extends a previously published
+  test generation tool named \genthat.
+\item A type system based on the evidence gathered, fully implemented with
+  lightweight, non-intrusive contracts to perform runtime type-checking.
+\end{itemize}
+
+One threat to validity of our work is that we rely on dynamic analysis, so
+our conclusions are only as good as the coverage of the possibly function
+behaviors. Previous work~\cite{issta18} reported that running all the
+scripts that come with CRAN packages gives, on average, 68\% test coverage.
+We attempted to mitigate the threat coming from the fact that only part of
+the code is being exercised by manual analysis. It would be reasonable to
+ask for confirmation of the data by static analysis of the code, but sound
+static analysis of R is difficult because of the extensive use of reflective
+features such as \code{eval} and of the ability to redefine the meaning of
+operators such as \code{+} and \code{if}.  Another threat to validity is
+that we only have access to code that has been deposited in the CRAN
+repository. While this may bias our findings towards code written to be
+reusable and, possibly, better engineered than typical user code. This is
+also the code that would most benefit from type annotations.
+
+% \newpage 
+
+\section{The R Programming Language}\label{sec:rlang}
+
+Over the last decade, the R Project has become a key tool for implementing
+sophisticated data analysis algorithms in fields ranging from Computational
+Biology~\cite{R05} to Political Science~\cite{R:Keele:2008}. At the heart of
+the R project is a \emph{vectorized, dynamic, lazy, functional,
+  object-oriented} programming language with a rather unusual combination of
+features~\cite{ecoop12} designed to ease learning by non-programmer and
+enable rapid development of new statistical methods.  The language, commonly
+referred to as R was designed in 1993 by Ross Ihaka and Robert
+Gentleman~\cite{R96} as a successor to S~\cite{S88}.  First released in
+1995, under a GNU license, R rapidly became the lingua franca for
+statistical data analysis. Today, there are over 13,000 R packages available
+from repositories such as CRAN and Bioconductor.  With 55 R user groups
+world-wide, Smith~\cite{eco11} estimates that there are over 2 million
+end-users.
+
+As an introduction to R, consider the code snippet in Fig.~\ref{sample} from
+a top-level interaction where the user defines a function \code{normSum}
+that accepts vectors of integers, logicals, doubles and complex values and
+normalizes the vector with respect to its sum and rounds the results. The
+function definition does not require type annotations, and all operations
+transparently work on vectors of any length and different types.
+
+\begin{figure}[!hb]{\small
+\begin{lstlisting}[style=R]
+> normSum <- function( m )  round( m / sum(m), 2)
+> normSum(c(1L,3L,6L))
+[1] 0.1 0.3 0.6
+> normSum(c(1.1,3.3,6.6))
+[1] 0.1 0.3 0.6
+> normSum(c(1.6,3.3,6.1))
+[1] 0.15 0.30 0.55
+> normSum(complex(r=rnorm(3),i=rnorm(3)))
+[1] 0.49+0.21i 0.30-0.18i 0.22-0.03i
+\end{lstlisting}}
+\caption{Sample R code}\label{sample}
+\end{figure}
+
+In R, function can be called with named parameters, R support variable
+argument lists, and arguments can have default values. Putting all of these
+together consider the following declaration:
+
+\begin{lstlisting}[style=R]
+f <- function(x, ..., y=3) x + y
+\end{lstlisting}
+
+\noindent
+Function \k{f} can be called with a single argument \code{f(3)}, with named
+argument \code{f(y=4,x=2)} and with a variable number of arguments,
+\code{f(1,2,3,4,y=5)}, all of these calls will return \code{6}.
+
+R has a number of features that are not crucial to the present
+discussion. We will mention some of them here for completeness.  In R, data
+structures are reference counted and have copy-on-write semantics, thus the
+assignment \code{x[12]<-3} results in an update to a copy of \code{x} unless
+the reference count on that object is 1.  This semantics gives R a
+functional flavor while allowing updating in place within loops (the first
+update copies, subsequent updates are performed on the copy). Arguments to
+functions are evaluated only when needed, they are bundled in so-called
+promises which package the original expression (as an abstract syntax tree, or AST), its environment
+as well as the result of evaluating the expression. Promises can be
+leveraged for meta-programming as it is possible to retrieve the text of a
+promise and evaluate it in a different environment.
+
+\subsection{Types of Data}
+
+Before attempting to define a type system for R, we should understand the
+different kinds of values that programs operate on.  As we will see
+different notions of type may emerge depending on how granular we want to
+be.
+
+\renewcommand{\k}[1]{{\tt #1}\xspace}
+
+R has one builtin notion of type that can be queried by the \k{typeof}
+function. Over the years, programmers have found the need for a richer type
+structure and have added {\it attributes}. The best way to think of attributes is
+as an optional map from name to values that can be attached to any object.
+Attributes are used to encode various type structures. They can be queried
+with functions such as \k{attributes} and \k{class}.
+
+\begin{wrapfigure}{r}{6.1cm}
+\footnotesize\begin{tabular}{l|c|l@{}}\hline
+\multicolumn{3}{l}{\bf Vectorized data types:}  \\\hline
+\k{logical}   & \L & vector of boolean values\\
+\k{integer}   & \I & vector of 32 bit integer values\\
+\k{double}    & \D & vector of 64 bit floating points\\
+\k{complex}   & \X & vector of complex values\\
+\k{character} & \C & vector of strings values\\
+\k{raw}       & \R & vector of bytes\\
+\k{list}      & \l & vector of values of any type\\\hline
+\multicolumn{3}{l}{\bf Scalar data types:}\\\hline
+\k{NULL}      & \sN &  singleton null value\\
+\k{S4}        & \sS &  instance of a S4 class \\
+\k{closure}   & \sF & a function with its environment\\
+\k{environment}&\sE &  a mapping from symbol to value \\\hline
+\multicolumn{3}{l}{\bf Implementation data types:}\\\hline
+\multicolumn{3}{l}{\k{special},
+\k{builtin},
+\k{symbol} (\sY),
+\k{pairlist},
+\k{promise}}\\
+\multicolumn{3}{l}{
+\k{language},
+\k{char},
+\k{...},
+\k{any},
+\k{expression},
+}\\
+\multicolumn{3}{l}{
+\k{externalprt},
+\k{bytecode},
+\k{weakref}}\\\hline
+\end{tabular}\caption{Builtin Types}\label{types}\end{wrapfigure}
+
+Figure~\ref{types} lists all of the builtin types that are provided by the
+language. They are the possible return values of \k{typeof}. There is no
+intrinsic notion of subtyping in R. But, in many context a \k{logical} will
+convert to \k{integer}, and an \k{integer} will convert to \k{double}.  Some
+off conversion can occur in corner cases, such as \k{1<"2"} holds and
+\k{c(1,2)[1.6]} returns the first element of the vector, as the double is
+converted to an integer. R does not distinguish between scalars and vectors
+(they are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
+  typeof(c(5,5))} \code{ == "double"}. Finally all vectorized data types have a
+distinguished missing value denoted by \code{NA}. The default type of
+\code{NA} is \k{logical}. We can see that \code{typeof(NA)=="logical"}, but
+NA inhabits every type: \code{typeof(c(1,NA)[2])=="double"}.
+
+With one exception all vectorized data types are monomorphic, the exception
+is the \k{list} type which can hold values of any other type including
+\k{list}. For all monomorphic data types, attempting to store a value of a
+different type will cause a conversion. Either the value is converted to the
+type of vector, or the vector is converted to the type of the value.
+
+Scalar data types include the distinguished \k{NULL} value, which is also of
+type \k{NULL}, instance of classes written using the S4 object system,
+closures and environments.  The implementation of R has a number of other
+types that are mostly not used by user code, they are listed in
+Figure~\ref{types} for reference.
+
+The addition of attributes lets programmers extend the set of types by
+tagging data with user-defined attributes. For example, one could define a
+vector of four values, \code{x<-c(1,2,3,4)} and then attach the attribute
+\k{dim} with a pair of numbers as value: \code{attr(x,"dim")<-c(2,2)}.  From
+that point, arithmetic functions will treat \k{x} as a 2x2 matrix. Another
+attribute that can be set is the \k{class}.  This attribute can be bound to
+a list of class names. For instance, \code{class(x)<-"human"}, set the class
+of \k{x} to be \k{human}.  Attributes are thus used for object-oriented
+programming. The S3 object system support single dispatch on the class of
+the first argument of a function, whereas the S4 object system allows
+multiple dispatch (on all arguments). Some of the most widely used data
+type, such as data frames, leverage attributes. A data frame, for instance,
+is a list of vectors with a class and a column name attribute.
+
+\paragraph{Summary.} The most common values in R computations are vectorized
+types. R programs do not have a way to constrain values to be scalar.
+\k{NULL} is sometimes used to represent the case when no value is
+available. \k{NA} is used within vector to represent missing observations.
+Attributes can decorate values and are used as building blocks for
+object-oriented programming. A potential type system for R could focus only
+on the builtin types, if one wanted to strive for simplicity, or it could
+try to capture attributes at the risk of increased complexity.
+
+\newpage
+\section{Corpus}\label{sec:corpus}
+
+In this section, we present our dataset. The R language aims to accommodate
+data analysts; their workflows start with data import, followed by cleaning,
+and then by steps of modeling, transformation and visualization. Often, the
+code of these analysis pipelines resides, together with the data and
+results, in notebooks. Few notebooks are publicly shared, and when they are,
+the data is not. For this reason our analysis focuses on packages which
+bundle reusable units of R code with documentation, sample data and
+use-cases.
+
+We focus on packages hosted on the \emph{Comprehensive R Archive Network} or
+CRAN.  With over 13,000 packages, CRAN is the largest repository of software
+written in R. It is experiencing sustained growth with an average of size
+new packages a day~\cite{LIgges2017}.  Unlike sites like GitHub, CRAN is a
+\emph{curated} collection: A package is only accepted to CRAN if it abides
+by a number of well-formedness rules.  Most relevant for our purposes,
+packages must have data, examples, vignettes and tests, all of which must
+successfully run. From our perspective this means that each package in CRAN
+comes with several executable scripts that exercise some of its
+functionality.  Notable exceptions to this rule are packages only containing
+data, which have no runnable code but are referenced by other packages.
+Only \DATAPKGS packages had no executable code, accounting for \DATAPKGSPERC
+of CRAN.
+
+The corpus used in this paper is a subset of CRAN. We retained packages that
+could be run by our infrastructure in less than one hour. This corpus
+consists of \PACKAGES packages, accounting for some \PERCENTCRAN of all
+packages.  These packages have a total of \RLOC lines of R code and \CLOC
+lines of C code. Figure~\ref{allcloc} shows a per-package breakdown of the
+size of each package sorted by increasing numbers of lines of R. The figure
+suggests that there is little correlation between the C/C++ parts and how
+many lines of R a package contains. The median size of a package is 541
+lines of R code and the largest package has 86K LOC. Typically, C/C++ code
+is used to implement performance critical portions of the code. The majority
+of packages, 8,375 to be precise, have no C or C++ code.  The remaining 3,078
+packages have a median 572 lines of C and the largest package has 385,839
+lines of C.
+
+\begin{comment}
+
+\begin{figure}[!b]\begin{center}
+\includegraphics[width=.9\textwidth]{linesofrandccode}
+\caption{Lines of code (log scal); for each package, R is above 0, and C/C++
+  below}\label{allcloc}\end{center}
+\end{figure}
+
+\end{comment}
+
+For each package, we extracted all executable code snippets from
+documentation, vignettes and tests and ran them independently, recording all
+calls to R functions.  It is noteworthy that in order to run the scripts in
+one package, it is often necessary to load a number of other packages.
+In~\cite{issta18}, the authors estimated code coverage to be around 68\%
+when including reverse dependencies.  As our infrastructure adds overhead to
+script execution, coupled with the fact that some scripts take inordinate
+amounts of time to run, we limited our analysis of any one
+package to one hour.
+
+% https://www.r-pkg.org/downloaded
+\begin{figure}[!th]{\footnotesize\begin{tabular}{@{}r||l|r|r|r|r|r@{}}\hline
+\bf Package & \bf Description & \bf R LOC &\bf C LOC &\bf Scripts & \bf Calls Observed & \bf Signatures Recorded \\
+\hline
+\tt Rcpp  & Seamless C++ integration & 2.2K & 4.2K & 25 & 55K & 340 \\
+\tt rlang & Functions for 'Tidyverse' & 7.0K & 6.1K & 122 & 3,924K & 8,422 \\
+\tt glue  & Interpreted string literals & 0.3K & 0.3K & 8 & 4K & 145 \\
+\tt tibble & Simple data frames & 2.0K & 0.3K & 16 & 1,332K & 6,367 \\
+\tt stringi &  String processing & 1.5K & 515K & 64 & 923K & 873 \\
+\tt ggplot2 & Data visualisations & 14K & 0 & 130 & 153K & 4,608 \\
+\tt dplyr  &  Data manipulation & 4.5K & 4.7K & 78 & 233K & 3,099 \\
+\tt pillar & Formatting for columns & 1.4K & 0 & 13 & 803K & 1,514 \\
+\tt R6 & Classes w. ref. semantics & 0.7K & 0 & 2 & 1K & 330 \\
+\tt stringr & String operations & 0.5K & 0 & 32 & 1,764K & 534 \\
+\end{tabular}}\caption{10 Most Downloaded Packages.}\label{most}
+\end{figure}
+
+Figure~\ref{most} shows the ten most downloaded CRAN packages.  For each
+one, we list how many lines of R and C/C++ the packages contains.  We show
+the number of scripts that could be extracted from the package. Each script
+corresponds to either one use-case or a set of unit tests. We print the
+number of function calls that were observed by our infrastructure, and the
+number of unique call signatures that were recorded. 
+
+Our infrastructure only retains unique argument/return combinations. Thus,
+while we observe large number of functions being called with different
+values, the types of these function call are often similar. Over the entire
+corpus, we can see the relation between observed calls and recorded signatures in
+Figure~\ref{recorded}.  The median number of observed calls is 82 and
+maximum is 19 million.  The median number of recorded signatures is 16 and
+the maximum is 8,422. These numbers are skewed by a number of scripts doing
+very few calls before plunging into C code.
+
+\begin{comment}
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{recordsbypkg}
+\caption{Numbers of Recorded Function Invocations in the Analyzed Corpus}
+\label{recorded}\end{center}
+\end{figure}
+
+\end{comment}
+
+% \newpage
+\section{Methodology}
+
+\subsection{PLDI Changes}
+
+We need to make some changes for this submission, as there are now two distinct methodologies.
+
+First, to {\it develop the type system}, we analyzed function calls in package code, including considering package reverse dependencies (i.e. clients of the package) to develop complete type signatures.
+\AT{Do we want to do this?} We additionally propagate type information for inner functions to outer ones by connecting known signatures of inner functions to outer functions. 
+We previously justify how the R ecosystem is particularly well-suited for this, as package code is curated and packages ship with a suite to showcase package use.
+
+Separately, to {\it test our annotations}, we run our inference tool on package code (incl. aforementioned suite) to synthesize type signatures, turn those signatures into annotations, and turn those annotations into contracts on package functions.
+Then, we run the example suites of all client packages to test if the annotations were effective. 
+
+\subsection{Old}
+
+In this section, we detail our methodology for collecting data.  Our aim is
+to observe arguments and return values of function calls, and from these
+generalize possible type signatures for the called functions.  We base our
+infrastructure on an open source tool called \genthat whose purpose is to
+generate unit tests for R libraries~\cite{issta18}.  \genthat achieves this
+by synthesizing unit tests from recorded function argument and return
+values, comparing candidate tests against existing ones to avoid generating
+tests which do not increase code coverage.  To suit our purposes, we change
+the existing tool in two main ways: we record \emph{shapes} rather than
+values, and ignore the code coverage optimization phase.  Both changes are
+beneficial for scalability, allowing us to trace far more calls.
+
+
+To illustrate our approach, consider the following script which adds a
+double to an integer, and then creates a matrix from a vector, finally
+adding them together to get a new matrix.
+
+\begin{figure}[!hb]
+\begin{tabular}{ll}\begin{minipage}{5cm}
+{\small\begin{lstlisting}[style=R]
+> 1 + 2L
+[1] 3
+> x <- c(1,2,3,4)
+> attr(x,"dim") <- c(2,2)
+> x + c(1,2)
+     [,1] [,2]
+[1,]    2    4
+[2,]    4    6
+\end{lstlisting}}
+\end{minipage} &
+\begin{minipage}{8cm}\small
+\begin{tabular}{rl}
+\tt `+`: &\tt \sD \sI \to \sD \\
+\tt c:& \sD \sD \sD \sD \to \D\\
+\tt `<-`: &\tt \sY \D \to \D\\
+\tt c: & \tt \sD \sD \to \D\\
+\tt `attr<-`:&\tt  \sY \C \D \to \\
+\tt c: &\tt \sD \sD \to \D\\
+\tt `+`: &\tt \attr\D{dim} \D \to \attr\D{dim}
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\caption{Example script and recorded signature}\label{example}\end{figure}
+
+The functions being called here are \k{`+`}, \k{`<-`}, \k{c} and
+\k{`attr<-`}, and the shapes we expect to record are given to the right of the figure.
+We abbreviate the types \k{double}, \k{integer}, \k{symbol} and \k{character} to \sD, \sI, \sY, and \sC for simplicity.
+\D, \I, \Y, and \C denote vectors, whereas \sD, \sI, \sY, and \sC denote scalars.
+We record the lengths of all vectorized-typed values, and for all types we record their classes and attribute names. 
+Looking at the signatures observed for addition, it is clear that the function is polymorphic: it starts with the addition of two scalar numbers of different types, and later adds a matrix to a vector returning a matrix.
+
+\subsection{Implementation}
+\label{sec:Impl}
+
+A high-level description of the workflow of our tool for one package
+retrieved from CRAN is as follows:
+
+\begin{enumerate}
+\item {\bf Exec generation:} All runnable code in the package is extracted
+  from its tests, examples and vignettes. The code snippets are combined
+  into a single file.
+\item {\bf Installation:} All packages that are required for execution of
+  the current package are downloaded and installed.
+\item {\bf Instrumentation:} As code is loaded into the R, every function
+  definition is instrumented with an \code{on-exit} hook which is invoked
+  when the function returns either normally or through an exception.
+\item {\bf Recording:} When a hook is called, arguments and return value are
+  inspected. We record \k{typeof}, \k{class} and \k{attributes} recursively.
+  For \code{list} values, an extra bit of analysis is performed to record
+  the element types.
+\item {\bf Writing:} Unique signatures are recorded to file with information
+  about which package triggered the recording.
+\end{enumerate}
+
+In R, all arguments are passed as promises, and unused arguments will remain unevaluated promises, which we record as {\it unevaled}. 
+Our recording mechanism captures the order in which arguments are passed, can figure out which arguments were {\it not} provided (recording them as {\it missing} if the missing argument has no default value), and does {\it not} force unforced promises.
+In R, trying to use missing values results in an error and thus an exception, triggering our recording phase: arguments which cause errors in this way are recorded as {\it error}.
+For practical reasons, we do not record the contents of environments:
+These can be used as hash tables, may be large, and are quite likely different from one another.
+
+Unevaluated arguments in R are sometimes {\it carefully} used by their functions to implement some form of meta-programming.
+Consider the {\tt magrittr} package, which implements a pipe function \%$>$\% that implements a flavor of function currying:
+
+{\small\begin{lstlisting}[style=R]
+mul <- function(x,y)  x*y
+4 %>% mul(3)
+\end{lstlisting}}
+
+The call to the pipe desugars to \code{`\%>\%`(lhs=4, rhs=mul(3))} where the
+\code{rhs} is not a valid expression. It is treated as code that will
+manipulated to add one argument (the \code{lhs}), resulting in the function
+actually performing a call of the form \code{mul(4, 3)}.
+
+As we alluded to at the beginning of this section, our analysis collects shape information about
+arguments and return values in order to be as specific as possible. The details of the information we collect follows.
+Note that the first step of any type collection in our analysis begins with \code{typeof}.
+
+\begin{itemize}
+\item If the analysis encounters a primitive vector, say
+  \code{typeof(x)=="double"}, it records the length of {\tt x} to determine
+  if it can be treated as a scalar.
+\item For a list, \code{typeof(x)=="list"}, shape information on all
+  elements is used to describe the list's shape.  To avoid undue slowdowns,
+  we only collect the content's \code{typeof}, and ascribe \ANY (any) if the
+  elements are not of the same kind.
+\item If the analysis encounters a scalar \code{NA}, we ascribe a unique
+  NULL type.  In R, \code{NA} inhabits all types, but for a scalar NA,
+  \code{typeof(NA)=="logical"}. Scalar NAs are used as uninitialized values.
+\item For a matrix, \code{typeof(m)=="some\_primitive\_type"}, and\code{m} will have matrix class and also a dims and
+  optionally dimnames attribute. Here, we ascribe the shape \attr{\tt T}{mat}
+  where {\tt T} is the primitive element type.
+\item For a data frame, \code{typeof(df)=="list"}, and \code{df} will have class {\tt data.frame}, and {\tt names} and {\tt row.names} attributes.
+ To reflect this, we ascribe the shape \attr{\l}{df}.
+\end{itemize}
+
+The infrastructure memoizes emitted signatures to avoid writing multiple
+identical signatures for the same function.
+
+\section{Types for R}
+
+Our aim is to capture the polymorphism in R, and to do so we must define a
+meaningful set of basic types for the language. Also, we are interested in
+finding a type system that could be adopted, for this we aim to investigate
+the simplest possible solution.  There are several possible choices, with a
+variety of levels of expressivity and complexity.  For concreteness, we will
+pick out three different sets of types.  To start simple, we define a set of
+types which closely align with R's builtin types, and later define richer
+notions of type which incorporate attributes, classes, and capture the
+various object systems of R.
+
+Throughout this paper, we will say that an argument is {\it polymorphic at}
+\textbf{\emph{LX}} (read: level X) if it has been called with at least two
+values that belong to distinct types at {\bf LX}.  \textbf{L2} will
+incorporate class and attribute lists, which are slightly trickier to
+``type'', and we defer discussion of this until Section~\ref{sec:L2def}.
+
+\subsection{L0 Types}
+\label{sec:L0def}
+
+The logical ``baseline'' for the design of a type system for R is to adopt
+the language's builtin types.  We dub these {\bf L0} types, and they are
+primarily built on the \code{typeof} values, which reflects the
+implementation of the type in the runtime environment.  More specifically,
+the \code{typeof} a value is simply the runtime type tag of the value.
+Given that, {\bf L0} includes the following types: vectors of primitive
+types (integers \I, double \D, character \C, logical \L, raw \R, complex
+\X), lists of any type (\l), and scalar values (environment \sE, closures
+\sF, symbols \sY, S4 object \sS, and null \sN). We omit short forms for some
+of R's more esoteric types (e.g., {\tt environment}s).  We add the any
+(written \ANY) type to stand in for unevaluated values Subtyping in {\bf L0}
+follows from the conversion rules of the language: Logicals are subtypes of
+integers, which are themselves subtypes of doubles (so \L <: \I <: \D).  All
+types are subtypes of \ANY, thus {\tt T}<:\ANY for an type {\tt T}.
+
+%
+\subsection{L1 Types}
+\label{sec:L1def}
+
+{\bf L0} is limited in expressivity as it (1) supports polymorphism for
+lists in a trivial way, (2) does not address some of the popular constructed
+data types such as matrices and data frames, and (3) cannot differentiate
+between scalar values and vectors.  {\bf L1} types build on and extend {\bf
+  L0} with with scalar values for primitive types (\sI, \sD, \sC, \sL, \sR,
+and \sX), type-parametric lists (written \lT{T} for any type {\tt T}), data
+frames (written \attr{\l}{df} as they are built up from lists of type any),
+and matrices (\attr{\vec{\tt T}}{mat} where {\tt T} is a primitive type).
+Subtyping is extended such that {\tt T}<:{$\vec{\tt T}$} for any primitive
+type {\tt T}. The subtype relation is undefined for lists of different
+types, as well as for matrices and data frames.
+
+\subsection{L2 Types}\label{sec:L2def}
+
+{\bf L2} extends the previous system with support for classes and
+attributes.  While there are a finite number of results from the
+\code{typeof} function, this is {\it not} the case for \code{class} and
+\code{attributes}, as classes and attributes {\it can} be user-defined.  In
+terms of classes, R has a number of built-in or otherwise standard classes,
+ranging from truly primitive classes such as {\tt numeric} to the more
+complex {\tt data.frame}.  {\bf L1} already incorporates these builtin
+classes, namely through its data frame and matrix types, so we will ignore
+those classes and thus highlight those which are user-defined.  As for
+attributes, again some patterns arise naturally in R, e.g. all matrices have
+a {\tt dims} attribute, but even these are somewhat interesting, as a
+programmer could in theory set their own {\it dims} attribute on an
+arbitrary value.  The only attribute we ignore is the {\tt class} attribute,
+as we collect the class of values separately (and the {\tt class} attribute,
+if present, is always equal to the class of a value).  Attributes are
+name-value pairs, and to keep things simple we consider only attribute
+names.
+
+In sum, we extend {\bf L1} with attribute lists and classes:
+\attrclass{T}{C}{A} where {\tt T} can be any L1 type other than data frame
+or matrix, and {\tt C} and {\tt A} are lists of classes and attribute names
+respectively.  The subtype relation is defined as: \attrclass{T}{C}{A}
+$<:_{\mathbf{L2}}$ \xspace \attrclass{S}{C'}{A'} if $ T
+<:_{\mathbf{L1}} S$ (i.e. are subtypes in the sense of {\bf L1}), $C
+\subseteq C'$, and $A \subseteq A'$.
+
+\subsection{Simplification by Subtyping}\label{sec:autosub}
+
+When analyzing our data, we perform a certain amount of simplifications
+automatically to minimize the footprint of equivalent signatures.  This
+subtyping is performed at the function level of granularity.  For example,
+if a function is observed to have two signatures \sD \to \df to \D \to \df,
+we collapse the signature to \D \to \df as \sD $<:$ \D and \df $<:$ \df.  We
+would not collapse \sD, \I \to \df and \D, \sI \to \df, as \I $\not <:$ \sI
+and \D $\not<:$ \sD.
+
+
+
+%
+%
+%
+\section{Examples of Polymorphism}\label{sec:polyex}
+
+Before presenting the results of our analysis, we  quickly survey
+examples of real, polymorphic R functions that we have analyzed, to build up
+a global sense of how types manifest themselves in current R code.
+
+We begin by referring the reader to Figure~\ref{fig:realex}, which showcases
+the compatibility of integers and doubles.  Coercion from integer to double
+is performed automatically where appropriate, and likewise coercion from
+double to integer is automatically performed when integers are strictly
+required.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+> 5L + 1L # => 6L, an integer
+> 5L + 1.2 # => 6.2, a double (5L coerced to 5.0)
+> c(10, 20, 30)[1.2] # => 10, 1.2 coerced to 1L
+\end{lstlisting}}\caption{Example of \sD, \sI type usage}\label{fig:realex}\end{figure}
+
+Figure~\ref{fig:optnull} shows a function with an optional NULL argument.
+In the function, {\tt x} is a sorted vector, and {\tt w} a vector with
+default value NULL.  If {\tt w} is NULL, then default unit weights are
+generated.  This pattern of default NULL (or NA) arguments is prevalent.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+frac.ranks <- function(x, w=NULL) {
+  if (is.null(w)) w <- rep(1, length(x)) # if no weights passed, take all weights = 1
+  ...
+\end{lstlisting}}\caption{Optional argument ({\tt acid} package)}\label{fig:optnull}\end{figure}
+
+Figure~\ref{fig:listvec} shows a function with list and vector polymorphism.
+It takes a list or a vector {\tt point} and a data frame {\tt polyg}.  The
+{\tt point} is explicitly converted to a vector (by \code{as.numeric})
+regardless of type.  This showcases the ease of going from lists to vectors
+(and conversely).
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+is.point.inside <- function (point, polyg) {
+    p <- as.numeric(point) # as.numeric(list(1, 2)) => c(1, 2)
+    ...
+\end{lstlisting}}\caption{List and vector polymorphism ({\tt bivrp} package)}\label{fig:listvec}\end{figure}
+
+Figure~\ref{fig:charclos} is a function with character and function
+polymorphism.  The caller specifies {\tt fn}, which is either a function
+{\it or} the name of a function which will be looked up by name (a string).
+
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+pointest <- function (object, fn = mean, par.name, comp.label, chain.no,  ...) {
+    if (is.character(fn))
+        if (fn == "MODE" | fn == "MAP")   do_MAP <- TRUE
+        else {
+            do_MAP <- FALSE
+            fn <- match.fun(fn) # looks up the function name
+        }
+\end{lstlisting}}\caption{Character and function polymorphism ({\tt BAMBI} package)}\label{fig:charclos}\end{figure}
+
+In Figure~\ref{fig:dfdbl}, we see a function that, among other things, takes
+in some data ({\tt dat}) and a character string ({\tt spss}) specifying
+either {\tt "in"} or {\tt "out"}.  Here, the type of {\tt dat} is {\it
+  dependent} on the value of {\tt spss}: if {\tt spss == "in"}, {\tt dat}
+must be a data frame, and otherwise if {\tt spss == "out"}, {\tt dat} must
+be a vector.  Our analysis does not capture this granularity of dependency,
+as we only collect type information.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+nret.translator <- function(dat, spss="out", ...) {  ...
+  if(identical(spss, "out")) {
+    if(!is.vector(dat))  stop(simpleError("...'dat' must be a vector!")) ...
+  } else {
+    ...
+    items.idx <- items.idx[order(names(dat[, items.idx]))]
+  }
+\end{lstlisting}}\caption{Example of a \df/\D argument (from {\tt klausR} package).}\label{fig:dfdbl}\end{figure}
+
+In Figure~\ref{fig:chardbl}, we see a function which takes in a list ({\tt
+  network}), a vector of indices of that list ({\tt fixIndices}), and a
+vector of values ({\tt values}).  The locations specified by {\tt
+  fixIndicies} in {\tt network} are updated with {\tt values}.  Here, {\tt
+  fixIndicies} has been observed to be either a character or double vector:
+In R, list indices are typically doubles, but can be characters (if the list
+or vector being indexed has a {\tt names} attribute).  Note that type level
+{\bf L2} can capture the presence of a {\tt names} attribute.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+fixGenes <- function (network, fixIndices, values) {
+  ...
+  network$fixed[fixIndices] <- as.integer(values)
+  ...
+\end{lstlisting}}\caption{Example of \C/\D argument (from {\tt BoolNet} package).}\label{fig:chardbl}\end{figure}%$
+
+In Figure~\ref{fig:matvec}, we see that a function which can take in a vector,
+but immediately transforms it (transpose, with {\tt t}) into a matrix.  As
+an idea, matrix/vector polymorphism seems sensible, as mathematically
+vectors {\it are} one-dimensional matrices.  R echoes this by making conversion between the two
+types easy: \code{as.vector(m)} flattens a matrix \code{m} into a vector
+(e.g., \code{as.vector(matrix(1, 2))} is equivalent to \code{c(1, 1)}), and
+\code{as.matrix(v)} builds a {\tt length(v) x 1} matrix (e.g.,
+\code{as.matrix(c(1, 2))} is equivalent to \code{matrix(data=c(1, 2))}). 
+  
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+tee <- function (x, theta, D1, D2, phi)  {
+    if (is.vector(x)) x <- t(x)
+    ...
+\end{lstlisting}}\caption{Example of \M{D}/\D argument (from {\tt calibrator} package).}\label{fig:matvec}\end{figure}
+
+Throughout this short section, we have shown real examples of polymorphic R functions.
+Our goal is to capture these instances of polymorphism across a large subset of existing R code, and to highlight and discuss patterns which arise.
+We present the results of our analysis in the following section.
+
+%
+%
+%
+%
+%
+%
+\section{Analysis Results}\label{sec:results}
+
+This section,  presents the results of our analysis at each of our type levels, describing the types of polymorphism that we have observed and shedding light on the frequency of polymorphic patterns in R.
+
+Before we begin, we define the kinds of polymorphism we will consider.  In
+choosing how to express the polymorphism of a function, we consider two
+simple options: First, having the union of signatures, e.g. \D $\rightarrow$
+\D and \C $\rightarrow$ \D, or a union types for each argument, e.g. (\D
+$\cup$ \C) $\rightarrow$ \C.  We refer to the former as {\it function-level}
+and the latter as {\it argument-level polymorphism}.
+
+Per-argument polymorphism highlights the type-based behavior of function
+arguments themselves, and helps to describe the type-based behavior of all R
+values.  For instance, we observe that many arguments have (\sC, \sF) as a
+signature, from which we deduce that many R programmers are taking advantage
+of functions such as \code{match.fun("fun\_name")} to call functions by
+name.  On the other hand, function-level polymorphism highlights how R
+programmers interact with functions as a whole, and allows us to discern
+more subtle patterns.  For example, observing two function signatures such
+as \D \to \D and \sF \to \sF may lead us to ascribe a more useful and
+precise type for the function than if we had simply collapsed the argument
+and return types (e.g., $X$ \to $X$ vs. \D $\cup$ \sF \to \D $\cup$ \sF).
+
+
+\subsection{L0}
+
+At {\bf L0}, the type system is mostly aligned with the types of the core
+language. Across all of the arguments that we have observed, the vast
+majority are monomorphic.  Table~\ref{tab:L0top10arg} shows the breakdown of
+the 10 most frequently occurring argument signatures.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+ Argument Signature & Count & Percentage \\ 
+  \hline
+  \D & 269K & 29.7\% \\ 
+  \l & 193K & 21.3\% \\ 
+  \C & 96K & 10.6\% \\ 
+  \L & 83K & 9.2\% \\ 
+  \sF & 60K & 6.6\% \\ 
+  \sN & 47K & 5.2\% \\ 
+  \ANY & 31K & 3.4\% \\ 
+  \I & 30K & 3.2\% \\ 
+  \sS & 16K & 1.7\% \\ 
+  \D, \l & 10K & 1.1\% \\ 
+   \hline
+   \hline
+\end{tabular}
+\caption{Most frequent argument signatures in {\bf L0}.}
+\label{tab:L0top10arg}
+\end{table}
+
+Doubles are the most common argument type, which is not entirely surprising
+as doubles are the backbone of most statistical functions.  Next is lists,
+which is reasonable as lists are used to build data frames and other widely
+used data structures.  The \ANY type is not an R type per se: we ascribe
+such a type to arguments which were {\it always} unevaluated across all
+calls.  As it happens, many R functions meta-program on some of their
+arguments, and this meta-programming does not force the argument promise,
+and if this meta-programming is always performed in every recorded call we
+will ascribe the \ANY type, as we cannot say what the argument {\it is}
+without possibly forcing a promise.  The magrittr package's pipe \%$>$\%
+function is an example of a function which does meta-programming; we will
+discuss it shortly.  Interestingly, a polymorphic attribute signature \D, \l
+is among the top 10 overall---this is the vector and list polymorphism made
+manifest.
+
+We turn our attention to function-level polymorphism.  Indeed, one of our
+goals is to generate useful function signatures, so we ask: {\it how many
+  functions have more than one recorded signature?}
+Figure~\ref{fig:L0funcounts} has the answer, with a breakdown by function.
+Most functions are monomorphic.  That said, a few functions have
+disproportionately large number of signatures.  One such function is the
+magrittr package's pipe \%$>$\%, which is used to implement a kind of
+currying. It has nearly 100 unique signatures!  
+
+\begin{comment}
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{L0_by_fun}
+\caption{Record of Function Polymorphism in {\bf L0}; \LZEROPERCPOLY of
+  functions are polymorphic}
+\label{fig:L0funcounts}\end{center}
+\end{figure}
+
+\end{comment}
+
+Another function with many signatures is the data.table package's \code{[}
+  function, which is a reimplementation of the square bracket operator for
+  selecting values in a data.table.  This function has 16 formal arguments,
+  and call configurations vary widely.  Essentially, the function is {\it
+    the} main function for data.tables, and performs very different tasks
+  based on which arguments are provided.  Two wildly different uses are:
+  \code{dtT[i,j,by]}, where columns \code{i} and \code{j} are accessed and
+  grouped by \code{by}, and \code{dt[x=="some" & y>42]}, which selects
+  all rows who's \code{x} column is the string \code{"some"} and who's
+  \code{y} column is greater than \code{42}.  Given that, we find it
+  unsurprising that the function is so polymorphic.
+
+
+\begin{table}[ht]\centering
+\begin{tabular}{lrr}  \hline
+Signature & Count & \% of All Signatures \\
+\hline
+  \D, \l & 9566 & 1.1\% \\ 
+  \D, \sN & 8801 & 1\% \\ 
+  \C, \sN & 5590 & 0.6\% \\ 
+  \l, \sN & 5016 & 0.6\% \\ 
+  \C, \D & 2887 & 0.3\% \\ 
+  \D, \sF & 1608 & 0.2\% \\ 
+  \l, \sF & 1345 & 0.1\% \\ 
+  \C, \l & 1283 & 0.1\% \\ 
+  \C, \sF & 1168 & 0.1\% \\ 
+  \C, \I & 1104 & 0.1\% \\ 
+   \hline
+\end{tabular}
+\caption{Top polymorphic argument signatures for the L0 type system.}
+\label{tab:L0toppoly}
+\end{table}
+
+Having had a taste for function-level polymorphism, we will now explore
+common patterns in argument-level polymorphism.  For this, refer to
+Table~\ref{tab:L0toppoly}.
+Let's unpack some of the signatures in Table~\ref{tab:L0toppoly}:
+
+\begin{itemize}
+\item \D, \l (and \C, \l): L0 does not parameterize list types, and it is very likely that this signature describes vectors of doubles and lists of doubles.
+	Coercing vectors to lists is trivial in R, and indeed many of the functions with such an argument signature do.
+	The story is similar with vectors of characters and lists of characters.
+	
+	\item $\square$, \sN: there are a few instances of this ``null'' polymorphism.
+	The frequency of these signatures indicates a tendency to create ``optional arguments'', where some argument's default value might be NULL.
+	This pattern is quite frequent in R code, and an example can be found in Figure~\ref{fig:optnull}.
+
+	\item \C, \D and \C, \I: these are interesting patterns.
+	In R, lists can always be indexed with numerics (\L, \D, \I) {\it and also} characters.
+	When a list is indexed by character, the character is matched against the element names in the list and the corresponding element is selected.
+	If there is no match, the lookup returns NULL.
+	Another possible explanation for these signatures are dates, which can be represented by numerics or characters and the value usually has one of the date classes.
+	L0 does not deal with classes, which are one of the topics of L2.
+
+	\item \D, \sF: this signature appears more strange than it is.
+	Many models, processes, simulations, etc. that are prevalent throughout R have parameters to fine-tune their behavior.
+	This pattern manifests itself here: some arguments with the \D, \sF signature are either parameters for a function (\D), or the function itself already constructed (\sF).
+	Others, such as the {\tt br} argument of the {\tt rtree} function in the {\tt ape} package, are either parameters for complex data generation processes (\D), or a function to be used during the generation (\sF).
+	It would appear that this pattern is used to make complex simulation, modelling, or data generation functions more flexible for programmers by allowing them to supply parameters or the parameterized function itself.
+	
+	\item \C, \sF: yet another puzzling signature, though its explanation is surprisingly straightforward:
+	In R, programmers are free to look functions up {\it by name}, and indeed the frequently encountered {\tt UseMethod} function for dynamic class-based function dispatch is one such example.
+	In short, this signature usually represents a function or a function name.
+\end{itemize}
+
+We have established and discussed some of the most common polymorphic
+attribute signatures, and have built up an understanding of argument-level
+polymorphism in the {\bf L0} type system.  This matches almost exactly with
+the language as it is today, as {\bf L0} is in (nearly) 1:1 correspondence
+with how types are currently represented in the language.  The next question
+we address is: {\it just how pervasive is this argument polymorphism?}
+We find that 94\% of arguments are monomorphic.
+
+From Table~\ref{tab:L0argcounts} we see that, with our definition of
+subtyping on L0 and other simplifications we made, an overwhelming amount of
+argument polymorphism is accounted for.  We also saw in
+Table~\ref{tab:L0toppoly} that each of the most frequently occurring
+argument signatures had some explanation.
+
+That said, L0 is not without limitations, and the main issues stem from a
+lack of adequate information, as the type system does not capture precise
+list types, and does not distinguish scalars from vectors. 
+
+
+%
+%
+\subsection{L1}
+
+L1 espouses a finer-grained approach to types.  Major modifications from L0
+include:
+
+\begin{enumerate}
+	\item the differentiation of scalars and vectors;
+	\item the parameterization of list types over element types;
+	\item the use of attribute and class information to distinguish types for data frames and matrices, and;
+	\item subtyping of \sN (i.e., $\forall T$, \sN $<:$ $T$).
+\end{enumerate}
+
+An example of a signature in this type system can be found in
+Figure~\ref{fig:exL1}.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+add_make_list <- function(x, y) {
+  l <- as.list(x + y)
+  attr(l, "example") <- "this is an attribute"
+  l
+}
+add_make_list(2, c(3, 1)) # => list(5, 3)
+\end{lstlisting}}
+\caption{Call signature in L1: x: \sD, y: \D $\rightarrow$ \lT{D}.}\label{fig:exL1}\end{figure}
+
+Let us begin as we did in L0 by looking at the breakdown of argument
+signatures in L1.  Consult Table~\ref{tab:L1top10arg}.
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrr}
+  \hline
+ Argument Signature & Count & Percentage \\ 
+  \hline
+  \sD & 179K & 19.7\% \\ 
+  \D & 97K & 10.7\% \\ 
+  \sL & 77K & 8.6\% \\ 
+  \sC & 75K & 8.3\% \\ 
+  \l & 67K & 7.4\% \\ 
+  \sF & 61K & 6.7\% \\ 
+  \sN & 50K & 5.5\% \\ 
+  \M{D} & 49K & 5.5\% \\ 
+  \ANY & 31K & 3.4\% \\ 
+  \df & 29K & 3.2\% \\ 
+   \hline
+\end{tabular}
+\caption{Most frequent argument signatures in L1.}
+\label{tab:L1top10arg}
+\end{table}
+
+From Table~\ref{tab:L1top10arg}, we see that all of the most frequent
+argument signatures are monomorphic even though we increased the precision
+of the types.  We see that scalars actually figure quite prominently, which
+is encouraging: this supports an idea that an explicit scalar annotation or
+type may be useful {\it for programmers}---indeed, such an annotation would
+be helpful for compiler optimizations (e.g., scalar-only values need not
+have vectors allocated to store them).  We also see that matrices (\M{D})
+are quite popular, a testament to the versatility of the data structure, as
+they can easily be converted to vectors and data frames.
+
+
+Now that we have a picture of how arguments look in L1, let's see: {\it how many L1 functions have more than one type signature?}
+The answer can be found in Figure~\ref{fig:L1funcounts}.
+
+\begin{comment}
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{L1_by_fun}
+\caption{Record of Function Polymorphism in {\bf L1}. \LONEPERCPOLY of functions are polymorphic.}
+\label{fig:L1funcounts}\end{center}
+\end{figure}
+
+\end{comment}
+
+We see that we barely increased the polymorphism with our transition to L1,
+despite the far richer type information.  The biggest outlier here is indeed
+\%$>$\%, as was the case in {\bf L0}.  Otherwise, the shape is very similar.
+In short: even though {\L1} types are more expressive, the breakdown of
+per-function polymorphism is largely unchanged from {\bf L0}.
+
+As we were in L0, we are curious to know how argument-level polymorphism
+looks in L1.  Refer to Table~\ref{tab:toppolyL1}.
+
+\begin{table}[ht]\centering\begin{tabular}{lrl}  \hline
+Signature & Count & \% of All Signatures \\   \hline
+  \D, \M{D} & 4848 & 0.5\% \\ 
+  \l, \lT{D} & 1843 & 0.2\% \\ 
+  \sC, \sD & 1590 & 0.2\% \\ 
+  \M{D}, \M{I} & 1502 & 0.2\% \\ 
+%  \l, \lT{list} & 1199 & 0.1\% \\ 
+  \df, \M{D} & 1180 & 0.1\% \\ 
+  \C, \D & 1019 & 0.1\% \\ 
+  \sD, \sF & 1005 & 0.1\% \\ 
+  \I, \sD & 997 & 0.1\% \\ 
+  \sC, \sF & 991 & 0.1\% \\    \hline
+\end{tabular}
+\caption{Top polymorphic argument signatures in L1.}\label{tab:toppolyL1}
+\end{table}
+
+So what do these signatures mean?
+
+\begin{itemize}
+	\item \D, \M{D}: vectors are just one-dimensional matrices.
+	Indeed, the only thing separating a vector from a matrix in R is a {\tt dims} attribute.
+	
+	\item \l, \lT{D}: this hearkens back to L0, where we discussed how this very same signature was explained by the list being a list of doubles.
+	So why is it still here?
+	Well, first note that there are far less of these signatures in L1 than in L0, so clearly we captured {\it something}.
+	Next, note the method with which we parameterize lists: we ascribe some type $T$ to a list type \lT{T} if and only if {\it all} list elements have {\it exactly} type {\it T}---in our analysis, we have encountered lists with integers as well as doubles, and unfortunately those currently appear as \l.
+	This could be addressed by doing some subtyping computation while exploring list elements.
+	
+	\item \sC, \sD and \C, \D: we discussed this in L0---this signature likely captures an index or a date.
+	
+	\item \M{D}, \M{I}: this signature is reasonable, as any computation in R on \M{D} would work on \M{I} and vice versa.
+	
+%	\item \l, \lT{list}: here we have a list of any and a list of lists.
+%	One explanation for this is that lists of lists sometimes contain NULL as an element, and this would show up with type \l, again as we do not do any subtyping while computing precise list types.
+%	Another explanation is the way R handles object-orientation, which we discuss shortly in Section~\ref{sec:S3S4R5}.
+	
+	\item \df, \M{D}: in R, it is easy to transform a matrix into a data frame, and this argument is likely a result of that:
+	Simply calling \code{as.data.frame} on a matrix is enough.
+	
+	\item \sD, \sF and \sC, \sF: these were discussed in the context of L0.
+	
+	\item \I, \sD: subtyping between primitives does not hold between scalars and vectors (i.e., \I $\not<:$ \sD) even though it is likely that the programmer intended for the argument to be a vector of the supertype (here, these arguments were likely intended to be of type \D).
+	
+\end{itemize}
+
+With an understanding of argument polymorphism in L1, we wonder: {\it how
+  many argument positions are polymorphic in L1?}  95.3\% of arguments are
+monomorphic.  In spite of drastically increasing the precision of our types,
+we have actually {\it reduced} the amount of polymorphism.  This suggests
+that with a good notion of subtyping, precise type annotations will not cause
+an undue increase in the polymorphism of the language.
+
+Before presenting L2, we will digress slightly and explore some of the ramifications of our transition from L0 to L1.
+
+%
+%
+\subsubsection{Scalars}\label{sec:scalars}
+
+It seems that there is a place for a scalar annotation in R.  We saw in this
+section that strictly scalar values appear quite frequently, making up some
+of the most frequently occurring argument signatures.  In fact,
+\PERCSCALARMONO of arguments have a strictly scalar monomorphic signature.
+This suggests that such a distinction would more accurately capture current
+use of the language, and would also be beneficial to future implementations
+which can perform optimizations based on the type (e.g., not vectorizing
+scalar-only values).
+
+%
+%
+\subsubsection{Object-Oriented Programming in R}
+\label{sec:S3S4R5}
+
+There is something more to be said about the \l type, namely that it is
+sometimes linked to (one of) R's takes on object-oriented programming.  R
+has three object systems: S3, S4, and R5, and S3 objects will often manifest
+themselves with this signatures in L1.  An S3 object is any value with a
+``class'' attribute, and indeed many of these tend to be lists.  For
+example, an S3-style ``Point'' might be a list with an entry for each
+dimension in the point, with a ``class'' attribute set to ``Point''.  When
+these S3 objects have contents with a variety of types, their L1 type will
+appear as \l, which leaves something to be desired: Our next type system,
+L2, will remedy this.
+
+%
+%
+\subsubsection{\C, \I, \D Polymorphism}
+Another significant source of apparently strange polymorphism is the
+character, integer, double polymorphism.  Figure~\ref{fig:chardbl} lays out
+an example of this polymorphic signature, showing that lists and vectors can
+be accessed by strings as well as numerics.  One could conceive of an
+``index'' type to capture this, but there are certain limitations to such a
+type, as such an ``index'' cannot be incremented as it could be a string.
+An even more sophisticated dependent type system could capture this, but
+it is far from clear if such a sophisticated type system would be for a
+language like R.
+
+One other possible explanation for this polymorphism is the ``date'' data type.
+In R, dates are often represented as either strings or numbers, and they are widely used.
+Dates (sometimes) manifest themselves in the class of a value, for examples refer to Figure~\ref{fig:date}.
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+class(date()) # => character
+class(Sys.Date()) # => Date
+class(as.POSIXlt(Sys.Date())) # => POSIXlt, POSIXt
+as.integer(as.Date(1, origin = "1900-01-01"))
+\end{lstlisting}}\caption{Dates in R.}\label{fig:date}\end{figure}
+
+Unfortunately, the format of dates in R is not standardized.
+That said, translating between date representations is straightforward.
+As most dates are classes, L2 will be able to capture their use.
+
+Throughout this section, we have seen that even though we substantially
+increased the precision of our type annotations, we have not increased the
+amount of polymorphism that we observe.  The transition from L0 to L1
+revealed some interesting patterns that L1 cannot quite capture---for these,
+we will need to appeal to the class and attributes of values, which are
+incorporated into {\bf L2}, discussed next.
+
+%
+%
+%
+%
+\subsection{L2}
+
+{\bf L2} works class and attribute information into its type signatures.
+As per the discussion in Section~\ref{sec:L2def}, we omit builtin classes in order to highlight those which are user-defined.
+{\bf L2} differs from {\bf L1} in the following ways:
+
+\begin{enumerate}
+
+	\item where {\bf L1} and {\bf L0} only considered classes and attributes when ascribing matrix or data frame types, {\bf L2} considers classes and attributes to be an integral part of the type system.
+	Annotations in {\bf L2} include classes and attribute names when they are present.
+	
+	\item recall that subtyping between two {\bf L2} types is defined as 
+	
+\end{enumerate}
+
+As in {\bf L0} and {\bf L1}, we will begin by showing a breakdown of the top argument signatures in Table~\ref{tab:L2top10arg}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrl}
+  \hline
+Signature & Count & \% of All Signatures \\ 
+  \hline
+ \sD & 172K & 19\% \\ 
+  \sL & 77K & 8.5\% \\ 
+  \D & 77K & 8.4\% \\ 
+  \sC & 73K & 8\% \\ 
+  \sN & 50K & 5.5\% \\ 
+  \sF & 45K & 5\% \\ 
+  \ANY & 31K & 3.4\% \\ 
+  \attrclass{\D}{}{dim} & 25K & 2.6\% \\ 
+  \C & 25K & 2.6\% \\ 
+   \attrclass{\l}{}{names, row.names}  & 21K & 2.2\% \\ 
+   \hline
+\end{tabular}
+\caption{Most frequent argument signatures in {\bf L2}.}
+\label{tab:L2top10arg}
+\end{table}
+
+As you can see, the most frequent signatures in {\bf L1} are represented here.
+The inclusion of class and attribute information has changed the counts slightly.
+Not pictures here, but interesting: named lists are more frequent than their unnamed counterparts.
+No classes are represented here since (1) we eliminated builtin classes, as we've used them to construct types already, and (2) most other classes are specific to some package or set of packages---it is doubtful that such a class would be so pervasive as to feature in this breakdown.
+
+
+
+Now that we have a sense for argument-level type signatures in {\bf L2}, we will see just how many functions are polymorphic.
+Consider Figure~\ref{fig:L2funcounts}.
+
+\begin{comment}
+
+\begin{figure}[htbp]\begin{center}
+\includegraphics[width=.9\textwidth]{L2_by_fun}
+\caption{Record of Function Polymorphism in {\bf L2}. \LTWOPERCPOLY of functions are polymorphic.}
+\label{fig:L2funcounts}\end{center}
+\end{figure}
+
+\end{comment}
+
+Not pictured here are two outlier values: the summary and print functions of the base R package.
+Summary is a generic function which is used to summarize various types of data, and print is used to convert values to string format and print them to the console.
+These functions have over 1,000 unique signatures each, which is within reason as they are really operating over any type.
+They feature so prominently in {\bf L2} (and not in {\bf L1} or {\bf L0}) since many of the values which flowed into them had some amount of attribute or class information, and indeed these functions are very frequently exercised by other packages which may implement package-specific classes.
+
+Overall, the amount of polymorphism only slightly increased, even though we added two new dimensions of type information.
+Again, far richer types do not increase the amount of polymorphism by significant amounts, perhaps a testament to the monomorphic nature of many R functions.
+
+Having built a sense for how polymorphic whole-function signatures are in {\bf L2}, we will turn our attention to polymorphic arguments.
+Given the added class and attribute information, {\it what do the more frequent polymorphic argument signatures look like?}
+Table~\ref{tab:toppolyL2} has the breakdown.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Fri Apr  5 09:50:59 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrl}
+  \hline
+Signature & Count & \% of All Signatures \\ 
+  \hline
+  \D, \attrclass{\D}{}{dim} & 1942 & 0.2\% \\ 
+  \sC, \sD & 1431 & 0.2\% \\ 
+  \attrclass{\l}{}{names}, \attrclass{\D}{}{names}  & 1046 & 0.1\% \\ 
+  \I, \sD & 855 & 0.1\% \\ 
+  \D, \attrclass{\D}{}{dim, dimnames} & 810 & 0\% \\ 
+  \attrclass{\l}{}{names, row.names}, \attrclass{\D}{}{dim, dimnames} & 708 & 0.1\% \\ 
+  \C, \D & 672 & 0\% \\ 
+   \attrclass{\D}{}{names}, \attrclass{\D}{}{dim, dimnames} & 591 & 0\% \\ 
+  \attrclass{\D}{}{dim}, \attrclass{\I}{}{dim}  & 445 & 0\% \\ 
+  \sD, \attrclass{\sF}{}{srcref} & 445 & 0\% \\ 
+   \hline
+\end{tabular}
+\caption{Top polymorphic argument signatures in {\bf L2}.}
+\label{tab:toppolyL2}
+\end{table}
+
+When comparing this table with Table~\ref{tab:toppolyL1}, we see that by-and-large the same types are represented.
+We note the {\tt names} attributes on the lists in row 3: these named lists are, in general, more common than their unnamed counterparts.
+In the 10th signature, we see a function with attribute {\tt srcref}: functions with this attribute are for dealing with open files in the context of the srcfile set of functions in the base package.
+As for why such a function would share an argument position with scalar double, there are other representations of open files, and numbers feature among them.
+
+Now that we have seen the most frequently appearing argument signatures, we ask: {\it how many argument positions are polymorphic?}.
+Table~\ref{tab:argcountsL2} has the answer.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lll}
+  \hline
+Signature Type & Count & Percentage \\ 
+  \hline
+  Monomorphic & 851K & 93.9\% \\ 
+  Total Seen & 906K & --- \\ 
+   \hline
+\end{tabular}
+\caption{Account of {\it argument} polymorphism in {\bf L2}.}
+\label{tab:argcountsL2}
+\end{table}
+
+Surprisingly, even with the added precision of classes and attributes, there is still a relatively small amount of argument-level polymorphism in {\bf L2}.
+Our notion of subtyping on classes is rather weak, and one extension would be to include class hierarchies in the subtyping of classes;
+this would further reduce the amount of polymorphism in this type system.
+
+%
+%
+%
+%
+\subsection{Notable Patterns and Observations}
+
+Besides exploring the patterns highlighted by our various type systems, we can address some interesting and tangentially related questions about the usage of types in R.
+
+%
+%
+%
+%
+\subsubsection{R's Most Polymorphic Functions}
+
+Given the data that we've collected, it is natural to wonder what the most polymorphic packages are.
+Indeed, we have shed some light on some of the most polymorphic {\it functions}, but what about the packages that these functions belong to?
+What is their purpose, and why are they so polymorphic?
+Figure~\ref{tab:packagepolysize} has some answers.
+Note that we are in the context of {\bf L0}, here, to highlight current language patterns.
+
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Thu Mar 28 18:15:26 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrr}
+  \hline
+  Package & \# of Functions &\# of Signatures & Description \\ 
+  \hline
+  magrittr & 20 & 225 & Tidyverse pipe suite \\ 
+  oshka & 4 & 38 & quoted expression expansion \\ 
+  scatterD3 & 1 & 9 & create D3 (JS) scatter plots from R \\ 
+  yaml & 4 & 33 & convert R to YAML \\ 
+  knitLatex & 4 & 32 & \LaTeX \xspace generator from R data \\ 
+   \hline
+\end{tabular}
+\caption{5 of the most polymorphic packages (in {\bf L0}).}
+\label{tab:packagepolysize}
+\end{table}
+
+Now, what makes these so polymorphic?
+The first package, magrittr, is one that we discussed earlier in the context of its pipe \%$>$\% function. 
+It is not surprising that the package as a whole is quite polymorphic, as it implements {\it several} different pipe functions, e.g. \%$<>$\% which pipes as normal and then assigns to the left-hand argument.
+In fact, all but knitLatex implement some form of meta-programming:
+the oshka package meta-programs in the same style as Tidyverse, the scatterD3 package meta-programs on plot objects, and the yaml package converts R expressions to YAML expressions.
+This is a trend we have observed: {\it the most polymorphic functions in R are meta-programming their arguments}.
+
+It is highly improbable that a static type system designed for an untyped language will be able to capture all of the language's existing code (without resorting to an \ANY type or abusing unions).
+It is also unclear how useful a type system would be if it {\it did} capture everything.
+Indeed, many of the packages discussed here are really designed with an \ANY-typed argument in mind (e.g., left-hand side of \%$>$\%), and restricting these functions should not be the goal of any static type system designed for a language after it has matured.
+
+%
+%
+%
+%
+\subsubsection{Metaprogramming and Unevaluated Arguments}
+
+Our analysis uncovered a non-negligible amount of argument positions which were {\it never} evaluated across all observed function calls.
+This is indicative of a desire to meta-program arguments and otherwise deconstruct their AST, as the \%$>$\% function does.
+This is an incredibly powerful language feature, and may well be at the source of R's popularity, if in a roundabout way.
+Tidyverse, by far the most popular package suite in R, owes some of its success to the new syntax defined by some of the included packages, and it is this ability to meta-program arguments which allowed Tidyverse to define its unique syntax.
+An example of that syntax is \%$>$\%, and indeed this function was highly exercised by over 100 other packages.
+
+%
+%  
+%
+%
+%
+%
+\section{Discussion}
+
+Throughout Section~\ref{sec:results}, we have thoroughly explored the trends and patterns of polymorphism observed in our analysis of a large subset of existing R code.
+By now, we have an understanding of how each of our type levels captures the polymorphic patterns that exist in R.
+
+In this section, we aim to comment globally on the things we learned during our analysis, and propose a type system for R which is supported by empirical evidence that it captures the patterns of existing R code.
+We will first look at function level polymorphism before moving on to argument-level polymorphism.
+
+%
+%
+%
+%
+\subsection{Function Polymorphism}
+
+There are some function-level polymorphic patterns that cannot be captures solely with polymorphic function arguments.
+For instance, consider Figure~\ref{fig:funanno}.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+iden <- function(x) x;
+
+# observed calls:
+f(2); # x: double -> double
+f(list(1, 2, 3)) # x: list<double> -> list<double>
+
+# possible annotations:
+# [1] x: {double, list<double>} -> {double, list<double>}
+# [2] x: {double -> double, list<double> -> list<double>}
+\end{lstlisting}}\caption{Simple identity function.}\label{fig:funanno}\end{figure}
+
+Sophisticated dependent type signatures such as these could benefit language implementations in a myriad of ways.
+For instance, a language implementation could perform type-based optimization in the context of a function return simply by knowing the function argument type.
+In Figure~\ref{fig:funanno}, we can assign the function a more sophisticated signature ({\tt [2]}) if we do not simply collapse the observed argument signatures element-wise ({\tt [1]}).
+This gets more interesting with attributes, as we might want to annotate a function to communicate that it adds an attribute to whatever the list of attributes of its input value.
+
+A clear drawback to function-level polymorphism is that functions with many arguments tend to be sensitive to small changes in argument types, which inflates the number of unique signatures observed.
+Even so, overall the number of polymorphic functions did not increase by too large a margin when adding and specializing types (from {\bf L0} to {\bf L1}, and from {\bf L1} to {\bf L2})---for the most part, monomorphic functions in {\bf L0} stayed monomorphic throughout.
+
+One tidbit about function signatures that we have not thoroughly discussed is the {\tt ...} function argument.
+Functions with such an argument can be passed an arbitrary number of extra arguments, see Figure~\ref{fig:dotdotdot} for a small example.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+f <- function(x, ...) {
+  g(x, ...)
+}
+
+f(42, z=2, y=4) # in f, will perform g(42, z=2, y=4)
+
+\end{lstlisting}}\caption{Simple ... example.}\label{fig:dotdotdot}\end{figure}
+
+Our analysis ignores these extra arguments, instead it simply flags functions which have a {\tt ...} in their definition.
+If building an annotation for such a function, the {\tt ...} argument is always ascribed the \l type, as it can indeed be inhabited by anything.
+
+Ultimately, to determine which kinds of whole function signatures would be useful, a more sophisticated analysis is required, which would need to develop a correlation between function arguments and return types.
+There may also be other interesting per-function trends which our current analysis does not pick up on that are hidden in our data.
+
+%
+%
+%
+%
+\subsection{Argument-Level Polymorphism}
+
+From our analysis, we discovered a number of interesting patterns at the argument level.
+To summarize:
+
+\begin{itemize}
+
+	\item {\bf scalars}: according to our analysis, many instances of vectorized values are always scalar.
+	This is strong evidence that {\it an annotation denoting a scalar value would be useful to R programmers}, and further such an annotation could be used by future implementations to statically determine when not to vectorize a vectorizable type.
+	
+	\item {\bf missing}: our analysis has found a number of instances of argument positions remaining unevaluated across all calls to a function.
+	{\it A small annotation, such as a tag on an argument position, would capture this behavior} and could be used to warn programmers if they try to use the unevaluated value, and also warn them if an operation might evaluate it accidentally.
+	Techniques to avoid forcing promises in R are not well understood by most programmers, and such an annotation would be useful to assist them in avoiding unwanted forcing of promises.
+
+	\item {\bf classes}: in transitioning from {\bf L1} to {\bf L2}, we found that the prevalence of \l, \lT{X} polymorphism decreased significantly.
+	In many cases, these lists share a class, and so the signature which was prominent in {\bf L1} was broken down into several less prominent {\bf L2} signatures with added class information.
+	Classes could also be used to capture the usage of dates (two of the standard date formats have class ``Date'' and ``POSIXct, POSIXt''), and could help package writers enforce usage of package functions.
+	R's dynamic dispatch system is class-based, so including annotations for these would help programmers determine which functions are being dispatched for which values.
+
+\end{itemize}
+
+Generating the code to dynamically enforce these signatures is also possible.
+Simple checks include checking the class of a value, or checking for the presence of certain attributes.
+R makes it easy to exit a function prematurely, and in fact many functions already exhibit this behavior.
+For example, see Figure~\ref{fig:stopifnot}.
+In it, the function exits if the {\tt encoding} argument is provided, and is not a character.
+
+\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
+is_character <- function(x, n = NULL, encoding = NULL) {
+  ...
+  if (!is_null(encoding)) {
+    stopifnot(typeof(encoding) == "character")
+    ...
+  }
+  ...
+}
+\end{lstlisting}}\caption{Real example of premature function exit.}\label{fig:stopifnot}\end{figure}
+
+We also saw that, despite being far more specific and descriptive than previous levels, the {\bf L2} type system did not bring about an undue increase in the amount of overall polymorphism in the language.
+This signifies that {\bf L2} captures the vast majority of already existing polymorphic patterns, and very few functions would need to resort to an \ANY annotation, and indeed many arguments are really \ANY-typed (e.g., \%$>$\% from magrittr and the prototype assignment operator {\tt \$<-} from proto).
+
+Based on our analysis of the data, we conclude that {\it a type system such as} \textbf{\emph{L2}} {\it captures the vast majority of argument and function usage in the language}.
+{\bf L2} also contains a wealth of useful information about values that could be used for optimizations and IDE tooling.
+
+
+
+%
+%
+%
+%
+%\subsection{Coverage}
+%
+%\AT{Manual check of some functions.}
+
+%
+%
+%
+%
+\section{Related Work}
+
+The idea of measuring polymorphism via some program analysis is not new.
+For instance, some work~\cite{aakerblom2015measuring} measures the polymorphism of Python programs, but with a slightly different goal than ours: authors seek to assess the need for expressiveness in type systems that are retrofit onto dynamic languages.
+Interestingly, they draw some similar conclusions to us: they find that monomorphism is far more frequent than polymorphism, and even find that typically very few functions are very highly polymorphic.
+
+More generally, there is an existing literature on analyzing usage patterns of language features.  
+For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, which aimed to see how often the highly dynamic capabilities of Smalltalk were used and in which kinds of projects.
+Other work~\cite{pldi10a} explores how the dynamic features of JavaScript are used.
+An interesting finding of theirs is that only 81\% of calls are monomorphic, which is very similar to what we observed in R.
+Other analysis work~\cite{milojkovic2017duck} looks into the usage patterns of duck typing.
+
+The type system we propose in this work could be incorporated into R as a {\it gradual type system}.
+Gradual type systems~\cite{SiekTaha06} aim to bridge the gap between dynamic and static typing by allowing programmers to gradually add type annotations to their programs.
+Gradually-typed languages are becoming increasingly popular, with languages such as TypeScript~\cite{typescript13} becoming more mainstream.
+An eventual implementation of a type system for R will surely be inspired by this work.
+
+%
+%.
+%
+%
+%
+%
+\section{Conclusion}
+
+Truly understanding how programmers use a programming language is critical
+to building usable and effective language features.  When working on a
+general purpose languages (such as JavaScript), we as programmers can appeal
+to our own intuitions, as many of us have had at least some interaction with
+said languages.  This intuition does not extend to domain-specific languages
+(DSLs), which are not really designed for members of our community.  
+
+The R programming language is an example of this.  R was developed to foster
+an easy and interactive programming experience. For this reason R is very
+flexible and expressive.  Unfortunately, these liberties come at a cost:
+debugging R code is challenging. Further, performance quickly becomes
+prohibitive if programmers are not careful.
+
+Types can make a language easier to debug and run faster.  For debugging,
+some level of static type enforcement would give programmers more direct
+feedback.  As for performance, type information enables optimizations. If we
+are interested in developing an easily adoptable type system for R, we must
+ensure that it captures how existing code is being used.  
+
+Throughout this paper, we have built up an understanding of types and
+polymorphism in R by analyzing the usage of types across a large corpus of
+code.  We highlighted some patterns of type usage, and developed a number of
+type systems with differing levels of granularity. We analyzed the tests,
+examples, and vignettes of over ten thousand packages on CRAN (over
+\PERCENTCRAN of available packages), and traced over 15 million lines of R
+code.
+
+We believe that a type system akin to {\bf L2} is well suited for R, as it
+is expressive enough to capture current use of the language without being so
+specific as to make everything polymorphic.  In fact, the levels of
+polymorphism observed were rather low overall, with only 6\% of function
+arguments and 21\% of functions being polymorphic.  Importantly, {\bf L2}
+carries enough information to be useful to R implementations and IDEs:
+language implementations would surely benefit from statically-available type
+information, and IDEs could use the rich type and attribute information to
+give programmers immediate feedback during the programming process.
+
+%
+%
+%
+\bibliographystyle{boilerplate/ACM-Reference-Format}
+\bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
+\end{document}
+
