@@ -1,5 +1,0 @@
-library(quantmod)
-data(sample_matrix)
-x <- as.xts(sample_matrix)
-chartSeries(x)
-saveChart()

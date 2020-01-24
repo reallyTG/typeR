@@ -1,3 +1,0 @@
-## Need n1>5 and n2>5,... 
-#now produces an understandable error mesasge for
-#brkTest(1,4,0,5)

@@ -1,8 +1,0 @@
-library(testthat)
-library(sp)
-library(gstat)
-library(geoR)
-library(gear)
-library(spam)
-library(Matrix)
-test_check("gear")

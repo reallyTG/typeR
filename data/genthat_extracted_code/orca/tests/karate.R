@@ -1,6 +1,0 @@
-library(orca)
-data("karate")
-count4(karate)
-count5(karate)
-ecount4(karate)
-ecount5(karate)

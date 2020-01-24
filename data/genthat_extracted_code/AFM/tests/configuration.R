@@ -1,2 +1,0 @@
-importDirectory=tempdir()
-exportDirectory=tempdir()

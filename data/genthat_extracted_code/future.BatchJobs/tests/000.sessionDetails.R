@@ -1,3 +1,0 @@
-library("future.BatchJobs")
-sessionDetails()
-

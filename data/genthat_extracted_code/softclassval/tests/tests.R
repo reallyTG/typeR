@@ -1,3 +1,0 @@
-library (softclassval)
-softclassval.unittest ()
-

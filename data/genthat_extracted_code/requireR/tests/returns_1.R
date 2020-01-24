@@ -1,3 +1,0 @@
-requireR(function () {
-  1
-})

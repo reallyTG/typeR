@@ -19,6 +19,9 @@ source("../code/data_processing.R")
 # load the data
 psp <- read_rds("../data/promise_big_final.RDS")
 
+# Recorded calls: nrow(psp)
+# Unique Functions: paste(as.character(psp$pkg), as.character(psp$fun)) %>% unique %>% length
+
 psp <- as.tibble(psp)
 
 # get rid of empties

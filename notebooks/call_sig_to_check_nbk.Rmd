@@ -1,0 +1,22 @@
+---
+title: "Call Sig to Check Gen Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+Load code.
+
+```{r include=FALSE}
+source("../code/check_gen.R")
+library(tidyverse)
+```
+
+Load data.
+
+```{r include=FALSE}
+L0 <- read_csv("../data/L0_subtype.csv.gz")
+```
+
+
+

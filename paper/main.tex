@@ -166,8 +166,13 @@ Based on the common patterns observed in the analysis, we devised a type system 
 For example, we often ran across function arguments which were exclusively inhabited by unit-length vectors of some primitive type; this led us to add a scalar version of primitive types to the type system, and include a rule akin to scalar\_primitive <: vector\_primitive to ensure that unit-length vectors are treated as such when there is evidence that the function is intended to accept vectors.
 This will be elaborated further in Section~\ref{sec:results}. 
 
-Now, in order to {\it validate} this type system, we implemented a framework for annotating R programs, as well as a tool which infers types from package example code, inserts lightweight runtime contracts into the code, and runs the example code in the package's reverse dependencies to try to unearth type errors.
+To make our type system concrete, we developed a tool to infer the types of package functions, and decorate package code with the appropriate annotations.
+This tool is also able to insert lightweight runtime contracts into the code to ensure dynamic adherence to the annotated type.
 The annotations are lightweight as they are only run {\it the first time} an argument is used, if it is used at all.
+Our tool allows programmers to quickly generate annotations for their functions from their own existing tests, and edit them as they see fit.
+
+% Now, in order to {\it validate} this type system, we implemented a framework for annotating R programs, as well as a tool which infers types from package example code, inserts lightweight runtime contracts into the code, and runs the example code in the package's reverse dependencies to try to unearth type errors.
+To help validate our tools and type system, we perform an experiment wherein we analyze package test, example, and vignette code, generate annotations (and contracts) based on the inferred types, and then run the tests, examples, and vignettes of the package's reverse dependencies to try to unearth type errors.
 Details on and the results of the validation are available in Section~\ref{sec:results}.
 Details on the process itself will be given in the next section.
 
@@ -214,12 +219,10 @@ my_fun <- function(@{int} x) {
 %
 \subsection{Typr}
 
-\AT{Are we going to change this? To make it run off of R-dyntrace?}
+\AT{TODO change this section to use the Typr approach?}
 
-The first tool in our pipeline is Typr.
-The goal of Typr is to gather type information on function invocations, and it is a modification of the Genthat~\cite{issta18} tool.
-Genthat records all function invocations and builds a standalone trace to allow for independent reproduction of the call. 
-We modified Genthat to instead record a wealth of information on argument and return values.
+The first tool in our pipeline is Typr, a tool designed to record the types of function arguments and return values.
+Typr is implemented in the R-dyntrace framework.
 Typr records:
 
 \begin{itemize}
@@ -254,12 +257,12 @@ In essence, our tool runs over the tests, examples, and vignettes, much like our
 For example, consider the code snippet in Figure~\ref{fig:propagatr-example}.
 
 \begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-f <- function(x, y) {
+f <- function(x) {
   z <- x
   g(z, x)
 }
 
-f(0, 42)
+f(0)
 \end{lstlisting}}\caption{Propagatr example.}\label{fig:propagatr-example}\end{figure}
 
 Propagatr tracks the following data flow:
@@ -284,13 +287,53 @@ Even if {\tt add\_wrapper} is rarely exercised, Propagatr deduces that it should
 The precise details of the tool follow.
 \AT{Pseudocode? Something like that? A formal description of the algorithm.}
 
+\AT{Description of how the constraints look.}
+Once all of the constraints are generated, we use the {\tt ifscs} tool written in Haskell; it is a tool built to solve set constraints (or inclusion constraints).
+Consider again the program in Figure~\ref{fig:propagatr-example}.
+Propagatr will observe the following flows:
+
+\begin{itemize}
+
+\item $f_{0}$: $z$, $g_{1}$
+\item $f_{R}$: $g_{R}$
+\item $z$: $g_0$ \AT{we can phrase this as a return constraint?}
+
+\end{itemize}
+
+We will want to generate the following constraints:
+
+\begin{itemize}
+
+\item $f_{0} \subseteq z$
+\item $f_{0} \subseteq g_{1}$
+\item $f_{R} \supseteq g_{R}$
+\item $z \supseteq g_0$ \AT{we can phrase this as a return constraint?}
+
+\end{itemize}
+
+\AT{CHECK co/contra...} We gave covariant constraints for function arguments, and contravariant constraints for function returns.
+That is to say, function argument types are subsets of their usage in the function body, while (the true type of) a function return is a superset of the types of all possible returns in the function. 
+In order to work the dynamic analysis results into the constraint system, we add the following atomic constraints:
+\AT{maybe we want a slightly more complicated example...}
+
+\begin{itemize}
+\item \{integer\} $\subseteq f_{0}$
+\end{itemize}
+
+Intuitively, we create a set of constraints which state that the signatures obtained by the dynamic analysis are a subset of the true signatures.
+Crucially, we take the dynamic analysis results for the {\it base} package to be a ground truth; we have faith in these signatures as the base package is incredibly highly exercised, with over \AT{X} calls to base package functions.
+
 %
 %
 %
 %
 \subsection{Infr}
 
-Our Infr tool leverages our type system to test the effectiveness of package test, example, and vignette code at covering the possible use-cases of package functions.
+\AT{Might be worthwhile to discuss how we implement basically a ``contract type system'', and the Infr tool consolidates Typr and Propagatr to generate the runtime contracts.}
+\AT{We can expand this section to be more broadly useful to R programmers, but it depends on how we want to pitch this.}
+
+% Our Infr tool leverages our type system to test the effectiveness of package test, example, and vignette code at covering the possible use-cases of package functions.
+Our Infr tool consolidates Typr and Propagatr into a tool that R package writers can use to both infer types for their functions and generate lightweight contracts to dynamically ensure adherence to function type signatures.
 
 The approach is as follows:
 
@@ -300,10 +343,13 @@ This serves to infer an annotation for all package functions.
 \item Infr turns these annotations into dynamically-checked contracts on functions:
 The contracts check that function argument and return values adhere to the type of their annotation.
 These contracts are inserted directly into the promise code of the values, as will be elaborated in Section~\ref{subsubsec:promise}.
-\item Then, the test, example, and vignette code for all reverse package dependencies (i.e., for all other packages which have the current package as a dependency) is run, and any type errors that are caught are recorded.
+% \item Then, the test, example, and vignette code for all reverse package dependencies (i.e., for all other packages which have the current package as a dependency) is run, and any type errors that are caught are recorded.
 \end{itemize}
 
-\AT{Do we want to do something special about data frames? We sort of already infer their type from the dynamic analysis.}
+\AT{...}
+We additionally devised an experiment to test our type system and simultaneously test the ``type coverage'' of R package example code.
+In our experiment, we run Infr on a package's tests, examples, and vignettes, and generate annotations and contracts for package functions based on that.
+Then, we run the tests, examples, and vignettes of {\it all package clients}, to see if the clients of the package adhered to the inferred type specification.
 
 %
 %
@@ -318,8 +364,6 @@ If the check fails, a call to R's stop function is triggered, yielding an inform
 If successful, the checking code is removed (by reassigning to the argument within the function), so subsequent accesses to the argument are fast.
 \AT{Can return values be wrapped in the same way?}
 
-
-
 %
 %
 %
@@ -330,6 +374,14 @@ If successful, the checking code is removed (by reassigning to the argument with
 \label{sec:results}
 
 \AT{What should go in here?}
+\AT{We have to give the type system somewhere, also!}
+
+%
+%
+%
+%
+\subsection{The Data}
+\label{sec:results_data}
 
 \AT{There's the data itself, and our breakdown of it.
 There's also the results of validating the types and the tool against the reverse dependencies.}
@@ -338,11 +390,18 @@ There's also the results of validating the types and the tool against the revers
 %
 %
 %
+\subsection{The Experiment}
+\label{sec:results_experiment}
+
+\AT{We should also talk about the experiment itself, and the results we find here.}
+
+%
+%
+%
+%
 %
 %
 \section{Related Work}
-
-\AT{Look at the stuff we put in the old version of the paper.}
 
 %
 %

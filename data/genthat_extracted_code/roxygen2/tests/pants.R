@@ -1,2 +1,0 @@
-#' @include undershorts.R
-NULL

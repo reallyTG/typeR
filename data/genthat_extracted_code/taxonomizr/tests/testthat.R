@@ -1,5 +1,0 @@
-library(testthat)
-library(taxonomizr)
-library(data.table)
-library(RSQLite)
-test_check("taxonomizr")

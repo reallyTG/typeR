@@ -1,1 +1,0 @@
-stop('An intentional error!')

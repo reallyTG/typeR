@@ -1,5 +1,0 @@
-Sys.setenv("R_TESTS" = "")
-library(testthat)
-library(RcppXPtrUtils)
-test_check("RcppXPtrUtils")
-detach("package:RcppXPtrUtils", unload = TRUE)

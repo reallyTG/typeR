@@ -1,3 +1,0 @@
-shrinkage(poped.db)
-
-

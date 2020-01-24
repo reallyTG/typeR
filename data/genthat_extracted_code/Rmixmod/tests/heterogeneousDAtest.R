@@ -1,6 +1,0 @@
-library(Rmixmod)
-data(heterodatatest)
-data(heterodatatrain)
-learn<-mixmodLearn(heterodatatrain[-1], knownLabels=heterodatatrain$V1)
-predict<-mixmodPredict(heterodatatest[-1], classificationRule=learn["bestResult"])
-missclassified<-sum(as.integer(predict@partition)-as.integer(heterodatatest$V1))
