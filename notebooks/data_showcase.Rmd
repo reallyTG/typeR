@@ -1,0 +1,79 @@
+---
+title: "Data Showcase"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+The intent of this notebook is to showcase our current data analysis pipeline, and show some of the queries we indend to run.
+
+```{r results='hide'}
+source("../code/data_analysis_lib.R")
+```
+
+Load the data as `df`. `small_subset.csv` is around 50MB, so it should be manageable.
+
+```{r results='hide'}
+# This seems to be a fine size. We can run some easy stuff on it.
+# The data is trimmed to only 20 arguments.
+#
+#
+# 
+# If the header isn't saved on the data:
+# but you know how many arguments (or columns) are in the data, use
+# either generate_header_for_num_args(num_args) or generate_col_names_for_count(num_columns)
+df <- read_csv("../data/small_subset.csv")
+
+# For some reason, the 
+```
+
+Now, here are some examples of the things that we might be interested in doing:
+
+```{r}
+# Get all `+` call traces:
+#
+# filter(fun_name == "+") returns all rows where the fun_name column is equal to "+".
+#
+# quick_trim_na_cols gets rid of columns entirely comprised of NAs. Useful when the function you're interested in
+# doesn't have that many arguments, like `+`.
+df %>% filter(fun_name == "+") %>% quick_trim_na_cols
+```
+
+Dealing with S3 dispatch:
+
+```{r}
+# How many function calls used the S3 dispatch mechanism?
+df %>% filter(dispatch == "S3") %>% select(count) %>% sum -> num_S3
+
+# You can also use some functions from the data_processing_lib imported at the top of this file.
+# To get a breakdown of the dispatch usage in df, try:
+df %>% breakdown_dispatch
+
+# Takeaways:
+
+# Breakdown by package:
+df %>% breakdown_dispatch_by_pkg
+
+# Takeaways:
+
+# What classes were dispatched on?
+# Note: Some of them might be {}, meaning no class. This is because whenever you call an S3 method, regardless of
+#       the class of the first argument, it tries to dispatch. So we have cases where the class is empty ("{}")
+#       which end up calling the generic (name.default) dispatch target.
+df %>% breakdown_S3_dispatch_by_class
+
+# Takeaways: most dispatch is done on data.frames, and POSIXct/POSIXt, then factors, then tibbles.
+```
+
+We also might be interested in instances of functions which have arguments which have multiple classes.
+
+```{r}
+# get_multi_classes adds columns of the form arg_cX_c, which has the # of classes in argument X of the function.
+# 
+df_multi <- df %>% get_multi_classes 
+
+# Breakdown by package::function:
+df_multi %>% group_by(package, fun_name) %>% summarize
+```
+
+Will look into some of these and report results. 

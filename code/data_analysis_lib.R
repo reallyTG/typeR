@@ -1071,6 +1071,10 @@ breakdown_dispatch_by_pkg <- function(df) {
                 Percentage = 100 * c(1, num_S3/num_tt, num_S4/num_tt)) %>% as_tibble
 }
 
+breakdown_S3_dispatch_by_class <- function(df) {
+    df %>% filter(dispatch == "S3") %>% select(count, arg_c0) %>% group_by(arg_c0) %>% summarize(count=sum(count)) %>% arrange(-count)
+}
+
 # NOTE TO SELF: mutate shouldnt remove the columns. Do that.
 get_multi_classes <- function(df) {
     class_cols <- names(df)[grepl("_c", names(df), fixed=T)]
@@ -1085,6 +1089,8 @@ get_multi_classes <- function(df) {
     # class_cols[2:length(class_cols)] is class_cols sans the return class
     df_class_counts %>% filter_at(class_counts_cols[2:length(class_counts_cols)], any_vars(. > 1)) %>% filter(package != "base")
 }
+
+
 
 # map(lof, function(f) read_csv(f, col_names=F) %>% swap_last_col_with_xth_col %>% write_csv(TODO fill, col_names=F)
 
