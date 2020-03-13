@@ -1,459 +1,276 @@
+%% For double-blind review submission, w/o CCS and ACM Reference (max submission space)
+\documentclass[acmsmall,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
+%% For double-blind review submission, w/ CCS and ACM Reference
+%\documentclass[acmsmall,review,anonymous]{acmart}\settopmatter{printfolios=true}
+%% For single-blind review submission, w/o CCS and ACM Reference (max submission space)
+%\documentclass[acmsmall,review]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
+%% For single-blind review submission, w/ CCS and ACM Reference
+%\documentclass[acmsmall,review]{acmart}\settopmatter{printfolios=true}
+%% For final camera-ready submission, w/ required CCS and ACM Reference
+%\documentclass[acmsmall]{acmart}\settopmatter{}
 
-\documentclass[sigplan,10pt,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
-\usepackage{booktabs,listings,xspace,wrapfig}
-\lstset{language=R}
-\usepackage{my_style}
-\definecolor{LightGray}{rgb}{.95,.95,.95}
-\definecolor{Gray}{rgb}{.3,.3,.3}
-\definecolor{DarkGray}{rgb}{.5,.5,.5}
 
-\graphicspath{ {./plots/} }
+%% Journal information
+%% Supplied to authors by publisher for camera-ready submission;
+%% use defaults for review submission.
+\acmJournal{PACMPL}
+\acmVolume{1}
+\acmNumber{OOPSLA} % CONF = POPL or ICFP or OOPSLA
+\acmArticle{1}
+\acmYear{2018}
+\acmMonth{1}
+\acmDOI{} % \acmDOI{10.1145/nnnnnnn.nnnnnnn}
+\startPage{1}
 
-\lstset{ %
-  columns=flexible,
-  captionpos=b,
-  frame=single,
-  framerule=0pt,
-  framexleftmargin=-1mm,
-  framexrightmargin=-1mm,
-  tabsize=2,
-  belowskip=0pt,
-  basicstyle=\small\ttfamily,
-  backgroundcolor=\color{LightGray},
-  emphstyle=\sffamily,
-  keywordstyle=\bfseries,
-  commentstyle=\color{Gray}\em,
-  stringstyle=\color{Gray},
- % numbers=left
-}
-
-\lstdefinestyle{R}{ %
-  language=R,
-  deletekeywords={env, equal, c, runif, trace, args},
-  breaklines=true
-}
-
-\lstdefinestyle{Rin}{ %
-  style=R,
-  numberstyle=none,
-  basicstyle=\normalsize\ttfamily,
-  breaklines=false
-}
-
-\newcommand{\code}[1]{\lstinline|#1|\xspace}
-\newcommand{\genthat}{{\sc Genthat}\xspace}
-
+%% Copyright information
+%% Supplied to authors (based on authors' rights management selection;
+%% see authors.acm.org) by publisher for camera-ready submission;
+%% use 'none' for review submission.
 \setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\copyrightyear{2018}           %% If different from \acmYear
+
+%% Bibliography style
+\bibliographystyle{ACM-Reference-Format}
+%% Citation style
+%% Note: author/year citations are required for papers published as an
+%% issue of PACMPL.
+\citestyle{acmauthoryear}   %% For author/year citations
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Note: Authors migrating a paper from PACMPL format to traditional
+%% SIGPLAN proceedings format must update the '\documentclass' and
+%% topmatter commands above; see 'acmart-sigplanproc-template.tex'.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Some recommended packages.
+\usepackage{booktabs}   %% For formal tables:
+                        %% http://ctan.org/pkg/booktabs
+\usepackage{subcaption} %% For complex figures with subfigures/subcaptions
+                        %% http://ctan.org/pkg/subcaption
+\usepackage{my_style}
+
 \begin{document}
 
-\title{A Type System for R: Empirically Designed and Evaluated}
+%% Title information
+\title[]{Types for R, Empirically Designed and Evaluated}         %% [Short Title] is optional;
+                                        %% when present, will be used in
+                                        %% header instead of Full Title.
+% \titlenote{}             %% \titlenote is optional;
+                                        %% can be repeated if necessary;
+                                        %% contents suppressed with 'anonymous'
+% \subtitle{}                     %% \subtitle is optional
+% \subtitlenote{}       %% \subtitlenote is optional;
+                                        %% can be repeated if necessary;
+                                        %% contents suppressed with 'anonymous'
 
+
+%% Author information
+%% Contents and number of authors suppressed with 'anonymous'.
+%% Each author should be introduced by \author, followed by
+%% \authornote (optional), \orcid (optional), \affiliation, and
+%% \email.
+%% An author may have multiple affiliations and/or emails; repeat the
+%% appropriate command.
+%% Many elements are not rendered, but should be provided for metadata
+%% extraction tools.
+
+%% Author with single affiliation.
+\author{First1 Last1}
+\authornote{with author1 note}          %% \authornote is optional;
+                                        %% can be repeated if necessary
+\orcid{nnnn-nnnn-nnnn-nnnn}             %% \orcid is optional
+\affiliation{
+  \position{Position1}
+  \department{Department1}              %% \department is recommended
+  \institution{Institution1}            %% \institution is required
+  \streetaddress{Street1 Address1}
+  \city{City1}
+  \state{State1}
+  \postcode{Post-Code1}
+  \country{Country1}                    %% \country is recommended
+}
+\email{first1.last1@inst1.edu}          %% \email is recommended
+
+%% Author with two affiliations and emails.
+\author{First2 Last2}
+\authornote{with author2 note}          %% \authornote is optional;
+                                        %% can be repeated if necessary
+\orcid{nnnn-nnnn-nnnn-nnnn}             %% \orcid is optional
+\affiliation{
+  \position{Position2a}
+  \department{Department2a}             %% \department is recommended
+  \institution{Institution2a}           %% \institution is required
+  \streetaddress{Street2a Address2a}
+  \city{City2a}
+  \state{State2a}
+  \postcode{Post-Code2a}
+  \country{Country2a}                   %% \country is recommended
+}
+\email{first2.last2@inst2a.com}         %% \email is recommended
+\affiliation{
+  \position{Position2b}
+  \department{Department2b}             %% \department is recommended
+  \institution{Institution2b}           %% \institution is required
+  \streetaddress{Street3b Address2b}
+  \city{City2b}
+  \state{State2b}
+  \postcode{Post-Code2b}
+  \country{Country2b}                   %% \country is recommended
+}
+\email{first2.last2@inst2b.org}         %% \email is recommended
+
+
+%% Abstract
+%% Note: \begin{abstract}...\end{abstract} environment must come
+%% before \maketitle command
 \begin{abstract}
-
-\AT{PLDI TODO:}
-
-\begin{itemize}
-
-\item complete propagatr to generate constraints
-
-\item feed existing data through resulting constraints
-
-\item finish the annotation and contract generation code
-
-\item write the paper
-
-\end{itemize}
 
 \end{abstract}
 
+
+%% 2012 ACM Computing Classification System (CSS) concepts
+%% Generate at 'http://dl.acm.org/ccs/ccs.cfm'.
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10011007.10011006.10011008</concept_id>
+<concept_desc>Software and its engineering~General programming languages</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003456.10003457.10003521.10003525</concept_id>
+<concept_desc>Social and professional topics~History of programming languages</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Software and its engineering~General programming languages}
+\ccsdesc[300]{Social and professional topics~History of programming languages}
+%% End of generated code
+
+
+%% Keywords
+%% comma separated list
+\keywords{keyword1, keyword2, keyword3}  %% \keywords are mandatory in final camera-ready submission
+
+
+%% \maketitle
+%% Note: \maketitle command must come after title commands, author
+%% commands, abstract environment, Computing Classification System
+%% environment and commands, and keywords command.
 \maketitle
 
-%
-%
-%
-%
-%
-%
+
 \section{Introduction}
 
-\begin{itemize}
-  \item Adding types to dynamic languages is increasingly common.
-  \item Types help write better code.
-  \item We want to design a type system for R that is based on the patterns that we observe in current use of the language. 
-  \item We also present a tool which takes a given package and synthesizes type signatures for package functions.
-  \item This tool is tested by synthesizing annotations from package tests, examples, and vignettes, and running the code of the package's reverse dependencies (i.e. clients) to validate the type signatures.
-  \item We find X, Y, Z.
-\end{itemize}
+The story that we're aiming for:
+Designing type systems for established languages can be a challenging.
+We aim to approach this problem by essentially reverse-engineering a type system from a corpora analysis of a representative subset of R code.
+We present a simple type system that captures the vast majority of usage of R --- it is lightweight, and \AT{should provide enough information to be useful to a compiler}.
 
-The contributions of this paper are:
+To evaluate our type system, we present a type-checker that is aware of R's promise semantics. 
+In R, function arguments are wrapped in promises such that they are not evaluated until they are needed.
+Our tool deals with these promises by inserting a check which fires only when the promise is forced, at which point the value is checked for compliance with the type.
 
-\begin{itemize}
+\AT{I can grab some of the intro Jan wrote for the last paper, rework it, and put it here.}
 
-\item our analysis data;
-\item a type system based on this data;
-\item a tool to infer types from package code, and;
-\item an evaluation of the tool on \AT{all of} CRAN.
+\section{Background}
 
-\end{itemize}
+\AT{I think a lot of the background we can pull from an older version of the paper.
+I think both are milling around this directory.}
 
-%
-%
-%
-%
-%
-%
-\section{The R Programming Language}
-\label{sec:rlang}
+\subsection{The R Programming Language}
 
-\AT{This can probably be copied from the old version.
-Is this somewhere we want to talk about R-dyntrace?}
+\AT{Introduce the language, and give some context about its user base.}
 
-%
-%
-%
-%
-%
-%
-\section{The Corpus}
-\label{sec:corpus}
+\subsection{R-Dyntrace}
 
-\AT{Probably talk about CRAN, and give some stats on the corpus that we worked with. 
-This section probably doesn't have to be very long.}
+\AT{Worth talking a bit about the analysis framework?}
 
-\AT{Fit this in here:}
-Unfortunately, there is not a whole lot of end-user R code available for analysis; typical R programs are effectively data pipelines, and many R users elect not to share their data, possibly because the data is proprietary or somehow confidential (e.g., census data), and these data pipeline programs are not very useful without the underlying data.
-To alleviate this, we focused on the analysis of package test, example, and vignette code.
+\subsection{The Corpus}
 
-\AT{How do we want to argue that our data is valid and representative?}
-End-user R scripts are hard to come by.
-R is a data science language first-and-foremost, and so R programs are typically data analyses.
-The nature of data is that, in many scenarios, it is confidential; imagine a government sharing sensitive information publicly, or a company divulging customer data.
-For this reason, it is rare for R programmers to share their code, and even if they did, the code would not be particularly useful without the data underlying it.
+\AT{This section needs to be tight.
+Reviewers were skeptical of CRAN and using the test and example code.
+We should convince them otherwise.}
 
-Separately, idiomatic usage of R is to appeal to libraries to implement the main functionality of an analysis.
-\AT{Probably want some good evidence of this.}
-R packages are mainly sourced from the Comprehensive R Archive Network (CRAN), a large curated repository of R packages (libraries).
-Of particular relevance to this work is a requirement that all packages should ship with tests, examples, and vignette programs to showcase how packages are intended to be used---indeed, these serve as a starting point for potential package clients.
-We can leverage these programs to build up a picture of how programmers interact with packages, and thus of how programmers write R code for their own analyses. 
-
-\AT{I think that talking avout how ``this is as good as it gets guys'' might be a bit of a defeatist way of looking at it.
-But then again, I'm not sure what a good balance would be here.}
-
-%
-%
-%
-%
-%
-%
-\section{Overview}
-
-\AT{Somewhere, we need to overview the contribution, talking about the type system, about the tool, and about the data.}
-
-Broadly, the contributions of this work can be divided into two.
-
-First, we present a {\it large-scale analysis} of the type-use programming practices in R.
-As mentioned in Section~\ref{sec:corpus}, we focused our efforts on package test, example, and vignette code.
-Our tracing framework collects type information of function arguments and return values, and the precise details are elaborated in Section~\ref{sec:methodology}.
-
-Unfortunately, in spite of the requirements imposed on CRAN packages, some package functions are not thoroughly tested and are poorly exercised.
-Previous work in a similar vein (\AT{Genthat}) reported that their tool achieved roughly 70\% coverage of package code, which is good but far from perfect (and our tool \AT{is liable to achieve the same coverage}).
-In order to further improve our data, we perform an additional phase of type propagation, where we use known type signatures of inner functions to improve the signatures of outer functions.
-Essentially, we build a graph of the flows of argument values throughout a function, and infer constraints from that graph and feed our data into it; the precise details will be discussed further in Section~\ref{sec:methodology}.
-The data itself will be presented in Section~\ref{sec:results}.
-
-Besides helping us understand the R language, we also used the data to inform the {\it design of a type system} for the language.
-Based on the common patterns observed in the analysis, we devised a type system for the language that \AT{maximizes the ``monomorphicity'' in the data} while capturing many of the idioms we observed.
-For example, we often ran across function arguments which were exclusively inhabited by unit-length vectors of some primitive type; this led us to add a scalar version of primitive types to the type system, and include a rule akin to scalar\_primitive <: vector\_primitive to ensure that unit-length vectors are treated as such when there is evidence that the function is intended to accept vectors.
-This will be elaborated further in Section~\ref{sec:results}. 
-
-To make our type system concrete, we developed a tool to infer the types of package functions, and decorate package code with the appropriate annotations.
-This tool is also able to insert lightweight runtime contracts into the code to ensure dynamic adherence to the annotated type.
-The annotations are lightweight as they are only run {\it the first time} an argument is used, if it is used at all.
-Our tool allows programmers to quickly generate annotations for their functions from their own existing tests, and edit them as they see fit.
-
-% Now, in order to {\it validate} this type system, we implemented a framework for annotating R programs, as well as a tool which infers types from package example code, inserts lightweight runtime contracts into the code, and runs the example code in the package's reverse dependencies to try to unearth type errors.
-To help validate our tools and type system, we perform an experiment wherein we analyze package test, example, and vignette code, generate annotations (and contracts) based on the inferred types, and then run the tests, examples, and vignettes of the package's reverse dependencies to try to unearth type errors.
-Details on and the results of the validation are available in Section~\ref{sec:results}.
-Details on the process itself will be given in the next section.
-
-%
-%
-%
-%
-\subsection{Annotations}
-\label{subsec:annotations}
-
-We extended the R language to support annotations on function arguments and returns.
-This involved reserving syntax for the annotations, and modifying the R parser to parse and accept them.
-\AT{What other stuff do we want to add to this? Other than presenting the syntax and stuff.}
-The syntax allows programmers to specify the basic type, class, attributes, length, and parameterized types of arguments.
-Also, we support type variables so as to allow programmers to specify large but common type signatures one time only.
-
-To illustrate the annotation syntax, consider the code in Figure~\ref{fig:annotation-syntax}.
-\AT{TODO: This figure.}
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-my_fun <- function(@{int} x) {
-  ...
-}
-\end{lstlisting}}\caption{Type annotation syntax.}\label{fig:annotation-syntax}\end{figure}
-
-%
-%
-%
-%
-%
-%
 \section{Methodology}
-\label{sec:methodology}
 
-\AT{I think there are two distinct methodologies.}
+\subsection{Initial Analysis}
 
-\AT{First, we had to come up with the type system, and it partly based on things that we saw from our analysis.}
+\AT{Lay out the analysis, spell out the data we collect, how we reduce the data.
+Not sure how much detail to go into here.
+Will have had to have talked about the analysis framework in the background.}
 
-\AT{Second, we should talk about the evaluation of the tool.}
+\subsection{Implementation}
 
-%
-%
-%
-%
-\subsection{Typr}
+\AT{Talk about how the type system was implemented, in terms of the checks, how they work, how they are performed by the runtime, etc.}
 
-\AT{TODO change this section to use the Typr approach?}
+\subsection{Evaluation}
 
-The first tool in our pipeline is Typr, a tool designed to record the types of function arguments and return values.
-Typr is implemented in the R-dyntrace framework.
-Typr records:
+\AT{Talk about Aviral's work on evaluation.}
 
-\begin{itemize}
-\item the results of calling {\tt typeof}, {\tt class}, and {\tt attributes} on the argument;
-\item the length (if the argument has a length);
-\item if the argument is a list or data.frame we additionally reflect on the types of argument members;
-\item if the argument is an environment, we reflect on the bindings in the environment.
-\end{itemize}
+\section{Type System Design}
 
-The precise details of the approach are as follows:
+\AT{Lay out the type system.
+Ideally, for every interaction we propose, we should be able to point to an analysis that supports our claim.
+Maybe we don't always have to do this, especially for some of the simple, obvious types, but any departures from basic R functionality should be supported by the data.}
 
-\begin{enumerate}
-\item for every package that is to be run, all functions (including those inherited from dependencies) are instrumented with on.exit hooks, code which runs when the function is finished executing.
-The purpose of waiting for function exit is to ensure that argument promises are not forced, and argument values which are unused are recorded as such, as this indicates that they are likely used for some metaprogramming within the function.
-\item package tests, examples, and vignettes are run, and decorated function invocations trigger the on.exit hook, which records argument and return value type information.
-\item each new function trace (i.e., each call with a new call signature) is saved.
-\end{enumerate}
+\section{Evaluation Results}
 
-\AT{At what point do we introduce the type system? I was gonna mention subtyping rules in a hypothetical item 4 where we consolidate trace info. Maybe we should just talk about how we looked at this data, and then add a new phase after?}
+\AT{The decisions we made when coming up with the types will be validated in the last section.
+This section is for determining how effective the type system is.
+We have two evaluation strategies currently: comparing against reverse dependencies, and comparing against the Kaggle programs.}
 
-%
-%
-%
-%
-\subsection{Propagatr}
-
-\AT{Explaining this succinctly will be important.}
-After collecting and consolidating type information for function calls, we use our Propagatr tool to propagate known type information between functions that are used in similar circumstances.
-In essence, our tool runs over the tests, examples, and vignettes, much like our Typer tool, but instead of collecting type information it tracks values as they flow through code and builds a graph connecting use-sites of values to the argument positions that they are drawn from.
-\AT{Man, this sucks.}
-
-For example, consider the code snippet in Figure~\ref{fig:propagatr-example}.
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-f <- function(x) {
-  z <- x
-  g(z, x)
-}
-
-f(0)
-\end{lstlisting}}\caption{Propagatr example.}\label{fig:propagatr-example}\end{figure}
-
-Propagatr tracks the following data flow:
-
-\begin{itemize}
-\item \AT{This might be better achieved as a graph, or something.}
-\item the assignment of x to z on line 2 is actually a function call in R; think of it as {\tt assign(x, z)}.
-The flow of data here is from x to z, and thus in the remainder of the function both variables are known to share the same value.
-\item The call to g(z, x) allows us to deduce that g takes two arguments {\it of the same type}. 
-\end{itemize}
-
-An important purpose of the Propagatr tool is to allow us to infer type signatures for poorly-exercised functions.
-As a (somewhat degenerate) example, consider the code in Figure~\ref{fig:propagatr-degenerate}.
-\AT{maybe shove this example somewhere to save space}
-
-\begin{figure}[!hb]{\small\begin{lstlisting}[style=R]
-add_wrapper <- function(a, b) { a + b }
-\end{lstlisting}}\caption{Degenerate Propagatr example.}\label{fig:propagatr-degenerate}\end{figure}
-
-Even if {\tt add\_wrapper} is rarely exercised, Propagatr deduces that it should have the same signature as R's builtin addition operator.
-
-The precise details of the tool follow.
-\AT{Pseudocode? Something like that? A formal description of the algorithm.}
-
-\AT{Description of how the constraints look.}
-Once all of the constraints are generated, we use the {\tt ifscs} tool written in Haskell; it is a tool built to solve set constraints (or inclusion constraints).
-Consider again the program in Figure~\ref{fig:propagatr-example}.
-Propagatr will observe the following flows:
-
-\begin{itemize}
-
-\item $f_{0}$: $z$, $g_{1}$
-\item $f_{R}$: $g_{R}$
-\item $z$: $g_0$ \AT{we can phrase this as a return constraint?}
-
-\end{itemize}
-
-We will want to generate the following constraints:
-
-\begin{itemize}
-
-\item $f_{0} \subseteq z$
-\item $f_{0} \subseteq g_{1}$
-\item $f_{R} \supseteq g_{R}$
-\item $z \supseteq g_0$ \AT{we can phrase this as a return constraint?}
-
-\end{itemize}
-
-\AT{CHECK co/contra...} We gave covariant constraints for function arguments, and contravariant constraints for function returns.
-That is to say, function argument types are subsets of their usage in the function body, while (the true type of) a function return is a superset of the types of all possible returns in the function. 
-In order to work the dynamic analysis results into the constraint system, we add the following atomic constraints:
-\AT{maybe we want a slightly more complicated example...}
-
-\begin{itemize}
-\item \{integer\} $\subseteq f_{0}$
-\end{itemize}
-
-Intuitively, we create a set of constraints which state that the signatures obtained by the dynamic analysis are a subset of the true signatures.
-Crucially, we take the dynamic analysis results for the {\it base} package to be a ground truth; we have faith in these signatures as the base package is incredibly highly exercised, with over \AT{X} calls to base package functions.
-
-%
-%
-%
-%
-\subsection{Infr}
-
-\AT{Might be worthwhile to discuss how we implement basically a ``contract type system'', and the Infr tool consolidates Typr and Propagatr to generate the runtime contracts.}
-\AT{We can expand this section to be more broadly useful to R programmers, but it depends on how we want to pitch this.}
-
-% Our Infr tool leverages our type system to test the effectiveness of package test, example, and vignette code at covering the possible use-cases of package functions.
-Our Infr tool consolidates Typr and Propagatr into a tool that R package writers can use to both infer types for their functions and generate lightweight contracts to dynamically ensure adherence to function type signatures.
-
-The approach is as follows:
-
-\begin{itemize}
-\item Typr and Propagatr are run on the test, example, and vignette code of a particular package.
-This serves to infer an annotation for all package functions.
-\item Infr turns these annotations into dynamically-checked contracts on functions:
-The contracts check that function argument and return values adhere to the type of their annotation.
-These contracts are inserted directly into the promise code of the values, as will be elaborated in Section~\ref{subsubsec:promise}.
-% \item Then, the test, example, and vignette code for all reverse package dependencies (i.e., for all other packages which have the current package as a dependency) is run, and any type errors that are caught are recorded.
-\end{itemize}
-
-\AT{...}
-We additionally devised an experiment to test our type system and simultaneously test the ``type coverage'' of R package example code.
-In our experiment, we run Infr on a package's tests, examples, and vignettes, and generate annotations and contracts for package functions based on that.
-Then, we run the tests, examples, and vignettes of {\it all package clients}, to see if the clients of the package adhered to the inferred type specification.
-
-%
-%
-\subsubsection{I Promise I'll Do the Check!}
-\label{subsubsec:promise}
-
-As mentioned in Section~\ref{sec:rlang}, arguments to R functions are wrapped in promises whose code is only executed if the argument is used.
-To insert checks that do not disrupt these semantics, we insert our checks {\it directly into the code of the promise}, which is done in C++ leveraging the Rcpp framework.
-
-Essentially, the value of the e.g. argument promise is replaced by code which checks for compliance with the argument's annotation.
-If the check fails, a call to R's stop function is triggered, yielding an informative error message (which includes the value itself, the function, package, and type that the value failed to adhere to).
-If successful, the checking code is removed (by reassigning to the argument within the function), so subsequent accesses to the argument are fast.
-\AT{Can return values be wrapped in the same way?}
-
-%
-%
-%
-%
-%
-%
-\section{Results}
-\label{sec:results}
-
-\AT{What should go in here?}
-\AT{We have to give the type system somewhere, also!}
-
-%
-%
-%
-%
-\subsection{The Data}
-\label{sec:results_data}
-
-\AT{There's the data itself, and our breakdown of it.
-There's also the results of validating the types and the tool against the reverse dependencies.}
-
-%
-%
-%
-%
-\subsection{The Experiment}
-\label{sec:results_experiment}
-
-\AT{We should also talk about the experiment itself, and the results we find here.}
-
-%
-%
-%
-%
-%
-%
 \section{Related Work}
 
-%
-%
-%
-%
-\subsection{Studies of Dynamic Languages}
+\AT{Good to mention the related projects, e.g. how this was undertaken in other languages, like Ruby.
+There's a lot of literature in that space I think, I've read some of it but not all.
+We also have some related work in the old paper, I'll grab it and put it here.}
 
-The idea of measuring polymorphism via some program analysis is not new.
-For instance, some work~\cite{aakerblom2015measuring} measures the polymorphism of Python programs, but with a slightly different goal than ours: authors seek to assess the need for expressiveness in type systems that are retrofit onto dynamic languages.
-Interestingly, they find that 4\% of function call sites are polymorphic, which is considerably less than what we have found with our analysis of R.
-In essence, it would appear that R is far more polymorphic in Python.
-
-More generally, there is an existing literature on analyzing usage patterns of language features.  
-For instance, the dynamic features of Smalltalk were analyzed in some work~\cite{callau2011howdevelopers}, which aimed to see how often the highly dynamic capabilities of Smalltalk were used and in which kinds of projects.
-Other work~\cite{pldi10a} explores how the dynamic features of JavaScript are used.
-An interesting finding of theirs is that only 81\% of calls are monomorphic, which is very similar to what we observed in R.
-This 80/20 split between monomorphism and polymorphism is echoed in other analysis work on the usage patterns of duck typing in Smalltalk~\cite{milojkovic2017duck}, which finds that ~20\% of functions are ``duck-typed'' (\AT{read: polymorphic}) in Smalltalk. 
-\AT{It's notable that this 20\% shows up very often.}
-
-%
-%
-%
-%
-\subsection{Synthesizing Types from Dynamic Analysis}
-
-In this work, we have retrofit a type system onto the R programming language.
-We based many of the decisions on which types and which rules to include on the results of our analysis.
-This shares some similarity with work on so-called {\it trace typing}~\cite{andreasen2016trace}.
-
-%
-%
-%
-%
-\subsection{Type Systems for Dynamic Languages}
-
-The type system introduced in this work is a {\it gradual type system}.
-
-%
-%.
-%
-%
-%
-%
 \section{Conclusion}
 
+\ldots
+
+\subsection{Threats to Validity}
+
+\ldots
+
+\subsection{Future Work}
+
+\ldots
+
+%% Acknowledgments
+\begin{acks}                            %% acks environment is optional
+                                        %% contents suppressed with 'anonymous'
+  %% Commands \grantsponsor{<sponsorID>}{<name>}{<url>} and
+  %% \grantnum[<url>]{<sponsorID>}{<number>} should be used to
+  %% acknowledge financial support and will be used by metadata
+  %% extraction tools.
+  This material is based upon work supported by the
+  \grantsponsor{GS100000001}{National Science
+    Foundation}{http://dx.doi.org/10.13039/100000001} under Grant
+  No.~\grantnum{GS100000001}{nnnnnnn} and Grant
+  No.~\grantnum{GS100000001}{mmmmmmm}.  Any opinions, findings, and
+  conclusions or recommendations expressed in this material are those
+  of the author and do not necessarily reflect the views of the
+  National Science Foundation.
+\end{acks}
 
 
-%
-%
-%
-\bibliographystyle{boilerplate/ACM-Reference-Format}
-\bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual,bib/types4R}
+%% Bibliography
+%\bibliography{bibfile}
+
+
+%% Appendix
+\appendix
+\section{Appendix}
+
+Text of appendix \ldots
+
 \end{document}
-
-

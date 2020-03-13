@@ -1,13 +1,18 @@
 ---
 title: "Data Showcase"
-output: html_notebook
-editor_options: 
+output:
+  pdf_document: default
+  html_notebook: default
+editor_options:
   chunk_output_type: inline
 ---
 
 The intent of this notebook is to showcase our current data analysis pipeline, and show some of the queries we indend to run.
 
 ```{r results='hide'}
+library(tidyverse)
+library(tidyr)
+
 source("../code/data_analysis_lib.R")
 ```
 
@@ -65,6 +70,8 @@ df %>% breakdown_S3_dispatch_by_class
 # Takeaways: most dispatch is done on data.frames, and POSIXct/POSIXt, then factors, then tibbles.
 ```
 
+Note that above, S3 calls with no class (represented by `{}`) end up calling the `functionName.default` method.
+
 We also might be interested in instances of functions which have arguments which have multiple classes.
 
 ```{r}
@@ -73,7 +80,40 @@ We also might be interested in instances of functions which have arguments which
 df_multi <- df %>% get_multi_classes 
 
 # Breakdown by package::function:
-df_multi %>% group_by(package, fun_name) %>% summarize
+df_multi %>% group_by(package, fun_name) %>% summarize(count = sum(count)) %>% arrange(-count)
 ```
 
-Will look into some of these and report results. 
+Will look into some of these and report results. These are functions which take arguments which have multiple classes. Need to figure something out about the FUN thing, which I believe is a function which is passed as an argument to a function. 
+
+Find instances where classes co-occur with types:
+
+```{r}
+df %>% get_type_class_match -> df_types_class
+
+df_types_class %>% filter(class != "{}")
+```
+
+And instances where classes co-occur with attributes:
+
+```{r}
+df %>% get_class_attr_match -> df_class_attr
+
+df_class_attr %>% filter(class != "{}" & attributes != "{}")
+```
+
+To tackle polymorphism, we need to settle on a notion of type. At this stage, we have three separate sources of type information: the typeof (with extra fixings), the class, and the attributes. There's a function called `quick_simplify_types` (spelling?) which reduces the typeof++ column to a very simple type, but in truth we want to incorporate the class into the type when appropriate. 
+
+```{r}
+# To get rid of dimensions and tags:
+df %>% quick_simplify_types -> df_simpl
+
+# The type_hash is no longer relevant, here.
+df_simpl %>% select(-type_hash) -> df_simpl
+
+# Might be worth grouping to reduce.
+df_simpl %>% group_by_at(setdiff(names(df_simpl), "count")) %>% summarize(count = sum(count)) -> df_gr
+```
+
+What other data do we want in the paper?
+
+One thing that's missing here: the call graph business. This we implemented in Haskell, but that might need some work.

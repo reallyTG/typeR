@@ -882,6 +882,11 @@ quick_group <- function(df) {
            select(select_me, everything())
 }
 
+quick_simplify_types <- function(df) {
+    df %>% mutate_at(vars(starts_with("arg_t")), .funs = list(. = ~  str_extract(., "[^\\[]*"))) %>%
+           mutate_at(vars(starts_with("arg_t")), .funs = list(. = ~  str_extract(., "[^@]*"))) 
+}
+
 quick_trim_na_cols <- function(df) {
     not_all_na <- function(x) {!all(is.na(x))}
     df %>% select_if(not_all_na)
@@ -1090,7 +1095,52 @@ get_multi_classes <- function(df) {
     df_class_counts %>% filter_at(class_counts_cols[2:length(class_counts_cols)], any_vars(. > 1)) %>% filter(package != "base")
 }
 
+get_type_class_match <- function(df) {
+    # Transform df into a data frame with type, class, and frequency columns.
+    # Before that, get the total number of calls to make a percentage.
+    tot_calls <- df %>% select(count) %>% sum 
 
+    # 1. Grab all the type, class, and count columns.
+    df %>% select(starts_with("arg_t"), starts_with("arg_c"), count) %>% 
+        # 2. Stack the data into three columns: type, class, and frequencies
+        pivot_longer(-count, names_to = c(".value", "pos"), values_drop_na=T, names_pattern = "arg_(.)(.)") %>%
+        # 3. Rename the columns, and remove the useless column introduced by pivot_longer.
+        rename(type = t, class = c, frequency = count) %>% select(type, class, frequency) %>%
+        # 4. Group by type and class, collapse frequencies.
+        group_by(type, class) %>% summarize(frequency = sum(frequency)) %>%
+        # 5. Ungroup.
+        ungroup %>% arrange(-frequency) %>%
+        # 6. Add percentage of total calls column.
+        mutate(percentage = 100 * frequency / tot_calls)
+}
+
+get_class_attr_match <- function(df) {
+    # Transform df into a data frame with type, class, and frequency columns.
+    # Before that, get the total number of calls to make a percentage.
+    tot_calls <- df %>% select(count) %>% sum 
+
+    # 1. Grab all the type, class, and count columns.
+    df %>% select(starts_with("arg_c"), starts_with("arg_a"), count) %>% 
+        # 2. Stack the data into three columns: type, class, and frequencies
+        pivot_longer(-count, names_to = c(".value", "pos"), values_drop_na=T, names_pattern = "arg_(.)(.)") %>%
+        # 3. Rename the columns, and remove the useless column introduced by pivot_longer.
+        rename(class = c, attributes = a, frequency = count) %>% select(class, attributes, frequency) %>%
+        # 4. Group by type and class, collapse frequencies.
+        group_by(class, attributes) %>% summarize(frequency = sum(frequency)) %>%
+        # 5. Ungroup.
+        ungroup %>% arrange(-frequency) %>%
+        # 6. Add percentage of total calls column.
+        mutate(percentage = 100 * frequency / tot_calls)
+}
+
+  # #
+#
+#  Ok, this is a big one. 
+#  We need to define the rules that will reduce us to a type from the "type", class, and attribute columns
+#
+transform_into_our_types <- function(df) {
+
+}
 
 # map(lof, function(f) read_csv(f, col_names=F) %>% swap_last_col_with_xth_col %>% write_csv(TODO fill, col_names=F)
 
