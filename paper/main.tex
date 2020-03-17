@@ -54,6 +54,33 @@
                         %% http://ctan.org/pkg/subcaption
 \usepackage{my_style}
 
+\usepackage{listings}
+
+\lstset{ 
+  language=R,                     % the language of the code
+  basicstyle=\tiny\ttfamily, % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{blue},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it is 1, each line
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  keywordstyle=\color{teal},      % keyword style
+  commentstyle=\color{olive},   % comment style
+  stringstyle=\color{magenta}      % string literal style
+}
+
+\newcommand{\code}[1]{\text{\lstinline[basicstyle=\ttfamily\smaller]~#1~}}
+
 \begin{document}
 
 %% Title information
@@ -189,7 +216,13 @@ I think both are milling around this directory.}
 
 \AT{Introduce the language, and give some context about its user base.}
 
-\subsection{R-Dyntrace}
+\begin{lstlisting}
+hello <-  "world"
+paste(c("this", "is", "some", "code"))
+\end{lstlisting}
+
+\subsection{R-dyntrace}
+\label{sec:r-dyntrace}
 
 \AT{Worth talking a bit about the analysis framework?}
 
@@ -199,13 +232,93 @@ I think both are milling around this directory.}
 Reviewers were skeptical of CRAN and using the test and example code.
 We should convince them otherwise.}
 
+\AT{Some sentences that might be useful:}
+We selected packages that have both \AT{a good amount of} reverse dependencies to ensure their broad usefulness, as well \AT{sufficiently high} code and branch coverage of test, example, and vignette programs to ensure that our analysis built up an accurate picture of function use.
+
+
+%
+%
+%
+%
+%
+%
 \section{Methodology}
 
+%
+%
+%
+%
 \subsection{Initial Analysis}
 
-\AT{Lay out the analysis, spell out the data we collect, how we reduce the data.
-Not sure how much detail to go into here.
-Will have had to have talked about the analysis framework in the background.}
+%
+%
+\subsubsection{Overview}
+
+In order to ensure that our type system design aligns with the day-to-day usage of R, we performed a corpus analysis of some of the most widely used R packages.
+We built our dynamic analysis in the R-dyntrace \AT{cite something?} dynamic analysis framework, which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on R-dyntrace.
+
+The general idea of the analysis is to intercept calls to functions, builtins, and specials, and collect information on function arguments and returns.
+The nature of R is such that all function arguments are wrapped in promises which are only evaluated when the value is actually used.
+This could cause issues in a dynamic analysis, as careless use of function arguments can force them early, which can cause unindented side-effects (as these promises are not necessarily pure).
+Our analysis deals with this by inspecting the {\it value} slot of these promise objects, which does not force the promise. 
+If the value slot contains another promise, we look into its value slot, and so forth until we find a value (or not! in which case, the value is a promise).
+
+Once the value is obtained in this way, we collect the following high-level information about it:
+\AT{TODO: need to make the inline code macro and the R listing, and change the tts in here}
+
+\begin{itemize}
+\item the result of calling the {\tt typeof} function on the value; in other words, the type that the value has according to R's runtime;
+\item its class, which is a list of string class names;
+\item its attributes, a list of metadata attached to the value.
+\end{itemize}
+
+Now, depending on the ``type'' of the value, we collect further information:
+If the value is \ldots
+
+\begin{itemize}
+\item one of R's primitive types, we collect its dimension (and if it is a matrix, its dimensions), and if it has a names attribute we collect the names as well;
+\item a list, we recursively collect the types of list elements;
+\item a list {\it with a names attribute}, we collect the names as well as the types of the slots that those names refer to (data.frames fall into this category);
+\item a closure, we simply tag it with a UID computed from the code of the closure as well as its name, which can be later cross-referenced with the analysis results to get a type for the function.
+\end{itemize}
+
+Some further miscellaneous information we collect includes:
+
+\begin{itemize}
+\item lists which do not contain any NULL elements are qualified with a NULL-free tag; 
+\item similarly, vectors which contain no NAs are qualified with a NA-free tag;
+\item promises which are never forced throughout function execution are tagged as being {\it metaprogrammed}---this is a common practice in the {\tt tidyverse} suite of packages;
+\item formal arguments (arguments which are named in the function definition) which are not passed are recorded as {\it missing}---these represent optional arguments.
+\end{itemize}
+
+Now that we've seen the high-level picture of our approach, we will elaborate on some key details on our use of the R-dyntrace framework, and some of the finer points of the analysis.
+
+%
+%
+\subsubsection{Select Details}
+
+As mentioned, our analysis is built on the R-dyntrace framework.
+R-dyntrace is essentially a very efficient instrumentation framework for R, which is built on a modified version of the R runtime.
+Fortunately, our dynamic type analysis only needs to be run once, ever---from the analysis results, we synthesize function signatures which are passed along to later type-checking tools which do not rely on a heavily modified runtime. 
+
+We primarily rely on 6 R-dyntrace callbacks: \texttt{closure\_entry}, \texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit}, \texttt{special\_entry}, and \texttt{special\_exit}.
+These callbacks fire when closures, builtin, and special functions are entered and exited.
+In the \texttt{*\_entry} variants, we do some bookkeeping work: the analysis is notified that a closure/builtin/special has been entered by pushing the call onto a stack.
+Further, the type of dispatch is recorded: \AT{recall} that there are multiple ways that R performs dynamic dispatch, based on the class of function arguments.
+We collect dispatch information in order to analyze dispatch usage patterns.
+
+The main work is done in \texttt{*\_exit} variants.
+As arguments to functions in R are wrapped in promises, we delay our reflection to function exit time. 
+\AT{Actually, why do we do this?}
+In R, promises are essentially objects with value and expression slots.
+When a promise is created for a particular expression, that expression is merely put into the expression slot of a promise object, and a special {\it unbound} value is loaded into the value slot.
+When the promise is forced, the expression is evaluated in the forcing context, and the value is stored in the value slot of the promise.
+So to get the type of a function argument, we check the value slot of the argument promise---perhaps recursively if the value itself is a promise.
+If we reach the unbound value, we know the promise was never forced, and thus the argument was unused.
+
+To construct a ``type'' for each argument, we make use of R's C FFI and use low-level machinery to collect type tags and attributes from the R runtime.
+At this level, all R values are {\tt SEXP}s with a type tag that can be obtained using the {\tt TYPEOF} function from the C FFI.
+In certain circumstances, such as when {\tt TYPEOF} indicates that a value is a primitive, we perform additional reflection e.g. on the length (with {\tt LENGTH}) and also vector element names (through a call to {\tt getAttrib(the\_value, R\_NamesSymbol)}).
 
 \subsection{Implementation}
 
