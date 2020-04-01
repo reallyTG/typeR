@@ -260,8 +260,10 @@ We built our dynamic analysis in the R-dyntrace \AT{cite something?} dynamic ana
 The general idea of the analysis is to intercept calls to functions, builtins, and specials, and collect information on function arguments and returns.
 The nature of R is such that all function arguments are wrapped in promises which are only evaluated when the value is actually used.
 This could cause issues in a dynamic analysis, as careless use of function arguments can force them early, which can cause unindented side-effects (as these promises are not necessarily pure).
-Our analysis deals with this by inspecting the {\it value} slot of these promise objects, which does not force the promise. 
-If the value slot contains another promise, we look into its value slot, and so forth until we find a value (or not! in which case, the value is a promise).
+Our analysis deals with this by only inspecting the value of an argument when the argument is forced, and if it is never forced we make note of that by ascribing the type {\tt ???}.
+
+% Our analysis deals with this by inspecting the {\it value} slot of these promise objects, which does not force the promise. 
+% If the value slot contains another promise, we look into its value slot, and so forth until we find a value (or not! in which case, the value is a promise).
 
 Once the value is obtained in this way, we collect the following high-level information about it:
 \AT{TODO: need to make the inline code macro and the R listing, and change the tts in here}
@@ -298,23 +300,23 @@ Now that we've seen the high-level picture of our approach, we will elaborate on
 \subsubsection{Select Details}
 
 As mentioned, our analysis is built on the R-dyntrace framework.
-R-dyntrace is essentially a very efficient instrumentation framework for R, which is built on a modified version of the R runtime.
-Fortunately, our dynamic type analysis only needs to be run once, ever---from the analysis results, we synthesize function signatures which are passed along to later type-checking tools which do not rely on a heavily modified runtime. 
+R-dyntrace is a very efficient instrumentation framework for R, which is built on a modified version of the R runtime.
+Our dynamic type analysis only needs to be run once, ever---from the analysis results, we synthesize function signatures which are passed along to later type-checking tools which do not rely on a heavily modified runtime. 
 
-We primarily rely on 6 R-dyntrace callbacks: \texttt{closure\_entry}, \texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit}, \texttt{special\_entry}, and \texttt{special\_exit}.
-These callbacks fire when closures, builtin, and special functions are entered and exited.
-In the \texttt{*\_entry} variants, we do some bookkeeping work: the analysis is notified that a closure/builtin/special has been entered by pushing the call onto a stack.
-Further, the type of dispatch is recorded: \AT{recall} that there are multiple ways that R performs dynamic dispatch, based on the class of function arguments.
+We primarily rely on 8 R-dyntrace callbacks: \texttt{closure\_entry}, \texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit}, \texttt{special\_entry},\texttt{special\_exit}, \texttt{promise\_force\_entry}, and \texttt{promise\_force\_exit}.
+These callbacks fire when closures, builtin, and special functions are entered and exited, and before and after the forcing of promises.
+The function-related callbacks are used mainly for bookkeeping: the analysis is notified that a closure/builtin/special has been entered/exited by pushing/popping the call onto a stack.
+The calls themselves store a {\it call trace} object, where we store the type information that we collect.
+Further, the type of dispatch is recorded on the {\tt \_entry} variants: \AT{recall} that there are multiple ways that R performs dynamic dispatch, based on the class of function arguments.
 We collect dispatch information in order to analyze dispatch usage patterns.
 
-The main work is done in \texttt{*\_exit} variants.
-As arguments to functions in R are wrapped in promises, we delay our reflection to function exit time. 
-\AT{Actually, why do we do this?}
+The main work is done in {\tt promise\_force\_exit}.
+As arguments to functions in R are wrapped in promises, we delay our reflection to promise force time.
 In R, promises are essentially objects with value and expression slots.
 When a promise is created for a particular expression, that expression is merely put into the expression slot of a promise object, and a special {\it unbound} value is loaded into the value slot.
 When the promise is forced, the expression is evaluated in the forcing context, and the value is stored in the value slot of the promise.
 So to get the type of a function argument, we check the value slot of the argument promise---perhaps recursively if the value itself is a promise.
-If we reach the unbound value, we know the promise was never forced, and thus the argument was unused.
+On function {\tt \_exit} variants, we deal with situations where an argument was never used (and thus never forced): these show up as missing slots in the call trace object, and we ascribe them the type {\tt ???}.
 
 To construct a ``type'' for each argument, we make use of R's C FFI and use low-level machinery to collect type tags and attributes from the R runtime.
 At this level, all R values are {\tt SEXP}s with a type tag that can be obtained using the {\tt TYPEOF} function from the C FFI.
