@@ -320,6 +320,7 @@ promise and evaluate it in a different environment.
 
 
 \subsubsection{Types of Data}
+\label{subsubsec:backgroundtypes}
 
 Before attempting to define a type system for R, we should understand the
 different kinds of values that programs operate on.  As we will see
@@ -551,12 +552,94 @@ Some of the things I'll be pulling from the data are: how many functions are hig
 Basically, we want to use this section to turn the simplicity of our type system from a weakness into a strength. 
 The simplicity {\it is} a strength, we just need to make sure that's obvious to the reviewer.}
 
+%
+%
+%
+%
+%
+%
 \section{Type System Design}
+\label{sec:typesystemdesign}
 
-\AT{Lay out the type system.
-Ideally, for every interaction we propose, we should be able to point to an analysis that supports our claim.
-Maybe we don't always have to do this, especially for some of the simple, obvious types, but any departures from basic R functionality should be supported by the data.}
+Our corpora analysis reported \AT{number} call traces for over \AT{number} functions.
+We distilled these call traces into function types which captured the dynamic behaviour of the functions.
+We emphasize that this was an iterative process: initial analysis suggested a certain set of types, which we tried and implemented, and further analysis suggested improvements, and so on.
+In this section, we will present the final type system that we designed, which we believe captures the essence of R.
+Throughout, we will touch on design decisions and weigh our choices against alternatives, speaking to the strengths and weaknesses of our chosen design.
 
+%
+%
+%
+%
+\subsection{Basic Types}
+\label{subsec:basictypes}
+
+As discussed in Section~\ref{subsubsec:backgroundtypes}, the workhorse types in R are the vectorized primitives: integers, doubles, complex numbers, logicals (booleans), characters, and raws (bytes).
+These are {\it vectorized} in that they are always considered to be vectors by the R runtime: for instance, even ``scalar'' numbers are considered to be unit-length vectors to R.
+These primitive vectors are homogeneous, in that a vector of doubles contains only doubles.
+
+Related to these primitive types is one of R's notions of ``nullness'': for each of the primitives, R distinguishes a special ``NA'' value which represents missing data.
+There is an NA for each of the primitive types (i.e. there is a double NA, integer NA, etc.).
+Thus, even homogeneous vectors can represent missing data with their appropriate NA value.
+
+As with everything in R, there is nuance in even the simplest cases.
+We will now discuss our design decisions relating to the vectorized primitives.
+
+%
+%
+\subsubsection{Possibly-NA Primitives}
+
+A common primitive usage pattern is related to the presence of NAs: \AT{often}, programmers explicitly check for NAs in primitive vectors, possibly sanitizing them if they are present.
+For instance, consider the code in \AT{do an NA example}.
+NAs complicate practically every computation using primitive vectors, a fact that many programmers appear to be acutely aware of.
+
+%
+%
+\subsubsection{Scalar Primitives}
+
+\AT{Maybe we combine the next 3 subsections into one on dimensionality? There are overlapping arguments.}
+Initial analyses of our data revealed that programmers \AT{often} use scalars (as explicitly as they can, anyway).
+For example, consider the code in \AT{do a scalar example}.
+
+We found that scalars occurred more often than vectors, and chose the scalar type syntax as the default.
+The syntax for primitive scalars and vectors is as follows:
+
+\AT{syntax...}
+ 
+%
+%
+\subsubsection{Forgoing Matrices}
+
+Another layer of complexity on vectorized primitives is the presence of ``matrices'', which are \AT{more detail}.
+To R, a vector is a single-dimensional matrix, and R coerces vectors to matrices where appropriate.
+That said, if all vectors are matrices, then any computation that is valid on a matrix should also be valid on a vector.
+Restrictions on matrix-types arguments amount to restrictions on the dimensions of the argument, which suggests a dependent type system.
+We will touch on this shortly.
+\AT{I can try to come up with some numbers, here. I'm open to a discussion on how best to word this.}
+ 
+%
+%
+\subsubsection{Forgoing Dimensionality} 
+
+\AT{Will revisit to tighten discussion, need to think about best way to phrase this.
+Perhaps "dependent type system bad" is enough?}
+Including data dimensions in types would make our type system a dependent type system, which we believe is too complex to retrofit onto a dynamic data science language such as R.
+The simplest way to include dimensions would be to explicitly specify the dimensions of an argument (e.g. specifying that a function should always be called with a double vector of length 10), which is not particularly useful, and a pattern which \AT{rarely appeared in our analysis}.
+
+
+
+%
+%
+%
+%
+\subsection{Lists}
+
+%
+%
+%
+%
+%
+%
 \section{Evaluation Results}
 
 \AT{The decisions we made when coming up with the types will be validated in the last section.
