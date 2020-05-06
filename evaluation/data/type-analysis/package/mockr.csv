@@ -1,0 +1,40 @@
+package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
+"mockr", "%||%", -1, 0, 0, "character[]", 1
+"mockr", "%||%", 0, 0, 0, "character[]", 1
+"mockr", "%||%", 1, 0, 0, "language", 1
+"mockr", "check_dots_env_", -1, 0, 0, "null", 1
+"mockr", "check_dots_env_", 0, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>, ``:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "check_dots_env_", 1, 0, 0, "environment", 1
+"mockr", "check_mock", -1, 0, 0, "null", 1
+"mockr", "check_mock", 0, 0, 0, "character", 1
+"mockr", "check_mock", 1, 0, 0, "environment", 1
+"mockr", "create_mock_env_", -1, 0, 0, "environment", 1
+"mockr", "create_mock_env_", 0, 0, 0, "null", 1
+"mockr", "create_mock_env_", 1, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "create_mock_env_", 2, 0, 0, "environment", 1
+"mockr", "create_mock_env_", 3, 0, 0, "environment", 1
+"mockr", "create_mock_env_with_old_funcs", -1, 0, 0, "environment", 1
+"mockr", "create_mock_env_with_old_funcs", 0, 0, 0, "struct<`some_func`:any => any>", 1
+"mockr", "create_mock_env_with_old_funcs", 1, 0, 0, "environment", 1
+"mockr", "create_mock_env_with_old_funcs", 2, 0, 0, "environment", 1
+"mockr", "evaluate_with_mock_env", -1, 0, 0, "double", 1
+"mockr", "evaluate_with_mock_env", 0, 0, 0, "struct<``:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "evaluate_with_mock_env", 1, 0, 0, "environment", 1
+"mockr", "evaluate_with_mock_env", 2, 0, 0, "environment", 1
+"mockr", "extract_mock", -1, 0, 0, "struct<`name`:symbol, `new_value`:any => any>", 1
+"mockr", "extract_mock", 0, 0, 0, "character", 1
+"mockr", "extract_mock", 1, 0, 0, "struct<`expr`:language, `env`:environment>", 1
+"mockr", "extract_mock", 2, 0, 0, "environment", 1
+"mockr", "extract_mock_name", -1, 0, 0, "character", 1
+"mockr", "extract_mock_name", 0, 0, 0, "character", 1
+"mockr", "extract_mocks", -1, 0, 0, "struct<`some_func`:struct<`name`:symbol, `new_value`:any => any>>", 1
+"mockr", "extract_mocks", 0, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "extract_mocks", 1, 0, 0, "environment", 1
+"mockr", "extract_new_funcs_", -1, 0, 0, "struct<`some_func`:any => any>", 1
+"mockr", "extract_new_funcs_", 0, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "extract_new_funcs_", 1, 0, 0, "environment", 1
+"mockr", "filter", -1, 0, 0, "logical[]", 1
+"mockr", "filter", 0, 0, 0, "character[]", 1
+"mockr", "FUN", -1, 0, 0, "struct<`name`:symbol, `new_value`:any => any>", 1
+"mockr", "FUN", 0, 0, 0, "character", 1
+"mockr", "FUN", -1, 1, 0, "any", 1

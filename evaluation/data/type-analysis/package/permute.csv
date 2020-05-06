@@ -1,0 +1,42 @@
+package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
+"permute", "allFree", -1, 0, 0, "^integer[]", 1
+"permute", "allFree", 0, 0, 0, "integer", 1
+"permute", "allFree", 1, 0, 0, "integer[]", 1
+"permute", "allGrid", -1, 0, 0, "^double[]", 1
+"permute", "allGrid", 0, 0, 0, "integer", 1
+"permute", "allGrid", 1, 0, 0, "double", 1
+"permute", "allGrid", 2, 0, 0, "language", 1
+"permute", "allGrid", 3, 0, 0, "double", 1
+"permute", "allGrid", 4, 0, 0, "logical", 1
+"permute", "allGrid", 5, 0, 0, "symbol", 1
+"permute", "allPerms", -1, 0, 0, "^integer[]", 1
+"permute", "allPerms", 0, 0, 0, "double[]", 1
+"permute", "allPerms", 1, 0, 0, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:null, `nrow`:null, `call`:language>, `plots`:struct<`strata`:null, `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "allPerms", 1, 0, 1, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:double, `nrow`:double, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "allPerms", 1, 0, 2, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:null, `nrow`:null, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "allPerms", 2, 0, 0, "logical", 1
+"permute", "allSeries", -1, 0, 0, "^double[]", 1
+"permute", "allSeries", 0, 0, 0, "integer", 1
+"permute", "allSeries", 1, 0, 0, "double", 1
+"permute", "allSeries", 2, 0, 0, "logical", 1
+"permute", "allStrata", -1, 0, 0, "^integer[]", 1
+"permute", "allStrata", 0, 0, 0, "integer", 1
+"permute", "allStrata", 1, 0, 0, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:null, `nrow`:null, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "as.allPerms", -1, 0, 0, "^integer[]", 1
+"permute", "as.allPerms", 0, 0, 0, "^integer[]", 1
+"permute", "as.allPerms", 1, 0, 0, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:double, `nrow`:double, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "as.allPerms", 1, 0, 1, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:null, `nrow`:null, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "as.allPerms", 1, 0, 2, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:null, `nrow`:null, `call`:language>, `plots`:struct<`strata`:null, `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "as.matrix.allPerms", -1, 0, 0, "^integer[]", 1
+"permute", "as.matrix.allPerms", 0, 0, 0, "^integer[]", 1
+"permute", "as.matrix.allPerms", 1, 0, 0, "null", 1
+"permute", "cbindAllPerms", -1, 0, 0, "^double[]", 1
+"permute", "cbindAllPerms", 0, 0, 0, "tuple<^double[], ^double[], ^double[]>", 1
+"permute", "cbindAllPerms", 0, 0, 1, "tuple<^integer[]>", 1
+"permute", "check", -1, 0, 0, "struct<`n`:double, `control`:struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:double, `nrow`:double, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>>", 1
+"permute", "check", 0, 0, 0, "double[]", 1
+"permute", "check", 1, 0, 0, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:double, `nrow`:double, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "check", 1, 0, 1, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:null, `nrow`:null, `call`:language>, `plots`:struct<`strata`:integer[], `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "check", 1, 0, 2, "struct<`within`:struct<`type`:character, `constant`:logical, `mirror`:logical, `ncol`:null, `nrow`:null, `call`:language>, `plots`:struct<`strata`:null, `type`:character, `mirror`:logical, `ncol`:null, `nrow`:null, `plots.name`:character, `call`:language>, `blocks`:null, `nperm`:double, `complete`:logical, `maxperm`:double, `minperm`:double, `all.perms`:null, `make`:logical, `observed`:logical, `blocks.name`:character, `call`:language>", 1
+"permute", "check", 2, 0, 0, "logical", 1
+"permute", "check", 2, 0, 1, "symbol", 1
