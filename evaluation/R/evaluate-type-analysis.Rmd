@@ -1,0 +1,156 @@
+---
+title: Evaluation of Types
+author: Aviral Goel
+output:
+  html_document:
+    theme: cerulean
+
+params:
+  type_analysis_datafile: ../data/type-analysis/merged/merged.csv
+---
+
+```{r setup, echo=FALSE, eval=TRUE}
+#    toc: true
+#    toc_float: true
+suppressPackageStartupMessages(library(stringr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(purrr))
+suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(DT))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(tibble))
+
+type_analysis_data <- 
+    read_csv(params$type_analysis_datafile,
+             col_names = TRUE,
+             col_types = cols(col_character(),
+                              col_character(),
+                              col_integer(),
+                              col_integer(),
+                              col_integer(),
+                              col_character(),
+                              col_integer()))
+                              
+to_percentage <- function(proportions) {
+    str_c(round(100 * proportions, 2), "%")
+}
+```
+
+
+# High-level Summary
+
+```{r high-level, echo=FALSE, eval=TRUE}
+total_package_count <- nrow(distinct(type_analysis_data, package_name))
+total_function_count <- nrow(distinct(type_analysis_data, package_name, function_name))
+```
+
+**Packages**: `r total_package_count`
+
+**Functions**: `r total_function_count`
+
+In a function declaration of the form:
+
+`type f (<int | chr | lgl, dbl, lgl> => lgl | chr) | (<dbl | chr, int, raw> => lgl | chr)`
+
+There are two outer alternatives and 3 inner alternatives for parameter 1.
+
+
+# Outer Alternatives
+
+Now, we look at the number of alternatives in the function type.
+
+```{r outer_alternative_count, eval=TRUE, echo=FALSE}
+outer_alternative_distribution <-
+   type_analysis_data %>%
+   group_by(package_name, function_name) %>%
+   summarize(outer_alternative_count = length(unique(outer_alternative))) %>%
+   ungroup() %>%
+   group_by(outer_alternative_count) %>%
+   summarize(function_count = n(), package_count = length(unique(package_name))) %>%
+   ungroup()
+   
+datatable(outer_alternative_distribution)
+```
+
+# Inner Alternatives
+
+## Parameters
+
+Now, we look at the number of alternatives in the function argument type.
+
+```{r argument_inner_alternative_count, eval=TRUE, echo=FALSE}
+argument_inner_alternative_count <-
+   type_analysis_data %>%
+   dplyr::filter(parameter_position != -1L) %>%
+   group_by(package_name, function_name, parameter_position) %>%
+   summarize(inner_alternative_count = length(unique(inner_alternative))) %>%
+   ungroup() %>%
+   arrange(desc(inner_alternative_count))
+   
+datatable(argument_inner_alternative_count)
+```
+
+## Return
+
+Now, we look at the number of alternatives in the function return type.
+
+
+
+```{r result_inner_alternative_count, eval=TRUE, echo=FALSE}
+result_inner_alternative_count <-
+   type_analysis_data %>%
+   dplyr::filter(parameter_position == -1L) %>%
+   group_by(package_name, function_name) %>%
+   summarize(inner_alternative_count = length(unique(inner_alternative))) %>%
+   ungroup() %>%
+   arrange(desc(inner_alternative_count))
+   
+result_inner_alternative_count %>%
+dplyr::filter(inner_alternative_count != 1) %>%
+datatable(caption="Number of union alternatives in return type")
+
+result_inner_alternative_count_graph_data <-
+result_inner_alternative_count %>%
+group_by(inner_alternative_count) %>%
+summarize(function_count = n()) %>%
+ungroup()
+
+
+result_inner_alternative_count %>%
+mutate(inner_alternative_count = ceiling(inner_alternative_count / 5) * 5) %>%
+group_by(inner_alternative_count) %>%
+summarize(function_count = n(), package_count = length(unique(package_name))) %>%
+ungroup() %>%
+mutate(function_percentage = to_percentage(function_count / total_function_count),
+       package_percentage = to_percentage(package_count / total_package_count)) %>%
+arrange(desc(inner_alternative_count)) %>%
+mutate(inner_alternative_count = str_c(inner_alternative_count - 4, 
+                                       "-", 
+                                       inner_alternative_count)) %>%
+select(package_count, package_percentage, function_count, function_percentage, inner_alternative_count) %>%
+datatable(caption="Distribution of return type alternatives")
+
+explicit_cases <-
+result_inner_alternative_count_graph_data %>%
+filter(inner_alternative_count <= 5)
+
+implicit_cases <-
+result_inner_alternative_count_graph_data %>%
+filter(inner_alternative_count > 5) %>%
+summarize(function_count = length(function_count),
+          inner_alternative_count = "> 5")
+    
+result_inner_alternative_count_graph_data <-
+    explicit_cases %>%
+    mutate(inner_alternative_count = as.character(inner_alternative_count)) %>%
+    rbind(implicit_cases)
+
+result_inner_alternative_count_graph_data %>%
+ggplot(aes(inner_alternative_count, function_count)) +
+geom_col() +
+scale_x_discrete(limits = c(1:5, "> 5")) #%>%
+#coord_flip()
+
+```
+
