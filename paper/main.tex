@@ -54,7 +54,7 @@
                         %% http://ctan.org/pkg/subcaption
 \usepackage{my_style}
 
-\usepackage{listings}
+\usepackage{listings, wrapfig}
 
 \lstset{ 
   language=R,                     % the language of the code
@@ -80,6 +80,38 @@
 }
 
 \newcommand{\code}[1]{\text{\lstinline[basicstyle=\ttfamily\smaller]~#1~}}
+
+% Macros for type names from the old paper.
+\newcommand{\attr}[2]{\ensuremath{#1_{\mathtt{#2}}}\xspace}
+\newcommand{\attrclass}[3]{\ensuremath{#1^{\mathtt{#3}}_{\mathtt{#2}}}\xspace}
+\renewcommand{\to}{\ensuremath{\rightarrow}\xspace}
+\newcommand{\D}{\ensuremath{\small\vec{\mathtt D}}\xspace} % Double
+\newcommand{\I}{\ensuremath{\small\vec{\mathtt I}}\xspace} % Integer
+\renewcommand{\C}{\ensuremath{\small\vec{\mathtt C}}\xspace} % Character
+\renewcommand{\L}{\ensuremath{\small\vec{\mathtt L}}\xspace} % Logical
+\newcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
+\newcommand{\X}{\ensuremath{\small\vec{\mathtt X}}\xspace} % Complex
+\newcommand{\Y}{\ensuremath{\small\vec{\mathtt Y}}\xspace} % Symbol
+\newcommand{\sY}{\ensuremath{\small{\mathtt Y}}\xspace} % Symbol
+\newcommand{\sS}{\ensuremath{\small{\mathtt S}}\xspace} % S4
+\newcommand{\sF}{\ensuremath{\small{\mathtt F}}\xspace} % Closure
+\newcommand{\sE}{\ensuremath{\small{\mathtt E}}\xspace} % Env
+\renewcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
+\newcommand{\sN}{\ensuremath{\small{\mathtt N}}\xspace}     % Null
+%\renewcommand{\l}{\ensuremath{\small L<?>}\xspace}     % List
+\renewcommand{\l}{\ensuremath{\small\underline{\mathtt ?}}\xspace}     % List
+\newcommand{\sD}{\ensuremath{\small{\mathtt D}}\xspace} % Double
+\newcommand{\sI}{\ensuremath{\small{\mathtt I}}\xspace} % Integer
+\newcommand{\sC}{\ensuremath{\small{\mathtt C}}\xspace} % Character
+\newcommand{\sL}{\ensuremath{\small{\mathtt L}}\xspace} % Logical
+\newcommand{\sX}{\ensuremath{\small{\mathtt X}}\xspace} % Complex
+\newcommand{\sR}{\ensuremath{\small{\mathtt R}}\xspace} % Raw
+\newcommand{\ANY}{\ensuremath{\small{\mathtt ?}}\xspace}     % Any
+\newcommand{\lT}[1]{\ensuremath{\small\underline{\mathtt{#1}}}\xspace}     % list<T>
+\newcommand{\M}[1]{\ensuremath{\attr{\vec{\tt #1}}{mat}}\xspace}     % matrix
+\newcommand{\df}{\ensuremath{\attr{\l}{df}}\xspace}     % data.frame
+
+
 
 \begin{document}
 
@@ -207,25 +239,199 @@ Our tool deals with these promises by inserting a check which fires only when th
 
 \AT{I can grab some of the intro Jan wrote for the last paper, rework it, and put it here.}
 
+%
+%
+%
+%
+%
+%
 \section{Background}
 
-\AT{I think a lot of the background we can pull from an older version of the paper.
-I think both are milling around this directory.}
+In this section, we will introduce the R programming language, as well as discuss the dynamic analysis framework we used as part of our initial analysis.
 
+%
+%
+%
+%
 \subsection{The R Programming Language}
 
-\AT{Introduce the language, and give some context about its user base.}
+Over the last decade, the R Project has become a key tool for implementing
+sophisticated data analysis algorithms in fields ranging from Computational
+Biology~\cite{R05} to Political Science~\cite{R:Keele:2008}. At the heart of
+the R project is a \emph{vectorized, dynamic, lazy, functional,
+  object-oriented} programming language with a rather unusual combination of
+features~\cite{ecoop12} designed to ease learning by non-programmer and
+enable rapid development of new statistical methods.  The language, commonly
+referred to as R was designed in 1993 by Ross Ihaka and Robert
+Gentleman~\cite{R96} as a successor to S~\cite{S88}.  First released in
+1995, under a GNU license, R rapidly became the lingua franca for
+statistical data analysis. Today, there are over 13,000 R packages available
+from repositories such as CRAN and Bioconductor.  With 55 R user groups
+world-wide, Smith~\cite{eco11} estimates that there are over 2 million
+end-users.
+
+As an introduction to R, consider the code snippet in Fig.~\ref{sample} from
+a top-level interaction where the user defines a function \code{normSum}
+that accepts vectors of integers, logicals, doubles and complex values and
+normalizes the vector with respect to its sum and rounds the results. The
+function definition does not require type annotations, and all operations
+transparently work on vectors of any length and different types.
+
+\begin{figure}[!hb]{\small
+\begin{lstlisting}
+> normSum <- function( m )  round( m / sum(m), 2)
+> normSum(c(1L,3L,6L))
+[1] 0.1 0.3 0.6
+> normSum(c(1.1,3.3,6.6))
+[1] 0.1 0.3 0.6
+> normSum(c(1.6,3.3,6.1))
+[1] 0.15 0.30 0.55
+> normSum(complex(r=rnorm(3),i=rnorm(3)))
+[1] 0.49+0.21i 0.30-0.18i 0.22-0.03i
+\end{lstlisting}}
+\caption{Sample R code}\label{sample}
+\end{figure}
+
+In R, function can be called with named parameters, R support variable
+argument lists, and arguments can have default values. Putting all of these
+together consider the following declaration:
 
 \begin{lstlisting}
-hello <-  "world"
-paste(c("this", "is", "some", "code"))
+f <- function(x, ..., y=3) x + y
 \end{lstlisting}
 
+\noindent
+Function \k{f} can be called with a single argument \code{f(3)}, with named
+argument \code{f(y=4,x=2)} and with a variable number of arguments,
+\code{f(1,2,3,4,y=5)}, all of these calls will return \code{6}.
+
+R has a number of features that are not crucial to the present
+discussion. We will mention some of them here for completeness.  In R, data
+structures are reference counted and have copy-on-write semantics, thus the
+assignment \code{x[12]<-3} results in an update to a copy of \code{x} unless
+the reference count on that object is 1.  This semantics gives R a
+functional flavor while allowing updating in place within loops (the first
+update copies, subsequent updates are performed on the copy). Arguments to
+functions are evaluated only when needed, they are bundled in so-called
+promises which package the original expression (as an abstract syntax tree, or AST), its environment
+as well as the result of evaluating the expression. Promises can be
+leveraged for meta-programming as it is possible to retrieve the text of a
+promise and evaluate it in a different environment.
+
+
+\subsubsection{Types of Data}
+
+Before attempting to define a type system for R, we should understand the
+different kinds of values that programs operate on.  As we will see
+different notions of type may emerge depending on how granular we want to
+be.
+
+\renewcommand{\k}[1]{{\tt #1}\xspace}
+
+R has one builtin notion of type that can be queried by the \k{typeof}
+function. Over the years, programmers have found the need for a richer type
+structure and have added {\it attributes}. The best way to think of attributes is
+as an optional map from name to values that can be attached to any object.
+Attributes are used to encode various type structures. They can be queried
+with functions such as \k{attributes} and \k{class}.
+
+\begin{wrapfigure}{r}{6.1cm}
+\footnotesize\begin{tabular}{l|c|l@{}}\hline
+\multicolumn{3}{l}{\bf Vectorized data types:}  \\\hline
+\k{logical}   & \L & vector of boolean values\\
+\k{integer}   & \I & vector of 32 bit integer values\\
+\k{double}    & \D & vector of 64 bit floating points\\
+\k{complex}   & \X & vector of complex values\\
+\k{character} & \C & vector of strings values\\
+\k{raw}       & \R & vector of bytes\\
+\k{list}      & \l & vector of values of any type\\\hline
+\multicolumn{3}{l}{\bf Scalar data types:}\\\hline
+\k{NULL}      & \sN &  singleton null value\\
+\k{S4}        & \sS &  instance of a S4 class \\
+\k{closure}   & \sF & a function with its environment\\
+\k{environment}&\sE &  a mapping from symbol to value \\\hline
+\multicolumn{3}{l}{\bf Implementation data types:}\\\hline
+\multicolumn{3}{l}{\k{special},
+\k{builtin},
+\k{symbol} (\sY),
+\k{pairlist},
+\k{promise}}\\
+\multicolumn{3}{l}{
+\k{language},
+\k{char},
+\k{...},
+\k{any},
+\k{expression},
+}\\
+\multicolumn{3}{l}{
+\k{externalprt},
+\k{bytecode},
+\k{weakref}}\\\hline
+\end{tabular}\caption{Builtin Types}\label{types}\end{wrapfigure}
+
+Figure~\ref{types} lists all of the builtin types that are provided by the
+language. They are the possible return values of \k{typeof}. There is no
+intrinsic notion of subtyping in R. But, in many context a \k{logical} will
+convert to \k{integer}, and an \k{integer} will convert to \k{double}.  Some
+off conversion can occur in corner cases, such as \k{1<"2"} holds and
+\k{c(1,2)[1.6]} returns the first element of the vector, as the double is
+converted to an integer. R does not distinguish between scalars and vectors
+(they are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
+  typeof(c(5,5))} \code{ == "double"}. Finally all vectorized data types have a
+distinguished missing value denoted by \code{NA}. The default type of
+\code{NA} is \k{logical}. We can see that \code{typeof(NA)=="logical"}, but
+NA inhabits every type: \code{typeof(c(1,NA)[2])=="double"}.
+
+With one exception all vectorized data types are monomorphic, the exception
+is the \k{list} type which can hold values of any other type including
+\k{list}. For all monomorphic data types, attempting to store a value of a
+different type will cause a conversion. Either the value is converted to the
+type of vector, or the vector is converted to the type of the value.
+
+Scalar data types include the distinguished \k{NULL} value, which is also of
+type \k{NULL}, instance of classes written using the S4 object system,
+closures and environments.  The implementation of R has a number of other
+types that are mostly not used by user code, they are listed in
+Figure~\ref{types} for reference.
+
+The addition of attributes lets programmers extend the set of types by
+tagging data with user-defined attributes. For example, one could define a
+vector of four values, \code{x<-c(1,2,3,4)} and then attach the attribute
+\k{dim} with a pair of numbers as value: \code{attr(x,"dim")<-c(2,2)}.  From
+that point, arithmetic functions will treat \k{x} as a 2x2 matrix. Another
+attribute that can be set is the \k{class}.  This attribute can be bound to
+a list of class names. For instance, \code{class(x)<-"human"}, set the class
+of \k{x} to be \k{human}.  Attributes are thus used for object-oriented
+programming. The S3 object system support single dispatch on the class of
+the first argument of a function, whereas the S4 object system allows
+multiple dispatch (on all arguments). Some of the most widely used data
+type, such as data frames, leverage attributes. A data frame, for instance,
+is a list of vectors with a class and a column name attribute.
+
+\paragraph{Summary.} The most common values in R computations are vectorized
+types. R programs do not have a way to constrain values to be scalar.
+\k{NULL} is sometimes used to represent the case when no value is
+available. \k{NA} is used within vector to represent missing observations.
+Attributes can decorate values and are used as building blocks for
+object-oriented programming. A potential type system for R could focus only
+on the builtin types, if one wanted to strive for simplicity, or it could
+try to capture attributes at the risk of increased complexity.
+
+%
+%
+%
+%
 \subsection{R-dyntrace}
 \label{sec:r-dyntrace}
 
-\AT{Worth talking a bit about the analysis framework?}
+\AT{Leaving this one for Aviral.}
 
+R-dyntrace is an efficient dynamic analysis framework for R.
+
+%
+%
+%
+%
 \subsection{The Corpus}
 
 \AT{This section needs to be tight.
@@ -235,6 +441,15 @@ We should convince them otherwise.}
 \AT{Some sentences that might be useful:}
 We selected packages that have both \AT{a good amount of} reverse dependencies to ensure their broad usefulness, as well \AT{sufficiently high} code and branch coverage of test, example, and vignette programs to ensure that our analysis built up an accurate picture of function use.
 
+%
+%
+\subsubsection{Cross-Validation Against Kaggle}
+
+Kaggle is a website offering an environment for hosting Jupyter notebooks, and importantly provides access to a large number of open-source data sets and R and Python code.
+This solved a major issue with R programs hosted on e.g. Github, where often the data is not made available.
+Our aim is to run R programs hosted on Kaggle to validate the type signatures we generated for popular R packages.
+
+\AT{Anything else to say on Kaggle, here? We will probably talk more about the corpus we analyzed later.}
 
 %
 %
@@ -328,7 +543,13 @@ In certain circumstances, such as when {\tt TYPEOF} indicates that a value is a 
 
 \subsection{Evaluation}
 
-\AT{Talk about Aviral's work on evaluation.}
+\AT{Talk about the evaluation.}
+
+\AT{Ok, so we haven't discussed the story for the results, so I'll just write some disjointed sections, discussing design decisions, and backing them up with the data.
+This should give us an idea of what we want to say, and we can decide how to organize everything once we have stuff written.
+Some of the things I'll be pulling from the data are: how many functions are higher-order? How many times are structs present? How many times do classes supercede other types?
+Basically, we want to use this section to turn the simplicity of our type system from a weakness into a strength. 
+The simplicity {\it is} a strength, we just need to make sure that's obvious to the reviewer.}
 
 \section{Type System Design}
 
@@ -379,8 +600,7 @@ We also have some related work in the old paper, I'll grab it and put it here.}
 
 
 %% Bibliography
-%\bibliography{bibfile}
-
+\bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 
 %% Appendix
 \appendix
