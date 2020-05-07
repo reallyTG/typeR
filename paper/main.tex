@@ -601,6 +601,8 @@ Our aim is to run R programs hosted on Kaggle to validate the type signatures we
 %
 \subsection{Initial Analysis}
 
+\AT{I'll revisit this section to adjust for the final details, as the analysis has changed since this was written.}
+
 %
 %
 \subsubsection{Overview}
@@ -768,6 +770,37 @@ The simplest way to include dimensions would be to explicitly specify the dimens
 %
 %
 \subsection{Lists}
+
+\AT{List rehash.}
+Separate from the vectorized primitives in R are lists:
+Whereas vectors are homogeneous and restricted to primitive types, lists can contain arbitrarily-typed data.
+R even builds on lists to create a more complex data structure known as the {\it data frame}, an essential data structure to R's functionality \AT{maybe too aggressively worded, but we can back this up with data, e.g. how many functions take data frames?}.
+
+\AT{Outline concerns for typing.}
+We are faced with several possible designs for list types.
+Chief concerns include the heterogeneity of list elements, and the presence of a \code{names} attribute, allowing list elements to be accessed in a struct-like manner.
+\AT{Rarely?}, programmers even write code expecting lists of a particular pre-defined length.
+The next sections highlight some important design decisions for our list types.
+
+\AT{Dig into concerns for typing.}
+
+%
+%
+\subsubsection{Forgoing Tuples, or Short, Constant Length Lists}
+
+We briefly entertained the possibility of including a \code{tuple} type, which would have looked like e.g. \code{tuple<int, int>} for a list of two integers.
+When configured to detect tuples, our analysis did indeed pick up \AT{a number}, but post-processing and simplification revealed that in \AT{many} cases, they would be subsumed by co-occurring \code{list} types.
+In other words, it just so happened that functions were being called with short lists.
+Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{tuples of different lengths}, implying that the shape of the argument was not essential.
+\AT{Wording...}
+
+%
+%
+\subsubsection{Forgoing Structs}
+
+%
+%
+\subsubsection{Forgoing Data Frames}
 
 %
 %
