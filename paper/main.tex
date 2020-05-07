@@ -431,23 +431,24 @@ R-dyntrace is an efficient dynamic analysis framework for R.
 
 \subsection{contractr}
 \label{sec:contractr}
-contractr is an R package that implements our type system for the R package
-ecosystem. It adds contracts to package functions for type-checking function
-arguments and results. On contract failure, it reports a warning message with
-the package name, function name, argument name and position, expected type
-(according to the type declaration), actual type (of the value observed), and a
-stack trace for the called function.
+\emph{contractr} is an R package that implements our type system for the R
+package ecosystem. It adds contracts to package functions for type-checking
+arguments and results on function calls. On contract failure, it reports a type
+mismatch warning with the package name, function name, argument name, argument
+position, expected type signature, actual type signature of the value observed,
+and a stack trace for the called function. \emph{contractr} works by modifying
+function definition to insert a call to the type-checking function. When the
+modified function is called, the type-checking function is invoked on the
+modified function's arguments and return value.
 
-contractr is implemented in 434 R LOC and 2358 C++ LOC. It has been designed and
-tested with GNU R-3.5.0 but it also works with recent R releases. The package
-has been hardened with a battery of 400 test cases and battle-tested with sanity
-checking for the 500 packages for which we generate type signatures and 12,000
-packages against which we evaluate them.
-
-contractr works by modifying function definitions to insert calls to our
-type-checking function. When the modified function is called, our type-checking
-function gets executed first.  The type-checker is invoked on each call to the
-function on all of its arguments and return value.
+\emph{contractr} is implemented in 434 R LOC and 2358 C++ LOC. The core
+implementation is in C++ to keep the runtime overhead low. It been designed and
+tested with GNU R-3.5.0 but it also works with recent versions of R. It has been
+hardened with a battery of 400 test cases. We have used it extensively during
+the course of this work; firstly, for sanity checking of XXX type signatures
+generated for the XXX packages during the development phase, and secondly, for
+assessing the quality of these type signatures on XXX packages during the
+evaluation phase.
 
 %
 %
