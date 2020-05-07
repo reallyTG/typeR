@@ -452,98 +452,105 @@ evaluation phase.
 
 %
 %
-\subsubsection{Challenges}
-There are two interesting challenges that need to be tackled to make this work
-reliably, without surprises for the end-users. Firstly, we need to correctly
-type-check arguments. R is a non-strict language~\cite{oopsla19};
-when a function is called, instead of getting values as arguments which can be
-immediately type-checked, we get unevaluated code thunks. We can force the
-evaluation of these thunks to obtain values for type-checking but that will not
-preserve the language's semantics. This will lead to incorrect results and
-surprises for the end-users. To preserve the original semantics, we modify the
-thunks to call our type-checker on the value obtained when they are forced,
-along with the context necessary to associate the thunk to the function and its
-parameter (for failure messages). This works, but with one wrinkle. GNU R has a
-bytecode compiler that can sometimes optimize away thunks, in those cases, we
-don't get thunks as arguments but values that can be immediately type-checked.
-However, we still can't type-check the value and issue failure messages because
-that would violate the semantics. Non-strict semantics require that any
-computation related to the argument happens on the first use of the argument. If
-this argument was never used, it would be incorrect to type-check it. To make
-this work correctly, we explicitly wrap the argument value in a thunk with a
-call to the type-checker as in the previous case.  Secondly, we need to
-correctly type-check function return values. In R, the result of function
-evaluation is the result of evaluating the last expression in its body; so a
-return call is absent from most function definitions. So there are many
-potential subexpressions which need to be type-checked aginst the return type.
-For this, we register our type-checker to be called on the return value in a
-function exit hook. This hook is executed in the function's environment after it
-has finished executing. While this works, we also have to contend with yet
-another wrinkle, R interpreter can perform longjumps in its C implementation,
-which causes R functions on the stack to be discarded. When they are discarded,
-their exit hooks are called, which in our case calls the type-checker. But,
-these functions are in the middle of an active computation, so they don't have a
-return value to type-check. We deal with this problem by allocating a unique
-object which serves as the return value for calls that are discarded. Our exit
-hook does not call the type-checker if this unique value happens to be the
-return value of the function.
+\subsubsection{Type Declarations}
+Type declarations can be made available to \emph{contractr} in three ways: as
+part of its internal database of types (which already has type signatures for
+our corpus of 500 packages), as part of a designated \emph{TYPEDECLARATION} file
+supplied by the package author and installed along with the package, or through
+a user-level API function insert\_contract that lets the user insert contract to
+a custom function with the type declaration provided as a string argument.
 
 %
 %
-\subsubsection{Type Declarations}
-Type declarations can be made available to contractr in three ways: as part of
-its internal database of types (which already has type signatures for our corpus
-of 500 packages), as part of a designated TYPEDECLARATION file supplied by the
-package author and installed along with the package, or through a user-level API
-function insert\_contract that lets the user insert contract to a custom
-function with the type declaration provided as a string argument.
+\subsubsection{Challenges}
+Retrofitting a robust and efficient type-system as an external package in R has
+been a significant undertaking. We had to contend with the complex design
+choices of R to make it work without surprises for the end-users. We describe
+two key challenges that we faced in the development of \emph{contractr}.
+Firstly, we faced the problem of type-checking arguments in a non-strict
+language while retaining the non-strict semantics. When a function is called in
+R, parameters are bound to unevaluated code thunks called
+promises~\cite{oopsla19}, instead of values which can be immediately
+type-checked. Naively forcing promises at function call to obtain a value for
+type-checking would violate the language semantics, leading to incorrect
+results. To preserve the original semantics, \emph{contractr} modifies the
+promise by wrapping the unevaluated promise expression in a call to its
+type-checker along with the context necessary to associate the promise to the
+function and its parameter (for failure messages). The contract checking happens
+when the promise is evaluated, either inside the function or many calls deep.
+This works, but with one wrinkle. GNU R has a bytecode compiler that can
+sometimes optimize away promises; in those cases, \emph{contractr} receives
+values that can be immediately type-checked. Non-strict semantics dictate that
+any computation related to the argument should happen on the first use of the
+argument. So type-checking at this point and issuing an error message would
+violate the non-strict semantics; if this argument is never used, it would be
+incorrect to type-check it at the beginning of call. To make this work,
+\emph{contractr} mutates the function parameter binding to a promise that wraps
+the argument value in a call to the type-checker, as in the previous case.
+Secondly, we faced the problem of type-checking function return value. In R, the
+result of a function call is the result of evaluating the last expression in the
+function body; so an explicit return call is absent from most function
+definitions. Thus, there could be many potential sub-expressions in the function
+body which need to be type-checked aginst the return type. To address this,
+\emph{contractr} registers the type-checker to be called on the return value
+through a function exit hook. This hook is executed in the function call's
+environment after it has executed. While this works, we have to contend with yet
+another wrinkle, R interpreter can perform longjumps in its C implementation,
+which causes active R function calls on the stack to be discarded. When they are
+discarded, their exit hooks are called, which in this case calls the registered
+type-checker. But, these functions are in the middle of an active computation,
+so they don't have a return value to type-check. \emph{contractr} deals with
+this problem by allocating a unique sentinel object which serves as the return
+value for calls that are discarded. The function call exit hook does not call
+the type-checker if this unique value happens to be the return value of the
+call.
 
 %
 %
 \subsubsection{Usability}
 Through this package, we intend to provide a clear path for the R developers to
 add types to untyped package code. Hence, we have paid a lot of attention to
-usability in its design.
-Firstly, the package enables type-checking for all packages with type
-signatures, automatically, on importing, offering a seamless and hassle-free
-experience for both package developers and end-users. A mere library(contractr)
-is enough to insert contracts, both, in packages pre-loaded in the user's
-workspace and in packages that will be loaded eventually. For this, contractr
-relies heavily on R's reflective and dynamic capabilities. Upon loading
-contractr scans all the pre-loaded packages in the user's workspace and inserts
-contracts in functions for which type signatures are available. For all other
-packages installed on user's machine but not yet loaded in the workspace,
-contractr sets up package load hooks. The hooks get executed when these packages
-get loaded and insert contracts to the package functions. The ensures that users
-do not fiddle manually with the contractr API to enable type-checking for
-packages loaded eventually. Furthermore, contractr automatically removes
-contracts from all the package functions and restores them to their original
-state when it is unloaded, an operation that is rarely performed but is
-possible, nonetheless.
-Secondly, we enable package authors to supply type declarations to contractr for
-their package functions, without requiring any modification to package code.
-This is accomplished by providing type declarations inside roxygen2 function
-comment blocks. roxygen2 is an R package that enables authors to add
-documentation to R functions in the form of organized plaintext sections which
-are automatically exported to R's latex style custom documentation format.
+usability in its design. Firstly, the package enables type-checking for all
+packages with type signatures, automatically, on importing, offering a seamless
+and hassle-free experience for both package developers and end-users. A mere
+library(\emph{contractr}) is enough to insert contracts, both, in packages
+pre-loaded in the user's workspace and in packages that will be loaded
+eventually. For this, \emph{contractr} relies heavily on R's reflective and
+dynamic capabilities. Upon loading \emph{contractr} scans all the pre-loaded
+packages in the user's workspace and inserts contracts in functions for which
+type signatures are available. For all other packages installed on user's
+machine but not yet loaded in the workspace, contractr sets up package load
+hooks. The hooks get executed when these packages get loaded and insert
+contracts to the package functions. The ensures that users do not fiddle
+manually with the \emph{contractr} API to enable type-checking for packages
+loaded eventually. Furthermore, \emph{contractr} automatically removes contracts
+from all the package functions and restores them to their original state when it
+is unloaded, an operation that is rarely performed but is possible, nonetheless.
+Secondly, we enable package authors to supply type declarations to
+\emph{contractr} for their package functions, without requiring any modification
+to package code. This is accomplished by providing type declarations inside
+roxygen2 function comment blocks. roxygen2 is an R package that enables authors
+to add documentation to R functions in the form of organized plaintext sections
+which are automatically exported to R's latex style custom documentation format.
 roxygen2 is used by … R packages in CRAN. It also provides an extension API for
 processing metadata in custom documentation tag sections. A package can register
 a method to be called when this tag is encountered. The metadata for that tag
 section is made available to the registrant before package build and
-installation steps. contractr uses this API to implement a @type tag. Our
+installation steps. \emph{contractr} uses this API to implement a @type tag. Our
 roxygen2 hook extracts type declarations from these sections from all the
 documented functions of the package and stores then in a TYPEDECLARATION file
 inside the package folder. This files is copied as is on package installation
-and automatically picked up contractr when the two packges are loaded.
-Here is an example of how a roxygen code block looks like with our type declaration:
+and automatically picked up \emph{contractr} when the two packges are loaded.
+Here is an example of how a roxygen code block looks like with our type
+declaration:
 
 
 This technique enables the function and its type signature to coexist next to
 each other, where they are more likely to remain synchronized. It also enables
-package authors to use our type system without modifying their code.
-Thirdly, we provide a very expressive API and package switches to the users,
-covering a variety of uses cases. During development, developers can explicitly
-insert contracts by supplying the type declaration as a string argument to the
+package authors to use our type system without modifying their code. Thirdly, we
+provide a very expressive API and package switches to the users, covering a
+variety of uses cases. During development, developers can explicitly insert
+contracts by supplying the type declaration as a string argument to the
 insert\_contract API function. Contracts can be removed by calling
 remove\_contract on a function. Contracts can be selectively enabled or disabled
 for code blocks by wrapping them in calls to ignore\_contracts and
@@ -552,10 +559,10 @@ type check sections of code. Furthermore, these functions return a data frame
 that contains all the information about failed and successful contract
 assertions in the wrapped code blocks. Multiple type-checking failures can
 introduce a lot of noise in the program output. To alleviate this problem, users
-can set a flag, contractr.severity, to “silence” which suppresses the failure
-messages. The contract assertions can then be obtained as a data frame through a
-call to get\_contracts at any program point. Setting this flag to “error” will
-turn the type-checking failure warnings to errors.
+can set a flag, \emph{contractr}.severity, to “silence” which suppresses the
+failure messages. The contract assertions can then be obtained as a data frame
+through a call to get\_contracts at any program point. Setting this flag to
+“error” will turn the type-checking failure warnings to errors.
 
 %
 %
