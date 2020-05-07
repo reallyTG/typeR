@@ -431,21 +431,130 @@ R-dyntrace is an efficient dynamic analysis framework for R.
 
 \subsection{contractr}
 \label{sec:contractr}
-contractr is an R package that implements our type system for the R package ecosystem. It adds contracts to package functions for type-checking function arguments and results. On contract failure, it reports a warning message with the package name, function name, argument name and position, expected type (according to the type declaration), actual type (of the value observed), and a stack trace for the called function. 
+contractr is an R package that implements our type system for the R package
+ecosystem. It adds contracts to package functions for type-checking function
+arguments and results. On contract failure, it reports a warning message with
+the package name, function name, argument name and position, expected type
+(according to the type declaration), actual type (of the value observed), and a
+stack trace for the called function.
 
-contractr is implemented in 434 R LOC and 2358 C++ LOC. It has been designed and tested with GNU R-3.5.0 but it also works with recent R releases. The package has been hardened with a battery of 400 test cases and battle-tested with sanity checking for the 500 packages for which we generate type signatures and 12,000 packages against which we evaluate them.
+contractr is implemented in 434 R LOC and 2358 C++ LOC. It has been designed and
+tested with GNU R-3.5.0 but it also works with recent R releases. The package
+has been hardened with a battery of 400 test cases and battle-tested with sanity
+checking for the 500 packages for which we generate type signatures and 12,000
+packages against which we evaluate them.
 
-contractr works by modifying function definitions to insert calls to our type-checking function. When the modified function is called, our type-checking function gets executed first.  The type-checker is invoked on each call to the function on all of its arguments and return value. There are two interesting challenges that need to be tackled to make this work reliably, without surprises for the end-users. Firstly, we need to correctly type-check arguments. R is a non-strict language (citation to my lazy paper); when a function is called, instead of getting values as arguments which can be immediately type-checked, we get unevaluated code thunks. We can force the evaluation of these thunks to obtain values for type-checking but that will not preserve the language’s semantics. This will lead to incorrect results and surprises for the end-users. To preserve the original semantics, we modify the thunks to call our type-checker on the value obtained when they are forced, along with the context necessary to associate the thunk to the function and its parameter (for failure messages). This works, but with one wrinkle. GNU R has a bytecode compiler that can sometimes optimize away thunks, in those cases, we don’t get thunks as arguments but values that can be immediately type-checked. However, we still can’t type-check the value and issue failure messages because that would violate the semantics. Non-strict semantics require that any computation related to the argument happens on the first use of the argument. If this argument was never used, it would be incorrect to type-check it. To make this work correctly, we explicitly wrap the argument value in a thunk with a call to the type-checker as in the previous case.  Secondly, we need to correctly type-check function return values. In R, the result of function evaluation is the result of evaluating the last expression in its body; so a return call is absent from most function definitions. So there are many potential subexpressions which need to be type-checked aginst the return type. For this, we register our type-checker to be called on the return value in a function exit hook. This hook is executed in the function’s environment after it has finished executing. While this works, we also have to contend with yet another wrinkle, R interpreter can perform longjumps in its C implementation, which causes R functions on the stack to be discarded. When they are discarded, their exit hooks are called, which in our case calls the type-checker. But, these functions are in the middle of an active computation, so they don’t have a return value to type-check. We deal with this problem by allocating a unique object which serves as the return value for calls that are discarded. Our exit hook does not call the type-checker if this unique value happens to be the return value of the function.
+contractr works by modifying function definitions to insert calls to our
+type-checking function. When the modified function is called, our type-checking
+function gets executed first.  The type-checker is invoked on each call to the
+function on all of its arguments and return value.
 
-Type declarations can be made available to contractr in three ways: as part of its internal database of types (which already has type signatures for our corpus of 500 packages), as part of a designated TYPEDECLARATION file supplied by the package author and installed along with the package, or through a user-level API function insert\_contract that lets the user insert contract to a custom function with the type declaration provided as a string argument.
-Through this package, we intend to provide a clear path for the R developers to add types to untyped package code. Hence, we have paid a lot of attention to usability in its design. 
-Firstly, the package enables type-checking for all packages with type signatures, automatically, on importing, offering a seamless and hassle-free experience for both package developers and end-users. A mere library(contractr) is enough to insert contracts, both, in packages pre-loaded in the user’s workspace and in packages that will be loaded eventually. For this, contractr relies heavily on R’s reflective and dynamic capabilities. Upon loading contractr scans all the pre-loaded packages in the user’s workspace and inserts contracts in functions for which type signatures are available. For all other packages installed on user’s machine but not yet loaded in the workspace, contractr sets up package load hooks. The hooks get executed when these packages get loaded and insert contracts to the package functions. The ensures that users do not fiddle manually with the contractr API to enable type-checking for packages loaded eventually. Furthermore, contractr automatically removes contracts from all the package functions and restores them to their original state when it is unloaded, an operation that is rarely performed but is possible, nonetheless.
-Secondly, we enable package authors to supply type declarations to contractr for their package functions, without requiring any modification to package code. This is accomplished by providing type declarations inside roxygen2 function comment blocks. roxygen2 is an R package that enables authors to add documentation to R functions in the form of organized plaintext sections which are automatically exported to R’s latex style custom documentation format. roxygen2 is used by … R packages in CRAN. It also provides an extension API for processing metadata in custom documentation tag sections. A package can register a method to be called when this tag is encountered. The metadata for that tag section is made available to the registrant before package build and installation steps. contractr uses this API to implement a @type tag. Our roxygen2 hook extracts type declarations from these sections from all the documented functions of the package and stores then in a TYPEDECLARATION file inside the package folder. This files is copied as is on package installation and automatically picked up contractr when the two packges are loaded.
+%
+%
+\subsubsection{Challenges}
+There are two interesting challenges that need to be tackled to make this work
+reliably, without surprises for the end-users. Firstly, we need to correctly
+type-check arguments. R is a non-strict language~\cite{oopsla19};
+when a function is called, instead of getting values as arguments which can be
+immediately type-checked, we get unevaluated code thunks. We can force the
+evaluation of these thunks to obtain values for type-checking but that will not
+preserve the language’s semantics. This will lead to incorrect results and
+surprises for the end-users. To preserve the original semantics, we modify the
+thunks to call our type-checker on the value obtained when they are forced,
+along with the context necessary to associate the thunk to the function and its
+parameter (for failure messages). This works, but with one wrinkle. GNU R has a
+bytecode compiler that can sometimes optimize away thunks, in those cases, we
+don’t get thunks as arguments but values that can be immediately type-checked.
+However, we still can’t type-check the value and issue failure messages because
+that would violate the semantics. Non-strict semantics require that any
+computation related to the argument happens on the first use of the argument. If
+this argument was never used, it would be incorrect to type-check it. To make
+this work correctly, we explicitly wrap the argument value in a thunk with a
+call to the type-checker as in the previous case.  Secondly, we need to
+correctly type-check function return values. In R, the result of function
+evaluation is the result of evaluating the last expression in its body; so a
+return call is absent from most function definitions. So there are many
+potential subexpressions which need to be type-checked aginst the return type.
+For this, we register our type-checker to be called on the return value in a
+function exit hook. This hook is executed in the function’s environment after it
+has finished executing. While this works, we also have to contend with yet
+another wrinkle, R interpreter can perform longjumps in its C implementation,
+which causes R functions on the stack to be discarded. When they are discarded,
+their exit hooks are called, which in our case calls the type-checker. But,
+these functions are in the middle of an active computation, so they don’t have a
+return value to type-check. We deal with this problem by allocating a unique
+object which serves as the return value for calls that are discarded. Our exit
+hook does not call the type-checker if this unique value happens to be the
+return value of the function.
+
+%
+%
+\subsubsection{Type Declarations}
+Type declarations can be made available to contractr in three ways: as part of
+its internal database of types (which already has type signatures for our corpus
+of 500 packages), as part of a designated TYPEDECLARATION file supplied by the
+package author and installed along with the package, or through a user-level API
+function insert\_contract that lets the user insert contract to a custom
+function with the type declaration provided as a string argument.
+
+%
+%
+\subsubsection{Usability}
+Through this package, we intend to provide a clear path for the R developers to
+add types to untyped package code. Hence, we have paid a lot of attention to
+usability in its design.
+Firstly, the package enables type-checking for all packages with type
+signatures, automatically, on importing, offering a seamless and hassle-free
+experience for both package developers and end-users. A mere library(contractr)
+is enough to insert contracts, both, in packages pre-loaded in the user’s
+workspace and in packages that will be loaded eventually. For this, contractr
+relies heavily on R’s reflective and dynamic capabilities. Upon loading
+contractr scans all the pre-loaded packages in the user’s workspace and inserts
+contracts in functions for which type signatures are available. For all other
+packages installed on user’s machine but not yet loaded in the workspace,
+contractr sets up package load hooks. The hooks get executed when these packages
+get loaded and insert contracts to the package functions. The ensures that users
+do not fiddle manually with the contractr API to enable type-checking for
+packages loaded eventually. Furthermore, contractr automatically removes
+contracts from all the package functions and restores them to their original
+state when it is unloaded, an operation that is rarely performed but is
+possible, nonetheless.
+Secondly, we enable package authors to supply type declarations to contractr for
+their package functions, without requiring any modification to package code.
+This is accomplished by providing type declarations inside roxygen2 function
+comment blocks. roxygen2 is an R package that enables authors to add
+documentation to R functions in the form of organized plaintext sections which
+are automatically exported to R’s latex style custom documentation format.
+roxygen2 is used by … R packages in CRAN. It also provides an extension API for
+processing metadata in custom documentation tag sections. A package can register
+a method to be called when this tag is encountered. The metadata for that tag
+section is made available to the registrant before package build and
+installation steps. contractr uses this API to implement a @type tag. Our
+roxygen2 hook extracts type declarations from these sections from all the
+documented functions of the package and stores then in a TYPEDECLARATION file
+inside the package folder. This files is copied as is on package installation
+and automatically picked up contractr when the two packges are loaded.
 Here is an example of how a roxygen code block looks like with our type declaration:
 
 
-This technique enables the function and its type signature to coexist next to each other, where they are more likely to remain synchronized. It also enables package authors to use our type system without modifying their code.
-Thirdly, we provide a very expressive API and package switches to the users, covering a variety of uses cases. During development, developers can explicitly insert contracts by supplying the type declaration as a string argument to the insert\_contract API function. Contracts can be removed by calling remove\_contract on a function. Contracts can be selectively enabled or disabled for code blocks by wrapping them in calls to ignore\_contracts and capture\_contracts functions. This enables developers and users to selectively type check sections of code. Furthermore, these functions return a data frame that contains all the information about failed and successful contract assertions in the wrapped code blocks. Multiple type-checking failures can introduce a lot of noise in the program output. To alleviate this problem, users can set a flag, contractr.severity, to “silence” which suppresses the failure messages. The contract assertions can then be obtained as a data frame through a call to get\_contracts at any program point. Setting this flag to “error” will turn the type-checking failure warnings to errors. 
+This technique enables the function and its type signature to coexist next to
+each other, where they are more likely to remain synchronized. It also enables
+package authors to use our type system without modifying their code.
+Thirdly, we provide a very expressive API and package switches to the users,
+covering a variety of uses cases. During development, developers can explicitly
+insert contracts by supplying the type declaration as a string argument to the
+insert\_contract API function. Contracts can be removed by calling
+remove\_contract on a function. Contracts can be selectively enabled or disabled
+for code blocks by wrapping them in calls to ignore\_contracts and
+capture\_contracts functions. This enables developers and users to selectively
+type check sections of code. Furthermore, these functions return a data frame
+that contains all the information about failed and successful contract
+assertions in the wrapped code blocks. Multiple type-checking failures can
+introduce a lot of noise in the program output. To alleviate this problem, users
+can set a flag, contractr.severity, to “silence” which suppresses the failure
+messages. The contract assertions can then be obtained as a data frame through a
+call to get\_contracts at any program point. Setting this flag to “error” will
+turn the type-checking failure warnings to errors.
 
 %
 %
@@ -489,7 +598,7 @@ Our aim is to run R programs hosted on Kaggle to validate the type signatures we
 \subsubsection{Overview}
 
 In order to ensure that our type system design aligns with the day-to-day usage of R, we performed a corpus analysis of some of the most widely used R packages.
-We built our dynamic analysis in the R-dyntrace \AT{cite something?} dynamic analysis framework, which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on R-dyntrace.
+We built our dynamic analysis in the R-dyntrace~\cite{oopsla19} dynamic analysis framework, which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on R-dyntrace.
 
 The general idea of the analysis is to intercept calls to functions, builtins, and specials, and collect information on function arguments and returns.
 The nature of R is such that all function arguments are wrapped in promises which are only evaluated when the value is actually used.
