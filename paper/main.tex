@@ -459,14 +459,14 @@ type-check arguments. R is a non-strict language~\cite{oopsla19};
 when a function is called, instead of getting values as arguments which can be
 immediately type-checked, we get unevaluated code thunks. We can force the
 evaluation of these thunks to obtain values for type-checking but that will not
-preserve the language’s semantics. This will lead to incorrect results and
+preserve the language's semantics. This will lead to incorrect results and
 surprises for the end-users. To preserve the original semantics, we modify the
 thunks to call our type-checker on the value obtained when they are forced,
 along with the context necessary to associate the thunk to the function and its
 parameter (for failure messages). This works, but with one wrinkle. GNU R has a
 bytecode compiler that can sometimes optimize away thunks, in those cases, we
-don’t get thunks as arguments but values that can be immediately type-checked.
-However, we still can’t type-check the value and issue failure messages because
+don't get thunks as arguments but values that can be immediately type-checked.
+However, we still can't type-check the value and issue failure messages because
 that would violate the semantics. Non-strict semantics require that any
 computation related to the argument happens on the first use of the argument. If
 this argument was never used, it would be incorrect to type-check it. To make
@@ -477,12 +477,12 @@ evaluation is the result of evaluating the last expression in its body; so a
 return call is absent from most function definitions. So there are many
 potential subexpressions which need to be type-checked aginst the return type.
 For this, we register our type-checker to be called on the return value in a
-function exit hook. This hook is executed in the function’s environment after it
+function exit hook. This hook is executed in the function's environment after it
 has finished executing. While this works, we also have to contend with yet
 another wrinkle, R interpreter can perform longjumps in its C implementation,
 which causes R functions on the stack to be discarded. When they are discarded,
 their exit hooks are called, which in our case calls the type-checker. But,
-these functions are in the middle of an active computation, so they don’t have a
+these functions are in the middle of an active computation, so they don't have a
 return value to type-check. We deal with this problem by allocating a unique
 object which serves as the return value for calls that are discarded. Our exit
 hook does not call the type-checker if this unique value happens to be the
@@ -507,12 +507,12 @@ usability in its design.
 Firstly, the package enables type-checking for all packages with type
 signatures, automatically, on importing, offering a seamless and hassle-free
 experience for both package developers and end-users. A mere library(contractr)
-is enough to insert contracts, both, in packages pre-loaded in the user’s
+is enough to insert contracts, both, in packages pre-loaded in the user's
 workspace and in packages that will be loaded eventually. For this, contractr
-relies heavily on R’s reflective and dynamic capabilities. Upon loading
-contractr scans all the pre-loaded packages in the user’s workspace and inserts
+relies heavily on R's reflective and dynamic capabilities. Upon loading
+contractr scans all the pre-loaded packages in the user's workspace and inserts
 contracts in functions for which type signatures are available. For all other
-packages installed on user’s machine but not yet loaded in the workspace,
+packages installed on user's machine but not yet loaded in the workspace,
 contractr sets up package load hooks. The hooks get executed when these packages
 get loaded and insert contracts to the package functions. The ensures that users
 do not fiddle manually with the contractr API to enable type-checking for
@@ -525,7 +525,7 @@ their package functions, without requiring any modification to package code.
 This is accomplished by providing type declarations inside roxygen2 function
 comment blocks. roxygen2 is an R package that enables authors to add
 documentation to R functions in the form of organized plaintext sections which
-are automatically exported to R’s latex style custom documentation format.
+are automatically exported to R's latex style custom documentation format.
 roxygen2 is used by … R packages in CRAN. It also provides an extension API for
 processing metadata in custom documentation tag sections. A package can register
 a method to be called when this tag is encountered. The metadata for that tag
