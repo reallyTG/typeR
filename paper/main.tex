@@ -432,6 +432,9 @@ R-dyntrace is an efficient dynamic analysis framework for R.
 
 \subsection{contractr}
 \label{sec:contractr}
+
+\AT{I think we should move this to the Methodology section, which we should maybe rename to implementation. Thoughts?}
+
 \contractr is an R package that implements our type system for the R
 package ecosystem. It adds contracts to package functions for type-checking
 arguments and results on function calls. On contract failure, it reports a type
@@ -592,6 +595,7 @@ that make this even harder.
 %
 %
 \subsection{The Corpus}
+\label{sec:corpus}
 
 \AT{This section needs to be tight.
 Reviewers were skeptical of CRAN and using the test and example code.
@@ -631,6 +635,7 @@ Our aim is to run R programs hosted on Kaggle to validate the type signatures we
 \subsubsection{Overview}
 
 In order to ensure that our type system design aligns with the day-to-day usage of R, we performed a corpus analysis of some of the most widely used R packages.
+The corpus is discussed in detail in Section~\ref{sec:corpus}.
 We built our dynamic analysis in the R-dyntrace~\cite{oopsla19} dynamic analysis framework, which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on R-dyntrace.
 
 The general idea of the analysis is to intercept calls to functions, builtins, and specials, and collect information on function arguments and returns.
