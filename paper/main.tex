@@ -821,9 +821,57 @@ Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{t
 %
 \subsubsection{Forgoing Structs}
 
+Another pattern that we observed was the use of consistently-named lists.
+In R, ``fields'' of named lists can be accessed using the \code{$} operator, such as:
+\begin{lstlisting}
+p <- list(x=1, y=2)
+p$x + p$y
+\end{lstlisting}
+We thought to capture this type of behaviour with a {\it struct} type, such as \code{struct<x: integer, y: integer>}.
+Initial analyses suggested that structs were very common, but further inspection revealed that they failed to tell the full story.
+For instance, \AT{many} structs were merely representing list-typed values with a {\it class}, and we could capture these types more succinctly with a class-based type.
+Further, it is common in R example code to use some built-in data sets, such as \AT{mention some}.
+These caused undue noise, as even with our struct name unification strategy, poorly tested functions appeared to operate on e.g. \AT{funny struct type from the previous data set}.
+Ultimately, we found that sticking to list types and adding a class-based was the wisest course of action.
+We will discuss class types shortly.
+
 %
 %
 \subsubsection{Forgoing Data Frames}
+
+Speaking of classes, an important classful value in R is the data frame.
+Data frames underpin nearly all idiomatic use of the language, and even popular \code{tibble} (from the \code{tidyverse} ecosystem) and \code{data.table} (from the \code{data.table} package) build on the essential type.
+We entertained the possibility of including data frame types, but \AT{found them to be clunky? Question mark?}
+Consider: \AT{example of why data.frame types would be bad atm.}
+
+Data frames do have a type, through the \code{class<data.frame>} type, and future work will expand on this type, discussed further in Section~\ref{sec:futurework}.
+
+%
+%
+%
+%
+\subsection{Classes in R}
+
+\AT{Fill in.}
+
+%
+%
+\subsubsection{Class Types}
+
+\AT{We have classes.}
+
+%
+%
+\subsubsection{Multi-Classes}
+
+\AT{We support multiple classes on values.}
+
+%
+%
+\subsubsection{Forgoing R's Object Systems}
+
+\AT{Roughly: too complicated. We have rudimentary class types for S3, and an S4 type for S4.
+Future work will explore further.}
 
 %
 %
@@ -832,26 +880,50 @@ Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{t
 %
 %
 \section{Evaluation Results}
+\label{sec:evaluation}
 
 \AT{The decisions we made when coming up with the types will be validated in the last section.
 This section is for determining how effective the type system is.
 We have two evaluation strategies currently: comparing against reverse dependencies, and comparing against the Kaggle programs.}
 
+%
+%
+%
+%
+%
+%
 \section{Related Work}
+\label{sec:relatedwork}
 
 \AT{Good to mention the related projects, e.g. how this was undertaken in other languages, like Ruby.
 There's a lot of literature in that space I think, I've read some of it but not all.
 We also have some related work in the old paper, I'll grab it and put it here.}
 
+%
+%
+%
+%
+%
+%
 \section{Conclusion}
 
 \ldots
 
+%
+%
+%
+%
 \subsection{Threats to Validity}
+\label{sec:threatstovalidity}
 
 \ldots
 
+%
+%
+%
+%
 \subsection{Future Work}
+\label{sec:futurework}
 
 \ldots
 
