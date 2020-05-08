@@ -1,0 +1,136 @@
+---
+title: "Data and Validation"
+output: html_notebook
+---
+
+Setup (this grabs Alexi's data analysis script. Ask him to move it if you're gonna use the notebook.)
+
+```{r setup}
+source("/mnt/home/pldi/scripts/support_scripts/data_analysis_lib.R")
+```
+
+Load the data.
+
+```{r}
+# df <- read_csv("/mnt/arraySSD/alexi/2020_03_14_candidate_reduced_20_simpl/all.csv")
+df <- read_csv("/mnt/arraySSD/alexi/2020_03_14_candidate_reduced_20_simpl/all_twelfth.csv")
+```
+
+Now, onto the validation.
+For this section, I'll include the queries that were used to validate the decisions we made when designing the type system.
+The end goal will be to generate some latex to be included by the paper which should have the numbers, that way the paper is totally reproducible.
+First, we get the data frame which counts instances of types.
+
+```{r}
+df_c <- df %>% quick_get_type_counts_with_row_nums
+df_c <- df_c %>% ungroup
+```
+
+Let's start by breaking down the counts for tuples, lists, and structs.
+
+```{r}
+num_lists <- df_c %>% filter(substr(type, 1, 4) == "list") %>% select(count) %>% sum
+# We don't have tuples per se, actually.
+# num_tuples <- df_c %>% filter(substr(type, 1, 5) == "tuple") %>% select(count) %>% sum
+# Data frames?
+num_data_frame <- df_c %>% filter(substr(type, 1, 4) == "data") %>% select(count) %>% sum
+num_structs <- df_c %>% filter(substr(type, 1, 6) == "struct") %>% select(count) %>% sum
+
+total_listy <- num_lists + num_data_frame + num_structs
+
+summary_listy <- data.frame(type = c("list", "data.frame", "struct"), count = c(num_lists, num_data_frame, num_structs), percentage = round(c(num_lists, num_data_frame, num_structs) / total_listy * 100, 2))
+
+summary_listy
+```
+
+The above counts treat data.frames and structs differently, though they should be the same.
+We also don't do tuples, they don't seem particularly relevant.
+
+Let's grab counts for usage of scalar-variants of primitive types.
+
+```{r}
+df_c_just_primitives <- df_c %>% filter(substr(type, 1, 5) %in% substr(PRIM_TYPES, 1, 5))
+
+num_scalars_no_names <- df_c_just_primitives %>% filter(type %in% paste0(PRIM_TYPES, "@NA-free")) %>% select(count) %>% sum
+num_scalars_names <- df_c_just_primitives %>% from_counts_df_extract_dim_and_names %>% filter(num_names == 1) %>% select(count) %>% sum
+num_vec_no_names <- df_c_just_primitives %>% filter(type %in% paste0(PRIM_TYPES, "[]") | type %in% paste0(PRIM_TYPES, "[]@NA-free")) %>% select(count) %>% sum
+num_mat <- df_c_just_primitives %>% filter(type %in% paste0(PRIM_TYPES, "[,]") | type %in% paste0(PRIM_TYPES, "[,]@NA-free")) %>% select(count) %>% sum
+num_vec_names <- df_c_just_primitives %>% from_counts_df_extract_dim_and_names %>% filter(num_names > 1) %>% select(count) %>% sum
+
+total_prims <- df_c_just_primitives %>% select(count) %>% sum
+
+summary_primitives <- data.frame(type = c("nameless scalar", "named scalar", "nameless vector", "named vector", "matrices"), count = c(num_scalars_no_names, num_scalars_names, num_vec_no_names, num_vec_names, num_mat), percentage = round( c(num_scalars_no_names, num_scalars_names, num_vec_no_names, num_vec_names, num_mat) / total_prims * 100, 2)) %>% as_tibble
+
+summary_primitives
+```
+
+TODO: Look into why the percentages don't add up to 1. Maybe we missed something?
+
+Next, let's try for ...
+
+...
+
+We can also synthesize type signatures from the data.
+Let's try it:
+
+First, an abstraction:
+
+```{r}
+get_fun_types_for_package <- function(df, pkg) {
+  # First, filter out for a particular package.
+  df_p <- df %>% filter(package == pkg)
+  
+  # What are the function names?
+  p_fun_names <- df_p %>% select(fun_name) %>% unique %>% unlist %>% unname
+  p_fun_names <- p_fun_names[!is.na(p_fun_names)]
+  
+  cat("p_fun_names: ")
+  cat(p_fun_names, collapse=" ")
+  cat("\n")
+  
+  # Let's build a type for each of these.
+  names(p_fun_names) <- p_fun_names
+  map(p_fun_names, function(x) {
+    cat("processing ", x, "...\n");
+    fn_id <- df_p %>% filter(fun_name == x) %>% select(fun_id) %>% unique %>% unlist %>% unname
+    paste0(fn_id, ": ", get_type_of_function(df_p, pkg, x))
+  })
+}
+```
+
+Do it for some packages.
+These are long-running, we split up the computation.
+
+For dplyr:
+
+```{r}
+dplyr_types <- get_fun_types_for_package(df, "dplyr")
+```
+
+For the abind package:
+
+```{r}
+abind_types <- get_fun_types_for_package(df, "abind")
+```
+
+For the alluvial package:
+
+```{r}
+alluvial_types <- get_fun_types_for_package(df, "alluvial")
+```
+
+For the bayesplot package:
+
+```{r}
+bayesplot_types <- get_fun_types_for_package(df, "bayesplot")
+```
+
+```{r}
+# Don't run this.
+base_types <- get_fun_types_for_package(df, "base")
+```
+
+
+
+
+

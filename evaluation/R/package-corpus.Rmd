@@ -1,0 +1,565 @@
+---
+title: "Package corpus"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+params:
+  min_revdeps: 5
+  min_coverage: .65
+  which_dependencies:
+    - Depends
+    - Imports
+---
+
+```{r setup, include=FALSE}
+library(cranlogs)
+library(DT)
+library(fs)
+library(lubridate)
+library(purrr)
+library(tidyverse)
+library(tools)
+library(withr)
+
+knitr::opts_chunk$set(echo = TRUE)
+
+source("inc/paths.R")
+source("inc/setup.R")
+source("inc/latextags.R")
+
+options(repos=CRAN_LOCAL_MIRROR)
+
+create_tags(path(TAGS_DIR, "package-corpus.tex"), prefix="PC", default=TRUE)
+```
+
+## Loading data
+
+### CRAN
+
+We start with all CRAN packages that we have mirrored locally using rsync.
+
+```{r cran packages}
+pkgs_cran_raw <- available.packages(contriburl = str_c("file://", path(CRAN_MIRROR_DIR, "src", "contrib")))
+pkgs_cran <- tibble(package=pkgs_cran_raw[,1])
+```
+
+### Installed packages
+
+We tried to instal all of the `r fmt(nrow(pkgs_cran))` these packages.
+Some packages failed to install, in most cases this is because of missing native dependencies.
+
+```{r find install packages}
+pkgs_installed_raw <- installed.packages(LIB_DIR)
+pkgs_installed <- tibble(package=pkgs_installed_raw[,1])
+```
+
+### Loadable packages
+
+We managed to install `r fmt(nrow(pkgs_installed))` packages.
+Next is to chech how many of the installed packages can actually be loaded.
+We do that by running the `package-load.R` task:
+
+```
+./rapr/inst/on-each-package.sh ./rapr/inst/tasks/package-load.R 
+env-rscript ./rapr/inst/process-csv-result.R run/package-load
+```
+
+This changes wether a package can be loaded using `library(package)` call.
+
+```{r loadable packages}
+pkgs_loadable <- 
+  read_parallel_run_csv(PACKAGE_LOAD_RUN) %>%
+  filter(exitval==0) %>%
+  rename(package=job)
+```
+
+### Package metadata
+
+Next we pull in some package metadata.
+
+```{r load package sloc}
+pkgs_sloc_raw <- 
+  read_csv(
+    PACKAGE_SLOC,
+    col_types=cols(
+      package = col_character(),
+      path = col_character(),
+      files = col_double(),
+      language = col_character(),
+      blank = col_double(),
+      comment = col_double(),
+      code = col_double()
+    )
+  )
+
+pkgs_sloc <- 
+  pkgs_sloc_raw %>%
+  filter(endsWith(path, "/R") | endsWith(path, "/src")) %>%
+  select(-blank, -comment, -files, -path) %>%
+  mutate(language=case_when(
+    language == "R" ~ "package_r_code",
+    language == "C" ~ "package_native_code",
+    language == "C/C++ Header" ~ "package_native_code",
+    language == "C++" ~ "package_native_code",
+    startsWith(language, "Fortran") ~ "package_native_code",
+    TRUE ~ as.character(NA)
+  )) %>%
+  filter(!is.na(language)) %>%
+  group_by(package, language) %>%
+  summarise(code=sum(code)) %>%
+  spread(key=language, value=code, fill=0) %>%
+  mutate(package_code=package_native_code + package_r_code)
+```
+
+### Package runnable code
+
+Next to the code itself, R packages have examples, tests and vignettes.
+These can include snippets of R code which calls the package functions.
+We extract this code and run it to narrow down the list of packages that can be considered into the final corpus.
+
+```{r runnable code metadata}
+pkgs_runnable_code_raw <- 
+  read_csv(
+    PACKAGE_RUNNABLE_CODE_METADATA,
+    col_types=cols(
+      package = col_character(),
+      path = col_character(),
+      files = col_double(),
+      language = col_character(),
+      blank = col_double(),
+      comment = col_double(),
+      code = col_double()
+    )
+  )
+
+pkgs_runnable_code <- 
+  pkgs_runnable_code_raw %>%
+  filter(language=="R") %>%
+  select(package, path, code, files) %>%
+  pivot_wider(
+    names_from=path, 
+    values_from=c(code, files), 
+    values_fill=list(code=0, files=0)
+  ) %>%
+  # we have old version of tidyr, names_glue is missing, so have to rename manually
+  rename(
+    runnable_code_examples=code_examples,
+    runnable_code_tests=code_tests,
+    runnable_code_vignettes=code_vignettes,
+    runnable_files_examples=files_examples,
+    runnable_files_tests=files_tests,
+    runnable_files_vignettes=files_vignettes,
+  ) %>%
+  mutate(
+    runnable_code=runnable_code_examples+runnable_code_tests+runnable_code_vignettes,
+    runnable_files=runnable_files_examples+runnable_files_tests+runnable_files_vignettes
+  ) %>%
+  select(
+    package,
+    runnable_code,
+    runnable_files,
+    everything()
+  )
+```
+
+### Package coverage
+
+```{r load coverage data}
+pkgs_coverage <- 
+  read_csv(
+    PACKAGE_COVERAGE,
+    col_types=cols(
+      package = col_character(),
+      type = col_character(),
+      coverage_expression = col_double(),
+      coverage_line = col_double(),
+      error = col_logical()
+    )
+  ) %>%
+  filter(type=="all", is.na(error), !is.na(coverage_expression)) %>% 
+  select(-type, -error, coverage_expr=coverage_expression) %>%
+  mutate(coverage_expr=coverage_expr/100, coverage_line=coverage_line/100)
+```
+
+### Package runs
+
+```{r package runs}
+pkgs_runs_raw <-
+  read_csv(
+    PACKAGE_RUN,
+    col_types=cols(
+      package = col_character(),
+      file = col_character(),
+      type = col_character(),
+      time = col_double(),
+      error = col_character(),
+      output = col_character()
+    )
+  )
+pkgs_runs <-
+  pkgs_runs_raw %>%
+  group_by(package) %>%
+  summarise(runnable_success=sum(is.na(error)), runnable_error=sum(!is.na(error)), runnable_time=sum(time, na.rm=TRUE)) %>%
+  mutate(runnable_rate=runnable_success/(runnable_success+runnable_error))
+```
+
+### Package functions
+
+```{r load functions}
+pkgs_functions <- 
+  read_csv(
+    PACKAGE_FUNCTIONS,
+    col_types=cols(
+      package = col_character(),
+      fun = col_character(),
+      num_params = col_double(),
+      has_elipsis = col_logical(),
+      exported = col_logical()
+    )
+  ) %>%
+  count(package, exported) %>%
+  mutate(type=ifelse(exported, "funs_public", "funs_private")) %>%
+  select(-exported) %>%
+  spread(key=type, value=n, fill=0) %>%
+  mutate(funs=funs_public+funs_private)
+```
+
+### Package reverse dependencies
+
+There are two functions `package_dependencies` and `dependsOnPkgs`.
+Not sure what is the difference, but the `dependsOnPkgs` is very slow.
+
+```{r compute reverse dependencies}
+pkgs_revdeps_raw <- withr::with_libpaths(LIB_DIR, {
+  package_dependencies(
+    pkgs_installed$package,
+    db=pkgs_installed_raw,
+    which=params$which_dependencies,
+    reverse=TRUE,
+    recursive=FALSE
+  )
+}) %>% imap_dfr(~tibble(package=.y, revdep=.x))
+
+pkgs_revdeps <- count(pkgs_revdeps_raw, package) %>% rename(revdeps=n)
+```
+
+### Package asserts
+
+```{r runtime checks}
+pkgs_asserts <- 
+  read_csv(
+    PACKAGE_ASSERTS,
+    col_types=cols(
+      package = col_character(),
+      fun_name = col_character(),
+      file = col_character(),
+      line1 = col_double(),
+      col1 = col_double(),
+      line2 = col_double(),
+      col2 = col_double(),
+      assert = col_character(),
+      args = col_character()
+    )
+  ) %>%
+  count(package, fun_name) %>%
+  group_by(package) %>%
+  summarise(funs_with_assert=length(unique(fun_name)), asserts=sum(n))
+```
+
+### Join
+
+```{r joining data}
+pkgs <-
+  pkgs_cran %>%
+  left_join(mutate(pkgs_installed, installed=TRUE), by="package") %>% mutate(installed=replace_na(installed, FALSE)) %>%
+  left_join(transmute(pkgs_loadable, package, loadable=TRUE), by="package") %>% mutate(loadable=replace_na(loadable, FALSE)) %>%
+  left_join(pkgs_sloc, by="package") %>%
+  left_join(pkgs_runnable_code, by="package") %>%
+  left_join(pkgs_coverage, by="package") %>%
+  left_join(pkgs_runs, by="package") %>%
+  left_join(pkgs_functions, by="package") %>%
+  left_join(pkgs_revdeps, by="package") %>%
+  left_join(pkgs_asserts, by="package") 
+```
+
+### Sanity checks
+
+#### Packages that are loaded, but not installed?
+
+```{r}
+filter(pkgs, !installed && loadable) %>%
+  select(package, installed, loadable)
+```
+
+#### Packages that do not have any extracted runnable code, yet they have some runs or coverage?
+
+This can actually be still OK, perhaps the package has some code in its `.onLoad` or `.onAttach` hooks.
+
+```{r}
+filter(pkgs, runnable_code==0, coverage_expr > 0) %>%
+  select(package, package_code, runnable_code, runnable_files, starts_with("coverage"))
+```
+
+### Curiosity
+
+* Packages with no R code (this is perfectly fine):
+
+```{r}
+filter(pkgs, package_r_code==0)
+```
+
+* Packages with no code at all (also fine - just data packages):
+
+```{r}
+filter(pkgs, package_code==0)
+```
+
+### Overview
+
+#### Table
+
+```{r summary}
+summary_corpus <- function(df, prefix) {
+  overview_table(
+    r(paste(prefix, "cran"), df),
+    r(paste(prefix, "installed"), filter(df, installed)),
+    r(paste(prefix, "loadable"), filter(df, loadable)),
+    
+    r(paste(prefix, "with runnable code"), filter(df, runnable_code > 0)),
+    r(paste(prefix, "runnable code"), sum(df$runnable_code, na.rm=T)),
+    r(paste(prefix, "examples code"), sum(df$runnable_code_examples, na.rm=T)),
+    r(paste(prefix, "tests code"), sum(df$runnable_code_tests, na.rm=T)),
+    r(paste(prefix, "vignettes code"), sum(df$runnable_code_vignettes , na.rm=T)),
+    
+    r(paste(prefix, "with coverage"), filter(df, coverage_expr > 0)),
+    r(paste(prefix, "mean expr coverage"), percent(mean(df$coverage_expr, na.rm=T))),
+    r(paste(prefix, "median expr coverage"), percent(median(df$coverage_expr, na.rm=T))),
+  
+    r(paste(prefix, "with R code"), filter(df, package_r_code > 0)),
+    r(paste(prefix, "R code"), sum(df$package_r_code, na.rm=T)),
+    r(paste(prefix, "with native code"), filter(df, package_native_code > 0)),
+    r(paste(prefix, "native code"), sum(df$package_native_code, na.rm=T)),
+    
+    r(paste(prefix, "w asserts"), filter(df, asserts > 0)),
+    r(paste(prefix, "asserts"), sum(df$asserts, na.rm=T)),
+    r(paste(prefix, "funs with asserts"), sum(df$funs_with_assert, na.rm=T)),
+    
+    r(paste(prefix, "functions"), sum(df$funs, na.rm=T)),
+    r(paste(prefix, "public functions"), sum(df$funs_public, na.rm=T)),
+    r(paste(prefix, "private functions"), sum(df$funs_private, na.rm=T)),
+    
+    r(paste(prefix, "mean revdes"), mean(df$revdeps, na.rm=T)),
+    r(paste(prefix, "median revdes"), median(df$revdeps, na.rm=T)),
+    
+    r(paste(prefix, "runtime"), as.duration(sum(df$runnable_time, na.rm=T))),
+    r(paste(prefix, "mean runtime"), as.duration(mean(df$runnable_time, na.rm=T))),
+    r(paste(prefix, "median runtime"), as.duration(median(df$runnable_time, na.rm=T)))
+  )
+}
+
+summary_corpus(pkgs, "pkgs")
+
+write_csv(pkgs, ALL_PACKAGES_DETAILS)
+```
+
+#### Plots
+
+```{r considered packages}
+pkgs_considered <- filter(pkgs, loadable, package_r_code > 0, coverage_expr > 0)
+```
+
+```{r plot revdeps histogram}
+pkgs_considered %>%
+  ggplot(aes(x=revdeps)) + 
+    geom_histogram(bins=50) +
+    scale_x_log10(labels=scales::comma) +
+    labs(x="# reverse dependencies (log)")
+```
+
+```{r plot coverage histogram}
+pkgs_considered %>%
+  ggplot(aes(x=coverage_expr)) + 
+    geom_histogram() +
+    scale_x_continuous(labels=scales::percent) +
+    labs(x="Expression coverage")
+```
+
+```{r plot all considered packages}
+plot_all <- function(df) {
+  coverage_mean <- mean(df$coverage_expr)
+  coverage_median <- median(df$coverage_expr)
+  revdeps_mean <- mean(df$revdeps)
+  revdeps_median <- median(df$revdeps)
+  
+  df %>%
+    mutate(
+      outlier=package_code > 5e4,
+      label=if_else(outlier, str_glue("{package}"), as.character(NA))
+    ) %>%
+    ggplot(
+      aes(
+        x=coverage_expr, 
+        y=revdeps,
+        label=label,
+        size=package_code
+      )
+    ) +
+    geom_point(alpha=.6) +
+    geom_text(size=3, check_overlap = T, vjust=1.5, na.rm = TRUE) + 
+    
+    geom_hline(aes(yintercept=revdeps_mean), linetype="dashed", color="black", size=0.2) +
+    geom_vline(aes(xintercept=coverage_mean), linetype="dashed", color="black", size=0.2) +
+    geom_vline(aes(xintercept=params$min_coverage),linetype="solid", color="red", size=0.4) +
+    geom_hline(aes(yintercept=params$min_revdeps),linetype="solid", color="red", size=0.4) +
+    
+    scale_x_continuous(labels = scales::percent) + 
+    scale_y_log10(labels = scales::comma) +
+    scale_size(range = c(.1, 5), labels = scales::comma) +
+      theme(
+      legend.position=c(0.2, 0.85),
+      legend.box="horizontal",
+      legend.box.background = element_rect(fill="white", size=0.1)
+    ) +
+    labs(
+      x="Code coverage", 
+      y="Number of reverse dependencies (log)", 
+      size="Code size",
+      linetype=""
+    ) +
+    guides(
+      size=guide_legend(order=1),
+      color=guide_legend(order=2),
+      linetype=F
+    )
+}
+
+plot_all(pkgs_considered)
+ggsave(CORPUS_PLOT)
+```
+
+## Project corpus
+
+We only consider packages that have at least `r params$min_revdeps` reverse dependencies and `r params$min_coverage*100`% expression coverage.
+
+```{r project corpus}
+corpus <- 
+  filter(
+    pkgs, 
+    loadable, 
+    runnable_code > 0, 
+    revdeps >= params$min_revdeps, 
+    package_r_code > 0, 
+    coverage_expr >= params$min_coverage
+  )
+
+write_lines(corpus$package, CORPUS_FILE)
+write_csv(corpus, CORPUS_DETAILS)
+```
+
+### Sanity check
+
+TODO
+
+### Overview
+
+#### Table
+
+```{r corpus summary}
+summary_corpus(corpus, "corpus")
+
+write_csv(corpus, CORPUS_DETAILS)
+write_lines(corpus$package, CORPUS_FILE)
+```
+
+#### Plot
+
+```{r plot corpus}
+plot_corpus <- function(df, code_outlier=5e3) {
+  coverage_mean <- mean(df$coverage_expr)
+  coverage_median <- median(df$coverage_expr)
+  revdeps_mean <- mean(df$revdeps)
+  revdeps_median <- median(df$revdeps)
+  
+  df %>%
+    mutate(
+      outlier=package_code > code_outlier,
+      label=if_else(outlier, str_glue("{package}"), as.character(NA))
+    ) %>%
+    ggplot(
+      aes(
+        x=coverage_expr, 
+        y=revdeps,
+        label=label,
+        size=package_code
+      )
+    ) +
+    geom_point(alpha=.6) +
+    geom_text(size=3, check_overlap = T, vjust=1.5, na.rm = TRUE) + 
+    
+    geom_hline(aes(yintercept=revdeps_mean), linetype="dashed", color="red", size=0.2) +
+    geom_vline(aes(xintercept=coverage_mean), linetype="dashed", color="red", size=0.2) +
+
+    scale_x_continuous(limits = c(params$min_coverage, 1), labels = scales::percent) + 
+    scale_y_log10(labels = scales::comma) +
+    scale_size(range = c(.1, 3), labels = scales::comma) +
+      theme(
+      legend.position=c(0.2, 0.85),
+      legend.box="horizontal",
+      legend.box.background = element_rect(fill="white", size=0.1)
+    ) +
+    labs(
+      x="Code coverage", 
+      y="Number of reverse dependencies (log)", 
+      size="Code size",
+      linetype=""
+    ) +
+    guides(
+      size=guide_legend(order=1),
+      color=guide_legend(order=2),
+      linetype=F
+    )
+}
+
+plot_corpus(corpus)
+```
+
+### List of reverse dependencies
+
+```{r list of reverse depenencies}
+corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package") %>% distinct(revdep)
+write_lines(corpus_revdeps, CORPUS_REVDEPS)
+```
+
+### List of corpus packages
+
+```{r list of packages}
+datatable(
+  corpus, 
+  filter="top", 
+  options=list(
+    pageLength=50,
+    autoWidth=TRUE
+  )
+)
+```
+
+## Appendix: Most downloaded CRAN packages
+
+```{r top cran downloads}
+df_top_cran <- cran_top_downloads(when="last-month", count=100)
+```
+
+The cranlogs allow us to get 100 most downloaded packages over the last month.
+How many of these popular packages do we have in out corpus?
+
+```{r}
+missed_top_cran_packages <- setdiff(df_top_cran$package, corpus$package)
+```
+
+```{r}
+filter(df_top_cran, package %in% missed_top_cran_packages) %>%
+  select(-from, -to) %>%
+  datatable()
+```
+
+The main reason is that we use R 3.5. Some key dependencies such as Hmisc are no longer available.

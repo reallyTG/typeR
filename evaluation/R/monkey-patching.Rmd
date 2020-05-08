@@ -1,0 +1,72 @@
+---
+title: "Monkey patching"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(fs)
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+source("paths.R")
+```
+
+## Fix parallel.log when running with `--resume-failed`
+
+This will only keep the last run in the duplicated elements.
+
+```{r}
+parallel_log <- read_tsv(PACKAGE_COVERAGE_LOG)
+count(parallel_log, Exitval)
+updated_parallel_log <- group_by(parallel_log, Seq) %>% top_n(1, Starttime) %>% ungroup()
+count(updated_parallel_log, Exitval)
+write_tsv(updated_parallel_log, PACKAGE_COVERAGE_LOG)
+```
+
+
+## Fix package-coverage error code
+
+```{r load coverage data}
+df_coverage_run <- read_csv(PACKAGE_COVERAGE_RUN)
+df_coverage <- read_csv(PACKAGE_COVERAGE)
+```
+
+```{r}
+df_coverage_summary <- group_by(df_coverage, package) %>% summarise(success=sum(is.na(error)))
+
+df_updated_coverage_run <- 
+  df_coverage_run %>% 
+  left_join(df_coverage_summary, by=c("job"="package")) %>% 
+  mutate(exitval=case_when(
+    exitval == 0 & success == 4 ~ 0,
+    exitval == 0 & success != 4 ~ 1,
+    TRUE ~ exitval
+  )) %>%
+  select(-success)
+```
+
+```{r}
+count(df_updated_coverage_run, exitval)
+```
+
+```{r}
+write_csv(df_updated_coverage_run, PACKAGE_COVERAGE_LOG)
+```
+
+
+```{r}
+group_by(parallel_log, Seq) %>% top_n(1, -Starttime) %>% ungroup() %>% count(Exitval)
+```
+
+
+```{r}
+parallel_log <- read_tsv(PACKAGE_COVERAGE_LOG)
+updated_parallel_log <- left_join(parallel_log, select(df_coverage_run, Seq=seq, Exitval=exitval), by="Seq") %>%
+  mutate(Exitval.x=Exitval.y) %>%
+  rename(Exitval=Exitval.x) %>%
+  select(-Exitval.y)
+write_tsv(updated_parallel_log, PACKAGE_COVERAGE_LOG)
+```

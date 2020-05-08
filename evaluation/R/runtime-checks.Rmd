@@ -1,0 +1,117 @@
+---
+title: "Runtime checks"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(DT)
+library(fs)
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r paths, include=FALSE}
+source("inc/paths.R")
+```
+
+## Setup
+
+The `r RUNTIME_CHECKS` file contains information about the use of assertions across packages.
+To generate it, run the following:
+
+```
+ ./rapr/inst/on-each-package.sh ./rapr/inst/tasks/find-runtime-type-checks.R
+```
+
+or (with a `PACKAGES` variable set to restrict the package selection)
+
+```
+PACKAGES=packages-typer-35.txt ./rapr/inst/on-each-package.sh ./rapr/inst/tasks/find-runtime-type-checks.R
+```
+
+and then
+
+```
+env-rscript ./rapr/inst/process-csv-result.R run/find-runtime-type-checks runtime-checks.csv
+```
+
+to generate the CSV file.
+
+## Data
+
+```{r load run}
+run <- read_csv(RUNTIME_CHECKS_RUN)
+run <- semi_join(run, CORPUS_PACKAGES_DF, by=c("job"="package"))
+```
+
+```{r check run packages}
+#stopifnot(nrow(run) == nrow(CORPUS_PACKAGES_DF))
+```
+
+```{r load runtime checks}
+runtime_checks <- read_csv(RUNTIME_CHECKS)
+runtime_checks <- semi_join(runtime_checks, CORPUS_PACKAGES_DF, by="package")
+```
+
+## Analysis
+
+### By package
+
+```{r}
+per_package <- count(runtime_checks, package)
+```
+
+```{r}
+per_package %>%
+  arrange(desc(n)) %>%
+  datatable()
+```
+
+```{r}
+ggplot(per_package, aes(n)) + geom_histogram(binwidth = 1)
+```
+
+### By package function
+
+```{r}
+per_package_fun <- count(runtime_checks, package, fun_name)
+```
+
+```{r}
+per_package_fun %>%
+  arrange(desc(n)) %>%
+  datatable()
+```
+
+```{r}
+ggplot(per_package_fun, aes(n)) + geom_histogram(binwidth = 1)
+```
+
+### By asertion function
+
+```{r}
+per_assert <- count(runtime_checks, assert)
+```
+
+```{r}
+per_assert %>%
+  arrange(desc(n)) %>%
+  datatable()
+```
+
+## Raw data
+
+```{r}
+datatable(
+  runtime_checks, 
+  filter="top", 
+  options=list(
+    pageLength=50,
+    autoWidth=TRUE
+  )
+)
+```
+
