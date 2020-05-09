@@ -20,16 +20,25 @@ TAGS_DIR <- PAPER_BASE_DIR
 ALL_PACKAGES_DETAILS <- path(TYPER_BASE_DIR, "all-packages.csv")
 
 ## corpus related
-CORPUS_FILE    <- path(TYPER_BASE_DIR, "corpus.txt")
-CORPUS_DETAILS <- path(TYPER_BASE_DIR, "corpus-details.csv")
-CORPUS_PLOT    <- path(PLOT_DIR, "corpus.pdf")
-CORPUS_REVDEPS <- path(TYPER_BASE_DIR, "corpus-revdeps.txt")
+CORPUS_FILE           <- path(TYPER_BASE_DIR, "corpus.txt")
+CORPUS_DETAILS        <- path(TYPER_BASE_DIR, "corpus-details.csv")
+CORPUS_PLOT           <- path(PLOT_DIR, "corpus.pdf")
+CORPUS_REVDEPS        <- path(TYPER_BASE_DIR, "corpus-revdeps.csv")
+CORPUS_REVDEPS_UNIQUE <- path(TYPER_BASE_DIR, "corpus-revdeps.txt")
 
 # package coverage related
 PACKAGE_COVERAGE_DIR <- path(RUN_DIR, "package-coverage")
 PACKAGE_COVERAGE_RUN <- path(PACKAGE_COVERAGE_DIR, "parallel-results.csv")
 PACKAGE_COVERAGE_LOG <- path(PACKAGE_COVERAGE_DIR, "parallel.log")
 PACKAGE_COVERAGE     <- path(PACKAGE_COVERAGE_DIR, "coverage.csv")
+
+# package revdeps coverage
+PACKAGE_REVDEPS_COVERAGE_DIR <- path(RUN_DIR, "package-revdep-coverage")
+PACKAGE_REVDEPS_COVERAGE <- path(PACKAGE_REVDEPS_COVERAGE_DIR, "revdep-coverage.csv")
+PACKAGE_REVDEPS_RUNS <- path(PACKAGE_REVDEPS_COVERAGE_DIR, "revdep-runs.csv")
+
+# package roxygen
+PACKAGE_USES_ROXYGEN <- path(RUN_DIR, "package-uses-roxygen", "roxygen.csv")
 
 # package metadata related
 PACKAGE_METADATA_DIR <- path(RUN_DIR, "package-metadata")
