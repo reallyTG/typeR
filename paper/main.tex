@@ -539,6 +539,7 @@ Now that we've seen the high-level picture of our approach, we will elaborate on
 %
 %
 \subsubsection{Challenges}
+\label{subsec:typetracer-challenges}
 
 We grappled with a number of corner cases related to R's non-strict semantics.
 
@@ -561,11 +562,20 @@ If an argument promise is later forced, we simply update the recorded type for t
 \item Second, we wanted to account for formal arguments (arguments which are named in the function definition) that were {\it not} passed to the function.
 Put simply, a function was not called with all of its arguments, and no default value was specified for missing arguments.
 In this case, we record a ``missing'' type for the argument.
-Later, when we build types during a post-processing phase, we combine 
 
+There are two obvious ways to deal with missing arguments: type them as bot, or as top.
+As we are performing a dynamic analysis, based on package test code, we conservatively type these arguments as top, or \code{any}.
+It is impossible to know dynamically what all possible function behaviours are, \AT{I'm still not convinced about this.}
+
+\item Third, we had to contend with R's C implementation sometimes performing longjumps, which discards current R calls from the call stack.
+In order to ensure that call traces are not lost when a longjump occurs, \typetracer intercepts the unwinding process initiated by the longjump and mimics the functionality of the functions being exited.
+The R-dyntrace framework supplies the return value during the unwinding process (if there is indeed such a value), so we can capture it, analyze it, and include it in the call trace.
+In certain situations, however, no return value can be obtained (e.g. a longjump occurred as part of some error handling), and then we simply record a ``jumped'' return value, which we can deal with in post-processing.
+These longjumps occur quite often, particularly when S3 dispatch occurs, as the R implementation optimizes returns from dispatched functions by initiating a longjump.
 
 \end{itemize}
 
+Having outlined these challenges, we will now explore the implementation of \typetracer in more detail.
 
 %
 %
@@ -577,36 +587,28 @@ Our dynamic type analysis only needs to be run once, ever---from the analysis re
 
 We primarily rely on 8 R-dyntrace callbacks: \texttt{closure\_entry}, \texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit}, \texttt{special\_entry},\texttt{special\_exit}, \texttt{promise\_force\_entry}, and \texttt{promise\_force\_exit}.
 These callbacks fire when closures, builtin, and special functions are entered and exited, and before and after the forcing of promises.
-The function-related callbacks are used mainly for bookkeeping: the analysis is notified that a closure/builtin/special has been entered/exited by pushing/popping the call onto a stack.
-The calls themselves store a {\it call trace} object, where we store the type information that we collect.
+The function-related callbacks are used mainly for bookkeeping: the analysis is notified that a closure, builtin, or special has been entered/exited by pushing/popping the call onto a stack.
+The calls themselves store a {\it call trace} object, where we store the type information that we collect, populated with initial guesses of argument types (as discussed in Section~\ref{subsec:typetracer-challenges}).
 Further, the type of dispatch is recorded on the {\tt \_entry} variants: \AT{recall} that there are multiple ways that R performs dynamic dispatch, based on the class of function arguments.
 We collect dispatch information in order to analyze dispatch usage patterns.
 
 The main work is done in {\tt promise\_force\_exit}.
 As arguments to functions in R are wrapped in promises, we delay our reflection to promise force time.
 In R, promises are essentially objects with value and expression slots.
-When a promise is created for a particular expression, that expression is merely put into the expression slot of a promise object, and a special {\it unbound} value is loaded into the value slot.
+When a promise is created for a particular expression, that expression is merely put into the expression slot of a promise object, and a special {\it unbound} value is loaded into the value slot (unless some default value is specified, wherein it is loaded into the value slot---this is the case with default argument values).
 When the promise is forced, the expression is evaluated in the forcing context, and the value is stored in the value slot of the promise.
 So to get the type of a function argument, we check the value slot of the argument promise---perhaps recursively if the value itself is a promise.
-On function {\tt \_exit} variants, we deal with situations where an argument was never used (and thus never forced): these show up as missing slots in the call trace object, and we ascribe them the type {\tt ???}.
 
-To construct a ``type'' for each argument, we make use of R's C FFI and use low-level machinery to collect type tags and attributes from the R runtime.
-At this level, all R values are {\tt SEXP}s with a type tag that can be obtained using the {\tt TYPEOF} function from the C FFI.
-In certain circumstances, such as when {\tt TYPEOF} indicates that a value is a primitive, we perform additional reflection e.g. on the length (with {\tt LENGTH}) and also vector element names (through a call to {\tt getAttrib(the\_value, R\_NamesSymbol)}).
+To construct a type for each argument, we make use of R's C FFI and use low-level machinery to collect type tags and attributes from the R runtime.
+The types that we provide to users are constructed during post-processing, and rely on the detailed information made available by these low-level reflection mechanisms.
 
-\subsection{Implementation}
+%
+%
+%
+%
+\subsection{Post-Processing and Type Ascription}
 
-\AT{Talk about how the type system was implemented, in terms of the checks, how they work, how they are performed by the runtime, etc.}
 
-\subsection{Evaluation}
-
-\AT{Talk about the evaluation.}
-
-\AT{Ok, so we haven't discussed the story for the results, so I'll just write some disjointed sections, discussing design decisions, and backing them up with the data.
-This should give us an idea of what we want to say, and we can decide how to organize everything once we have stuff written.
-Some of the things I'll be pulling from the data are: how many functions are higher-order? How many times are structs present? How many times do classes supercede other types?
-Basically, we want to use this section to turn the simplicity of our type system from a weakness into a strength. 
-The simplicity {\it is} a strength, we just need to make sure that's obvious to the reviewer.}
 
 %
 %
