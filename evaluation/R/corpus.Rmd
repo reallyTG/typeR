@@ -302,6 +302,12 @@ write_csv(pkgs, ALL_PACKAGES_DETAILS)
 write_lines(pkgs$package, ALL_PACKAGES_FILE)
 ```
 
+```{r}
+corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package")
+write_csv(corpus_revdeps, CORPUS_REVDEPS)
+write_lines(unique(corpus_revdeps$revdep), CORPUS_REVDEPS_UNIQUE)
+```
+
 ### Sanity checks
 
 #### Packages that are loaded, but not installed?

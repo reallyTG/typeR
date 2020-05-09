@@ -11,20 +11,22 @@ CRAN_LOCAL_MIRROR <- paste0("file://", CRAN_MIRROR_DIR)
 
 PACKAGES_SRC_DIR <- path(CRAN_MIRROR_DIR, "extracted")
 
-TYPER_BASE_DIR <- path(R_PROJECT_BASE_DIR, "typeR", "evaluation")
-PAPER_BASE_DIR <- path(R_PROJECT_BASE_DIR, "typeR", "paper")
-PLOT_DIR <- path(PAPER_BASE_DIR, "plots")
-TAGS_DIR <- PAPER_BASE_DIR
+TYPER_BASE_DIR <- Sys.getenv("TYPER_BASE_DIR", path(R_PROJECT_BASE_DIR, "typeR"))
+
+EVALUATION_DIR <- path(TYPER_BASE_DIR, "evaluation")
+PAPER_DIR <- path(TYPER_BASE_DIR, "paper")
+PLOT_DIR <- path(PAPER_DIR, "plots")
+TAGS_DIR <- PAPER_DIR
 
 ## all packages
-ALL_PACKAGES_DETAILS <- path(TYPER_BASE_DIR, "all-packages.csv")
+ALL_PACKAGES_DETAILS <- path(EVALUATION_DIR, "all-packages.csv")
 
 ## corpus related
-CORPUS_FILE           <- path(TYPER_BASE_DIR, "corpus.txt")
-CORPUS_DETAILS        <- path(TYPER_BASE_DIR, "corpus-details.csv")
+CORPUS_FILE           <- path(EVALUATION_DIR, "corpus.txt")
+CORPUS_DETAILS        <- path(EVALUATION_DIR, "corpus-details.csv")
+CORPUS_REVDEPS        <- path(EVALUATION_DIR, "corpus-revdeps.csv")
+CORPUS_REVDEPS_UNIQUE <- path(EVALUATION_DIR, "corpus-revdeps.txt")
 CORPUS_PLOT           <- path(PLOT_DIR, "corpus.pdf")
-CORPUS_REVDEPS        <- path(TYPER_BASE_DIR, "corpus-revdeps.csv")
-CORPUS_REVDEPS_UNIQUE <- path(TYPER_BASE_DIR, "corpus-revdeps.txt")
 
 # package coverage related
 PACKAGE_COVERAGE_DIR <- path(RUN_DIR, "package-coverage")

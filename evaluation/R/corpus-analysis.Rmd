@@ -1,14 +1,12 @@
 ---
-title: "Package Corpus Analysis"
+title: "Corpus Analysis"
 output: html_document
 editor_options: 
   chunk_output_type: console
 params:
   min_revdeps: 5
   min_coverage: .65
-  which_dependencies:
-    - Depends
-    - Imports
+  package_size_outlier: 5000
 ---
 
 ```{r setup, include=FALSE}
@@ -20,6 +18,14 @@ library(purrr)
 library(tidyverse)
 
 knitr::opts_chunk$set(echo = TRUE)
+
+Sys.setenv(
+  TYPER_BASE_DIR=system2(
+    "git", 
+    c("rev-parse", "--show-toplevel"), 
+    stdout=TRUE
+  )
+)
 
 source("inc/paths.R")
 source("inc/setup.R")
@@ -67,9 +73,20 @@ pkgs <- read_csv(
 )
 ```
 
-### Overview
+## Overview
 
-#### Table
+### Thresholds
+
+```{r}
+overview_table(
+  r("threshold code coverage", percent(params$min_coverage)),
+  r("threshold revdeps", params$min_revdeps),
+  r("package size outier", params$package_size_outlier)
+)
+```
+
+
+### Table
 
 ```{r summary}
 summary_corpus <- function(df, prefix) {
@@ -112,10 +129,10 @@ summary_corpus <- function(df, prefix) {
   )
 }
 
-summary_corpus(pkgs, "pkgs")
+summary_corpus(pkgs, "All")
 ```
 
-#### Plots
+### Plots
 
 ```{r considered packages}
 pkgs_considered <- filter(pkgs, loadable, package_r_code > 0, coverage_expr > 0)
@@ -187,7 +204,6 @@ plot_all <- function(df) {
 }
 
 plot_all(pkgs_considered)
-ggsave(CORPUS_PLOT)
 ```
 
 ## Project corpus
@@ -227,7 +243,7 @@ write_lines(corpus$package, CORPUS_FILE)
 #### Plot
 
 ```{r plot corpus}
-plot_corpus <- function(df, code_outlier=5e3) {
+plot_corpus <- function(df, code_outlier) {
   coverage_mean <- mean(df$coverage_expr)
   coverage_median <- median(df$coverage_expr)
   revdeps_mean <- mean(df$revdeps)
@@ -273,15 +289,8 @@ plot_corpus <- function(df, code_outlier=5e3) {
     )
 }
 
-plot_corpus(corpus)
-```
-
-### List of reverse dependencies
-
-```{r list of reverse depenencies}
-corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package")
-write_csv(corpus_revdeps, CORPUS_REVDEPS)
-write_lines(unique(corpus_revdeps$revdep), CORPUS_REVDEPS_UNIQUE)
+plot_corpus(corpus, params$package_size_outlier)
+ggsave(CORPUS_PLOT)
 ```
 
 ### List of corpus packages
