@@ -608,7 +608,16 @@ The types that we provide to users are constructed during post-processing, and r
 %
 \subsection{Post-Processing and Type Ascription}
 
+The type information we collect is far more detailed than the types we actually generate, and so the next stage of our inference process is to distill the rich type information into simpler, manageable types.
+For each unique observed call trace, we translate the representation of the type of each of the function arguments and returns according to the design of our type system:
+for instance, we might have determined that a function returned a vector of integer with 4 elements, with names, that was free of NA values, in which case we would write out \code{integer[]} as the type.
 
+Once types have been simplified in this way, for each function we move to consolidate its multiple call traces into a single function type.
+We do this by combining the observed types of each argument into one type (possibly a union, mind), according to subtyping rules that are part of our design.
+The precise subtyping rules we used will be discussed further in Section~\ref{sec:typesystemdesign}.
+
+While our analysis collects more detailed information than necessary for type generation, the information proved useful for building up a usage profile of the language. Through it, we were able to determine the best translation rules (i.e., determining the type system we are translating to) through an iterative process, involving analyzing usage patterns that arose in the data and making design decisions based on them, revisiting the data as necessary.
+In the following section, we will discuss these decisions in more detail, highlighting the reasoning behind our type system design.
 
 %
 %
