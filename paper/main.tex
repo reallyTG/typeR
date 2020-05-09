@@ -81,6 +81,7 @@
 
 \newcommand{\contractr}{\emph{contractr}\xspace} % contractr
 \newcommand{\roxygen}{\emph{roxygen2}\xspace} % roxygen
+\newcommand{\typetracer}{\emph{typetracer}\xspace} % typetracer
 
 \begin{document}
 \title{Types for R, Empirically Designed and Evaluated}
@@ -360,7 +361,7 @@ two key challenges that we faced in the development of \contractr.
   result of a function call is the result of evaluating the last expression in the
   function body; so an explicit return call is absent from most function
   definitions. Thus, there could be many potential sub-expressions in the function
-  body which need to be type-checked aginst the return type. To address this,
+  body which need to be type-checked against the return type. To address this,
   \contractr registers the type-checker to be called on the return value
   through a function exit hook. This hook is executed in the function call's
   environment after it has executed. While this works, we have to contend with yet
@@ -490,57 +491,81 @@ Our aim is to run R programs hosted on Kaggle to validate the type signatures we
 %
 %
 %
-\subsection{Initial Analysis}
+\subsection{typetracer and Initial Analysis}
 
-\AT{I'll revisit this section to adjust for the final details, as the analysis has changed since this was written.}
+\AT{So, we understand that we iterated on our type system design.
+Subsequently, the analysis has undergone many iterations, but essentially it collects the most detailed information possible.
+Do we want to mention all of that information, and how we ignore it later?
+Or do we just want to focus on the relevant information for our final types?}
+
+To help inform the design of our type system, and to ensure that it aligns with the day-to-day usage of R, we performed a corpus analysis of some of the most widely used R packages.
+The corpus is discussed in detail in Section~\ref{sec:corpus}.
+We built \typetracer, our dynamic analysis, in the R-dyntrace~\cite{oopsla19} dynamic analysis framework which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
 
 %
 %
 \subsubsection{Overview}
-
-In order to ensure that our type system design aligns with the day-to-day usage of R, we performed a corpus analysis of some of the most widely used R packages.
-The corpus is discussed in detail in Section~\ref{sec:corpus}.
-We built our dynamic analysis in the R-dyntrace~\cite{oopsla19} dynamic analysis framework, which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
-
 The goal of our analysis is to discover argument types for functions, builtins, and specials.
-The naive approach is to intercept calls to functions, builtins, and specials, recording function argument types, but recall that R wraps arguments in promises (Section \AT{what section}).
-To circumvent this obstacle, we intercept the forcing of promises, identify the function call that they have been forced in, collect the type of the value, and add it to the call trace associated with the current function call.
-Once a function, builtin, or special completes execution, we collect information about the return value, add it to the call trace, and save the call trace to be written out later. 
-Particular attention has been paid to the numerous corner cases present in the R runtime, which we discuss later in this section.
+Naively intercepting function calls and recording argument types is incorrect, as recall that R wraps arguments in promises (Section \AT{what section}).
+To circumvent this obstacle, we instead intercept the forcing of promises: when a promise is forced, we identify the surrounding call, collect the type of the value, and add it to the call trace associated with the current function call.
+Once function execution completes, we collect information about the return value, add it to the call trace, and save the completed call trace to be written out later. 
+\AT{This paragraph overlaps with the initial discussion of \contractr. We need to make sure that we don't inadvertently repeat ourselves.}
 
-
-The nature of R is such that all function arguments are wrapped in promises which are only evaluated when the value is actually used.
-This could cause issues in a dynamic analysis, as careless use of function arguments can force them early, which can cause unindented side-effects (as these promises are not necessarily pure).
-
-Once the value is obtained in this way, we collect the following high-level information about it:
-\AT{TODO: need to make the inline code macro and the R listing, and change the tts in here}
+%
+%
+\subsubsection{Type Information}
+Once a value is obtained, either on function return or when an argument promise is forced, we probe the value for the following information:
 
 \begin{itemize}
-\item the result of calling the {\tt typeof} function on the value; in other words, the type that the value has according to R's runtime;
-\item its class, which is a list of string class names;
+\item the value's type tag according to R's runtime. R's runtime implements type tags as a typedef, e.g. \code{INTSXP} for integers, and, confusingly, \code{VECSXP} for lists;
+\item its class, which is a list of string class names. Typically, the class of a value is held in an attribute with name ``class'', though some classes are blessed by the R runtime, such as matrix and array classes;
 \item its attributes, a list of metadata attached to the value.
 \end{itemize}
 
-Now, depending on the ``type'' of the value, we collect further information:
-If the value is \ldots
+Now, depending on the value's type tag, we collect further information:
 
 \begin{itemize}
-\item one of R's primitive types, we collect its dimension (and if it is a matrix, its dimensions), and if it has a names attribute we collect the names as well;
-\item a list, we recursively collect the types of list elements;
-\item a list {\it with a names attribute}, we collect the names as well as the types of the slots that those names refer to (data.frames fall into this category);
-\item a closure, we simply tag it with a UID computed from the code of the closure as well as its name, which can be later cross-referenced with the analysis results to get a type for the function.
+\item For R's primitive types, we collect its dimension, and if it has a names attribute we collect the names as well;
+\item For lists, we recursively collect the types of list elements;
+\item For lists {\it with a names attribute}, we collect the names as well as the types of the slots that those names refer to (data.frames fall into this category);
+\item For promises, we carefully dig into the promise value {\it without forcing it}, and collect information about the innermost value. If the innermost value is the unbound value, then the promise is an as-of-yet unevaluated expression. In this case, we do our best to guess the value of the unevaluated expression: if the expression is not a language expression, we collect information about it, otherwise we can say nothing without evaluating it and ascribe it type ``any''. \footnote{\AT{I think this is confusing, reword.}}  
 \end{itemize}
 
-Some further miscellaneous information we collect includes:
+For vectors (and lists), we additionally iterate through the elements, checking if the values are NA (resp. NULL); if none are NA (resp. NULL), we ascribe the NA-free (resp. NULL-free) tag to the value.
+Arguments that are part of a function's varargs (denoted \ldots in function definitions) are tagged as such and ignored, as varargs can contain anything (and their type will be equivalent to and any-typed list).  
+
+Now that we've seen the high-level picture of our approach, we will elaborate on some key details and discuss particular challenges that we faced.
+
+%
+%
+\subsubsection{Challenges}
+
+We grappled with a number of corner cases related to R's non-strict semantics.
 
 \begin{itemize}
-\item lists which do not contain any NULL elements are qualified with a NULL-free tag; 
-\item similarly, vectors which contain no NAs are qualified with a NA-free tag;
-\item promises which are never forced throughout function execution are tagged as being {\it metaprogrammed}---this is a common practice in the {\tt tidyverse} suite of packages;
-\item formal arguments (arguments which are named in the function definition) which are not passed are recorded as {\it missing}---these represent optional arguments.
+
+\item First, we wanted to ensure that \typetracer captured type for unevaluated arguments. 
+Not every argument of a function needs to be used during every function execution, and the approach we discussed above relies on argument promises being forced (and, consequently, on arguments being used).
+There are a few reasons for this.
+
+One possibility is that the argument was simply unused given the control flow of this particular execution (e.g. if the argument is only needed in one branch of an \code{if}).
+This mainly occurs when arguments have default values for some parameters that are not critical to every execution oft he function.
+In these cases, we still want to collect the type of the default value.
+
+Another possibility is that a value is used {\it without being forced}, as is the case when values are ``metaprogrammed'': \AT{describe, code example.}
+
+To tackle this, we make an {\it initial guess} of function argument types on function entry.
+This collects types for argument default values, and collects an ``unused'' type for unevaluated expressions.
+If an argument promise is later forced, we simply update the recorded type for the argument.
+
+\item Second, we wanted to account for formal arguments (arguments which are named in the function definition) that were {\it not} passed to the function.
+Put simply, a function was not called with all of its arguments, and no default value was specified for missing arguments.
+In this case, we record a ``missing'' type for the argument.
+Later, when we build types during a post-processing phase, we combine 
+
+
 \end{itemize}
 
-Now that we've seen the high-level picture of our approach, we will elaborate on some key details on our use of the R-dyntrace framework, and some of the finer points of the analysis.
 
 %
 %
