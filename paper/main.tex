@@ -636,15 +636,17 @@ Our aim is to run R programs hosted on Kaggle to validate the type signatures we
 
 In order to ensure that our type system design aligns with the day-to-day usage of R, we performed a corpus analysis of some of the most widely used R packages.
 The corpus is discussed in detail in Section~\ref{sec:corpus}.
-We built our dynamic analysis in the R-dyntrace~\cite{oopsla19} dynamic analysis framework, which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on R-dyntrace.
+We built our dynamic analysis in the R-dyntrace~\cite{oopsla19} dynamic analysis framework, which is itself built on a modified version of R targeting R version 3.5.0---we refer the reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
 
-The general idea of the analysis is to intercept calls to functions, builtins, and specials, and collect information on function arguments and returns.
+The goal of our analysis is to discover argument types for functions, builtins, and specials.
+The naive approach is to intercept calls to functions, builtins, and specials, recording function argument types, but recall that R wraps arguments in promises (Section \AT{what section}).
+To circumvent this obstacle, we intercept the forcing of promises, identify the function call that they have been forced in, collect the type of the value, and add it to the call trace associated with the current function call.
+Once a function, builtin, or special completes execution, we collect information about the return value, add it to the call trace, and save the call trace to be written out later. 
+Particular attention has been paid to the numerous corner cases present in the R runtime, which we discuss later in this section.
+
+
 The nature of R is such that all function arguments are wrapped in promises which are only evaluated when the value is actually used.
 This could cause issues in a dynamic analysis, as careless use of function arguments can force them early, which can cause unindented side-effects (as these promises are not necessarily pure).
-Our analysis deals with this by only inspecting the value of an argument when the argument is forced, and if it is never forced we make note of that by ascribing the type {\tt ???}.
-
-% Our analysis deals with this by inspecting the {\it value} slot of these promise objects, which does not force the promise. 
-% If the value slot contains another promise, we look into its value slot, and so forth until we find a value (or not! in which case, the value is a promise).
 
 Once the value is obtained in this way, we collect the following high-level information about it:
 \AT{TODO: need to make the inline code macro and the R listing, and change the tts in here}
