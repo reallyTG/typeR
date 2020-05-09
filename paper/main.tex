@@ -118,6 +118,7 @@ In this section, we will introduce the R programming language, as well as discus
 %
 %
 \subsection{The R Programming Language}
+\label{sec:R}
 
 Over the last decade, the R Project has become a key tool for implementing
 sophisticated data analysis algorithms in fields ranging from Computational
@@ -722,26 +723,43 @@ Data frames do have a type, through the \code{class<data.frame>} type, and futur
 %
 \subsection{Classes in R}
 
-\AT{Fill in.}
+As discussed in Section~\ref{sec:R}, the R runtime has more than one notion of type.
+The {\it class} (rather, the {\it classes}, as values can have multiple!) of function arguments are used by R to {\it dispatch} the correct function call for the argument \AT{$\leftarrow$ wording}.
+This is best served with an example:
+\AT{Example, unless we talked about this earlier, in which case refer reader back.}
 
 %
 %
 \subsubsection{Class Types}
 
-\AT{We have classes.}
+The class of a value suggest a shape for the value, and we felt class to be a more succinct way of capturing struct-like types. 
+
+\AT{We used classes to stand-in for structs.
+The discussion here is naturally tied with the discussion of structs, so we need to make sure to divide the discussion appropriately.}
 
 %
 %
 \subsubsection{Multi-Classes}
 
-\AT{We support multiple classes on values.}
+As R does, our type system supports multiple classes on values, and the type of a classful value is simply a list of all of its classes. 
+
+\AT{What more to say here? Discussing occurrences of multi-classes?}
 
 %
 %
 \subsubsection{Forgoing R's Object Systems}
 
-\AT{Roughly: too complicated. We have rudimentary class types for S3, and an S4 type for S4.
-Future work will explore further.}
+R has multiple, disparate object systems, with the language providing direct support for S3, S4, and R5.
+Thus far, we've mainly discussed S3 and its dispatch mechanism, and indeed our class types roughly capture the S3 ``types'' of values.
+We will not discuss R5 as it is still under development.
+
+For S4, we have an \code{s4} type to denote S4 values, though we did not elaborate on this type.
+We stuck to simple S4 types since doing anything more would be immensely complicated, and outside of the scope of this work.
+For instance, the mechanics of S4 dispatch are more complex than for S3 (S4 dispatches on the class of {\it all} arguments), and users can define their own class hierarchies that we would need to incorporate in our type analysis and contract checking frameworks.
+Further, \AT{we found limited use of S4 during our analysis}, with S4 types being heavily used in a select subset of packages (\AT{such as ...}), some of which make heavy use of R's metaprogramming capabilities.
+Coming up with a type system that accounts for all of these factors, and consolidates multiple object-orientation frameworks, is an interesting problem in and of itself, and we aim to extend our type system to account for this in future work.
+For now, S3 types suffice: S3 is the most common object system in R, with no sophisticated hierarchies, and its semantics are simple enough to be captured by our proposed design.
+
 
 %
 %
