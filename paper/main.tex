@@ -12,6 +12,7 @@
 \citestyle{acmauthoryear}   %% For author/year citations
 \usepackage{my_style}
 \usepackage{listings, wrapfig,xspace}
+\usepackage{paralist}
 
 \lstset{language=R}
 \definecolor{LightGray}{rgb}{.92,.92,.92}
@@ -44,6 +45,7 @@
 
 \newcommand{\eg}{\emph{e.g.},\xspace}
 \newcommand{\ie}{\emph{i.e.},\xspace}
+\newcommand{\cf}{\emph{cf.}\xspace}
 
 \newcommand{\PIR}{\textsf{PIR}\xspace}
 \newcommand\pirI[1]{\mathtt{#1}}
@@ -82,6 +84,10 @@
 \newcommand{\contractr}{\emph{contractr}\xspace} % contractr
 \newcommand{\roxygen}{\emph{roxygen2}\xspace} % roxygen
 \newcommand{\typetracer}{\emph{typetracer}\xspace} % typetracer
+\newcommand{\rdt}{\emph{R-dyntrace}\xspace}
+\newcommand{\covr}{\emph{covr}\xspace}
+
+\input{corpus.tex}
 
 \begin{document}
 \title{Types for R, Empirically Designed and Evaluated}
@@ -459,25 +465,72 @@ that make this even harder.
 %
 %
 %
-\subsection{The Corpus}
-\label{sec:corpus}
+\section{Project Corpus}\label{sec:corpus}
 
-\AT{This section needs to be tight.
-Reviewers were skeptical of CRAN and using the test and example code.
-We should convince them otherwise.}
+For this paper we have selected \CorpusLoadable packages consisting of
+\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native code
+(C/C++/Fortran).
+\FK{Add more details}
+Figure~\ref{fig:corpus} shows all the packages, the size of the dots reflects
+the size of the project in terms of both R and native lines of code\footnote{
+Lines of source code reported excludes comments and blank lines, counted by \emph{cloc}, \cf \url{https://github.com/AlDanial/cloc}}, the x-axis
+indicates the expression code coverage in percents and the y-axis gives the
+number of reverse dependencies in log scale. Dotted lines indicate means.
+Packages with over \PackageSizeOutierRnd lines of code are annotated.
 
-\AT{Some sentences that might be useful:}
-We selected packages that have both \AT{a good amount of} reverse dependencies to ensure their broad usefulness, as well \AT{sufficiently high} code and branch coverage of test, example, and vignette programs to ensure that our analysis built up an accurate picture of function use.
+\begin{figure}[!h]  \centering
+  \includegraphics[width=.8\linewidth]{plots/corpus.pdf}
+  \caption{Corpus overview}\label{fig:corpus}
+\end{figure}
 
-%
-%
-\subsubsection{Cross-Validation Against Kaggle}
+These packages come from the Comprehensive R Achive Network
+(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of R
+code with over \AllCranRnd packages\footnote{CRAN receives about 6 new package
+  submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd and
+\AllNativeCodeRnd R and native code respectively. Unlike other open code
+repositories like GitHub, CRAN is a curated repository. Each submitted package
+must abide to a number of well-formedness rules that are automatically checked
+asserting certain quality. Most relevant for this work is that all of the
+runnable code (including code snippets from examples and vignettes) is tested
+and only a successfully running package is admitted in the archive.
 
-Kaggle is a website offering an environment for hosting Jupyter notebooks, and importantly provides access to a large number of open-source data sets and R and Python code.
-This solved a major issue with R programs hosted on e.g. Github, where often the data is not made available.
-Our aim is to run R programs hosted on Kaggle to validate the type signatures we generated for popular R packages.
+We have downloaded and installed all available CRAN packages. Out of the
+\AllCranRnd packages, we managed to install \AllLoadableRnd. The main
+reason for this is that \rdt is based on R 3.5.0 and some of the packages are no
+longer compatible with it. Some packages also require extra native dependencies
+which were not present on our servers.
+We have two criteria for including a
+package into the corpus:
+\begin{inparaenum}[(1)]
+\item have runnable code that covers significant part of the package source
+code from which type signatures could be inferred, and
+\item have some reverse dependencies that allows us to evaluate the inferred
+types on runnable code from these dependent packages.
+\end{inparaenum}
+The concrete thresholds were set to at least \ThresholdCodeCoverage of expression
+coverage and at minimum \ThresholdRevdeps reverse dependencies.
 
-\AT{Anything else to say on Kaggle, here? We will probably talk more about the corpus we analyzed later.}
+The code coverage was computed for each package using
+\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R tool.
+The reverse package dependencies were extracted from the package metadata using
+builtin function.
+
+% \AT{This section needs to be tight.
+% Reviewers were skeptical of CRAN and using the test and example code.
+% We should convince them otherwise.}
+
+% \AT{Some sentences that might be useful:}
+% We selected packages that have both \AT{a good amount of} reverse dependencies to ensure their broad usefulness, as well \AT{sufficiently high} code and branch coverage of test, example, and vignette programs to ensure that our analysis built up an accurate picture of function use.
+
+% %
+% %
+% \subsubsection{Cross-Validation Against Kaggle}
+
+% Kaggle is a website offering an environment for hosting Jupyter notebooks, and importantly provides access to a large number of open-source data sets and R and Python code.
+% This solved a major issue with R programs hosted on e.g. Github, where often the data is not made available.
+% Our aim is to run R programs hosted on Kaggle to validate the type signatures we generated for popular R packages.
+
+% \AT{Anything else to say on Kaggle, here? We will probably talk more about the corpus we analyzed later.}
 
 %
 %
