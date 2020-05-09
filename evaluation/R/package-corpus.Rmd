@@ -29,7 +29,7 @@ source("inc/latextags.R")
 
 options(repos=CRAN_LOCAL_MIRROR)
 
-create_tags(path(TAGS_DIR, "package-corpus.tex"), prefix="PC", default=TRUE)
+create_tags(path(TAGS_DIR, "package-corpus.tex"), prefix="", default=TRUE)
 ```
 
 ## Loading data
@@ -266,6 +266,20 @@ pkgs_asserts <-
   summarise(funs_with_assert=length(unique(fun_name)), asserts=sum(n))
 ```
 
+### Package roxygen
+
+```{r}
+pkgs_roxygen <-
+  read_csv(
+    PACKAGE_USES_ROXYGEN,
+    col_types=cols(
+      package = col_character(),
+      uses_roxygen = col_logical()
+    )
+  )
+```
+
+
 ### Join
 
 ```{r joining data}
@@ -279,7 +293,8 @@ pkgs <-
   left_join(pkgs_runs, by="package") %>%
   left_join(pkgs_functions, by="package") %>%
   left_join(pkgs_revdeps, by="package") %>%
-  left_join(pkgs_asserts, by="package") 
+  left_join(pkgs_asserts, by="package") %>%
+  left_join(pkgs_roxygen, by="package")
 ```
 
 ### Sanity checks
@@ -353,7 +368,9 @@ summary_corpus <- function(df, prefix) {
     
     r(paste(prefix, "runtime"), as.duration(sum(df$runnable_time, na.rm=T))),
     r(paste(prefix, "mean runtime"), as.duration(mean(df$runnable_time, na.rm=T))),
-    r(paste(prefix, "median runtime"), as.duration(median(df$runnable_time, na.rm=T)))
+    r(paste(prefix, "median runtime"), as.duration(median(df$runnable_time, na.rm=T))),
+    
+    r(paste(prefix, "using roxygen"), sum(df$uses_roxygen, na.rm=T))
   )
 }
 
@@ -526,8 +543,9 @@ plot_corpus(corpus)
 ### List of reverse dependencies
 
 ```{r list of reverse depenencies}
-corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package") %>% distinct(revdep)
-write_lines(corpus_revdeps, CORPUS_REVDEPS)
+corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package")
+write_csv(corpus_revdeps, CORPUS_REVDEPS)
+write_lines(unique(corpus_revdeps$revdep), CORPUS_REVDEPS_UNIQUE)
 ```
 
 ### List of corpus packages

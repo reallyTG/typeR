@@ -11,10 +11,14 @@ library(fs)
 library(tidyverse)
 
 knitr::opts_chunk$set(echo = TRUE)
-```
 
-```{r paths, include=FALSE}
 source("inc/paths.R")
+source("inc/setup.R")
+source("inc/latextags.R")
+
+options(repos=CRAN_LOCAL_MIRROR)
+
+create_tags(path(TAGS_DIR, "package-asserts.tex"), prefix="", default=TRUE)
 ```
 
 ## Setup
