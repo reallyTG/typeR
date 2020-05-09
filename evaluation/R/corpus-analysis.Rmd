@@ -1,0 +1,319 @@
+---
+title: "Package Corpus Analysis"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+params:
+  min_revdeps: 5
+  min_coverage: .65
+  which_dependencies:
+    - Depends
+    - Imports
+---
+
+```{r setup, include=FALSE}
+library(cranlogs)
+library(DT)
+library(fs)
+library(lubridate)
+library(purrr)
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = TRUE)
+
+source("inc/paths.R")
+source("inc/setup.R")
+source("inc/latextags.R")
+
+options(repos=CRAN_LOCAL_MIRROR)
+
+create_tags(path(TAGS_DIR, "corpus.tex"), prefix="", default=TRUE)
+```
+
+## Load data
+
+```{r}
+pkgs <- read_csv(
+  ALL_PACKAGES_DETAILS,
+  col_types=cols(
+    package = col_character(),
+    installed = col_logical(),
+    loadable = col_logical(),
+    package_native_code = col_double(),
+    package_r_code = col_double(),
+    package_code = col_double(),
+    runnable_code = col_double(),
+    runnable_files = col_double(),
+    runnable_code_examples = col_double(),
+    runnable_code_vignettes = col_double(),
+    runnable_code_tests = col_double(),
+    runnable_files_examples = col_double(),
+    runnable_files_vignettes = col_double(),
+    runnable_files_tests = col_double(),
+    coverage_expr = col_double(),
+    coverage_line = col_double(),
+    runnable_success = col_double(),
+    runnable_error = col_double(),
+    runnable_time = col_double(),
+    runnable_rate = col_double(),
+    funs_private = col_double(),
+    funs_public = col_double(),
+    funs = col_double(),
+    revdeps = col_double(),
+    funs_with_assert = col_double(),
+    asserts = col_double(),
+    uses_roxygen = col_logical()
+  )
+)
+```
+
+### Overview
+
+#### Table
+
+```{r summary}
+summary_corpus <- function(df, prefix) {
+  overview_table(
+    r(paste(prefix, "cran"), df),
+    r(paste(prefix, "installed"), filter(df, installed)),
+    r(paste(prefix, "loadable"), filter(df, loadable)),
+    
+    r(paste(prefix, "with runnable code"), filter(df, runnable_code > 0)),
+    r(paste(prefix, "runnable code"), sum(df$runnable_code, na.rm=T)),
+    r(paste(prefix, "examples code"), sum(df$runnable_code_examples, na.rm=T)),
+    r(paste(prefix, "tests code"), sum(df$runnable_code_tests, na.rm=T)),
+    r(paste(prefix, "vignettes code"), sum(df$runnable_code_vignettes , na.rm=T)),
+    
+    r(paste(prefix, "with coverage"), filter(df, coverage_expr > 0)),
+    r(paste(prefix, "mean expr coverage"), percent(mean(df$coverage_expr, na.rm=T))),
+    r(paste(prefix, "median expr coverage"), percent(median(df$coverage_expr, na.rm=T))),
+  
+    r(paste(prefix, "with R code"), filter(df, package_r_code > 0)),
+    r(paste(prefix, "R code"), sum(df$package_r_code, na.rm=T)),
+    r(paste(prefix, "with native code"), filter(df, package_native_code > 0)),
+    r(paste(prefix, "native code"), sum(df$package_native_code, na.rm=T)),
+    
+    r(paste(prefix, "w asserts"), filter(df, asserts > 0)),
+    r(paste(prefix, "asserts"), sum(df$asserts, na.rm=T)),
+    r(paste(prefix, "funs with asserts"), sum(df$funs_with_assert, na.rm=T)),
+    
+    r(paste(prefix, "functions"), sum(df$funs, na.rm=T)),
+    r(paste(prefix, "public functions"), sum(df$funs_public, na.rm=T)),
+    r(paste(prefix, "private functions"), sum(df$funs_private, na.rm=T)),
+    
+    r(paste(prefix, "mean revdes"), mean(df$revdeps, na.rm=T)),
+    r(paste(prefix, "median revdes"), median(df$revdeps, na.rm=T)),
+    
+    r(paste(prefix, "runtime"), as.duration(sum(df$runnable_time, na.rm=T))),
+    r(paste(prefix, "mean runtime"), as.duration(mean(df$runnable_time, na.rm=T))),
+    r(paste(prefix, "median runtime"), as.duration(median(df$runnable_time, na.rm=T))),
+    
+    r(paste(prefix, "using roxygen"), sum(df$uses_roxygen, na.rm=T))
+  )
+}
+
+summary_corpus(pkgs, "pkgs")
+```
+
+#### Plots
+
+```{r considered packages}
+pkgs_considered <- filter(pkgs, loadable, package_r_code > 0, coverage_expr > 0)
+```
+
+```{r plot revdeps histogram}
+pkgs_considered %>%
+  ggplot(aes(x=revdeps)) + 
+    geom_histogram(bins=50) +
+    scale_x_log10(labels=scales::comma) +
+    labs(x="# reverse dependencies (log)")
+```
+
+```{r plot coverage histogram}
+pkgs_considered %>%
+  ggplot(aes(x=coverage_expr)) + 
+    geom_histogram() +
+    scale_x_continuous(labels=scales::percent) +
+    labs(x="Expression coverage")
+```
+
+```{r plot all considered packages}
+plot_all <- function(df) {
+  coverage_mean <- mean(df$coverage_expr)
+  coverage_median <- median(df$coverage_expr)
+  revdeps_mean <- mean(df$revdeps)
+  revdeps_median <- median(df$revdeps)
+  
+  df %>%
+    mutate(
+      outlier=package_code > 5e4,
+      label=if_else(outlier, str_glue("{package}"), as.character(NA))
+    ) %>%
+    ggplot(
+      aes(
+        x=coverage_expr, 
+        y=revdeps,
+        label=label,
+        size=package_code
+      )
+    ) +
+    geom_point(alpha=.6) +
+    geom_text(size=3, check_overlap = T, vjust=1.5, na.rm = TRUE) + 
+    
+    geom_hline(aes(yintercept=revdeps_mean), linetype="dashed", color="black", size=0.2) +
+    geom_vline(aes(xintercept=coverage_mean), linetype="dashed", color="black", size=0.2) +
+    geom_vline(aes(xintercept=params$min_coverage),linetype="solid", color="red", size=0.4) +
+    geom_hline(aes(yintercept=params$min_revdeps),linetype="solid", color="red", size=0.4) +
+    
+    scale_x_continuous(labels = scales::percent) + 
+    scale_y_log10(labels = scales::comma) +
+    scale_size(range = c(.1, 5), labels = scales::comma) +
+      theme(
+      legend.position=c(0.2, 0.85),
+      legend.box="horizontal",
+      legend.box.background = element_rect(fill="white", size=0.1)
+    ) +
+    labs(
+      x="Code coverage", 
+      y="Number of reverse dependencies (log)", 
+      size="Code size",
+      linetype=""
+    ) +
+    guides(
+      size=guide_legend(order=1),
+      color=guide_legend(order=2),
+      linetype=F
+    )
+}
+
+plot_all(pkgs_considered)
+ggsave(CORPUS_PLOT)
+```
+
+## Project corpus
+
+We only consider packages that have at least `r params$min_revdeps` reverse dependencies and `r params$min_coverage*100`% expression coverage.
+
+```{r project corpus}
+corpus <- 
+  filter(
+    pkgs, 
+    loadable, 
+    runnable_code > 0, 
+    revdeps >= params$min_revdeps, 
+    package_r_code > 0, 
+    coverage_expr >= params$min_coverage
+  )
+
+write_lines(corpus$package, CORPUS_FILE)
+write_csv(corpus, CORPUS_DETAILS)
+```
+
+### Sanity check
+
+TODO
+
+### Overview
+
+#### Table
+
+```{r corpus summary}
+summary_corpus(corpus, "corpus")
+
+write_csv(corpus, CORPUS_DETAILS)
+write_lines(corpus$package, CORPUS_FILE)
+```
+
+#### Plot
+
+```{r plot corpus}
+plot_corpus <- function(df, code_outlier=5e3) {
+  coverage_mean <- mean(df$coverage_expr)
+  coverage_median <- median(df$coverage_expr)
+  revdeps_mean <- mean(df$revdeps)
+  revdeps_median <- median(df$revdeps)
+  
+  df %>%
+    mutate(
+      outlier=package_code > code_outlier,
+      label=if_else(outlier, str_glue("{package}"), as.character(NA))
+    ) %>%
+    ggplot(
+      aes(
+        x=coverage_expr, 
+        y=revdeps,
+        label=label,
+        size=package_code
+      )
+    ) +
+    geom_point(alpha=.6) +
+    geom_text(size=3, check_overlap = T, vjust=1.5, na.rm = TRUE) + 
+    
+    geom_hline(aes(yintercept=revdeps_mean), linetype="dashed", color="red", size=0.2) +
+    geom_vline(aes(xintercept=coverage_mean), linetype="dashed", color="red", size=0.2) +
+
+    scale_x_continuous(limits = c(params$min_coverage, 1), labels = scales::percent) + 
+    scale_y_log10(labels = scales::comma) +
+    scale_size(range = c(.1, 3), labels = scales::comma) +
+      theme(
+      legend.position=c(0.2, 0.85),
+      legend.box="horizontal",
+      legend.box.background = element_rect(fill="white", size=0.1)
+    ) +
+    labs(
+      x="Code coverage", 
+      y="Number of reverse dependencies (log)", 
+      size="Code size",
+      linetype=""
+    ) +
+    guides(
+      size=guide_legend(order=1),
+      color=guide_legend(order=2),
+      linetype=F
+    )
+}
+
+plot_corpus(corpus)
+```
+
+### List of reverse dependencies
+
+```{r list of reverse depenencies}
+corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package")
+write_csv(corpus_revdeps, CORPUS_REVDEPS)
+write_lines(unique(corpus_revdeps$revdep), CORPUS_REVDEPS_UNIQUE)
+```
+
+### List of corpus packages
+
+```{r list of packages}
+datatable(
+  corpus, 
+  filter="top", 
+  options=list(
+    pageLength=50,
+    autoWidth=TRUE
+  )
+)
+```
+
+## Appendix: Most downloaded CRAN packages
+
+```{r top cran downloads}
+df_top_cran <- cran_top_downloads(when="last-month", count=100)
+```
+
+The cranlogs allow us to get 100 most downloaded packages over the last month.
+How many of these popular packages do we have in out corpus?
+
+```{r}
+missed_top_cran_packages <- setdiff(df_top_cran$package, corpus$package)
+```
+
+```{r}
+filter(df_top_cran, package %in% missed_top_cran_packages) %>%
+  select(-from, -to) %>%
+  datatable()
+```
+
+The main reason is that we use R 3.5. Some key dependencies such as Hmisc are no longer available.
