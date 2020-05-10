@@ -93,28 +93,36 @@
 \title{Extracting Function Signature from R Program Traces}
 
 \begin{abstract}
-  This paper documnets the first steps of retrofitting a type system onto
-  the R programming language.
+  This paper documents the first steps towards retrofitting a type system
+  onto the R programming language. We introduce an extension of R with
+  function signatures. To evaluate the fit of our design to the language, we
+  start by automatically extracting the signatures for 500 widely used
+  packages. In a second step we use the reverse dependencies of these
+  packages to validate that these signatures are accurate.
 \end{abstract}
 \maketitle
 
 
 \section{Introduction}
 
-The story that we're aiming for:
-Designing type systems for established languages can be a challenging.
-We aim to approach this problem by essentially reverse-engineering a type system from a corpora analysis of a representative subset of R code.
-We present a simple type system that captures the vast majority of usage of R --- it is lightweight, and \AT{should provide enough information to be useful to a compiler}.
+How does one retrofit a type system to an existing language? Three succesful
+models are Hack, Typed Racket and TypeScript. 
 
-To evaluate our type system, we present a type-checker that is aware of R's promise semantics. 
-In R, function arguments are wrapped in promises such that they are not evaluated until they are needed.
-Our tool deals with these promises by inserting a check which fires only when the promise is forced, at which point the value is checked for compliance with the type.
 
-\AT{I can grab some of the intro Jan wrote for the last paper, rework it, and put it here.}
+The story that we're aiming for: Designing type systems for established
+languages can be a challenging.  We aim to approach this problem by
+essentially reverse-engineering a type system from a corpora analysis of a
+representative subset of R code.  We present a simple type system that
+captures the vast majority of usage of R --- it is lightweight, and
+\AT{should provide enough information to be useful to a compiler}.
 
-%
-%
-%
+To evaluate our type system, we present a type-checker that is aware of R's
+promise semantics.  In R, function arguments are wrapped in promises such
+that they are not evaluated until they are needed.  Our tool deals with
+these promises by inserting a check which fires only when the promise is
+forced, at which point the value is checked for compliance with the type.
+
+
 %
 %
 %
