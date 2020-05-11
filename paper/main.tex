@@ -697,6 +697,74 @@ We emphasize that this was an iterative process: initial analysis suggested a ce
 In this section, we will present the final type system that we designed, which we believe captures the essence of R.
 Throughout, we will touch on design decisions and weigh our choices against alternatives, speaking to the strengths and weaknesses of our chosen design.
 
+\subsection{Type Grammar}
+\label{subsec:typegrammar}
+
+\begin{figure}          % Types
+    \noindent           % Collapse for readability.
+    \centering
+    \begin{minipage}{.45\linewidth}
+    \begin{flushleft}
+    % Types
+      $ \begin{array}{lclr}
+    D & ::= & {\bf type} \; ID \; T {\bf ;}  & \text{\it type declaration}\\
+    T & ::= & {\bf null} & \text{\it unit type} \\
+      & |   & {\bf any} & \text{\it top type} \\
+      & |   & {\bf environment} & \text{\it environment type} \\
+      & |   & {\bf expression} & \text{\it expression type} \\
+      & |   & {\bf language} & \text{\it language type} \\
+      & |   & {\bf symbol} & \text{\it symbol type} \\
+      & |   & {\bf externalptr} & \text{\it externalptr type} \\
+      & |   & {\bf pairlist} & \text{\it pairlist type} \\
+      & |   & {\bf s4} & \text{\it S4 type} \\
+      & |   & {\bf weakref} & \text{\it weakref type} \\
+      & |   & S & \text{\it scalar type} \\
+      & |   & V & \text{\it vector type} \\
+      & |   & \left( T \right) & \text{\it group type} \\
+      & |   & T_1 \; {\bf |} \; T_2 & \text{\it union type} \\
+      & |   & \langle A_1 , ..., A_n\rangle \Rightarrow T & \text{\it function type} \\
+      & |   & {\bf struct}\langle F_1, ..., F_n \rangle & \text{\it struct type} \\
+      & |   & {\bf list} \langle T \rangle & \text{\it list type}\\
+      & |   & {\bf class}\langle ID_1, ..., ID_n \rangle & \text{\it class type}\vspace{5pt}\\
+    \end{array} $
+    \end{flushleft}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.45\linewidth}
+    \begin{flushright}
+    $ \begin{array}{lclr}
+    % Argument Types
+    A & ::= & T & \text{\it argument type} \\
+      & |   & {\bf ...} \vspace{5pt} \\
+    % Field Types
+    F & ::= & ID : T & \text{\it struct field}\vspace{5pt}\\
+    % Scalar Types
+    S & ::= & B & \text{\it scalar types} \\
+      & |   & N \vspace{5pt}\\
+    % Vector Types
+    V & ::= & S \lbrack \rbrack & \text{\it vector types} \vspace{5pt}\\
+    % Base Types
+    B & ::= & {\bf int} & \text{\it base types} \\
+      & |   & {\bf chr} \\
+      & |   & {\bf dbl} \\
+      & |   & {\bf lgl} \\
+      & |   & {\bf clx} \\
+      & |   & {\bf raw} \vspace{5pt}\\
+    % NA Types
+    N & ::= & {\bf \string^int} & \text{\it na types} \\
+      & |   & {\bf \string^chr} \\
+      & |   & {\bf \string^dbl} \\
+      & |   & {\bf \string^lgl} \\
+      & |   & {\bf \string^clx} \\
+\end{array} $
+    \end{flushright}
+    \end{minipage}
+    \caption{The R type system.}
+    \label{fig:types}
+\end{figure}
+
+
+
 %
 %
 %
@@ -909,6 +977,3 @@ We also have some related work in the old paper, I'll grab it and put it here.}
 \end{document}
 \appendix
 \section{Appendix}
-
-
-
