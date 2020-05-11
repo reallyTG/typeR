@@ -1,27 +1,52 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"gargle", ".subset2", -1, 0, 0, "environment", 1
-"gargle", ".subset2", 0, 0, 0, "character", 1
-"gargle", ".subset2", 1, 0, 0, "struct<`appname`:character, `secret`:character, `key`:character, `redirect_uri`:character>", 1
-"gargle", ".subset2", 2, 0, 0, "character", 1
-"gargle", ".subset2", 3, 0, 0, "logical", 1
-"gargle", ".subset2", 4, 0, 0, "null", 1
+"gargle", "cache_allowed", -1, 0, 0, "logical", 1
+"gargle", "cache_allowed", 0, 0, 0, "any", 1
 "gargle", "cache_available", -1, 0, 0, "logical", 1
-"gargle", "cache_available", 0, 0, 0, "character", 1
+"gargle", "cache_available", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"gargle", "cache_establish", -1, 0, 0, "null", 1
+"gargle", "cache_establish", 0, 0, 0, "null", 1
 "gargle", "cat_line", -1, 0, 0, "null", 1
-"gargle", "cat_line", 0, 0, 0, "character", 1
+"gargle", "cat_line", 0, 0, 0, "...", 1
 "gargle", "cat_line", 1, 0, 0, "logical", 1
+"gargle", "check_params", -1, 0, 0, "list<character>", 1
+"gargle", "check_params", 0, 0, 0, "list<character>", 1
+"gargle", "check_params", 1, 0, 0, "list<list<character | character | logical | character | logical | character[]>>", 1
 "gargle", "cred_funs_add", -1, 0, 0, "null", 1
-"gargle", "cred_funs_add", 0, 0, 0, "any => any", 1
+"gargle", "cred_funs_add", 0, 0, 0, "...", 1
 "gargle", "cred_funs_clear", -1, 0, 0, "null", 1
-"gargle", "cred_funs_list", -1, 0, 0, "struct<`credentials_service_account`:any => any, `credentials_app_default`:any => any, `credentials_gce`:any => any, `credentials_byo_oauth2`:any => any, `credentials_user_oauth2`:any => any>", 1
+"gargle", "cred_funs_list", -1, 0, 0, "list<class<`function`>>", 1
 "gargle", "cred_funs_set_default", -1, 0, 0, "null", 1
-"gargle", "filter", -1, 0, 0, "logical[]", 1
-"gargle", "filter", 0, 0, 0, "character[]", 1
-"gargle", "fun", -1, 0, 0, "null", 1
-"gargle", "fun", 0, 0, 0, "symbol", 1
-"gargle", "fun", 1, 0, 0, "symbol", 1
-"gargle", "FUN", -1, 0, 0, "logical", 1
-"gargle", "FUN", 0, 0, 0, "any => any", 1
+"gargle", "extract_path_names", -1, 0, 0, "character", 1
+"gargle", "extract_path_names", 0, 0, 0, "class<`character`, `fs_path`>", 1
 "gargle", "gargle_api_key", -1, 0, 0, "character", 1
-"gargle", "gargle_default_oauth_cache_path", -1, 0, 0, "character", 1
+"gargle", "gargle_default_oauth_cache_path", -1, 0, 0, "class<`character`, `fs_path`>", 1
 "gargle", "gargle_oauth_cache", -1, 0, 0, "null", 1
+"gargle", "gargle_oauth_email", -1, 0, 0, "null", 1
+"gargle", "gargle_oauth_sitrep", -1, 0, 0, "null", 1
+"gargle", "gargle_oauth_sitrep", 0, 0, 0, "null", 1
+"gargle", "gargle_oob_default", -1, 0, 0, "logical", 1
+"gargle", "gargle_quiet", -1, 0, 0, "logical", 1
+"gargle", "init_AuthState", -1, 0, 0, "class<`AuthState`, `R6`>", 1
+"gargle", "init_AuthState", 0, 0, 0, "character", 1
+"gargle", "init_AuthState", 1, 0, 0, "class<`oauth_app`>", 1
+"gargle", "init_AuthState", 2, 0, 0, "character", 1
+"gargle", "init_AuthState", 3, 0, 0, "logical", 1
+"gargle", "init_AuthState", 4, 0, 0, "null", 1
+"gargle", "isFALSE", -1, 0, 0, "logical", 1
+"gargle", "isFALSE", 0, 0, 0, "logical", 1
+"gargle", "is.oauth_app", -1, 0, 0, "logical", 1
+"gargle", "is.oauth_app", 0, 0, 0, "class<`oauth_app`>", 1
+"gargle", "is_string", -1, 0, 0, "logical", 1
+"gargle", "is_string", 0, 0, 0, "character", 1
+"gargle", "map_lgl", -1, 0, 0, "logical[]", 1
+"gargle", "map_lgl", 0, 0, 0, "list<class<`function`>>", 1
+"gargle", "map_lgl", 1, 0, 0, "class<`function`>", 1
+"gargle", "map_lgl", 2, 0, 0, "...", 1
+"gargle", "map_mold", -1, 0, 0, "logical[]", 1
+"gargle", "map_mold", 0, 0, 0, "list<class<`function`>>", 1
+"gargle", "map_mold", 1, 0, 0, "class<`function`>", 1
+"gargle", "map_mold", 2, 0, 0, "logical", 1
+"gargle", "map_mold", 3, 0, 0, "...", 1
+"gargle", "partition_params", -1, 0, 0, "list<list<any>>", 1
+"gargle", "partition_params", 0, 0, 0, "list<character>", 1
+"gargle", "partition_params", 1, 0, 0, "character[]", 1

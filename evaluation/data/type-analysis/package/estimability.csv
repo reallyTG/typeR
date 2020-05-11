@@ -1,41 +1,56 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"estimability", ".patch.predict", -1, 0, 0, "^double[]", 1
-"estimability", ".patch.predict", 0, 0, 0, "struct<`coefficients`:^double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`y`:double[], `x1`:integer[], `x2`:double[], `x3`:double[], `x4`:double[]>>", 1
-"estimability", ".patch.predict", 1, 0, 0, "struct<`x1`:double[], `x2`:double[], `x3`:double[], `x4`:double[]>", 1
-"estimability", ".patch.predict", 2, 0, 0, "character", 1
-"estimability", ".patch.predict", 3, 0, 0, "double", 1
-"estimability", ".patch.predict", 4, 0, 0, "null", 1
-"estimability", ".patch.predict", 4, 0, 1, "^double[]", 1
-"estimability", ".patch.predict", 5, 0, 0, "null", 1
+"estimability", "epredict", -1, 0, 0, "^double[]", 1
+"estimability", "epredict", 0, 0, 0, "class<`lm`>", 1
+"estimability", "epredict", 1, 0, 0, "...", 1
 "estimability", "epredict.lm", -1, 0, 0, "^double[]", 1
-"estimability", "epredict.lm", 0, 0, 0, "struct<`coefficients`:^double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`y`:double[], `x1`:integer[], `x2`:double[], `x3`:double[], `x4`:double[]>>", 1
-"estimability", "epredict.lm", 1, 0, 0, "struct<`x1`:double[], `x2`:double[], `x3`:double[], `x4`:double[]>", 1
-"estimability", "epredict.lm", 2, 0, 0, "null", 1
+"estimability", "epredict.lm", 0, 0, 0, "class<`lm`>", 1
+"estimability", "epredict.lm", 1, 0, 0, "class<`data.frame`>", 1
+"estimability", "epredict.lm", 2, 0, 0, "...", 1
 "estimability", "epredict.lm", 3, 0, 0, "character[]", 1
 "estimability", "epredict.lm", 4, 0, 0, "double", 1
-"estimability", "epredict.lm", 5, 0, 0, "null", 1
-"estimability", "epredict.lm", 5, 0, 1, "^double[]", 1
-"estimability", "estble.subspace", -1, 0, 0, "^double[]", 1
-"estimability", "estble.subspace", 0, 0, 0, "^double[]", 1
-"estimability", "estble.subspace", 1, 0, 0, "^double[]", 1
+"estimability", "epredict.lm", 5, 0, 0, "class<`matrix`>", 1
+"estimability", "epredict.lm", 5, 0, 1, "null", 1
+"estimability", "estble.subspace", -1, 0, 0, "class<`matrix`>", 1
+"estimability", "estble.subspace", 0, 0, 0, "class<`matrix`>", 1
+"estimability", "estble.subspace", 1, 0, 0, "class<`matrix`>", 1
 "estimability", "estble.subspace", 2, 0, 0, "double", 1
-"estimability", "eupdate.lm", -1, 0, 0, "struct<`coefficients`:^double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`y`:double[], `x1`:integer[], `x3`:double[], `x4`:double[]>, `nonest`:^double[]>", 1
-"estimability", "eupdate.lm", 0, 0, 0, "null", 1
-"estimability", "eupdate.lm", 1, 0, 0, "language", 1
-"estimability", "eupdate.lm", 1, 0, 1, "null", 1
+"estimability", "eupdate", -1, 0, 0, "class<`lm`>", 1
+"estimability", "eupdate", 0, 0, 0, "class<`lm`>", 1
+"estimability", "eupdate", 1, 0, 0, "...", 1
+"estimability", "eupdate.lm", -1, 0, 0, "class<`lm`>", 1
+"estimability", "eupdate.lm", 0, 0, 0, "class<`lm`>", 1
+"estimability", "eupdate.lm", 1, 0, 0, "...", 1
 "estimability", "filter", -1, 0, 0, "logical[]", 1
 "estimability", "filter", 0, 0, 0, "character[]", 1
-"estimability", "FUN", -1, 0, 0, "logical", 1
+"estimability", "FUN", -1, 0, 0, "logical[]", 1
 "estimability", "FUN", 0, 0, 0, "double[]", 1
-"estimability", "FUN", 1, 0, 0, "^double[]", 1
+"estimability", "FUN", 0, 0, 1, "class<`matrix`>", 1
+"estimability", "FUN", 1, 0, 0, "class<`matrix`>", 1
 "estimability", "FUN", 2, 0, 0, "double", 1
-"estimability", "nonest.basis.lm", -1, 0, 0, "^double[]", 1
-"estimability", "nonest.basis.lm", 0, 0, 0, "struct<`coefficients`:^double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`wool`:character, `tension`:character>, `xlevels`:struct<`wool`:character[], `tension`:character[]>, `call`:language, `terms`:language, `model`:struct<`breaks`:double[], `wool`:integer[], `tension`:integer[]>>", 1
-"estimability", "nonest.basis.lm", 0, 0, 1, "struct<`coefficients`:^double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`y`:double[], `x1`:integer[], `x3`:double[], `x4`:double[]>>", 1
-"estimability", "nonest.basis.lm", 1, 0, 0, "null", 1
-"estimability", "nonest.basis.matrix", -1, 0, 0, "^double[]", 1
-"estimability", "nonest.basis.matrix", 0, 0, 0, "^double[]", 1
-"estimability", "nonest.basis.matrix", 1, 0, 0, "null", 1
-"estimability", "nonest.basis.qr", -1, 0, 0, "^double[]", 1
-"estimability", "nonest.basis.qr", 0, 0, 0, "struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[]>", 1
-"estimability", "nonest.basis.qr", 1, 0, 0, "null", 1
+"estimability", "is.estble", -1, 0, 0, "logical[]", 1
+"estimability", "is.estble", 0, 0, 0, "double[]", 1
+"estimability", "is.estble", 0, 0, 1, "class<`matrix`>", 1
+"estimability", "is.estble", 1, 0, 0, "class<`matrix`>", 1
+"estimability", "is.estble", 2, 0, 0, "double", 1
+"estimability", "nonest.basis", -1, 0, 0, "class<`matrix`>", 1
+"estimability", "nonest.basis", 0, 0, 0, "class<`lm`>", 1
+"estimability", "nonest.basis", 0, 0, 1, "class<`matrix`>", 1
+"estimability", "nonest.basis", 0, 0, 2, "class<`qr`>", 1
+"estimability", "nonest.basis", 1, 0, 0, "...", 1
+"estimability", "nonest.basis.lm", -1, 0, 0, "class<`matrix`>", 1
+"estimability", "nonest.basis.lm", 0, 0, 0, "class<`lm`>", 1
+"estimability", "nonest.basis.lm", 1, 0, 0, "...", 1
+"estimability", "nonest.basis.matrix", -1, 0, 0, "class<`matrix`>", 1
+"estimability", "nonest.basis.matrix", 0, 0, 0, "class<`matrix`>", 1
+"estimability", "nonest.basis.matrix", 1, 0, 0, "...", 1
+"estimability", "nonest.basis.qr", -1, 0, 0, "class<`matrix`>", 1
+"estimability", "nonest.basis.qr", 0, 0, 0, "class<`qr`>", 1
+"estimability", "nonest.basis.qr", 1, 0, 0, "...", 1
+"estimability", ".patch.predict", -1, 0, 0, "^double[]", 1
+"estimability", ".patch.predict", 0, 0, 0, "class<`lm`>", 1
+"estimability", ".patch.predict", 1, 0, 0, "class<`data.frame`>", 1
+"estimability", ".patch.predict", 2, 0, 0, "character", 1
+"estimability", ".patch.predict", 3, 0, 0, "double", 1
+"estimability", ".patch.predict", 4, 0, 0, "class<`matrix`>", 1
+"estimability", ".patch.predict", 4, 0, 1, "null", 1
+"estimability", ".patch.predict", 5, 0, 0, "...", 1

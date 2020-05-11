@@ -2,18 +2,51 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "anytime", ":::", -1, 0, 0, "character", 1
 "anytime", "addFormats", -1, 0, 0, "null", 1
 "anytime", "addFormats", 0, 0, 0, "character[]", 1
-"anytime", "anydate.default", -1, 0, 0, "double[]", 1
+"anytime", "anydate", -1, 0, 0, "class<`Date`>", 1
+"anytime", "anydate", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "anydate", 0, 0, 1, "character[]", 1
+"anytime", "anydate", 0, 0, 2, "class<`Date`>", 1
+"anytime", "anydate", 0, 0, 3, "class<`factor`>", 1
+"anytime", "anydate", 0, 0, 4, "class<`factor`, `ordered`>", 1
+"anytime", "anydate", 0, 0, 5, "double[]", 1
+"anytime", "anydate", 1, 0, 0, "any", 1
+"anytime", "anydate", 2, 0, 0, "logical", 1
+"anytime", "anydate", 3, 0, 0, "any", 1
+"anytime", "anydate", 4, 0, 0, "logical", 1
+"anytime", "anydate.Date", -1, 0, 0, "class<`Date`>", 1
+"anytime", "anydate.Date", 0, 0, 0, "class<`Date`>", 1
+"anytime", "anydate.Date", 1, 0, 0, "any", 1
+"anytime", "anydate.Date", 2, 0, 0, "logical", 1
+"anytime", "anydate.Date", 3, 0, 0, "any", 1
+"anytime", "anydate.Date", 4, 0, 0, "logical", 1
+"anytime", "anydate.default", -1, 0, 0, "class<`Date`>", 1
 "anytime", "anydate.default", 0, 0, 0, "character[]", 1
 "anytime", "anydate.default", 0, 0, 1, "double[]", 1
 "anytime", "anydate.default", 1, 0, 0, "character", 1
 "anytime", "anydate.default", 2, 0, 0, "logical", 1
 "anytime", "anydate.default", 3, 0, 0, "logical", 1
-"anytime", "anydate.factor", -1, 0, 0, "double[]", 1
-"anytime", "anydate.factor", 0, 0, 0, "integer[]", 1
-"anytime", "anydate.factor", 1, 0, 0, "language", 1
+"anytime", "anydate.default", 4, 0, 0, "logical", 1
+"anytime", "anydate.factor", -1, 0, 0, "class<`Date`>", 1
+"anytime", "anydate.factor", 0, 0, 0, "class<`factor`>", 1
+"anytime", "anydate.factor", 0, 0, 1, "class<`factor`, `ordered`>", 1
+"anytime", "anydate.factor", 1, 0, 0, "any", 1
 "anytime", "anydate.factor", 2, 0, 0, "logical", 1
-"anytime", "anydate.factor", 3, 0, 0, "language", 1
-"anytime", "anytime_cpp", -1, 0, 0, "double[]", 1
+"anytime", "anydate.factor", 3, 0, 0, "any", 1
+"anytime", "anydate.factor", 4, 0, 0, "logical", 1
+"anytime", "anydate.POSIXt", -1, 0, 0, "class<`Date`>", 1
+"anytime", "anydate.POSIXt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "anydate.POSIXt", 1, 0, 0, "character", 1
+"anytime", "anydate.POSIXt", 2, 0, 0, "logical", 1
+"anytime", "anydate.POSIXt", 3, 0, 0, "any", 1
+"anytime", "anydate.POSIXt", 4, 0, 0, "logical", 1
+"anytime", "anytime", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "anytime", 0, 0, 0, "character[]", 1
+"anytime", "anytime", 1, 0, 0, "any", 1
+"anytime", "anytime", 2, 0, 0, "logical", 1
+"anytime", "anytime", 3, 0, 0, "any", 1
+"anytime", "anytime", 4, 0, 0, "any", 1
+"anytime", "anytime", 5, 0, 0, "logical", 1
+"anytime", "anytime_cpp", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
 "anytime", "anytime_cpp", 0, 0, 0, "character[]", 1
 "anytime", "anytime_cpp", 0, 0, 1, "double[]", 1
 "anytime", "anytime_cpp", 1, 0, 0, "character", 1
@@ -21,34 +54,62 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "anytime", "anytime_cpp", 3, 0, 0, "logical", 1
 "anytime", "anytime_cpp", 4, 0, 0, "logical", 1
 "anytime", "anytime_cpp", 5, 0, 0, "logical", 1
-"anytime", "anytime.default", -1, 0, 0, "double[]", 1
+"anytime", "anytime.default", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "anytime", "anytime.default", 0, 0, 0, "character[]", 1
 "anytime", "anytime.default", 1, 0, 0, "character", 1
 "anytime", "anytime.default", 2, 0, 0, "logical", 1
 "anytime", "anytime.default", 3, 0, 0, "logical", 1
 "anytime", "anytime.default", 4, 0, 0, "logical", 1
-"anytime", "assertDate", -1, 0, 0, "double[]", 1
-"anytime", "assertDate", 0, 0, 0, "character[]", 1
-"anytime", "assertDate", 0, 0, 1, "double", 1
-"anytime", "assertTime", -1, 0, 0, "double[]", 1
+"anytime", "anytime.default", 5, 0, 0, "logical", 1
+"anytime", "assertDate", -1, 0, 0, "class<`Date`>", 1
+"anytime", "assertDate", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "assertDate", 0, 0, 1, "character[]", 1
+"anytime", "assertDate", 0, 0, 2, "class<`Date`>", 1
+"anytime", "assertTime", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "anytime", "assertTime", 0, 0, 0, "character[]", 1
-"anytime", "filter", -1, 0, 0, "logical[]", 1
-"anytime", "filter", 0, 0, 0, "character[]", 1
-"anytime", "fun", -1, 0, 0, "logical", 1
-"anytime", "fun", 0, 0, 0, "symbol", 1
-"anytime", "fun", 1, 0, 0, "symbol", 1
 "anytime", "getFormats", -1, 0, 0, "character[]", 1
 "anytime", "getTZ", -1, 0, 0, "character", 1
+"anytime", "iso8601", -1, 0, 0, "character", 1
+"anytime", "iso8601", 0, 0, 0, "class<`Date`>", 1
+"anytime", "iso8601", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "iso8601.Date", -1, 0, 0, "character", 1
+"anytime", "iso8601.Date", 0, 0, 0, "class<`Date`>", 1
+"anytime", "iso8601.POSIXt", -1, 0, 0, "character", 1
+"anytime", "iso8601.POSIXt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "anytime", "removeFormats", -1, 0, 0, "null", 1
 "anytime", "removeFormats", 0, 0, 0, "character", 1
+"anytime", "rfc2822", -1, 0, 0, "character", 1
+"anytime", "rfc2822", 0, 0, 0, "class<`Date`>", 1
+"anytime", "rfc2822", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "rfc2822.Date", -1, 0, 0, "character", 1
+"anytime", "rfc2822.Date", 0, 0, 0, "class<`Date`>", 1
+"anytime", "rfc2822.POSIXt", -1, 0, 0, "character", 1
+"anytime", "rfc2822.POSIXt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "rfc3339", -1, 0, 0, "character", 1
+"anytime", "rfc3339", 0, 0, 0, "class<`Date`>", 1
+"anytime", "rfc3339", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"anytime", "rfc3339.Date", -1, 0, 0, "character", 1
+"anytime", "rfc3339.Date", 0, 0, 0, "class<`Date`>", 1
+"anytime", "rfc3339.POSIXt", -1, 0, 0, "character", 1
+"anytime", "rfc3339.POSIXt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "anytime", "setInitialTZ", -1, 0, 0, "null", 1
 "anytime", "setInitialTZ", 0, 0, 0, "character", 1
-"anytime", "utcdate.default", -1, 0, 0, "double[]", 1
+"anytime", "utcdate", -1, 0, 0, "class<`Date`>", 1
+"anytime", "utcdate", 0, 0, 0, "character[]", 1
+"anytime", "utcdate", 1, 0, 0, "any", 1
+"anytime", "utcdate", 2, 0, 0, "any", 1
+"anytime", "utcdate", 3, 0, 0, "logical", 1
+"anytime", "utcdate.default", -1, 0, 0, "class<`Date`>", 1
 "anytime", "utcdate.default", 0, 0, 0, "character[]", 1
 "anytime", "utcdate.default", 1, 0, 0, "character", 1
 "anytime", "utcdate.default", 2, 0, 0, "logical", 1
-"anytime", "utctime", -1, 0, 0, "double[]", 1
+"anytime", "utcdate.default", 3, 0, 0, "logical", 1
+"anytime", "utctime", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "anytime", "utctime", 0, 0, 0, "character[]", 1
 "anytime", "utctime", 1, 0, 0, "character", 1
 "anytime", "utctime", 2, 0, 0, "logical", 1
 "anytime", "utctime", 3, 0, 0, "logical", 1
+"anytime", "utctime", 4, 0, 0, "logical", 1
+"anytime", "yyyymmdd", -1, 0, 0, "character", 1
+"anytime", "yyyymmdd", 0, 0, 0, "class<`Date`>", 1
+"anytime", "yyyymmdd", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1

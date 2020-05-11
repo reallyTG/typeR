@@ -1,50 +1,380 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"jqr", "[[", -1, 0, 0, "struct<`message`:character, `call`:language>", 1
-"jqr", "[[", 0, 0, 0, "struct<`message`:character, `call`:language>", 1
-"jqr", "$", -1, 0, 0, "character[]", 1
-"jqr", "$", 0, 0, 0, "struct<`data`:character, ``:tuple<character>>", 1
-"jqr", "$", 0, 0, 1, "struct<`data`:character, `args`:tuple<character>>", 1
-"jqr", "ad", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "[[", -1, 0, 0, "class<`condition`, `error`, `simpleError`>", 1
+"jqr", "[[", 0, 0, 0, "class<`condition`, `error`, `simpleError`>", 1
+"jqr", "$", -1, 0, 0, "class<`character`, `jqson`>", 1
+"jqr", "$", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "ad", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "ad", 0, 0, 0, "character", 1
-"jqr", "allj", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "allj", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "allj", 0, 0, 0, "character", 1
-"jqr", "anyj", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "anyj", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "anyj", 0, 0, 0, "character", 1
-"jqr", "at", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "at", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "at", 0, 0, 0, "character", 1
-"jqr", "at", 0, 0, 1, "struct<`data`:character, `args`:tuple<character>>", 1
-"jqr", "at", 1, 0, 0, "symbol", 1
-"jqr", "at_", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "at", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "at", 1, 0, 0, "...", 1
+"jqr", "at_", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "at_", 0, 0, 0, "character", 1
-"jqr", "at_", 0, 0, 1, "struct<`data`:character, `args`:tuple<character>>", 1
-"jqr", "at_", 1, 0, 0, "null", 1
-"jqr", "at_", 2, 0, 0, "struct<``:struct<`expr`:symbol, `env`:environment>>", 1
-"jqr", "build_array", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "at_", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "at_", 1, 0, 0, "...", 1
+"jqr", "at_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "build_array", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "build_array", 0, 0, 0, "character", 1
-"jqr", "build_array", 1, 0, 0, "language", 1
-"jqr", "build_array", 1, 0, 1, "symbol", 1
-"jqr", "build_array_", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "build_array", 1, 0, 0, "...", 1
+"jqr", "build_array_", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "build_array_", 0, 0, 0, "character", 1
-"jqr", "build_array_", 1, 0, 0, "null", 1
-"jqr", "build_array_", 2, 0, 0, "struct<``:struct<`expr`:language, `env`:environment>>", 1
-"jqr", "build_array_", 2, 0, 1, "struct<``:struct<`expr`:symbol, `env`:environment>, ``:struct<`expr`:language, `env`:environment>>", 1
-"jqr", "build_object", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "build_array_", 1, 0, 0, "...", 1
+"jqr", "build_array_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "build_object", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "build_object", 0, 0, 0, "character", 1
-"jqr", "build_object", 0, 0, 1, "struct<`data`:character, `args`:tuple<character>>", 1
-"jqr", "build_object", 1, 0, 0, "symbol", 1
-"jqr", "build_object_", -1, 0, 0, "struct<`data`:character, `args`:tuple<character>>", 1
+"jqr", "build_object", 0, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "build_object", 0, 0, 2, "class<`jqr`>", 1
+"jqr", "build_object", 1, 0, 0, "...", 1
+"jqr", "build_object_", -1, 0, 0, "class<`jqr`>", 1
 "jqr", "build_object_", 0, 0, 0, "character", 1
-"jqr", "build_object_", 0, 0, 1, "struct<`data`:character, `args`:tuple<character>>", 1
-"jqr", "build_object_", 1, 0, 0, "null", 1
-"jqr", "build_object_", 2, 0, 0, "struct<`a`:struct<`expr`:symbol, `env`:environment>>", 1
-"jqr", "build_object_", 2, 0, 1, "struct<`hello`:struct<`expr`:symbol, `env`:environment>>", 1
-"jqr", "build_object_", 2, 0, 2, "struct<`message`:struct<`expr`:symbol, `env`:environment>, `name`:struct<`expr`:symbol, `env`:environment>>", 1
-"jqr", "build_object_", 2, 0, 3, "struct<`sha`:struct<`expr`:symbol, `env`:environment>, `author`:struct<`expr`:symbol, `env`:environment>>", 1
-"jqr", "build_object_", 2, 0, 4, "struct<``:struct<`expr`:symbol, `env`:environment>>", 1
-"jqr", "build_object_", 2, 0, 5, "struct<`sha`:struct<`expr`:symbol, `env`:environment>, `name`:struct<`expr`:symbol, `env`:environment>>", 1
-"jqr", "build_object_", 2, 0, 6, "struct<`user`:struct<`expr`:symbol, `env`:environment>>", 1
+"jqr", "build_object_", 0, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "build_object_", 0, 0, 2, "class<`jqr`>", 1
+"jqr", "build_object_", 1, 0, 0, "...", 1
+"jqr", "build_object_", 2, 0, 0, "class<`lazy_dots`>", 1
 "jqr", "callback", -1, 0, 0, "null", 1
 "jqr", "callback", 0, 0, 0, "character[]", 1
-"jqr", "collapse_vec", -1, 0, 0, "character", 1
+"jqr", "collapse_vec", -1, 0, 0, "(character | double)", 1
 "jqr", "collapse_vec", 0, 0, 0, "character", 1
 "jqr", "collapse_vec", 0, 0, 1, "double", 1
+"jqr", "comb", -1, 0, 0, "list<character>", 1
+"jqr", "comb", 0, 0, 0, "list<any>", 1
+"jqr", "comb", 1, 0, 0, "character", 1
+"jqr", "combine", -1, 0, 0, "class<`jqson`>", 1
+"jqr", "combine", 0, 0, 0, "class<`character`, `jqson`>", 1
+"jqr", "contains", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "contains", 0, 0, 0, "character", 1
+"jqr", "contains", 1, 0, 0, "...", 1
+"jqr", "contains_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "contains_", 0, 0, 0, "character", 1
+"jqr", "contains_", 1, 0, 0, "...", 1
+"jqr", "contains_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "cpt", -1, 0, 0, "list<character>", 1
+"jqr", "cpt", 0, 0, 0, "list<character>", 1
+"jqr", "del", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "del", 0, 0, 0, "character", 1
+"jqr", "del", 1, 0, 0, "...", 1
+"jqr", "del_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "del_", 0, 0, 0, "character", 1
+"jqr", "del_", 1, 0, 0, "...", 1
+"jqr", "del_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "do", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "do", 0, 0, 0, "character", 1
+"jqr", "do", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "do", 1, 0, 0, "...", 1
+"jqr", "do_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "do_", 0, 0, 0, "character", 1
+"jqr", "do_", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "do_", 1, 0, 0, "...", 1
+"jqr", "do_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "dot", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "dot", 0, 0, 0, "character", 1
+"jqr", "dot_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "dot_", 0, 0, 0, "character", 1
+"jqr", "dot_", 0, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "dot_", 1, 0, 0, "character", 1
+"jqr", "dotindex", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "dotindex", 0, 0, 0, "character", 1
+"jqr", "dotindex", 1, 0, 0, "...", 1
+"jqr", "dotindex_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "dotindex_", 0, 0, 0, "character", 1
+"jqr", "dotindex_", 1, 0, 0, "...", 1
+"jqr", "dotindex_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "dotstr", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "dotstr", 0, 0, 0, "character", 1
+"jqr", "dotstr", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "dotstr", 1, 0, 0, "...", 1
+"jqr", "dotstr_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "dotstr_", 0, 0, 0, "character", 1
+"jqr", "dotstr_", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "dotstr_", 1, 0, 0, "...", 1
+"jqr", "dotstr_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "endswith", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "endswith", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "endswith", 1, 0, 0, "...", 1
+"jqr", "endswith_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "endswith_", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "endswith_", 1, 0, 0, "...", 1
+"jqr", "endswith_", 2, 0, 0, "any", 1
+"jqr", "filter", -1, 0, 0, "logical[]", 1
+"jqr", "filter", 0, 0, 0, "character[]", 1
+"jqr", "flags", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "flags", 0, 0, 0, "character", 1
+"jqr", "flags", 0, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "flags", 0, 0, 2, "class<`jqr`>", 1
+"jqr", "flags", 1, 0, 0, "logical", 1
+"jqr", "flags", 2, 0, 0, "logical", 1
+"jqr", "flags", 3, 0, 0, "logical", 1
+"jqr", "flags", 4, 0, 0, "logical", 1
+"jqr", "flags", 5, 0, 0, "logical", 1
+"jqr", "flags", 6, 0, 0, "logical", 1
+"jqr", "floorj", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "floorj", 0, 0, 0, "character", 1
+"jqr", "fromjson", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "fromjson", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "FUN", -1, 0, 0, "character", 1
+"jqr", "FUN", 0, 0, 0, "class<`lazy`>", 1
+"jqr", "FUN", -1, 1, 0, "character", 1
+"jqr", "FUN", 0, 1, 0, "class<`lazy`>", 1
+"jqr", "FUN", -1, 2, 0, "character", 1
+"jqr", "FUN", 0, 2, 0, "class<`lazy`>", 1
+"jqr", "funs", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "funs", 0, 0, 0, "character", 1
+"jqr", "funs", 1, 0, 0, "character", 1
+"jqr", "funs", 2, 0, 0, "character", 1
+"jqr", "getdata", -1, 0, 0, "(character | class<`character`, `jqson`>)", 1
+"jqr", "getdata", 0, 0, 0, "character", 1
+"jqr", "getdata", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "getdata", 0, 0, 2, "class<`character`, `jqson`>", 1
+"jqr", "get_expr", -1, 0, 0, "character", 1
+"jqr", "get_expr", 0, 0, 0, "class<`lazy`>", 1
+"jqr", "get_expr", 0, 0, 1, "class<`lazy_dots`>", 1
+"jqr", "get_jq_seq", -1, 0, 0, "character", 1
+"jqr", "get_jq_seq", 0, 0, 0, "double", 1
+"jqr", "get_jq_seq", 0, 0, 1, "integer[]", 1
+"jqr", "get_jq_seq", 1, 0, 0, "logical", 1
+"jqr", "group", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "group", 0, 0, 0, "character", 1
+"jqr", "group", 1, 0, 0, "...", 1
+"jqr", "group_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "group_", 0, 0, 0, "character", 1
+"jqr", "group_", 1, 0, 0, "...", 1
+"jqr", "group_", 2, 0, 0, "any", 1
+"jqr", "haskey", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "haskey", 0, 0, 0, "character", 1
+"jqr", "haskey", 1, 0, 0, "...", 1
+"jqr", "haskey_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "haskey_", 0, 0, 0, "character", 1
+"jqr", "haskey_", 1, 0, 0, "...", 1
+"jqr", "haskey_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "index", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "index", 0, 0, 0, "character", 1
+"jqr", "index", 1, 0, 0, "...", 1
+"jqr", "index_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "index_", 0, 0, 0, "character", 1
+"jqr", "index_", 1, 0, 0, "...", 1
+"jqr", "index_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "indexif", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "indexif", 0, 0, 0, "character", 1
+"jqr", "indexif", 1, 0, 0, "...", 1
+"jqr", "indexif_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "indexif_", 0, 0, 0, "character", 1
+"jqr", "indexif_", 1, 0, 0, "...", 1
+"jqr", "indexif_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "index_loc", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "index_loc", 0, 0, 0, "character", 1
+"jqr", "index_loc", 1, 0, 0, "...", 1
+"jqr", "index_loc_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "index_loc_", 0, 0, 0, "character", 1
+"jqr", "index_loc_", 1, 0, 0, "...", 1
+"jqr", "index_loc_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "indices", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "indices", 0, 0, 0, "character", 1
+"jqr", "indices", 1, 0, 0, "...", 1
+"jqr", "indices_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "indices_", 0, 0, 0, "character", 1
+"jqr", "indices_", 1, 0, 0, "...", 1
+"jqr", "indices_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "join", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "join", 0, 0, 0, "character", 1
+"jqr", "join", 1, 0, 0, "...", 1
+"jqr", "join_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "join_", 0, 0, 0, "character", 1
+"jqr", "join_", 1, 0, 0, "...", 1
+"jqr", "join_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "jq", -1, 0, 0, "class<`character`, `jqson`>", 1
+"jqr", "jq", 0, 0, 0, "character[]", 1
+"jqr", "jq", 0, 0, 1, "class<`connection`, `file`>", 1
+"jqr", "jq", 0, 0, 2, "class<`jqr`>", 1
+"jqr", "jq", 1, 0, 0, "...", 1
+"jqr", "jq.character", -1, 0, 0, "class<`character`, `jqson`>", 1
+"jqr", "jq.character", 0, 0, 0, "character[]", 1
+"jqr", "jq.character", 1, 0, 0, "...", 1
+"jqr", "jq.character", 2, 0, 0, "integer", 1
+"jqr", "jq.connection", -1, 0, 0, "class<`character`, `jqson`>", 1
+"jqr", "jq.connection", 0, 0, 0, "class<`connection`, `file`>", 1
+"jqr", "jq.connection", 1, 0, 0, "...", 1
+"jqr", "jq.connection", 2, 0, 0, "integer", 1
+"jqr", "jq.connection", 3, 0, 0, "null", 1
+"jqr", "jq_flags", -1, 0, 0, "integer", 1
+"jqr", "jq_flags", 0, 0, 0, "logical", 1
+"jqr", "jq_flags", 1, 0, 0, "logical", 1
+"jqr", "jq_flags", 2, 0, 0, "logical", 1
+"jqr", "jq_flags", 3, 0, 0, "logical", 1
+"jqr", "jq_flags", 4, 0, 0, "logical", 1
+"jqr", "jq_flags", 5, 0, 0, "logical", 1
+"jqr", "jq.jqr", -1, 0, 0, "class<`character`, `jqson`>", 1
+"jqr", "jq.jqr", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "jq.jqr", 1, 0, 0, "...", 1
+"jqr", "jqr", -1, 0, 0, "character[]", 1
+"jqr", "jqr", 0, 0, 0, "character[]", 1
+"jqr", "jqr", 0, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "jqr", 1, 0, 0, "...", 1
+"jqr", "jqr.connection", -1, 0, 0, "character[]", 1
+"jqr", "jqr.connection", 0, 0, 0, "class<`connection`, `file`>", 1
+"jqr", "jqr.connection", 1, 0, 0, "character", 1
+"jqr", "jqr.connection", 2, 0, 0, "integer", 1
+"jqr", "jqr.connection", 3, 0, 0, "null", 1
+"jqr", "jqr.default", -1, 0, 0, "character[]", 1
+"jqr", "jqr.default", 0, 0, 0, "character[]", 1
+"jqr", "jqr.default", 0, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "jqr.default", 1, 0, 0, "character", 1
+"jqr", "jqr.default", 2, 0, 0, "integer", 1
+"jqr", "jqr_feed", -1, 0, 0, "character[]", 1
+"jqr", "jqr_feed", 0, 0, 0, "class<`jqr_program`>", 1
+"jqr", "jqr_feed", 1, 0, 0, "character[]", 1
+"jqr", "jqr_feed", 1, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "jqr_feed", 2, 0, 0, "logical", 1
+"jqr", "jqr_feed", 3, 0, 0, "logical", 1
+"jqr", "jqr_new", -1, 0, 0, "class<`jqr_program`>", 1
+"jqr", "jqr_new", 0, 0, 0, "character", 1
+"jqr", "jqr_new", 1, 0, 0, "integer", 1
+"jqr", "keys", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "keys", 0, 0, 0, "character", 1
+"jqr", "lengthj", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "lengthj", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "ltrimstr", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "ltrimstr", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "ltrimstr", 1, 0, 0, "...", 1
+"jqr", "ltrimstr_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "ltrimstr_", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "ltrimstr_", 1, 0, 0, "...", 1
+"jqr", "ltrimstr_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "make_query", -1, 0, 0, "character", 1
+"jqr", "make_query", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "map", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "map", 0, 0, 0, "character", 1
+"jqr", "map", 1, 0, 0, "...", 1
+"jqr", "map_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "map_", 0, 0, 0, "character", 1
+"jqr", "map_", 1, 0, 0, "...", 1
+"jqr", "map_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "maxj", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "maxj", 0, 0, 0, "character", 1
+"jqr", "maxj", 1, 0, 0, "...", 1
+"jqr", "maxj_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "maxj_", 0, 0, 0, "character", 1
+"jqr", "maxj_", 1, 0, 0, "...", 1
+"jqr", "maxj_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "minj", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "minj", 0, 0, 0, "character", 1
+"jqr", "minj", 1, 0, 0, "...", 1
+"jqr", "minj_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "minj_", 0, 0, 0, "character", 1
+"jqr", "minj_", 1, 0, 0, "...", 1
+"jqr", "minj_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "paths", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "paths", 0, 0, 0, "character", 1
+"jqr", "peek", -1, 0, 0, "class<`jq_query`>", 1
+"jqr", "peek", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "pipe_autoexec", -1, 0, 0, "null", 1
+"jqr", "pipe_autoexec", 0, 0, 0, "logical", 1
+"jqr", "pipeline_info", -1, 0, 0, "list<logical | environment | logical | null>", 1
+"jqr", "pipeline_on_exit", -1, 0, 0, "null", 1
+"jqr", "pipeline_on_exit", 0, 0, 0, "environment", 1
+"jqr", "pluck", -1, 0, 0, "list<class<`name`> | double>", 1
+"jqr", "pluck", 0, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "pluck", 1, 0, 0, "character", 1
+"jqr", "pluck", 2, 0, 0, "any", 1
+"jqr", "pop", -1, 0, 0, "list<character>", 1
+"jqr", "pop", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "query_from_dots", -1, 0, 0, "character", 1
+"jqr", "query_from_dots", 0, 0, 0, "...", 1
+"jqr", "rangej", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "rangej", 0, 0, 0, "double", 1
+"jqr", "rangej", 0, 0, 1, "integer[]", 1
+"jqr", "rangej", 1, 0, 0, "logical", 1
+"jqr", "recurse", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "recurse", 0, 0, 0, "character", 1
+"jqr", "recurse", 1, 0, 0, "...", 1
+"jqr", "recurse_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "recurse_", 0, 0, 0, "character", 1
+"jqr", "recurse_", 1, 0, 0, "...", 1
+"jqr", "recurse_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "reverse", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "reverse", 0, 0, 0, "character", 1
+"jqr", "rindex_loc", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "rindex_loc", 0, 0, 0, "character", 1
+"jqr", "rindex_loc", 1, 0, 0, "...", 1
+"jqr", "rindex_loc_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "rindex_loc_", 0, 0, 0, "character", 1
+"jqr", "rindex_loc_", 1, 0, 0, "...", 1
+"jqr", "rindex_loc_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "rtrimstr", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "rtrimstr", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "rtrimstr", 1, 0, 0, "...", 1
+"jqr", "rtrimstr_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "rtrimstr_", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "rtrimstr_", 1, 0, 0, "...", 1
+"jqr", "rtrimstr_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "select", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "select", 0, 0, 0, "character", 1
+"jqr", "select", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "select", 1, 0, 0, "...", 1
+"jqr", "select_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "select_", 0, 0, 0, "character", 1
+"jqr", "select_", 0, 0, 1, "class<`jqr`>", 1
+"jqr", "select_", 1, 0, 0, "...", 1
+"jqr", "select_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "setdef", -1, 0, 0, "character", 1
+"jqr", "setdef", 0, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "setdef", 1, 0, 0, "character", 1
+"jqr", "sortj", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "sortj", 0, 0, 0, "character", 1
+"jqr", "sortj", 1, 0, 0, "...", 1
+"jqr", "sortj_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "sortj_", 0, 0, 0, "character", 1
+"jqr", "sortj_", 1, 0, 0, "...", 1
+"jqr", "sortj_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "sqrtj", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "sqrtj", 0, 0, 0, "character", 1
+"jqr", "startswith", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "startswith", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "startswith", 1, 0, 0, "...", 1
+"jqr", "startswith_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "startswith_", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "startswith_", 1, 0, 0, "...", 1
+"jqr", "startswith_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "string", -1, 0, 0, "character", 1
+"jqr", "string", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "sub_ops", -1, 0, 0, "character", 1
+"jqr", "sub_ops", 0, 0, 0, "character", 1
+"jqr", "sub_ops_sel", -1, 0, 0, "character", 1
+"jqr", "sub_ops_sel", 0, 0, 0, "character", 1
+"jqr", "tojson", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "tojson", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "tonumber", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "tonumber", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "tostring", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "tostring", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "tryargs", -1, 0, 0, "list<any>", 1
+"jqr", "tryargs", 0, 0, 0, "character", 1
+"jqr", "tryargs", 0, 0, 1, "class<`character`, `jqson`>", 1
+"jqr", "tryargs", 0, 0, 2, "class<`jqr`>", 1
+"jqr", "type", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "type", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "type", 1, 0, 0, "...", 1
+"jqr", "type_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "type_", 0, 0, 0, "class<`jqr`>", 1
+"jqr", "type_", 1, 0, 0, "...", 1
+"jqr", "type_", 2, 0, 0, "class<`lazy_dots`>", 1
+"jqr", "types", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "types", 0, 0, 0, "character", 1
+"jqr", "uniquej", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "uniquej", 0, 0, 0, "character", 1
+"jqr", "uniquej", 1, 0, 0, "...", 1
+"jqr", "uniquej_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "uniquej_", 0, 0, 0, "character", 1
+"jqr", "uniquej_", 1, 0, 0, "...", 1
+"jqr", "uniquej_", 2, 0, 0, "any", 1
+"jqr", "vars", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "vars", 0, 0, 0, "character", 1
+"jqr", "vars", 1, 0, 0, "...", 1
+"jqr", "vars_", -1, 0, 0, "class<`jqr`>", 1
+"jqr", "vars_", 0, 0, 0, "character", 1
+"jqr", "vars_", 1, 0, 0, "...", 1
+"jqr", "vars_", 2, 0, 0, "class<`lazy_dots`>", 1

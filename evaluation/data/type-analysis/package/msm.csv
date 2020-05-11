@@ -1,55 +1,46 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"msm", "[.msm.est", -1, 0, 0, "double[]", 1
-"msm", "[.msm.est", 0, 0, 0, "^double[]", 1
-"msm", "[.msm.est", 1, 0, 0, "integer", 1
-"msm", "[.msm.est", 2, 0, 0, "null", 1
-"msm", "[.msm.est", 3, 0, 0, "logical", 1
 "msm", "absorbing.msm", -1, 0, 0, "integer[]", 1
 "msm", "absorbing.msm", 0, 0, 0, "null", 1
-"msm", "absorbing.msm", 0, 0, 1, "struct<`call`:language, `minus2loglik`:double, `deriv`:double[], `estimates`:double[], `estimates.t`:double[], `fixedpars`:integer[], `center`:logical, `covmat`:^double[], `ci`:^double[], `opt`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `foundse`:logical, `data`:struct<`mf`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[], `mm.mcov`:null, `mm.hcov`:null, `mm.icov`:null>, `qmodel`:struct<`nstates`:integer, `iso`:double, `perm`:double[], `qperm`:integer[], `npars`:double, `imatrix`:^double[], `qmatrix`:^double[], `inits`:double[], `constr`:integer[], `ndpars`:integer, `expm`:double>, `emodel`:struct<`misc`:logical, `npars`:double, `ndpars`:double, `nipars`:double, `nicoveffs`:double>, `qcmodel`:struct<`npars`:double, `ndpars`:double, `ncovs`:double, `constr`:double[], `covlabels`:character[], `inits`:double[], `covmeans`:double[]>, `ecmodel`:struct<`npars`:double, `ncovs`:double>, `hmodel`:struct<`hidden`:logical, `models`:double[], `nipars`:double, `nicoveffs`:double, `totpars`:double, `ncoveffs`:double, `ematrix`:logical>, `cmodel`:struct<`ncens`:double, `censor`:null, `states`:null, `index`:null>, `pci`:null, `paramdata`:struct<`inits`:double[], `plabs`:character[], `allinits`:double[], `hmmpars`:integer[], `fixed`:logical, `fixedpars`:integer[], `optpars`:integer[], `auxpars`:integer[], `constr`:double[], `npars`:double, `duppars`:integer[], `nfix`:integer, `nopt`:integer, `ndup`:integer, `ranges`:^double[], `params`:double[], `lik`:double, `opt`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `deriv`:double[], `information`:^double[], `foundse`:logical, `covmat`:^double[], `ci`:^double[], `estimates.t`:double[]>, `cl`:double, `covariates`:language, `misccovariates`:null, `hcovariates`:null, `initcovariates`:null, `Qmatrices`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesSE`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesL`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesU`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesFixed`:struct<`logbaseline`:^logical[], `ollwsdrt`:^logical[], `hieffusn`:^logical[]>, `sojourn`:struct<`estimates`:double[], `SE`:double[], `L`:double[], `U`:double[]>>", 1
-"msm", "absorbing.msm", 1, 0, 0, "null", 1
-"msm", "absorbing.msm", 1, 0, 1, "^double[]", 1
-"msm", "agg.tables", -1, 0, 0, "struct<`obs`:double[], `exp`:double[]>", 1
-"msm", "agg.tables", 0, 0, 0, "integer[]", 1
-"msm", "agg.tables", 1, 0, 0, "double[]", 1
+"msm", "absorbing.msm", 0, 0, 1, "class<`msm`>", 1
+"msm", "absorbing.msm", 1, 0, 0, "class<`matrix`>", 1
+"msm", "absorbing.msm", 1, 0, 1, "null", 1
+"msm", "agg.tables", -1, 0, 0, "list<class<`array`>>", 1
+"msm", "agg.tables", 0, 0, 0, "class<`table`>", 1
+"msm", "agg.tables", 1, 0, 0, "class<`array`>", 1
 "msm", "agg.tables", 2, 0, 0, "integer[]", 1
-"msm", "agg.tables", 3, 0, 0, "tuple<character[], character[], character[], character>", 1
-"msm", "agg.tables", 4, 0, 0, "struct<`allowed`:^double[], `labsall`:character[], `na`:integer, `use`:integer[], `labsagg`:character[], `from`:double[], `to`:double[], `ngroups`:integer>", 1
-"msm", "Ccall.msm", -1, 0, 0, "^double[]", 1
+"msm", "agg.tables", 3, 0, 0, "list<character[]>", 1
+"msm", "agg.tables", 4, 0, 0, "list<any>", 1
+"msm", "Ccall.msm", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
 "msm", "Ccall.msm", 0, 0, 0, "double[]", 1
 "msm", "Ccall.msm", 1, 0, 0, "character", 1
-"msm", "Ccall.msm", 2, 0, 0, "struct<`mf`:struct<`(subject)`:double[], `(state)`:^integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:double[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:null, `mm.cov`:^double[], `mm.cov.agg`:null, `mm.mcov`:null, `mm.hcov`:tuple<^double[], ^double[]>, `mm.icov`:^double[]>", 1
-"msm", "Ccall.msm", 2, 0, 1, "struct<`mf`:struct<`(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[], `mm.mcov`:null, `mm.hcov`:null, `mm.icov`:null>", 1
-"msm", "Ccall.msm", 2, 0, 2, "struct<`mf`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[]>", 1
-"msm", "Ccall.msm", 3, 0, 0, "struct<`nstates`:integer, `iso`:double, `perm`:double[], `qperm`:integer[], `npars`:double, `imatrix`:^double[], `qmatrix`:^double[], `inits`:double[], `constr`:integer[], `ndpars`:integer, `expm`:double>", 1
-"msm", "Ccall.msm", 3, 0, 1, "struct<`nstates`:integer, `iso`:double, `perm`:null, `qperm`:null, `npars`:double, `imatrix`:^double[], `qmatrix`:^double[], `inits`:double[], `constr`:integer[], `ndpars`:integer, `expm`:double>", 1
-"msm", "Ccall.msm", 4, 0, 0, "struct<`npars`:double, `ncovs`:double, `ndpars`:double>", 1
-"msm", "Ccall.msm", 5, 0, 0, "struct<`ncens`:double, `censor`:null, `states`:null, `index`:null>", 1
-"msm", "Ccall.msm", 6, 0, 0, "struct<`hidden`:logical, `models`:double[], `nipars`:double, `nicoveffs`:double, `totpars`:double, `ncoveffs`:double, `ematrix`:logical>", 1
-"msm", "Ccall.msm", 6, 0, 1, "struct<`hidden`:logical, `nstates`:integer, `fitted`:logical, `nipars`:double, `initprobs`:double[], `est.initprobs`:logical, `ematrix`:logical, `models`:^integer[], `labels`:^character[], `npars`:^double[], `nout`:integer[], `mv`:logical, `totpars`:double, `pars`:double[], `plabs`:character[], `parstate`:integer[], `parout`:integer[], `firstpar`:^double[], `locpars`:integer[], `ncovs`:double[], `ncoveffs`:double, `nicovs`:double, `nicoveffs`:double, `cri`:null, `constr`:integer[], `covconstr`:integer[], `ranges`:^double[]>", 1
-"msm", "Ccall.msm", 7, 0, 0, "struct<`inits`:double[], `plabs`:character[], `allinits`:double[], `hmmpars`:integer[], `fixed`:logical, `fixedpars`:integer[], `optpars`:integer[], `auxpars`:integer[], `constr`:double[], `npars`:double, `duppars`:integer[], `nfix`:integer, `nopt`:integer, `ndup`:integer, `ranges`:^double[], `params`:double[]>", 1
-"msm", "crudeinits.msm", -1, 0, 0, "^double[]", 1
-"msm", "crudeinits.msm", 0, 0, 0, "language", 1
-"msm", "crudeinits.msm", 1, 0, 0, "symbol", 1
-"msm", "crudeinits.msm", 2, 0, 0, "^double[]", 1
-"msm", "crudeinits.msm", 3, 0, 0, "struct<`PTNUM`:integer[], `age`:double[], `years`:double[], `dage`:integer[], `sex`:integer[], `pdiag`:^integer[], `cumrej`:integer[], `state`:integer[], `firstobs`:integer[], `statemax`:double[]>", 1
+"msm", "Ccall.msm", 2, 0, 0, "list<any>", 1
+"msm", "Ccall.msm", 3, 0, 0, "class<`msmqmodel`>", 1
+"msm", "Ccall.msm", 4, 0, 0, "list<double[] | character[] | double>", 1
+"msm", "Ccall.msm", 5, 0, 0, "list<double | null>", 1
+"msm", "Ccall.msm", 6, 0, 0, "class<`hmodel`>", 1
+"msm", "Ccall.msm", 6, 0, 1, "list<double[]>", 1
+"msm", "Ccall.msm", 7, 0, 0, "list<any>", 1
+"msm", "crudeinits.msm", -1, 0, 0, "class<`matrix`>", 1
+"msm", "crudeinits.msm", 0, 0, 0, "class<`formula`>", 1
+"msm", "crudeinits.msm", 1, 0, 0, "any", 1
+"msm", "crudeinits.msm", 2, 0, 0, "class<`matrix`>", 1
+"msm", "crudeinits.msm", 3, 0, 0, "class<`data.frame`>", 1
 "msm", "crudeinits.msm", 4, 0, 0, "null", 1
 "msm", "crudeinits.msm", 5, 0, 0, "null", 1
 "msm", "deltamethod", -1, 0, 0, "double", 1
-"msm", "deltamethod", 0, 0, 0, "language", 1
+"msm", "deltamethod", 0, 0, 0, "class<`formula`>", 1
 "msm", "deltamethod", 1, 0, 0, "double[]", 1
-"msm", "deltamethod", 2, 0, 0, "^double[]", 1
+"msm", "deltamethod", 2, 0, 0, "class<`matrix`>", 1
+"msm", "deltamethod", 2, 0, 1, "double", 1
 "msm", "deltamethod", 3, 0, 0, "logical", 1
 "msm", "deriv.msm", -1, 0, 0, "double[]", 1
 "msm", "deriv.msm", 0, 0, 0, "double[]", 1
-"msm", "deriv.msm", 1, 0, 0, "struct<`mf`:struct<`(subject)`:double[], `(state)`:^integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:double[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:null, `mm.cov`:^double[], `mm.cov.agg`:null, `mm.mcov`:null, `mm.hcov`:tuple<^double[], ^double[]>, `mm.icov`:^double[]>", 1
-"msm", "deriv.msm", 1, 0, 1, "struct<`mf`:struct<`(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[], `mm.mcov`:null, `mm.hcov`:null, `mm.icov`:null>", 1
+"msm", "deriv.msm", 1, 0, 0, "...", 1
 "msm", "deriv.supported", -1, 0, 0, "logical", 1
-"msm", "deriv.supported", 0, 0, 0, "struct<`mf`:struct<`(subject)`:double[], `(state)`:^integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:double[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:null, `mm.cov`:^double[], `mm.cov.agg`:null, `mm.mcov`:null, `mm.hcov`:tuple<^double[], ^double[]>, `mm.icov`:^double[]>", 1
-"msm", "deriv.supported", 0, 0, 1, "struct<`mf`:struct<`(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[], `mm.mcov`:null, `mm.hcov`:null, `mm.icov`:null>", 1
-"msm", "deriv.supported", 1, 0, 0, "struct<`hidden`:logical, `nstates`:integer, `fitted`:logical, `nipars`:double, `initprobs`:double[], `est.initprobs`:logical, `ematrix`:logical, `models`:^integer[], `labels`:^character[], `npars`:^double[], `nout`:integer[], `mv`:logical, `totpars`:double, `pars`:double[], `plabs`:character[], `parstate`:integer[], `parout`:integer[], `firstpar`:^double[], `locpars`:integer[], `ncovs`:double[], `ncoveffs`:double, `nicovs`:double, `nicoveffs`:double, `cri`:null, `constr`:integer[], `covconstr`:integer[], `ranges`:^double[]>", 1
-"msm", "deriv.supported", 1, 0, 1, "struct<`hidden`:logical, `models`:double[], `nipars`:double, `nicoveffs`:double, `totpars`:double, `ncoveffs`:double, `ematrix`:logical>", 1
-"msm", "deriv.supported", 2, 0, 0, "symbol", 1
+"msm", "deriv.supported", 0, 0, 0, "list<any>", 1
+"msm", "deriv.supported", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "deriv.supported", 1, 0, 1, "list<double[]>", 1
+"msm", "deriv.supported", 2, 0, 0, "any", 1
 "msm", "dgexpit", -1, 0, 0, "double[]", 1
 "msm", "dgexpit", 0, 0, 0, "double[]", 1
 "msm", "dgexpit", 1, 0, 0, "double", 1
@@ -77,7 +68,7 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "dtnorm", 5, 0, 0, "logical", 1
 "msm", "efpt.msm", -1, 0, 0, "double[]", 1
 "msm", "efpt.msm", 0, 0, 0, "null", 1
-"msm", "efpt.msm", 1, 0, 0, "^double[]", 1
+"msm", "efpt.msm", 1, 0, 0, "class<`matrix`>", 1
 "msm", "efpt.msm", 2, 0, 0, "double", 1
 "msm", "efpt.msm", 3, 0, 0, "character", 1
 "msm", "efpt.msm", 4, 0, 0, "character", 1
@@ -85,41 +76,473 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "efpt.msm", 6, 0, 0, "double", 1
 "msm", "efpt.msm", 7, 0, 0, "double", 1
 "msm", "efpt.msm", 8, 0, 0, "null", 1
-"msm", "efpt.msm", 9, 0, 0, "null", 1
-"msm", "expand.data", -1, 0, 0, "struct<`mf`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[]>", 1
-"msm", "expand.data", 0, 0, 0, "struct<`call`:language, `minus2loglik`:double, `deriv`:double[], `estimates`:double[], `estimates.t`:double[], `fixedpars`:integer[], `center`:logical, `covmat`:^double[], `ci`:^double[], `opt`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `foundse`:logical, `data`:struct<`mf`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[], `mm.mcov`:null, `mm.hcov`:null, `mm.icov`:null>, `qmodel`:struct<`nstates`:integer, `iso`:double, `perm`:double[], `qperm`:integer[], `npars`:double, `imatrix`:^double[], `qmatrix`:^double[], `inits`:double[], `constr`:integer[], `ndpars`:integer, `expm`:double>, `emodel`:struct<`misc`:logical, `npars`:double, `ndpars`:double, `nipars`:double, `nicoveffs`:double>, `qcmodel`:struct<`npars`:double, `ndpars`:double, `ncovs`:double, `constr`:double[], `covlabels`:character[], `inits`:double[], `covmeans`:double[]>, `ecmodel`:struct<`npars`:double, `ncovs`:double>, `hmodel`:struct<`hidden`:logical, `models`:double[], `nipars`:double, `nicoveffs`:double, `totpars`:double, `ncoveffs`:double, `ematrix`:logical>, `cmodel`:struct<`ncens`:double, `censor`:null, `states`:null, `index`:null>, `pci`:null, `paramdata`:struct<`inits`:double[], `plabs`:character[], `allinits`:double[], `hmmpars`:integer[], `fixed`:logical, `fixedpars`:integer[], `optpars`:integer[], `auxpars`:integer[], `constr`:double[], `npars`:double, `duppars`:integer[], `nfix`:integer, `nopt`:integer, `ndup`:integer, `ranges`:^double[], `params`:double[], `lik`:double, `opt`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `deriv`:double[], `information`:^double[], `foundse`:logical, `covmat`:^double[], `ci`:^double[], `estimates.t`:double[]>, `cl`:double, `covariates`:language, `misccovariates`:null, `hcovariates`:null, `initcovariates`:null, `Qmatrices`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesSE`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesL`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesU`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesFixed`:struct<`logbaseline`:^logical[], `ollwsdrt`:^logical[], `hieffusn`:^logical[]>, `sojourn`:struct<`estimates`:double[], `SE`:double[], `L`:double[], `U`:double[]>>", 1
-"msm", "expand.interactions.msm", -1, 0, 0, "struct<`ollwsdrt`:double, `hieffusn`:double>", 1
-"msm", "expand.interactions.msm", 0, 0, 0, "struct<`ollwsdrt`:integer, `hieffusn`:integer>", 1
+"msm", "efpt.msm", 9, 0, 0, "...", 1
+"msm", "expand.data", -1, 0, 0, "list<class<`data.frame`> | class<`matrix`>>", 1
+"msm", "expand.data", 0, 0, 0, "class<`msm`>", 1
+"msm", "expand.interactions.msm", -1, 0, 0, "list<double>", 1
+"msm", "expand.interactions.msm", 0, 0, 0, "list<integer>", 1
 "msm", "expand.interactions.msm", 1, 0, 0, "character[]", 1
 "msm", "expsum", -1, 0, 0, "character", 1
 "msm", "expsum", 0, 0, 0, "double", 1
 "msm", "expsum", 1, 0, 0, "double", 1
-"msm", "expsum.formstr", -1, 0, 0, "struct<`formstr`:character[], `parinds`:double[], `parinds2`:double[]>", 1
+"msm", "expsum.formstr", -1, 0, 0, "list<character[] | double[] | character | double>", 1
 "msm", "expsum.formstr", 0, 0, 0, "integer", 1
 "msm", "expsum.formstr", 1, 0, 0, "integer[]", 1
 "msm", "expsum.formstr", 2, 0, 0, "double", 1
 "msm", "expsum.formstr", 3, 0, 0, "double", 1
 "msm", "expsum.formstr", 4, 0, 0, "integer", 1
 "msm", "expsum.formstr", 5, 0, 0, "double", 1
-"msm", "f", -1, 0, 0, "double[]", 1
-"msm", "f", 0, 0, 0, "double[]", 1
-"msm", "factorcov2numeric.msm", -1, 0, 0, "struct<`ollwsdrt`:double, `hieffusn`:double>", 1
-"msm", "factorcov2numeric.msm", 0, 0, 0, "struct<`ollwsdrt`:integer, `hieffusn`:integer>", 1
-"msm", "factorcov2numeric.msm", 1, 0, 0, "struct<`call`:language, `minus2loglik`:double, `deriv`:double[], `estimates`:double[], `estimates.t`:double[], `fixedpars`:integer[], `center`:logical, `covmat`:^double[], `ci`:^double[], `opt`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `foundse`:logical, `data`:struct<`mf`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`ollwsdrt`:integer[], `hieffusn`:integer[], `(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[], `mm.mcov`:null, `mm.hcov`:null, `mm.icov`:null>, `qmodel`:struct<`nstates`:integer, `iso`:double, `perm`:double[], `qperm`:integer[], `npars`:double, `imatrix`:^double[], `qmatrix`:^double[], `inits`:double[], `constr`:integer[], `ndpars`:integer, `expm`:double>, `emodel`:struct<`misc`:logical, `npars`:double, `ndpars`:double, `nipars`:double, `nicoveffs`:double>, `qcmodel`:struct<`npars`:double, `ndpars`:double, `ncovs`:double, `constr`:double[], `covlabels`:character[], `inits`:double[], `covmeans`:double[]>, `ecmodel`:struct<`npars`:double, `ncovs`:double>, `hmodel`:struct<`hidden`:logical, `models`:double[], `nipars`:double, `nicoveffs`:double, `totpars`:double, `ncoveffs`:double, `ematrix`:logical>, `cmodel`:struct<`ncens`:double, `censor`:null, `states`:null, `index`:null>, `pci`:null, `paramdata`:struct<`inits`:double[], `plabs`:character[], `allinits`:double[], `hmmpars`:integer[], `fixed`:logical, `fixedpars`:integer[], `optpars`:integer[], `auxpars`:integer[], `constr`:double[], `npars`:double, `duppars`:integer[], `nfix`:integer, `nopt`:integer, `ndup`:integer, `ranges`:^double[], `params`:double[], `lik`:double, `opt`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `deriv`:double[], `information`:^double[], `foundse`:logical, `covmat`:^double[], `ci`:^double[], `estimates.t`:double[]>, `cl`:double, `covariates`:language, `misccovariates`:null, `hcovariates`:null, `initcovariates`:null, `Qmatrices`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesSE`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesL`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesU`:struct<`logbaseline`:^double[], `ollwsdrt`:^double[], `hieffusn`:^double[], `baseline`:^double[]>, `QmatricesFixed`:struct<`logbaseline`:^logical[], `ollwsdrt`:^logical[], `hieffusn`:^logical[]>, `sojourn`:struct<`estimates`:double[], `SE`:double[], `L`:double[], `U`:double[]>>", 1
-"msm", "factorcov2numeric.msm", 2, 0, 0, "struct<`npars`:double, `ndpars`:double, `ncovs`:double, `constr`:double[], `covlabels`:character[], `inits`:double[], `covmeans`:double[]>", 1
-"msm", "filter", -1, 0, 0, "logical[]", 1
-"msm", "filter", 0, 0, 0, "character[]", 1
-"msm", "fn", -1, 0, 0, "double", 1
-"msm", "fn", 0, 0, 0, "double[]", 1
-"msm", "fn", 1, 0, 0, "struct<`mf`:struct<`(subject)`:double[], `(state)`:^integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:double[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:null, `mm.cov`:^double[], `mm.cov.agg`:null, `mm.mcov`:null, `mm.hcov`:tuple<^double[], ^double[]>, `mm.icov`:^double[]>", 1
-"msm", "fn", 1, 0, 1, "struct<`mf`:struct<`(subject)`:integer[], `(state)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(pcomb)`:^integer[]>, `mf.agg`:struct<`(subject)`:integer[], `(fromstate)`:integer[], `(time)`:double[], `(obstype)`:double[], `(obstrue)`:integer[], `(obs)`:integer[], `(tostate)`:integer[], `(timelag)`:double[], `(nocc)`:double[], `(whicha)`:integer[], `(noccsum)`:double[]>, `mm.cov`:^double[], `mm.cov.agg`:^double[], `mm.mcov`:null, `mm.hcov`:null, `mm.icov`:null>", 1
-"msm", "fun", -1, 0, 0, "double", 1
-"msm", "fun", 0, 0, 0, "symbol", 1
-"msm", "fun", 1, 0, 0, "symbol", 1
-"msm", "FUN", -1, 0, 0, "struct<`hieffusn`:integer>", 1
-"msm", "FUN", 0, 0, 0, "^double[]", 1
-"msm", "FUN", 0, 0, 1, "character", 1
-"msm", "FUN", 0, 0, 2, "struct<`label`:character, `pars`:double[], `link`:character, `r`:any => any>", 1
-"msm", "FUN", 0, 0, 3, "struct<`hieffusn`:integer>", 1
-"msm", "FUN", 0, 0, 4, "struct<`ollwsdrt`:integer>", 1
-"msm", "FUN", 0, 0, 5, "language", 1
+"msm", "factorcov2numeric.msm", -1, 0, 0, "list<double>", 1
+"msm", "factorcov2numeric.msm", 0, 0, 0, "list<integer>", 1
+"msm", "factorcov2numeric.msm", 1, 0, 0, "class<`msm`>", 1
+"msm", "factorcov2numeric.msm", 2, 0, 0, "list<double[] | character[]>", 1
+"msm", "getobs.msm", -1, 0, 0, "list<double[]>", 1
+"msm", "getobs.msm", 0, 0, 0, "list<double[] | class<`matrix`>>", 1
+"msm", "getobs.msm", 1, 0, 0, "double[]", 1
+"msm", "getobs.msm", 2, 0, 0, "double", 1
+"msm", "getobs.msm", 3, 0, 0, "logical", 1
+"msm", "gexpit", -1, 0, 0, "^double[]", 1
+"msm", "gexpit", 0, 0, 0, "^double[]", 1
+"msm", "gexpit", 1, 0, 0, "class<`matrix`>", 1
+"msm", "gexpit", 1, 0, 1, "double[]", 1
+"msm", "gexpit", 2, 0, 0, "class<`matrix`>", 1
+"msm", "gexpit", 2, 0, 1, "double[]", 1
+"msm", "glogit", -1, 0, 0, "double[]", 1
+"msm", "glogit", 0, 0, 0, "double[]", 1
+"msm", "glogit", 1, 0, 0, "double[]", 1
+"msm", "glogit", 2, 0, 0, "double[]", 1
+"msm", "gr", -1, 0, 0, "double[]", 1
+"msm", "gr", 0, 0, 0, "double[]", 1
+"msm", "gr", 1, 0, 0, "...", 1
+"msm", "hazard.msm", -1, 0, 0, "list<class<`matrix`>>", 1
+"msm", "hazard.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "hazard.msm", 1, 0, 0, "double", 1
+"msm", "hazard.msm", 2, 0, 0, "double", 1
+"msm", "hmmBinom", -1, 0, 0, "class<`hmmdist`>", 1
+"msm", "hmmBinom", 0, 0, 0, "double", 1
+"msm", "hmmBinom", 1, 0, 0, "double", 1
+"msm", "hmmCheckInits", -1, 0, 0, "null", 1
+"msm", "hmmCheckInits", 0, 0, 0, "double[]", 1
+"msm", "hmmDIST", -1, 0, 0, "class<`hmmdist`>", 1
+"msm", "hmmDIST", 0, 0, 0, "character", 1
+"msm", "hmmDIST", 1, 0, 0, "character", 1
+"msm", "hmmDIST", 2, 0, 0, "class<`function`>", 1
+"msm", "hmmDIST", 3, 0, 0, "class<`call`>", 1
+"msm", "hmmDIST", 4, 0, 0, "...", 1
+"msm", "hmmMV", -1, 0, 0, "class<`hmmMVdist`, `hmmdist`>", 1
+"msm", "hmmMV", 0, 0, 0, "...", 1
+"msm", "information.msm", -1, 0, 0, "class<`matrix`>", 1
+"msm", "information.msm", 0, 0, 0, "double[]", 1
+"msm", "information.msm", 1, 0, 0, "...", 1
+"msm", "info.supported", -1, 0, 0, "logical", 1
+"msm", "info.supported", 0, 0, 0, "list<any>", 1
+"msm", "info.supported", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "info.supported", 1, 0, 1, "list<double[]>", 1
+"msm", "info.supported", 2, 0, 0, "any", 1
+"msm", "in.range", -1, 0, 0, "logical", 1
+"msm", "in.range", 0, 0, 0, "double", 1
+"msm", "in.range", 1, 0, 0, "double[]", 1
+"msm", "in.range", 2, 0, 0, "logical", 1
+"msm", "intervaltrans.msm", -1, 0, 0, "class<`matrix`>", 1
+"msm", "intervaltrans.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "intervaltrans.msm", 1, 0, 0, "null", 1
+"msm", "intervaltrans.msm", 2, 0, 0, "null", 1
+"msm", "intervaltrans.msm", 3, 0, 0, "logical", 1
+"msm", "intervaltrans.msm", 4, 0, 0, "logical", 1
+"msm", "is.qmatrix", -1, 0, 0, "logical", 1
+"msm", "is.qmatrix", 0, 0, 0, "class<`matrix`>", 1
+"msm", "lsum", -1, 0, 0, "character", 1
+"msm", "lsum", 0, 0, 0, "integer", 1
+"msm", "lsum", 1, 0, 0, "double", 1
+"msm", "MatrixExp", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"msm", "MatrixExp", 0, 0, 0, "class<`matrix`>", 1
+"msm", "MatrixExp", 1, 0, 0, "double[]", 1
+"msm", "MatrixExp", 2, 0, 0, "character", 1
+"msm", "MatrixExp", 2, 0, 1, "null", 1
+"msm", "MatrixExp", 3, 0, 0, "...", 1
+"msm", "model.matrix.wrap", -1, 0, 0, "class<`matrix`>", 1
+"msm", "model.matrix.wrap", 0, 0, 0, "class<`formula`>", 1
+"msm", "model.matrix.wrap", 1, 0, 0, "class<`data.frame`>", 1
+"msm", "msm", -1, 0, 0, "class<`msm`>", 1
+"msm", "msm", 0, 0, 0, "class<`formula`>", 1
+"msm", "msm", 1, 0, 0, "any", 1
+"msm", "msm", 2, 0, 0, "class<`data.frame`>", 1
+"msm", "msm", 3, 0, 0, "class<`matrix`>", 1
+"msm", "msm", 4, 0, 0, "logical", 1
+"msm", "msm", 5, 0, 0, "null", 1
+"msm", "msm", 6, 0, 0, "null", 1
+"msm", "msm", 6, 0, 1, "list<class<`hmmMVdist`, `hmmdist`>>", 1
+"msm", "msm", 7, 0, 0, "null", 1
+"msm", "msm", 8, 0, 0, "null", 1
+"msm", "msm", 9, 0, 0, "class<`formula`>", 1
+"msm", "msm", 9, 0, 1, "null", 1
+"msm", "msm", 10, 0, 0, "null", 1
+"msm", "msm", 11, 0, 0, "null", 1
+"msm", "msm", 11, 0, 1, "list<double[]>", 1
+"msm", "msm", 12, 0, 0, "null", 1
+"msm", "msm", 13, 0, 0, "null", 1
+"msm", "msm", 14, 0, 0, "null", 1
+"msm", "msm", 15, 0, 0, "null", 1
+"msm", "msm", 16, 0, 0, "null", 1
+"msm", "msm", 17, 0, 0, "null", 1
+"msm", "msm", 18, 0, 0, "null", 1
+"msm", "msm", 19, 0, 0, "null", 1
+"msm", "msm2Surv", -1, 0, 0, "class<`data.frame`, `msdata`>", 1
+"msm", "msm2Surv", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "msm2Surv", 1, 0, 0, "character", 1
+"msm", "msm2Surv", 2, 0, 0, "character", 1
+"msm", "msm2Surv", 3, 0, 0, "character", 1
+"msm", "msm2Surv", 4, 0, 0, "null", 1
+"msm", "msm2Surv", 5, 0, 0, "class<`matrix`>", 1
+"msm", "msm.add.hmmcovs", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.add.hmmcovs", 0, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.add.hmmcovs", 1, 0, 0, "double[]", 1
+"msm", "msm.add.hmmcovs", 2, 0, 0, "list<class<`matrix`>>", 1
+"msm", "msm.add.qcovs", -1, 0, 0, "class<`array`>", 1
+"msm", "msm.add.qcovs", 0, 0, 0, "class<`msmqmodel`>", 1
+"msm", "msm.add.qcovs", 1, 0, 0, "double[]", 1
+"msm", "msm.add.qcovs", 2, 0, 0, "class<`matrix`>", 1
+"msm", "msm.aggregate.data", -1, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.aggregate.data", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.center.covs", -1, 0, 0, "(class<`matrix`> | null)", 1
+"msm", "msm.center.covs", 0, 0, 0, "class<`matrix`>", 1
+"msm", "msm.center.covs", 0, 0, 1, "null", 1
+"msm", "msm.center.covs", 1, 0, 0, "any", 1
+"msm", "msm.center.covs", 2, 0, 0, "any", 1
+"msm", "msm.check.constraint", -1, 0, 0, "null", 1
+"msm", "msm.check.constraint", 0, 0, 0, "list<double[]>", 1
+"msm", "msm.check.constraint", 1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.check.hmodel", -1, 0, 0, "null", 1
+"msm", "msm.check.hmodel", 0, 0, 0, "list<class<`hmmdist`> | class<`hmmMVdist`, `hmmdist`>>", 1
+"msm", "msm.check.hmodel", 1, 0, 0, "integer", 1
+"msm", "msm.check.model", -1, 0, 0, "null", 1
+"msm", "msm.check.model", 0, 0, 0, "integer[]", 1
+"msm", "msm.check.model", 1, 0, 0, "integer[]", 1
+"msm", "msm.check.model", 2, 0, 0, "any", 1
+"msm", "msm.check.model", 3, 0, 0, "any", 1
+"msm", "msm.check.model", 4, 0, 0, "double[]", 1
+"msm", "msm.check.model", 5, 0, 0, "class<`matrix`>", 1
+"msm", "msm.check.model", 6, 0, 0, "list<double | null>", 1
+"msm", "msm.check.qmatrix", -1, 0, 0, "null", 1
+"msm", "msm.check.qmatrix", 0, 0, 0, "class<`matrix`>", 1
+"msm", "msm.check.state", -1, 0, 0, "null", 1
+"msm", "msm.check.state", 0, 0, 0, "any", 1
+"msm", "msm.check.state", 1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.check.state", 1, 0, 1, "integer[]", 1
+"msm", "msm.check.state", 2, 0, 0, "any", 1
+"msm", "msm.check.state", 3, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.check.state", 3, 0, 1, "list<double[]>", 1
+"msm", "msm.check.times", -1, 0, 0, "null", 1
+"msm", "msm.check.times", 0, 0, 0, "double[]", 1
+"msm", "msm.check.times", 1, 0, 0, "double[]", 1
+"msm", "msm.check.times", 2, 0, 0, "class<`matrix`>", 1
+"msm", "msm.check.times", 2, 0, 1, "integer[]", 1
+"msm", "msm.check.times", 2, 0, 2, "null", 1
+"msm", "msm.dmninvlogit", -1, 0, 0, "class<`array`>", 1
+"msm", "msm.dmninvlogit", 0, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.dmninvlogit", 1, 0, 0, "any", 1
+"msm", "msm.dmninvlogit", 2, 0, 0, "list<class<`matrix`>>", 1
+"msm", "msm.dmninvlogit", 3, 0, 0, "any", 1
+"msm", "msm.dmninvlogit", 4, 0, 0, "class<`array`>", 1
+"msm", "[.msm.est", -1, 0, 0, "double[]", 1
+"msm", "[.msm.est", 0, 0, 0, "class<`msm.est`>", 1
+"msm", "[.msm.est", 1, 0, 0, "class<`factor`>", 1
+"msm", "[.msm.est", 2, 0, 0, "any", 1
+"msm", "[.msm.est", 3, 0, 0, "logical", 1
+"msm", "msm.fixdiag.qmatrix", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.fixdiag.qmatrix", 0, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.cmodel", -1, 0, 0, "list<double | null>", 1
+"msm", "msm.form.cmodel", 0, 0, 0, "null", 1
+"msm", "msm.form.cmodel", 1, 0, 0, "null", 1
+"msm", "msm.form.cmodel", 2, 0, 0, "any", 1
+"msm", "msm.form.covmodel", -1, 0, 0, "list<double[] | character[]>", 1
+"msm", "msm.form.covmodel", 0, 0, 0, "any", 1
+"msm", "msm.form.covmodel", 1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.covmodel", 2, 0, 0, "list<double[]>", 1
+"msm", "msm.form.covmodel", 3, 0, 0, "null", 1
+"msm", "msm.form.covmodel", 4, 0, 0, "any", 1
+"msm", "msm.form.covmodel", 5, 0, 0, "double", 1
+"msm", "msm.form.covmodel", 6, 0, 0, "null", 1
+"msm", "msm.form.dh", -1, 0, 0, "class<`array`>", 1
+"msm", "msm.form.dh", 0, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.dh", 1, 0, 0, "double[]", 1
+"msm", "msm.form.dh", 2, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.dh", 3, 0, 0, "list<any>", 1
+"msm", "msm.form.dh", 4, 0, 0, "list<class<`matrix`>>", 1
+"msm", "msm.form.dmodel", -1, 0, 0, "list<double[]>", 1
+"msm", "msm.form.dmodel", 0, 0, 0, "null", 1
+"msm", "msm.form.dmodel", 0, 0, 1, "double", 1
+"msm", "msm.form.dmodel", 1, 0, 0, "class<`msmqmodel`>", 1
+"msm", "msm.form.dmodel", 2, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.dmodel", 2, 0, 1, "list<double[]>", 1
+"msm", "msm.form.dq", -1, 0, 0, "class<`array`>", 1
+"msm", "msm.form.dq", 0, 0, 0, "class<`msmqmodel`>", 1
+"msm", "msm.form.dq", 1, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.form.dq", 2, 0, 0, "double[]", 1
+"msm", "msm.form.dq", 3, 0, 0, "list<any>", 1
+"msm", "msm.form.dq", 4, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.hconstraint", -1, 0, 0, "integer[]", 1
+"msm", "msm.form.hconstraint", 0, 0, 0, "null", 1
+"msm", "msm.form.hconstraint", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.hcovconstraint", -1, 0, 0, "integer[]", 1
+"msm", "msm.form.hcovconstraint", 0, 0, 0, "null", 1
+"msm", "msm.form.hcovconstraint", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.hmm.agg", -1, 0, 0, "^integer[]", 1
+"msm", "msm.form.hmm.agg", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.form.hmodel", -1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.hmodel", 0, 0, 0, "list<class<`hmmdist`> | class<`hmmMVdist`, `hmmdist`>>", 1
+"msm", "msm.form.hmodel", 1, 0, 0, "any", 1
+"msm", "msm.form.hmodel", 2, 0, 0, "null", 1
+"msm", "msm.form.hmodel", 3, 0, 0, "logical", 1
+"msm", "msm.form.houtput", -1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.houtput", 0, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.houtput", 1, 0, 0, "list<any>", 1
+"msm", "msm.form.houtput", 2, 0, 0, "list<any>", 1
+"msm", "msm.form.hranges", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.hranges", 0, 0, 0, "null", 1
+"msm", "msm.form.hranges", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.initprobs", -1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.initprobs", 0, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.initprobs", 1, 0, 0, "any", 1
+"msm", "msm.form.initprobs", 2, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.form.mf.agg", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"msm", "msm.form.mf.agg", 0, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.mf.agg", 0, 0, 1, "list<class<`msmqmodel`> | list<class<`data.frame`> | double[] | double | null> | class<`msmqmodel`> | class<`hmodel`> | list<class<`data.frame`> | double | null>>", 1
+"msm", "msm.form.mm.cov", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.mm.cov", 0, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.mm.cov", 0, 0, 1, "list<class<`formula`> | logical | list<class<`data.frame`>>>", 1
+"msm", "msm.form.mm.cov.agg", -1, 0, 0, "(class<`matrix`> | null)", 1
+"msm", "msm.form.mm.cov.agg", 0, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.mm.cov.agg", 0, 0, 1, "list<any>", 1
+"msm", "msm.form.mm.hcov", -1, 0, 0, "(null | list<class<`matrix`>>)", 1
+"msm", "msm.form.mm.hcov", 0, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.mm.hcov", 0, 0, 1, "list<any>", 1
+"msm", "msm.form.mm.icov", -1, 0, 0, "(class<`matrix`> | null)", 1
+"msm", "msm.form.mm.icov", 0, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.mm.icov", 0, 0, 1, "list<any>", 1
+"msm", "msm.form.mm.mcov", -1, 0, 0, "null", 1
+"msm", "msm.form.mm.mcov", 0, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.mm.mcov", 0, 0, 1, "list<null | logical | list<class<`data.frame`> | double>>", 1
+"msm", "msm.form.mvhmodel", -1, 0, 0, "list<class<`matrix`> | double[] | character[]>", 1
+"msm", "msm.form.mvhmodel", 0, 0, 0, "list<class<`hmmMVdist`, `hmmdist`>>", 1
+"msm", "msm.form.obstrue", -1, 0, 0, "double[]", 1
+"msm", "msm.form.obstrue", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.form.obstrue", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.obstrue", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.form.obstrue", 2, 0, 0, "list<double | null>", 1
+"msm", "msm.form.obstype", -1, 0, 0, "double[]", 1
+"msm", "msm.form.obstype", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.form.obstype", 1, 0, 0, "null", 1
+"msm", "msm.form.obstype", 2, 0, 0, "list<double[]>", 1
+"msm", "msm.form.obstype", 3, 0, 0, "logical", 1
+"msm", "msm.form.output", -1, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.output", 0, 0, 0, "class<`msm`>", 1
+"msm", "msm.form.output", 1, 0, 0, "character", 1
+"msm", "msm.form.params", -1, 0, 0, "list<double[] | character[] | class<`matrix`>>", 1
+"msm", "msm.form.params", 0, 0, 0, "class<`msmqmodel`>", 1
+"msm", "msm.form.params", 1, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.form.params", 2, 0, 0, "any", 1
+"msm", "msm.form.params", 3, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.form.params", 3, 0, 1, "list<double[]>", 1
+"msm", "msm.form.params", 4, 0, 0, "null", 1
+"msm", "msm.form.params", 4, 0, 1, "logical", 1
+"msm", "msm.form.qmodel", -1, 0, 0, "class<`msmqmodel`>", 1
+"msm", "msm.form.qmodel", 0, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.qmodel", 1, 0, 0, "null", 1
+"msm", "msm.form.qmodel", 2, 0, 0, "logical", 1
+"msm", "msm.form.qmodel", 3, 0, 0, "logical", 1
+"msm", "msm.form.qmodel", 4, 0, 0, "any", 1
+"msm", "msm.form.univhmodel", -1, 0, 0, "list<character[] | double[]>", 1
+"msm", "msm.form.univhmodel", 0, 0, 0, "list<class<`hmmdist`>>", 1
+"msm", "msm.impute.censored", -1, 0, 0, "list<integer[]>", 1
+"msm", "msm.impute.censored", 0, 0, 0, "integer[]", 1
+"msm", "msm.impute.censored", 1, 0, 0, "integer[]", 1
+"msm", "msm.impute.censored", 2, 0, 0, "any", 1
+"msm", "msm.impute.censored", 3, 0, 0, "list<double | null>", 1
+"msm", "msm.initprobs2mat", -1, 0, 0, "(class<`matrix`> | double)", 1
+"msm", "msm.initprobs2mat", 0, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.initprobs2mat", 0, 0, 1, "list<double[]>", 1
+"msm", "msm.initprobs2mat", 1, 0, 0, "any", 1
+"msm", "msm.initprobs2mat", 2, 0, 0, "any", 1
+"msm", "msm.initprobs2mat", 3, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.inv.transform", -1, 0, 0, "double[]", 1
+"msm", "msm.inv.transform", 0, 0, 0, "double[]", 1
+"msm", "msm.inv.transform", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.inv.transform", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.inv.transform", 2, 0, 0, "class<`matrix`>", 1
+"msm", "msm.mninvlogit.transform", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"msm", "msm.mninvlogit.transform", 0, 0, 0, "class<`matrix`>", 1
+"msm", "msm.mninvlogit.transform", 0, 0, 1, "double[]", 1
+"msm", "msm.mninvlogit.transform", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.mninvlogit.transform", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.mnlogit.transform", -1, 0, 0, "double[]", 1
+"msm", "msm.mnlogit.transform", 0, 0, 0, "double[]", 1
+"msm", "msm.mnlogit.transform", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.mnlogit.transform", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.obs.to.fromto", -1, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.obs.to.fromto", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.optim", -1, 0, 0, "list<any>", 1
+"msm", "msm.optim", 0, 0, 0, "character", 1
+"msm", "msm.optim", 1, 0, 0, "list<double[] | character[] | class<`matrix`>>", 1
+"msm", "msm.optim", 2, 0, 0, "logical", 1
+"msm", "msm.optim", 3, 0, 0, "logical", 1
+"msm", "msm.optim", 4, 0, 0, "list<any>", 1
+"msm", "msm.optim", 5, 0, 0, "class<`msmqmodel`>", 1
+"msm", "msm.optim", 6, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.optim", 7, 0, 0, "list<double | null>", 1
+"msm", "msm.optim", 8, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.optim", 8, 0, 1, "list<double[]>", 1
+"msm", "msm.optim", 9, 0, 0, "...", 1
+"msm", "msm.optim.optim", -1, 0, 0, "list<any>", 1
+"msm", "msm.optim.optim", 0, 0, 0, "list<double[] | character[] | class<`matrix`>>", 1
+"msm", "msm.optim.optim", 1, 0, 0, "class<`function`>", 1
+"msm", "msm.optim.optim", 2, 0, 0, "logical", 1
+"msm", "msm.optim.optim", 3, 0, 0, "list<any>", 1
+"msm", "msm.optim.optim", 4, 0, 0, "class<`msmqmodel`>", 1
+"msm", "msm.optim.optim", 5, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.optim.optim", 6, 0, 0, "list<double | null>", 1
+"msm", "msm.optim.optim", 7, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.optim.optim", 7, 0, 1, "list<double[]>", 1
+"msm", "msm.optim.optim", 8, 0, 0, "...", 1
+"msm", "msm.parse.covariates", -1, 0, 0, "list<any>", 1
+"msm", "msm.parse.covariates", 0, 0, 0, "any", 1
+"msm", "msm.parse.covariates", 1, 0, 0, "character", 1
+"msm", "msm.parse.covariates", 1, 0, 1, "list<integer>", 1
+"msm", "msm.parse.covariates", 2, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.parse.covariates", 3, 0, 0, "logical", 1
+"msm", "msm.rep.constraints", -1, 0, 0, "double[]", 1
+"msm", "msm.rep.constraints", 0, 0, 0, "double[]", 1
+"msm", "msm.rep.constraints", 1, 0, 0, "list<any>", 1
+"msm", "msm.rep.constraints", 2, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.rep.constraints", 2, 0, 1, "list<double[]>", 1
+"msm", "msm.transform", -1, 0, 0, "double[]", 1
+"msm", "msm.transform", 0, 0, 0, "double[]", 1
+"msm", "msm.transform", 1, 0, 0, "class<`hmodel`>", 1
+"msm", "msm.transform", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.transform", 2, 0, 0, "class<`matrix`>", 1
+"msm", "na.find.msmdata", -1, 0, 0, "class<`array`>", 1
+"msm", "na.find.msmdata", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "na.find.msmdata", 1, 0, 0, "...", 1
+"msm", "na.omit.msmdata", -1, 0, 0, "class<`data.frame`>", 1
+"msm", "na.omit.msmdata", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "na.omit.msmdata", 1, 0, 0, "...", 1
+"msm", "pearson.msm", -1, 0, 0, "class<`pearson.msm`>", 1
+"msm", "pearson.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "pearson.msm", 1, 0, 0, "null", 1
+"msm", "pearson.msm", 2, 0, 0, "double", 1
+"msm", "pearson.msm", 3, 0, 0, "double", 1
+"msm", "pearson.msm", 4, 0, 0, "double", 1
+"msm", "pearson.msm", 5, 0, 0, "null", 1
+"msm", "pearson.msm", 6, 0, 0, "logical", 1
+"msm", "pearson.msm", 7, 0, 0, "double", 1
+"msm", "pearson.msm", 8, 0, 0, "null", 1
+"msm", "pearson.msm", 9, 0, 0, "double", 1
+"msm", "pearson.msm", 10, 0, 0, "logical", 1
+"msm", "pearson.msm", 11, 0, 0, "null", 1
+"msm", "pearson.msm", 12, 0, 0, "logical", 1
+"msm", "pmatrix.msm", -1, 0, 0, "class<`msm.est`>", 1
+"msm", "pmatrix.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "pmatrix.msm", 1, 0, 0, "double", 1
+"msm", "pmatrix.msm", 2, 0, 0, "any", 1
+"msm", "pmatrix.msm", 3, 0, 0, "character", 1
+"msm", "pmatrix.msm", 3, 0, 1, "list<integer>", 1
+"msm", "pmatrix.msm", 4, 0, 0, "character[]", 1
+"msm", "pmatrix.msm", 5, 0, 0, "double", 1
+"msm", "pmatrix.msm", 6, 0, 0, "double", 1
+"msm", "pmatrix.msm", 7, 0, 0, "null", 1
+"msm", "pmatrix.msm", 8, 0, 0, "null", 1
+"msm", "pmatrix.msm", 9, 0, 0, "...", 1
+"msm", "ppass.msm", -1, 0, 0, "class<`matrix`>", 1
+"msm", "ppass.msm", 0, 0, 0, "null", 1
+"msm", "ppass.msm", 1, 0, 0, "class<`matrix`>", 1
+"msm", "ppass.msm", 2, 0, 0, "double", 1
+"msm", "ppass.msm", 3, 0, 0, "character", 1
+"msm", "ppass.msm", 4, 0, 0, "character", 1
+"msm", "ppass.msm", 5, 0, 0, "null", 1
+"msm", "ppass.msm", 6, 0, 0, "null", 1
+"msm", "ppass.msm", 7, 0, 0, "character[]", 1
+"msm", "ppass.msm", 8, 0, 0, "double", 1
+"msm", "ppass.msm", 9, 0, 0, "double", 1
+"msm", "ppass.msm", 10, 0, 0, "null", 1
+"msm", "ppass.msm", 11, 0, 0, "...", 1
+"msm", "ppexp", -1, 0, 0, "double[]", 1
+"msm", "ppexp", 0, 0, 0, "double[]", 1
+"msm", "ppexp", 1, 0, 0, "double[]", 1
+"msm", "ppexp", 2, 0, 0, "double[]", 1
+"msm", "ppexp", 3, 0, 0, "logical", 1
+"msm", "ppexp", 4, 0, 0, "logical", 1
+"msm", "qcut", -1, 0, 0, "class<`factor`>", 1
+"msm", "qcut", 0, 0, 0, "double[]", 1
+"msm", "qcut", 1, 0, 0, "any", 1
+"msm", "qcut", 2, 0, 0, "null", 1
+"msm", "qcut", 2, 0, 1, "double[]", 1
+"msm", "qcut", 3, 0, 0, "double", 1
+"msm", "qcut", 4, 0, 0, "double", 1
+"msm", "qcut", 5, 0, 0, "logical", 1
+"msm", "qgeneric", -1, 0, 0, "double[]", 1
+"msm", "qgeneric", 0, 0, 0, "class<`function`>", 1
+"msm", "qgeneric", 1, 0, 0, "double[]", 1
+"msm", "qgeneric", 2, 0, 0, "null", 1
+"msm", "qgeneric", 3, 0, 0, "...", 1
+"msm", "qmatrix.diagse.msm", -1, 0, 0, "list<double[]>", 1
+"msm", "qmatrix.diagse.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "qmatrix.diagse.msm", 1, 0, 0, "list<any>", 1
+"msm", "qmatrix.diagse.msm", 2, 0, 0, "logical", 1
+"msm", "qmatrix.diagse.msm", 3, 0, 0, "double", 1
+"msm", "qmatrix.diagse.msm", 4, 0, 0, "double[]", 1
+"msm", "qmatrix.diagse.msm", 5, 0, 0, "integer", 1
+"msm", "qmatrix.msm", -1, 0, 0, "(class<`matrix`> | class<`msm.est`>)", 1
+"msm", "qmatrix.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "qmatrix.msm", 1, 0, 0, "character", 1
+"msm", "qmatrix.msm", 1, 0, 1, "list<integer>", 1
+"msm", "qmatrix.msm", 2, 0, 0, "logical", 1
+"msm", "qmatrix.msm", 3, 0, 0, "character[]", 1
+"msm", "qmatrix.msm", 4, 0, 0, "double", 1
+"msm", "qmatrix.msm", 5, 0, 0, "any", 1
+"msm", "qmatrix.msm", 6, 0, 0, "null", 1
+"msm", "reformat.pearson.msm", -1, 0, 0, "list<class<`data.frame`> | class<`array`> | double[]>", 1
+"msm", "reformat.pearson.msm", 0, 0, 0, "list<class<`array`> | class<`data.frame`> | double[]>", 1
+"msm", "resample", -1, 0, 0, "integer", 1
+"msm", "resample", 0, 0, 0, "integer[]", 1
+"msm", "resample", 1, 0, 0, "double", 1
+"msm", "resample", 2, 0, 0, "...", 1
+"msm", "rpexp", -1, 0, 0, "double", 1
+"msm", "rpexp", 0, 0, 0, "double", 1
+"msm", "rpexp", 1, 0, 0, "double", 1
+"msm", "rpexp", 2, 0, 0, "double", 1
+"msm", "sim.msm", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"msm", "sim.msm", 0, 0, 0, "class<`matrix`>", 1
+"msm", "sim.msm", 1, 0, 0, "double", 1
+"msm", "sim.msm", 2, 0, 0, "null", 1
+"msm", "sim.msm", 3, 0, 0, "any", 1
+"msm", "sim.msm", 4, 0, 0, "any", 1
+"msm", "sim.msm", 5, 0, 0, "double", 1
+"msm", "sim.msm", 6, 0, 0, "double", 1
+"msm", "simmulti.msm", -1, 0, 0, "class<`data.frame`>", 1
+"msm", "simmulti.msm", 0, 0, 0, "class<`data.frame`>", 1
+"msm", "simmulti.msm", 1, 0, 0, "class<`matrix`>", 1
+"msm", "simmulti.msm", 2, 0, 0, "null", 1
+"msm", "simmulti.msm", 3, 0, 0, "logical", 1
+"msm", "simmulti.msm", 4, 0, 0, "any", 1
+"msm", "simmulti.msm", 5, 0, 0, "null", 1
+"msm", "simmulti.msm", 6, 0, 0, "null", 1
+"msm", "simmulti.msm", 7, 0, 0, "null", 1
+"msm", "simmulti.msm", 8, 0, 0, "null", 1
+"msm", "simmulti.msm", 9, 0, 0, "null", 1
+"msm", "simmulti.msm", 10, 0, 0, "logical", 1
+"msm", "sojourn.msm", -1, 0, 0, "(class<`data.frame`> | list<double>)", 1
+"msm", "sojourn.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "sojourn.msm", 1, 0, 0, "character", 1
+"msm", "sojourn.msm", 2, 0, 0, "character[]", 1
+"msm", "sojourn.msm", 3, 0, 0, "double", 1
+"msm", "sojourn.msm", 4, 0, 0, "double", 1
+"msm", "statetable.msm", -1, 0, 0, "class<`table`>", 1
+"msm", "statetable.msm", 0, 0, 0, "any", 1
+"msm", "statetable.msm", 1, 0, 0, "any", 1
+"msm", "statetable.msm", 2, 0, 0, "class<`data.frame`>", 1
+"msm", "statetable.msm", 2, 0, 1, "null", 1
+"msm", "transient.msm", -1, 0, 0, "integer[]", 1
+"msm", "transient.msm", 0, 0, 0, "class<`msm`>", 1
+"msm", "transient.msm", 0, 0, 1, "null", 1
+"msm", "transient.msm", 1, 0, 0, "null", 1
+"msm", "transient.msm", 1, 0, 1, "class<`matrix`>", 1

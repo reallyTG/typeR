@@ -1,9 +1,326 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"rlist", ".evalwith", -1, 0, 0, "null", 1
+"rlist", "args_env", -1, 0, 0, "environment", 1
+"rlist", "args_env", 0, 0, 0, "...", 1
+"rlist", "args_env", 1, 0, 0, "environment", 1
+"rlist", "createCallClosure", -1, 0, 0, "class<`function`>", 1
+"rlist", "createCallClosure", 0, 0, 0, "any", 1
+"rlist", "createListClosure", -1, 0, 0, "class<`function`>", 1
+"rlist", "createListClosure", 0, 0, 0, "any", 1
+"rlist", "createListClosure", 1, 0, 0, "any", 1
+"rlist", "dots", -1, 0, 0, "list<any>", 1
+"rlist", "dots", 0, 0, 0, "...", 1
+"rlist", ".evalwith", -1, 0, 0, "(null | list<any>)", 1
 "rlist", ".evalwith", 0, 0, 0, "character[]", 1
 "rlist", ".evalwith", 0, 0, 1, "double[]", 1
-"rlist", ".evalwith", 0, 0, 2, "struct<`name`:character, `age`:double>", 1
-"rlist", ".evalwith", 0, 0, 3, "struct<`name`:character, `value`:double>", 1
-"rlist", ".evalwith", 0, 0, 4, "struct<`p1`:struct<`type`:character, `score`:struct<`c1`:double, `c2`:double>>>", 1
-"rlist", ".evalwith", 0, 0, 5, "struct<`p2`:struct<`type`:character, `score`:struct<`c1`:double, `c2`:double>>, `p3`:struct<`type`:character, `score`:struct<`c1`:double, `c2`:double>>>", 1
-"rlist", ".evalwith", 0, 0, 6, "struct<`type`:character, `score`:struct<`c1`:double, `c2`:double>>", 1
+"rlist", ".evalwith", 0, 0, 2, "list<any>", 1
+"rlist", "getnames", -1, 0, 0, "character[]", 1
+"rlist", "getnames", 0, 0, 0, "double[]", 1
+"rlist", "getnames", 0, 0, 1, "list<any>", 1
+"rlist", "getnames", 1, 0, 0, "any", 1
+"rlist", "is.empty", -1, 0, 0, "logical", 1
+"rlist", "is.empty", 0, 0, 0, "double[]", 1
+"rlist", "is.empty", 0, 0, 1, "list<any>", 1
+"rlist", "is.error", -1, 0, 0, "logical", 1
+"rlist", "is.error", 0, 0, 0, "class<`try-error`>", 1
+"rlist", "is.error", 0, 0, 1, "double", 1
+"rlist", "is.formula", -1, 0, 0, "logical", 1
+"rlist", "is.formula", 0, 0, 0, "class<`call`>", 1
+"rlist", "is.formula", 0, 0, 1, "class<`name`>", 1
+"rlist", "lambda", -1, 0, 0, "class<`lambda_expression`>", 1
+"rlist", "lambda", 0, 0, 0, "class<`call`>", 1
+"rlist", "lambda", 0, 0, 1, "class<`lambda_expression`>", 1
+"rlist", "lambda", 0, 0, 2, "class<`name`>", 1
+"rlist", "List", -1, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "List", 0, 0, 0, "any", 1
+"rlist", "[<-.List", -1, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "[<-.List", 0, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "[<-.List", 1, 0, 0, "...", 1
+"rlist", "[<-.List", 2, 0, 0, "null", 1
+"rlist", "[<-.List", 2, 0, 1, "double", 1
+"rlist", "[.List", -1, 0, 0, "(class<`List`, `environment`> | double | list<double>)", 1
+"rlist", "[.List", 0, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "[.List", 1, 0, 0, "...", 1
+"rlist", "[[<-.List", -1, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "[[<-.List", 0, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "[[<-.List", 1, 0, 0, "...", 1
+"rlist", "[[<-.List", 2, 0, 0, "null", 1
+"rlist", "[[<-.List", 2, 0, 1, "double", 1
+"rlist", "[[.List", -1, 0, 0, "(class<`List`, `environment`> | double | list<double>)", 1
+"rlist", "[[.List", 0, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "[[.List", 1, 0, 0, "...", 1
+"rlist", "$<-.List", -1, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "$<-.List", 0, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "$<-.List", 1, 0, 0, "...", 1
+"rlist", "$<-.List", 2, 0, 0, "null", 1
+"rlist", "$<-.List", 2, 0, 1, "double", 1
+"rlist", "list.all", -1, 0, 0, "(logical | null)", 1
+"rlist", "list.all", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.all", 1, 0, 0, "any", 1
+"rlist", "list.all", 2, 0, 0, "logical", 1
+"rlist", "list.any", -1, 0, 0, "logical", 1
+"rlist", "list.any", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.any", 1, 0, 0, "any", 1
+"rlist", "list.any", 2, 0, 0, "logical", 1
+"rlist", "list.cases", -1, 0, 0, "(character[] | double[])", 1
+"rlist", "list.cases", 0, 0, 0, "list<character[] | list<character | list<double>>>", 1
+"rlist", "list.cases", 1, 0, 0, "any", 1
+"rlist", "list.cases", 2, 0, 0, "logical", 1
+"rlist", "list.cases", 3, 0, 0, "logical", 1
+"rlist", "list.cbind", -1, 0, 0, "class<`data.frame`>", 1
+"rlist", "list.cbind", 0, 0, 0, "list<class<`data.frame`>>", 1
+"rlist", "list.class", -1, 0, 0, "list<list<list<double | character[] | list<double>>>>", 1
+"rlist", "list.class", 0, 0, 0, "list<list<double | character[] | list<double>>>", 1
+"rlist", "list.class", 1, 0, 0, "...", 1
+"rlist", "list.class", 2, 0, 0, "logical", 1
+"rlist", "list.clean", -1, 0, 0, "list<any>", 1
+"rlist", "list.clean", 0, 0, 0, "list<any>", 1
+"rlist", "list.clean", 1, 0, 0, "class<`function`>", 1
+"rlist", "list.clean", 2, 0, 0, "logical", 1
+"rlist", "list.common", -1, 0, 0, "character[]", 1
+"rlist", "list.common", 0, 0, 0, "list<character[] | list<character | list<double>>>", 1
+"rlist", "list.common", 1, 0, 0, "any", 1
+"rlist", "list.count", -1, 0, 0, "integer", 1
+"rlist", "list.count", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.count", 1, 0, 0, "any", 1
+"rlist", "list.do", -1, 0, 0, "(class<`data.frame`> | class<`matrix`>)", 1
+"rlist", "list.do", 0, 0, 0, "list<class<`data.frame`> | double[]>", 1
+"rlist", "list.do", 1, 0, 0, "character", 1
+"rlist", "list.do", 1, 0, 1, "class<`function`>", 1
+"rlist", "list.do", 2, 0, 0, "...", 1
+"rlist", "list.exclude", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.exclude", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.exclude", 1, 0, 0, "any", 1
+"rlist", "list.expand", -1, 0, 0, "list<list<character[] | list<double | character> | double[] | character | integer | character>>", 1
+"rlist", "list.expand", 0, 0, 0, "...", 1
+"rlist", "list.filter", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.filter", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.filter", 1, 0, 0, "...", 1
+"rlist", "list.find", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.find", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.find", 1, 0, 0, "any", 1
+"rlist", "list.find", 2, 0, 0, "double", 1
+"rlist", "list.findi", -1, 0, 0, "integer[]", 1
+"rlist", "list.findi", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.findi", 1, 0, 0, "any", 1
+"rlist", "list.findi", 2, 0, 0, "double", 1
+"rlist", "list.findi.internal", -1, 0, 0, "integer[]", 1
+"rlist", "list.findi.internal", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.findi.internal", 1, 0, 0, "class<`call`>", 1
+"rlist", "list.findi.internal", 2, 0, 0, "environment", 1
+"rlist", "list.findi.internal", 3, 0, 0, "double", 1
+"rlist", "list.findi.internal", 4, 0, 0, "logical", 1
+"rlist", "list.first", -1, 0, 0, "(null | list<character | list<double>>)", 1
+"rlist", "list.first", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.first", 1, 0, 0, "any", 1
+"rlist", "list.first.internal", -1, 0, 0, "list<logical | logical | list<character | list<double>> | null | list<character | list<double>>>", 1
+"rlist", "list.first.internal", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.first.internal", 1, 0, 0, "class<`call`>", 1
+"rlist", "list.first.internal", 1, 0, 1, "class<`lambda_expression`>", 1
+"rlist", "list.first.internal", 2, 0, 0, "environment", 1
+"rlist", "list.first.internal", 3, 0, 0, "logical", 1
+"rlist", "list.flatten", -1, 0, 0, "list<double | character | double | character>", 1
+"rlist", "list.flatten", 0, 0, 0, "list<double | list<double | double | list<character>> | double | list<character | double>>", 1
+"rlist", "list.flatten", 1, 0, 0, "logical", 1
+"rlist", "list.flatten", 2, 0, 0, "character", 1
+"rlist", "List_get", -1, 0, 0, "(class<`List`, `environment`> | double | list<double>)", 1
+"rlist", "List_get", 0, 0, 0, "any", 1
+"rlist", "List_get", 1, 0, 0, "double", 1
+"rlist", "List_get", 1, 0, 1, "list<double>", 1
+"rlist", "List_get", 2, 0, 0, "pairlist", 1
+"rlist", "List_get", 3, 0, 0, "any", 1
+"rlist", "list.group", -1, 0, 0, "list<list<list<character | list<double>>>>", 1
+"rlist", "list.group", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.group", 1, 0, 0, "...", 1
+"rlist", "list.group", 2, 0, 0, "logical", 1
+"rlist", "list.group.internal", -1, 0, 0, "list<list<double | character[] | list<double> | character | list<double> | list<character | list<double> | double | character[] | list<double>>>>", 1
+"rlist", "list.group.internal", 0, 0, 0, "list<list<character | list<double> | double | character[] | list<double>>>", 1
+"rlist", "list.group.internal", 1, 0, 0, "list<any>", 1
+"rlist", "list.group.internal", 2, 0, 0, "any", 1
+"rlist", "list.group.internal", 3, 0, 0, "any", 1
+"rlist", "list.group.internal", 4, 0, 0, "any", 1
+"rlist", "list.group.internal", 5, 0, 0, "any", 1
+"rlist", "list.is", -1, 0, 0, "logical[]", 1
+"rlist", "list.is", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.is", 1, 0, 0, "any", 1
+"rlist", "list.is", 2, 0, 0, "logical", 1
+"rlist", "list.is.internal", -1, 0, 0, "logical[]", 1
+"rlist", "list.is.internal", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.is.internal", 1, 0, 0, "class<`call`>", 1
+"rlist", "list.is.internal", 2, 0, 0, "environment", 1
+"rlist", "list.iter", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.iter", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.iter", 1, 0, 0, "any", 1
+"rlist", "list.join", -1, 0, 0, "list<list<character | double>>", 1
+"rlist", "list.join", 0, 0, 0, "list<list<character | double>>", 1
+"rlist", "list.join", 1, 0, 0, "list<list<character | double>>", 1
+"rlist", "list.join", 2, 0, 0, "any", 1
+"rlist", "list.join", 3, 0, 0, "any", 1
+"rlist", "list.join", 4, 0, 0, "...", 1
+"rlist", "list.join", 5, 0, 0, "logical", 1
+"rlist", "list.last", -1, 0, 0, "(null | list<character | list<double>>)", 1
+"rlist", "list.last", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.last", 1, 0, 0, "any", 1
+"rlist", "list.map", -1, 0, 0, "list<any>", 1
+"rlist", "list.map", 0, 0, 0, "list<double[] | list<character | list<double> | list<character | list<double>>>>", 1
+"rlist", "list.map", 1, 0, 0, "any", 1
+"rlist", "list.map.internal", -1, 0, 0, "any", 1
+"rlist", "list.map.internal", 0, 0, 0, "double[]", 1
+"rlist", "list.map.internal", 0, 0, 1, "list<character[] | double[] | list<any>>", 1
+"rlist", "list.map.internal", 1, 0, 0, "class<`call`>", 1
+"rlist", "list.map.internal", 1, 0, 1, "class<`lambda_expression`>", 1
+"rlist", "list.map.internal", 1, 0, 2, "class<`name`>", 1
+"rlist", "list.map.internal", 2, 0, 0, "environment", 1
+"rlist", "list.map.internal", 3, 0, 0, "class<`function`>", 1
+"rlist", "list.map.internal", 4, 0, 0, "environment", 1
+"rlist", "list.map.internal", 4, 0, 1, "null", 1
+"rlist", "list.mapv", -1, 0, 0, "(character[] | double[])", 1
+"rlist", "list.mapv", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.mapv", 1, 0, 0, "any", 1
+"rlist", "list.mapv", 2, 0, 0, "any", 1
+"rlist", "list.mapv", 3, 0, 0, "logical", 1
+"rlist", "list.match", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.match", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.match", 1, 0, 0, "character", 1
+"rlist", "list.match", 2, 0, 0, "...", 1
+"rlist", "list.merge", -1, 0, 0, "list<double | list<double>>", 1
+"rlist", "list.merge", 0, 0, 0, "...", 1
+"rlist", "list.names", -1, 0, 0, "(character[] | double[] | null | list<list<character | double>>)", 1
+"rlist", "list.names", 0, 0, 0, "double[]", 1
+"rlist", "list.names", 0, 0, 1, "list<list<character | double>>", 1
+"rlist", "list.names", 1, 0, 0, "any", 1
+"rlist", "list.order", -1, 0, 0, "integer[]", 1
+"rlist", "list.order", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.order", 1, 0, 0, "...", 1
+"rlist", "list.order", 2, 0, 0, "logical", 1
+"rlist", "list.order", 3, 0, 0, "logical", 1
+"rlist", "list.order.internal", -1, 0, 0, "integer[]", 1
+"rlist", "list.order.internal", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.order.internal", 1, 0, 0, "list<class<`call`> | class<`name`> | class<`(`>>", 1
+"rlist", "list.order.internal", 2, 0, 0, "environment", 1
+"rlist", "list.order.internal", 3, 0, 0, "logical", 1
+"rlist", "list.order.internal", 3, 0, 1, "null", 1
+"rlist", "list.parse", -1, 0, 0, "list<list<integer | class<`factor`> | character | logical | double>>", 1
+"rlist", "list.parse", 0, 0, 0, "class<`data.frame`>", 1
+"rlist", "list.parse", 0, 0, 1, "character", 1
+"rlist", "list.parse", 0, 0, 2, "class<`matrix`>", 1
+"rlist", "list.parse", 1, 0, 0, "...", 1
+"rlist", "list.parse.character", -1, 0, 0, "list<list<character | logical>>", 1
+"rlist", "list.parse.character", 0, 0, 0, "character", 1
+"rlist", "list.parse.character", 1, 0, 0, "character", 1
+"rlist", "list.parse.character", 2, 0, 0, "...", 1
+"rlist", "list.parse.data.frame", -1, 0, 0, "list<list<integer | class<`factor`>>>", 1
+"rlist", "list.parse.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"rlist", "list.parse.data.frame", 1, 0, 0, "...", 1
+"rlist", "list.parse.matrix", -1, 0, 0, "list<list<double>>", 1
+"rlist", "list.parse.matrix", 0, 0, 0, "class<`matrix`>", 1
+"rlist", "list.parse.matrix", 1, 0, 0, "...", 1
+"rlist", "list.prepend", -1, 0, 0, "list<double[]>", 1
+"rlist", "list.prepend", 0, 0, 0, "list<double>", 1
+"rlist", "list.prepend", 1, 0, 0, "...", 1
+"rlist", "list.rbind", -1, 0, 0, "(class<`data.frame`> | class<`matrix`>)", 1
+"rlist", "list.rbind", 0, 0, 0, "list<class<`data.frame`> | double[]>", 1
+"rlist", "list.remove", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.remove", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.remove", 1, 0, 0, "character", 1
+"rlist", "list.remove", 1, 0, 1, "double[]", 1
+"rlist", "list.reverse", -1, 0, 0, "list<double>", 1
+"rlist", "list.reverse", 0, 0, 0, "list<double>", 1
+"rlist", "list.sample", -1, 0, 0, "list<double[]>", 1
+"rlist", "list.sample", 0, 0, 0, "list<double[]>", 1
+"rlist", "list.sample", 1, 0, 0, "double", 1
+"rlist", "list.sample", 2, 0, 0, "logical", 1
+"rlist", "list.sample", 3, 0, 0, "any", 1
+"rlist", "list.sample", 4, 0, 0, "null", 1
+"rlist", "list.search", -1, 0, 0, "list<any>", 1
+"rlist", "list.search", 0, 0, 0, "list<list<character | double | character[] | double[] | character[] | ^double[] | character[] | double | character | double>>", 1
+"rlist", "list.search", 1, 0, 0, "any", 1
+"rlist", "list.search", 2, 0, 0, "character", 1
+"rlist", "list.search", 3, 0, 0, "any", 1
+"rlist", "list.search", 4, 0, 0, "logical", 1
+"rlist", "list.select", -1, 0, 0, "list<list<character | character | double[] | character | list<double>>>", 1
+"rlist", "list.select", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.select", 1, 0, 0, "...", 1
+"rlist", "List_set", -1, 0, 0, "class<`List`, `environment`>", 1
+"rlist", "List_set", 0, 0, 0, "class<`name`>", 1
+"rlist", "List_set", 1, 0, 0, "list<double>", 1
+"rlist", "List_set", 2, 0, 0, "pairlist", 1
+"rlist", "List_set", 3, 0, 0, "double", 1
+"rlist", "List_set", 3, 0, 1, "null", 1
+"rlist", "List_set", 4, 0, 0, "environment", 1
+"rlist", "list.skip", -1, 0, 0, "list<double>", 1
+"rlist", "list.skip", 0, 0, 0, "list<double>", 1
+"rlist", "list.skip", 1, 0, 0, "double", 1
+"rlist", "list.skipWhile", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.skipWhile", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.skipWhile", 1, 0, 0, "any", 1
+"rlist", "list.sort", -1, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.sort", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.sort", 1, 0, 0, "...", 1
+"rlist", "list.sort", 2, 0, 0, "null", 1
+"rlist", "list.table", -1, 0, 0, "class<`table`>", 1
+"rlist", "list.table", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.table", 1, 0, 0, "...", 1
+"rlist", "list.table", 2, 0, 0, "list<character[]>", 1
+"rlist", "list.take", -1, 0, 0, "list<double>", 1
+"rlist", "list.take", 0, 0, 0, "list<double>", 1
+"rlist", "list.take", 1, 0, 0, "double", 1
+"rlist", "list.take", 2, 0, 0, "logical", 1
+"rlist", "list.takeWhile", -1, 0, 0, "list<any>", 1
+"rlist", "list.takeWhile", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.takeWhile", 1, 0, 0, "any", 1
+"rlist", "list.ungroup", -1, 0, 0, "list<list<double | character | list<double> | list<double>>>", 1
+"rlist", "list.ungroup", 0, 0, 0, "list<list<list<character | list<double> | list<double>>>>", 1
+"rlist", "list.ungroup", 1, 0, 0, "double", 1
+"rlist", "list.ungroup", 2, 0, 0, "...", 1
+"rlist", "list.ungroup", 3, 0, 0, "logical", 1
+"rlist", "list.ungroup", 4, 0, 0, "logical", 1
+"rlist", "list.unzip", -1, 0, 0, "list<^double[] | ^double[] | list<double> | double[] | class<`data.frame`> | class<`matrix`>>", 1
+"rlist", "list.unzip", 0, 0, 0, "list<list<double | double | character[] | list<list<character>>>>", 1
+"rlist", "list.unzip", 1, 0, 0, "character[]", 1
+"rlist", "list.unzip", 2, 0, 0, "...", 1
+"rlist", "list.unzip", 3, 0, 0, "character", 1
+"rlist", "list.unzip", 4, 0, 0, "null", 1
+"rlist", "list.update", -1, 0, 0, "list<list<character | list<double> | character | integer | list<double> | character | double | list<double>>>", 1
+"rlist", "list.update", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.update", 1, 0, 0, "...", 1
+"rlist", "list.update", 2, 0, 0, "logical", 1
+"rlist", "list.which", -1, 0, 0, "integer[]", 1
+"rlist", "list.which", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "list.which", 1, 0, 0, "any", 1
+"rlist", "list.zip", -1, 0, 0, "list<list<double | character>>", 1
+"rlist", "list.zip", 0, 0, 0, "...", 1
+"rlist", "list.zip", 1, 0, 0, "logical", 1
+"rlist", "list.zip", 2, 0, 0, "logical", 1
+"rlist", "map", -1, 0, 0, "any", 1
+"rlist", "map", 0, 0, 0, "class<`function`>", 1
+"rlist", "map", 1, 0, 0, "class<`data.frame`>", 1
+"rlist", "map", 1, 0, 1, "list<any>", 1
+"rlist", "map", 2, 0, 0, "null", 1
+"rlist", "map", 3, 0, 0, "logical", 1
+"rlist", "ndots", -1, 0, 0, "logical", 1
+"rlist", "ndots", 0, 0, 0, "pairlist", 1
+"rlist", "reduce", -1, 0, 0, "(character[] | class<`data.frame`> | class<`matrix`> | ^double[] | list<double | list<double> | double | list<character | list<double>>>)", 1
+"rlist", "reduce", 0, 0, 0, "class<`function`>", 1
+"rlist", "reduce", 1, 0, 0, "list<any>", 1
+"rlist", "reduce", 2, 0, 0, "character[]", 1
+"rlist", "reduce", 2, 0, 1, "list<any>", 1
+"rlist", "reduce", 3, 0, 0, "...", 1
+"rlist", "set_argnames", -1, 0, 0, "list<class<`name`> | class<`name`> | class<`call`> | list<double | character>>", 1
+"rlist", "set_argnames", 0, 0, 0, "list<class<`name`> | class<`name`> | class<`call`>>", 1
+"rlist", "set_argnames", 1, 0, 0, "list<class<`name`> | class<`name`> | class<`call`> | list<double | character>>", 1
+"rlist", "subset.list", -1, 0, 0, "list<class<`data.frame`> | double | list<double | character | list<double>>>", 1
+"rlist", "subset.list", 0, 0, 0, "list<list<character | list<double>>>", 1
+"rlist", "subset.list", 1, 0, 0, "any", 1
+"rlist", "subset.list", 2, 0, 0, "any", 1
+"rlist", "subset.list", 3, 0, 0, "...", 1
+"rlist", "tryEval", -1, 0, 0, "(double | null)", 1
+"rlist", "tryEval", 0, 0, 0, "any", 1
+"rlist", "tryEval", 1, 0, 0, "null", 1
+"rlist", "tryGet", -1, 0, 0, "double", 1
+"rlist", "tryGet", 0, 0, 0, "any", 1
+"rlist", "tryGet", 1, 0, 0, "double", 1
+"rlist", "tryGet", 2, 0, 0, "...", 1
+"rlist", "tryGet", 3, 0, 0, "environment", 1
+"rlist", "tryWithCondition", -1, 0, 0, "(null | list<null | null | list<null | list<character | list<double>>>>)", 1
+"rlist", "tryWithCondition", 0, 0, 0, "any", 1
+"rlist", "tryWithCondition", 1, 0, 0, "...", 1

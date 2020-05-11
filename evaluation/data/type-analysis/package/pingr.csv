@@ -10,11 +10,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pingr", "is_count", 0, 0, 0, "integer", 1
 "pingr", "is_ip_address", -1, 0, 0, "logical", 1
 "pingr", "is_ip_address", 0, 0, 0, "character", 1
+"pingr", "is_online", -1, 0, 0, "logical", 1
+"pingr", "is_online", 0, 0, 0, "double", 1
 "pingr", "is_string", -1, 0, 0, "logical", 1
 "pingr", "is_string", 0, 0, 0, "character", 1
 "pingr", "is_string_or_null", -1, 0, 0, "logical", 1
-"pingr", "is_string_or_null", 0, 0, 0, "null", 1
-"pingr", "is_string_or_null", 0, 0, 1, "character", 1
+"pingr", "is_string_or_null", 0, 0, 0, "character", 1
+"pingr", "is_string_or_null", 0, 0, 1, "null", 1
 "pingr", "is_type", -1, 0, 0, "logical", 1
 "pingr", "is_type", 0, 0, 0, "integer", 1
 "pingr", "is_up", -1, 0, 0, "logical", 1
@@ -27,24 +29,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pingr", "my_ip", 0, 0, 0, "character[]", 1
 "pingr", "my_ip_dns", -1, 0, 0, "character", 1
 "pingr", "my_ip_https", -1, 0, 0, "character", 1
-"pingr", "nsl", -1, 0, 0, "struct<`answer`:struct<`name`:character, `class`:integer, `type`:integer, `ttl`:integer, `data`:tuple<character>>, `flags`:logical[]>", 1
+"pingr", "nsl", -1, 0, 0, "list<class<`data.frame`> | logical[]>", 1
 "pingr", "nsl", 0, 0, 0, "character", 1
-"pingr", "nsl", 1, 0, 0, "null", 1
-"pingr", "nsl", 1, 0, 1, "character", 1
+"pingr", "nsl", 1, 0, 0, "character", 1
+"pingr", "nsl", 1, 0, 1, "null", 1
 "pingr", "nsl", 2, 0, 0, "integer", 1
 "pingr", "nsl", 3, 0, 0, "integer", 1
-"pingr", "ping", -1, 0, 0, "double[]", 1
+"pingr", "ping", -1, 0, 0, "(double[] | null)", 1
 "pingr", "ping", 0, 0, 0, "character", 1
 "pingr", "ping", 1, 0, 0, "logical", 1
 "pingr", "ping", 2, 0, 0, "logical", 1
-"pingr", "ping", 3, 0, 0, "integer", 1
+"pingr", "ping", 3, 0, 0, "double", 1
 "pingr", "ping", 4, 0, 0, "double", 1
-"pingr", "ping_os", -1, 0, 0, "struct<`cmd`:character[], `regex`:character>", 1
+"pingr", "ping_os", -1, 0, 0, "list<character[]>", 1
 "pingr", "ping_os", 0, 0, 0, "character", 1
 "pingr", "ping_os", 1, 0, 0, "logical", 1
-"pingr", "ping_os", 2, 0, 0, "integer", 1
+"pingr", "ping_os", 2, 0, 0, "double", 1
 "pingr", "ping_os", 3, 0, 0, "double", 1
-"pingr", "ping_port", -1, 0, 0, "double[]", 1
+"pingr", "ping_port", -1, 0, 0, "(double[] | null)", 1
 "pingr", "ping_port", 0, 0, 0, "character", 1
 "pingr", "ping_port", 1, 0, 0, "double", 1
 "pingr", "ping_port", 2, 0, 0, "logical", 1

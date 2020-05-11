@@ -1,3 +1,18 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"memoise", "filter", -1, 0, 0, "logical[]", 1
-"memoise", "filter", 0, 0, 0, "character[]", 1
+"memoise", "cache_memory", -1, 0, 0, "list<class<`function`>>", 1
+"memoise", "cache_memory", 0, 0, 0, "character", 1
+"memoise", "forget", -1, 0, 0, "logical", 1
+"memoise", "forget", 0, 0, 0, "class<`function`, `memoised`>", 1
+"memoise", "is.memoised", -1, 0, 0, "logical", 1
+"memoise", "is.memoised", 0, 0, 0, "class<`function`>", 1
+"memoise", "is.memoised", 0, 0, 1, "class<`function`, `memoised`>", 1
+"memoise", "make_call", -1, 0, 0, "class<`call`>", 1
+"memoise", "make_call", 0, 0, 0, "class<`name`>", 1
+"memoise", "make_call", 1, 0, 0, "list<any>", 1
+"memoise", "memoise", -1, 0, 0, "class<`function`, `memoised`>", 1
+"memoise", "memoise", 0, 0, 0, "class<`function`>", 1
+"memoise", "memoise", 1, 0, 0, "...", 1
+"memoise", "memoise", 2, 0, 0, "environment", 1
+"memoise", "memoise", 3, 0, 0, "list<class<`function`>>", 1
+"memoise", "validate_formulas", -1, 0, 0, "list<any>", 1
+"memoise", "validate_formulas", 0, 0, 0, "...", 1

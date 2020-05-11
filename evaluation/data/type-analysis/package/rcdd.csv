@@ -1,7 +1,121 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"rcdd", "addHeq", -1, 0, 0, "^character[]", 1
+"rcdd", "addHeq", -1, 0, 0, "class<`matrix`>", 1
 "rcdd", "addHeq", 0, 0, 0, "integer[]", 1
 "rcdd", "addHeq", 1, 0, 0, "character", 1
 "rcdd", "addHeq", 1, 0, 1, "double", 1
-"rcdd", "addHeq", 2, 0, 0, "^character[]", 1
-"rcdd", "addHeq", 2, 0, 1, "^double[]", 1
+"rcdd", "addHeq", 2, 0, 0, "class<`matrix`>", 1
+"rcdd", "addHin", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "addHin", 0, 0, 0, "double[]", 1
+"rcdd", "addHin", 1, 0, 0, "double", 1
+"rcdd", "addHin", 2, 0, 0, "class<`matrix`>", 1
+"rcdd", "allfaces", -1, 0, 0, "list<list<integer[] | character[] | double[]>>", 1
+"rcdd", "allfaces", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "d2q", -1, 0, 0, "(character[] | class<`bar`, `baz`, `foo`> | class<`matrix`>)", 1
+"rcdd", "d2q", 0, 0, 0, "double[]", 1
+"rcdd", "d2q", 0, 0, 1, "class<`bar`, `baz`, `foo`>", 1
+"rcdd", "d2q", 0, 0, 2, "class<`matrix`>", 1
+"rcdd", "FUN", -1, 0, 0, "(class<`matrix`> | character[])", 1
+"rcdd", "FUN", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "FUN", 0, 0, 1, "character[]", 1
+"rcdd", "FUN", 0, 0, 2, "integer[]", 1
+"rcdd", "FUN", 1, 0, 0, "class<`matrix`>", 1
+"rcdd", "FUN", 1, 0, 1, "character[]", 1
+"rcdd", "FUN", 1, 0, 2, "double", 1
+"rcdd", "linearity", -1, 0, 0, "integer[]", 1
+"rcdd", "linearity", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "linearity", 1, 0, 0, "character", 1
+"rcdd", "lpcdd", -1, 0, 0, "list<character[] | character | double[]>", 1
+"rcdd", "lpcdd", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "lpcdd", 1, 0, 0, "character[]", 1
+"rcdd", "lpcdd", 1, 0, 1, "double[]", 1
+"rcdd", "lpcdd", 2, 0, 0, "character", 1
+"rcdd", "lpcdd", 2, 0, 1, "double", 1
+"rcdd", "lpcdd", 3, 0, 0, "logical", 1
+"rcdd", "lpcdd", 4, 0, 0, "character[]", 1
+"rcdd", "makeH", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "makeH", 0, 0, 0, "any", 1
+"rcdd", "makeH", 1, 0, 0, "any", 1
+"rcdd", "makeH", 2, 0, 0, "any", 1
+"rcdd", "makeH", 3, 0, 0, "any", 1
+"rcdd", "makeH", 4, 0, 0, "null", 1
+"rcdd", "makeH", 4, 0, 1, "class<`matrix`>", 1
+"rcdd", "makeV", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "makeV", 0, 0, 0, "any", 1
+"rcdd", "makeV", 1, 0, 0, "any", 1
+"rcdd", "makeV", 2, 0, 0, "any", 1
+"rcdd", "makeV", 3, 0, 0, "null", 1
+"rcdd", "q2d", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"rcdd", "q2d", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "q2d", 0, 0, 1, "character[]", 1
+"rcdd", "q2q", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "q2q", 0, 0, 0, "character[]", 1
+"rcdd", "q2q", 0, 0, 1, "class<`matrix`>", 1
+"rcdd", "qabs", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "qabs", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "qdq", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "qdq", 0, 0, 0, "character[]", 1
+"rcdd", "qdq", 0, 0, 1, "class<`matrix`>", 1
+"rcdd", "qdq", 1, 0, 0, "character[]", 1
+"rcdd", "qdq", 1, 0, 1, "double[]", 1
+"rcdd", "qgram", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "qgram", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "qgram", 1, 0, 0, "logical", 1
+"rcdd", "qmatmult", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "qmatmult", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "qmatmult", 1, 0, 0, "class<`matrix`>", 1
+"rcdd", "qmax", -1, 0, 0, "character", 1
+"rcdd", "qmax", 0, 0, 0, "character[]", 1
+"rcdd", "qmin", -1, 0, 0, "character", 1
+"rcdd", "qmin", 0, 0, 0, "character[]", 1
+"rcdd", "qmq", -1, 0, 0, "(class<`matrix`> | character[])", 1
+"rcdd", "qmq", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "qmq", 0, 0, 1, "character[]", 1
+"rcdd", "qmq", 0, 0, 2, "integer[]", 1
+"rcdd", "qmq", 1, 0, 0, "class<`matrix`>", 1
+"rcdd", "qmq", 1, 0, 1, "character[]", 1
+"rcdd", "qmq", 1, 0, 2, "double", 1
+"rcdd", "qneg", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "qneg", 0, 0, 0, "character[]", 1
+"rcdd", "qneg", 0, 0, 1, "integer[]", 1
+"rcdd", "qneg", 0, 0, 2, "class<`matrix`>", 1
+"rcdd", "qpq", -1, 0, 0, "character[]", 1
+"rcdd", "qpq", 0, 0, 0, "character[]", 1
+"rcdd", "qpq", 0, 0, 1, "double[]", 1
+"rcdd", "qpq", 1, 0, 0, "character[]", 1
+"rcdd", "qpq", 1, 0, 1, "class<`matrix`>", 1
+"rcdd", "qprod", -1, 0, 0, "character", 1
+"rcdd", "qprod", 0, 0, 0, "character[]", 1
+"rcdd", "qsign", -1, 0, 0, "integer[]", 1
+"rcdd", "qsign", 0, 0, 0, "character[]", 1
+"rcdd", "qsign", 0, 0, 1, "integer[]", 1
+"rcdd", "qsum", -1, 0, 0, "character", 1
+"rcdd", "qsum", 0, 0, 0, "character[]", 1
+"rcdd", "qxq", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "qxq", 0, 0, 0, "character[]", 1
+"rcdd", "qxq", 0, 0, 1, "class<`matrix`>", 1
+"rcdd", "qxq", 1, 0, 0, "character[]", 1
+"rcdd", "qxq", 1, 0, 1, "double[]", 1
+"rcdd", "redundant", -1, 0, 0, "list<class<`matrix`> | integer[]>", 1
+"rcdd", "redundant", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "redundant", 1, 0, 0, "character[]", 1
+"rcdd", "scdd", -1, 0, 0, "any", 1
+"rcdd", "scdd", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "scdd", 1, 0, 0, "logical", 1
+"rcdd", "scdd", 2, 0, 0, "logical", 1
+"rcdd", "scdd", 3, 0, 0, "logical", 1
+"rcdd", "scdd", 4, 0, 0, "logical", 1
+"rcdd", "scdd", 5, 0, 0, "character[]", 1
+"rcdd", "scdd", 6, 0, 0, "character[]", 1
+"rcdd", "scdd", 7, 0, 0, "character[]", 1
+"rcdd", "validcdd", -1, 0, 0, "logical", 1
+"rcdd", "validcdd", 0, 0, 0, "class<`matrix`>", 1
+"rcdd", "validcdd", 1, 0, 0, "character[]", 1
+"rcdd", "z2q", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "z2q", 0, 0, 0, "character[]", 1
+"rcdd", "z2q", 0, 0, 1, "integer[]", 1
+"rcdd", "z2q", 0, 0, 2, "double", 1
+"rcdd", "z2q", 0, 0, 3, "class<`matrix`>", 1
+"rcdd", "z2q", 1, 0, 0, "character[]", 1
+"rcdd", "z2q", 1, 0, 1, "class<`matrix`>", 1
+"rcdd", "z2q", 1, 0, 2, "double[]", 1
+"rcdd", "z2q", 2, 0, 0, "logical", 1

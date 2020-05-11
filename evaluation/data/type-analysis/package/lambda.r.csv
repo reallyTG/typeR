@@ -1,65 +1,151 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
+"lambda.r", "%:=%", -1, 0, 0, "null", 1
+"lambda.r", "%:=%", 0, 0, 0, "any", 1
+"lambda.r", "%:=%", 1, 0, 0, "any", 1
+"lambda.r", "%::%", -1, 0, 0, "null", 1
+"lambda.r", "%::%", 0, 0, 0, "any", 1
+"lambda.r", "%::%", 1, 0, 0, "any", 1
+"lambda.r", "add_type", -1, 0, 0, "null", 1
+"lambda.r", "add_type", 0, 0, 0, "character", 1
+"lambda.r", "add_type", 1, 0, 0, "list<class<`data.frame`> | character | null | class<`data.frame`> | character>", 1
+"lambda.r", "add_variant", -1, 0, 0, "null", 1
+"lambda.r", "add_variant", 0, 0, 0, "character", 1
+"lambda.r", "add_variant", 1, 0, 0, "list<any>", 1
+"lambda.r", "add_variant", 2, 0, 0, "environment", 1
+"lambda.r", "%as%", -1, 0, 0, "null", 1
+"lambda.r", "%as%", 0, 0, 0, "any", 1
+"lambda.r", "%as%", 1, 0, 0, "any", 1
+"lambda.r", "body_fn", -1, 0, 0, "(character[] | class<`function`>)", 1
+"lambda.r", "body_fn", 0, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "body_fn", 0, 0, 1, "null", 1
+"lambda.r", "body_fn", 1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "body_fn", 2, 0, 0, "environment", 1
 "lambda.r", "check_types", -1, 0, 0, "logical", 1
-"lambda.r", "check_types", 0, 0, 0, "struct<`args`:struct<`paren.level`:character, `node`:character, `token`:character, `pattern`:null, `default`:null>, `types`:struct<`line1`:integer[], `token`:character[], `text`:character[]>, `signature`:character, `accepts`:integer[]>", 1
-"lambda.r", "check_types", 0, 0, 1, "struct<`args`:struct<`paren.level`:character[], `node`:character[], `token`:character[], `pattern`:^character[], `default`:^character[]>, `types`:struct<`line1`:integer[], `token`:character[], `text`:character[]>, `signature`:character, `accepts`:integer[]>", 1
-"lambda.r", "check_types", 1, 0, 0, "struct<`name`:character>", 1
-"lambda.r", "check_types", 1, 0, 1, "struct<`name`:any => any>", 1
-"lambda.r", "check_types", 1, 0, 2, "struct<`name`:logical>", 1
-"lambda.r", "check_types", 1, 0, 3, "struct<`a`:character, `b`:character>", 1
-"lambda.r", "check_types", 1, 0, 4, "struct<`f`:any => any, ``:double, ``:double, ``:double>", 1
-"lambda.r", "check_types", 1, 0, 5, "struct<`x`:any => any, `y`:double>", 1
-"lambda.r", "check_types", 1, 0, 6, "struct<`.lambda_1`:character>", 1
-"lambda.r", "check_types", 1, 0, 7, "struct<`.lambda_1`:double>", 1
-"lambda.r", "check_types", 1, 0, 8, "struct<`a`:double>", 1
-"lambda.r", "check_types", 1, 0, 9, "struct<`n`:character>", 1
-"lambda.r", "check_types", 1, 0, 10, "struct<`n`:double>", 1
-"lambda.r", "check_types", 1, 0, 11, "struct<`start`:double>", 1
-"lambda.r", "check_types", 1, 0, 12, "struct<`x`:character>", 1
-"lambda.r", "check_types", 1, 0, 13, "struct<`x`:any => any>", 1
-"lambda.r", "check_types", 1, 0, 14, "struct<`x`:double>", 1
-"lambda.r", "dereference_type", -1, 0, 0, "any => any", 1
+"lambda.r", "check_types", 0, 0, 0, "null", 1
+"lambda.r", "check_types", 0, 0, 1, "list<class<`data.frame`> | character | integer[]>", 1
+"lambda.r", "check_types", 1, 0, 0, "any", 1
+"lambda.r", "clean_defaults", -1, 0, 0, "(^character[] | ^logical[] | null)", 1
+"lambda.r", "clean_defaults", 0, 0, 0, "list<any>", 1
+"lambda.r", "clean_tokens", -1, 0, 0, "(character[] | null)", 1
+"lambda.r", "clean_tokens", 0, 0, 0, "list<any>", 1
+"lambda.r", "dereference_type", -1, 0, 0, "class<`function`>", 1
 "lambda.r", "dereference_type", 0, 0, 0, "character[]", 1
-"lambda.r", "dereference_type", 1, 0, 0, "struct<`name`:character>", 1
-"lambda.r", "dereference_type", 1, 0, 1, "struct<`.lambda_1`:character[]>", 1
-"lambda.r", "dereference_type", 1, 0, 2, "struct<`a`:character[], `b`:character[]>", 1
-"lambda.r", "dereference_type", 1, 0, 3, "struct<`a`:character>", 1
-"lambda.r", "dereference_type", 1, 0, 4, "struct<`f`:character, ``:character, ``:character, ``:character>", 1
-"lambda.r", "dereference_type", 1, 0, 5, "struct<`n`:character[]>", 1
-"lambda.r", "dereference_type", 1, 0, 6, "struct<`start`:character>", 1
-"lambda.r", "dereference_type", 1, 0, 7, "struct<`x`:character[]>", 1
-"lambda.r", "fill_args", -1, 0, 0, "struct<`.lambda_1`:character>", 1
-"lambda.r", "fill_args", 0, 0, 0, "tuple<character>", 1
-"lambda.r", "fill_args", 0, 0, 1, "struct<``:integer, `name`:character>", 1
-"lambda.r", "fill_args", 0, 0, 2, "tuple<any => any>", 1
-"lambda.r", "fill_args", 0, 0, 3, "struct<``:any => any, `name`:character>", 1
-"lambda.r", "fill_args", 0, 0, 4, "struct<``:character, `threshold`:integer>", 1
-"lambda.r", "fill_args", 0, 0, 5, "struct<``:character, `layout`:any => any>", 1
-"lambda.r", "fill_args", 0, 0, 6, "struct<``:character, `carp`:logical>", 1
-"lambda.r", "fill_args", 0, 0, 7, "struct<`a`:double>", 1
-"lambda.r", "fill_args", 0, 0, 8, "struct<`b`:double>", 1
-"lambda.r", "fill_args", 0, 0, 9, "tuple<any => any, double>", 1
-"lambda.r", "fill_args", 0, 0, 10, "tuple<any => any, double, double, double>", 1
-"lambda.r", "fill_args", 0, 0, 11, "tuple<any => any, double, double, double, any => any>", 1
-"lambda.r", "fill_args", 0, 0, 12, "tuple<any => any, integer[], double>", 1
-"lambda.r", "fill_args", 0, 0, 13, "tuple<any => any, integer, double>", 1
-"lambda.r", "fill_args", 0, 0, 14, "tuple<any => any, null, double>", 1
-"lambda.r", "fill_args", 0, 0, 15, "tuple<any => any, any => any>", 1
-"lambda.r", "fill_args", 0, 0, 16, "struct<``:any => any, `step`:double>", 1
-"lambda.r", "fill_args", 0, 0, 17, "struct<``:language, `data`:struct<`group`:integer[], `weight`:double[]>>", 1
-"lambda.r", "fill_args", 0, 0, 18, "struct<`data`:struct<`group`:integer[], `weight`:double[]>, `formula`:language>", 1
-"lambda.r", "fill_args", 0, 0, 19, "tuple<>", 1
-"lambda.r", "fill_args", 0, 0, 20, "struct<``:double[], `periodicity`:character>", 1
-"lambda.r", "fill_args", 0, 0, 21, "struct<`periodicity`:character, `series`:double[]>", 1
-"lambda.r", "fill_args", 0, 0, 22, "tuple<^double[]>", 1
-"lambda.r", "fill_args", 0, 0, 23, "struct<``:^double[], `main`:character>", 1
-"lambda.r", "fill_args", 0, 0, 24, "tuple<double, struct<`f1`:any => any, `f2`:any => any>>", 1
-"lambda.r", "fill_args", 0, 0, 25, "tuple<double, struct<`f1`:any => any, `step`:double>>", 1
-"lambda.r", "fill_args", 0, 0, 26, "struct<``:double, `units`:character>", 1
-"lambda.r", "fill_args", 0, 0, 27, "struct<`z`:double>", 1
-"lambda.r", "fill_args", 0, 0, 28, "struct<`x`:double>", 1
-"lambda.r", "fill_args", 0, 0, 29, "struct<`x`:integer[]>", 1
-"lambda.r", "fill_args", 1, 0, 0, "character[]", 1
-"lambda.r", "fill_args", 2, 0, 0, "null", 1
-"lambda.r", "fill_args", 2, 0, 1, "^character[]", 1
-"lambda.r", "fill_args", 2, 0, 2, "^logical[]", 1
+"lambda.r", "dereference_type", 1, 0, 0, "list<character[]>", 1
+"lambda.r", "fast_forward", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "fast_forward", 0, 0, 0, "class<`function`>", 1
+"lambda.r", "fast_forward", 1, 0, 0, "character[]", 1
+"lambda.r", "fill_args", -1, 0, 0, "(null | list<any>)", 1
+"lambda.r", "fill_args", 0, 0, 0, "list<any>", 1
+"lambda.r", "fill_args", 1, 0, 0, "null", 1
+"lambda.r", "fill_args", 1, 0, 1, "character[]", 1
+"lambda.r", "fill_args", 2, 0, 0, "any", 1
 "lambda.r", "fill_args", 3, 0, 0, "integer[]", 1
+"lambda.r", "from_root_env", -1, 0, 0, "logical", 1
+"lambda.r", "from_root_env", 0, 0, 0, "pairlist", 1
+"lambda.r", "get_function_env", -1, 0, 0, "environment", 1
+"lambda.r", "get_lr", -1, 0, 0, "(class<`function`, `lambdar.fun`> | class<`function`, `lambdar.type`>)", 1
+"lambda.r", "get_lr", 0, 0, 0, "character", 1
+"lambda.r", "get_name", -1, 0, 0, "character", 1
+"lambda.r", "get_name", 0, 0, 0, "class<`function`>", 1
+"lambda.r", "get_type", -1, 0, 0, "(null | list<class<`data.frame`> | character | integer[]>)", 1
+"lambda.r", "get_type", 0, 0, 0, "any", 1
+"lambda.r", "get_type", 1, 0, 0, "null", 1
+"lambda.r", "get_type", 1, 0, 1, "double", 1
+"lambda.r", "get_type_index", -1, 0, 0, "(double | null)", 1
+"lambda.r", "get_type_index", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
+"lambda.r", "get_type_index", 0, 0, 1, "class<`function`, `lambdar.type`>", 1
+"lambda.r", "get_type_index", 1, 0, 0, "any", 1
+"lambda.r", "get_type_index", 2, 0, 0, "any", 1
+"lambda.r", "get_variant", -1, 0, 0, "list<list<any>>", 1
+"lambda.r", "get_variant", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
+"lambda.r", "get_variant", 0, 0, 1, "class<`function`, `lambdar.type`>", 1
+"lambda.r", "get_variant", 1, 0, 0, "integer", 1
+"lambda.r", "guard_fn", -1, 0, 0, "(class<`function`> | null)", 1
+"lambda.r", "guard_fn", 0, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "guard_fn", 1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "guard_fn", 1, 0, 1, "null", 1
+"lambda.r", "guard_fn", 2, 0, 0, "any", 1
+"lambda.r", "has_ellipsis", -1, 0, 0, "integer[]", 1
+"lambda.r", "has_ellipsis", 0, 0, 0, "character[]", 1
+"lambda.r", "has_variant", -1, 0, 0, "(integer | logical[] | list<any>)", 1
+"lambda.r", "has_variant", 0, 0, 0, "list<any>", 1
+"lambda.r", "has_variant", 1, 0, 0, "any", 1
+"lambda.r", "has_variant", 2, 0, 0, "any", 1
+"lambda.r", "has_variant", 3, 0, 0, "any", 1
+"lambda.r", "idx_ellipsis", -1, 0, 0, "integer[]", 1
+"lambda.r", "idx_ellipsis", 0, 0, 0, "list<any>", 1
+"lambda.r", "init_function", -1, 0, 0, "(class<`function`, `lambdar.fun`> | class<`function`, `lambdar.type`>)", 1
+"lambda.r", "init_function", 0, 0, 0, "character", 1
+"lambda.r", "init_function", 1, 0, 0, "environment", 1
+"lambda.r", "%isa%", -1, 0, 0, "logical", 1
+"lambda.r", "%isa%", 0, 0, 0, "double", 1
+"lambda.r", "%isa%", 1, 0, 0, "any", 1
+"lambda.r", "is.bound", -1, 0, 0, "logical", 1
+"lambda.r", "is.bound", 0, 0, 0, "character", 1
+"lambda.r", "is.infix", -1, 0, 0, "logical", 1
+"lambda.r", "is.infix", 0, 0, 0, "character", 1
+"lambda.r", ".is.simple", -1, 0, 0, "logical", 1
+"lambda.r", ".is.simple", 0, 0, 0, "character", 1
+"lambda.r", ".is.simple", 0, 0, 1, "class<`matrix`>", 1
+"lambda.r", ".is.simple", 0, 0, 2, "class<`Prices`, `numeric`>", 1
+"lambda.r", ".is.simple", 0, 0, 3, "double", 1
+"lambda.r", "is.type", -1, 0, 0, "logical", 1
+"lambda.r", "is.type", 0, 0, 0, "character", 1
+"lambda.r", "iterator", -1, 0, 0, "class<`function`>", 1
+"lambda.r", "iterator", 0, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "NewObject", -1, 0, 0, "any", 1
+"lambda.r", "NewObject", 0, 0, 0, "any", 1
+"lambda.r", "NewObject", 1, 0, 0, "character", 1
+"lambda.r", "NewObject", 2, 0, 0, "...", 1
+"lambda.r", "parse_body", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_body", 0, 0, 0, "class<`function`>", 1
+"lambda.r", "parse_eval", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_eval", 0, 0, 0, "class<`function`>", 1
+"lambda.r", "parse_eval", 1, 0, 0, "null", 1
+"lambda.r", "parse_fun", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_fun", 0, 0, 0, "class<`function`>", 1
+"lambda.r", "parse_fun", 1, 0, 0, "null", 1
+"lambda.r", "parse_guard", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"lambda.r", "parse_guard", 0, 0, 0, "class<`function`>", 1
+"lambda.r", "parse_infix", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"lambda.r", "parse_infix", 0, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_types", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_types", 0, 0, 0, "class<`function`>", 1
+"lambda.r", "parse_types", 1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_types", 1, 0, 1, "null", 1
+"lambda.r", "parse_types", 2, 0, 0, "any", 1
+"lambda.r", "print.lambdar.fun", -1, 0, 0, "null", 1
+"lambda.r", "print.lambdar.fun", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
+"lambda.r", "print.lambdar.fun", 1, 0, 0, "...", 1
+"lambda.r", "return_type", -1, 0, 0, "character", 1
+"lambda.r", "return_type", 0, 0, 0, "list<class<`data.frame`> | character | integer[]>", 1
+"lambda.r", "return_type", 1, 0, 0, "list<any>", 1
+"lambda.r", "return_type", 2, 0, 0, "any", 1
+"lambda.r", "seal", -1, 0, 0, "null", 1
+"lambda.r", "seal", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
+"lambda.r", "seal", 0, 0, 1, "class<`function`, `lambdar.type`>", 1
+"lambda.r", "setup_parent", -1, 0, 0, "(class<`function`, `lambdar.fun`> | class<`function`, `lambdar.type`> | null)", 1
+"lambda.r", "setup_parent", 0, 0, 0, "character", 1
+"lambda.r", "setup_parent", 1, 0, 0, "environment", 1
+"lambda.r", "strip_ellipsis", -1, 0, 0, "character", 1
+"lambda.r", "strip_ellipsis", 0, 0, 0, "character", 1
+"lambda.r", ".sync_debug", -1, 0, 0, "null", 1
+"lambda.r", ".sync_debug", 0, 0, 0, "any", 1
+"lambda.r", "target_env", -1, 0, 0, "environment", 1
+"lambda.r", "target_env", 0, 0, 0, "class<`call`>", 1
+"lambda.r", "target_env", 1, 0, 0, "integer", 1
+"lambda.r", "transform_attrs", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"lambda.r", "transform_attrs", 0, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "transform_attrs", 0, 0, 1, "null", 1
+"lambda.r", "update_type_map", -1, 0, 0, "list<character[]>", 1
+"lambda.r", "update_type_map", 0, 0, 0, "list<any>", 1
+"lambda.r", "update_type_map", 1, 0, 0, "character", 1
+"lambda.r", "update_type_map", 2, 0, 0, "any", 1
+"lambda.r", "use_error", -1, 0, 0, "character", 1
+"lambda.r", "use_error", 0, 0, 0, "character", 1
+"lambda.r", "use_error", 1, 0, 0, "character", 1
+"lambda.r", "use_error", 2, 0, 0, "list<any>", 1
+"lambda.r", "UseFunction", -1, 0, 0, "any", 1
+"lambda.r", "UseFunction", 0, 0, 0, "any", 1
+"lambda.r", "UseFunction", 1, 0, 0, "character", 1
+"lambda.r", "UseFunction", 2, 0, 0, "...", 1

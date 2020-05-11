@@ -1,16 +1,141 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"selectr", ".subset2", -1, 0, 0, "null", 1
-"selectr", ".subset2", 0, 0, 0, "null", 1
-"selectr", ".subset2", 0, 0, 1, "environment", 1
-"selectr", ".subset2", 0, 0, 2, "character", 1
-"selectr", ".subset2", 0, 0, 3, "double", 1
-"selectr", ".subset2", 0, 0, 4, "tuple<environment, environment, environment>", 1
-"selectr", ".subset2", 0, 0, 5, "list<environment>", 1
-"selectr", ".subset2", 1, 0, 0, "null", 1
-"selectr", ".subset2", 1, 0, 1, "character", 1
-"selectr", ".subset2", 1, 0, 2, "null", 1
-"selectr", ".subset2", 2, 0, 0, "null", 1
-"selectr", ".subset2", 2, 0, 1, "environment", 1
-"selectr", ".subset2", 2, 0, 2, "double", 1
-"selectr", ".subset2", 2, 0, 3, "character", 1
-"selectr", ".subset2", 3, 0, 0, "logical", 1
+"selectr", "css_to_xpath", -1, 0, 0, "character", 1
+"selectr", "css_to_xpath", 0, 0, 0, "character", 1
+"selectr", "css_to_xpath", 1, 0, 0, "character", 1
+"selectr", "css_to_xpath", 2, 0, 0, "character", 1
+"selectr", "first_class_name", -1, 0, 0, "character", 1
+"selectr", "first_class_name", 0, 0, 0, "class<`ClassSelector`, `R6`>", 1
+"selectr", "first_class_name", 0, 0, 1, "class<`CombinedSelector`, `R6`>", 1
+"selectr", "first_class_name", 0, 0, 2, "class<`Element`, `R6`>", 1
+"selectr", "first_class_name", 0, 0, 3, "class<`Hash`, `R6`>", 1
+"selectr", "first_class_name", 0, 0, 4, "class<`Pseudo`, `R6`>", 1
+"selectr", "first_class_name", 0, 0, 5, "class<`R6`, `Selector`>", 1
+"selectr", "formatNS", -1, 0, 0, "character[]", 1
+"selectr", "formatNS", 0, 0, 0, "character[]", 1
+"selectr", "formatNSPrefix", -1, 0, 0, "character", 1
+"selectr", "formatNSPrefix", 0, 0, 0, "character[]", 1
+"selectr", "formatNSPrefix", 1, 0, 0, "character", 1
+"selectr", "is_safe_name", -1, 0, 0, "logical", 1
+"selectr", "is_safe_name", 0, 0, 0, "character", 1
+"selectr", "match_hash", -1, 0, 0, "^integer[]", 1
+"selectr", "match_hash", 0, 0, 0, "character", 1
+"selectr", "match_ident", -1, 0, 0, "^integer[]", 1
+"selectr", "match_ident", 0, 0, 0, "character", 1
+"selectr", "match_number", -1, 0, 0, "^integer[]", 1
+"selectr", "match_number", 0, 0, 0, "character", 1
+"selectr", "match_whitespace", -1, 0, 0, "^integer[]", 1
+"selectr", "match_whitespace", 0, 0, 0, "character", 1
+"selectr", "parse", -1, 0, 0, "list<class<`R6`, `Selector`>>", 1
+"selectr", "parse", 0, 0, 0, "character", 1
+"selectr", "parse_selector", -1, 0, 0, "list<any>", 1
+"selectr", "parse_selector", 0, 0, 0, "class<`R6`, `TokenStream`>", 1
+"selectr", "parse_selector_group", -1, 0, 0, "list<class<`R6`, `Selector`>>", 1
+"selectr", "parse_selector_group", 0, 0, 0, "class<`R6`, `TokenStream`>", 1
+"selectr", "parse_simple_selector", -1, 0, 0, "list<any>", 1
+"selectr", "parse_simple_selector", 0, 0, 0, "class<`R6`, `TokenStream`>", 1
+"selectr", "parse_simple_selector", 1, 0, 0, "logical", 1
+"selectr", "querySelector", -1, 0, 0, "(class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`> | class<`xml_node`> | null)", 1
+"selectr", "querySelector", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelector", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelector", 1, 0, 0, "character", 1
+"selectr", "querySelector", 2, 0, 0, "character", 1
+"selectr", "querySelector", 2, 0, 1, "null", 1
+"selectr", "querySelector", 3, 0, 0, "...", 1
+"selectr", "querySelectorAll", -1, 0, 0, "(class<`xml_nodeset`> | class<`XMLNodeSet`>)", 1
+"selectr", "querySelectorAll", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelectorAll", 0, 0, 1, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelectorAll", 0, 0, 2, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1
+"selectr", "querySelectorAll", 1, 0, 0, "character", 1
+"selectr", "querySelectorAll", 2, 0, 0, "character[]", 1
+"selectr", "querySelectorAll", 2, 0, 1, "null", 1
+"selectr", "querySelectorAll", 3, 0, 0, "...", 1
+"selectr", "querySelectorAllNS", -1, 0, 0, "(class<`xml_nodeset`> | class<`XMLNodeSet`>)", 1
+"selectr", "querySelectorAllNS", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelectorAllNS", 0, 0, 1, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelectorAllNS", 1, 0, 0, "character", 1
+"selectr", "querySelectorAllNS", 2, 0, 0, "character[]", 1
+"selectr", "querySelectorAllNS", 3, 0, 0, "character", 1
+"selectr", "querySelectorAllNS", 4, 0, 0, "...", 1
+"selectr", "querySelectorAllNS.XMLInternalDocument", -1, 0, 0, "class<`XMLNodeSet`>", 1
+"selectr", "querySelectorAllNS.XMLInternalDocument", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelectorAllNS.XMLInternalDocument", 1, 0, 0, "character", 1
+"selectr", "querySelectorAllNS.XMLInternalDocument", 2, 0, 0, "character[]", 1
+"selectr", "querySelectorAllNS.XMLInternalDocument", 3, 0, 0, "character", 1
+"selectr", "querySelectorAllNS.XMLInternalDocument", 4, 0, 0, "...", 1
+"selectr", "querySelectorAllNS.xml_node", -1, 0, 0, "class<`xml_nodeset`>", 1
+"selectr", "querySelectorAllNS.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelectorAllNS.xml_node", 1, 0, 0, "character", 1
+"selectr", "querySelectorAllNS.xml_node", 2, 0, 0, "character[]", 1
+"selectr", "querySelectorAllNS.xml_node", 3, 0, 0, "character", 1
+"selectr", "querySelectorAllNS.xml_node", 4, 0, 0, "...", 1
+"selectr", "querySelectorAll.XMLInternalDocument", -1, 0, 0, "class<`XMLNodeSet`>", 1
+"selectr", "querySelectorAll.XMLInternalDocument", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelectorAll.XMLInternalDocument", 1, 0, 0, "character", 1
+"selectr", "querySelectorAll.XMLInternalDocument", 2, 0, 0, "character[]", 1
+"selectr", "querySelectorAll.XMLInternalDocument", 2, 0, 1, "null", 1
+"selectr", "querySelectorAll.XMLInternalDocument", 3, 0, 0, "...", 1
+"selectr", "querySelectorAll.XMLInternalNode", -1, 0, 0, "class<`XMLNodeSet`>", 1
+"selectr", "querySelectorAll.XMLInternalNode", 0, 0, 0, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1
+"selectr", "querySelectorAll.XMLInternalNode", 1, 0, 0, "character", 1
+"selectr", "querySelectorAll.XMLInternalNode", 2, 0, 0, "character[]", 1
+"selectr", "querySelectorAll.XMLInternalNode", 2, 0, 1, "null", 1
+"selectr", "querySelectorAll.XMLInternalNode", 3, 0, 0, "...", 1
+"selectr", "querySelectorAll.xml_node", -1, 0, 0, "class<`xml_nodeset`>", 1
+"selectr", "querySelectorAll.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelectorAll.xml_node", 1, 0, 0, "character", 1
+"selectr", "querySelectorAll.xml_node", 2, 0, 0, "character[]", 1
+"selectr", "querySelectorAll.xml_node", 2, 0, 1, "null", 1
+"selectr", "querySelectorAll.xml_node", 3, 0, 0, "...", 1
+"selectr", "querySelectorNS", -1, 0, 0, "(class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`> | class<`xml_node`>)", 1
+"selectr", "querySelectorNS", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelectorNS", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelectorNS", 1, 0, 0, "character", 1
+"selectr", "querySelectorNS", 2, 0, 0, "character", 1
+"selectr", "querySelectorNS", 3, 0, 0, "character", 1
+"selectr", "querySelectorNS", 4, 0, 0, "...", 1
+"selectr", "querySelectorNS.XMLInternalDocument", -1, 0, 0, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1
+"selectr", "querySelectorNS.XMLInternalDocument", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelectorNS.XMLInternalDocument", 1, 0, 0, "character", 1
+"selectr", "querySelectorNS.XMLInternalDocument", 2, 0, 0, "character", 1
+"selectr", "querySelectorNS.XMLInternalDocument", 3, 0, 0, "character", 1
+"selectr", "querySelectorNS.XMLInternalDocument", 4, 0, 0, "...", 1
+"selectr", "querySelectorNS.xml_node", -1, 0, 0, "class<`xml_node`>", 1
+"selectr", "querySelectorNS.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelectorNS.xml_node", 1, 0, 0, "character", 1
+"selectr", "querySelectorNS.xml_node", 2, 0, 0, "character", 1
+"selectr", "querySelectorNS.xml_node", 3, 0, 0, "character", 1
+"selectr", "querySelectorNS.xml_node", 4, 0, 0, "...", 1
+"selectr", "querySelector.XMLInternalDocument", -1, 0, 0, "(class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`> | null)", 1
+"selectr", "querySelector.XMLInternalDocument", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"selectr", "querySelector.XMLInternalDocument", 1, 0, 0, "character", 1
+"selectr", "querySelector.XMLInternalDocument", 2, 0, 0, "character", 1
+"selectr", "querySelector.XMLInternalDocument", 2, 0, 1, "null", 1
+"selectr", "querySelector.XMLInternalDocument", 3, 0, 0, "...", 1
+"selectr", "querySelector.xml_node", -1, 0, 0, "(class<`xml_node`> | null)", 1
+"selectr", "querySelector.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"selectr", "querySelector.xml_node", 1, 0, 0, "character", 1
+"selectr", "querySelector.xml_node", 2, 0, 0, "character", 1
+"selectr", "querySelector.xml_node", 2, 0, 1, "null", 1
+"selectr", "querySelector.xml_node", 3, 0, 0, "...", 1
+"selectr", "reg_s3_method", -1, 0, 0, "null", 1
+"selectr", "reg_s3_method", 0, 0, 0, "character", 1
+"selectr", "reg_s3_method", 1, 0, 0, "character", 1
+"selectr", "reg_s3_method", 2, 0, 0, "character", 1
+"selectr", "reg_s3_method", 3, 0, 0, "class<`function`>", 1
+"selectr", "sub_simple_escape", -1, 0, 0, "character", 1
+"selectr", "sub_simple_escape", 0, 0, 0, "character", 1
+"selectr", "sub_unicode_escape", -1, 0, 0, "character", 1
+"selectr", "sub_unicode_escape", 0, 0, 0, "character", 1
+"selectr", "token_equality", -1, 0, 0, "logical", 1
+"selectr", "token_equality", 0, 0, 0, "class<`EOFToken`, `R6`, `Token`>", 1
+"selectr", "token_equality", 0, 0, 1, "class<`R6`, `Token`>", 1
+"selectr", "token_equality", 1, 0, 0, "character", 1
+"selectr", "token_equality", 2, 0, 0, "character", 1
+"selectr", "token_equality", 2, 0, 1, "null", 1
+"selectr", "tokenize", -1, 0, 0, "list<class<`R6`, `Token`> | class<`EOFToken`, `R6`, `Token`>>", 1
+"selectr", "tokenize", 0, 0, 0, "character", 1
+"selectr", "validateNS", -1, 0, 0, "null", 1
+"selectr", "validateNS", 0, 0, 0, "character[]", 1
+"selectr", "validateNS", 0, 0, 1, "class<`xml_namespace`>", 1
+"selectr", "xpath_literal", -1, 0, 0, "character", 1
+"selectr", "xpath_literal", 0, 0, 0, "character", 1

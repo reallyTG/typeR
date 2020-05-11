@@ -1,42 +1,599 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
+"ParamHelpers", "addOptPathEl", -1, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "addOptPathEl", 1, 0, 0, "list<double[] | character | double | character | double>", 1
+"ParamHelpers", "addOptPathEl", 2, 0, 0, "double[]", 1
+"ParamHelpers", "addOptPathEl", 3, 0, 0, "any", 1
+"ParamHelpers", "addOptPathEl", 4, 0, 0, "any", 1
+"ParamHelpers", "addOptPathEl", 5, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl", 6, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl", 7, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl", 8, 0, 0, "any", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", -1, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 1, 0, 0, "list<double[] | character | double | character | double>", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 2, 0, 0, "double[]", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 3, 0, 0, "double", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 4, 0, 0, "double", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 4, 0, 1, "null", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 5, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 6, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 7, 0, 0, "null", 1
+"ParamHelpers", "addOptPathEl.OptPathDF", 8, 0, 0, "logical", 1
+"ParamHelpers", "applyTrafos", -1, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "applyTrafos", 0, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "applyTrafos", 1, 0, 0, "list<class<`Param`>>", 1
+"ParamHelpers", "as.data.frame.OptPathDF", -1, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 1, 0, 0, "null", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 2, 0, 0, "logical", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 3, 0, 0, "logical", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 4, 0, 0, "logical", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 5, 0, 0, "logical", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 6, 0, 0, "integer[]", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 7, 0, 0, "^integer[]", 1
+"ParamHelpers", "as.data.frame.OptPathDF", 8, 0, 0, "...", 1
+"ParamHelpers", "checkExpressionFeasibility", -1, 0, 0, "logical", 1
+"ParamHelpers", "checkExpressionFeasibility", 0, 0, 0, "class<`LearnerParamSet`, `ParamSet`>", 1
+"ParamHelpers", "checkExpressionFeasibility", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "checkExpressionFeasibility", 1, 0, 0, "character[]", 1
 "ParamHelpers", "checkLength", -1, 0, 0, "logical", 1
-"ParamHelpers", "checkLength", 0, 0, 0, "struct<`id`:character, `type`:character, `len`:double, `lower`:double[], `upper`:double[], `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:any => any, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>", 1
+"ParamHelpers", "checkLength", 0, 0, 0, "class<`Param`>", 1
 "ParamHelpers", "checkLength", 1, 0, 0, "double[]", 1
+"ParamHelpers", "checkParamSet", -1, 0, 0, "logical", 1
+"ParamHelpers", "checkParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "checkParamSet", 1, 0, 0, "list<double | character>", 1
+"ParamHelpers", "checkValuesForDiscreteParam", -1, 0, 0, "list<any>", 1
+"ParamHelpers", "checkValuesForDiscreteParam", 0, 0, 0, "any", 1
+"ParamHelpers", "checkValuesForDiscreteParam", 1, 0, 0, "integer[]", 1
+"ParamHelpers", "checkValuesForDiscreteParam", 1, 0, 1, "character[]", 1
+"ParamHelpers", "checkValuesForDiscreteParam", 1, 0, 2, "list<null | list<any> | null | double | logical>", 1
+"ParamHelpers", "constraintsOkParam", -1, 0, 0, "logical", 1
+"ParamHelpers", "constraintsOkParam", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "constraintsOkParam", 1, 0, 0, "character", 1
+"ParamHelpers", "constraintsOkParam", 1, 0, 1, "double[]", 1
 "ParamHelpers", "convertTypesToCInts", -1, 0, 0, "integer[]", 1
 "ParamHelpers", "convertTypesToCInts", 0, 0, 0, "character[]", 1
-"ParamHelpers", "dfRowsToList", -1, 0, 0, "tuple<struct<`u`:integer, `v`:double[], `w`:character>, struct<`u`:integer, `v`:double[], `w`:character>>", 1
-"ParamHelpers", "dfRowsToList", 0, 0, 0, "struct<`u`:integer[], `v1`:double[], `v2`:double[], `w`:character[]>", 1
-"ParamHelpers", "dfRowsToList", 1, 0, 0, "struct<`pars`:struct<`u`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:any => any, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `v`:struct<`id`:character, `type`:character, `len`:double, `lower`:double[], `upper`:double[], `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:any => any, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `w`:struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:character, `b`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
+"ParamHelpers", "determineReqVectorized", -1, 0, 0, "logical[]", 1
+"ParamHelpers", "determineReqVectorized", 0, 0, 0, "list<class<`Param`>>", 1
+"ParamHelpers", "dfRowsToList", -1, 0, 0, "list<list<double[] | character>>", 1
+"ParamHelpers", "dfRowsToList", 0, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "dfRowsToList", 1, 0, 0, "class<`ParamSet`>", 1
 "ParamHelpers", "dfRowsToList", 2, 0, 0, "logical", 1
-"ParamHelpers", "dfRowsToList", 3, 0, 0, "null", 1
-"ParamHelpers", "dfRowToList", -1, 0, 0, "struct<`u`:integer, `v`:double[], `w`:character>", 1
-"ParamHelpers", "dfRowToList", 0, 0, 0, "struct<`u`:integer[], `v1`:double[], `v2`:double[], `w`:character[]>", 1
-"ParamHelpers", "dfRowToList", 1, 0, 0, "struct<`pars`:struct<`u`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:any => any, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `v`:struct<`id`:character, `type`:character, `len`:double, `lower`:double[], `upper`:double[], `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:any => any, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `w`:struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:character, `b`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
+"ParamHelpers", "dfRowsToList", 3, 0, 0, "...", 1
+"ParamHelpers", "dfRowToList", -1, 0, 0, "list<double[] | character>", 1
+"ParamHelpers", "dfRowToList", 0, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "dfRowToList", 1, 0, 0, "class<`ParamSet`>", 1
 "ParamHelpers", "dfRowToList", 2, 0, 0, "integer", 1
 "ParamHelpers", "dfRowToList", 3, 0, 0, "logical", 1
-"ParamHelpers", "dfRowToList", 4, 0, 0, "null", 1
+"ParamHelpers", "dfRowToList", 4, 0, 0, "...", 1
 "ParamHelpers", "discreteNameToValue", -1, 0, 0, "character", 1
-"ParamHelpers", "discreteNameToValue", 0, 0, 0, "struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:character, `b`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>", 1
-"ParamHelpers", "discreteNameToValue", 0, 0, 1, "struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`x1`:character, `x2`:character, `x3`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>", 1
+"ParamHelpers", "discreteNameToValue", 0, 0, 0, "class<`Param`>", 1
 "ParamHelpers", "discreteNameToValue", 1, 0, 0, "character", 1
 "ParamHelpers", "discreteValueToName", -1, 0, 0, "character", 1
-"ParamHelpers", "discreteValueToName", 0, 0, 0, "struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:character, `b`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>", 1
-"ParamHelpers", "discreteValueToName", 0, 0, 1, "struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:null, `b`:double>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>", 1
-"ParamHelpers", "discreteValueToName", 0, 0, 2, "struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`x1`:character, `x2`:character, `x3`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>", 1
-"ParamHelpers", "discreteValueToName", 1, 0, 0, "null", 1
-"ParamHelpers", "discreteValueToName", 1, 0, 1, "character", 1
-"ParamHelpers", "evaluateParamExpressions.list", -1, 0, 0, "struct<`x`:double, `y`:double>", 1
-"ParamHelpers", "evaluateParamExpressions.list", 0, 0, 0, "struct<`x`:expression, `y`:double>", 1
-"ParamHelpers", "evaluateParamExpressions.list", 1, 0, 0, "struct<`k`:double>", 1
-"ParamHelpers", "filter", -1, 0, 0, "logical[]", 1
-"ParamHelpers", "filter", 0, 0, 0, "character[]", 1
-"ParamHelpers", "filterParamsNumeric", -1, 0, 0, "struct<`pars`:struct<`u`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `v`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
-"ParamHelpers", "filterParamsNumeric", 0, 0, 0, "struct<`pars`:struct<`u`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `v`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `w`:struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:character, `b`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:character, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `x`:struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:character, `b`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:character, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
-"ParamHelpers", "filterParamsNumeric", 0, 0, 1, "struct<`pars`:struct<`u`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `v`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `w`:struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`1`:integer, `2`:integer>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `x`:struct<`id`:character, `type`:character, `len`:double, `lower`:double[], `upper`:expression, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>>", 1
-"ParamHelpers", "filterParamsNumeric", 0, 0, 2, "struct<`pars`:struct<`u`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `v`:struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`a`:character, `b`:character>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `w`:struct<`id`:character, `type`:character, `len`:integer, `lower`:expression, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `x`:struct<`id`:character, `type`:character, `len`:integer, `lower`:null, `upper`:null, `values`:struct<`1`:integer, `2`:integer>, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `y`:struct<`id`:character, `type`:character, `len`:double, `lower`:double[], `upper`:double[], `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
-"ParamHelpers", "filterParamsNumeric", 0, 0, 3, "struct<`pars`:struct<`x`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `y`:struct<`id`:character, `type`:character, `len`:double, `lower`:double[], `upper`:double[], `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:any => any, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
-"ParamHelpers", "filterParamsNumeric", 0, 0, 4, "struct<`pars`:struct<`x1`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `x2`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:any => any, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
-"ParamHelpers", "filterParamsNumeric", 0, 0, 5, "struct<`pars`:struct<`x1`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>, `x2`:struct<`id`:character, `type`:character, `len`:integer, `lower`:double, `upper`:double, `values`:null, `cnames`:null, `allow.inf`:logical, `has.default`:logical, `default`:null, `trafo`:null, `requires`:null, `tunable`:logical, `special.vals`:tuple<>>>, `forbidden`:null>", 1
+"ParamHelpers", "discreteValueToName", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "discreteValueToName", 1, 0, 0, "character", 1
+"ParamHelpers", "discreteValueToName", 1, 0, 1, "null", 1
+"ParamHelpers", "doBasicGenDesignChecks", -1, 0, 0, "list<double[]>", 1
+"ParamHelpers", "doBasicGenDesignChecks", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "evaluateParamExpressions", -1, 0, 0, "(class<`Param`> | class<`ParamSet`> | list<double>)", 1
+"ParamHelpers", "evaluateParamExpressions", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "evaluateParamExpressions", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "evaluateParamExpressions", 0, 0, 2, "list<expression | double>", 1
+"ParamHelpers", "evaluateParamExpressions", 1, 0, 0, "any", 1
+"ParamHelpers", "evaluateParamExpressions.list", -1, 0, 0, "list<double>", 1
+"ParamHelpers", "evaluateParamExpressions.list", 0, 0, 0, "list<expression | double>", 1
+"ParamHelpers", "evaluateParamExpressions.list", 1, 0, 0, "list<double>", 1
+"ParamHelpers", "evaluateParamExpressions.Param", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "evaluateParamExpressions.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "evaluateParamExpressions.Param", 1, 0, 0, "any", 1
+"ParamHelpers", "evaluateParamExpressions.ParamSet", -1, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "evaluateParamExpressions.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "evaluateParamExpressions.ParamSet", 1, 0, 0, "list<class<`data.frame`> | double | double | character>", 1
+"ParamHelpers", "filterParams", -1, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "filterParams", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "filterParams", 1, 0, 0, "character[]", 1
+"ParamHelpers", "filterParams", 1, 0, 1, "null", 1
+"ParamHelpers", "filterParams", 2, 0, 0, "character[]", 1
+"ParamHelpers", "filterParams", 3, 0, 0, "logical[]", 1
+"ParamHelpers", "filterParams", 4, 0, 0, "logical", 1
+"ParamHelpers", "filterParamsNumeric", -1, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "filterParamsNumeric", 0, 0, 0, "class<`ParamSet`>", 1
 "ParamHelpers", "filterParamsNumeric", 1, 0, 0, "null", 1
 "ParamHelpers", "filterParamsNumeric", 2, 0, 0, "logical[]", 1
 "ParamHelpers", "filterParamsNumeric", 3, 0, 0, "logical", 1
+"ParamHelpers", "fixDesignFactors", -1, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "fixDesignFactors", 0, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "fixDesignFactors", 1, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "FUN", -1, 0, 0, "(double | character | integer[] | list<double>)", 1
+"ParamHelpers", "FUN", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "FUN", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "FUN", 1, 0, 0, "logical", 1
+"ParamHelpers", "FUN", 2, 0, 0, "logical", 1
+"ParamHelpers", "FUN", -1, 1, 0, "logical", 1
+"ParamHelpers", "FUN", 0, 1, 0, "class<`LearnerParam`, `Param`>", 1
+"ParamHelpers", "FUN", 0, 1, 1, "class<`Param`>", 1
+"ParamHelpers", "FUN", 0, 1, 2, "class<`LearnerParamSet`, `ParamSet`>", 1
+"ParamHelpers", "FUN", 0, 1, 3, "class<`ParamSet`>", 1
+"ParamHelpers", "FUN", -1, 2, 0, "(character | double[] | null | list<double[] | character | character | null | double>)", 1
+"ParamHelpers", "FUN", 0, 2, 0, "class<`Param`>", 1
+"ParamHelpers", "FUN", 0, 2, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "FUN", 1, 2, 0, "logical", 1
+"ParamHelpers", "FUN", 2, 2, 0, "null", 1
+"ParamHelpers", "FUN", 2, 2, 1, "list<double | double | character | class<`data.frame`>>", 1
+"ParamHelpers", "FUN", -1, 3, 0, "logical", 1
+"ParamHelpers", "FUN", 0, 3, 0, "class<`Param`>", 1
+"ParamHelpers", "FUN", 0, 3, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "FUN", -1, 4, 0, "character[]", 1
+"ParamHelpers", "FUN", 0, 4, 0, "class<`Param`>", 1
+"ParamHelpers", "FUN", 0, 4, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "FUN", 1, 4, 0, "logical", 1
+"ParamHelpers", "FUN", 2, 4, 0, "logical", 1
+"ParamHelpers", "generateDesign", -1, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "generateDesign", 0, 0, 0, "double", 1
+"ParamHelpers", "generateDesign", 1, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "generateDesign", 2, 0, 0, "any", 1
+"ParamHelpers", "generateDesign", 3, 0, 0, "list<any>", 1
+"ParamHelpers", "generateDesign", 4, 0, 0, "logical", 1
+"ParamHelpers", "generateDesign", 5, 0, 0, "integer", 1
+"ParamHelpers", "generateGridDesign", -1, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "generateGridDesign", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "generateGridDesign", 1, 0, 0, "double[]", 1
+"ParamHelpers", "generateGridDesign", 2, 0, 0, "logical", 1
+"ParamHelpers", "getBounds", -1, 0, 0, "double[]", 1
+"ParamHelpers", "getBounds", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getBounds", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "getBounds", 0, 0, 2, "list<class<`Param`>>", 1
+"ParamHelpers", "getBounds", 1, 0, 0, "character", 1
+"ParamHelpers", "getBounds", 2, 0, 0, "logical", 1
+"ParamHelpers", "getBounds", 3, 0, 0, "null", 1
+"ParamHelpers", "getBounds", 3, 0, 1, "list<double | double | character | class<`data.frame`>>", 1
+"ParamHelpers", "getBounds.list", -1, 0, 0, "double[]", 1
+"ParamHelpers", "getBounds.list", 0, 0, 0, "list<class<`Param`>>", 1
+"ParamHelpers", "getBounds.list", 1, 0, 0, "character", 1
+"ParamHelpers", "getBounds.list", 2, 0, 0, "logical", 1
+"ParamHelpers", "getBounds.list", 3, 0, 0, "null", 1
+"ParamHelpers", "getBounds.list", 3, 0, 1, "list<double>", 1
+"ParamHelpers", "getBounds.Param", -1, 0, 0, "double[]", 1
+"ParamHelpers", "getBounds.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getBounds.Param", 1, 0, 0, "character", 1
+"ParamHelpers", "getBounds.Param", 2, 0, 0, "logical", 1
+"ParamHelpers", "getBounds.Param", 3, 0, 0, "null", 1
+"ParamHelpers", "getBounds.Param", 3, 0, 1, "list<double | double | character | class<`data.frame`>>", 1
+"ParamHelpers", "getBounds.ParamSet", -1, 0, 0, "double[]", 1
+"ParamHelpers", "getBounds.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getBounds.ParamSet", 1, 0, 0, "character", 1
+"ParamHelpers", "getBounds.ParamSet", 2, 0, 0, "logical", 1
+"ParamHelpers", "getBounds.ParamSet", 3, 0, 0, "null", 1
+"ParamHelpers", "getBounds.ParamSet", 3, 0, 1, "list<double>", 1
+"ParamHelpers", "getDefaults", -1, 0, 0, "(character | double[] | null | list<double[] | character | character | null | double>)", 1
+"ParamHelpers", "getDefaults", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getDefaults", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "getDefaults", 1, 0, 0, "logical", 1
+"ParamHelpers", "getDefaults", 2, 0, 0, "null", 1
+"ParamHelpers", "getDefaults", 2, 0, 1, "list<double | double | character | class<`data.frame`>>", 1
+"ParamHelpers", "getDefaults.Param", -1, 0, 0, "(character | double[] | null)", 1
+"ParamHelpers", "getDefaults.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getDefaults.Param", 1, 0, 0, "logical", 1
+"ParamHelpers", "getDefaults.Param", 2, 0, 0, "null", 1
+"ParamHelpers", "getDefaults.Param", 2, 0, 1, "list<double | character | double | class<`data.frame`>>", 1
+"ParamHelpers", "getDefaults.ParamSet", -1, 0, 0, "list<double[] | character | character | null | double>", 1
+"ParamHelpers", "getDefaults.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getDefaults.ParamSet", 1, 0, 0, "logical", 1
+"ParamHelpers", "getDefaults.ParamSet", 2, 0, 0, "null", 1
+"ParamHelpers", "getDefaults.ParamSet", 2, 0, 1, "list<double>", 1
+"ParamHelpers", "getLower", -1, 0, 0, "double[]", 1
+"ParamHelpers", "getLower", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getLower", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "getLower", 0, 0, 2, "list<class<`Param`>>", 1
+"ParamHelpers", "getLower", 1, 0, 0, "logical", 1
+"ParamHelpers", "getLower", 2, 0, 0, "null", 1
+"ParamHelpers", "getLower", 2, 0, 1, "list<double | character | double | class<`data.frame`>>", 1
+"ParamHelpers", "getOptPathBestIndex", -1, 0, 0, "integer", 1
+"ParamHelpers", "getOptPathBestIndex", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathBestIndex", 1, 0, 0, "character", 1
+"ParamHelpers", "getOptPathBestIndex", 2, 0, 0, "integer[]", 1
+"ParamHelpers", "getOptPathBestIndex", 3, 0, 0, "^integer[]", 1
+"ParamHelpers", "getOptPathBestIndex", 4, 0, 0, "character", 1
+"ParamHelpers", "getOptPathDobAndEolIndex", -1, 0, 0, "logical[]", 1
+"ParamHelpers", "getOptPathDobAndEolIndex", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathDobAndEolIndex", 1, 0, 0, "integer[]", 1
+"ParamHelpers", "getOptPathDobAndEolIndex", 2, 0, 0, "^integer[]", 1
+"ParamHelpers", "getOptPathEl", -1, 0, 0, "list<double | list<double[] | character>>", 1
+"ParamHelpers", "getOptPathEl", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathEl", 1, 0, 0, "integer", 1
+"ParamHelpers", "getOptPathEl.OptPathDF", -1, 0, 0, "list<double | list<double[] | character>>", 1
+"ParamHelpers", "getOptPathEl.OptPathDF", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathEl.OptPathDF", 1, 0, 0, "integer", 1
+"ParamHelpers", "getOptPathLength", -1, 0, 0, "integer", 1
+"ParamHelpers", "getOptPathLength", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathLength.OptPathDF", -1, 0, 0, "integer", 1
+"ParamHelpers", "getOptPathLength.OptPathDF", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathParetoFront", -1, 0, 0, "(class<`matrix`> | integer[])", 1
+"ParamHelpers", "getOptPathParetoFront", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathParetoFront", 1, 0, 0, "character[]", 1
+"ParamHelpers", "getOptPathParetoFront", 2, 0, 0, "integer[]", 1
+"ParamHelpers", "getOptPathParetoFront", 3, 0, 0, "^integer[]", 1
+"ParamHelpers", "getOptPathParetoFront", 4, 0, 0, "logical", 1
+"ParamHelpers", "getOptPathY", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"ParamHelpers", "getOptPathY", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathY", 1, 0, 0, "character[]", 1
+"ParamHelpers", "getOptPathY", 2, 0, 0, "any", 1
+"ParamHelpers", "getOptPathY", 3, 0, 0, "any", 1
+"ParamHelpers", "getOptPathY", 4, 0, 0, "logical", 1
+"ParamHelpers", "getOptPathY.OptPathDF", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"ParamHelpers", "getOptPathY.OptPathDF", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "getOptPathY.OptPathDF", 1, 0, 0, "character[]", 1
+"ParamHelpers", "getOptPathY.OptPathDF", 2, 0, 0, "integer[]", 1
+"ParamHelpers", "getOptPathY.OptPathDF", 3, 0, 0, "^integer[]", 1
+"ParamHelpers", "getOptPathY.OptPathDF", 4, 0, 0, "logical", 1
+"ParamHelpers", "getParamIds", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getParamIds", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getParamIds", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "getParamIds", 1, 0, 0, "logical", 1
+"ParamHelpers", "getParamIds", 2, 0, 0, "logical", 1
+"ParamHelpers", "getParamIds.Param", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getParamIds.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getParamIds.Param", 1, 0, 0, "logical", 1
+"ParamHelpers", "getParamIds.Param", 2, 0, 0, "logical", 1
+"ParamHelpers", "getParamIds.ParamSet", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getParamIds.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getParamIds.ParamSet", 1, 0, 0, "logical", 1
+"ParamHelpers", "getParamIds.ParamSet", 2, 0, 0, "logical", 1
+"ParamHelpers", "getParamLengths", -1, 0, 0, "integer[]", 1
+"ParamHelpers", "getParamLengths", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getParamLengths", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "getParamLengths", 1, 0, 0, "null", 1
+"ParamHelpers", "getParamLengths", 1, 0, 1, "list<class<`data.frame`> | double | double | character>", 1
+"ParamHelpers", "getParamLengths.Param", -1, 0, 0, "integer", 1
+"ParamHelpers", "getParamLengths.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getParamLengths.Param", 1, 0, 0, "list<class<`data.frame`> | double | double | character>", 1
+"ParamHelpers", "getParamLengths.ParamSet", -1, 0, 0, "integer[]", 1
+"ParamHelpers", "getParamLengths.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getParamLengths.ParamSet", 1, 0, 0, "null", 1
+"ParamHelpers", "getParamNr", -1, 0, 0, "integer", 1
+"ParamHelpers", "getParamNr", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getParamNr", 1, 0, 0, "logical", 1
+"ParamHelpers", "getParamSetValues", -1, 0, 0, "list<null | character[] | null>", 1
+"ParamHelpers", "getParamSetValues", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getParamTypes", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getParamTypes", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getParamTypes", 1, 0, 0, "logical", 1
+"ParamHelpers", "getParamTypes", 2, 0, 0, "logical", 1
+"ParamHelpers", "getParamTypes", 3, 0, 0, "logical", 1
+"ParamHelpers", "getParamTypes", 4, 0, 0, "logical", 1
+"ParamHelpers", "getRequiredParamNames", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getRequiredParamNames", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getRequiredParamNames.ParamSet", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getRequiredParamNames.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getTypeStringsAll", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getTypeStringsDiscrete", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getTypeStringsDiscrete", 0, 0, 0, "logical", 1
+"ParamHelpers", "getTypeStringsInteger", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getTypeStringsLogical", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getTypeStringsNumeric", -1, 0, 0, "character[]", 1
+"ParamHelpers", "getTypeStringsNumeric", 0, 0, 0, "logical", 1
+"ParamHelpers", "getUpper", -1, 0, 0, "double[]", 1
+"ParamHelpers", "getUpper", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getUpper", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "getUpper", 0, 0, 2, "list<class<`Param`>>", 1
+"ParamHelpers", "getUpper", 1, 0, 0, "logical", 1
+"ParamHelpers", "getUpper", 2, 0, 0, "null", 1
+"ParamHelpers", "getUpper", 2, 0, 1, "list<double | character | double | class<`data.frame`>>", 1
+"ParamHelpers", "getValues", -1, 0, 0, "list<any>", 1
+"ParamHelpers", "getValues", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getValues", 0, 0, 1, "class<`Param`>", 1
+"ParamHelpers", "getValues", 1, 0, 0, "null", 1
+"ParamHelpers", "getValues", 1, 0, 1, "list<double | character>", 1
+"ParamHelpers", "getValues.Param", -1, 0, 0, "list<character>", 1
+"ParamHelpers", "getValues.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "getValues.Param", 1, 0, 0, "list<double | character>", 1
+"ParamHelpers", "getValues.ParamSet", -1, 0, 0, "list<any>", 1
+"ParamHelpers", "getValues.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "getValues.ParamSet", 1, 0, 0, "null", 1
+"ParamHelpers", "hasExpression", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasExpression", 0, 0, 0, "class<`LearnerParam`, `Param`>", 1
+"ParamHelpers", "hasExpression", 0, 0, 1, "class<`Param`>", 1
+"ParamHelpers", "hasExpression", 0, 0, 2, "class<`LearnerParamSet`, `ParamSet`>", 1
+"ParamHelpers", "hasExpression", 0, 0, 3, "class<`ParamSet`>", 1
+"ParamHelpers", "hasExpression.LearnerParam", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasExpression.LearnerParam", 0, 0, 0, "class<`LearnerParam`, `Param`>", 1
+"ParamHelpers", "hasExpression.LearnerParam", 0, 0, 1, "class<`Param`>", 1
+"ParamHelpers", "hasExpression.LearnerParamSet", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasExpression.LearnerParamSet", 0, 0, 0, "class<`LearnerParamSet`, `ParamSet`>", 1
+"ParamHelpers", "hasExpression.LearnerParamSet", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "hasExpression.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasExpression.Param", 0, 0, 0, "class<`LearnerParam`, `Param`>", 1
+"ParamHelpers", "hasExpression.Param", 0, 0, 1, "class<`Param`>", 1
+"ParamHelpers", "hasExpression.ParamSet", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasExpression.ParamSet", 0, 0, 0, "class<`LearnerParamSet`, `ParamSet`>", 1
+"ParamHelpers", "hasExpression.ParamSet", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "hasForbidden", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasForbidden", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "hasNumeric", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasNumeric", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "hasNumeric", 1, 0, 0, "logical", 1
+"ParamHelpers", "hasRequires", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasRequires", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "hasRequires", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "hasRequires.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasRequires.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "hasRequires.ParamSet", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasRequires.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "hasSomeParamsOfTypes", -1, 0, 0, "logical", 1
+"ParamHelpers", "hasSomeParamsOfTypes", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "hasSomeParamsOfTypes", 1, 0, 0, "character[]", 1
+"ParamHelpers", "inBoundsOrExpr", -1, 0, 0, "logical", 1
+"ParamHelpers", "inBoundsOrExpr", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "inBoundsOrExpr", 1, 0, 0, "double[]", 1
+"ParamHelpers", "isDiscrete", -1, 0, 0, "logical", 1
+"ParamHelpers", "isDiscrete", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isDiscrete", 1, 0, 0, "logical", 1
+"ParamHelpers", "isDiscrete.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "isDiscrete.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isDiscrete.Param", 1, 0, 0, "logical", 1
+"ParamHelpers", "isDiscreteTypeString", -1, 0, 0, "logical", 1
+"ParamHelpers", "isDiscreteTypeString", 0, 0, 0, "character", 1
+"ParamHelpers", "isDiscreteTypeString", 1, 0, 0, "logical", 1
+"ParamHelpers", "isEmpty", -1, 0, 0, "logical", 1
+"ParamHelpers", "isEmpty", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "isEmpty.ParamSet", -1, 0, 0, "logical", 1
+"ParamHelpers", "isEmpty.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "isFeasible", -1, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isFeasible", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "isFeasible", 1, 0, 0, "character", 1
+"ParamHelpers", "isFeasible", 1, 0, 1, "double[]", 1
+"ParamHelpers", "isFeasible", 1, 0, 2, "list<any>", 1
+"ParamHelpers", "isFeasible", 2, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible", 3, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isFeasible.Param", 1, 0, 0, "character", 1
+"ParamHelpers", "isFeasible.Param", 1, 0, 1, "double[]", 1
+"ParamHelpers", "isFeasible.Param", 2, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible.Param", 3, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible.ParamSet", -1, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "isFeasible.ParamSet", 1, 0, 0, "list<any>", 1
+"ParamHelpers", "isFeasible.ParamSet", 2, 0, 0, "logical", 1
+"ParamHelpers", "isFeasible.ParamSet", 3, 0, 0, "logical", 1
+"ParamHelpers", "isForbidden", -1, 0, 0, "logical", 1
+"ParamHelpers", "isForbidden", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "isForbidden", 1, 0, 0, "list<any>", 1
+"ParamHelpers", "isInteger", -1, 0, 0, "logical", 1
+"ParamHelpers", "isInteger", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isInteger.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "isInteger.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isIntegerTypeString", -1, 0, 0, "logical", 1
+"ParamHelpers", "isIntegerTypeString", 0, 0, 0, "character", 1
+"ParamHelpers", "isLogical", -1, 0, 0, "logical", 1
+"ParamHelpers", "isLogical", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isLogical.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "isLogical.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isLogicalTypeString", -1, 0, 0, "logical", 1
+"ParamHelpers", "isLogicalTypeString", 0, 0, 0, "character", 1
+"ParamHelpers", "isNumeric", -1, 0, 0, "logical", 1
+"ParamHelpers", "isNumeric", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isNumeric", 1, 0, 0, "logical", 1
+"ParamHelpers", "isNumeric.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "isNumeric.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isNumeric.Param", 1, 0, 0, "logical", 1
+"ParamHelpers", "isNumericTypeString", -1, 0, 0, "logical", 1
+"ParamHelpers", "isNumericTypeString", 0, 0, 0, "character", 1
+"ParamHelpers", "isNumericTypeString", 1, 0, 0, "logical", 1
+"ParamHelpers", "isSpecialValue", -1, 0, 0, "logical", 1
+"ParamHelpers", "isSpecialValue", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isSpecialValue", 1, 0, 0, "any", 1
+"ParamHelpers", "isVector", -1, 0, 0, "logical", 1
+"ParamHelpers", "isVector", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isVector.Param", -1, 0, 0, "logical", 1
+"ParamHelpers", "isVector.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "isVectorTypeString", -1, 0, 0, "logical", 1
+"ParamHelpers", "isVectorTypeString", 0, 0, 0, "character", 1
+"ParamHelpers", "makeCharacterParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeCharacterParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeCharacterParam", 1, 0, 0, "any", 1
+"ParamHelpers", "makeCharacterParam", 2, 0, 0, "null", 1
+"ParamHelpers", "makeCharacterParam", 3, 0, 0, "list<any>", 1
+"ParamHelpers", "makeDiscreteParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeDiscreteParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeDiscreteParam", 1, 0, 0, "character[]", 1
+"ParamHelpers", "makeDiscreteParam", 1, 0, 1, "integer[]", 1
+"ParamHelpers", "makeDiscreteParam", 1, 0, 2, "list<null | list<any> | null | double>", 1
+"ParamHelpers", "makeDiscreteParam", 2, 0, 0, "null", 1
+"ParamHelpers", "makeDiscreteParam", 3, 0, 0, "any", 1
+"ParamHelpers", "makeDiscreteParam", 4, 0, 0, "null", 1
+"ParamHelpers", "makeDiscreteParam", 5, 0, 0, "logical", 1
+"ParamHelpers", "makeDiscreteParam", 6, 0, 0, "list<any>", 1
+"ParamHelpers", "makeDiscreteVectorParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeDiscreteVectorParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeDiscreteVectorParam", 1, 0, 0, "double", 1
+"ParamHelpers", "makeDiscreteVectorParam", 2, 0, 0, "character[]", 1
+"ParamHelpers", "makeDiscreteVectorParam", 3, 0, 0, "null", 1
+"ParamHelpers", "makeDiscreteVectorParam", 4, 0, 0, "any", 1
+"ParamHelpers", "makeDiscreteVectorParam", 5, 0, 0, "null", 1
+"ParamHelpers", "makeDiscreteVectorParam", 6, 0, 0, "logical", 1
+"ParamHelpers", "makeDiscreteVectorParam", 7, 0, 0, "list<any>", 1
+"ParamHelpers", "makeIntegerParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeIntegerParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeIntegerParam", 1, 0, 0, "double", 1
+"ParamHelpers", "makeIntegerParam", 1, 0, 1, "expression", 1
+"ParamHelpers", "makeIntegerParam", 2, 0, 0, "double", 1
+"ParamHelpers", "makeIntegerParam", 2, 0, 1, "expression", 1
+"ParamHelpers", "makeIntegerParam", 3, 0, 0, "any", 1
+"ParamHelpers", "makeIntegerParam", 4, 0, 0, "null", 1
+"ParamHelpers", "makeIntegerParam", 4, 0, 1, "class<`function`>", 1
+"ParamHelpers", "makeIntegerParam", 5, 0, 0, "null", 1
+"ParamHelpers", "makeIntegerParam", 6, 0, 0, "logical", 1
+"ParamHelpers", "makeIntegerParam", 7, 0, 0, "list<any>", 1
+"ParamHelpers", "makeIntegerVectorParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeIntegerVectorParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeIntegerVectorParam", 1, 0, 0, "double", 1
+"ParamHelpers", "makeIntegerVectorParam", 2, 0, 0, "double", 1
+"ParamHelpers", "makeIntegerVectorParam", 3, 0, 0, "double", 1
+"ParamHelpers", "makeIntegerVectorParam", 4, 0, 0, "null", 1
+"ParamHelpers", "makeIntegerVectorParam", 5, 0, 0, "any", 1
+"ParamHelpers", "makeIntegerVectorParam", 6, 0, 0, "null", 1
+"ParamHelpers", "makeIntegerVectorParam", 7, 0, 0, "null", 1
+"ParamHelpers", "makeIntegerVectorParam", 8, 0, 0, "logical", 1
+"ParamHelpers", "makeIntegerVectorParam", 9, 0, 0, "list<any>", 1
+"ParamHelpers", "makeLearnerParam", -1, 0, 0, "class<`LearnerParam`, `Param`>", 1
+"ParamHelpers", "makeLearnerParam", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeLearnerParam", 1, 0, 0, "character", 1
+"ParamHelpers", "makeLogicalParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeLogicalParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeLogicalParam", 1, 0, 0, "any", 1
+"ParamHelpers", "makeLogicalParam", 2, 0, 0, "null", 1
+"ParamHelpers", "makeLogicalParam", 3, 0, 0, "logical", 1
+"ParamHelpers", "makeLogicalParam", 4, 0, 0, "list<any>", 1
+"ParamHelpers", "makeNumericLearnerParam", -1, 0, 0, "class<`LearnerParam`, `Param`>", 1
+"ParamHelpers", "makeNumericLearnerParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeNumericLearnerParam", 1, 0, 0, "double", 1
+"ParamHelpers", "makeNumericLearnerParam", 2, 0, 0, "double", 1
+"ParamHelpers", "makeNumericLearnerParam", 2, 0, 1, "expression", 1
+"ParamHelpers", "makeNumericLearnerParam", 3, 0, 0, "logical", 1
+"ParamHelpers", "makeNumericLearnerParam", 4, 0, 0, "any", 1
+"ParamHelpers", "makeNumericLearnerParam", 5, 0, 0, "character", 1
+"ParamHelpers", "makeNumericLearnerParam", 6, 0, 0, "null", 1
+"ParamHelpers", "makeNumericLearnerParam", 7, 0, 0, "logical", 1
+"ParamHelpers", "makeNumericLearnerParam", 8, 0, 0, "list<any>", 1
+"ParamHelpers", "makeNumericParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeNumericParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeNumericParam", 1, 0, 0, "double", 1
+"ParamHelpers", "makeNumericParam", 1, 0, 1, "expression", 1
+"ParamHelpers", "makeNumericParam", 2, 0, 0, "double", 1
+"ParamHelpers", "makeNumericParam", 2, 0, 1, "expression", 1
+"ParamHelpers", "makeNumericParam", 3, 0, 0, "logical", 1
+"ParamHelpers", "makeNumericParam", 4, 0, 0, "any", 1
+"ParamHelpers", "makeNumericParam", 5, 0, 0, "null", 1
+"ParamHelpers", "makeNumericParam", 5, 0, 1, "class<`function`>", 1
+"ParamHelpers", "makeNumericParam", 6, 0, 0, "null", 1
+"ParamHelpers", "makeNumericParam", 7, 0, 0, "logical", 1
+"ParamHelpers", "makeNumericParam", 8, 0, 0, "list<any>", 1
+"ParamHelpers", "makeNumericVectorParam", -1, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "makeNumericVectorParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeNumericVectorParam", 1, 0, 0, "double", 1
+"ParamHelpers", "makeNumericVectorParam", 1, 0, 1, "expression", 1
+"ParamHelpers", "makeNumericVectorParam", 2, 0, 0, "double[]", 1
+"ParamHelpers", "makeNumericVectorParam", 3, 0, 0, "double[]", 1
+"ParamHelpers", "makeNumericVectorParam", 3, 0, 1, "expression", 1
+"ParamHelpers", "makeNumericVectorParam", 4, 0, 0, "null", 1
+"ParamHelpers", "makeNumericVectorParam", 5, 0, 0, "logical", 1
+"ParamHelpers", "makeNumericVectorParam", 6, 0, 0, "any", 1
+"ParamHelpers", "makeNumericVectorParam", 7, 0, 0, "null", 1
+"ParamHelpers", "makeNumericVectorParam", 7, 0, 1, "class<`function`>", 1
+"ParamHelpers", "makeNumericVectorParam", 8, 0, 0, "null", 1
+"ParamHelpers", "makeNumericVectorParam", 9, 0, 0, "logical", 1
+"ParamHelpers", "makeNumericVectorParam", 10, 0, 0, "list<any>", 1
+"ParamHelpers", "makeOptPath", -1, 0, 0, "class<`OptPath`>", 1
+"ParamHelpers", "makeOptPath", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "makeOptPath", 1, 0, 0, "character[]", 1
+"ParamHelpers", "makeOptPath", 2, 0, 0, "logical[]", 1
+"ParamHelpers", "makeOptPath", 3, 0, 0, "logical", 1
+"ParamHelpers", "makeOptPath", 4, 0, 0, "logical", 1
+"ParamHelpers", "makeOptPath", 5, 0, 0, "logical", 1
+"ParamHelpers", "makeOptPath", 6, 0, 0, "logical", 1
+"ParamHelpers", "makeOptPathDF", -1, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "makeOptPathDF", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "makeOptPathDF", 1, 0, 0, "character[]", 1
+"ParamHelpers", "makeOptPathDF", 2, 0, 0, "logical[]", 1
+"ParamHelpers", "makeOptPathDF", 3, 0, 0, "logical", 1
+"ParamHelpers", "makeOptPathDF", 4, 0, 0, "logical", 1
+"ParamHelpers", "makeOptPathDF", 5, 0, 0, "logical", 1
+"ParamHelpers", "makeOptPathDF", 6, 0, 0, "logical", 1
+"ParamHelpers", "makeParam", -1, 0, 0, "(class<`LearnerParam`, `Param`> | class<`Param`>)", 1
+"ParamHelpers", "makeParam", 0, 0, 0, "character", 1
+"ParamHelpers", "makeParam", 1, 0, 0, "character", 1
+"ParamHelpers", "makeParam", 2, 0, 0, "logical", 1
+"ParamHelpers", "makeParam", 3, 0, 0, "double", 1
+"ParamHelpers", "makeParam", 3, 0, 1, "expression", 1
+"ParamHelpers", "makeParam", 4, 0, 0, "double[]", 1
+"ParamHelpers", "makeParam", 4, 0, 1, "null", 1
+"ParamHelpers", "makeParam", 4, 0, 2, "expression", 1
+"ParamHelpers", "makeParam", 5, 0, 0, "expression", 1
+"ParamHelpers", "makeParam", 5, 0, 1, "double[]", 1
+"ParamHelpers", "makeParam", 5, 0, 2, "null", 1
+"ParamHelpers", "makeParam", 6, 0, 0, "null", 1
+"ParamHelpers", "makeParam", 6, 0, 1, "character[]", 1
+"ParamHelpers", "makeParam", 6, 0, 2, "integer[]", 1
+"ParamHelpers", "makeParam", 6, 0, 3, "list<null | list<any> | null | double | logical>", 1
+"ParamHelpers", "makeParam", 7, 0, 0, "null", 1
+"ParamHelpers", "makeParam", 8, 0, 0, "logical", 1
+"ParamHelpers", "makeParam", 9, 0, 0, "any", 1
+"ParamHelpers", "makeParam", 10, 0, 0, "null", 1
+"ParamHelpers", "makeParam", 10, 0, 1, "class<`function`>", 1
+"ParamHelpers", "makeParam", 11, 0, 0, "null", 1
+"ParamHelpers", "makeParam", 12, 0, 0, "logical", 1
+"ParamHelpers", "makeParam", 13, 0, 0, "list<any>", 1
+"ParamHelpers", "makeParam", 14, 0, 0, "any", 1
+"ParamHelpers", "makeParamSet", -1, 0, 0, "(class<`LearnerParamSet`, `ParamSet`> | class<`ParamSet`>)", 1
+"ParamHelpers", "makeParamSet", 0, 0, 0, "...", 1
+"ParamHelpers", "makeParamSet", 1, 0, 0, "null", 1
+"ParamHelpers", "makeParamSet", 2, 0, 0, "null", 1
+"ParamHelpers", "makeParamSet", 2, 0, 1, "expression", 1
+"ParamHelpers", "makeParamSet", 3, 0, 0, "null", 1
+"ParamHelpers", "makeParamSet", 3, 0, 1, "character[]", 1
+"ParamHelpers", "mapDfc", -1, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "mapDfc", 0, 0, 0, "integer[]", 1
+"ParamHelpers", "mapDfc", 1, 0, 0, "class<`function`>", 1
+"ParamHelpers", "mapDfc", 2, 0, 0, "...", 1
+"ParamHelpers", "paramValueToString", -1, 0, 0, "character", 1
+"ParamHelpers", "paramValueToString", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "paramValueToString", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "paramValueToString", 1, 0, 0, "double[]", 1
+"ParamHelpers", "paramValueToString", 1, 0, 1, "null", 1
+"ParamHelpers", "paramValueToString", 1, 0, 2, "list<double[] | null>", 1
+"ParamHelpers", "paramValueToString", 2, 0, 0, "logical", 1
+"ParamHelpers", "paramValueToString", 3, 0, 0, "character", 1
+"ParamHelpers", "paramValueToString.Param", -1, 0, 0, "character", 1
+"ParamHelpers", "paramValueToString.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "paramValueToString.Param", 1, 0, 0, "double[]", 1
+"ParamHelpers", "paramValueToString.Param", 1, 0, 1, "null", 1
+"ParamHelpers", "paramValueToString.Param", 2, 0, 0, "logical", 1
+"ParamHelpers", "paramValueToString.Param", 3, 0, 0, "character", 1
+"ParamHelpers", "paramValueToString.ParamSet", -1, 0, 0, "character", 1
+"ParamHelpers", "paramValueToString.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "paramValueToString.ParamSet", 1, 0, 0, "list<double[] | null>", 1
+"ParamHelpers", "paramValueToString.ParamSet", 2, 0, 0, "logical", 1
+"ParamHelpers", "paramValueToString.ParamSet", 3, 0, 0, "character", 1
+"ParamHelpers", "requiresOk", -1, 0, 0, "logical", 1
+"ParamHelpers", "requiresOk", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "requiresOk", 1, 0, 0, "any", 1
+"ParamHelpers", "sampleValue", -1, 0, 0, "(double | character | integer[] | list<double>)", 1
+"ParamHelpers", "sampleValue", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "sampleValue", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "sampleValue", 1, 0, 0, "logical", 1
+"ParamHelpers", "sampleValue", 2, 0, 0, "logical", 1
+"ParamHelpers", "sampleValue.Param", -1, 0, 0, "(character | double | integer[])", 1
+"ParamHelpers", "sampleValue.Param", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "sampleValue.Param", 1, 0, 0, "logical", 1
+"ParamHelpers", "sampleValue.Param", 2, 0, 0, "logical", 1
+"ParamHelpers", "sampleValue.ParamSet", -1, 0, 0, "list<double>", 1
+"ParamHelpers", "sampleValue.ParamSet", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "sampleValue.ParamSet", 1, 0, 0, "logical", 1
+"ParamHelpers", "sampleValue.ParamSet", 2, 0, 0, "logical", 1
+"ParamHelpers", "sampleValues", -1, 0, 0, "list<double | list<double>>", 1
+"ParamHelpers", "sampleValues", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "sampleValues", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "sampleValues", 1, 0, 0, "double", 1
+"ParamHelpers", "sampleValues", 2, 0, 0, "logical", 1
+"ParamHelpers", "sampleValues", 3, 0, 0, "logical", 1
+"ParamHelpers", "setRequiresToNA", -1, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "setRequiresToNA", 0, 0, 0, "class<`data.frame`>", 1
+"ParamHelpers", "setRequiresToNA", 1, 0, 0, "list<class<`Param`>>", 1
+"ParamHelpers", "setRequiresToNA", 2, 0, 0, "list<character[]>", 1
+"ParamHelpers", "setRequiresToNA", 3, 0, 0, "list<null>", 1
+"ParamHelpers", "setRequiresToNA", 4, 0, 0, "logical[]", 1
+"ParamHelpers", "stopIfFunOrUntypedParams", -1, 0, 0, "null", 1
+"ParamHelpers", "stopIfFunOrUntypedParams", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "stopIfLearnerParams", -1, 0, 0, "null", 1
+"ParamHelpers", "stopIfLearnerParams", 0, 0, 0, "class<`ParamSet`>", 1
+"ParamHelpers", "trafoOptPath", -1, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "trafoOptPath", 0, 0, 0, "class<`OptPath`, `OptPathDF`>", 1
+"ParamHelpers", "trafoValue", -1, 0, 0, "(character | double[] | list<double[] | character>)", 1
+"ParamHelpers", "trafoValue", 0, 0, 0, "class<`Param`>", 1
+"ParamHelpers", "trafoValue", 0, 0, 1, "class<`ParamSet`>", 1
+"ParamHelpers", "trafoValue", 1, 0, 0, "character", 1
+"ParamHelpers", "trafoValue", 1, 0, 1, "double[]", 1
+"ParamHelpers", "trafoValue", 1, 0, 2, "list<double[] | character>", 1

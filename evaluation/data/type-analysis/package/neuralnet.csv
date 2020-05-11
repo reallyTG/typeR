@@ -1,45 +1,207 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"neuralnet", "act.deriv.fct", -1, 0, 0, "^double[]", 1
-"neuralnet", "act.deriv.fct", 0, 0, 0, "^double[]", 1
-"neuralnet", "act.deriv2.fct", -1, 0, 0, "^double[]", 1
-"neuralnet", "act.deriv2.fct", 0, 0, 0, "^double[]", 1
-"neuralnet", "act.fct", -1, 0, 0, "^double[]", 1
-"neuralnet", "act.fct", 0, 0, 0, "^double[]", 1
+"neuralnet", "calculate.data.result", -1, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.data.result", 0, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.data.result", 1, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.data.result", 2, 0, 0, "any", 1
+"neuralnet", "calculate.delta", -1, 0, 0, "double[]", 1
+"neuralnet", "calculate.delta", 0, 0, 0, "double[]", 1
+"neuralnet", "calculate.delta", 1, 0, 0, "double[]", 1
+"neuralnet", "calculate.delta", 2, 0, 0, "double", 1
+"neuralnet", "calculate.generalized.weights", -1, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.generalized.weights", 0, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "calculate.generalized.weights", 1, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "calculate.generalized.weights", 2, 0, 0, "class<`matrix`>", 1
 "neuralnet", "calculate.gradients", -1, 0, 0, "double[]", 1
-"neuralnet", "calculate.gradients", 0, 0, 0, "tuple<^double[], ^double[]>", 1
+"neuralnet", "calculate.gradients", 0, 0, 0, "any", 1
 "neuralnet", "calculate.gradients", 1, 0, 0, "integer", 1
-"neuralnet", "calculate.gradients", 2, 0, 0, "tuple<^double[], ^double[]>", 1
-"neuralnet", "calculate.gradients", 3, 0, 0, "tuple<^double[], ^double[]>", 1
-"neuralnet", "calculate.gradients", 4, 0, 0, "^double[]", 1
+"neuralnet", "calculate.gradients", 2, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "calculate.gradients", 3, 0, 0, "any", 1
+"neuralnet", "calculate.gradients", 4, 0, 0, "class<`matrix`>", 1
 "neuralnet", "calculate.gradients", 5, 0, 0, "double", 1
 "neuralnet", "calculate.gradients", 6, 0, 0, "logical", 1
-"neuralnet", "compute.net", -1, 0, 0, "struct<`neurons`:tuple<^double[], ^double[]>, `neuron.deriv`:tuple<^double[], ^double[]>, `net.result`:^double[]>", 1
-"neuralnet", "compute.net", 0, 0, 0, "tuple<^double[], ^double[]>", 1
+"neuralnet", "calculate.information.matrices", -1, 0, 0, "list<double | class<`matrix`>>", 1
+"neuralnet", "calculate.information.matrices", 0, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.information.matrices", 1, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.information.matrices", 2, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "calculate.information.matrices", 3, 0, 0, "class<`function`>", 1
+"neuralnet", "calculate.information.matrices", 4, 0, 0, "class<`function`>", 1
+"neuralnet", "calculate.information.matrices", 5, 0, 0, "null", 1
+"neuralnet", "calculate.information.matrices", 6, 0, 0, "logical", 1
+"neuralnet", "calculate.neuralnet", -1, 0, 0, "list<class<`matrix`> | double[] | list<class<`matrix`>>>", 1
+"neuralnet", "calculate.neuralnet", 0, 0, 0, "any", 1
+"neuralnet", "calculate.neuralnet", 1, 0, 0, "list<character[]>", 1
+"neuralnet", "calculate.neuralnet", 2, 0, 0, "double[]", 1
+"neuralnet", "calculate.neuralnet", 3, 0, 0, "double", 1
+"neuralnet", "calculate.neuralnet", 4, 0, 0, "integer", 1
+"neuralnet", "calculate.neuralnet", 5, 0, 0, "double", 1
+"neuralnet", "calculate.neuralnet", 6, 0, 0, "list<double>", 1
+"neuralnet", "calculate.neuralnet", 7, 0, 0, "list<double>", 1
+"neuralnet", "calculate.neuralnet", 8, 0, 0, "character", 1
+"neuralnet", "calculate.neuralnet", 9, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.neuralnet", 10, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.neuralnet", 11, 0, 0, "any", 1
+"neuralnet", "calculate.neuralnet", 12, 0, 0, "null", 1
+"neuralnet", "calculate.neuralnet", 13, 0, 0, "character", 1
+"neuralnet", "calculate.neuralnet", 14, 0, 0, "class<`function`>", 1
+"neuralnet", "calculate.neuralnet", 15, 0, 0, "class<`function`>", 1
+"neuralnet", "calculate.neuralnet", 16, 0, 0, "class<`function`>", 1
+"neuralnet", "calculate.neuralnet", 17, 0, 0, "any", 1
+"neuralnet", "calculate.neuralnet", 18, 0, 0, "logical", 1
+"neuralnet", "calculate.neuralnet", 19, 0, 0, "logical", 1
+"neuralnet", "calculate.predictions", -1, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "calculate.predictions", 0, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.predictions", 1, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.predictions", 2, 0, 0, "null", 1
+"neuralnet", "calculate.predictions", 2, 0, 1, "list<class<`glm`, `lm`>>", 1
+"neuralnet", "calculate.predictions", 3, 0, 0, "class<`matrix`>", 1
+"neuralnet", "calculate.predictions", 4, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "calculate.predictions", 5, 0, 0, "list<character[]>", 1
+"neuralnet", "compute.net", -1, 0, 0, "list<class<`matrix`> | list<class<`matrix`>>>", 1
+"neuralnet", "compute.net", 0, 0, 0, "list<class<`matrix`>>", 1
 "neuralnet", "compute.net", 1, 0, 0, "integer", 1
-"neuralnet", "compute.net", 2, 0, 0, "^double[]", 1
-"neuralnet", "compute.net", 3, 0, 0, "any => any", 1
-"neuralnet", "compute.net", 4, 0, 0, "any => any", 1
-"neuralnet", "compute.net", 5, 0, 0, "any => any", 1
-"neuralnet", "compute.net", 6, 0, 0, "any => any", 1
+"neuralnet", "compute.net", 2, 0, 0, "class<`matrix`>", 1
+"neuralnet", "compute.net", 3, 0, 0, "any", 1
+"neuralnet", "compute.net", 4, 0, 0, "any", 1
+"neuralnet", "compute.net", 5, 0, 0, "class<`function`>", 1
+"neuralnet", "compute.net", 6, 0, 0, "class<`function`>", 1
 "neuralnet", "compute.net", 7, 0, 0, "logical", 1
-"neuralnet", "confidence.interval", -1, 0, 0, "struct<`lower.ci`:tuple<tuple<^double[], ^double[]>>, `upper.ci`:tuple<tuple<^double[], ^double[]>>, `nic`:double>", 1
-"neuralnet", "confidence.interval", 0, 0, 0, "struct<`call`:language, `response`:^double[], `covariate`:^double[], `model.list`:struct<`response`:character, `variables`:character[]>, `err.fct`:any => any, `act.fct`:any => any, `linear.output`:logical, `data`:struct<`education`:integer[], `age`:double[], `parity`:double[], `induced`:double[], `case`:double[], `spontaneous`:double[], `stratum`:integer[], `pooled.stratum`:double[]>, `exclude`:null, `net.result`:tuple<^double[]>, `weights`:tuple<tuple<^double[], ^double[]>>, `generalized.weights`:tuple<^double[]>, `startweights`:tuple<tuple<^double[], ^double[]>>, `result.matrix`:^double[]>", 1
+"neuralnet", "confidence.interval", -1, 0, 0, "list<double | list<list<class<`matrix`>>>>", 1
+"neuralnet", "confidence.interval", 0, 0, 0, "class<`nn`>", 1
 "neuralnet", "confidence.interval", 1, 0, 0, "double", 1
-"neuralnet", "convert.activation.function", -1, 0, 0, "struct<`fct`:any => any, `deriv.fct`:any => any>", 1
+"neuralnet", "convert.activation.function", -1, 0, 0, "list<class<`function`>>", 1
 "neuralnet", "convert.activation.function", 0, 0, 0, "character", 1
-"neuralnet", "convert.error.function", -1, 0, 0, "struct<`fct`:any => any, `deriv.fct`:any => any>", 1
+"neuralnet", "convert.error.function", -1, 0, 0, "list<class<`function`>>", 1
 "neuralnet", "convert.error.function", 0, 0, 0, "character", 1
-"neuralnet", "err.deriv.fct", -1, 0, 0, "^double[]", 1
-"neuralnet", "err.deriv.fct", 0, 0, 0, "^double[]", 1
-"neuralnet", "err.deriv.fct", 1, 0, 0, "^double[]", 1
-"neuralnet", "err.deriv2.fct", -1, 0, 0, "^double[]", 1
-"neuralnet", "err.deriv2.fct", 0, 0, 0, "^double[]", 1
-"neuralnet", "err.deriv2.fct", 1, 0, 0, "^double[]", 1
-"neuralnet", "err.fct", -1, 0, 0, "^double[]", 1
-"neuralnet", "err.fct", 0, 0, 0, "^double[]", 1
-"neuralnet", "err.fct", 1, 0, 0, "^double[]", 1
-"neuralnet", "filter", -1, 0, 0, "logical[]", 1
-"neuralnet", "filter", 0, 0, 0, "character[]", 1
-"neuralnet", "FUN", -1, 0, 0, "tuple<^double[], ^double[]>", 1
-"neuralnet", "FUN", 0, 0, 0, "struct<`generalized.weights`:^double[], `weights`:tuple<^double[], ^double[]>, `startweights`:tuple<^double[], ^double[]>, `net.result`:^double[], `output.vector`:double[]>", 1
-"neuralnet", "FUN", 0, 0, 1, "^double[]", 1
+"neuralnet", "draw.text", -1, 0, 0, "class<`gDesc`, `grob`, `text`>", 1
+"neuralnet", "draw.text", 0, 0, 0, "character", 1
+"neuralnet", "draw.text", 0, 0, 1, "double", 1
+"neuralnet", "draw.text", 1, 0, 0, "double[]", 1
+"neuralnet", "draw.text", 2, 0, 0, "double[]", 1
+"neuralnet", "draw.text", 3, 0, 0, "double[]", 1
+"neuralnet", "draw.text", 3, 0, 1, "class<`matrix`>", 1
+"neuralnet", "draw.text", 4, 0, 0, "character", 1
+"neuralnet", "draw.text", 5, 0, 0, "character[]", 1
+"neuralnet", "draw.text", 6, 0, 0, "...", 1
+"neuralnet", "generate.output", -1, 0, 0, "class<`nn`>", 1
+"neuralnet", "generate.output", 0, 0, 0, "class<`matrix`>", 1
+"neuralnet", "generate.output", 1, 0, 0, "class<`call`>", 1
+"neuralnet", "generate.output", 2, 0, 0, "any", 1
+"neuralnet", "generate.output", 3, 0, 0, "any", 1
+"neuralnet", "generate.output", 4, 0, 0, "class<`matrix`>", 1
+"neuralnet", "generate.output", 5, 0, 0, "any", 1
+"neuralnet", "generate.output", 6, 0, 0, "list<character[]>", 1
+"neuralnet", "generate.output", 7, 0, 0, "class<`matrix`>", 1
+"neuralnet", "generate.output", 8, 0, 0, "class<`function`>", 1
+"neuralnet", "generate.output", 9, 0, 0, "class<`function`>", 1
+"neuralnet", "generate.output", 10, 0, 0, "class<`data.frame`>", 1
+"neuralnet", "generate.output", 11, 0, 0, "list<list<class<`matrix`> | double[] | list<class<`matrix`>>>>", 1
+"neuralnet", "generate.output", 12, 0, 0, "logical", 1
+"neuralnet", "generate.output", 13, 0, 0, "null", 1
+"neuralnet", "generate.startweights", -1, 0, 0, "list<null | list<class<`matrix`>>>", 1
+"neuralnet", "generate.startweights", 0, 0, 0, "list<character[]>", 1
+"neuralnet", "generate.startweights", 1, 0, 0, "double[]", 1
+"neuralnet", "generate.startweights", 2, 0, 0, "null", 1
+"neuralnet", "generate.startweights", 3, 0, 0, "integer", 1
+"neuralnet", "generate.startweights", 4, 0, 0, "null", 1
+"neuralnet", "generate.startweights", 5, 0, 0, "any", 1
+"neuralnet", "get_weight_names", -1, 0, 0, "character[]", 1
+"neuralnet", "get_weight_names", 0, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "get_weight_names", 1, 0, 0, "list<character[]>", 1
+"neuralnet", "gwplot", -1, 0, 0, "null", 1
+"neuralnet", "gwplot", 0, 0, 0, "class<`nn`>", 1
+"neuralnet", "gwplot", 1, 0, 0, "null", 1
+"neuralnet", "gwplot", 2, 0, 0, "null", 1
+"neuralnet", "gwplot", 3, 0, 0, "null", 1
+"neuralnet", "gwplot", 4, 0, 0, "null", 1
+"neuralnet", "gwplot", 5, 0, 0, "character", 1
+"neuralnet", "gwplot", 6, 0, 0, "double", 1
+"neuralnet", "gwplot", 7, 0, 0, "logical", 1
+"neuralnet", "gwplot", 8, 0, 0, "character", 1
+"neuralnet", "gwplot", 9, 0, 0, "character", 1
+"neuralnet", "gwplot", 10, 0, 0, "...", 1
+"neuralnet", "neuralnet", -1, 0, 0, "class<`nn`>", 1
+"neuralnet", "neuralnet", 0, 0, 0, "class<`formula`>", 1
+"neuralnet", "neuralnet", 1, 0, 0, "class<`data.frame`>", 1
+"neuralnet", "neuralnet", 2, 0, 0, "double[]", 1
+"neuralnet", "neuralnet", 3, 0, 0, "double", 1
+"neuralnet", "neuralnet", 4, 0, 0, "double", 1
+"neuralnet", "neuralnet", 5, 0, 0, "double", 1
+"neuralnet", "neuralnet", 6, 0, 0, "null", 1
+"neuralnet", "neuralnet", 7, 0, 0, "null", 1
+"neuralnet", "neuralnet", 8, 0, 0, "list<double>", 1
+"neuralnet", "neuralnet", 9, 0, 0, "null", 1
+"neuralnet", "neuralnet", 10, 0, 0, "character", 1
+"neuralnet", "neuralnet", 11, 0, 0, "double", 1
+"neuralnet", "neuralnet", 12, 0, 0, "character", 1
+"neuralnet", "neuralnet", 13, 0, 0, "character", 1
+"neuralnet", "neuralnet", 14, 0, 0, "class<`function`>", 1
+"neuralnet", "neuralnet", 14, 0, 1, "character", 1
+"neuralnet", "neuralnet", 15, 0, 0, "logical", 1
+"neuralnet", "neuralnet", 16, 0, 0, "null", 1
+"neuralnet", "neuralnet", 17, 0, 0, "null", 1
+"neuralnet", "neuralnet", 18, 0, 0, "logical", 1
+"neuralnet", "plot.nn", -1, 0, 0, "null", 1
+"neuralnet", "plot.nn", 0, 0, 0, "class<`nn`>", 1
+"neuralnet", "plot.nn", 1, 0, 0, "character", 1
+"neuralnet", "plot.nn", 2, 0, 0, "null", 1
+"neuralnet", "plot.nn", 3, 0, 0, "null", 1
+"neuralnet", "plot.nn", 4, 0, 0, "double", 1
+"neuralnet", "plot.nn", 5, 0, 0, "double", 1
+"neuralnet", "plot.nn", 6, 0, 0, "logical", 1
+"neuralnet", "plot.nn", 7, 0, 0, "double", 1
+"neuralnet", "plot.nn", 8, 0, 0, "logical", 1
+"neuralnet", "plot.nn", 9, 0, 0, "double", 1
+"neuralnet", "plot.nn", 10, 0, 0, "character", 1
+"neuralnet", "plot.nn", 11, 0, 0, "character", 1
+"neuralnet", "plot.nn", 12, 0, 0, "character", 1
+"neuralnet", "plot.nn", 13, 0, 0, "character", 1
+"neuralnet", "plot.nn", 14, 0, 0, "character", 1
+"neuralnet", "plot.nn", 15, 0, 0, "character", 1
+"neuralnet", "plot.nn", 16, 0, 0, "character", 1
+"neuralnet", "plot.nn", 17, 0, 0, "double", 1
+"neuralnet", "plot.nn", 18, 0, 0, "double", 1
+"neuralnet", "plot.nn", 19, 0, 0, "logical", 1
+"neuralnet", "plus", -1, 0, 0, "list<double[] | list<class<`matrix`>>>", 1
+"neuralnet", "plus", 0, 0, 0, "double[]", 1
+"neuralnet", "plus", 1, 0, 0, "double[]", 1
+"neuralnet", "plus", 2, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "plus", 3, 0, 0, "integer[]", 1
+"neuralnet", "plus", 4, 0, 0, "integer[]", 1
+"neuralnet", "plus", 5, 0, 0, "double[]", 1
+"neuralnet", "plus", 6, 0, 0, "any", 1
+"neuralnet", "plus", 7, 0, 0, "any", 1
+"neuralnet", "plus", 8, 0, 0, "double", 1
+"neuralnet", "prediction", -1, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "prediction", 0, 0, 0, "class<`nn`>", 1
+"neuralnet", "prediction", 1, 0, 0, "null", 1
+"neuralnet", "prediction", 1, 0, 1, "list<class<`glm`, `lm`>>", 1
+"neuralnet", "predict.nn", -1, 0, 0, "class<`matrix`>", 1
+"neuralnet", "predict.nn", 0, 0, 0, "class<`nn`>", 1
+"neuralnet", "predict.nn", 1, 0, 0, "class<`data.frame`>", 1
+"neuralnet", "predict.nn", 2, 0, 0, "double", 1
+"neuralnet", "predict.nn", 3, 0, 0, "logical", 1
+"neuralnet", "predict.nn", 4, 0, 0, "...", 1
+"neuralnet", "relist", -1, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "relist", 0, 0, 0, "double[]", 1
+"neuralnet", "relist", 1, 0, 0, "class<`array`>", 1
+"neuralnet", "relist", 1, 0, 1, "integer[]", 1
+"neuralnet", "relist", 2, 0, 0, "class<`array`>", 1
+"neuralnet", "relist", 2, 0, 1, "integer[]", 1
+"neuralnet", "rprop", -1, 0, 0, "list<double | class<`matrix`> | list<class<`matrix`>>>", 1
+"neuralnet", "rprop", 0, 0, 0, "list<class<`matrix`>>", 1
+"neuralnet", "rprop", 1, 0, 0, "class<`matrix`>", 1
+"neuralnet", "rprop", 2, 0, 0, "class<`matrix`>", 1
+"neuralnet", "rprop", 3, 0, 0, "double", 1
+"neuralnet", "rprop", 4, 0, 0, "list<double>", 1
+"neuralnet", "rprop", 5, 0, 0, "list<double>", 1
+"neuralnet", "rprop", 6, 0, 0, "double", 1
+"neuralnet", "rprop", 7, 0, 0, "character", 1
+"neuralnet", "rprop", 8, 0, 0, "any", 1
+"neuralnet", "rprop", 9, 0, 0, "class<`function`>", 1
+"neuralnet", "rprop", 10, 0, 0, "class<`function`>", 1
+"neuralnet", "rprop", 11, 0, 0, "any", 1
+"neuralnet", "rprop", 12, 0, 0, "any", 1
+"neuralnet", "rprop", 13, 0, 0, "character", 1
+"neuralnet", "rprop", 14, 0, 0, "logical", 1
+"neuralnet", "rprop", 15, 0, 0, "null", 1
+"neuralnet", "rprop", 16, 0, 0, "any", 1

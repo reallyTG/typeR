@@ -1,8 +1,257 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"janitor", "_fseq", -1, 0, 0, "character[]", 1
-"janitor", "_fseq", 0, 0, 0, "character[]", 1
-"janitor", "_fseq", 0, 0, 1, "struct<>", 1
-"janitor", "_fseq", 0, 0, 2, "struct<`0`:struct<`cyl`:integer[], `gear`:integer[], `am`:character[]>, `1`:struct<`cyl`:integer[], `gear`:integer[], `am`:character[]>>", 1
-"janitor", "_fseq", 0, 0, 3, "struct<`female`:struct<`eye_color`:integer[], `skin_color`:integer[], `gender`:character[]>, `male`:struct<`eye_color`:integer[], `skin_color`:integer[], `gender`:character[]>>", 1
-"janitor", "_fseq", 0, 0, 4, "struct<`female`:struct<`eye_color`:character[], `skin_color`:character[], `gender`:character[]>, `male`:struct<`eye_color`:character[], `skin_color`:character[], `gender`:character[]>>", 1
-"janitor", "_fseq", 0, 0, 5, "struct<``:language>", 1
+"janitor", "adorn_ns", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", "adorn_ns", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"janitor", "adorn_ns", 0, 0, 1, "class<`data.frame`, `tabyl`>", 1
+"janitor", "adorn_ns", 0, 0, 2, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", "adorn_ns", 1, 0, 0, "character", 1
+"janitor", "adorn_ns", 2, 0, 0, "any", 1
+"janitor", "adorn_pct_formatting", -1, 0, 0, "(class<`data.frame`, `tabyl`> | class<`data.frame`, `tbl`, `tbl_df`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", "adorn_pct_formatting", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "adorn_pct_formatting", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "adorn_pct_formatting", 0, 0, 2, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", "adorn_pct_formatting", 1, 0, 0, "double", 1
+"janitor", "adorn_pct_formatting", 2, 0, 0, "character", 1
+"janitor", "adorn_pct_formatting", 3, 0, 0, "logical", 1
+"janitor", "adorn_percentages", -1, 0, 0, "(class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", "adorn_percentages", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "adorn_percentages", 0, 0, 1, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", "adorn_percentages", 1, 0, 0, "character", 1
+"janitor", "adorn_percentages", 2, 0, 0, "any", 1
+"janitor", "adorn_rounding", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tabyl`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"janitor", "adorn_rounding", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "adorn_rounding", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"janitor", "adorn_rounding", 0, 0, 2, "class<`data.frame`, `tabyl`>", 1
+"janitor", "adorn_rounding", 0, 0, 3, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "adorn_rounding", 1, 0, 0, "double", 1
+"janitor", "adorn_rounding", 2, 0, 0, "character", 1
+"janitor", "adorn_rounding", 3, 0, 0, "logical", 1
+"janitor", "adorn_title", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", "adorn_title", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"janitor", "adorn_title", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "adorn_title", 0, 0, 2, "class<`data.frame`, `tabyl`>", 1
+"janitor", "adorn_title", 0, 0, 3, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", "adorn_title", 1, 0, 0, "character", 1
+"janitor", "adorn_title", 2, 0, 0, "any", 1
+"janitor", "adorn_title", 3, 0, 0, "any", 1
+"janitor", "adorn_totals", -1, 0, 0, "(class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", "adorn_totals", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "adorn_totals", 0, 0, 1, "class<`data.frame`, `tabyl`>", 1
+"janitor", "adorn_totals", 0, 0, 2, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", "adorn_totals", 1, 0, 0, "character[]", 1
+"janitor", "adorn_totals", 2, 0, 0, "character", 1
+"janitor", "adorn_totals", 3, 0, 0, "logical", 1
+"janitor", "adorn_totals", 4, 0, 0, "character", 1
+"janitor", "as_tabyl", -1, 0, 0, "any", 1
+"janitor", "as_tabyl", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "as_tabyl", 0, 0, 1, "class<`data.frame`, `tabyl`>", 1
+"janitor", "as_tabyl", 0, 0, 2, "integer[]", 1
+"janitor", "as_tabyl", 1, 0, 0, "double", 1
+"janitor", "as_tabyl", 2, 0, 0, "null", 1
+"janitor", "as_tabyl", 2, 0, 1, "character", 1
+"janitor", "as_tabyl", 3, 0, 0, "null", 1
+"janitor", "as_tabyl", 3, 0, 1, "character", 1
+"janitor", "check_vars_in_df", -1, 0, 0, "null", 1
+"janitor", "check_vars_in_df", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "check_vars_in_df", 1, 0, 0, "any", 1
+"janitor", "check_vars_in_df", 2, 0, 0, "character[]", 1
+"janitor", "chisq.test", -1, 0, 0, "class<`htest`>", 1
+"janitor", "chisq.test", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "chisq.test", 1, 0, 0, "...", 1
+"janitor", "chisq.test.tabyl", -1, 0, 0, "class<`htest`>", 1
+"janitor", "chisq.test.tabyl", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "chisq.test.tabyl", 1, 0, 0, "logical", 1
+"janitor", "chisq.test.tabyl", 2, 0, 0, "...", 1
+"janitor", "clean_names", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tabyl`>)", 1
+"janitor", "clean_names", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "clean_names", 0, 0, 1, "class<`data.frame`, `tabyl`>", 1
+"janitor", "clean_names", 1, 0, 0, "any", 1
+"janitor", "clean_names.default", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tabyl`>)", 1
+"janitor", "clean_names.default", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "clean_names.default", 0, 0, 1, "class<`data.frame`, `tabyl`>", 1
+"janitor", "clean_names.default", 1, 0, 0, "character[]", 1
+"janitor", "compare_df_cols", -1, 0, 0, "class<`data.frame`>", 1
+"janitor", "compare_df_cols", 0, 0, 0, "...", 1
+"janitor", "compare_df_cols", 1, 0, 0, "character[]", 1
+"janitor", "compare_df_cols", 2, 0, 0, "character[]", 1
+"janitor", "compare_df_cols", 3, 0, 0, "logical", 1
+"janitor", "compare_df_cols_df_maker", -1, 0, 0, "class<`data.frame`>", 1
+"janitor", "compare_df_cols_df_maker", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "compare_df_cols_df_maker", 0, 0, 1, "list<class<`data.frame`> | class<`data.frame`> | list<class<`data.frame`>>>", 1
+"janitor", "compare_df_cols_df_maker", 1, 0, 0, "character[]", 1
+"janitor", "compare_df_cols_df_maker", 1, 0, 1, "list<character[]>", 1
+"janitor", "compare_df_cols_df_maker", 2, 0, 0, "any", 1
+"janitor", "compare_df_cols_df_maker.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"janitor", "compare_df_cols_df_maker.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "compare_df_cols_df_maker.data.frame", 1, 0, 0, "character", 1
+"janitor", "compare_df_cols_df_maker.data.frame", 2, 0, 0, "any", 1
+"janitor", "compare_df_cols_df_maker.list", -1, 0, 0, "class<`data.frame`>", 1
+"janitor", "compare_df_cols_df_maker.list", 0, 0, 0, "list<class<`data.frame`> | class<`data.frame`> | list<class<`data.frame`>>>", 1
+"janitor", "compare_df_cols_df_maker.list", 1, 0, 0, "character[]", 1
+"janitor", "compare_df_cols_df_maker.list", 1, 0, 1, "list<character[]>", 1
+"janitor", "compare_df_cols_df_maker.list", 2, 0, 0, "any", 1
+"janitor", "compare_df_cols_same", -1, 0, 0, "logical", 1
+"janitor", "compare_df_cols_same", 0, 0, 0, "...", 1
+"janitor", "compare_df_cols_same", 1, 0, 0, "character[]", 1
+"janitor", "compare_df_cols_same", 2, 0, 0, "logical", 1
+"janitor", "describe_class", -1, 0, 0, "character", 1
+"janitor", "describe_class", 0, 0, 0, "class<`factor`>", 1
+"janitor", "describe_class", 0, 0, 1, "class<`factor`, `ordered`>", 1
+"janitor", "describe_class", 0, 0, 2, "double", 1
+"janitor", "describe_class", 1, 0, 0, "logical", 1
+"janitor", "describe_class.default", -1, 0, 0, "character", 1
+"janitor", "describe_class.default", 0, 0, 0, "character[]", 1
+"janitor", "describe_class.default", 0, 0, 1, "double[]", 1
+"janitor", "describe_class.default", 1, 0, 0, "any", 1
+"janitor", "describe_class.factor", -1, 0, 0, "character", 1
+"janitor", "describe_class.factor", 0, 0, 0, "class<`factor`>", 1
+"janitor", "describe_class.factor", 0, 0, 1, "class<`factor`, `ordered`>", 1
+"janitor", "describe_class.factor", 1, 0, 0, "logical", 1
+"janitor", "excel_numeric_to_date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"janitor", "excel_numeric_to_date", 0, 0, 0, "double", 1
+"janitor", "excel_numeric_to_date", 1, 0, 0, "character", 1
+"janitor", "excel_numeric_to_date", 2, 0, 0, "logical", 1
+"janitor", "excel_numeric_to_date", 3, 0, 0, "logical", 1
+"janitor", "excel_numeric_to_date", 4, 0, 0, "character", 1
+"janitor", ".f", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", ".f", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"janitor", ".f", 0, 0, 1, "class<`data.frame`, `tabyl`>", 1
+"janitor", ".f", 0, 0, 2, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", ".f", 1, 0, 0, "character", 1
+"janitor", ".f", 2, 0, 0, "any", 1
+"janitor", ".f", -1, 1, 0, "(class<`data.frame`, `tabyl`> | class<`data.frame`, `tbl`, `tbl_df`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", ".f", 0, 1, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", ".f", 0, 1, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", ".f", 0, 1, 2, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", ".f", 1, 1, 0, "double", 1
+"janitor", ".f", 2, 1, 0, "character", 1
+"janitor", ".f", 3, 1, 0, "logical", 1
+"janitor", ".f", -1, 2, 0, "(class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", ".f", 0, 2, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", ".f", 0, 2, 1, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", ".f", 1, 2, 0, "character", 1
+"janitor", ".f", 2, 2, 0, "any", 1
+"janitor", ".f", -1, 3, 0, "(class<`data.frame`> | class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", ".f", 0, 3, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"janitor", ".f", 0, 3, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", ".f", 0, 3, 2, "class<`data.frame`, `tabyl`>", 1
+"janitor", ".f", 0, 3, 3, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", ".f", 1, 3, 0, "character", 1
+"janitor", ".f", 2, 3, 0, "any", 1
+"janitor", ".f", 3, 3, 0, "any", 1
+"janitor", ".f", -1, 4, 0, "(class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", ".f", 0, 4, 0, "class<`data.frame`>", 1
+"janitor", ".f", 0, 4, 1, "class<`data.frame`, `tabyl`>", 1
+"janitor", ".f", 0, 4, 2, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", ".f", 1, 4, 0, "character[]", 1
+"janitor", ".f", 2, 4, 0, "character", 1
+"janitor", ".f", 3, 4, 0, "logical", 1
+"janitor", ".f", 4, 4, 0, "character", 1
+"janitor", ".f", -1, 5, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", ".f", 0, 5, 0, "class<`data.frame`>", 1
+"janitor", ".f", 0, 5, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", ".f", 1, 5, 0, "class<`formula`, `quosure`>", 1
+"janitor", ".f", 2, 5, 0, "class<`formula`, `quosure`>", 1
+"janitor", ".f", 3, 5, 0, "logical", 1
+"janitor", ".f", 4, 5, 0, "logical", 1
+"janitor", ".f", -1, 6, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"janitor", ".f", 0, 6, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", ".f", 0, 6, 1, "class<`data.frame`>", 1
+"janitor", ".f", 0, 6, 2, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", "fisher.test", -1, 0, 0, "class<`htest`>", 1
+"janitor", "fisher.test", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "fisher.test", 1, 0, 0, "...", 1
+"janitor", "fisher.test.tabyl", -1, 0, 0, "class<`htest`>", 1
+"janitor", "fisher.test.tabyl", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "fisher.test.tabyl", 1, 0, 0, "...", 1
+"janitor", "get_dupes", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "get_dupes", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "get_dupes", 1, 0, 0, "...", 1
+"janitor", "get_level_groups", -1, 0, 0, "list<character>", 1
+"janitor", "get_level_groups", 0, 0, 0, "class<`factor`>", 1
+"janitor", "get_level_groups", 1, 0, 0, "double", 1
+"janitor", "get_level_groups", 2, 0, 0, "integer", 1
+"janitor", "handle_if_special_names_used", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"janitor", "handle_if_special_names_used", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "handle_if_special_names_used", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "make_clean_names", -1, 0, 0, "character[]", 1
+"janitor", "make_clean_names", 0, 0, 0, "character[]", 1
+"janitor", "make_clean_names", 1, 0, 0, "character[]", 1
+"janitor", "paste_matrices", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "paste_matrices", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "paste_matrices", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"janitor", "paste_matrices", 0, 0, 2, "class<`data.frame`, `tabyl`>", 1
+"janitor", "paste_matrices", 1, 0, 0, "class<`data.frame`>", 1
+"janitor", "remove_constant", -1, 0, 0, "class<`data.frame`>", 1
+"janitor", "remove_constant", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "remove_constant", 1, 0, 0, "logical", 1
+"janitor", "remove_empty", -1, 0, 0, "class<`data.frame`>", 1
+"janitor", "remove_empty", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "remove_empty", 1, 0, 0, "character[]", 1
+"janitor", "repair_fun", -1, 0, 0, "character[]", 1
+"janitor", "repair_fun", 0, 0, 0, "character[]", 1
+"janitor", "repair_fun", 1, 0, 0, "character[]", 1
+"janitor", "round_half_up", -1, 0, 0, "double[]", 1
+"janitor", "round_half_up", 0, 0, 0, "double[]", 1
+"janitor", "round_half_up", 1, 0, 0, "double", 1
+"janitor", "round_to_fraction", -1, 0, 0, "double[]", 1
+"janitor", "round_to_fraction", 0, 0, 0, "double[]", 1
+"janitor", "round_to_fraction", 1, 0, 0, "double[]", 1
+"janitor", "round_to_fraction", 2, 0, 0, "character", 1
+"janitor", "round_to_fraction", 2, 0, 1, "double", 1
+"janitor", "row_to_names", -1, 0, 0, "class<`data.frame`>", 1
+"janitor", "row_to_names", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "row_to_names", 1, 0, 0, "double", 1
+"janitor", "row_to_names", 2, 0, 0, "logical", 1
+"janitor", "row_to_names", 3, 0, 0, "logical", 1
+"janitor", "tabyl", -1, 0, 0, "(class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", "tabyl", 0, 0, 0, "^character[]", 1
+"janitor", "tabyl", 0, 0, 1, "class<`data.frame`>", 1
+"janitor", "tabyl", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "tabyl", 0, 0, 3, "class<`factor`>", 1
+"janitor", "tabyl", 1, 0, 0, "...", 1
+"janitor", "tabyl_1way", -1, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "tabyl_1way", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "tabyl_1way", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "tabyl_1way", 1, 0, 0, "class<`formula`, `quosure`>", 1
+"janitor", "tabyl_1way", 2, 0, 0, "logical", 1
+"janitor", "tabyl_1way", 3, 0, 0, "logical", 1
+"janitor", "tabyl_2way", -1, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "tabyl_2way", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "tabyl_2way", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "tabyl_2way", 1, 0, 0, "class<`formula`, `quosure`>", 1
+"janitor", "tabyl_2way", 2, 0, 0, "class<`formula`, `quosure`>", 1
+"janitor", "tabyl_2way", 3, 0, 0, "logical", 1
+"janitor", "tabyl_2way", 4, 0, 0, "logical", 1
+"janitor", "tabyl_3way", -1, 0, 0, "list<class<`data.frame`, `tabyl`>>", 1
+"janitor", "tabyl_3way", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "tabyl_3way", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "tabyl_3way", 1, 0, 0, "class<`formula`, `quosure`>", 1
+"janitor", "tabyl_3way", 2, 0, 0, "class<`formula`, `quosure`>", 1
+"janitor", "tabyl_3way", 3, 0, 0, "class<`formula`, `quosure`>", 1
+"janitor", "tabyl_3way", 4, 0, 0, "logical", 1
+"janitor", "tabyl_3way", 5, 0, 0, "logical", 1
+"janitor", "tabyl.data.frame", -1, 0, 0, "(class<`data.frame`, `tabyl`> | list<class<`data.frame`, `tabyl`>>)", 1
+"janitor", "tabyl.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"janitor", "tabyl.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "tabyl.data.frame", 1, 0, 0, "any", 1
+"janitor", "tabyl.data.frame", 2, 0, 0, "any", 1
+"janitor", "tabyl.data.frame", 3, 0, 0, "any", 1
+"janitor", "tabyl.data.frame", 4, 0, 0, "logical", 1
+"janitor", "tabyl.data.frame", 5, 0, 0, "logical", 1
+"janitor", "tabyl.data.frame", 6, 0, 0, "...", 1
+"janitor", "tabyl.default", -1, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "tabyl.default", 0, 0, 0, "^character[]", 1
+"janitor", "tabyl.default", 0, 0, 1, "class<`factor`>", 1
+"janitor", "tabyl.default", 0, 0, 2, "class<`data.frame`>", 1
+"janitor", "tabyl.default", 0, 0, 3, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"janitor", "tabyl.default", 1, 0, 0, "logical", 1
+"janitor", "tabyl.default", 2, 0, 0, "logical", 1
+"janitor", "tabyl.default", 3, 0, 0, "...", 1
+"janitor", "top_levels", -1, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "top_levels", 0, 0, 0, "class<`factor`>", 1
+"janitor", "top_levels", 1, 0, 0, "double", 1
+"janitor", "top_levels", 2, 0, 0, "logical", 1
+"janitor", "untabyl", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"janitor", "untabyl", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
+"janitor", "untabyl", 0, 0, 1, "class<`data.frame`>", 1
+"janitor", "untabyl", 0, 0, 2, "list<class<`data.frame`, `tabyl`>>", 1

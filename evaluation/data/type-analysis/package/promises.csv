@@ -1,34 +1,118 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"promises", "filter", -1, 0, 0, "logical[]", 1
-"promises", "filter", 0, 0, 0, "character[]", 1
-"promises", "is.promise", -1, 0, 0, "logical", 1
-"promises", "is.promise", 0, 0, 0, "struct<`status`:double, `body`:character, `headers`:character>", 1
-"promises", "is.promise", 0, 0, 1, "struct<`status`:double, `body`:character, `headers`:struct<`Content-Type`:character>>", 1
-"promises", "_fseq", -1, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "_fseq", 0, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "[[", -1, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "[[", 0, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...!%", -1, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...!%", 0, 0, 0, "environment", 1
-"promises", "%...!%", 1, 0, 0, "language", 1
-"promises", "%...>%", -1, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...>%", 0, 0, 0, "environment", 1
-"promises", "%...>%", 0, 0, 1, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...>%", 1, 0, 0, "language", 1
-"promises", "%...T!%", -1, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...T!%", 0, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...T!%", 1, 0, 0, "language", 1
-"promises", "%...T>%", -1, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...T>%", 0, 0, 0, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "%...T>%", 1, 0, 0, "language", 1
-"promises", "$", -1, 0, 0, "struct<`onFulfilled`:any => any>", 1
-"promises", "$", 0, 0, 0, "null", 1
-"promises", "$", 0, 0, 1, "any => any", 1
-"promises", "$", 0, 0, 2, "struct<`message`:character, `call`:null>", 1
-"promises", "$", 0, 0, 3, "struct<>", 1
-"promises", "$", 0, 0, 4, "double", 1
-"promises", "$", 0, 0, 5, "struct<`then`:any => any, `catch`:any => any, `finally`:any => any>", 1
-"promises", "$", 1, 0, 0, "null", 1
-"promises", "$", 1, 0, 1, "any => any", 1
-"promises", "$", 1, 0, 2, "logical", 1
-"promises", "$", 2, 0, 0, "null", 1
+"promises", "%...>%", -1, 0, 0, "class<`promise`>", 1
+"promises", "%...>%", 0, 0, 0, "class<`ClusterFuture`, `Future`, `MultiprocessFuture`, `MultisessionFuture`, `environment`>", 1
+"promises", "%...>%", 0, 0, 1, "class<`promise`>", 1
+"promises", "%...>%", 1, 0, 0, "any", 1
+"promises", "%...!%", -1, 0, 0, "class<`promise`>", 1
+"promises", "%...!%", 0, 0, 0, "class<`ClusterFuture`, `Future`, `MultiprocessFuture`, `MultisessionFuture`, `environment`>", 1
+"promises", "%...!%", 1, 0, 0, "any", 1
+"promises", "as.promise", -1, 0, 0, "class<`promise`>", 1
+"promises", "as.promise", 0, 0, 0, "class<`ClusterFuture`, `Future`, `MultiprocessFuture`, `MultisessionFuture`, `environment`>", 1
+"promises", "as.promise", 0, 0, 1, "class<`promise`>", 1
+"promises", "as.promise.Future", -1, 0, 0, "class<`promise`>", 1
+"promises", "as.promise.Future", 0, 0, 0, "class<`ClusterFuture`, `Future`, `MultiprocessFuture`, `MultisessionFuture`, `environment`>", 1
+"promises", "as.promise.promise", -1, 0, 0, "class<`promise`>", 1
+"promises", "as.promise.promise", 0, 0, 0, "class<`promise`>", 1
+"promises", "catch", -1, 0, 0, "class<`promise`>", 1
+"promises", "catch", 0, 0, 0, "class<`ClusterFuture`, `Future`, `MultiprocessFuture`, `MultisessionFuture`, `environment`>", 1
+"promises", "catch", 0, 0, 1, "class<`promise`>", 1
+"promises", "catch", 1, 0, 0, "class<`function`>", 1
+"promises", "catch", 2, 0, 0, "logical", 1
+"promises", "current_promise_domain", -1, 0, 0, "null", 1
+"promises", "has.visible", -1, 0, 0, "logical", 1
+"promises", "has.visible", 0, 0, 0, "class<`function`>", 1
+"promises", "is_colexpr", -1, 0, 0, "logical", 1
+"promises", "is_colexpr", 0, 0, 0, "class<`call`>", 1
+"promises", "is_first", -1, 0, 0, "logical", 1
+"promises", "is_first", 0, 0, 0, "class<`call`>", 1
+"promises", "is_function", -1, 0, 0, "logical", 1
+"promises", "is_function", 0, 0, 0, "class<`call`>", 1
+"promises", "is_function", 0, 0, 1, "class<`function`>", 1
+"promises", "is_funexpr", -1, 0, 0, "logical", 1
+"promises", "is_funexpr", 0, 0, 0, "class<`{`>", 1
+"promises", "is_funexpr", 0, 0, 1, "class<`call`>", 1
+"promises", "is_funexpr", 0, 0, 2, "class<`function`>", 1
+"promises", "is_lambda", -1, 0, 0, "logical", 1
+"promises", "is_lambda", 0, 0, 0, "class<`call`>", 1
+"promises", "is_lambda", 0, 0, 1, "class<`function`>", 1
+"promises", "is_parenthesized", -1, 0, 0, "logical", 1
+"promises", "is_parenthesized", 0, 0, 0, "class<`(`>", 1
+"promises", "is_parenthesized", 0, 0, 1, "class<`{`>", 1
+"promises", "is_parenthesized", 0, 0, 2, "class<`call`>", 1
+"promises", "is.promising", -1, 0, 0, "logical", 1
+"promises", "is.promising", 0, 0, 0, "class<`condition`, `error`, `simpleError`>", 1
+"promises", "is.promising", 0, 0, 1, "class<`data.frame`>", 1
+"promises", "is.promising", 0, 0, 2, "class<`promise`>", 1
+"promises", "is.promising", 0, 0, 3, "double", 1
+"promises", "normalizeOnFulfilled", -1, 0, 0, "(class<`function`> | null)", 1
+"promises", "normalizeOnFulfilled", 0, 0, 0, "class<`function`>", 1
+"promises", "normalizeOnFulfilled", 0, 0, 1, "class<`function`, `rlang_lambda_function`>", 1
+"promises", "normalizeOnFulfilled", 0, 0, 2, "null", 1
+"promises", "normalizeOnRejected", -1, 0, 0, "(class<`function`> | class<`function`, `rlang_lambda_function`> | null)", 1
+"promises", "normalizeOnRejected", 0, 0, 0, "class<`function`>", 1
+"promises", "normalizeOnRejected", 0, 0, 1, "class<`function`, `rlang_lambda_function`>", 1
+"promises", "normalizeOnRejected", 0, 0, 2, "null", 1
+"promises", "pipeify_rhs", -1, 0, 0, "class<`function`>", 1
+"promises", "pipeify_rhs", 0, 0, 0, "class<`(`>", 1
+"promises", "pipeify_rhs", 0, 0, 1, "class<`{`>", 1
+"promises", "pipeify_rhs", 0, 0, 2, "class<`call`>", 1
+"promises", "pipeify_rhs", 1, 0, 0, "environment", 1
+"promises", "prepare_first", -1, 0, 0, "class<`call`>", 1
+"promises", "prepare_first", 0, 0, 0, "class<`call`>", 1
+"promises", "promise", -1, 0, 0, "class<`promise`>", 1
+"promises", "promise", 0, 0, 0, "class<`formula`>", 1
+"promises", "promise", 0, 0, 1, "class<`function`>", 1
+"promises", "promise_all", -1, 0, 0, "class<`promise`>", 1
+"promises", "promise_all", 0, 0, 0, "...", 1
+"promises", "promise_all", 1, 0, 0, "null", 1
+"promises", "promise_map", -1, 0, 0, "class<`promise`>", 1
+"promises", "promise_map", 0, 0, 0, "list<double>", 1
+"promises", "promise_map", 1, 0, 0, "class<`function`>", 1
+"promises", "promise_map", 2, 0, 0, "...", 1
+"promises", "promise_race", -1, 0, 0, "class<`promise`>", 1
+"promises", "promise_race", 0, 0, 0, "...", 1
+"promises", "promise_race", 1, 0, 0, "null", 1
+"promises", "promise_reduce", -1, 0, 0, "class<`promise`>", 1
+"promises", "promise_reduce", 0, 0, 0, "integer[]", 1
+"promises", "promise_reduce", 1, 0, 0, "any", 1
+"promises", "promise_reduce", 2, 0, 0, "...", 1
+"promises", "promise_reduce", 3, 0, 0, "double", 1
+"promises", "promise_reject", -1, 0, 0, "class<`promise`>", 1
+"promises", "promise_reject", 0, 0, 0, "character", 1
+"promises", "promise_resolve", -1, 0, 0, "class<`promise`>", 1
+"promises", "promise_resolve", 0, 0, 0, "class<`data.frame`>", 1
+"promises", "promise_resolve", 0, 0, 1, "class<`promise`>", 1
+"promises", "promise_resolve", 0, 0, 2, "double", 1
+"promises", "reject", -1, 0, 0, "null", 1
+"promises", "reject", 0, 0, 0, "character", 1
+"promises", "resolve", -1, 0, 0, "null", 1
+"promises", "resolve", 0, 0, 0, "class<`data.frame`>", 1
+"promises", "resolve", 0, 0, 1, "class<`promise`>", 1
+"promises", "resolve", 0, 0, 2, "double", 1
+"promises", "%...T>%", -1, 0, 0, "class<`promise`>", 1
+"promises", "%...T>%", 0, 0, 0, "class<`promise`>", 1
+"promises", "%...T>%", 1, 0, 0, "any", 1
+"promises", "%...T!%", -1, 0, 0, "class<`promise`>", 1
+"promises", "%...T!%", 0, 0, 0, "class<`promise`>", 1
+"promises", "%...T!%", 1, 0, 0, "any", 1
+"promises", "then", -1, 0, 0, "class<`promise`>", 1
+"promises", "then", 0, 0, 0, "class<`ClusterFuture`, `Future`, `MultiprocessFuture`, `MultisessionFuture`, `environment`>", 1
+"promises", "then", 0, 0, 1, "class<`promise`>", 1
+"promises", "then", 1, 0, 0, "class<`function`>", 1
+"promises", "then", 1, 0, 1, "class<`formula`>", 1
+"promises", "then", 2, 0, 0, "null", 1
+"promises", "then", 2, 0, 1, "class<`formula`>", 1
+"promises", "then", 2, 0, 2, "class<`function`>", 1
+"promises", "tryCatch", -1, 0, 0, "(class<`function`> | class<`promise`> | null | list<class<`function`> | class<`promise`>>)", 1
+"promises", "tryCatch", 0, 0, 0, "class<`function`>", 1
+"promises", "tryCatch", 0, 0, 1, "class<`promise`>", 1
+"promises", "tryCatch", 0, 0, 2, "null", 1
+"promises", "tryCatch", 0, 0, 3, "list<class<`function`> | class<`promise`>>", 1
+"promises", "tryCatch", 1, 0, 0, "...", 1
+"promises", "tryCatch", 2, 0, 0, "any", 1
+"promises", "without_promise_domain", -1, 0, 0, "class<`promise`>", 1
+"promises", "without_promise_domain", 0, 0, 0, "class<`promise`>", 1
+"promises", "with_promise_domain", -1, 0, 0, "class<`promise`>", 1
+"promises", "with_promise_domain", 0, 0, 0, "null", 1
+"promises", "with_promise_domain", 1, 0, 0, "class<`promise`>", 1
+"promises", "with_promise_domain", 2, 0, 0, "logical", 1

@@ -1,6 +1,537 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"tensorA", "-.tensor", -1, 0, 0, "complex[]", 1
-"tensorA", "-.tensor", 0, 0, 0, "complex[]", 1
-"tensorA", "-.tensor", 0, 0, 1, "^double[]", 1
-"tensorA", "-.tensor", 1, 0, 0, "complex[]", 1
-"tensorA", "-.tensor", 1, 0, 1, "^double[]", 1
+"tensorA", "add.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "add.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "add.tensor", 0, 0, 1, "double", 1
+"tensorA", "add.tensor", 0, 0, 2, "class<`tensor`>", 1
+"tensorA", "add.tensor", 1, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "add.tensor", 1, 0, 1, "class<`tensor`>", 1
+"tensorA", "add.tensor", 1, 0, 2, "double", 1
+"tensorA", "add.tensor", 2, 0, 0, "character", 1
+"tensorA", "add.tensor", 3, 0, 0, "null", 1
+"tensorA", "as.contravariate", -1, 0, 0, "character[]", 1
+"tensorA", "as.contravariate", 0, 0, 0, "character[]", 1
+"tensorA", "as.contravariate", 1, 0, 0, "...", 1
+"tensorA", "as.contravariate.character", -1, 0, 0, "character[]", 1
+"tensorA", "as.contravariate.character", 0, 0, 0, "character[]", 1
+"tensorA", "as.contravariate.character", 1, 0, 0, "...", 1
+"tensorA", "as.covariate", -1, 0, 0, "character[]", 1
+"tensorA", "as.covariate", 0, 0, 0, "character[]", 1
+"tensorA", "as.covariate", 1, 0, 0, "...", 1
+"tensorA", "as.covariate.character", -1, 0, 0, "character[]", 1
+"tensorA", "as.covariate.character", 0, 0, 0, "character[]", 1
+"tensorA", "as.covariate.character", 1, 0, 0, "...", 1
+"tensorA", "as.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "as.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "as.tensor", 0, 0, 1, "class<`matrix`>", 1
+"tensorA", "as.tensor", 0, 0, 2, "class<`tensor`>", 1
+"tensorA", "as.tensor", 0, 0, 3, "double[]", 1
+"tensorA", "as.tensor", 1, 0, 0, "...", 1
+"tensorA", "as.tensor.default", -1, 0, 0, "(class<`tensor`> | class<`matrix`, `tensor`>)", 1
+"tensorA", "as.tensor.default", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "as.tensor.default", 0, 0, 1, "class<`array`>", 1
+"tensorA", "as.tensor.default", 0, 0, 2, "complex[]", 1
+"tensorA", "as.tensor.default", 0, 0, 3, "class<`matrix`>", 1
+"tensorA", "as.tensor.default", 1, 0, 0, "...", 1
+"tensorA", "as.tensor.default", 2, 0, 0, "null", 1
+"tensorA", "as.tensor.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "as.tensor.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "as.tensor.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "as.tensor.tensor", 1, 0, 0, "...", 1
+"tensorA", "bind.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "bind.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "bind.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "bind.tensor", 1, 0, 0, "character", 1
+"tensorA", "bind.tensor", 1, 0, 1, "double", 1
+"tensorA", "bind.tensor", 2, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "bind.tensor", 2, 0, 1, "class<`tensor`>", 1
+"tensorA", "bind.tensor", 3, 0, 0, "double", 1
+"tensorA", "chol.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "chol.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "chol.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "chol.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "chol.tensor", 2, 0, 0, "character[]", 1
+"tensorA", "chol.tensor", 3, 0, 0, "...", 1
+"tensorA", "chol.tensor", 4, 0, 0, "character", 1
+"tensorA", "contraname", -1, 0, 0, "(character[] | logical[])", 1
+"tensorA", "contraname", 0, 0, 0, "character[]", 1
+"tensorA", "delta.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "delta.tensor", 0, 0, 0, "double[]", 1
+"tensorA", "delta.tensor", 1, 0, 0, "character", 1
+"tensorA", "delta.tensor", 2, 0, 0, "null", 1
+"tensorA", "delta.tensor", 3, 0, 0, "null", 1
+"tensorA", "diagmul.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "diagmul.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "diagmul.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "diagmul.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "diagmul.tensor", 1, 0, 1, "double", 1
+"tensorA", "diagmul.tensor", 2, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "diagmul.tensor", 2, 0, 1, "class<`tensor`>", 1
+"tensorA", "diagmul.tensor", 3, 0, 0, "character[]", 1
+"tensorA", "diagmul.tensor", 3, 0, 1, "double", 1
+"tensorA", "diagmul.tensor", 4, 0, 0, "null", 1
+"tensorA", "diagmul.tensor", 4, 0, 1, "character", 1
+"tensorA", "diag.tensor", -1, 0, 0, "class<`tensor`>", 1
+"tensorA", "diag.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "diag.tensor", 1, 0, 0, "character", 1
+"tensorA", "diag.tensor", 2, 0, 0, "null", 1
+"tensorA", "diag.tensor", 3, 0, 0, "character", 1
+"tensorA", "diag.tensor", 3, 0, 1, "null", 1
+"tensorA", "dimnames<-.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | null)", 1
+"tensorA", "dimnames<-.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "dimnames<-.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "dimnames<-.tensor", 1, 0, 0, "null", 1
+"tensorA", "dimnames<-.tensor", 1, 0, 1, "list<any>", 1
+"tensorA", "dimnames.tensor", -1, 0, 0, "list<any>", 1
+"tensorA", "dimnames.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "dimnames.tensor", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "dim<-.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "dim<-.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "dim<-.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "dim<-.tensor", 1, 0, 0, "double[]", 1
+"tensorA", "drag.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "drag.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "drag.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "drag.tensor", 1, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "drag.tensor", 2, 0, 0, "character[]", 1
+"tensorA", "%e%", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | complex)", 1
+"tensorA", "%e%", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "%e%", 1, 0, 0, "class<`tensor`>", 1
+"tensorA", "%e%", 1, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "einstein.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | complex)", 1
+"tensorA", "einstein.tensor", 0, 0, 0, "...", 1
+"tensorA", "einstein.tensor", 1, 0, 0, "null", 1
+"tensorA", "einstein.tensor", 1, 0, 1, "character", 1
+"tensorA", "einstein.tensor", 2, 0, 0, "character", 1
+"tensorA", "einstein.tensor", 2, 0, 1, "null", 1
+"tensorA", "%e%.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | complex)", 1
+"tensorA", "%e%.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "%e%.tensor", 1, 0, 0, "class<`tensor`>", 1
+"tensorA", "%e%.tensor", 1, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "filter", -1, 0, 0, "logical[]", 1
+"tensorA", "filter", 0, 0, 0, "character[]", 1
+"tensorA", "ftable.tensor", -1, 0, 0, "class<`ftable`>", 1
+"tensorA", "ftable.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "ftable.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "ftable.tensor", 1, 0, 0, "...", 1
+"tensorA", "FUN", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"tensorA", "FUN", 0, 0, 0, "integer", 1
+"tensorA", "FUN", -1, 1, 0, "complex[]", 1
+"tensorA", "FUN", 0, 1, 0, "integer", 1
+"tensorA", "FUN", -1, 2, 0, "(class<`matrix`> | complex[])", 1
+"tensorA", "FUN", 0, 2, 0, "integer", 1
+"tensorA", "FUN", -1, 3, 0, "character[]", 1
+"tensorA", "FUN", 0, 3, 0, "character[]", 1
+"tensorA", "FUN", 0, 3, 1, "double[]", 1
+"tensorA", "FUN", -1, 4, 0, "class<`matrix`>", 1
+"tensorA", "FUN", 0, 4, 0, "list<double[] | class<`matrix`>>", 1
+"tensorA", "FUN", -1, 5, 0, "class<`matrix`>", 1
+"tensorA", "FUN", 0, 5, 0, "integer", 1
+"tensorA", "FUN", -1, 6, 0, "class<`matrix`>", 1
+"tensorA", "FUN", 0, 6, 0, "integer", 1
+"tensorA", "FUN", -1, 7, 0, "complex[]", 1
+"tensorA", "FUN", 0, 7, 0, "integer", 1
+"tensorA", "FUN", -1, 8, 0, "class<`matrix`>", 1
+"tensorA", "FUN", 0, 8, 0, "integer", 1
+"tensorA", "FUN", 1, 8, 0, "...", 1
+"tensorA", "FUN", -1, 9, 0, "class<`matrix`>", 1
+"tensorA", "FUN", 0, 9, 0, "integer", 1
+"tensorA", "FUN", -1, 10, 0, "character[]", 1
+"tensorA", "FUN", 0, 10, 0, "integer", 1
+"tensorA", "FUN", -1, 11, 0, "class<`matrix`>", 1
+"tensorA", "FUN", 0, 11, 0, "list<double[] | class<`matrix`>>", 1
+"tensorA", "FUN", -1, 12, 0, "double[]", 1
+"tensorA", "FUN", 0, 12, 0, "list<double[] | class<`matrix`>>", 1
+"tensorA", "gsi.debug", -1, 0, 0, "list<any>", 1
+"tensorA", "gsi.debug", 0, 0, 0, "...", 1
+"tensorA", "gsi.debugn", -1, 0, 0, "null", 1
+"tensorA", "gsi.debugn", 0, 0, 0, "...", 1
+"tensorA", "gsi.debugr", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | complex | null)", 1
+"tensorA", "gsi.debugr", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "gsi.debugr", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "gsi.debugr", 0, 0, 2, "complex", 1
+"tensorA", "gsi.debugr", 0, 0, 3, "null", 1
+"tensorA", "gsi.fullreorder", -1, 0, 0, "double[]", 1
+"tensorA", "gsi.fullreorder", 0, 0, 0, "integer[]", 1
+"tensorA", "gsi.fullreorder", 1, 0, 0, "double[]", 1
+"tensorA", "gsi.fullreorder", 1, 0, 1, "null", 1
+"tensorA", "gsi.fullreorder", 2, 0, 0, "double[]", 1
+"tensorA", "gsi.fullreorder", 2, 0, 1, "null", 1
+"tensorA", "gsi.invperm", -1, 0, 0, "double[]", 1
+"tensorA", "gsi.invperm", 0, 0, 0, "double", 1
+"tensorA", "gsi.matrify", -1, 0, 0, "class<`matrix`>", 1
+"tensorA", "gsi.matrify", 0, 0, 0, "class<`matrix`>", 1
+"tensorA", "gsi.matrify", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "gsi.matrify", 0, 0, 2, "class<`tensor`>", 1
+"tensorA", "gsi.matrify", 1, 0, 0, "double[]", 1
+"tensorA", "gsi.namedlist", -1, 0, 0, "list<null>", 1
+"tensorA", "gsi.namedlist", 0, 0, 0, "character", 1
+"tensorA", "gsi.namedlist", 1, 0, 0, "...", 1
+"tensorA", "gsi.namednumber", -1, 0, 0, "double", 1
+"tensorA", "gsi.namednumber", 0, 0, 0, "character", 1
+"tensorA", "gsi.namednumber", 0, 0, 1, "null", 1
+"tensorA", "gsi.namednumber", 1, 0, 0, "...", 1
+"tensorA", "gsi.rest", -1, 0, 0, "double[]", 1
+"tensorA", "gsi.rest", 0, 0, 0, "integer[]", 1
+"tensorA", "gsi.rest", 1, 0, 0, "double[]", 1
+"tensorA", "gsi.stdnames", -1, 0, 0, "character[]", 1
+"tensorA", "gsi.stdnames", 0, 0, 0, "double", 1
+"tensorA", "gsi.stdnames", 1, 0, 0, "character", 1
+"tensorA", "gsi.stdnames", 2, 0, 0, "character[]", 1
+"tensorA", "gsi.stdnames", 2, 0, 1, "null", 1
+"tensorA", "gsi.untensornames", -1, 0, 0, "(character[] | null)", 1
+"tensorA", "gsi.untensornames", 0, 0, 0, "list<character[] | null>", 1
+"tensorA", "gsi.untensornames", 1, 0, 0, "any", 1
+"tensorA", "gsi.vonbis", -1, 0, 0, "(integer | null)", 1
+"tensorA", "gsi.vonbis", 0, 0, 0, "double", 1
+"tensorA", "gsi.vonbis", 1, 0, 0, "double", 1
+"tensorA", "gsi.weightedndx", -1, 0, 0, "double[]", 1
+"tensorA", "gsi.weightedndx", 0, 0, 0, "integer[]", 1
+"tensorA", "gsi.weightedndx", 1, 0, 0, "double[]", 1
+"tensorA", "gsi.weights", -1, 0, 0, "double[]", 1
+"tensorA", "gsi.weights", 0, 0, 0, "integer[]", 1
+"tensorA", "gsi.without", -1, 0, 0, "(integer[] | list<any>)", 1
+"tensorA", "gsi.without", 0, 0, 0, "integer[]", 1
+"tensorA", "gsi.without", 0, 0, 1, "list<any>", 1
+"tensorA", "gsi.without", 1, 0, 0, "double[]", 1
+"tensorA", "inv.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "inv.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "inv.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "inv.tensor", 1, 0, 0, "double", 1
+"tensorA", "inv.tensor", 1, 0, 1, "character[]", 1
+"tensorA", "inv.tensor", 2, 0, 0, "...", 1
+"tensorA", "inv.tensor", 3, 0, 0, "logical", 1
+"tensorA", "inv.tensor", 4, 0, 0, "double", 1
+"tensorA", "inv.tensor", 5, 0, 0, "null", 1
+"tensorA", "inv.tensor", 5, 0, 1, "character", 1
+"tensorA", "is.contravariate", -1, 0, 0, "logical[]", 1
+"tensorA", "is.contravariate", 0, 0, 0, "character[]", 1
+"tensorA", "is.contravariate", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "is.contravariate", 1, 0, 0, "...", 1
+"tensorA", "is.contravariate.character", -1, 0, 0, "logical[]", 1
+"tensorA", "is.contravariate.character", 0, 0, 0, "character[]", 1
+"tensorA", "is.contravariate.character", 1, 0, 0, "...", 1
+"tensorA", "is.contravariate.tensor", -1, 0, 0, "logical[]", 1
+"tensorA", "is.contravariate.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "is.contravariate.tensor", 1, 0, 0, "...", 1
+"tensorA", "is.covariate", -1, 0, 0, "logical[]", 1
+"tensorA", "is.covariate", 0, 0, 0, "character[]", 1
+"tensorA", "is.covariate", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "is.covariate", 0, 0, 2, "class<`tensor`>", 1
+"tensorA", "is.covariate", 1, 0, 0, "...", 1
+"tensorA", "is.covariate.character", -1, 0, 0, "logical[]", 1
+"tensorA", "is.covariate.character", 0, 0, 0, "character[]", 1
+"tensorA", "is.covariate.character", 1, 0, 0, "...", 1
+"tensorA", "is.covariate.tensor", -1, 0, 0, "logical[]", 1
+"tensorA", "is.covariate.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "is.covariate.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "is.covariate.tensor", 1, 0, 0, "...", 1
+"tensorA", "is.tensor", -1, 0, 0, "logical", 1
+"tensorA", "is.tensor", 0, 0, 0, "character[]", 1
+"tensorA", "is.tensor", 0, 0, 1, "class<`matrix`>", 1
+"tensorA", "is.tensor", 0, 0, 2, "class<`matrix`, `tensor`>", 1
+"tensorA", "is.tensor", 0, 0, 3, "class<`tensor`>", 1
+"tensorA", "is.tensor", 0, 0, 4, "double[]", 1
+"tensorA", "is.tensor", 0, 0, 5, "null", 1
+"tensorA", "level.tensor", -1, 0, 0, "double", 1
+"tensorA", "level.tensor", 0, 0, 0, "double", 1
+"tensorA", "level.tensor", 0, 0, 1, "integer[]", 1
+"tensorA", "level.tensor", 0, 0, 2, "class<`matrix`>", 1
+"tensorA", "level.tensor", 0, 0, 3, "class<`matrix`, `tensor`>", 1
+"tensorA", "level.tensor", 0, 0, 4, "class<`tensor`>", 1
+"tensorA", "level.tensor", 1, 0, 0, "...", 1
+"tensorA", "margin.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | double)", 1
+"tensorA", "margin.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "margin.tensor", 0, 0, 1, "class<`matrix`>", 1
+"tensorA", "margin.tensor", 0, 0, 2, "class<`matrix`, `tensor`>", 1
+"tensorA", "margin.tensor", 1, 0, 0, "null", 1
+"tensorA", "margin.tensor", 1, 0, 1, "character[]", 1
+"tensorA", "margin.tensor", 1, 0, 2, "double[]", 1
+"tensorA", "margin.tensor", 2, 0, 0, "null", 1
+"tensorA", "margin.tensor", 2, 0, 1, "character[]", 1
+"tensorA", "mark", -1, 0, 0, "(character[] | class<`matrix`, `tensor`> | class<`tensor`> | double[])", 1
+"tensorA", "mark", 0, 0, 0, "character[]", 1
+"tensorA", "mark", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "mark", 0, 0, 2, "class<`tensor`>", 1
+"tensorA", "mark", 0, 0, 3, "double[]", 1
+"tensorA", "mark", 1, 0, 0, "any", 1
+"tensorA", "mark", 2, 0, 0, "...", 1
+"tensorA", "mark.character", -1, 0, 0, "character[]", 1
+"tensorA", "mark.character", 0, 0, 0, "character[]", 1
+"tensorA", "mark.character", 1, 0, 0, "character", 1
+"tensorA", "mark.character", 2, 0, 0, "character", 1
+"tensorA", "mark.character", 2, 0, 1, "integer[]", 1
+"tensorA", "mark.character", 3, 0, 0, "...", 1
+"tensorA", "mark.character", 4, 0, 0, "null", 1
+"tensorA", "mark.numeric", -1, 0, 0, "double[]", 1
+"tensorA", "mark.numeric", 0, 0, 0, "double[]", 1
+"tensorA", "mark.numeric", 1, 0, 0, "character", 1
+"tensorA", "mark.numeric", 2, 0, 0, "integer[]", 1
+"tensorA", "mark.numeric", 2, 0, 1, "character", 1
+"tensorA", "mark.numeric", 3, 0, 0, "...", 1
+"tensorA", "mark.numeric", 4, 0, 0, "null", 1
+"tensorA", "mark.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "mark.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "mark.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "mark.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "mark.tensor", 2, 0, 0, "integer[]", 1
+"tensorA", "mark.tensor", 2, 0, 1, "character[]", 1
+"tensorA", "mark.tensor", 3, 0, 0, "...", 1
+"tensorA", "mark.tensor", 4, 0, 0, "null", 1
+"tensorA", "mark.tensor", 4, 0, 1, "double", 1
+"tensorA", "mark.tensor", 4, 0, 2, "integer[]", 1
+"tensorA", "mean.tensor", -1, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "mean.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "mean.tensor", 1, 0, 0, "character", 1
+"tensorA", "mean.tensor", 2, 0, 0, "...", 1
+"tensorA", "mean.tensor", 3, 0, 0, "logical", 1
+"tensorA", "mul.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | complex)", 1
+"tensorA", "mul.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "mul.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "mul.tensor", 1, 0, 0, "null", 1
+"tensorA", "mul.tensor", 1, 0, 1, "character[]", 1
+"tensorA", "mul.tensor", 1, 0, 2, "double", 1
+"tensorA", "mul.tensor", 2, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "mul.tensor", 2, 0, 1, "class<`tensor`>", 1
+"tensorA", "mul.tensor", 3, 0, 0, "null", 1
+"tensorA", "mul.tensor", 3, 0, 1, "character[]", 1
+"tensorA", "mul.tensor", 3, 0, 2, "logical[]", 1
+"tensorA", "mul.tensor", 3, 0, 3, "double", 1
+"tensorA", "mul.tensor", 4, 0, 0, "null", 1
+"tensorA", "mul.tensor", 4, 0, 1, "character[]", 1
+"tensorA", "mul.tensor", 4, 0, 2, "double[]", 1
+"tensorA", "names<-.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "names<-.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "names<-.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "names<-.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "names.tensor", -1, 0, 0, "^character[]", 1
+"tensorA", "names.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "names.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "norm", -1, 0, 0, "(class<`tensor`> | double)", 1
+"tensorA", "norm", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "norm", 1, 0, 0, "...", 1
+"tensorA", "norm.tensor", -1, 0, 0, "(class<`tensor`> | double)", 1
+"tensorA", "norm.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "norm.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "norm.tensor", 1, 0, 0, "null", 1
+"tensorA", "norm.tensor", 1, 0, 1, "double[]", 1
+"tensorA", "norm.tensor", 1, 0, 2, "character[]", 1
+"tensorA", "norm.tensor", 2, 0, 0, "...", 1
+"tensorA", "norm.tensor", 3, 0, 0, "null", 1
+"tensorA", "norm.tensor", 3, 0, 1, "character", 1
+"tensorA", "one.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "one.tensor", 0, 0, 0, "double[]", 1
+"tensorA", "one.tensor", 1, 0, 0, "null", 1
+"tensorA", "one.tensor", 1, 0, 1, "list<any>", 1
+"tensorA", "opnorm", -1, 0, 0, "(class<`tensor`> | null)", 1
+"tensorA", "opnorm", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "opnorm", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "opnorm", 1, 0, 0, "...", 1
+"tensorA", "opnorm.tensor", -1, 0, 0, "(class<`tensor`> | null)", 1
+"tensorA", "opnorm.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "opnorm.tensor", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "opnorm.tensor", 1, 0, 0, "character", 1
+"tensorA", "opnorm.tensor", 2, 0, 0, "...", 1
+"tensorA", "opnorm.tensor", 3, 0, 0, "character", 1
+"tensorA", "opnorm.tensor", 3, 0, 1, "null", 1
+"tensorA", "pos.tensor", -1, 0, 0, "class<`matrix`>", 1
+"tensorA", "pos.tensor", 0, 0, 0, "integer[]", 1
+"tensorA", "power.tensor", -1, 0, 0, "class<`tensor`>", 1
+"tensorA", "power.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "power.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "power.tensor", 1, 0, 1, "double[]", 1
+"tensorA", "power.tensor", 2, 0, 0, "character[]", 1
+"tensorA", "power.tensor", 2, 0, 1, "double[]", 1
+"tensorA", "power.tensor", 3, 0, 0, "double", 1
+"tensorA", "power.tensor", 4, 0, 0, "character", 1
+"tensorA", "power.tensor", 4, 0, 1, "null", 1
+"tensorA", "%r%", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "%r%", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "%r%", 1, 0, 0, "class<`tensor`>", 1
+"tensorA", "reorder.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "reorder.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "reorder.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "reorder.tensor", 0, 0, 2, "class<`matrix`>", 1
+"tensorA", "reorder.tensor", 0, 0, 3, "class<`array`>", 1
+"tensorA", "reorder.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "reorder.tensor", 1, 0, 1, "double[]", 1
+"tensorA", "reorder.tensor", 2, 0, 0, "...", 1
+"tensorA", "reorder.tensor", 3, 0, 0, "null", 1
+"tensorA", "reorder.tidx", -1, 0, 0, "double[]", 1
+"tensorA", "reorder.tidx", 0, 0, 0, "integer[]", 1
+"tensorA", "reorder.tidx", 1, 0, 0, "double[]", 1
+"tensorA", "reorder.tidx", 2, 0, 0, "...", 1
+"tensorA", "rep.tensor", -1, 0, 0, "(class<`tensor`> | class<`matrix`, `tensor`>)", 1
+"tensorA", "rep.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "rep.tensor", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "rep.tensor", 1, 0, 0, "double[]", 1
+"tensorA", "rep.tensor", 2, 0, 0, "double", 1
+"tensorA", "rep.tensor", 2, 0, 1, "character", 1
+"tensorA", "rep.tensor", 3, 0, 0, "character", 1
+"tensorA", "rep.tensor", 3, 0, 1, "null", 1
+"tensorA", "rep.tensor", 4, 0, 0, "...", 1
+"tensorA", "riemann.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "riemann.tensor", 0, 0, 0, "...", 1
+"tensorA", "riemann.tensor", 1, 0, 0, "null", 1
+"tensorA", "riemann.tensor", 2, 0, 0, "null", 1
+"tensorA", "%r%.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "%r%.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "%r%.tensor", 1, 0, 0, "class<`tensor`>", 1
+"tensorA", "slice.tensor", -1, 0, 0, "(class<`tensor`> | null)", 1
+"tensorA", "slice.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "slice.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "slice.tensor", 1, 0, 0, "character", 1
+"tensorA", "slice.tensor", 2, 0, 0, "double", 1
+"tensorA", "slice.tensor", 2, 0, 1, "integer[]", 1
+"tensorA", "slice.tensor", 2, 0, 2, "character[]", 1
+"tensorA", "slice.tensor", 3, 0, 0, "logical", 1
+"tensorA", "solve.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "solve.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "solve.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "solve.tensor", 1, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "solve.tensor", 1, 0, 1, "class<`tensor`>", 1
+"tensorA", "solve.tensor", 2, 0, 0, "character[]", 1
+"tensorA", "solve.tensor", 3, 0, 0, "character[]", 1
+"tensorA", "solve.tensor", 4, 0, 0, "...", 1
+"tensorA", "solve.tensor", 5, 0, 0, "logical", 1
+"tensorA", "solve.tensor", 6, 0, 0, "double", 1
+"tensorA", "solve.tensor", 7, 0, 0, "character", 1
+"tensorA", "solve.tensor", 7, 0, 1, "null", 1
+"tensorA", "svd.tensor", -1, 0, 0, "list<class<`matrix`, `tensor`> | class<`tensor`> | class<`tensor`> | class<`matrix`, `tensor`> | class<`tensor`>>", 1
+"tensorA", "svd.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "svd.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "svd.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "svd.tensor", 1, 0, 1, "double[]", 1
+"tensorA", "svd.tensor", 2, 0, 0, "null", 1
+"tensorA", "svd.tensor", 2, 0, 1, "character[]", 1
+"tensorA", "svd.tensor", 2, 0, 2, "double[]", 1
+"tensorA", "svd.tensor", 3, 0, 0, "...", 1
+"tensorA", "svd.tensor", 4, 0, 0, "character", 1
+"tensorA", "svd.tensor", 5, 0, 0, "null", 1
+"tensorA", "svd.tensor", 5, 0, 1, "character", 1
+"tensorA", "^.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "^.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "^.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "^.tensor", 1, 0, 0, "double", 1
+"tensorA", "^.tensor", 1, 0, 1, "character[]", 1
+"tensorA", "|.tensor", -1, 0, 0, "class<`tensor`>", 1
+"tensorA", "|.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "|.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "-.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "-.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "-.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "-.tensor", 1, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "-.tensor", 1, 0, 1, "class<`tensor`>", 1
+"tensorA", "-.tensor", 1, 0, 2, "double", 1
+"tensorA", "/.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "/.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "/.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "/.tensor", 1, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "/.tensor", 1, 0, 1, "class<`tensor`>", 1
+"tensorA", "/.tensor", 1, 0, 2, "double", 1
+"tensorA", "[.tensor", -1, 0, 0, "class<`tensor`>", 1
+"tensorA", "[.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "[.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "[.tensor", 1, 0, 0, "...", 1
+"tensorA", "[.tensor", 2, 0, 0, "logical", 1
+"tensorA", "[[<-.tensor", -1, 0, 0, "class<`tensor`>", 1
+"tensorA", "[[<-.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "[[<-.tensor", 1, 0, 0, "...", 1
+"tensorA", "[[<-.tensor", 2, 0, 0, "class<`tensor`>", 1
+"tensorA", "[[<-.tensor", 2, 0, 1, "double", 1
+"tensorA", "[[.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | integer | null)", 1
+"tensorA", "[[.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "[[.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "[[.tensor", 1, 0, 0, "...", 1
+"tensorA", "[[.tensor", 2, 0, 0, "logical", 1
+"tensorA", "$.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "$.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "$.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "$.tensor", 1, 0, 0, "character", 1
+"tensorA", "*.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "*.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "*.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "*.tensor", 0, 0, 2, "double", 1
+"tensorA", "*.tensor", 1, 0, 0, "class<`tensor`>", 1
+"tensorA", "*.tensor", 1, 0, 1, "double", 1
+"tensorA", "*.tensor", 1, 0, 2, "class<`matrix`, `tensor`>", 1
+"tensorA", "+.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "+.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "+.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "+.tensor", 1, 0, 0, "class<`tensor`>", 1
+"tensorA", "+.tensor", 1, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "to.matrix.tensor", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"tensorA", "to.matrix.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "to.matrix.tensor", 1, 0, 0, "any", 1
+"tensorA", "to.matrix.tensor", 2, 0, 0, "any", 1
+"tensorA", "to.matrix.tensor", 3, 0, 0, "character", 1
+"tensorA", "to.matrix.tensor", 3, 0, 1, "null", 1
+"tensorA", "toPos.tensor", -1, 0, 0, "(double[] | null)", 1
+"tensorA", "toPos.tensor", 0, 0, 0, "any", 1
+"tensorA", "toPos.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "toPos.tensor", 1, 0, 1, "double[]", 1
+"tensorA", "toPos.tensor", 1, 0, 2, "null", 1
+"tensorA", "toPos.tensor", 2, 0, 0, "any", 1
+"tensorA", "toPos.tensor", 3, 0, 0, "any", 1
+"tensorA", "toPos.tensor", 4, 0, 0, "...", 1
+"tensorA", "toPos.tensor", 5, 0, 0, "logical", 1
+"tensorA", "toPos.tensor", 6, 0, 0, "logical", 1
+"tensorA", "to.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | complex)", 1
+"tensorA", "to.tensor", 0, 0, 0, "class<`matrix`>", 1
+"tensorA", "to.tensor", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "to.tensor", 0, 0, 2, "class<`tensor`>", 1
+"tensorA", "to.tensor", 0, 0, 3, "complex[]", 1
+"tensorA", "to.tensor", 0, 0, 4, "class<`array`>", 1
+"tensorA", "to.tensor", 1, 0, 0, "...", 1
+"tensorA", "to.tensor.default", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | complex)", 1
+"tensorA", "to.tensor.default", 0, 0, 0, "class<`matrix`>", 1
+"tensorA", "to.tensor.default", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "to.tensor.default", 0, 0, 2, "class<`tensor`>", 1
+"tensorA", "to.tensor.default", 0, 0, 3, "complex[]", 1
+"tensorA", "to.tensor.default", 0, 0, 4, "class<`array`>", 1
+"tensorA", "to.tensor.default", 1, 0, 0, "double[]", 1
+"tensorA", "to.tensor.default", 1, 0, 1, "null", 1
+"tensorA", "to.tensor.default", 1, 0, 2, "list<character[] | integer[]>", 1
+"tensorA", "to.tensor.default", 2, 0, 0, "any", 1
+"tensorA", "to.tensor.default", 3, 0, 0, "integer[]", 1
+"tensorA", "to.tensor.default", 3, 0, 1, "double", 1
+"tensorA", "to.tensor.default", 3, 0, 2, "character[]", 1
+"tensorA", "to.tensor.default", 4, 0, 0, "logical", 1
+"tensorA", "to.tensor.default", 4, 0, 1, "character", 1
+"tensorA", "to.tensor.default", 5, 0, 0, "...", 1
+"tensorA", "trace.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`> | double)", 1
+"tensorA", "trace.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "trace.tensor", 0, 0, 1, "class<`matrix`, `tensor`>", 1
+"tensorA", "trace.tensor", 1, 0, 0, "character[]", 1
+"tensorA", "trace.tensor", 2, 0, 0, "character[]", 1
+"tensorA", "tripledelta.tensor", -1, 0, 0, "class<`tensor`>", 1
+"tensorA", "tripledelta.tensor", 0, 0, 0, "double[]", 1
+"tensorA", "tripledelta.tensor", 1, 0, 0, "character", 1
+"tensorA", "tripledelta.tensor", 2, 0, 0, "character", 1
+"tensorA", "tripledelta.tensor", 3, 0, 0, "null", 1
+"tensorA", "undrop.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "undrop.tensor", 0, 0, 0, "class<`matrix`, `tensor`>", 1
+"tensorA", "undrop.tensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "undrop.tensor", 1, 0, 0, "character", 1
+"tensorA", "undrop.tensor", 2, 0, 0, "double", 1
+"tensorA", "untensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "untensor", 0, 0, 0, "class<`matrix`>", 1
+"tensorA", "untensor", 0, 0, 1, "class<`tensor`>", 1
+"tensorA", "untensor", 1, 0, 0, "character[]", 1
+"tensorA", "untensor", 1, 0, 1, "double[]", 1
+"tensorA", "untensor", 1, 0, 2, "null", 1
+"tensorA", "untensor", 1, 0, 3, "list<character[] | double[]>", 1
+"tensorA", "untensor", 2, 0, 0, "null", 1
+"tensorA", "untensor", 2, 0, 1, "character[]", 1
+"tensorA", "untensor", 3, 0, 0, "double", 1
+"tensorA", "untensor", 4, 0, 0, "null", 1
+"tensorA", "untensor", 4, 0, 1, "character[]", 1
+"tensorA", "var.tensor", -1, 0, 0, "(class<`matrix`, `tensor`> | class<`tensor`>)", 1
+"tensorA", "var.tensor", 0, 0, 0, "class<`tensor`>", 1
+"tensorA", "var.tensor", 1, 0, 0, "class<`tensor`>", 1
+"tensorA", "var.tensor", 1, 0, 1, "null", 1
+"tensorA", "var.tensor", 2, 0, 0, "...", 1
+"tensorA", "var.tensor", 3, 0, 0, "character", 1
+"tensorA", "var.tensor", 4, 0, 0, "null", 1
+"tensorA", "var.tensor", 4, 0, 1, "character", 1
+"tensorA", "var.tensor", 5, 0, 0, "logical", 1
+"tensorA", "var.tensor", 6, 0, 0, "character", 1

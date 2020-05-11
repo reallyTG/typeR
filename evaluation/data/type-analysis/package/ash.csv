@@ -1,22 +1,25 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"ash", "ash1", -1, 0, 0, "struct<`x`:double[], `y`:double[], `m`:double, `ab`:double[], `kopt`:double[], `ier`:integer>", 1
-"ash", "ash1", 0, 0, 0, "struct<`nc`:integer[], `ab`:double[], `nskip`:integer>", 1
+"ash", "ash1", -1, 0, 0, "list<double[]>", 1
+"ash", "ash1", 0, 0, 0, "list<double[]>", 1
 "ash", "ash1", 1, 0, 0, "double", 1
 "ash", "ash1", 2, 0, 0, "double[]", 1
-"ash", "ash2", -1, 0, 0, "struct<`z`:^double[], `x`:double[], `y`:double[], `ab`:^double[], `m`:double[], `kopt`:double[], `ier`:double>", 1
-"ash", "ash2", 0, 0, 0, "struct<`nc`:^integer[], `ab`:^double[], `nskip`:integer>", 1
+"ash", "ash2", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"ash", "ash2", 0, 0, 0, "list<class<`matrix`> | integer>", 1
 "ash", "ash2", 1, 0, 0, "double[]", 1
 "ash", "ash2", 2, 0, 0, "double[]", 1
-"ash", "bin1", -1, 0, 0, "struct<`nc`:integer[], `ab`:double[], `nskip`:integer>", 1
+"ash", "bin1", -1, 0, 0, "list<double[]>", 1
 "ash", "bin1", 0, 0, 0, "double[]", 1
 "ash", "bin1", 1, 0, 0, "double[]", 1
 "ash", "bin1", 2, 0, 0, "double", 1
-"ash", "bin2", -1, 0, 0, "struct<`nc`:^integer[], `ab`:^double[], `nskip`:integer>", 1
-"ash", "bin2", 0, 0, 0, "^double[]", 1
-"ash", "bin2", 1, 0, 0, "^double[]", 1
+"ash", "bin2", -1, 0, 0, "list<class<`matrix`> | integer>", 1
+"ash", "bin2", 0, 0, 0, "class<`matrix`>", 1
+"ash", "bin2", 1, 0, 0, "class<`matrix`>", 1
 "ash", "bin2", 2, 0, 0, "double[]", 1
-"ash", "center", -1, 0, 0, "tuple<double[]>", 1
+"ash", "center", -1, 0, 0, "list<double[]>", 1
 "ash", "center", 0, 0, 0, "double[]", 1
 "ash", "center", 1, 0, 0, "integer", 1
 "ash", "filter", -1, 0, 0, "logical[]", 1
 "ash", "filter", 0, 0, 0, "character[]", 1
+"ash", "nicerange", -1, 0, 0, "double[]", 1
+"ash", "nicerange", 0, 0, 0, "double[]", 1
+"ash", "nicerange", 1, 0, 0, "double", 1

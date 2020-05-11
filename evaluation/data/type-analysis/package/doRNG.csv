@@ -1,10 +1,35 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"doRNG", "%||%", -1, 0, 0, "^double[]", 1
+"doRNG", "%||%", -1, 0, 0, "(class<`matrix`> | double | integer[] | list<double[] | double | character>)", 1
 "doRNG", "%||%", 0, 0, 0, "null", 1
 "doRNG", "%||%", 0, 0, 1, "double", 1
 "doRNG", "%||%", 0, 0, 2, "integer[]", 1
-"doRNG", "%||%", 0, 0, 3, "tuple<integer[], integer[], integer[], integer[], integer[]>", 1
-"doRNG", "%||%", 1, 0, 0, "^double[]", 1
-"doRNG", "%||%", 1, 0, 1, "language", 1
-"doRNG", "%||%", 1, 0, 2, "tuple<double[], double[], double[], double[], double[]>", 1
-"doRNG", "%||%", 1, 0, 3, "struct<``:double, `normal.kind`:character>", 1
+"doRNG", "%||%", 0, 0, 3, "list<integer[]>", 1
+"doRNG", "%||%", 1, 0, 0, "any", 1
+"doRNG", "checkRNGversion", -1, 0, 0, "double", 1
+"doRNG", "checkRNGversion", 0, 0, 0, "character", 1
+"doRNG", "%dorng%", -1, 0, 0, "any", 1
+"doRNG", "%dorng%", 0, 0, 0, "class<`foreach`>", 1
+"doRNG", "%dorng%", 0, 0, 1, "class<`filteredforeach`, `foreach`>", 1
+"doRNG", "%dorng%", 0, 0, 2, "class<`foreach`, `xforeach`>", 1
+"doRNG", "%dorng%", 1, 0, 0, "any", 1
+"doRNG", "doRNGseq", -1, 0, 0, "list<integer[]>", 1
+"doRNG", "doRNGseq", 0, 0, 0, "integer", 1
+"doRNG", "doRNGseq", 1, 0, 0, "null", 1
+"doRNG", "doRNGseq", 1, 0, 1, "double", 1
+"doRNG", "doRNGseq", 1, 0, 2, "class<`matrix`>", 1
+"doRNG", "doRNGseq", 1, 0, 3, "integer[]", 1
+"doRNG", "doRNGseq", 1, 0, 4, "list<double[]>", 1
+"doRNG", "doRNGseq", 2, 0, 0, "...", 1
+"doRNG", "doRNGversion", -1, 0, 0, "character", 1
+"doRNG", "doRNGversion", 0, 0, 0, "any", 1
+"doRNG", "getDoBackend", -1, 0, 0, "list<class<`function`> | class<`SOCKcluster`, `cluster`> | class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "ns_get", -1, 0, 0, "(class<`function`> | environment)", 1
+"doRNG", "ns_get", 0, 0, 0, "character", 1
+"doRNG", "ns_get", 1, 0, 0, "environment", 1
+"doRNG", "ns_get", 2, 0, 0, "...", 1
+"doRNG", "registerDoRNG", -1, 0, 0, "class<`function`>", 1
+"doRNG", "registerDoRNG", 0, 0, 0, "double", 1
+"doRNG", "registerDoRNG", 0, 0, 1, "null", 1
+"doRNG", "registerDoRNG", 1, 0, 0, "logical", 1
+"doRNG", "setDoBackend", -1, 0, 0, "list<class<`function`> | class<`SOCKcluster`, `cluster`> | class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "setDoBackend", 0, 0, 0, "list<class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | class<`SOCKcluster`, `cluster`>>", 1

@@ -1,32 +1,51 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
+"mockery", "build_function_tree", -1, 0, 0, "list<list<list<environment>>>", 1
+"mockery", "build_function_tree", 0, 0, 0, "environment", 1
+"mockery", "build_function_tree", 1, 0, 0, "class<`function`>", 1
+"mockery", "build_function_tree", 2, 0, 0, "character", 1
+"mockery", "build_function_tree", 3, 0, 0, "double", 1
 "mockery", "expect_args", -1, 0, 0, "logical", 1
-"mockery", "expect_args", 0, 0, 0, "any => any", 1
+"mockery", "expect_args", 0, 0, 0, "class<`mock`>", 1
 "mockery", "expect_args", 1, 0, 0, "double", 1
-"mockery", "expect_args", 2, 0, 0, "struct<`Sepal.Length`:double[], `Sepal.Width`:double[], `Petal.Length`:double[], `Petal.Width`:double[], `Species`:integer[]>", 1
+"mockery", "expect_args", 2, 0, 0, "...", 1
 "mockery", "expect_call", -1, 0, 0, "logical", 1
-"mockery", "expect_call", 0, 0, 0, "any => any", 1
+"mockery", "expect_call", 0, 0, 0, "class<`mock`>", 1
 "mockery", "expect_call", 1, 0, 0, "double", 1
-"mockery", "expect_call", 2, 0, 0, "language", 1
-"mockery", "expect_called", -1, 0, 0, "struct<`message`:character, `srcref`:null, `trace`:null>", 1
-"mockery", "expect_called", 0, 0, 0, "any => any", 1
+"mockery", "expect_call", 2, 0, 0, "any", 1
+"mockery", "expect_called", -1, 0, 0, "class<`condition`, `expectation`, `expectation_success`>", 1
+"mockery", "expect_called", 0, 0, 0, "class<`mock`>", 1
 "mockery", "expect_called", 1, 0, 0, "double", 1
-"mockery", "f", -1, 0, 0, "logical", 1
-"mockery", "f", 0, 0, 0, "null", 1
 "mockery", "filter", -1, 0, 0, "logical[]", 1
 "mockery", "filter", 0, 0, 0, "character[]", 1
 "mockery", "format_call", -1, 0, 0, "character", 1
-"mockery", "format_call", 0, 0, 0, "language", 1
+"mockery", "format_call", 0, 0, 0, "class<`call`>", 1
 "mockery", "is_mock", -1, 0, 0, "logical", 1
-"mockery", "is_mock", 0, 0, 0, "any => any", 1
+"mockery", "is_mock", 0, 0, 0, "class<`mock`>", 1
 "mockery", "length.mock", -1, 0, 0, "integer", 1
-"mockery", "length.mock", 0, 0, 0, "any => any", 1
-"mockery", "m", -1, 0, 0, "null", 1
-"mockery", "m", 0, 0, 0, "double", 1
-"mockery", "mock", -1, 0, 0, "any => any", 1
-"mockery", "mock", 0, 0, 0, "double", 1
-"mockery", "mock", 0, 0, 1, "language", 1
-"mockery", "mock", 0, 0, 2, "null", 1
+"mockery", "length.mock", 0, 0, 0, "class<`mock`>", 1
+"mockery", "mock", -1, 0, 0, "class<`mock`>", 1
+"mockery", "mock", 0, 0, 0, "...", 1
 "mockery", "mock", 1, 0, 0, "logical", 1
 "mockery", "mock", 2, 0, 0, "environment", 1
-"mockery", "mock_args", -1, 0, 0, "tuple<tuple<struct<`Sepal.Length`:double[], `Sepal.Width`:double[], `Petal.Length`:double[], `Petal.Width`:double[], `Species`:integer[]>>>", 1
-"mockery", "mock_args", 0, 0, 0, "any => any", 1
+"mockery", "mock_args", -1, 0, 0, "list<list<class<`data.frame`>>>", 1
+"mockery", "mock_args", 0, 0, 0, "class<`mock`>", 1
+"mockery", "mock_calls", -1, 0, 0, "list<class<`call`>>", 1
+"mockery", "mock_calls", 0, 0, 0, "class<`mock`>", 1
+"mockery", "mock_through_tree", -1, 0, 0, "null", 1
+"mockery", "mock_through_tree", 0, 0, 0, "list<list<list<environment>>>", 1
+"mockery", "mock_through_tree", 1, 0, 0, "character", 1
+"mockery", "mock_through_tree", 2, 0, 0, "class<`mock`>", 1
+"mockery", "ordinal", -1, 0, 0, "character", 1
+"mockery", "ordinal", 0, 0, 0, "integer", 1
+"mockery", "override_seperators", -1, 0, 0, "character", 1
+"mockery", "override_seperators", 0, 0, 0, "character", 1
+"mockery", "override_seperators", 1, 0, 0, "any", 1
+"mockery", "stub", -1, 0, 0, "null", 1
+"mockery", "stub", 0, 0, 0, "class<`function`>", 1
+"mockery", "stub", 1, 0, 0, "character", 1
+"mockery", "stub", 2, 0, 0, "class<`mock`>", 1
+"mockery", "stub", 3, 0, 0, "double", 1
+"mockery", "summary", -1, 0, 0, "(null | logical)", 1
+"mockery", "summary", 0, 0, 0, "...", 1
+"mockery", "UseMethod", -1, 0, 0, "(null | logical)", 1
+"mockery", "UseMethod", 0, 0, 0, "...", 1

@@ -2,63 +2,149 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rex", "%==%", -1, 0, 0, "logical", 1
 "rex", "%==%", 0, 0, 0, "logical", 1
 "rex", "%==%", 1, 0, 0, "logical", 1
-"rex", "%if_next_is%", -1, 0, 0, "character", 1
-"rex", "%if_next_is%", 0, 0, 0, "character", 1
-"rex", "%if_next_is%", 1, 0, 0, "character", 1
-"rex", "%if_next_isnt%", -1, 0, 0, "character", 1
-"rex", "%if_next_isnt%", 0, 0, 0, "character", 1
-"rex", "%if_next_isnt%", 1, 0, 0, "character", 1
-"rex", "%if_prev_is%", -1, 0, 0, "character", 1
-"rex", "%if_prev_is%", 0, 0, 0, "character", 1
-"rex", "%if_prev_is%", 1, 0, 0, "character", 1
-"rex", "%or%", -1, 0, 0, "character", 1
-"rex", "%or%", 0, 0, 0, "tuple<character, character>", 1
-"rex", "%or%", 1, 0, 0, "character", 1
-"rex", "add_options", -1, 0, 0, "character", 1
+"rex", "add_options", -1, 0, 0, "(character | class<`regex`>)", 1
 "rex", "add_options", 0, 0, 0, "character", 1
+"rex", "add_options", 0, 0, 1, "class<`regex`>", 1
 "rex", "add_options", 1, 0, 0, "null", 1
 "rex", "add_options", 1, 0, 1, "character", 1
-"rex", "add_type", -1, 0, 0, "character", 1
-"rex", "add_type", 0, 0, 0, "character", 1
+"rex", "add_type", -1, 0, 0, "class<`regex`>", 1
+"rex", "add_type", 0, 0, 0, "class<`regex`>", 1
 "rex", "add_type", 1, 0, 0, "character[]", 1
-"rex", "as.character.regex", -1, 0, 0, "character", 1
-"rex", "as.character.regex", 0, 0, 0, "character", 1
-"rex", "as.character.regex", 1, 0, 0, "null", 1
-"rex", "at_least", -1, 0, 0, "character", 1
-"rex", "at_least", 0, 0, 0, "character", 1
+"rex", "as.character.regex", -1, 0, 0, "class<`regex`>", 1
+"rex", "as.character.regex", 0, 0, 0, "class<`regex`>", 1
+"rex", "as.character.regex", 1, 0, 0, "...", 1
+"rex", "at_least", -1, 0, 0, "class<`regex`>", 1
+"rex", "at_least", 0, 0, 0, "class<`regex`>", 1
 "rex", "at_least", 1, 0, 0, "double", 1
 "rex", "at_least", 2, 0, 0, "character[]", 1
-"rex", "auto_name", -1, 0, 0, "character", 1
-"rex", "auto_name", 0, 0, 0, "character", 1
-"rex", "between", -1, 0, 0, "character", 1
-"rex", "between", 0, 0, 0, "character", 1
+"rex", "auto_name", -1, 0, 0, "character[]", 1
+"rex", "auto_name", 0, 0, 0, "character[]", 1
+"rex", "between", -1, 0, 0, "class<`regex`>", 1
+"rex", "between", 0, 0, 0, "class<`character_class`, `regex`>", 1
+"rex", "between", 0, 0, 1, "class<`regex`>", 1
 "rex", "between", 1, 0, 0, "double", 1
 "rex", "between", 2, 0, 0, "double", 1
 "rex", "between", 2, 0, 1, "character", 1
 "rex", "between", 3, 0, 0, "character[]", 1
-"rex", "capture", -1, 0, 0, "character", 1
-"rex", "capture", 0, 0, 0, "character", 1
-"rex", "capture", 1, 0, 0, "null", 1
-"rex", "capture", 1, 0, 1, "character", 1
-"rex", "capture_group", -1, 0, 0, "character", 1
+"rex", "capture", -1, 0, 0, "class<`regex`>", 1
+"rex", "capture", 0, 0, 0, "...", 1
+"rex", "capture", 1, 0, 0, "character", 1
+"rex", "capture", 1, 0, 1, "null", 1
+"rex", "capture_group", -1, 0, 0, "class<`regex`>", 1
 "rex", "capture_group", 0, 0, 0, "character", 1
 "rex", "capture_group", 0, 0, 1, "double", 1
-"rex", "character_class", -1, 0, 0, "character", 1
+"rex", "character_class", -1, 0, 0, "class<`character_class`, `regex`>", 1
 "rex", "character_class", 0, 0, 0, "character", 1
-"rex", "character_class_escape_dots", -1, 0, 0, "character[]", 1
-"rex", "character_class_escape_dots", 0, 0, 0, "character", 1
-"rex", "character_class_escape.character", -1, 0, 0, "character", 1
+"rex", "character_class", 0, 0, 1, "class<`regex`>", 1
+"rex", "character_class_escape", -1, 0, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "character_class_escape", 0, 0, 0, "character", 1
+"rex", "character_class_escape", 0, 0, 1, "class<`regex`>", 1
+"rex", "character_class_escape", 0, 0, 2, "list<character | class<`regex`>>", 1
+"rex", "character_class_escape.character", -1, 0, 0, "class<`regex`>", 1
 "rex", "character_class_escape.character", 0, 0, 0, "character", 1
-"rex", "character_class_escape.list", -1, 0, 0, "tuple<character>", 1
-"rex", "character_class_escape.list", 0, 0, 0, "tuple<character>", 1
-"rex", "character_class_escape.regex", -1, 0, 0, "character", 1
-"rex", "character_class_escape.regex", 0, 0, 0, "character", 1
-"rex", "escape_dots", -1, 0, 0, "character[]", 1
-"rex", "escape_dots", 0, 0, 0, "character", 1
-"rex", "escape.character", -1, 0, 0, "character", 1
+"rex", "character_class_escape_dots", -1, 0, 0, "character[]", 1
+"rex", "character_class_escape_dots", 0, 0, 0, "...", 1
+"rex", "character_class_escape.list", -1, 0, 0, "list<class<`regex`>>", 1
+"rex", "character_class_escape.list", 0, 0, 0, "list<character | class<`regex`>>", 1
+"rex", "character_class_escape.regex", -1, 0, 0, "class<`regex`>", 1
+"rex", "character_class_escape.regex", 0, 0, 0, "class<`regex`>", 1
+"rex", "escape", -1, 0, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "escape", 0, 0, 0, "character", 1
+"rex", "escape", 0, 0, 1, "class<`character_class`, `regex`>", 1
+"rex", "escape", 0, 0, 2, "class<`regex`>", 1
+"rex", "escape", 0, 0, 3, "list<any>", 1
+"rex", "escape.character", -1, 0, 0, "class<`regex`>", 1
 "rex", "escape.character", 0, 0, 0, "character", 1
-"rex", "escape.character_class", -1, 0, 0, "character", 1
-"rex", "escape.character_class", 0, 0, 0, "character", 1
-"rex", "escape.list", -1, 0, 0, "tuple<character>", 1
-"rex", "escape.list", 0, 0, 0, "tuple<character>", 1
-"rex", "escape.list", 0, 0, 1, "struct<``:character>", 1
+"rex", "escape.character_class", -1, 0, 0, "class<`regex`>", 1
+"rex", "escape.character_class", 0, 0, 0, "class<`character_class`, `regex`>", 1
+"rex", "escape_dots", -1, 0, 0, "character[]", 1
+"rex", "escape_dots", 0, 0, 0, "...", 1
+"rex", "escape.list", -1, 0, 0, "list<class<`regex`>>", 1
+"rex", "escape.list", 0, 0, 0, "list<any>", 1
+"rex", "escape.regex", -1, 0, 0, "class<`regex`>", 1
+"rex", "escape.regex", 0, 0, 0, "class<`regex`>", 1
+"rex", "except", -1, 0, 0, "class<`regex`>", 1
+"rex", "except", 0, 0, 0, "...", 1
+"rex", "except_some_of", -1, 0, 0, "class<`regex`>", 1
+"rex", "except_some_of", 0, 0, 0, "...", 1
+"rex", "except_some_of", 1, 0, 0, "character[]", 1
+"rex", "FUN", -1, 0, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "FUN", 0, 0, 0, "character", 1
+"rex", "FUN", 0, 0, 1, "class<`regex`>", 1
+"rex", "FUN", 0, 0, 2, "list<character | class<`regex`>>", 1
+"rex", "FUN", -1, 1, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "FUN", 0, 1, 0, "character", 1
+"rex", "FUN", 0, 1, 1, "class<`character_class`, `regex`>", 1
+"rex", "FUN", 0, 1, 2, "class<`regex`>", 1
+"rex", "FUN", 0, 1, 3, "list<any>", 1
+"rex", "group", -1, 0, 0, "class<`regex`>", 1
+"rex", "group", 0, 0, 0, "...", 1
+"rex", "%if_next_is%", -1, 0, 0, "class<`regex`>", 1
+"rex", "%if_next_is%", 0, 0, 0, "character", 1
+"rex", "%if_next_is%", 0, 0, 1, "class<`character_class`, `regex`>", 1
+"rex", "%if_next_is%", 1, 0, 0, "character", 1
+"rex", "%if_next_is%", 1, 0, 1, "class<`character_class`, `regex`>", 1
+"rex", "%if_next_isnt%", -1, 0, 0, "class<`regex`>", 1
+"rex", "%if_next_isnt%", 0, 0, 0, "class<`character_class`, `regex`>", 1
+"rex", "%if_next_isnt%", 1, 0, 0, "class<`character_class`, `regex`>", 1
+"rex", "%if_prev_is%", -1, 0, 0, "class<`regex`>", 1
+"rex", "%if_prev_is%", 0, 0, 0, "character", 1
+"rex", "%if_prev_is%", 1, 0, 0, "character", 1
+"rex", "match_args", -1, 0, 0, "character", 1
+"rex", "match_args", 0, 0, 0, "character", 1
+"rex", "match_args", 1, 0, 0, "character[]", 1
+"rex", "maybe", -1, 0, 0, "class<`regex`>", 1
+"rex", "maybe", 0, 0, 0, "...", 1
+"rex", "maybe", 1, 0, 0, "any", 1
+"rex", "no_capture", -1, 0, 0, "logical", 1
+"rex", "no_capture", 0, 0, 0, "integer[]", 1
+"rex", "none_of", -1, 0, 0, "class<`regex`>", 1
+"rex", "none_of", 0, 0, 0, "...", 1
+"rex", "one_of", -1, 0, 0, "class<`regex`>", 1
+"rex", "one_of", 0, 0, 0, "...", 1
+"rex", "one_or_more", -1, 0, 0, "class<`regex`>", 1
+"rex", "one_or_more", 0, 0, 0, "...", 1
+"rex", "one_or_more", 1, 0, 0, "character[]", 1
+"rex", "or", -1, 0, 0, "class<`regex`>", 1
+"rex", "or", 0, 0, 0, "...", 1
+"rex", "%or%", -1, 0, 0, "class<`regex`>", 1
+"rex", "%or%", 0, 0, 0, "list<character | class<`regex`>>", 1
+"rex", "%or%", 1, 0, 0, "character", 1
+"rex", "p", -1, 0, 0, "class<`regex`>", 1
+"rex", "p", 0, 0, 0, "...", 1
+"rex", "range", -1, 0, 0, "class<`character_class`, `regex`>", 1
+"rex", "range", 0, 0, 0, "character", 1
+"rex", "range", 1, 0, 0, "character", 1
+"rex", "regex", -1, 0, 0, "class<`regex`>", 1
+"rex", "regex", 0, 0, 0, "character", 1
+"rex", "regex", 0, 0, 1, "class<`regex`>", 1
+"rex", "regex", 1, 0, 0, "...", 1
+"rex", "register", -1, 0, 0, "environment", 1
+"rex", "register", 0, 0, 0, "...", 1
+"rex", "re_matches", -1, 0, 0, "(class<`data.frame`> | logical[])", 1
+"rex", "re_matches", 0, 0, 0, "character[]", 1
+"rex", "re_matches", 1, 0, 0, "class<`regex`>", 1
+"rex", "re_matches", 2, 0, 0, "logical", 1
+"rex", "re_matches", 3, 0, 0, "null", 1
+"rex", "re_matches", 4, 0, 0, "logical", 1
+"rex", "re_matches", 5, 0, 0, "...", 1
+"rex", "re_substitutes", -1, 0, 0, "character[]", 1
+"rex", "re_substitutes", 0, 0, 0, "character[]", 1
+"rex", "re_substitutes", 1, 0, 0, "character", 1
+"rex", "re_substitutes", 2, 0, 0, "character", 1
+"rex", "re_substitutes", 3, 0, 0, "logical", 1
+"rex", "re_substitutes", 4, 0, 0, "character", 1
+"rex", "re_substitutes", 4, 0, 1, "null", 1
+"rex", "re_substitutes", 5, 0, 0, "...", 1
+"rex", "rex", -1, 0, 0, "class<`regex`>", 1
+"rex", "rex", 0, 0, 0, "...", 1
+"rex", "rex", 1, 0, 0, "any", 1
+"rex", "rex_", -1, 0, 0, "class<`regex`>", 1
+"rex", "rex_", 0, 0, 0, "class<`lazy_dots`>", 1
+"rex", "rex_", 1, 0, 0, "any", 1
+"rex", "sanitize", -1, 0, 0, "character", 1
+"rex", "sanitize", 0, 0, 0, "character", 1
+"rex", "sanitize", 1, 0, 0, "character[]", 1
+"rex", "zero_or_more", -1, 0, 0, "class<`regex`>", 1
+"rex", "zero_or_more", 0, 0, 0, "...", 1
+"rex", "zero_or_more", 1, 0, 0, "character[]", 1

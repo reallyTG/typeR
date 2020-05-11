@@ -1,40 +1,419 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"formattable", "[.formattable", -1, 0, 0, "double[]", 1
-"formattable", "[.formattable", 0, 0, 0, "^double[]", 1
-"formattable", "[.formattable", 1, 0, 0, "integer[]", 1
-"formattable", "[.formattable", 1, 0, 1, "character", 1
-"formattable", "[[.formattable", -1, 0, 0, "double", 1
-"formattable", "[[.formattable", 0, 0, 0, "double[]", 1
-"formattable", "[[.formattable", 1, 0, 0, "double", 1
-"formattable", "[[<-.formattable", -1, 0, 0, "double[]", 1
-"formattable", "[[<-.formattable", 0, 0, 0, "double[]", 1
-"formattable", "[[<-.formattable", 1, 0, 0, "double", 1
-"formattable", "[[<-.formattable", 2, 0, 0, "double", 1
-"formattable", "*.formattable", -1, 0, 0, "double[]", 1
-"formattable", "*.formattable", 0, 0, 0, "double[]", 1
-"formattable", "*.formattable", 1, 0, 0, "double", 1
-"formattable", "+.formattable", -1, 0, 0, "double[]", 1
-"formattable", "+.formattable", 0, 0, 0, "double[]", 1
-"formattable", "+.formattable", 1, 0, 0, "double", 1
-"formattable", "accounting.character", -1, 0, 0, "double[]", 1
+"formattable", "accounting", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "accounting", 0, 0, 0, "character[]", 1
+"formattable", "accounting", 0, 0, 1, "double[]", 1
+"formattable", "accounting", 1, 0, 0, "integer", 1
+"formattable", "accounting", 2, 0, 0, "character", 1
+"formattable", "accounting", 3, 0, 0, "character", 1
+"formattable", "accounting", 4, 0, 0, "...", 1
+"formattable", "accounting.character", -1, 0, 0, "class<`formattable`, `numeric`>", 1
 "formattable", "accounting.character", 0, 0, 0, "character[]", 1
 "formattable", "accounting.character", 1, 0, 0, "integer", 1
 "formattable", "accounting.character", 2, 0, 0, "character", 1
 "formattable", "accounting.character", 3, 0, 0, "character", 1
-"formattable", "accounting.character", 4, 0, 0, "null", 1
-"formattable", "accounting.default", -1, 0, 0, "double[]", 1
+"formattable", "accounting.character", 4, 0, 0, "...", 1
+"formattable", "accounting.default", -1, 0, 0, "class<`formattable`, `numeric`>", 1
 "formattable", "accounting.default", 0, 0, 0, "double[]", 1
 "formattable", "accounting.default", 1, 0, 0, "integer", 1
 "formattable", "accounting.default", 2, 0, 0, "character", 1
 "formattable", "accounting.default", 3, 0, 0, "character", 1
-"formattable", "accounting.default", 4, 0, 0, "null", 1
-"formattable", "all.formattable", -1, 0, 0, "logical", 1
-"formattable", "all.formattable", 0, 0, 0, "logical[]", 1
-"formattable", "any.formattable", -1, 0, 0, "logical", 1
-"formattable", "any.formattable", 0, 0, 0, "logical[]", 1
-"formattable", "area", -1, 0, 0, "struct<`row`:double, `col`:logical, `envir`:environment>", 1
-"formattable", "area", 0, 0, 0, "double", 1
-"formattable", "area", 0, 0, 1, "language", 1
-"formattable", "area", 0, 0, 2, "null", 1
-"formattable", "area", 1, 0, 0, "null", 1
-"formattable", "area", 1, 0, 1, "language", 1
+"formattable", "accounting.default", 4, 0, 0, "...", 1
+"formattable", "all.formattable", -1, 0, 0, "class<`formattable`, `logical`>", 1
+"formattable", "all.formattable", 0, 0, 0, "...", 1
+"formattable", "any.formattable", -1, 0, 0, "class<`formattable`, `logical`>", 1
+"formattable", "any.formattable", 0, 0, 0, "...", 1
+"formattable", "area", -1, 0, 0, "class<`area`>", 1
+"formattable", "area", 0, 0, 0, "any", 1
+"formattable", "area", 1, 0, 0, "any", 1
+"formattable", "as.character.formattable", -1, 0, 0, "character", 1
+"formattable", "as.character.formattable", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "as.character.formattable", 1, 0, 0, "...", 1
+"formattable", "as.datatable", -1, 0, 0, "class<`datatables`, `htmlwidget`>", 1
+"formattable", "as.datatable", 0, 0, 0, "class<`data.frame`, `formattable`>", 1
+"formattable", "as.datatable", 1, 0, 0, "...", 1
+"formattable", "as.datatable.formattable", -1, 0, 0, "class<`datatables`, `htmlwidget`>", 1
+"formattable", "as.datatable.formattable", 0, 0, 0, "class<`data.frame`, `formattable`>", 1
+"formattable", "as.datatable.formattable", 1, 0, 0, "logical", 1
+"formattable", "as.datatable.formattable", 2, 0, 0, "...", 1
+"formattable", "as_numeric", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"formattable", "as_numeric", 0, 0, 0, "class<`array`>", 1
+"formattable", "as_numeric", 0, 0, 1, "class<`matrix`>", 1
+"formattable", "as_numeric", 0, 0, 2, "double[]", 1
+"formattable", "call_or_default", -1, 0, 0, "(character[] | double[])", 1
+"formattable", "call_or_default", 0, 0, 0, "character", 1
+"formattable", "call_or_default", 0, 0, 1, "class<`function`>", 1
+"formattable", "call_or_default", 1, 0, 0, "character[]", 1
+"formattable", "call_or_default", 1, 0, 1, "double[]", 1
+"formattable", "call_or_default", 2, 0, 0, "...", 1
+"formattable", "check_rgb", -1, 0, 0, "logical[]", 1
+"formattable", "check_rgb", 0, 0, 0, "character[]", 1
+"formattable", "check_rgb", 1, 0, 0, "logical", 1
+"formattable", "check_rgba", -1, 0, 0, "logical[]", 1
+"formattable", "check_rgba", 0, 0, 0, "character[]", 1
+"formattable", "color_bar", -1, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "color_bar", 0, 0, 0, "any", 1
+"formattable", "color_bar", 1, 0, 0, "class<`function`>", 1
+"formattable", "color_bar", 1, 0, 1, "character", 1
+"formattable", "color_bar", 2, 0, 0, "...", 1
+"formattable", "color_text", -1, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "color_text", 0, 0, 0, "...", 1
+"formattable", "color_tile", -1, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "color_tile", 0, 0, 0, "...", 1
+"formattable", "comma", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "comma", 0, 0, 0, "character", 1
+"formattable", "comma", 0, 0, 1, "double[]", 1
+"formattable", "comma", 1, 0, 0, "any", 1
+"formattable", "comma", 2, 0, 0, "character", 1
+"formattable", "comma", 3, 0, 0, "character", 1
+"formattable", "comma", 4, 0, 0, "...", 1
+"formattable", "comma.character", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "comma.character", 0, 0, 0, "character", 1
+"formattable", "comma.character", 1, 0, 0, "integer", 1
+"formattable", "comma.character", 2, 0, 0, "character", 1
+"formattable", "comma.character", 3, 0, 0, "character", 1
+"formattable", "comma.character", 4, 0, 0, "...", 1
+"formattable", "comma.default", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "comma.default", 0, 0, 0, "double[]", 1
+"formattable", "comma.default", 1, 0, 0, "integer", 1
+"formattable", "comma.default", 2, 0, 0, "character", 1
+"formattable", "comma.default", 3, 0, 0, "character", 1
+"formattable", "comma.default", 4, 0, 0, "...", 1
+"formattable", "cop_create_obj", -1, 0, 0, "(class<`Date`, `formattable`> | class<`formattable`, `numeric`> | class<`POSIXct`, `POSIXt`, `formattable`>)", 1
+"formattable", "cop_create_obj", 0, 0, 0, "class<`function`>", 1
+"formattable", "cop_create_obj", 1, 0, 0, "character", 1
+"formattable", "cop_create_obj", 2, 0, 0, "class<`Date`, `formattable`>", 1
+"formattable", "cop_create_obj", 2, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "cop_create_obj", 2, 0, 2, "class<`POSIXct`, `POSIXt`, `formattable`>", 1
+"formattable", "cop_create_obj", 3, 0, 0, "double", 1
+"formattable", "cop_create_obj", 3, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "copy_dim", -1, 0, 0, "(character[] | class<`formattable`, `numeric`> | class<`matrix`>)", 1
+"formattable", "copy_dim", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "copy_dim", 0, 0, 1, "double[]", 1
+"formattable", "copy_dim", 0, 0, 2, "character[]", 1
+"formattable", "copy_dim", 0, 0, 3, "class<`matrix`>", 1
+"formattable", "copy_dim", 1, 0, 0, "character[]", 1
+"formattable", "copy_dim", 1, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "copy_dim", 2, 0, 0, "logical", 1
+"formattable", "copy_obj", -1, 0, 0, "(class<`formattable`, `logical`> | class<`formattable`, `numeric`>)", 1
+"formattable", "copy_obj", 0, 0, 0, "class<`formattable`, `logical`>", 1
+"formattable", "copy_obj", 0, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "copy_obj", 0, 0, 2, "class<`formattable`, `matrix`>", 1
+"formattable", "copy_obj", 1, 0, 0, "double[]", 1
+"formattable", "copy_obj", 2, 0, 0, "character", 1
+"formattable", "create_obj", -1, 0, 0, "(class<`array`, `formattable`> | class<`data.frame`, `formattable`> | class<`Date`, `formattable`> | class<`factor`, `formattable`> | class<`formattable`, `integer`> | class<`formattable`, `logical`> | class<`formattable`, `matrix`> | class<`formattable`, `numeric`> | class<`POSIXct`, `POSIXt`, `formattable`>)", 1
+"formattable", "create_obj", 0, 0, 0, "class<`array`>", 1
+"formattable", "create_obj", 0, 0, 1, "class<`data.frame`>", 1
+"formattable", "create_obj", 0, 0, 2, "class<`Date`>", 1
+"formattable", "create_obj", 0, 0, 3, "class<`factor`>", 1
+"formattable", "create_obj", 0, 0, 4, "^integer[]", 1
+"formattable", "create_obj", 0, 0, 5, "class<`matrix`>", 1
+"formattable", "create_obj", 0, 0, 6, "double[]", 1
+"formattable", "create_obj", 0, 0, 7, "class<`POSIXct`, `POSIXt`>", 1
+"formattable", "create_obj", 1, 0, 0, "character", 1
+"formattable", "create_obj", 2, 0, 0, "list<any>", 1
+"formattable", "csscolor", -1, 0, 0, "character[]", 1
+"formattable", "csscolor", 0, 0, 0, "character[]", 1
+"formattable", "csscolor", 0, 0, 1, "class<`matrix`>", 1
+"formattable", "csscolor", 1, 0, 0, "any", 1
+"formattable", "csscolor", 2, 0, 0, "logical", 1
+"formattable", "csscolor.character", -1, 0, 0, "character[]", 1
+"formattable", "csscolor.character", 0, 0, 0, "character[]", 1
+"formattable", "csscolor.character", 1, 0, 0, "character[]", 1
+"formattable", "csscolor.character", 2, 0, 0, "logical", 1
+"formattable", "csscolor.matrix", -1, 0, 0, "character[]", 1
+"formattable", "csscolor.matrix", 0, 0, 0, "class<`matrix`>", 1
+"formattable", "csscolor.matrix", 1, 0, 0, "character[]", 1
+"formattable", "csscolor.matrix", 2, 0, 0, "logical", 1
+"formattable", "currency", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "currency", 0, 0, 0, "character", 1
+"formattable", "currency", 0, 0, 1, "double", 1
+"formattable", "currency", 1, 0, 0, "any", 1
+"formattable", "currency", 2, 0, 0, "any", 1
+"formattable", "currency", 3, 0, 0, "character", 1
+"formattable", "currency", 4, 0, 0, "character", 1
+"formattable", "currency", 5, 0, 0, "...", 1
+"formattable", "currency.character", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "currency.character", 0, 0, 0, "character", 1
+"formattable", "currency.character", 1, 0, 0, "any", 1
+"formattable", "currency.character", 2, 0, 0, "integer", 1
+"formattable", "currency.character", 3, 0, 0, "character", 1
+"formattable", "currency.character", 4, 0, 0, "character", 1
+"formattable", "currency.character", 5, 0, 0, "...", 1
+"formattable", "currency.default", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "currency.default", 0, 0, 0, "double", 1
+"formattable", "currency.default", 1, 0, 0, "any", 1
+"formattable", "currency.default", 2, 0, 0, "integer", 1
+"formattable", "currency.default", 3, 0, 0, "character", 1
+"formattable", "currency.default", 4, 0, 0, "character", 1
+"formattable", "currency.default", 5, 0, 0, "...", 1
+"formattable", "currency.default", 6, 0, 0, "character", 1
+"formattable", "digits", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "digits", 0, 0, 0, "double", 1
+"formattable", "digits", 1, 0, 0, "double", 1
+"formattable", "digits", 2, 0, 0, "character", 1
+"formattable", "digits", 3, 0, 0, "...", 1
+"formattable", "eval_formula", -1, 0, 0, "^character[]", 1
+"formattable", "eval_formula", 0, 0, 0, "class<`formula`>", 1
+"formattable", "eval_formula", 1, 0, 0, "any", 1
+"formattable", "eval_formula", 2, 0, 0, "any", 1
+"formattable", "eval_formula", 3, 0, 0, "environment", 1
+"formattable", "fcreate_obj", -1, 0, 0, "(class<`formattable`, `logical`> | class<`formattable`, `numeric`>)", 1
+"formattable", "fcreate_obj", 0, 0, 0, "class<`function`>", 1
+"formattable", "fcreate_obj", 1, 0, 0, "character", 1
+"formattable", "fcreate_obj", 2, 0, 0, "class<`formattable`, `logical`>", 1
+"formattable", "fcreate_obj", 2, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "fcreate_obj", 3, 0, 0, "...", 1
+"formattable", "format.formattable", -1, 0, 0, "character[]", 1
+"formattable", "format.formattable", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "format.formattable", 1, 0, 0, "...", 1
+"formattable", "format.formattable", 2, 0, 0, "null", 1
+"formattable", "format.formattable", 3, 0, 0, "character", 1
+"formattable", "format.formattable", 4, 0, 0, "logical", 1
+"formattable", "format.formattable", 5, 0, 0, "logical", 1
+"formattable", "format.formattable", 6, 0, 0, "logical", 1
+"formattable", "formattable", -1, 0, 0, "(class<`array`, `formattable`> | class<`data.frame`, `formattable`> | class<`Date`, `formattable`> | class<`factor`, `formattable`> | class<`formattable`, `integer`> | class<`formattable`, `logical`> | class<`formattable`, `matrix`> | class<`formattable`, `numeric`> | class<`POSIXct`, `POSIXt`, `formattable`>)", 1
+"formattable", "formattable", 0, 0, 0, "class<`array`>", 1
+"formattable", "formattable", 0, 0, 1, "class<`data.frame`>", 1
+"formattable", "formattable", 0, 0, 2, "class<`Date`>", 1
+"formattable", "formattable", 0, 0, 3, "class<`factor`>", 1
+"formattable", "formattable", 0, 0, 4, "^integer[]", 1
+"formattable", "formattable", 0, 0, 5, "class<`matrix`>", 1
+"formattable", "formattable", 0, 0, 6, "class<`formattable`, `numeric`>", 1
+"formattable", "formattable", 0, 0, 7, "double[]", 1
+"formattable", "formattable", 0, 0, 8, "class<`POSIXct`, `POSIXt`>", 1
+"formattable", "formattable", 1, 0, 0, "...", 1
+"formattable", "[.formattable", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "[.formattable", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "[.formattable", 0, 0, 1, "class<`formattable`, `matrix`>", 1
+"formattable", "[.formattable", 1, 0, 0, "...", 1
+"formattable", "[[<-.formattable", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "[[<-.formattable", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "[[<-.formattable", 1, 0, 0, "...", 1
+"formattable", "[[<-.formattable", 2, 0, 0, "double", 1
+"formattable", "[[.formattable", -1, 0, 0, "(class<`formattable`, `logical`> | class<`formattable`, `numeric`>)", 1
+"formattable", "[[.formattable", 0, 0, 0, "class<`formattable`, `logical`>", 1
+"formattable", "[[.formattable", 0, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "[[.formattable", 1, 0, 0, "...", 1
+"formattable", "*.formattable", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "*.formattable", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "*.formattable", 1, 0, 0, "double", 1
+"formattable", "+.formattable", -1, 0, 0, "(class<`Date`, `formattable`> | class<`formattable`, `numeric`> | class<`POSIXct`, `POSIXt`, `formattable`>)", 1
+"formattable", "+.formattable", 0, 0, 0, "class<`Date`, `formattable`>", 1
+"formattable", "+.formattable", 0, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "+.formattable", 0, 0, 2, "class<`POSIXct`, `POSIXt`, `formattable`>", 1
+"formattable", "+.formattable", 1, 0, 0, "double", 1
+"formattable", "+.formattable", 1, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "format_table", -1, 0, 0, "class<`knitr_kable`>", 1
+"formattable", "format_table", 0, 0, 0, "class<`data.frame`>", 1
+"formattable", "format_table", 1, 0, 0, "list<class<`formula`> | class<`formatter`, `function`> | logical>", 1
+"formattable", "format_table", 2, 0, 0, "character[]", 1
+"formattable", "format_table", 3, 0, 0, "character", 1
+"formattable", "format_table", 4, 0, 0, "...", 1
+"formattable", "format_table", 5, 0, 0, "integer", 1
+"formattable", "format_table", 6, 0, 0, "character", 1
+"formattable", "formattable.data.frame", -1, 0, 0, "class<`data.frame`, `formattable`>", 1
+"formattable", "formattable.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"formattable", "formattable.data.frame", 1, 0, 0, "...", 1
+"formattable", "formattable.data.frame", 2, 0, 0, "character", 1
+"formattable", "formattable.data.frame", 3, 0, 0, "null", 1
+"formattable", "formattable.data.frame", 4, 0, 0, "null", 1
+"formattable", "formattable.Date", -1, 0, 0, "class<`Date`, `formattable`>", 1
+"formattable", "formattable.Date", 0, 0, 0, "class<`Date`>", 1
+"formattable", "formattable.Date", 1, 0, 0, "...", 1
+"formattable", "formattable.Date", 2, 0, 0, "character", 1
+"formattable", "formattable.Date", 3, 0, 0, "null", 1
+"formattable", "formattable.Date", 4, 0, 0, "null", 1
+"formattable", "formattable.factor", -1, 0, 0, "class<`factor`, `formattable`>", 1
+"formattable", "formattable.factor", 0, 0, 0, "class<`factor`>", 1
+"formattable", "formattable.factor", 1, 0, 0, "...", 1
+"formattable", "formattable.factor", 2, 0, 0, "character", 1
+"formattable", "formattable.factor", 3, 0, 0, "null", 1
+"formattable", "formattable.factor", 4, 0, 0, "null", 1
+"formattable", "formattable.formattable", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "formattable.formattable", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "formattable.formattable", 1, 0, 0, "...", 1
+"formattable", "formattable.formattable", 2, 0, 0, "any", 1
+"formattable", "formattable.formattable", 3, 0, 0, "any", 1
+"formattable", "formattable.formattable", 4, 0, 0, "list<class<`function`>>", 1
+"formattable", "formattable.logical", -1, 0, 0, "class<`formattable`, `logical`>", 1
+"formattable", "formattable.logical", 0, 0, 0, "logical[]", 1
+"formattable", "formattable.logical", 1, 0, 0, "...", 1
+"formattable", "formattable.logical", 2, 0, 0, "character", 1
+"formattable", "formattable.logical", 3, 0, 0, "null", 1
+"formattable", "formattable.logical", 4, 0, 0, "null", 1
+"formattable", "formattable.numeric", -1, 0, 0, "(class<`array`, `formattable`> | class<`formattable`, `integer`> | class<`formattable`, `matrix`> | class<`formattable`, `numeric`>)", 1
+"formattable", "formattable.numeric", 0, 0, 0, "class<`array`>", 1
+"formattable", "formattable.numeric", 0, 0, 1, "^integer[]", 1
+"formattable", "formattable.numeric", 0, 0, 2, "class<`matrix`>", 1
+"formattable", "formattable.numeric", 0, 0, 3, "double[]", 1
+"formattable", "formattable.numeric", 1, 0, 0, "...", 1
+"formattable", "formattable.numeric", 2, 0, 0, "character", 1
+"formattable", "formattable.numeric", 3, 0, 0, "character", 1
+"formattable", "formattable.numeric", 3, 0, 1, "null", 1
+"formattable", "formattable.numeric", 4, 0, 0, "character", 1
+"formattable", "formattable.numeric", 4, 0, 1, "class<`function`>", 1
+"formattable", "formattable.numeric", 4, 0, 2, "null", 1
+"formattable", "formattable.numeric", 4, 0, 3, "list<class<`function`>>", 1
+"formattable", "formattable.POSIXct", -1, 0, 0, "class<`POSIXct`, `POSIXt`, `formattable`>", 1
+"formattable", "formattable.POSIXct", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"formattable", "formattable.POSIXct", 1, 0, 0, "...", 1
+"formattable", "formattable.POSIXct", 2, 0, 0, "character", 1
+"formattable", "formattable.POSIXct", 3, 0, 0, "null", 1
+"formattable", "formattable.POSIXct", 4, 0, 0, "null", 1
+"formattable", "formatter", -1, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "formatter", 0, 0, 0, "character", 1
+"formattable", "formatter", 1, 0, 0, "...", 1
+"formattable", "FUN", -1, 0, 0, "logical", 1
+"formattable", "FUN", 0, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "FUN", 0, 0, 1, "class<`formula`>", 1
+"formattable", "FUN", 0, 0, 2, "logical", 1
+"formattable", "get_digits", -1, 0, 0, "integer[]", 1
+"formattable", "get_digits", 0, 0, 0, "character[]", 1
+"formattable", "get_false_entries", -1, 0, 0, "(character[] | null)", 1
+"formattable", "get_false_entries", 0, 0, 0, "list<any>", 1
+"formattable", "gradient", -1, 0, 0, "class<`matrix`>", 1
+"formattable", "gradient", 0, 0, 0, "double[]", 1
+"formattable", "gradient", 1, 0, 0, "character", 1
+"formattable", "gradient", 2, 0, 0, "character", 1
+"formattable", "gradient", 3, 0, 0, "logical", 1
+"formattable", "gradient", 3, 0, 1, "null", 1
+"formattable", "gradient", 4, 0, 0, "logical", 1
+"formattable", "gradient", 5, 0, 0, "logical", 1
+"formattable", "icontext", -1, 0, 0, "(class<`list`, `shiny.tag.list`> | list<class<`list`, `shiny.tag.list`>>)", 1
+"formattable", "icontext", 0, 0, 0, "character[]", 1
+"formattable", "icontext", 0, 0, 1, "list<character[]>", 1
+"formattable", "icontext", 1, 0, 0, "double[]", 1
+"formattable", "icontext", 1, 0, 1, "character[]", 1
+"formattable", "icontext", 1, 0, 2, "list<null>", 1
+"formattable", "icontext", 2, 0, 0, "...", 1
+"formattable", "icontext", 3, 0, 0, "logical", 1
+"formattable", "icontext", 4, 0, 0, "character", 1
+"formattable", "icontext", 5, 0, 0, "character", 1
+"formattable", "ifelse", -1, 0, 0, "(character[] | double[])", 1
+"formattable", "ifelse", 0, 0, 0, "logical[]", 1
+"formattable", "ifelse", 1, 0, 0, "character[]", 1
+"formattable", "ifelse", 1, 0, 1, "double", 1
+"formattable", "ifelse", 1, 0, 2, "integer[]", 1
+"formattable", "ifelse", 2, 0, 0, "character", 1
+"formattable", "ifelse", 2, 0, 1, "double", 1
+"formattable", "ifelse", 3, 0, 0, "...", 1
+"formattable", "is_false", -1, 0, 0, "logical", 1
+"formattable", "is_false", 0, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "is_false", 0, 0, 1, "class<`formula`>", 1
+"formattable", "is_false", 0, 0, 2, "logical", 1
+"formattable", "is.formattable", -1, 0, 0, "logical", 1
+"formattable", "is.formattable", 0, 0, 0, "class<`data.frame`, `formattable`>", 1
+"formattable", "is.formattable", 0, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "is.formattable", 0, 0, 2, "double", 1
+"formattable", "max.formattable", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "max.formattable", 0, 0, 0, "...", 1
+"formattable", "mean.formattable", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "mean.formattable", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "mean.formattable", 1, 0, 0, "...", 1
+"formattable", "normalize", -1, 0, 0, "double[]", 1
+"formattable", "normalize", 0, 0, 0, "double[]", 1
+"formattable", "normalize", 1, 0, 0, "double", 1
+"formattable", "normalize", 2, 0, 0, "double", 1
+"formattable", "normalize", 3, 0, 0, "logical", 1
+"formattable", "normalize_bar", -1, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "normalize_bar", 0, 0, 0, "character", 1
+"formattable", "normalize_bar", 1, 0, 0, "...", 1
+"formattable", "percent", -1, 0, 0, "(class<`array`, `formattable`> | class<`formattable`, `matrix`> | class<`formattable`, `numeric`>)", 1
+"formattable", "percent", 0, 0, 0, "class<`array`>", 1
+"formattable", "percent", 0, 0, 1, "class<`matrix`>", 1
+"formattable", "percent", 0, 0, 2, "character[]", 1
+"formattable", "percent", 0, 0, 3, "double[]", 1
+"formattable", "percent", 1, 0, 0, "any", 1
+"formattable", "percent", 2, 0, 0, "character", 1
+"formattable", "percent", 3, 0, 0, "...", 1
+"formattable", "percent.character", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "percent.character", 0, 0, 0, "character[]", 1
+"formattable", "percent.character", 1, 0, 0, "null", 1
+"formattable", "percent.character", 2, 0, 0, "character", 1
+"formattable", "percent.character", 3, 0, 0, "...", 1
+"formattable", "percent.default", -1, 0, 0, "(class<`formattable`, `numeric`> | class<`array`, `formattable`> | class<`formattable`, `matrix`>)", 1
+"formattable", "percent.default", 0, 0, 0, "double[]", 1
+"formattable", "percent.default", 0, 0, 1, "class<`array`>", 1
+"formattable", "percent.default", 0, 0, 2, "class<`matrix`>", 1
+"formattable", "percent.default", 1, 0, 0, "double", 1
+"formattable", "percent.default", 2, 0, 0, "character", 1
+"formattable", "percent.default", 3, 0, 0, "...", 1
+"formattable", "prefix", -1, 0, 0, "(class<`formattable`, `integer`> | class<`formattable`, `numeric`>)", 1
+"formattable", "prefix", 0, 0, 0, "^integer[]", 1
+"formattable", "prefix", 0, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "prefix", 0, 0, 2, "double[]", 1
+"formattable", "prefix", 1, 0, 0, "character", 1
+"formattable", "prefix", 2, 0, 0, "character", 1
+"formattable", "prefix", 3, 0, 0, "...", 1
+"formattable", "prefix", 4, 0, 0, "character", 1
+"formattable", "prefix", 4, 0, 1, "null", 1
+"formattable", "proportion", -1, 0, 0, "double[]", 1
+"formattable", "proportion", 0, 0, 0, "double[]", 1
+"formattable", "proportion", 1, 0, 0, "logical", 1
+"formattable", "proportion_bar", -1, 0, 0, "class<`formatter`, `function`>", 1
+"formattable", "proportion_bar", 0, 0, 0, "character", 1
+"formattable", "proportion_bar", 1, 0, 0, "...", 1
+"formattable", "qrank", -1, 0, 0, "double[]", 1
+"formattable", "qrank", 0, 0, 0, "double[]", 1
+"formattable", "qrank", 1, 0, 0, "...", 1
+"formattable", "remove_attribute", -1, 0, 0, "character[]", 1
+"formattable", "remove_attribute", 0, 0, 0, "character[]", 1
+"formattable", "remove_attribute", 1, 0, 0, "character", 1
+"formattable", "remove_class", -1, 0, 0, "(class<`data.frame`> | class<`Date`> | class<`POSIXct`, `POSIXt`> | double[])", 1
+"formattable", "remove_class", 0, 0, 0, "class<`data.frame`, `formattable`>", 1
+"formattable", "remove_class", 0, 0, 1, "class<`Date`, `formattable`>", 1
+"formattable", "remove_class", 0, 0, 2, "class<`POSIXct`, `POSIXt`, `formattable`>", 1
+"formattable", "remove_class", 0, 0, 3, "class<`formattable`, `numeric`>", 1
+"formattable", "remove_class", 0, 0, 4, "class<`formattable`, `logical`>", 1
+"formattable", "remove_class", 1, 0, 0, "character", 1
+"formattable", "render_html_matrix", -1, 0, 0, "class<`matrix`>", 1
+"formattable", "render_html_matrix", 0, 0, 0, "class<`data.frame`>", 1
+"formattable", "render_html_matrix", 1, 0, 0, "...", 1
+"formattable", "render_html_matrix.data.frame", -1, 0, 0, "class<`matrix`>", 1
+"formattable", "render_html_matrix.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"formattable", "render_html_matrix.data.frame", 1, 0, 0, "list<class<`formula`> | class<`formatter`, `function`> | logical>", 1
+"formattable", "render_html_matrix.data.frame", 2, 0, 0, "integer", 1
+"formattable", "render_html_matrix.data.frame", 3, 0, 0, "...", 1
+"formattable", "render_html_matrix.formattable", -1, 0, 0, "class<`matrix`>", 1
+"formattable", "render_html_matrix.formattable", 0, 0, 0, "class<`data.frame`, `formattable`>", 1
+"formattable", "render_html_matrix.formattable", 1, 0, 0, "...", 1
+"formattable", "reset_class", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "reset_class", 0, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "reset_class", 1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "reset_class", 2, 0, 0, "character", 1
+"formattable", "scientific", -1, 0, 0, "class<`formattable`, `numeric`>", 1
+"formattable", "scientific", 0, 0, 0, "double", 1
+"formattable", "scientific", 1, 0, 0, "character[]", 1
+"formattable", "scientific", 2, 0, 0, "...", 1
+"formattable", "seq_list", -1, 0, 0, "list<integer>", 1
+"formattable", "seq_list", 0, 0, 0, "character[]", 1
+"formattable", "set_class", -1, 0, 0, "(class<`array`, `formattable`> | class<`data.frame`, `formattable`> | class<`Date`, `formattable`> | class<`factor`, `formattable`> | class<`formattable`, `integer`> | class<`formattable`, `logical`> | class<`formattable`, `matrix`> | class<`formattable`, `numeric`> | class<`POSIXct`, `POSIXt`, `formattable`>)", 1
+"formattable", "set_class", 0, 0, 0, "class<`array`>", 1
+"formattable", "set_class", 0, 0, 1, "class<`data.frame`>", 1
+"formattable", "set_class", 0, 0, 2, "class<`Date`>", 1
+"formattable", "set_class", 0, 0, 3, "class<`factor`>", 1
+"formattable", "set_class", 0, 0, 4, "^integer[]", 1
+"formattable", "set_class", 0, 0, 5, "class<`matrix`>", 1
+"formattable", "set_class", 0, 0, 6, "double[]", 1
+"formattable", "set_class", 0, 0, 7, "class<`POSIXct`, `POSIXt`>", 1
+"formattable", "set_class", 1, 0, 0, "character", 1
+"formattable", "str2rgb", -1, 0, 0, "class<`matrix`>", 1
+"formattable", "str2rgb", 0, 0, 0, "character[]", 1
+"formattable", "str2rgb", 1, 0, 0, "logical", 1
+"formattable", "str2rgb", 1, 0, 1, "null", 1
+"formattable", "style", -1, 0, 0, "character[]", 1
+"formattable", "style", 0, 0, 0, "...", 1
+"formattable", "suffix", -1, 0, 0, "(class<`formattable`, `integer`> | class<`formattable`, `numeric`>)", 1
+"formattable", "suffix", 0, 0, 0, "^integer[]", 1
+"formattable", "suffix", 0, 0, 1, "class<`formattable`, `numeric`>", 1
+"formattable", "suffix", 0, 0, 2, "double[]", 1
+"formattable", "suffix", 1, 0, 0, "any", 1
+"formattable", "suffix", 2, 0, 0, "character", 1
+"formattable", "suffix", 3, 0, 0, "...", 1
+"formattable", "suffix", 4, 0, 0, "character", 1
+"formattable", "suffix", 4, 0, 1, "null", 1
+"formattable", "vmap", -1, 0, 0, "(character[] | double[])", 1
+"formattable", "vmap", 0, 0, 0, "double[]", 1
+"formattable", "vmap", 0, 0, 1, "character[]", 1
+"formattable", "vmap", 1, 0, 0, "...", 1
+"formattable", "vmap", 2, 0, 0, "logical", 1

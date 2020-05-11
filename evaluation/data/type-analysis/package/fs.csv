@@ -1,18 +1,343 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"fs", "::", -1, 0, 0, "character[]", 1
-"fs", "::", 0, 0, 0, "character[]", 1
-"fs", "::", 0, 0, 1, "null", 1
-"fs", "::", 1, 0, 0, "character", 1
-"fs", "::", 1, 0, 1, "null", 1
-"fs", "::", 1, 0, 2, "logical", 1
-"fs", "::", 2, 0, 0, "character", 1
-"fs", "::", 2, 0, 1, "logical", 1
-"fs", "::", 3, 0, 0, "logical", 1
-"fs", "::", 3, 0, 1, "character", 1
-"fs", "::", 4, 0, 0, "null", 1
-"fs", "::", 4, 0, 1, "character", 1
-"fs", "::", 5, 0, 0, "null", 1
-"fs", "::", 6, 0, 0, "logical", 1
-"fs", "::", 7, 0, 0, "logical", 1
-"fs", "::", 8, 0, 0, "null", 1
-"fs", "::", 9, 0, 0, "null", 1
+"fs", "%||%", -1, 0, 0, "(character | class<`character`, `fs_path`>)", 1
+"fs", "%||%", 0, 0, 0, "null", 1
+"fs", "%||%", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "%||%", 1, 0, 0, "any", 1
+"fs", "access_", -1, 0, 0, "logical", 1
+"fs", "access_", 0, 0, 0, "character", 1
+"fs", "access_", 1, 0, 0, "integer", 1
+"fs", "as_fs_bytes", -1, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "as_fs_bytes", 0, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "as_fs_bytes", 0, 0, 1, "character[]", 1
+"fs", "as_fs_bytes.default", -1, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "as_fs_bytes.default", 0, 0, 0, "character[]", 1
+"fs", "as_fs_bytes.fs_bytes", -1, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "as_fs_bytes.fs_bytes", 0, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "as_fs_perms", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "as_fs_perms", 0, 0, 0, "character[]", 1
+"fs", "as_fs_perms", 0, 0, 1, "class<`fs_perms`, `integer`>", 1
+"fs", "as_fs_perms", 0, 0, 2, "double[]", 1
+"fs", "as_fs_perms", 1, 0, 0, "...", 1
+"fs", "as_fs_perms.character", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "as_fs_perms.character", 0, 0, 0, "character[]", 1
+"fs", "as_fs_perms.character", 1, 0, 0, "...", 1
+"fs", "as_fs_perms.character", 2, 0, 0, "class<`fs_perms`>", 1
+"fs", "as_fs_perms.character", 2, 0, 1, "double", 1
+"fs", "as_fs_perms.fs_perms", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "as_fs_perms.fs_perms", 0, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "as_fs_perms.fs_perms", 1, 0, 0, "...", 1
+"fs", "as_fs_perms.integer", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "as_fs_perms.integer", 0, 0, 0, "integer", 1
+"fs", "as_fs_perms.integer", 1, 0, 0, "...", 1
+"fs", "as_fs_perms.numeric", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "as_fs_perms.numeric", 0, 0, 0, "double[]", 1
+"fs", "as_fs_perms.numeric", 1, 0, 0, "...", 1
+"fs", "assert", -1, 0, 0, "null", 1
+"fs", "assert", 0, 0, 0, "character", 1
+"fs", "assert", 1, 0, 0, "...", 1
+"fs", "assert", 2, 0, 0, "character", 1
+"fs", "assert_no_missing", -1, 0, 0, "null", 1
+"fs", "assert_no_missing", 0, 0, 0, "character[]", 1
+"fs", "assert_no_missing", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "auto_name", -1, 0, 0, "character[]", 1
+"fs", "auto_name", 0, 0, 0, "character[]", 1
+"fs", "captures", -1, 0, 0, "class<`data.frame`>", 1
+"fs", "captures", 0, 0, 0, "character[]", 1
+"fs", "captures", 1, 0, 0, "integer[]", 1
+"fs", "chmod_", -1, 0, 0, "null", 1
+"fs", "chmod_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "chmod_", 1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "copyfile_", -1, 0, 0, "any", 1
+"fs", "copyfile_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "copyfile_", 1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "copyfile_", 2, 0, 0, "logical", 1
+"fs", "create_", -1, 0, 0, "any", 1
+"fs", "create_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "create_", 1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "create_", 1, 0, 1, "double", 1
+"fs", "dir_copy", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "dir_copy", 0, 0, 0, "character", 1
+"fs", "dir_copy", 1, 0, 0, "character", 1
+"fs", "dir_copy", 2, 0, 0, "logical", 1
+"fs", "dir_create", -1, 0, 0, "any", 1
+"fs", "dir_create", 0, 0, 0, "character", 1
+"fs", "dir_create", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "dir_create", 1, 0, 0, "...", 1
+"fs", "dir_create", 2, 0, 0, "character", 1
+"fs", "dir_create", 3, 0, 0, "logical", 1
+"fs", "dir_create", 4, 0, 0, "any", 1
+"fs", "dir_delete", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "dir_delete", 0, 0, 0, "character[]", 1
+"fs", "dir_delete", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "dir_exists", -1, 0, 0, "logical", 1
+"fs", "dir_exists", 0, 0, 0, "character", 1
+"fs", "dir_exists", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "dir_info", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"fs", "dir_info", 0, 0, 0, "character", 1
+"fs", "dir_info", 1, 0, 0, "logical", 1
+"fs", "dir_info", 2, 0, 0, "logical", 1
+"fs", "dir_info", 3, 0, 0, "character", 1
+"fs", "dir_info", 4, 0, 0, "null", 1
+"fs", "dir_info", 5, 0, 0, "null", 1
+"fs", "dir_info", 6, 0, 0, "logical", 1
+"fs", "dir_info", 7, 0, 0, "...", 1
+"fs", "dir_ls", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "dir_ls", 0, 0, 0, "character", 1
+"fs", "dir_ls", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "dir_ls", 1, 0, 0, "logical", 1
+"fs", "dir_ls", 2, 0, 0, "logical", 1
+"fs", "dir_ls", 3, 0, 0, "character[]", 1
+"fs", "dir_ls", 4, 0, 0, "null", 1
+"fs", "dir_ls", 4, 0, 1, "character", 1
+"fs", "dir_ls", 5, 0, 0, "null", 1
+"fs", "dir_ls", 6, 0, 0, "logical", 1
+"fs", "dir_ls", 7, 0, 0, "logical", 1
+"fs", "dir_ls", 8, 0, 0, "...", 1
+"fs", "dir_ls", 9, 0, 0, "any", 1
+"fs", "dir_map", -1, 0, 0, "list<any>", 1
+"fs", "dir_map", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "dir_map", 0, 0, 1, "character", 1
+"fs", "dir_map", 1, 0, 0, "class<`function`>", 1
+"fs", "dir_map", 2, 0, 0, "logical", 1
+"fs", "dir_map", 3, 0, 0, "logical", 1
+"fs", "dir_map", 4, 0, 0, "character[]", 1
+"fs", "dir_map", 5, 0, 0, "logical", 1
+"fs", "dir_map_", -1, 0, 0, "list<any>", 1
+"fs", "dir_map_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "dir_map_", 1, 0, 0, "class<`function`>", 1
+"fs", "dir_map_", 2, 0, 0, "logical", 1
+"fs", "dir_map_", 3, 0, 0, "integer", 1
+"fs", "dir_map_", 4, 0, 0, "double", 1
+"fs", "dir_map_", 5, 0, 0, "logical", 1
+"fs", "dir_walk", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "dir_walk", 0, 0, 0, "character", 1
+"fs", "dir_walk", 1, 0, 0, "class<`function`>", 1
+"fs", "dir_walk", 2, 0, 0, "logical", 1
+"fs", "dir_walk", 3, 0, 0, "logical", 1
+"fs", "dir_walk", 4, 0, 0, "character", 1
+"fs", "dir_walk", 5, 0, 0, "logical", 1
+"fs", "display_mode_to_symbolic_mode_posix", -1, 0, 0, "character", 1
+"fs", "display_mode_to_symbolic_mode_posix", 0, 0, 0, "character[]", 1
+"fs", "expand_", -1, 0, 0, "character[]", 1
+"fs", "expand_", 0, 0, 0, "character[]", 1
+"fs", "expand_", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "expand_", 1, 0, 0, "logical", 1
+"fs", "f", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "f", 0, 0, 0, "...", 1
+"fs", "f", 1, 0, 0, "character", 1
+"fs", "file_access", -1, 0, 0, "logical", 1
+"fs", "file_access", 0, 0, 0, "character", 1
+"fs", "file_access", 1, 0, 0, "character", 1
+"fs", "file_chmod", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_chmod", 0, 0, 0, "character[]", 1
+"fs", "file_chmod", 1, 0, 0, "character[]", 1
+"fs", "file_copy", -1, 0, 0, "any", 1
+"fs", "file_copy", 0, 0, 0, "character", 1
+"fs", "file_copy", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "file_copy", 1, 0, 0, "character", 1
+"fs", "file_copy", 1, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "file_copy", 2, 0, 0, "logical", 1
+"fs", "file_create", -1, 0, 0, "any", 1
+"fs", "file_create", 0, 0, 0, "character[]", 1
+"fs", "file_create", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "file_create", 1, 0, 0, "...", 1
+"fs", "file_create", 2, 0, 0, "character", 1
+"fs", "file_delete", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_delete", 0, 0, 0, "character[]", 1
+"fs", "file_delete", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "file_exists", -1, 0, 0, "logical[]", 1
+"fs", "file_exists", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_exists", 0, 0, 1, "character[]", 1
+"fs", "file_info", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"fs", "file_info", 0, 0, 0, "character[]", 1
+"fs", "file_info", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "file_info", 1, 0, 0, "logical", 1
+"fs", "file_move", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_move", 0, 0, 0, "character", 1
+"fs", "file_move", 1, 0, 0, "character", 1
+"fs", "file_temp", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_temp", 0, 0, 0, "character", 1
+"fs", "file_temp", 1, 0, 0, "character", 1
+"fs", "file_temp", 2, 0, 0, "character", 1
+"fs", "file_temp_pop", -1, 0, 0, "(class<`character`, `fs_path`> | null)", 1
+"fs", "file_temp_push", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_temp_push", 0, 0, 0, "character[]", 1
+"fs", "file_touch", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_touch", 0, 0, 0, "character", 1
+"fs", "file_touch", 1, 0, 0, "character", 1
+"fs", "file_touch", 2, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"fs", "fs_bytes", -1, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "fs_bytes", 0, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "fs_bytes", 0, 0, 1, "character[]", 1
+"fs", "[.fs_path", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "[.fs_path", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "[.fs_path", 1, 0, 0, "double", 1
+"fs", "[.fs_path", 1, 0, 1, "integer[]", 1
+"fs", "==.fs_perms", -1, 0, 0, "logical", 1
+"fs", "==.fs_perms", 0, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "==.fs_perms", 1, 0, 0, "character", 1
+"fs", "&.fs_perms", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "&.fs_perms", 0, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "&.fs_perms", 1, 0, 0, "character", 1
+"fs", "&.fs_perms", 1, 0, 1, "class<`fs_perms`, `integer`>", 1
+"fs", "fs_perms", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "fs_perms", 0, 0, 0, "character[]", 1
+"fs", "fs_perms", 0, 0, 1, "class<`fs_perms`, `integer`>", 1
+"fs", "fs_perms", 0, 0, 2, "double[]", 1
+"fs", "fs_perms", 1, 0, 0, "...", 1
+"fs", "FUN", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "FUN", 0, 0, 0, "character[]", 1
+"fs", "FUN", 0, 0, 1, "list<character[]>", 1
+"fs", "getmode_", -1, 0, 0, "integer", 1
+"fs", "getmode_", 0, 0, 0, "character", 1
+"fs", "getmode_", 1, 0, 0, "double", 1
+"fs", "group_ids", -1, 0, 0, "class<`data.frame`>", 1
+"fs", "groups_", -1, 0, 0, "class<`data.frame`>", 1
+"fs", "is_absolute_path", -1, 0, 0, "logical[]", 1
+"fs", "is_absolute_path", 0, 0, 0, "character[]", 1
+"fs", "is_absolute_path", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "is_dir", -1, 0, 0, "logical[]", 1
+"fs", "is_dir", 0, 0, 0, "character", 1
+"fs", "is_dir", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "is_file", -1, 0, 0, "logical[]", 1
+"fs", "is_file", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "is_file", 0, 0, 1, "character", 1
+"fs", "is_link", -1, 0, 0, "logical[]", 1
+"fs", "is_link", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "is_link", 0, 0, 1, "character", 1
+"fs", "is_windows", -1, 0, 0, "logical", 1
+"fs", "link_copy", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "link_copy", 0, 0, 0, "character", 1
+"fs", "link_copy", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "link_copy", 1, 0, 0, "character", 1
+"fs", "link_copy", 1, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "link_copy", 2, 0, 0, "logical", 1
+"fs", "link_create", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "link_create", 0, 0, 0, "character", 1
+"fs", "link_create", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "link_create", 1, 0, 0, "character", 1
+"fs", "link_create", 1, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "link_create", 2, 0, 0, "logical", 1
+"fs", "link_create_symbolic_", -1, 0, 0, "null", 1
+"fs", "link_create_symbolic_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "link_create_symbolic_", 1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "link_delete", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "link_delete", 0, 0, 0, "character[]", 1
+"fs", "link_delete", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "link_exists", -1, 0, 0, "logical[]", 1
+"fs", "link_exists", 0, 0, 0, "character", 1
+"fs", "link_exists", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "link_path", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "link_path", 0, 0, 0, "character[]", 1
+"fs", "link_path", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "mkdir_", -1, 0, 0, "any", 1
+"fs", "mkdir_", 0, 0, 0, "character[]", 1
+"fs", "mkdir_", 1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "move_", -1, 0, 0, "null", 1
+"fs", "move_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "move_", 1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "new_fs_bytes", -1, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "new_fs_bytes", 0, 0, 0, "double[]", 1
+"fs", "new_fs_path", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "new_fs_path", 0, 0, 0, "character[]", 1
+"fs", "new_fs_perms", -1, 0, 0, "class<`fs_perms`, `integer`>", 1
+"fs", "new_fs_perms", 0, 0, 0, "integer[]", 1
+"fs", "Ops.fs_bytes", -1, 0, 0, "logical", 1
+"fs", "Ops.fs_bytes", 0, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "Ops.fs_bytes", 1, 0, 0, "character", 1
+"fs", "path", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path", 0, 0, 0, "...", 1
+"fs", "path", 1, 0, 0, "character", 1
+"fs", "path_", -1, 0, 0, "character[]", 1
+"fs", "path_", 0, 0, 0, "character[]", 1
+"fs", "path_", 0, 0, 1, "list<character[]>", 1
+"fs", "path_", 1, 0, 0, "character", 1
+"fs", "path_abs", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_abs", 0, 0, 0, "character", 1
+"fs", "path_abs", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "path_abs", 1, 0, 0, "character", 1
+"fs", "path_common", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_common", 0, 0, 0, "character[]", 1
+"fs", "path_dir", -1, 0, 0, "character", 1
+"fs", "path_dir", 0, 0, 0, "character", 1
+"fs", "path_expand", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_expand", 0, 0, 0, "character[]", 1
+"fs", "path_expand", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "path_expand_r", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_expand_r", 0, 0, 0, "character", 1
+"fs", "path_ext", -1, 0, 0, "character", 1
+"fs", "path_ext", 0, 0, 0, "character", 1
+"fs", "path_ext_remove", -1, 0, 0, "character", 1
+"fs", "path_ext_remove", 0, 0, 0, "character", 1
+"fs", "path_ext_set", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_ext_set", 0, 0, 0, "character", 1
+"fs", "path_ext_set", 1, 0, 0, "character", 1
+"fs", "path_file", -1, 0, 0, "character[]", 1
+"fs", "path_file", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_file", 0, 0, 1, "character", 1
+"fs", "path_filter", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_filter", 0, 0, 0, "character[]", 1
+"fs", "path_filter", 1, 0, 0, "character", 1
+"fs", "path_filter", 1, 0, 1, "null", 1
+"fs", "path_filter", 2, 0, 0, "null", 1
+"fs", "path_filter", 2, 0, 1, "character", 1
+"fs", "path_filter", 3, 0, 0, "any", 1
+"fs", "path_filter", 4, 0, 0, "...", 1
+"fs", "path_home", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_home", 0, 0, 0, "...", 1
+"fs", "path_home_r", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_home_r", 0, 0, 0, "...", 1
+"fs", "path_join", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_join", 0, 0, 0, "character[]", 1
+"fs", "path_join", 0, 0, 1, "list<character[]>", 1
+"fs", "path_norm", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_norm", 0, 0, 0, "character[]", 1
+"fs", "path_norm", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "path_package", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_package", 0, 0, 0, "character", 1
+"fs", "path_package", 1, 0, 0, "...", 1
+"fs", "path_real", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_real", 0, 0, 0, "character", 1
+"fs", "path_rel", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_rel", 0, 0, 0, "character", 1
+"fs", "path_rel", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "path_rel", 1, 0, 0, "character", 1
+"fs", "path_sanitize", -1, 0, 0, "character", 1
+"fs", "path_sanitize", 0, 0, 0, "character", 1
+"fs", "path_sanitize", 1, 0, 0, "character", 1
+"fs", "path_split", -1, 0, 0, "list<any>", 1
+"fs", "path_split", 0, 0, 0, "character[]", 1
+"fs", "path_split", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "path_temp", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_temp", 0, 0, 0, "...", 1
+"fs", "path_tidy", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "path_tidy", 0, 0, 0, "character[]", 1
+"fs", "path_tidy", 0, 0, 1, "class<`character`, `fs_path`>", 1
+"fs", "path_tidy", 0, 0, 2, "list<any>", 1
+"fs", "readlink_", -1, 0, 0, "character[]", 1
+"fs", "readlink_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "realize_", -1, 0, 0, "character", 1
+"fs", "realize_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "register_s3_method", -1, 0, 0, "null", 1
+"fs", "register_s3_method", 0, 0, 0, "character", 1
+"fs", "register_s3_method", 1, 0, 0, "character", 1
+"fs", "register_s3_method", 2, 0, 0, "character", 1
+"fs", "register_s3_method", 3, 0, 0, "null", 1
+"fs", "rmdir_", -1, 0, 0, "null", 1
+"fs", "rmdir_", 0, 0, 0, "character[]", 1
+"fs", "stat_", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"fs", "stat_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "stat_", 1, 0, 0, "logical", 1
+"fs", "sum.fs_bytes", -1, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "sum.fs_bytes", 0, 0, 0, "class<`fs_bytes`, `numeric`>", 1
+"fs", "sum.fs_bytes", 1, 0, 0, "...", 1
+"fs", "tidy_", -1, 0, 0, "character[]", 1
+"fs", "tidy_", 0, 0, 0, "character[]", 1
+"fs", "touch_", -1, 0, 0, "null", 1
+"fs", "touch_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "touch_", 1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"fs", "touch_", 2, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"fs", "unlink_", -1, 0, 0, "null", 1
+"fs", "unlink_", 0, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "user_ids", -1, 0, 0, "class<`data.frame`>", 1
+"fs", "users_", -1, 0, 0, "class<`data.frame`>", 1

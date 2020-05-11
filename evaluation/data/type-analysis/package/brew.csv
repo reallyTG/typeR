@@ -1,11 +1,17 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"brew", "filter", -1, 0, 0, "logical[]", 1
-"brew", "filter", 0, 0, 0, "character[]", 1
-"brew", "brewCache", -1, 0, 0, "null", 1
+"brew", "brew", -1, 0, 0, "(class<`try-error`> | null)", 1
+"brew", "brew", 0, 0, 0, "character", 1
+"brew", "brew", 1, 0, 0, "character", 1
+"brew", "brew", 1, 0, 1, "class<`connection`, `terminal`>", 1
+"brew", "brew", 2, 0, 0, "null", 1
+"brew", "brew", 3, 0, 0, "environment", 1
+"brew", "brew", 4, 0, 0, "logical", 1
+"brew", "brew", 5, 0, 0, "logical", 1
+"brew", "brew", 6, 0, 0, "null", 1
+"brew", "brew", 6, 0, 1, "class<`function`>", 1
+"brew", "brew", 7, 0, 0, "logical", 1
+"brew", "brewCache", -1, 0, 0, "(environment | null)", 1
 "brew", "brewCache", 0, 0, 0, "null", 1
 "brew", "brewCache", 0, 0, 1, "environment", 1
 "brew", "brewCacheOff", -1, 0, 0, "null", 1
 "brew", "brewCacheOn", -1, 0, 0, "null", 1
-"brew", "fun", -1, 0, 0, "null", 1
-"brew", "fun", 0, 0, 0, "symbol", 1
-"brew", "fun", 1, 0, 0, "symbol", 1

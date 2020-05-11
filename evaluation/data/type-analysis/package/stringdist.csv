@@ -1,36 +1,41 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"stringdist", "::", -1, 0, 0, "^double[]", 1
-"stringdist", "::", 0, 0, 0, "character[]", 1
-"stringdist", "::", 0, 0, 1, "tuple<^integer[], integer[], null>", 1
-"stringdist", "::", 0, 0, 2, "tuple<double[], double[]>", 1
+"stringdist", "::", -1, 0, 0, "any", 1
+"stringdist", "::", 0, 0, 0, "^character[]", 1
+"stringdist", "::", 0, 0, 1, "null", 1
+"stringdist", "::", 0, 0, 2, "list<character>", 1
 "stringdist", "::", 1, 0, 0, "character[]", 1
-"stringdist", "::", 1, 0, 1, "tuple<double[]>", 1
-"stringdist", "::", 2, 0, 0, "character", 1
-"stringdist", "::", 3, 0, 0, "double[]", 1
+"stringdist", "::", 1, 0, 1, "null", 1
+"stringdist", "::", 1, 0, 2, "list<character>", 1
+"stringdist", "::", 2, 0, 0, "any", 1
+"stringdist", "::", 3, 0, 0, "logical", 1
 "stringdist", "::", 4, 0, 0, "double[]", 1
 "stringdist", "::", 5, 0, 0, "double", 1
 "stringdist", "::", 6, 0, 0, "double", 1
 "stringdist", "::", 7, 0, 0, "double", 1
-"stringdist", "::", 8, 0, 0, "double", 1
-"stringdist", "[[", -1, 0, 0, "character", 1
-"stringdist", "[[", 0, 0, 0, "struct<`message`:character, `call`:language>", 1
+"stringdist", "::", 8, 0, 0, "any", 1
+"stringdist", "::", -1, 1, 0, "any", 1
+"stringdist", "::", 0, 1, 0, "double[]", 1
+"stringdist", "::", 0, 1, 1, "list<any>", 1
+"stringdist", "::", 1, 1, 0, "double[]", 1
+"stringdist", "::", 1, 1, 1, "list<any>", 1
+"stringdist", "::", 2, 1, 0, "character[]", 1
+"stringdist", "::", 3, 1, 0, "double[]", 1
+"stringdist", "::", 4, 1, 0, "double", 1
+"stringdist", "::", 5, 1, 0, "double", 1
+"stringdist", "::", 6, 1, 0, "double", 1
+"stringdist", "::", 7, 1, 0, "double", 1
 "stringdist", "ain", -1, 0, 0, "logical", 1
 "stringdist", "ain", 0, 0, 0, "character", 1
 "stringdist", "ain", 1, 0, 0, "character[]", 1
-"stringdist", "ain", 2, 0, 0, "double", 1
+"stringdist", "ain", 2, 0, 0, "...", 1
 "stringdist", "all_int", -1, 0, 0, "logical", 1
-"stringdist", "all_int", 0, 0, 0, "tuple<>", 1
-"stringdist", "all_int", 0, 0, 1, "tuple<double[]>", 1
-"stringdist", "all_int", 0, 0, 2, "tuple<^integer[], integer[], null>", 1
-"stringdist", "all_int", 0, 0, 3, "tuple<^integer[], null>", 1
-"stringdist", "all_int", 0, 0, 4, "tuple<null>", 1
-"stringdist", "all_int", 0, 0, 5, "struct<`x`:double[], `y`:double[]>", 1
-"stringdist", "amatch", -1, 0, 0, "null", 1
-"stringdist", "amatch", 0, 0, 0, "null", 1
-"stringdist", "amatch", 0, 0, 1, "character[]", 1
-"stringdist", "amatch", 1, 0, 0, "null", 1
-"stringdist", "amatch", 1, 0, 1, "character[]", 1
-"stringdist", "amatch", 1, 0, 2, "^logical[]", 1
+"stringdist", "all_int", 0, 0, 0, "list<any>", 1
+"stringdist", "amatch", -1, 0, 0, "(^integer[] | null)", 1
+"stringdist", "amatch", 0, 0, 0, "character[]", 1
+"stringdist", "amatch", 0, 0, 1, "null", 1
+"stringdist", "amatch", 1, 0, 0, "character[]", 1
+"stringdist", "amatch", 1, 0, 1, "^logical[]", 1
+"stringdist", "amatch", 1, 0, 2, "null", 1
 "stringdist", "amatch", 2, 0, 0, "null", 1
 "stringdist", "amatch", 2, 0, 1, "double", 1
 "stringdist", "amatch", 3, 0, 0, "logical", 1
@@ -42,3 +47,178 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "amatch", 9, 0, 0, "double", 1
 "stringdist", "amatch", 10, 0, 0, "double", 1
 "stringdist", "amatch", 11, 0, 0, "double", 1
+"stringdist", "do_dist", -1, 0, 0, "(^double[] | null)", 1
+"stringdist", "do_dist", 0, 0, 0, "character[]", 1
+"stringdist", "do_dist", 0, 0, 1, "null", 1
+"stringdist", "do_dist", 0, 0, 2, "list<^integer[]>", 1
+"stringdist", "do_dist", 1, 0, 0, "^character[]", 1
+"stringdist", "do_dist", 1, 0, 1, "null", 1
+"stringdist", "do_dist", 1, 0, 2, "list<null | integer[] | ^integer[] | null | integer[]>", 1
+"stringdist", "do_dist", 2, 0, 0, "character", 1
+"stringdist", "do_dist", 3, 0, 0, "double[]", 1
+"stringdist", "do_dist", 4, 0, 0, "double", 1
+"stringdist", "do_dist", 5, 0, 0, "double", 1
+"stringdist", "do_dist", 6, 0, 0, "double", 1
+"stringdist", "do_dist", 7, 0, 0, "logical", 1
+"stringdist", "do_dist", 8, 0, 0, "integer", 1
+"stringdist", "ensure_int_list", -1, 0, 0, "list<any>", 1
+"stringdist", "ensure_int_list", 0, 0, 0, "double[]", 1
+"stringdist", "ensure_int_list", 0, 0, 1, "list<any>", 1
+"stringdist", "FUN", -1, 0, 0, "(^double[] | null)", 1
+"stringdist", "FUN", 0, 0, 0, "character[]", 1
+"stringdist", "FUN", 0, 0, 1, "null", 1
+"stringdist", "FUN", 0, 0, 2, "list<^integer[]>", 1
+"stringdist", "FUN", 1, 0, 0, "^character[]", 1
+"stringdist", "FUN", 1, 0, 1, "null", 1
+"stringdist", "FUN", 1, 0, 2, "list<null | integer[] | ^integer[] | null | integer[]>", 1
+"stringdist", "FUN", 2, 0, 0, "character", 1
+"stringdist", "FUN", 3, 0, 0, "double[]", 1
+"stringdist", "FUN", 4, 0, 0, "double", 1
+"stringdist", "FUN", 5, 0, 0, "double", 1
+"stringdist", "FUN", 6, 0, 0, "double", 1
+"stringdist", "FUN", 7, 0, 0, "logical", 1
+"stringdist", "FUN", 8, 0, 0, "integer", 1
+"stringdist", "FUN", -1, 1, 0, "class<`matrix`>", 1
+"stringdist", "FUN", 0, 1, 0, "...", 1
+"stringdist", "FUN", 1, 1, 0, "null", 1
+"stringdist", "FUN", 2, 1, 0, "double", 1
+"stringdist", "FUN", 3, 1, 0, "logical", 1
+"stringdist", "FUN", 4, 1, 0, "logical", 1
+"stringdist", "int2char", -1, 0, 0, "^character[]", 1
+"stringdist", "int2char", 0, 0, 0, "list<integer[] | null | integer[]>", 1
+"stringdist", "lengths", -1, 0, 0, "integer[]", 1
+"stringdist", "lengths", 0, 0, 0, "character[]", 1
+"stringdist", "lengths", 0, 0, 1, "list<^integer[] | null | integer[]>", 1
+"stringdist", "lengths", 1, 0, 0, "...", 1
+"stringdist", "lengths.character", -1, 0, 0, "integer[]", 1
+"stringdist", "lengths.character", 0, 0, 0, "character[]", 1
+"stringdist", "lengths.character", 1, 0, 0, "character", 1
+"stringdist", "lengths.character", 2, 0, 0, "...", 1
+"stringdist", "lengths.list", -1, 0, 0, "integer[]", 1
+"stringdist", "lengths.list", 0, 0, 0, "list<^integer[] | null | integer[]>", 1
+"stringdist", "lengths.list", 1, 0, 0, "...", 1
+"stringdist", "listwarning", -1, 0, 0, "character", 1
+"stringdist", "listwarning", 0, 0, 0, "character", 1
+"stringdist", "listwarning", 1, 0, 0, "character", 1
+"stringdist", "lower_tri", -1, 0, 0, "class<`dist`>", 1
+"stringdist", "lower_tri", 0, 0, 0, "^character[]", 1
+"stringdist", "lower_tri", 0, 0, 1, "list<integer[]>", 1
+"stringdist", "lower_tri", 1, 0, 0, "character", 1
+"stringdist", "lower_tri", 2, 0, 0, "logical", 1
+"stringdist", "lower_tri", 3, 0, 0, "double[]", 1
+"stringdist", "lower_tri", 4, 0, 0, "double", 1
+"stringdist", "lower_tri", 5, 0, 0, "double", 1
+"stringdist", "lower_tri", 6, 0, 0, "double", 1
+"stringdist", "lower_tri", 7, 0, 0, "character", 1
+"stringdist", "lower_tri", 8, 0, 0, "integer", 1
+"stringdist", "normalize_dist", -1, 0, 0, "^double[]", 1
+"stringdist", "normalize_dist", 0, 0, 0, "^double[]", 1
+"stringdist", "normalize_dist", 1, 0, 0, "any", 1
+"stringdist", "normalize_dist", 2, 0, 0, "any", 1
+"stringdist", "normalize_dist", 3, 0, 0, "character", 1
+"stringdist", "normalize_dist", 4, 0, 0, "any", 1
+"stringdist", "normalize_dist", 5, 0, 0, "any", 1
+"stringdist", "phonetic", -1, 0, 0, "^character[]", 1
+"stringdist", "phonetic", 0, 0, 0, "^character[]", 1
+"stringdist", "phonetic", 1, 0, 0, "character", 1
+"stringdist", "phonetic", 2, 0, 0, "logical", 1
+"stringdist", "printable_ascii", -1, 0, 0, "logical[]", 1
+"stringdist", "printable_ascii", 0, 0, 0, "character[]", 1
+"stringdist", "printable_ascii", 0, 0, 1, "null", 1
+"stringdist", "qgrams", -1, 0, 0, "class<`matrix`>", 1
+"stringdist", "qgrams", 0, 0, 0, "...", 1
+"stringdist", "qgrams", 1, 0, 0, "null", 1
+"stringdist", "qgrams", 2, 0, 0, "double", 1
+"stringdist", "qgrams", 3, 0, 0, "logical", 1
+"stringdist", "qgrams", 4, 0, 0, "logical", 1
+"stringdist", "seq_ain", -1, 0, 0, "logical", 1
+"stringdist", "seq_ain", 0, 0, 0, "list<integer[]>", 1
+"stringdist", "seq_ain", 1, 0, 0, "list<integer[]>", 1
+"stringdist", "seq_ain", 2, 0, 0, "...", 1
+"stringdist", "seq_amatch", -1, 0, 0, "(^integer[] | null)", 1
+"stringdist", "seq_amatch", 0, 0, 0, "double[]", 1
+"stringdist", "seq_amatch", 0, 0, 1, "list<^integer[] | null | integer[] | null>", 1
+"stringdist", "seq_amatch", 1, 0, 0, "double[]", 1
+"stringdist", "seq_amatch", 1, 0, 1, "list<integer[]>", 1
+"stringdist", "seq_amatch", 2, 0, 0, "null", 1
+"stringdist", "seq_amatch", 2, 0, 1, "double", 1
+"stringdist", "seq_amatch", 3, 0, 0, "logical", 1
+"stringdist", "seq_amatch", 4, 0, 0, "character[]", 1
+"stringdist", "seq_amatch", 5, 0, 0, "double[]", 1
+"stringdist", "seq_amatch", 6, 0, 0, "double", 1
+"stringdist", "seq_amatch", 7, 0, 0, "double", 1
+"stringdist", "seq_amatch", 8, 0, 0, "double", 1
+"stringdist", "seq_amatch", 9, 0, 0, "double", 1
+"stringdist", "seq_amatch", 10, 0, 0, "double", 1
+"stringdist", "seq_dist", -1, 0, 0, "any", 1
+"stringdist", "seq_dist", 0, 0, 0, "double[]", 1
+"stringdist", "seq_dist", 0, 0, 1, "list<any>", 1
+"stringdist", "seq_dist", 1, 0, 0, "double[]", 1
+"stringdist", "seq_dist", 1, 0, 1, "list<any>", 1
+"stringdist", "seq_dist", 2, 0, 0, "character[]", 1
+"stringdist", "seq_dist", 3, 0, 0, "double[]", 1
+"stringdist", "seq_dist", 4, 0, 0, "double", 1
+"stringdist", "seq_dist", 5, 0, 0, "double", 1
+"stringdist", "seq_dist", 6, 0, 0, "double", 1
+"stringdist", "seq_dist", 7, 0, 0, "double", 1
+"stringdist", "seq_distmatrix", -1, 0, 0, "(class<`dist`> | class<`matrix`>)", 1
+"stringdist", "seq_distmatrix", 0, 0, 0, "double[]", 1
+"stringdist", "seq_distmatrix", 0, 0, 1, "list<double[]>", 1
+"stringdist", "seq_distmatrix", 1, 0, 0, "any", 1
+"stringdist", "seq_distmatrix", 2, 0, 0, "character[]", 1
+"stringdist", "seq_distmatrix", 3, 0, 0, "double[]", 1
+"stringdist", "seq_distmatrix", 4, 0, 0, "double", 1
+"stringdist", "seq_distmatrix", 5, 0, 0, "double", 1
+"stringdist", "seq_distmatrix", 6, 0, 0, "double", 1
+"stringdist", "seq_distmatrix", 7, 0, 0, "character[]", 1
+"stringdist", "seq_distmatrix", 8, 0, 0, "double", 1
+"stringdist", "seq_qgrams", -1, 0, 0, "class<`matrix`>", 1
+"stringdist", "seq_qgrams", 0, 0, 0, "...", 1
+"stringdist", "seq_qgrams", 1, 0, 0, "null", 1
+"stringdist", "seq_qgrams", 2, 0, 0, "double", 1
+"stringdist", "seq_sim", -1, 0, 0, "^double[]", 1
+"stringdist", "seq_sim", 0, 0, 0, "list<^integer[] | null | double[]>", 1
+"stringdist", "seq_sim", 1, 0, 0, "list<double[]>", 1
+"stringdist", "seq_sim", 2, 0, 0, "character[]", 1
+"stringdist", "seq_sim", 3, 0, 0, "double", 1
+"stringdist", "seq_sim", 4, 0, 0, "...", 1
+"stringdist", "setnames", -1, 0, 0, "list<^character[] | null | list<integer[] | ^integer[] | null>>", 1
+"stringdist", "setnames", 0, 0, 0, "list<^character[] | null | list<integer[] | ^integer[] | null>>", 1
+"stringdist", "setNames", -1, 0, 0, "(character[] | list<^character[] | null | list<integer[] | ^integer[] | null>>)", 1
+"stringdist", "setNames", 0, 0, 0, "character[]", 1
+"stringdist", "setNames", 0, 0, 1, "list<^character[] | null | list<integer[] | ^integer[] | null>>", 1
+"stringdist", "setNames", 1, 0, 0, "character[]", 1
+"stringdist", "stringdist", -1, 0, 0, "any", 1
+"stringdist", "stringdist", 0, 0, 0, "^character[]", 1
+"stringdist", "stringdist", 0, 0, 1, "null", 1
+"stringdist", "stringdist", 0, 0, 2, "list<character>", 1
+"stringdist", "stringdist", 1, 0, 0, "character[]", 1
+"stringdist", "stringdist", 1, 0, 1, "null", 1
+"stringdist", "stringdist", 1, 0, 2, "list<character>", 1
+"stringdist", "stringdist", 2, 0, 0, "any", 1
+"stringdist", "stringdist", 3, 0, 0, "logical", 1
+"stringdist", "stringdist", 4, 0, 0, "double[]", 1
+"stringdist", "stringdist", 5, 0, 0, "double", 1
+"stringdist", "stringdist", 6, 0, 0, "double", 1
+"stringdist", "stringdist", 7, 0, 0, "double", 1
+"stringdist", "stringdist", 8, 0, 0, "any", 1
+"stringdist", "stringdistmatrix", -1, 0, 0, "(class<`dist`> | class<`matrix`>)", 1
+"stringdist", "stringdistmatrix", 0, 0, 0, "^character[]", 1
+"stringdist", "stringdistmatrix", 0, 0, 1, "list<character>", 1
+"stringdist", "stringdistmatrix", 1, 0, 0, "any", 1
+"stringdist", "stringdistmatrix", 2, 0, 0, "character[]", 1
+"stringdist", "stringdistmatrix", 3, 0, 0, "logical", 1
+"stringdist", "stringdistmatrix", 4, 0, 0, "double[]", 1
+"stringdist", "stringdistmatrix", 5, 0, 0, "double", 1
+"stringdist", "stringdistmatrix", 6, 0, 0, "double", 1
+"stringdist", "stringdistmatrix", 7, 0, 0, "double", 1
+"stringdist", "stringdistmatrix", 8, 0, 0, "character[]", 1
+"stringdist", "stringdistmatrix", 8, 0, 1, "logical", 1
+"stringdist", "stringdistmatrix", 9, 0, 0, "double", 1
+"stringdist", "stringsim", -1, 0, 0, "double[]", 1
+"stringdist", "stringsim", 0, 0, 0, "character[]", 1
+"stringdist", "stringsim", 1, 0, 0, "character[]", 1
+"stringdist", "stringsim", 2, 0, 0, "character[]", 1
+"stringdist", "stringsim", 3, 0, 0, "logical", 1
+"stringdist", "stringsim", 4, 0, 0, "double", 1
+"stringdist", "stringsim", 5, 0, 0, "...", 1

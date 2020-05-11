@@ -1,52 +1,492 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"loo", "filter", -1, 0, 0, "logical[]", 1
-"loo", "filter", 0, 0, 0, "character[]", 1
-"loo", ".fr", -1, 0, 0, "character", 1
-"loo", ".fr", 0, 0, 0, "double", 1
-"loo", ".fr", 1, 0, 0, "double", 1
-"loo", ".loo_i", -1, 0, 0, "struct<`pointwise`:^double[], `diagnostics`:struct<`pareto_k`:double, `n_eff`:double>, `psis_object`:null>", 1
-"loo", ".loo_i", 0, 0, 0, "integer", 1
-"loo", ".loo_i", 1, 0, 0, "any => any", 1
-"loo", ".loo_i", 2, 0, 0, "null", 1
-"loo", ".loo_i", 3, 0, 0, "struct<`y`:integer[], `K`:double[]>", 1
-"loo", ".loo_i", 4, 0, 0, "^double[]", 1
-"loo", ".loo_i", 5, 0, 0, "null", 1
-"loo", ".loo_i", 6, 0, 0, "logical", 1
-"loo", ".warn", -1, 0, 0, "character", 1
-"loo", ".warn", 0, 0, 0, "character", 1
-"loo", ".warn", 1, 0, 0, "logical", 1
-"loo", "$.loo", -1, 0, 0, "^double[]", 1
-"loo", "$.loo", 0, 0, 0, "struct<`estimates`:^double[], `pointwise`:^double[], `diagnostics`:struct<`pareto_k`:double[], `n_eff`:double[]>, `psis_object`:null, `elpd_loo`:double, `p_loo`:double, `looic`:double, `se_elpd_loo`:double, `se_p_loo`:double, `se_looic`:double>", 1
-"loo", "$.loo", 1, 0, 0, "character", 1
+"loo", "::", -1, 0, 0, "integer[]", 1
+"loo", "::", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "::", 1, 0, 0, "double", 1
+"loo", "::", -1, 1, 0, "double[]", 1
+"loo", "::", 0, 1, 0, "class<`function`>", 1
+"loo", "::", 0, 1, 1, "class<`array`>", 1
+"loo", "::", 0, 1, 2, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "::", 0, 1, 3, "class<`matrix`>", 1
+"loo", "::", 1, 1, 0, "...", 1
 "loo", "adjust_k_wip", -1, 0, 0, "double", 1
 "loo", "adjust_k_wip", 0, 0, 0, "double", 1
 "loo", "adjust_k_wip", 1, 0, 0, "integer", 1
+"loo", "assert_importance_sampling_method_is_implemented", -1, 0, 0, "null", 1
+"loo", "assert_importance_sampling_method_is_implemented", 0, 0, 0, "character", 1
 "loo", "autocovariance", -1, 0, 0, "double[]", 1
 "loo", "autocovariance", 0, 0, 0, "double[]", 1
 "loo", "called_from_loo", -1, 0, 0, "logical", 1
-"loo", "colLogMeanExps", -1, 0, 0, "double[]", 1
-"loo", "colLogMeanExps", 0, 0, 0, "^double[]", 1
-"loo", "dim.psis", -1, 0, 0, "integer[]", 1
-"loo", "dim.psis", 0, 0, 0, "struct<`log_weights`:^double[], `diagnostics`:struct<`pareto_k`:double[], `n_eff`:double[]>>", 1
-"loo", "do_psis", -1, 0, 0, "struct<`log_weights`:^double[], `diagnostics`:struct<`pareto_k`:double[], `n_eff`:double[]>>", 1
-"loo", "do_psis", 0, 0, 0, "^double[]", 1
-"loo", "do_psis", 1, 0, 0, "double[]", 1
-"loo", "do_psis", 2, 0, 0, "double", 1
-"loo", "do_psis_i", -1, 0, 0, "struct<`log_weights`:double[], `pareto_k`:double>", 1
-"loo", "do_psis_i", 0, 0, 0, "double[]", 1
-"loo", "do_psis_i", 1, 0, 0, "double", 1
+"loo", "dim.importance_sampling", -1, 0, 0, "integer[]", 1
+"loo", "dim.importance_sampling", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "dim.importance_sampling", 0, 0, 1, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "dim.importance_sampling", 0, 0, 2, "class<`loo`, `waic`>", 1
+"loo", "dim.psis_loo", -1, 0, 0, "integer[]", 1
+"loo", "dim.psis_loo", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "dim.psis_loo", 0, 0, 1, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "dim.psis_loo", 0, 0, 2, "class<`loo`, `waic`>", 1
+"loo", "dim.waic", -1, 0, 0, "integer[]", 1
+"loo", "dim.waic", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "dim.waic", 0, 0, 1, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "dim.waic", 0, 0, 2, "class<`loo`, `waic`>", 1
+"loo", "dirichlet_rng", -1, 0, 0, "class<`matrix`>", 1
+"loo", "dirichlet_rng", 0, 0, 0, "double", 1
+"loo", "dirichlet_rng", 1, 0, 0, "double[]", 1
+"loo", "do_importance_sampling", -1, 0, 0, "(class<`importance_sampling`, `list`, `psis`> | class<`importance_sampling`, `list`, `sis`> | class<`importance_sampling`, `list`, `tis`>)", 1
+"loo", "do_importance_sampling", 0, 0, 0, "class<`matrix`>", 1
+"loo", "do_importance_sampling", 1, 0, 0, "double[]", 1
+"loo", "do_importance_sampling", 2, 0, 0, "double", 1
+"loo", "do_importance_sampling", 3, 0, 0, "character", 1
+"loo", ".E_fun", -1, 0, 0, "class<`function`>", 1
+"loo", ".E_fun", 0, 0, 0, "character", 1
+"loo", "E_fun", -1, 0, 0, "double", 1
+"loo", "E_fun", 0, 0, 0, "double[]", 1
+"loo", "E_fun", 1, 0, 0, "double[]", 1
+"loo", "E_fun", 2, 0, 0, "...", 1
+"loo", "E_loo", -1, 0, 0, "list<class<`matrix`> | null | double[] | double[] | null>", 1
+"loo", "E_loo", 0, 0, 0, "class<`matrix`, `ppd`>", 1
+"loo", "E_loo", 1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "E_loo", 2, 0, 0, "...", 1
+"loo", ".E_loo_khat_i", -1, 0, 0, "double", 1
+"loo", ".E_loo_khat_i", 0, 0, 0, "double[]", 1
+"loo", ".E_loo_khat_i", 1, 0, 0, "double[]", 1
+"loo", ".E_loo_khat_i", 2, 0, 0, "double", 1
+"loo", "E_loo_khat.matrix", -1, 0, 0, "double[]", 1
+"loo", "E_loo_khat.matrix", 0, 0, 0, "class<`matrix`, `ppd`>", 1
+"loo", "E_loo_khat.matrix", 1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "E_loo_khat.matrix", 2, 0, 0, "class<`matrix`>", 1
+"loo", "E_loo_khat.matrix", 3, 0, 0, "...", 1
+"loo", "E_loo.matrix", -1, 0, 0, "list<class<`matrix`> | null | double[] | double[] | null>", 1
+"loo", "E_loo.matrix", 0, 0, 0, "class<`matrix`, `ppd`>", 1
+"loo", "E_loo.matrix", 1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "E_loo.matrix", 2, 0, 0, "...", 1
+"loo", "E_loo.matrix", 3, 0, 0, "character", 1
+"loo", "E_loo.matrix", 4, 0, 0, "double[]", 1
+"loo", "E_loo.matrix", 4, 0, 1, "null", 1
+"loo", "E_loo.matrix", 5, 0, 0, "null", 1
+"loo", "E_loo.matrix", 5, 0, 1, "class<`matrix`>", 1
 "loo", "enough_tail_samples", -1, 0, 0, "logical", 1
 "loo", "enough_tail_samples", 0, 0, 0, "double", 1
 "loo", "enough_tail_samples", 1, 0, 0, "double", 1
-"loo", "fun", -1, 0, 0, "null", 1
-"loo", "fun", 0, 0, 0, "symbol", 1
-"loo", "FUN", -1, 0, 0, "struct<`pointwise`:^double[], `diagnostics`:struct<`pareto_k`:double, `n_eff`:double>, `psis_object`:null>", 1
-"loo", "FUN", 0, 0, 0, "^double[]", 1
-"loo", "FUN", 0, 0, 1, "character", 1
+"loo", "example_loglik_array", -1, 0, 0, "class<`array`>", 1
+"loo", "example_loglik_matrix", -1, 0, 0, "class<`matrix`>", 1
+"loo", "fft_next_good_size", -1, 0, 0, "integer", 1
+"loo", "fft_next_good_size", 0, 0, 0, "integer", 1
+"loo", "find_model_names", -1, 0, 0, "character[]", 1
+"loo", "find_model_names", 0, 0, 0, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", ".fr", -1, 0, 0, "(character[] | class<`data.frame`> | class<`matrix`>)", 1
+"loo", ".fr", 0, 0, 0, "null", 1
+"loo", ".fr", 0, 0, 1, "double[]", 1
+"loo", ".fr", 0, 0, 2, "class<`data.frame`>", 1
+"loo", ".fr", 0, 0, 3, "class<`compare.loo`, `matrix`>", 1
+"loo", ".fr", 0, 0, 4, "class<`matrix`>", 1
+"loo", ".fr", 1, 0, 0, "double", 1
+"loo", "FUN", -1, 0, 0, "logical", 1
+"loo", "FUN", 0, 0, 0, "double", 1
 "loo", "FUN", 1, 0, 0, "double", 1
-"loo", "FUN", 1, 0, 1, "any => any", 1
-"loo", "FUN", 2, 0, 0, "null", 1
-"loo", "FUN", 3, 0, 0, "struct<>", 1
-"loo", "FUN", 4, 0, 0, "^double[]", 1
-"loo", "FUN", 5, 0, 0, "null", 1
-"loo", "FUN", 6, 0, 0, "logical", 1
+"loo", "FUN", -1, 1, 0, "logical", 1
+"loo", "FUN", 0, 1, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "FUN", 0, 1, 1, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "FUN", -1, 2, 0, "list<class<`matrix`> | null | list<double>>", 1
+"loo", "FUN", 0, 2, 0, "integer", 1
+"loo", "FUN", 1, 2, 0, "class<`function`>", 1
+"loo", "FUN", 2, 2, 0, "...", 1
+"loo", "FUN", 3, 2, 0, "class<`data.frame`>", 1
+"loo", "FUN", 4, 2, 0, "class<`matrix`>", 1
+"loo", "FUN", 5, 2, 0, "double[]", 1
+"loo", "FUN", 5, 2, 1, "null", 1
+"loo", "FUN", 6, 2, 0, "logical", 1
+"loo", "FUN", 7, 2, 0, "character", 1
+"loo", "FUN", -1, 3, 0, "logical", 1
+"loo", "FUN", 0, 3, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "gpdfit", -1, 0, 0, "list<double>", 1
+"loo", "gpdfit", 0, 0, 0, "double[]", 1
+"loo", "gpdfit", 1, 0, 0, "logical", 1
+"loo", "gpdfit", 2, 0, 0, "double", 1
+"loo", "gpdfit", 3, 0, 0, "logical", 1
+"loo", "implemented_is_methods", -1, 0, 0, "character[]", 1
+"loo", "importance_sampling.array", -1, 0, 0, "(class<`importance_sampling`, `list`, `psis`> | class<`importance_sampling`, `list`, `sis`> | class<`importance_sampling`, `list`, `tis`>)", 1
+"loo", "importance_sampling.array", 0, 0, 0, "class<`array`>", 1
+"loo", "importance_sampling.array", 1, 0, 0, "character", 1
+"loo", "importance_sampling.array", 2, 0, 0, "...", 1
+"loo", "importance_sampling.array", 3, 0, 0, "double[]", 1
+"loo", "importance_sampling.array", 3, 0, 1, "null", 1
+"loo", "importance_sampling.array", 4, 0, 0, "double", 1
+"loo", "importance_sampling_loo_object", -1, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "importance_sampling_loo_object", 0, 0, 0, "class<`matrix`>", 1
+"loo", "importance_sampling_loo_object", 1, 0, 0, "list<double[]>", 1
+"loo", "importance_sampling_loo_object", 2, 0, 0, "integer[]", 1
+"loo", "importance_sampling_loo_object", 3, 0, 0, "character", 1
+"loo", "importance_sampling_loo_object", 4, 0, 0, "null", 1
+"loo", "importance_sampling.matrix", -1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "importance_sampling.matrix", 0, 0, 0, "class<`matrix`>", 1
+"loo", "importance_sampling.matrix", 1, 0, 0, "character", 1
+"loo", "importance_sampling.matrix", 2, 0, 0, "...", 1
+"loo", "importance_sampling.matrix", 3, 0, 0, "double[]", 1
+"loo", "importance_sampling.matrix", 3, 0, 1, "null", 1
+"loo", "importance_sampling.matrix", 4, 0, 0, "double", 1
+"loo", "importance_sampling_object", -1, 0, 0, "(class<`importance_sampling`, `list`, `psis`> | class<`importance_sampling`, `list`, `sis`> | class<`importance_sampling`, `list`, `tis`>)", 1
+"loo", "importance_sampling_object", 0, 0, 0, "class<`matrix`>", 1
+"loo", "importance_sampling_object", 1, 0, 0, "double[]", 1
+"loo", "importance_sampling_object", 2, 0, 0, "double[]", 1
+"loo", "importance_sampling_object", 3, 0, 0, "double[]", 1
+"loo", "importance_sampling_object", 4, 0, 0, "character[]", 1
+"loo", "is.loo", -1, 0, 0, "logical", 1
+"loo", "is.loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "is.loo", 0, 0, 1, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "is.psis", -1, 0, 0, "logical", 1
+"loo", "is.psis", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "is.psis_loo", -1, 0, 0, "logical", 1
+"loo", "is.psis_loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "k_cut", -1, 0, 0, "class<`factor`>", 1
+"loo", "k_cut", 0, 0, 0, "^double[]", 1
+"loo", "kfold_split_grouped", -1, 0, 0, "double[]", 1
+"loo", "kfold_split_grouped", 0, 0, 0, "double", 1
+"loo", "kfold_split_grouped", 1, 0, 0, "class<`factor`>", 1
+"loo", "kfold_split_random", -1, 0, 0, "integer[]", 1
+"loo", "kfold_split_random", 0, 0, 0, "double", 1
+"loo", "kfold_split_random", 1, 0, 0, "double", 1
+"loo", "kfold_split_stratified", -1, 0, 0, "integer[]", 1
+"loo", "kfold_split_stratified", 0, 0, 0, "double", 1
+"loo", "kfold_split_stratified", 1, 0, 0, "double[]", 1
+"loo", ".k_help", -1, 0, 0, "character", 1
+"loo", "llarray_to_matrix", -1, 0, 0, "class<`matrix`>", 1
+"loo", "llarray_to_matrix", 0, 0, 0, "class<`array`>", 1
+"loo", "llmatrix_to_array", -1, 0, 0, "class<`array`>", 1
+"loo", "llmatrix_to_array", 0, 0, 0, "class<`matrix`>", 1
+"loo", "llmatrix_to_array", 1, 0, 0, "integer[]", 1
+"loo", "logMeanExp", -1, 0, 0, "double", 1
+"loo", "logMeanExp", 0, 0, 0, "double[]", 1
+"loo", "loo", -1, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "loo", 0, 0, 0, "class<`array`>", 1
+"loo", "loo", 0, 0, 1, "class<`function`>", 1
+"loo", "loo", 0, 0, 2, "class<`matrix`>", 1
+"loo", "loo", 0, 0, 3, "class<`glm`, `lm`, `stanreg`>", 1
+"loo", "loo", 1, 0, 0, "...", 1
+"loo", "[[.loo", -1, 0, 0, "null", 1
+"loo", "[[.loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "[[.loo", 1, 0, 0, "character", 1
+"loo", "[[.loo", 2, 0, 0, "logical", 1
+"loo", "$.loo", -1, 0, 0, "(class<`matrix`> | list<^double[]>)", 1
+"loo", "$.loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "$.loo", 0, 0, 1, "class<`loo`, `waic`>", 1
+"loo", "$.loo", 1, 0, 0, "character", 1
+"loo", "loo.array", -1, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "loo.array", 0, 0, 0, "class<`array`>", 1
+"loo", "loo.array", 1, 0, 0, "...", 1
+"loo", "loo.array", 2, 0, 0, "double[]", 1
+"loo", "loo.array", 2, 0, 1, "null", 1
+"loo", "loo.array", 3, 0, 0, "logical", 1
+"loo", "loo.array", 4, 0, 0, "double", 1
+"loo", "loo.array", 5, 0, 0, "character[]", 1
+"loo", "loo_compare", -1, 0, 0, "class<`compare.loo`, `matrix`>", 1
+"loo", "loo_compare", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "loo_compare", 0, 0, 1, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "loo_compare", 1, 0, 0, "...", 1
+"loo", "loo_compare_checks", -1, 0, 0, "null", 1
+"loo", "loo_compare_checks", 0, 0, 0, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "loo_compare.default", -1, 0, 0, "class<`compare.loo`, `matrix`>", 1
+"loo", "loo_compare.default", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "loo_compare.default", 0, 0, 1, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "loo_compare.default", 1, 0, 0, "...", 1
+"loo", "loo_compare_matrix", -1, 0, 0, "class<`matrix`>", 1
+"loo", "loo_compare_matrix", 0, 0, 0, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "loo_compare_order", -1, 0, 0, "integer[]", 1
+"loo", "loo_compare_order", 0, 0, 0, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "loo_cores", -1, 0, 0, "double", 1
+"loo", "loo_cores", 0, 0, 0, "double", 1
+"loo", "loo.function", -1, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "loo.function", 0, 0, 0, "class<`function`>", 1
+"loo", "loo.function", 1, 0, 0, "...", 1
+"loo", "loo.function", 2, 0, 0, "class<`data.frame`>", 1
+"loo", "loo.function", 3, 0, 0, "class<`matrix`>", 1
+"loo", "loo.function", 3, 0, 1, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "loo.function", 4, 0, 0, "double[]", 1
+"loo", "loo.function", 4, 0, 1, "null", 1
+"loo", "loo.function", 5, 0, 0, "logical", 1
+"loo", "loo.function", 6, 0, 0, "double", 1
+"loo", "loo.function", 7, 0, 0, "character[]", 1
+"loo", ".loo_i", -1, 0, 0, "list<class<`matrix`> | null | list<double>>", 1
+"loo", ".loo_i", 0, 0, 0, "integer", 1
+"loo", ".loo_i", 1, 0, 0, "class<`function`>", 1
+"loo", ".loo_i", 2, 0, 0, "...", 1
+"loo", ".loo_i", 3, 0, 0, "class<`data.frame`>", 1
+"loo", ".loo_i", 4, 0, 0, "class<`matrix`>", 1
+"loo", ".loo_i", 5, 0, 0, "double[]", 1
+"loo", ".loo_i", 5, 0, 1, "null", 1
+"loo", ".loo_i", 6, 0, 0, "logical", 1
+"loo", ".loo_i", 7, 0, 0, "character", 1
+"loo", "loo_i", -1, 0, 0, "list<class<`matrix`> | null | list<double>>", 1
+"loo", "loo_i", 0, 0, 0, "double", 1
+"loo", "loo_i", 1, 0, 0, "class<`function`>", 1
+"loo", "loo_i", 2, 0, 0, "...", 1
+"loo", "loo_i", 3, 0, 0, "class<`data.frame`>", 1
+"loo", "loo_i", 4, 0, 0, "class<`matrix`>", 1
+"loo", "loo_i", 5, 0, 0, "null", 1
+"loo", "loo_i", 6, 0, 0, "character", 1
+"loo", "loo.matrix", -1, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "loo.matrix", 0, 0, 0, "class<`matrix`>", 1
+"loo", "loo.matrix", 1, 0, 0, "...", 1
+"loo", "loo.matrix", 2, 0, 0, "double[]", 1
+"loo", "loo.matrix", 2, 0, 1, "null", 1
+"loo", "loo.matrix", 3, 0, 0, "logical", 1
+"loo", "loo.matrix", 4, 0, 0, "double", 1
+"loo", "loo.matrix", 5, 0, 0, "character[]", 1
+"loo", "loo_model_weights", -1, 0, 0, "(class<`pseudobma_bb_weights`> | class<`pseudobma_weights`> | class<`stacking_weights`>)", 1
+"loo", "loo_model_weights", 0, 0, 0, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "loo_model_weights", 1, 0, 0, "...", 1
+"loo", "loo_model_weights.default", -1, 0, 0, "(class<`pseudobma_bb_weights`> | class<`pseudobma_weights`> | class<`stacking_weights`>)", 1
+"loo", "loo_model_weights.default", 0, 0, 0, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "loo_model_weights.default", 1, 0, 0, "...", 1
+"loo", "loo_model_weights.default", 2, 0, 0, "character[]", 1
+"loo", "loo_model_weights.default", 3, 0, 0, "character", 1
+"loo", "loo_model_weights.default", 4, 0, 0, "any", 1
+"loo", "loo_model_weights.default", 5, 0, 0, "logical", 1
+"loo", "loo_model_weights.default", 6, 0, 0, "double", 1
+"loo", "loo_model_weights.default", 7, 0, 0, "double", 1
+"loo", "loo_model_weights.default", 8, 0, 0, "null", 1
+"loo", "loo_model_weights.default", 9, 0, 0, "double", 1
+"loo", "lx", -1, 0, 0, "double[]", 1
+"loo", "lx", 0, 0, 0, "double[]", 1
+"loo", "lx", 1, 0, 0, "double[]", 1
+"loo", "mcse_elpd", -1, 0, 0, "double[]", 1
+"loo", "mcse_elpd", 0, 0, 0, "class<`matrix`>", 1
+"loo", "mcse_elpd", 1, 0, 0, "class<`matrix`>", 1
+"loo", "mcse_elpd", 2, 0, 0, "double[]", 1
+"loo", "mcse_elpd", 3, 0, 0, "double[]", 1
+"loo", "mcse_elpd", 4, 0, 0, "double", 1
+"loo", "mcse_loo", -1, 0, 0, "(double | null)", 1
+"loo", "mcse_loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "mcse_loo", 1, 0, 0, "double", 1
+"loo", "min_n_eff_by_k", -1, 0, 0, "^double[]", 1
+"loo", "min_n_eff_by_k", 0, 0, 0, "double[]", 1
+"loo", "min_n_eff_by_k", 1, 0, 0, "class<`factor`>", 1
+"loo", "nlist", -1, 0, 0, "list<any>", 1
+"loo", "nlist", 0, 0, 0, "...", 1
+"loo", "n_pareto", -1, 0, 0, "double[]", 1
+"loo", "n_pareto", 0, 0, 0, "double[]", 1
+"loo", "n_pareto", 1, 0, 0, "integer", 1
+"loo", "os_is_windows", -1, 0, 0, "logical", 1
+"loo", "parallel_importance_sampling_list", -1, 0, 0, "list<list<class<`matrix`> | null | list<double>>>", 1
+"loo", "parallel_importance_sampling_list", 0, 0, 0, "integer", 1
+"loo", "parallel_importance_sampling_list", 1, 0, 0, "class<`function`>", 1
+"loo", "parallel_importance_sampling_list", 2, 0, 0, "class<`function`>", 1
+"loo", "parallel_importance_sampling_list", 3, 0, 0, "class<`data.frame`>", 1
+"loo", "parallel_importance_sampling_list", 4, 0, 0, "class<`matrix`>", 1
+"loo", "parallel_importance_sampling_list", 4, 0, 1, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "parallel_importance_sampling_list", 5, 0, 0, "double[]", 1
+"loo", "parallel_importance_sampling_list", 6, 0, 0, "logical", 1
+"loo", "parallel_importance_sampling_list", 7, 0, 0, "double", 1
+"loo", "parallel_importance_sampling_list", 8, 0, 0, "character", 1
+"loo", "parallel_importance_sampling_list", 9, 0, 0, "...", 1
+"loo", "pareto_k_ids", -1, 0, 0, "integer[]", 1
+"loo", "pareto_k_ids", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "pareto_k_ids", 1, 0, 0, "double", 1
+"loo", "pareto_k_table", -1, 0, 0, "class<`matrix`, `pareto_k_table`>", 1
+"loo", "pareto_k_table", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "pareto_k_values", -1, 0, 0, "^double[]", 1
+"loo", "pareto_k_values", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "pareto_k_values", 0, 0, 1, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "plot_diagnostic", -1, 0, 0, "null", 1
+"loo", "plot_diagnostic", 0, 0, 0, "double[]", 1
+"loo", "plot_diagnostic", 1, 0, 0, "null", 1
+"loo", "plot_diagnostic", 2, 0, 0, "...", 1
+"loo", "plot_diagnostic", 3, 0, 0, "any", 1
+"loo", "plot_diagnostic", 4, 0, 0, "character", 1
+"loo", "plot.psis", -1, 0, 0, "null", 1
+"loo", "plot.psis", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "plot.psis", 1, 0, 0, "character[]", 1
+"loo", "plot.psis", 2, 0, 0, "...", 1
+"loo", "plot.psis", 3, 0, 0, "logical", 1
+"loo", "plot.psis", 4, 0, 0, "character", 1
+"loo", "plot.psis_loo", -1, 0, 0, "null", 1
+"loo", "plot.psis_loo", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "plot.psis_loo", 1, 0, 0, "character[]", 1
+"loo", "plot.psis_loo", 2, 0, 0, "...", 1
+"loo", "plot.psis_loo", 3, 0, 0, "any", 1
+"loo", "plot.psis_loo", 4, 0, 0, "character", 1
+"loo", "pointwise_loo_calcs", -1, 0, 0, "class<`matrix`>", 1
+"loo", "pointwise_loo_calcs", 0, 0, 0, "class<`matrix`>", 1
+"loo", "pointwise_loo_calcs", 1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "prepare_psis_r_eff", -1, 0, 0, "double[]", 1
+"loo", "prepare_psis_r_eff", 0, 0, 0, "double[]", 1
+"loo", "prepare_psis_r_eff", 0, 0, 1, "null", 1
+"loo", "prepare_psis_r_eff", 1, 0, 0, "integer", 1
+"loo", "print.compare.loo", -1, 0, 0, "class<`compare.loo`, `matrix`>", 1
+"loo", "print.compare.loo", 0, 0, 0, "class<`compare.loo`, `matrix`>", 1
+"loo", "print.compare.loo", 1, 0, 0, "...", 1
+"loo", "print.compare.loo", 2, 0, 0, "double", 1
+"loo", "print.compare.loo", 3, 0, 0, "logical", 1
+"loo", "print_dims", -1, 0, 0, "null", 1
+"loo", "print_dims", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "print_dims", 0, 0, 1, "class<`loo`, `waic`>", 1
+"loo", "print_dims", 1, 0, 0, "...", 1
+"loo", "print_dims.psis_loo", -1, 0, 0, "null", 1
+"loo", "print_dims.psis_loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "print_dims.psis_loo", 0, 0, 1, "class<`loo`, `waic`>", 1
+"loo", "print_dims.psis_loo", 1, 0, 0, "...", 1
+"loo", "print_dims.waic", -1, 0, 0, "null", 1
+"loo", "print_dims.waic", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "print_dims.waic", 0, 0, 1, "class<`loo`, `waic`>", 1
+"loo", "print_dims.waic", 1, 0, 0, "...", 1
+"loo", "print.loo", -1, 0, 0, "(class<`importance_sampling_loo`, `loo`, `psis_loo`> | class<`loo`, `waic`>)", 1
+"loo", "print.loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "print.loo", 0, 0, 1, "class<`loo`, `waic`>", 1
+"loo", "print.loo", 1, 0, 0, "double", 1
+"loo", "print.loo", 2, 0, 0, "...", 1
+"loo", "print_mcse_summary", -1, 0, 0, "null", 1
+"loo", "print_mcse_summary", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "print_mcse_summary", 1, 0, 0, "double", 1
+"loo", "print.pareto_k_table", -1, 0, 0, "(class<`matrix`, `pareto_k_table`> | null)", 1
+"loo", "print.pareto_k_table", 0, 0, 0, "class<`matrix`, `pareto_k_table`>", 1
+"loo", "print.pareto_k_table", 1, 0, 0, "any", 1
+"loo", "print.pareto_k_table", 2, 0, 0, "...", 1
+"loo", "print.psis_loo", -1, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "print.psis_loo", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "print.psis_loo", 1, 0, 0, "double", 1
+"loo", "print.psis_loo", 2, 0, 0, "logical", 1
+"loo", "print.psis_loo", 3, 0, 0, "...", 1
+"loo", "print.waic", -1, 0, 0, "class<`loo`, `waic`>", 1
+"loo", "print.waic", 0, 0, 0, "class<`loo`, `waic`>", 1
+"loo", "print.waic", 1, 0, 0, "double", 1
+"loo", "print.waic", 2, 0, 0, "...", 1
+"loo", "pseudobma_weights", -1, 0, 0, "(class<`pseudobma_bb_weights`> | class<`pseudobma_weights`>)", 1
+"loo", "pseudobma_weights", 0, 0, 0, "class<`matrix`>", 1
+"loo", "pseudobma_weights", 1, 0, 0, "logical", 1
+"loo", "pseudobma_weights", 2, 0, 0, "any", 1
+"loo", "pseudobma_weights", 3, 0, 0, "any", 1
+"loo", "psis", -1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "psis", 0, 0, 0, "class<`array`>", 1
+"loo", "psis", 0, 0, 1, "class<`matrix`>", 1
+"loo", "psis", 1, 0, 0, "...", 1
+"loo", "psis_apply", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"loo", "psis_apply", 0, 0, 0, "list<list<double[]>>", 1
+"loo", "psis_apply", 1, 0, 0, "character", 1
+"loo", "psis_apply", 2, 0, 0, "character[]", 1
+"loo", "psis_apply", 3, 0, 0, "double[]", 1
+"loo", "psis.array", -1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "psis.array", 0, 0, 0, "class<`array`>", 1
+"loo", "psis.array", 1, 0, 0, "...", 1
+"loo", "psis.array", 2, 0, 0, "double[]", 1
+"loo", "psis.array", 3, 0, 0, "double", 1
+"loo", "psis.matrix", -1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "psis.matrix", 0, 0, 0, "class<`matrix`>", 1
+"loo", "psis.matrix", 1, 0, 0, "...", 1
+"loo", "psis.matrix", 2, 0, 0, "double[]", 1
+"loo", "psis.matrix", 3, 0, 0, "double", 1
+"loo", "psis_n_eff", -1, 0, 0, "double[]", 1
+"loo", "psis_n_eff", 0, 0, 0, "class<`matrix`>", 1
+"loo", "psis_n_eff", 1, 0, 0, "...", 1
+"loo", "psis_n_eff.matrix", -1, 0, 0, "double[]", 1
+"loo", "psis_n_eff.matrix", 0, 0, 0, "class<`matrix`>", 1
+"loo", "psis_n_eff.matrix", 1, 0, 0, "double[]", 1
+"loo", "psis_n_eff.matrix", 2, 0, 0, "...", 1
+"loo", "psis_n_eff_values", -1, 0, 0, "double[]", 1
+"loo", "psis_n_eff_values", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
+"loo", "psis_smooth_tail", -1, 0, 0, "list<double[]>", 1
+"loo", "psis_smooth_tail", 0, 0, 0, "double[]", 1
+"loo", "psis_smooth_tail", 1, 0, 0, "double", 1
+"loo", "qgpd", -1, 0, 0, "double[]", 1
+"loo", "qgpd", 0, 0, 0, "double[]", 1
+"loo", "qgpd", 1, 0, 0, "double", 1
+"loo", "qgpd", 2, 0, 0, "double", 1
+"loo", "relative_eff", -1, 0, 0, "double[]", 1
+"loo", "relative_eff", 0, 0, 0, "class<`function`>", 1
+"loo", "relative_eff", 0, 0, 1, "class<`array`>", 1
+"loo", "relative_eff", 0, 0, 2, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "relative_eff", 0, 0, 3, "class<`matrix`>", 1
+"loo", "relative_eff", 1, 0, 0, "...", 1
+"loo", "relative_eff.array", -1, 0, 0, "double[]", 1
+"loo", "relative_eff.array", 0, 0, 0, "class<`array`>", 1
+"loo", "relative_eff.array", 1, 0, 0, "...", 1
+"loo", "relative_eff.array", 2, 0, 0, "double", 1
+"loo", "relative_eff.default", -1, 0, 0, "double", 1
+"loo", "relative_eff.default", 0, 0, 0, "double[]", 1
+"loo", "relative_eff.default", 1, 0, 0, "integer[]", 1
+"loo", "relative_eff.default", 2, 0, 0, "...", 1
+"loo", "relative_eff.function", -1, 0, 0, "double[]", 1
+"loo", "relative_eff.function", 0, 0, 0, "class<`function`>", 1
+"loo", "relative_eff.function", 1, 0, 0, "integer[]", 1
+"loo", "relative_eff.function", 2, 0, 0, "...", 1
+"loo", "relative_eff.function", 3, 0, 0, "double", 1
+"loo", "relative_eff.function", 4, 0, 0, "class<`data.frame`>", 1
+"loo", "relative_eff.function", 5, 0, 0, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "relative_eff.importance_sampling", -1, 0, 0, "double[]", 1
+"loo", "relative_eff.importance_sampling", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "relative_eff.importance_sampling", 1, 0, 0, "...", 1
+"loo", "relative_eff.matrix", -1, 0, 0, "double[]", 1
+"loo", "relative_eff.matrix", 0, 0, 0, "class<`matrix`>", 1
+"loo", "relative_eff.matrix", 1, 0, 0, "integer[]", 1
+"loo", "relative_eff.matrix", 2, 0, 0, "...", 1
+"loo", "relative_eff.matrix", 3, 0, 0, "double", 1
+"loo", "sis", -1, 0, 0, "class<`importance_sampling`, `list`, `sis`>", 1
+"loo", "sis", 0, 0, 0, "class<`array`>", 1
+"loo", "sis", 1, 0, 0, "...", 1
+"loo", "sis.array", -1, 0, 0, "class<`importance_sampling`, `list`, `sis`>", 1
+"loo", "sis.array", 0, 0, 0, "class<`array`>", 1
+"loo", "sis.array", 1, 0, 0, "...", 1
+"loo", "sis.array", 2, 0, 0, "double[]", 1
+"loo", "sis.array", 3, 0, 0, "double", 1
+"loo", "stacking_weights", -1, 0, 0, "class<`stacking_weights`>", 1
+"loo", "stacking_weights", 0, 0, 0, "class<`matrix`>", 1
+"loo", "stacking_weights", 1, 0, 0, "character", 1
+"loo", "stacking_weights", 2, 0, 0, "list<any>", 1
+"loo", "table_of_estimates", -1, 0, 0, "class<`matrix`>", 1
+"loo", "table_of_estimates", 0, 0, 0, "class<`matrix`>", 1
+"loo", "throw_pareto_warnings", -1, 0, 0, "(character | null)", 1
+"loo", "throw_pareto_warnings", 0, 0, 0, "double[]", 1
+"loo", "throw_pareto_warnings", 1, 0, 0, "double", 1
+"loo", "throw_pareto_warnings", 2, 0, 0, "double", 1
+"loo", "throw_pwaic_warnings", -1, 0, 0, "null", 1
+"loo", "throw_pwaic_warnings", 0, 0, 0, "double[]", 1
+"loo", "throw_pwaic_warnings", 1, 0, 0, "double", 1
+"loo", "throw_pwaic_warnings", 2, 0, 0, "logical", 1
+"loo", "throw_tail_length_warnings", -1, 0, 0, "double[]", 1
+"loo", "throw_tail_length_warnings", 0, 0, 0, "double[]", 1
+"loo", "tis", -1, 0, 0, "class<`importance_sampling`, `list`, `tis`>", 1
+"loo", "tis", 0, 0, 0, "class<`array`>", 1
+"loo", "tis", 1, 0, 0, "...", 1
+"loo", "tis.array", -1, 0, 0, "class<`importance_sampling`, `list`, `tis`>", 1
+"loo", "tis.array", 0, 0, 0, "class<`array`>", 1
+"loo", "tis.array", 1, 0, 0, "...", 1
+"loo", "tis.array", 2, 0, 0, "double[]", 1
+"loo", "tis.array", 3, 0, 0, "double", 1
+"loo", "validate_ll", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"loo", "validate_ll", 0, 0, 0, "class<`array`>", 1
+"loo", "validate_ll", 0, 0, 1, "class<`matrix`>", 1
+"loo", "validate_llfun", -1, 0, 0, "class<`function`>", 1
+"loo", "validate_llfun", 0, 0, 0, "class<`function`>", 1
+"loo", "validate_psis_loo_list", -1, 0, 0, "logical", 1
+"loo", "validate_psis_loo_list", 0, 0, 0, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
+"loo", "waic", -1, 0, 0, "class<`loo`, `waic`>", 1
+"loo", "waic", 0, 0, 0, "class<`array`>", 1
+"loo", "waic", 0, 0, 1, "class<`matrix`>", 1
+"loo", "waic", 0, 0, 2, "class<`glm`, `lm`, `stanreg`>", 1
+"loo", "waic", 1, 0, 0, "...", 1
+"loo", "waic.array", -1, 0, 0, "class<`loo`, `waic`>", 1
+"loo", "waic.array", 0, 0, 0, "class<`array`>", 1
+"loo", "waic.array", 1, 0, 0, "...", 1
+"loo", "waic.function", -1, 0, 0, "class<`loo`, `waic`>", 1
+"loo", "waic.function", 0, 0, 0, "class<`function`>", 1
+"loo", "waic.function", 1, 0, 0, "...", 1
+"loo", "waic.function", 2, 0, 0, "class<`data.frame`>", 1
+"loo", "waic.function", 3, 0, 0, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "waic.matrix", -1, 0, 0, "class<`loo`, `waic`>", 1
+"loo", "waic.matrix", 0, 0, 0, "class<`matrix`>", 1
+"loo", "waic.matrix", 1, 0, 0, "...", 1
+"loo", "waic_object", -1, 0, 0, "class<`loo`, `waic`>", 1
+"loo", "waic_object", 0, 0, 0, "class<`matrix`>", 1
+"loo", "waic_object", 1, 0, 0, "integer[]", 1
+"loo", ".warn", -1, 0, 0, "character", 1
+"loo", ".warn", 0, 0, 0, "...", 1
+"loo", ".warn", 1, 0, 0, "logical", 1
+"loo", "weights.importance_sampling", -1, 0, 0, "class<`matrix`>", 1
+"loo", "weights.importance_sampling", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
+"loo", "weights.importance_sampling", 0, 0, 1, "class<`importance_sampling`, `list`, `sis`>", 1
+"loo", "weights.importance_sampling", 0, 0, 2, "class<`importance_sampling`, `list`, `tis`>", 1
+"loo", "weights.importance_sampling", 1, 0, 0, "...", 1
+"loo", "weights.importance_sampling", 2, 0, 0, "logical", 1
+"loo", "weights.importance_sampling", 3, 0, 0, "logical", 1
+"loo", ".wmean", -1, 0, 0, "double", 1
+"loo", ".wmean", 0, 0, 0, "double[]", 1
+"loo", ".wmean", 1, 0, 0, "double[]", 1
+"loo", ".wmean", 2, 0, 0, "...", 1

@@ -1,4 +1,356 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"mlr3", ".f", -1, 0, 0, "struct<`frame`:struct<`var`:integer[], `n`:integer[], `wt`:double[], `dev`:double[], `yval`:double[], `complexity`:double[], `ncompete`:integer[], `nsurrogate`:integer[], `yval2`:^double[]>, `where`:integer[], `call`:language, `terms`:language, `cptable`:^double[], `method`:character, `parms`:struct<`prior`:double[], `loss`:^double[], `split`:double>, `control`:struct<`minsplit`:integer, `minbucket`:double, `cp`:double, `maxcompete`:integer, `maxsurrogate`:integer, `usesurrogate`:integer, `surrogatestyle`:integer, `maxdepth`:integer, `xval`:integer>, `functions`:struct<`summary`:any => any, `print`:any => any, `text`:any => any>, `numresp`:integer, `splits`:^double[], `variable.importance`:double[], `y`:integer[], `ordered`:logical[]>", 1
-"mlr3", ".f", 0, 0, 0, "environment", 1
-"mlr3", ".f", 1, 0, 0, "environment", 1
+"mlr3", "append_log", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "append_log", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "append_log", 0, 0, 1, "null", 1
+"mlr3", "append_log", 1, 0, 0, "character", 1
+"mlr3", "append_log", 2, 0, 0, "any", 1
+"mlr3", "append_log", 3, 0, 0, "character[]", 1
+"mlr3", "as_benchmark_result", -1, 0, 0, "class<`BenchmarkResult`, `R6`>", 1
+"mlr3", "as_benchmark_result", 0, 0, 0, "class<`R6`, `ResampleResult`>", 1
+"mlr3", "as_benchmark_result", 1, 0, 0, "...", 1
+"mlr3", "as_benchmark_result.ResampleResult", -1, 0, 0, "class<`BenchmarkResult`, `R6`>", 1
+"mlr3", "as_benchmark_result.ResampleResult", 0, 0, 0, "class<`R6`, `ResampleResult`>", 1
+"mlr3", "as_benchmark_result.ResampleResult", 1, 0, 0, "...", 1
+"mlr3", "as_data_backend", -1, 0, 0, "(class<`DataBackend`, `DataBackendDataTable`, `R6`> | class<`DataBackend`, `DataBackendMatrix`, `R6`>)", 1
+"mlr3", "as_data_backend", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3", "as_data_backend", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as_data_backend", 0, 0, 2, "class<`dgCMatrix`>", 1
+"mlr3", "as_data_backend", 1, 0, 0, "...", 1
+"mlr3", "as_data_backend.data.frame", -1, 0, 0, "class<`DataBackend`, `DataBackendDataTable`, `R6`>", 1
+"mlr3", "as_data_backend.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3", "as_data_backend.data.frame", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as_data_backend.data.frame", 1, 0, 0, "null", 1
+"mlr3", "as_data_backend.data.frame", 2, 0, 0, "logical", 1
+"mlr3", "as_data_backend.data.frame", 2, 0, 1, "character", 1
+"mlr3", "as_data_backend.data.frame", 3, 0, 0, "...", 1
+"mlr3", "as_data_backend.Matrix", -1, 0, 0, "class<`DataBackend`, `DataBackendMatrix`, `R6`>", 1
+"mlr3", "as_data_backend.Matrix", 0, 0, 0, "class<`dgCMatrix`>", 1
+"mlr3", "as_data_backend.Matrix", 1, 0, 0, "class<`data.frame`>", 1
+"mlr3", "as_data_backend.Matrix", 2, 0, 0, "character", 1
+"mlr3", "as_data_backend.Matrix", 3, 0, 0, "...", 1
+"mlr3", "as.data.table.BenchmarkResult", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as.data.table.BenchmarkResult", 0, 0, 0, "class<`BenchmarkResult`, `R6`>", 1
+"mlr3", "as.data.table.BenchmarkResult", 1, 0, 0, "...", 1
+"mlr3", "as.data.table.DictionaryLearner", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as.data.table.DictionaryLearner", 0, 0, 0, "class<`Dictionary`, `DictionaryLearner`, `R6`>", 1
+"mlr3", "as.data.table.DictionaryLearner", 1, 0, 0, "...", 1
+"mlr3", "as.data.table.DictionaryMeasure", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as.data.table.DictionaryMeasure", 0, 0, 0, "class<`Dictionary`, `DictionaryMeasure`, `R6`>", 1
+"mlr3", "as.data.table.DictionaryMeasure", 1, 0, 0, "...", 1
+"mlr3", "as.data.table.DictionaryResampling", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as.data.table.DictionaryResampling", 0, 0, 0, "class<`Dictionary`, `DictionaryResampling`, `R6`>", 1
+"mlr3", "as.data.table.DictionaryResampling", 1, 0, 0, "...", 1
+"mlr3", "as.data.table.DictionaryTask", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as.data.table.DictionaryTask", 0, 0, 0, "class<`Dictionary`, `DictionaryTask`, `R6`>", 1
+"mlr3", "as.data.table.DictionaryTask", 1, 0, 0, "...", 1
+"mlr3", "as.data.table.PredictionClassif", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as.data.table.PredictionClassif", 0, 0, 0, "class<`Prediction`, `PredictionClassif`, `R6`>", 1
+"mlr3", "as.data.table.PredictionClassif", 1, 0, 0, "...", 1
+"mlr3", "as.data.table.PredictionRegr", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "as.data.table.PredictionRegr", 0, 0, 0, "class<`Prediction`, `PredictionRegr`, `R6`>", 1
+"mlr3", "as.data.table.PredictionRegr", 1, 0, 0, "...", 1
+"mlr3", "as_learner", -1, 0, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>)", 1
+"mlr3", "as_learner", 0, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "as_learner", 0, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "as_learner", 1, 0, 0, "logical", 1
+"mlr3", "as_learner.Learner", -1, 0, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>)", 1
+"mlr3", "as_learner.Learner", 0, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "as_learner.Learner", 0, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "as_learner.Learner", 1, 0, 0, "logical", 1
+"mlr3", "as_learners", -1, 0, 0, "list<class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>>", 1
+"mlr3", "as_learners", 0, 0, 0, "list<class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>>", 1
+"mlr3", "as_learners", 1, 0, 0, "logical", 1
+"mlr3", "as_learners.list", -1, 0, 0, "list<class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>>", 1
+"mlr3", "as_learners.list", 0, 0, 0, "list<class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>>", 1
+"mlr3", "as_learners.list", 1, 0, 0, "logical", 1
+"mlr3", "as_measures", -1, 0, 0, "list<any>", 1
+"mlr3", "as_measures", 0, 0, 0, "class<`Measure`, `MeasureClassif`, `MeasureClassifCosts`, `R6`>", 1
+"mlr3", "as_measures", 0, 0, 1, "class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`>", 1
+"mlr3", "as_measures", 0, 0, 2, "class<`Measure`, `MeasureDebug`, `R6`>", 1
+"mlr3", "as_measures", 0, 0, 3, "null", 1
+"mlr3", "as_measures", 0, 0, 4, "list<any>", 1
+"mlr3", "as_measures", 1, 0, 0, "any", 1
+"mlr3", "as_measures", 2, 0, 0, "logical", 1
+"mlr3", "as_measures.list", -1, 0, 0, "list<any>", 1
+"mlr3", "as_measures.list", 0, 0, 0, "list<any>", 1
+"mlr3", "as_measures.list", 1, 0, 0, "any", 1
+"mlr3", "as_measures.list", 2, 0, 0, "logical", 1
+"mlr3", "as_measures.Measure", -1, 0, 0, "list<class<`Measure`, `MeasureClassif`, `MeasureClassifCosts`, `R6`> | class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`> | class<`Measure`, `MeasureDebug`, `R6`>>", 1
+"mlr3", "as_measures.Measure", 0, 0, 0, "class<`Measure`, `MeasureClassif`, `MeasureClassifCosts`, `R6`>", 1
+"mlr3", "as_measures.Measure", 0, 0, 1, "class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`>", 1
+"mlr3", "as_measures.Measure", 0, 0, 2, "class<`Measure`, `MeasureDebug`, `R6`>", 1
+"mlr3", "as_measures.Measure", 1, 0, 0, "any", 1
+"mlr3", "as_measures.Measure", 2, 0, 0, "logical", 1
+"mlr3", "as_measures.NULL", -1, 0, 0, "list<class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`>>", 1
+"mlr3", "as_measures.NULL", 0, 0, 0, "null", 1
+"mlr3", "as_measures.NULL", 1, 0, 0, "character", 1
+"mlr3", "as_measures.NULL", 2, 0, 0, "logical", 1
+"mlr3", "as_resampling", -1, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "as_resampling", 0, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "as_resampling", 1, 0, 0, "logical", 1
+"mlr3", "as_resampling.Resampling", -1, 0, 0, "(class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingSubsampling`> | class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "as_resampling.Resampling", 0, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "as_resampling.Resampling", 0, 0, 1, "class<`R6`, `Resampling`, `ResamplingHoldout`>", 1
+"mlr3", "as_resampling.Resampling", 0, 0, 2, "class<`R6`, `Resampling`, `ResamplingSubsampling`>", 1
+"mlr3", "as_resampling.Resampling", 0, 0, 3, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "as_resampling.Resampling", 0, 0, 4, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "as_resampling.Resampling", 1, 0, 0, "logical", 1
+"mlr3", "as_resamplings", -1, 0, 0, "list<class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>>", 1
+"mlr3", "as_resamplings", 0, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "as_resamplings", 0, 0, 1, "list<class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>>", 1
+"mlr3", "as_resamplings", 1, 0, 0, "logical", 1
+"mlr3", "as_resamplings.list", -1, 0, 0, "list<class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>>", 1
+"mlr3", "as_resamplings.list", 0, 0, 0, "list<class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>>", 1
+"mlr3", "as_resamplings.list", 1, 0, 0, "logical", 1
+"mlr3", "as_resamplings.Resampling", -1, 0, 0, "list<class<`R6`, `Resampling`, `ResamplingCV`>>", 1
+"mlr3", "as_resamplings.Resampling", 0, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "as_resamplings.Resampling", 1, 0, 0, "logical", 1
+"mlr3", "assert_backend", -1, 0, 0, "class<`DataBackend`, `DataBackendDataTable`, `R6`>", 1
+"mlr3", "assert_backend", 0, 0, 0, "class<`DataBackend`, `DataBackendDataTable`, `R6`>", 1
+"mlr3", "assert_backend", 1, 0, 0, "any", 1
+"mlr3", "assert_benchmark_result", -1, 0, 0, "class<`BenchmarkResult`, `R6`>", 1
+"mlr3", "assert_benchmark_result", 0, 0, 0, "class<`BenchmarkResult`, `R6`>", 1
+"mlr3", "assert_benchmark_result", 1, 0, 0, "any", 1
+"mlr3", "assert_cost_matrix", -1, 0, 0, "class<`matrix`>", 1
+"mlr3", "assert_cost_matrix", 0, 0, 0, "class<`matrix`>", 1
+"mlr3", "assert_cost_matrix", 1, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "assert_cost_matrix", 1, 0, 1, "null", 1
+"mlr3", "assert_learnable", -1, 0, 0, "null", 1
+"mlr3", "assert_learnable", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "assert_learnable", 0, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "assert_learnable", 1, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifDebug`, `R6`>", 1
+"mlr3", "assert_learnable", 1, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "assert_learnable", 1, 0, 2, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "assert_learnable", 1, 0, 3, "class<`Learner`, `LearnerRegr`, `LearnerRegrFeatureless`, `R6`>", 1
+"mlr3", "assert_learner", -1, 0, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>)", 1
+"mlr3", "assert_learner", 0, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "assert_learner", 0, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "assert_learner", 1, 0, 0, "null", 1
+"mlr3", "assert_learner", 2, 0, 0, "character[]", 1
+"mlr3", "assert_learner", 3, 0, 0, "any", 1
+"mlr3", "assert_learners", -1, 0, 0, "list<class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>>", 1
+"mlr3", "assert_learners", 0, 0, 0, "list<class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>>", 1
+"mlr3", "assert_learners", 1, 0, 0, "null", 1
+"mlr3", "assert_learners", 2, 0, 0, "character[]", 1
+"mlr3", "assert_learners", 3, 0, 0, "any", 1
+"mlr3", "assert_measures", -1, 0, 0, "list<any>", 1
+"mlr3", "assert_measures", 0, 0, 0, "list<any>", 1
+"mlr3", "assert_measures", 1, 0, 0, "any", 1
+"mlr3", "assert_measures", 2, 0, 0, "any", 1
+"mlr3", "assert_measures", 3, 0, 0, "any", 1
+"mlr3", "assert_prediction", -1, 0, 0, "class<`Prediction`, `PredictionClassif`, `R6`>", 1
+"mlr3", "assert_prediction", 0, 0, 0, "class<`Prediction`, `PredictionClassif`, `R6`>", 1
+"mlr3", "assert_prediction", 1, 0, 0, "any", 1
+"mlr3", "assert_range", -1, 0, 0, "double[]", 1
+"mlr3", "assert_range", 0, 0, 0, "double[]", 1
+"mlr3", "assert_range", 1, 0, 0, "any", 1
+"mlr3", "assert_resampling", -1, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "assert_resampling", 0, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "assert_resampling", 1, 0, 0, "null", 1
+"mlr3", "assert_resampling", 2, 0, 0, "any", 1
+"mlr3", "assert_resamplings", -1, 0, 0, "list<class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>>", 1
+"mlr3", "assert_resamplings", 0, 0, 0, "list<class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>>", 1
+"mlr3", "assert_resamplings", 1, 0, 0, "logical", 1
+"mlr3", "assert_resamplings", 1, 0, 1, "null", 1
+"mlr3", "assert_resamplings", 2, 0, 0, "any", 1
+"mlr3", "assert_ro_binding", -1, 0, 0, "null", 1
+"mlr3", "assert_ro_binding", 0, 0, 0, "any", 1
+"mlr3", "assert_row_ids", -1, 0, 0, "(integer[] | null)", 1
+"mlr3", "assert_row_ids", 0, 0, 0, "integer[]", 1
+"mlr3", "assert_row_ids", 0, 0, 1, "null", 1
+"mlr3", "assert_row_ids", 1, 0, 0, "logical", 1
+"mlr3", "assert_row_ids", 2, 0, 0, "any", 1
+"mlr3", "assert_set", -1, 0, 0, "character[]", 1
+"mlr3", "assert_set", 0, 0, 0, "character[]", 1
+"mlr3", "assert_set", 1, 0, 0, "logical", 1
+"mlr3", "assert_set", 2, 0, 0, "any", 1
+"mlr3", "assert_task", -1, 0, 0, "(class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "assert_task", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "assert_task", 0, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "assert_task", 1, 0, 0, "null", 1
+"mlr3", "assert_task", 2, 0, 0, "null", 1
+"mlr3", "assert_task", 3, 0, 0, "null", 1
+"mlr3", "assert_task", 4, 0, 0, "any", 1
+"mlr3", "assert_tasks", -1, 0, 0, "list<class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>>", 1
+"mlr3", "assert_tasks", 0, 0, 0, "list<class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>>", 1
+"mlr3", "assert_tasks", 1, 0, 0, "null", 1
+"mlr3", "assert_tasks", 2, 0, 0, "null", 1
+"mlr3", "assert_tasks", 3, 0, 0, "null", 1
+"mlr3", "assert_tasks", 4, 0, 0, "any", 1
+"mlr3", "as_task", -1, 0, 0, "(class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "as_task", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "as_task", 0, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "as_task", 1, 0, 0, "logical", 1
+"mlr3", "as_tasks", -1, 0, 0, "list<class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>>", 1
+"mlr3", "as_tasks", 0, 0, 0, "list<class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>>", 1
+"mlr3", "as_tasks", 1, 0, 0, "logical", 1
+"mlr3", "as_tasks.list", -1, 0, 0, "list<class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>>", 1
+"mlr3", "as_tasks.list", 0, 0, 0, "list<class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>>", 1
+"mlr3", "as_tasks.list", 1, 0, 0, "logical", 1
+"mlr3", "as_task.Task", -1, 0, 0, "(class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingSubsampling`> | class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "as_task.Task", 0, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "as_task.Task", 0, 0, 1, "class<`R6`, `Resampling`, `ResamplingHoldout`>", 1
+"mlr3", "as_task.Task", 0, 0, 2, "class<`R6`, `Resampling`, `ResamplingSubsampling`>", 1
+"mlr3", "as_task.Task", 0, 0, 3, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "as_task.Task", 0, 0, 4, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "as_task.Task", 1, 0, 0, "logical", 1
+"mlr3", "benchmark", -1, 0, 0, "class<`BenchmarkResult`, `R6`>", 1
+"mlr3", "benchmark", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "benchmark", 1, 0, 0, "logical", 1
+"mlr3", "benchmark_grid", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "benchmark_grid", 0, 0, 0, "list<class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>>", 1
+"mlr3", "benchmark_grid", 1, 0, 0, "list<class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>>", 1
+"mlr3", "benchmark_grid", 2, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "benchmark_grid", 2, 0, 1, "list<class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>>", 1
+"mlr3", "col_info", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "col_info", 0, 0, 0, "class<`DataBackend`, `DataBackendDataTable`, `R6`>", 1
+"mlr3", "col_info", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"mlr3", "col_info", 1, 0, 0, "...", 1
+"mlr3", "col_info.DataBackend", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "col_info.DataBackend", 0, 0, 0, "class<`DataBackend`, `DataBackendDataTable`, `R6`>", 1
+"mlr3", "col_info.DataBackend", 1, 0, 0, "...", 1
+"mlr3", "col_info.data.table", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "col_info.data.table", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "col_info.data.table", 1, 0, 0, "character[]", 1
+"mlr3", "col_info.data.table", 2, 0, 0, "...", 1
+"mlr3", "convert_matching_types", -1, 0, 0, "list<null>", 1
+"mlr3", "convert_matching_types", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "convert_matching_types", 1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "c.PredictionClassif", -1, 0, 0, "class<`Prediction`, `PredictionClassif`, `R6`>", 1
+"mlr3", "c.PredictionClassif", 0, 0, 0, "...", 1
+"mlr3", "c.PredictionClassif", 1, 0, 0, "logical", 1
+"mlr3", "default_measures", -1, 0, 0, "list<class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`> | class<`Measure`, `MeasureRegr`, `MeasureRegrSimple`, `R6`>>", 1
+"mlr3", "default_measures", 0, 0, 0, "character", 1
+"mlr3", "FUN", -1, 0, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>)", 1
+"mlr3", "FUN", 0, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "FUN", 0, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "FUN", 1, 0, 0, "logical", 1
+"mlr3", "FUN", -1, 1, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>)", 1
+"mlr3", "FUN", 0, 1, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "FUN", 0, 1, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "FUN", 1, 1, 0, "null", 1
+"mlr3", "FUN", 2, 1, 0, "character[]", 1
+"mlr3", "FUN", 3, 1, 0, "any", 1
+"mlr3", "FUN", -1, 2, 0, "(integer[] | null)", 1
+"mlr3", "FUN", 0, 2, 0, "integer[]", 1
+"mlr3", "FUN", 0, 2, 1, "null", 1
+"mlr3", "FUN", 1, 2, 0, "logical", 1
+"mlr3", "FUN", 2, 2, 0, "any", 1
+"mlr3", "FUN", -1, 3, 0, "(class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "FUN", 0, 3, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "FUN", 0, 3, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "FUN", 1, 3, 0, "null", 1
+"mlr3", "FUN", 2, 3, 0, "null", 1
+"mlr3", "FUN", 3, 3, 0, "null", 1
+"mlr3", "FUN", 4, 3, 0, "any", 1
+"mlr3", "FUN", -1, 4, 0, "(class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "FUN", 0, 4, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "FUN", 0, 4, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "FUN", 1, 4, 0, "logical", 1
+"mlr3", "FUN", -1, 5, 0, "(class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "FUN", 0, 5, 0, "character", 1
+"mlr3", "FUN", 1, 5, 0, "...", 1
+"mlr3", "FUN", -1, 6, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifDebug`, `R6`> | class<`Learner`, `LearnerRegr`, `LearnerRegrFeatureless`, `R6`>)", 1
+"mlr3", "FUN", 0, 6, 0, "character", 1
+"mlr3", "FUN", 1, 6, 0, "...", 1
+"mlr3", "get_progressor", -1, 0, 0, "null", 1
+"mlr3", "get_progressor", 0, 0, 0, "any", 1
+"mlr3", "get_progressor", 1, 0, 0, "null", 1
+"mlr3", "hash", -1, 0, 0, "character", 1
+"mlr3", "hash", 0, 0, 0, "...", 1
+"mlr3", "hashes", -1, 0, 0, "character[]", 1
+"mlr3", "hashes", 0, 0, 0, "list<any>", 1
+"mlr3", "learner_predict", -1, 0, 0, "(class<`Prediction`, `PredictionClassif`, `R6`> | class<`Prediction`, `PredictionRegr`, `R6`>)", 1
+"mlr3", "learner_predict", 0, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifDebug`, `R6`>", 1
+"mlr3", "learner_predict", 0, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "learner_predict", 0, 0, 2, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "learner_predict", 0, 0, 3, "class<`Learner`, `LearnerRegr`, `LearnerRegrFeatureless`, `R6`>", 1
+"mlr3", "learner_predict", 1, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "learner_predict", 1, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "learner_predict", 2, 0, 0, "null", 1
+"mlr3", "learner_predict", 2, 0, 1, "integer[]", 1
+"mlr3", "learner_train", -1, 0, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifDebug`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`> | class<`Learner`, `LearnerRegr`, `LearnerRegrFeatureless`, `R6`>)", 1
+"mlr3", "learner_train", 0, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifDebug`, `R6`>", 1
+"mlr3", "learner_train", 0, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "learner_train", 0, 0, 2, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "learner_train", 0, 0, 3, "class<`Learner`, `LearnerRegr`, `LearnerRegrFeatureless`, `R6`>", 1
+"mlr3", "learner_train", 1, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "learner_train", 1, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "learner_train", 2, 0, 0, "null", 1
+"mlr3", "learner_train", 2, 0, 1, "integer[]", 1
+"mlr3", "lrn", -1, 0, 0, "(class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`> | class<`Learner`, `LearnerClassif`, `LearnerClassifDebug`, `R6`> | class<`Learner`, `LearnerRegr`, `LearnerRegrFeatureless`, `R6`>)", 1
+"mlr3", "lrn", 0, 0, 0, "character", 1
+"mlr3", "lrn", 1, 0, 0, "...", 1
+"mlr3", "measure_score", -1, 0, 0, "double", 1
+"mlr3", "measure_score", 0, 0, 0, "class<`Measure`, `MeasureClassif`, `MeasureClassifCosts`, `R6`>", 1
+"mlr3", "measure_score", 0, 0, 1, "class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`>", 1
+"mlr3", "measure_score", 0, 0, 2, "class<`Measure`, `MeasureDebug`, `R6`>", 1
+"mlr3", "measure_score", 1, 0, 0, "class<`Prediction`, `PredictionClassif`, `R6`>", 1
+"mlr3", "measure_score", 1, 0, 1, "list<class<`Prediction`, `PredictionClassif`, `R6`>>", 1
+"mlr3", "measure_score", 2, 0, 0, "any", 1
+"mlr3", "measure_score", 3, 0, 0, "any", 1
+"mlr3", "measure_score", 4, 0, 0, "any", 1
+"mlr3", "measure_score_data", -1, 0, 0, "double[]", 1
+"mlr3", "measure_score_data", 0, 0, 0, "class<`Measure`, `MeasureClassif`, `MeasureClassifCosts`, `R6`>", 1
+"mlr3", "measure_score_data", 0, 0, 1, "class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`>", 1
+"mlr3", "measure_score_data", 0, 0, 2, "class<`Measure`, `MeasureDebug`, `R6`>", 1
+"mlr3", "measure_score_data", 1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "msr", -1, 0, 0, "(class<`Measure`, `MeasureClassif`, `MeasureClassifCosts`, `R6`> | class<`Measure`, `MeasureClassif`, `MeasureClassifSimple`, `R6`> | class<`Measure`, `MeasureDebug`, `R6`> | class<`Measure`, `MeasureRegr`, `MeasureRegrSimple`, `R6`>)", 1
+"mlr3", "msr", 0, 0, 0, "character", 1
+"mlr3", "msr", 1, 0, 0, "...", 1
+"mlr3", "predict.Learner", -1, 0, 0, "(class<`factor`> | class<`matrix`> | class<`Prediction`, `PredictionClassif`, `R6`>)", 1
+"mlr3", "predict.Learner", 0, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "predict.Learner", 1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "predict.Learner", 2, 0, 0, "character", 1
+"mlr3", "predict.Learner", 3, 0, 0, "...", 1
+"mlr3", "replace_with", -1, 0, 0, "character[]", 1
+"mlr3", "replace_with", 0, 0, 0, "character[]", 1
+"mlr3", "replace_with", 1, 0, 0, "character", 1
+"mlr3", "replace_with", 2, 0, 0, "character", 1
+"mlr3", "resample", -1, 0, 0, "class<`R6`, `ResampleResult`>", 1
+"mlr3", "resample", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "resample", 1, 0, 0, "class<`Learner`, `LearnerClassif`, `LearnerClassifFeatureless`, `R6`>", 1
+"mlr3", "resample", 1, 0, 1, "class<`Learner`, `LearnerClassif`, `LearnerClassifRpart`, `R6`>", 1
+"mlr3", "resample", 2, 0, 0, "class<`R6`, `Resampling`, `ResamplingCV`>", 1
+"mlr3", "resample", 3, 0, 0, "logical", 1
+"mlr3", "rsmp", -1, 0, 0, "(class<`R6`, `Resampling`, `ResamplingBootstrap`> | class<`R6`, `Resampling`, `ResamplingCustom`> | class<`R6`, `Resampling`, `ResamplingCV`> | class<`R6`, `Resampling`, `ResamplingHoldout`> | class<`R6`, `Resampling`, `ResamplingRepeatedCV`> | class<`R6`, `Resampling`, `ResamplingSubsampling`>)", 1
+"mlr3", "rsmp", 0, 0, 0, "character", 1
+"mlr3", "rsmp", 1, 0, 0, "...", 1
+"mlr3", "task_cbind", -1, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "task_cbind", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "task_cbind", 1, 0, 0, "class<`data.frame`>", 1
+"mlr3", "task_data", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "task_data", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "task_data", 0, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "task_data", 1, 0, 0, "environment", 1
+"mlr3", "task_data", 2, 0, 0, "integer[]", 1
+"mlr3", "task_data", 2, 0, 1, "null", 1
+"mlr3", "task_data", 3, 0, 0, "character[]", 1
+"mlr3", "task_data", 3, 0, 1, "null", 1
+"mlr3", "task_data", 4, 0, 0, "character", 1
+"mlr3", "task_data", 5, 0, 0, "any", 1
+"mlr3", "task_rbind", -1, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "task_rbind", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "task_rbind", 1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "task_rm_data", -1, 0, 0, "(class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "task_rm_data", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "task_rm_data", 0, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "task_set_col_roles", -1, 0, 0, "list<character[]>", 1
+"mlr3", "task_set_col_roles", 0, 0, 0, "class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`>", 1
+"mlr3", "task_set_col_roles", 0, 0, 1, "class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>", 1
+"mlr3", "task_set_col_roles", 0, 0, 2, "class<`R6`, `Task`, `TaskSupervised`>", 1
+"mlr3", "task_set_col_roles", 1, 0, 0, "environment", 1
+"mlr3", "task_set_col_roles", 2, 0, 0, "list<character[]>", 1
+"mlr3", "tgen", -1, 0, 0, "(class<`R6`, `TaskGenerator`, `TaskGenerator2DNormals`> | class<`R6`, `TaskGenerator`, `TaskGeneratorFriedman1`> | class<`R6`, `TaskGenerator`, `TaskGeneratorSmiley`> | class<`R6`, `TaskGenerator`, `TaskGeneratorXor`>)", 1
+"mlr3", "tgen", 0, 0, 0, "character", 1
+"mlr3", "tgen", 1, 0, 0, "...", 1
+"mlr3", "translate_types", -1, 0, 0, "class<`factor`>", 1
+"mlr3", "translate_types", 0, 0, 0, "character[]", 1
+"mlr3", "tsk", -1, 0, 0, "(class<`R6`, `Task`, `TaskClassif`, `TaskSupervised`> | class<`R6`, `Task`, `TaskRegr`, `TaskSupervised`>)", 1
+"mlr3", "tsk", 0, 0, 0, "character", 1
+"mlr3", "tsk", 1, 0, 0, "...", 1
+"mlr3", "ujoin", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "ujoin", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "ujoin", 1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3", "ujoin", 2, 0, 0, "character", 1
+"mlr3", "use_future", -1, 0, 0, "logical", 1

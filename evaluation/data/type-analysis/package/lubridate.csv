@@ -1,6 +1,927 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"lubridate", "-", -1, 0, 0, "null", 1
-"lubridate", "-", 0, 0, 0, "null", 1
-"lubridate", "-", 0, 0, 1, "double[]", 1
-"lubridate", "-", 1, 0, 0, "null", 1
-"lubridate", "-", 1, 0, 1, "double[]", 1
+"lubridate", "%--%", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "%--%", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "%--%", 1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "add_duration_to_date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "add_duration_to_date", 0, 0, 0, "class<`Duration`>", 1
+"lubridate", "add_duration_to_date", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "add_duration_to_date", 1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "add_duration_to_duration", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "add_duration_to_duration", 0, 0, 0, "class<`Duration`>", 1
+"lubridate", "add_duration_to_duration", 1, 0, 0, "class<`Duration`>", 1
+"lubridate", "add_months", -1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "add_months", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "add_months", 1, 0, 0, "double[]", 1
+"lubridate", "add_period_to_date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", "add_period_to_date", 0, 0, 0, "class<`Period`>", 1
+"lubridate", "add_period_to_date", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "add_period_to_date", 1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "add_period_to_date", 1, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "add_period_to_period", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "add_period_to_period", 0, 0, 0, "class<`Period`>", 1
+"lubridate", "add_period_to_period", 1, 0, 0, "class<`Period`>", 1
+"lubridate", ".add_truncated", -1, 0, 0, "character[]", 1
+"lubridate", ".add_truncated", 0, 0, 0, "character", 1
+"lubridate", ".add_truncated", 1, 0, 0, "double", 1
+"lubridate", "add_with_rollback", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "add_with_rollback", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "add_with_rollback", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "add_with_rollback", 1, 0, 0, "class<`Period`>", 1
+"lubridate", "add_with_rollback", 2, 0, 0, "logical", 1
+"lubridate", "add_with_rollback", 3, 0, 0, "logical", 1
+"lubridate", "adjust_estimate", -1, 0, 0, "double", 1
+"lubridate", "adjust_estimate", 0, 0, 0, "double", 1
+"lubridate", "adjust_estimate", 1, 0, 0, "class<`Interval`>", 1
+"lubridate", "adjust_estimate", 2, 0, 0, "class<`Period`>", 1
+"lubridate", "am", -1, 0, 0, "logical", 1
+"lubridate", "am", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "as_date", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "as_date", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_date", 1, 0, 0, "...", 1
+"lubridate", "as_date", -1, 1, 0, "class<`Date`>", 1
+"lubridate", "as_date", 0, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_date", 0, 1, 1, "double", 1
+"lubridate", "as_date", 1, 1, 0, "...", 1
+"lubridate", "as_date", -1, 2, 0, "class<`Date`>", 1
+"lubridate", "as_date", 0, 2, 0, "double", 1
+"lubridate", "as_date", 1, 2, 0, "...", 1
+"lubridate", "as_datetime", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_datetime", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "as_datetime", 1, 0, 0, "...", 1
+"lubridate", "as_datetime", -1, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_datetime", 0, 1, 0, "class<`Date`>", 1
+"lubridate", "as_datetime", 0, 1, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_datetime", 1, 1, 0, "...", 1
+"lubridate", "as_datetime", -1, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_datetime", 0, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_datetime", 1, 2, 0, "...", 1
+"lubridate", "as.duration", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 0, 0, "double", 1
+"lubridate", "as.duration", 1, 0, 0, "...", 1
+"lubridate", "as.duration", -1, 1, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 1, 0, "character", 1
+"lubridate", "as.duration", 0, 1, 1, "class<`difftime`>", 1
+"lubridate", "as.duration", 0, 1, 2, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 1, 3, "class<`Interval`>", 1
+"lubridate", "as.duration", 0, 1, 4, "class<`Period`>", 1
+"lubridate", "as.duration", 0, 1, 5, "double", 1
+"lubridate", "as.duration", 1, 1, 0, "...", 1
+"lubridate", "as.duration", -1, 2, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 2, 0, "class<`Interval`>", 1
+"lubridate", "as.duration", 1, 2, 0, "...", 1
+"lubridate", "as.duration", -1, 3, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 3, 0, "class<`Period`>", 1
+"lubridate", "as.duration", 1, 3, 0, "...", 1
+"lubridate", "as.duration", -1, 4, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 4, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 1, 4, 0, "...", 1
+"lubridate", "as.duration", -1, 5, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 5, 0, "class<`difftime`>", 1
+"lubridate", "as.duration", 1, 5, 0, "...", 1
+"lubridate", "as.duration", -1, 6, 0, "class<`Duration`>", 1
+"lubridate", "as.duration", 0, 6, 0, "character", 1
+"lubridate", "as.duration", 1, 6, 0, "...", 1
+"lubridate", "as.interval", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "as.interval", 0, 0, 0, "class<`Duration`>", 1
+"lubridate", "as.interval", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "as.interval", 2, 0, 0, "...", 1
+"lubridate", "as.interval", -1, 1, 0, "class<`Interval`>", 1
+"lubridate", "as.interval", 0, 1, 0, "class<`difftime`>", 1
+"lubridate", "as.interval", 0, 1, 1, "class<`Duration`>", 1
+"lubridate", "as.interval", 0, 1, 2, "class<`Period`>", 1
+"lubridate", "as.interval", 0, 1, 3, "double", 1
+"lubridate", "as.interval", 1, 1, 0, "class<`Date`>", 1
+"lubridate", "as.interval", 2, 1, 0, "...", 1
+"lubridate", "as.interval", -1, 2, 0, "class<`Interval`>", 1
+"lubridate", "as.interval", 0, 2, 0, "class<`difftime`>", 1
+"lubridate", "as.interval", 1, 2, 0, "class<`Date`>", 1
+"lubridate", "as.interval", 2, 2, 0, "...", 1
+"lubridate", "as.interval", -1, 3, 0, "class<`Interval`>", 1
+"lubridate", "as.interval", 0, 3, 0, "class<`Period`>", 1
+"lubridate", "as.interval", 1, 3, 0, "class<`Date`>", 1
+"lubridate", "as.interval", 2, 3, 0, "...", 1
+"lubridate", "as.interval", -1, 4, 0, "class<`Interval`>", 1
+"lubridate", "as.interval", 0, 4, 0, "double", 1
+"lubridate", "as.interval", 1, 4, 0, "class<`Date`>", 1
+"lubridate", "as.interval", 2, 4, 0, "...", 1
+"lubridate", "as.period", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "as.period", 0, 0, 0, "character", 1
+"lubridate", "as.period", 1, 0, 0, "any", 1
+"lubridate", "as.period", 2, 0, 0, "...", 1
+"lubridate", "as.period", -1, 1, 0, "class<`Period`>", 1
+"lubridate", "as.period", 0, 1, 0, "character", 1
+"lubridate", "as.period", 0, 1, 1, "class<`Interval`>", 1
+"lubridate", "as.period", 0, 1, 2, "class<`Period`>", 1
+"lubridate", "as.period", 1, 1, 0, "any", 1
+"lubridate", "as.period", 2, 1, 0, "...", 1
+"lubridate", "as.period", -1, 2, 0, "class<`Period`>", 1
+"lubridate", "as.period", 0, 2, 0, "class<`Interval`>", 1
+"lubridate", "as.period", 1, 2, 0, "any", 1
+"lubridate", "as.period", 2, 2, 0, "...", 1
+"lubridate", "as_POSIXct", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_POSIXct", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "as_POSIXct", 1, 0, 0, "any", 1
+"lubridate", ".best_formats", -1, 0, 0, "(character[] | null)", 1
+"lubridate", ".best_formats", 0, 0, 0, "character[]", 1
+"lubridate", ".best_formats", 1, 0, 0, "character[]", 1
+"lubridate", ".best_formats", 2, 0, 0, "character", 1
+"lubridate", ".best_formats", 3, 0, 0, "any", 1
+"lubridate", ".best_formats", 4, 0, 0, "any", 1
+"lubridate", "ceiling_date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "ceiling_date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "ceiling_date", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "ceiling_date", 1, 0, 0, "character", 1
+"lubridate", "ceiling_date", 2, 0, 0, "logical", 1
+"lubridate", "ceiling_date", 2, 0, 1, "null", 1
+"lubridate", "ceiling_date", 3, 0, 0, "any", 1
+"lubridate", "ceil_multi_unit", -1, 0, 0, "double", 1
+"lubridate", "ceil_multi_unit", 0, 0, 0, "double", 1
+"lubridate", "ceil_multi_unit", 1, 0, 0, "double", 1
+"lubridate", "ceil_multi_unit1", -1, 0, 0, "double", 1
+"lubridate", "ceil_multi_unit1", 0, 0, 0, "double", 1
+"lubridate", "ceil_multi_unit1", 1, 0, 0, "double", 1
+"lubridate", "C_force_tz", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "C_force_tz", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "C_force_tz", 1, 0, 0, "character", 1
+"lubridate", "C_force_tz", 2, 0, 0, "logical", 1
+"lubridate", "C_force_tzs", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "C_force_tzs", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "C_force_tzs", 1, 0, 0, "character[]", 1
+"lubridate", "C_force_tzs", 2, 0, 0, "character", 1
+"lubridate", "C_force_tzs", 3, 0, 0, "logical", 1
+"lubridate", "C_local_time", -1, 0, 0, "double[]", 1
+"lubridate", "C_local_time", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "C_local_time", 1, 0, 0, "character[]", 1
+"lubridate", "c.POSIXct", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "c.POSIXct", 0, 0, 0, "...", 1
+"lubridate", "c.POSIXct", 1, 0, 0, "logical", 1
+"lubridate", "C_update_dt", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "C_update_dt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "C_update_dt", 1, 0, 0, "double", 1
+"lubridate", "C_update_dt", 1, 0, 1, "integer[]", 1
+"lubridate", "C_update_dt", 2, 0, 0, "double", 1
+"lubridate", "C_update_dt", 2, 0, 1, "integer[]", 1
+"lubridate", "C_update_dt", 3, 0, 0, "integer[]", 1
+"lubridate", "C_update_dt", 4, 0, 0, "double", 1
+"lubridate", "C_update_dt", 5, 0, 0, "integer[]", 1
+"lubridate", "C_update_dt", 6, 0, 0, "double", 1
+"lubridate", "C_update_dt", 7, 0, 0, "double", 1
+"lubridate", "C_update_dt", 8, 0, 0, "double[]", 1
+"lubridate", "C_update_dt", 9, 0, 0, "character", 1
+"lubridate", "C_update_dt", 10, 0, 0, "logical", 1
+"lubridate", "C_update_dt", 11, 0, 0, "double", 1
+"lubridate", "C_valid_tz", -1, 0, 0, "logical", 1
+"lubridate", "C_valid_tz", 0, 0, 0, "character", 1
+"lubridate", "date", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "date", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date<-", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date<-", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date<-", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "date<-", -1, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date<-", 0, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date<-", 1, 1, 0, "class<`Date`>", 1
+"lubridate", "date_decimal", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date_decimal", 0, 0, 0, "double", 1
+"lubridate", "date_decimal", 1, 0, 0, "character", 1
+"lubridate", "date.default", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "date.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "date.default", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date_to_posix", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "date_to_posix", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "date_to_posix", 1, 0, 0, "character", 1
+"lubridate", "day", -1, 0, 0, "integer[]", 1
+"lubridate", "day", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "day", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "day", 0, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "day<-", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "day<-", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "day<-", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "day<-", 1, 0, 0, "double", 1
+"lubridate", "day<-", -1, 1, 0, "class<`Date`>", 1
+"lubridate", "day<-", 0, 1, 0, "class<`Date`>", 1
+"lubridate", "day<-", 1, 1, 0, "double", 1
+"lubridate", "day<-", -1, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "day<-", 0, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "day<-", 1, 2, 0, "double", 1
+"lubridate", "days", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "days", 0, 0, 0, "class<`difftime`>", 1
+"lubridate", "days", 0, 0, 1, "double[]", 1
+"lubridate", "ddays", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "ddays", 0, 0, 0, "double", 1
+"lubridate", "decimal_date", -1, 0, 0, "double", 1
+"lubridate", "decimal_date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "decimal_date.default", -1, 0, 0, "double", 1
+"lubridate", "decimal_date.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "dhours", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "dhours", 0, 0, 0, "double", 1
+"lubridate", ".difftime_from_num", -1, 0, 0, "class<`difftime`>", 1
+"lubridate", ".difftime_from_num", 0, 0, 0, "double[]", 1
+"lubridate", ".difftime_from_num", 1, 0, 0, "character", 1
+"lubridate", ".difftime_from_pieces", -1, 0, 0, "double", 1
+"lubridate", ".difftime_from_pieces", 0, 0, 0, "list<double>", 1
+"lubridate", "divide_duration_by_duration", -1, 0, 0, "double", 1
+"lubridate", "divide_duration_by_duration", 0, 0, 0, "class<`Duration`>", 1
+"lubridate", "divide_duration_by_duration", 1, 0, 0, "class<`Duration`>", 1
+"lubridate", "divide_interval_by_duration", -1, 0, 0, "double", 1
+"lubridate", "divide_interval_by_duration", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "divide_interval_by_duration", 1, 0, 0, "class<`Duration`>", 1
+"lubridate", "divide_interval_by_period", -1, 0, 0, "double", 1
+"lubridate", "divide_interval_by_period", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "divide_interval_by_period", 1, 0, 0, "class<`Period`>", 1
+"lubridate", "dminutes", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "dminutes", 0, 0, 0, "double", 1
+"lubridate", "dmy", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "dmy", 0, 0, 0, "...", 1
+"lubridate", "dmy", 1, 0, 0, "logical", 1
+"lubridate", "dmy", 2, 0, 0, "null", 1
+"lubridate", "dmy", 3, 0, 0, "character", 1
+"lubridate", "dmy", 4, 0, 0, "double", 1
+"lubridate", "dmy_hms", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "dmy_hms", 0, 0, 0, "...", 1
+"lubridate", "dmy_hms", 1, 0, 0, "logical", 1
+"lubridate", "dmy_hms", 2, 0, 0, "character", 1
+"lubridate", "dmy_hms", 3, 0, 0, "character", 1
+"lubridate", "dmy_hms", 4, 0, 0, "double", 1
+"lubridate", "dseconds", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "dseconds", 0, 0, 0, "double", 1
+"lubridate", "dst", -1, 0, 0, "logical", 1
+"lubridate", "dst", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "dst.default", -1, 0, 0, "logical", 1
+"lubridate", "dst.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "duration", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "duration", 0, 0, 0, "character", 1
+"lubridate", "duration", 0, 0, 1, "double", 1
+"lubridate", "duration", 0, 0, 2, "null", 1
+"lubridate", "duration", 1, 0, 0, "character", 1
+"lubridate", "duration", 2, 0, 0, "...", 1
+"lubridate", ".duration_from_num", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", ".duration_from_num", 0, 0, 0, "double", 1
+"lubridate", ".duration_from_num", 1, 0, 0, "character", 1
+"lubridate", ".duration_from_units", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", ".duration_from_units", 0, 0, 0, "list<double>", 1
+"lubridate", "dweeks", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "dweeks", 0, 0, 0, "double", 1
+"lubridate", "dyears", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "dyears", 0, 0, 0, "double", 1
+"lubridate", ".enclose", -1, 0, 0, "character[]", 1
+"lubridate", ".enclose", 0, 0, 0, "character[]", 1
+"lubridate", ".enclosed.na", -1, 0, 0, "logical[]", 1
+"lubridate", ".enclosed.na", 0, 0, 0, "character[]", 1
+"lubridate", "fast_strptime", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "fast_strptime", 0, 0, 0, "character[]", 1
+"lubridate", "fast_strptime", 1, 0, 0, "character", 1
+"lubridate", "fast_strptime", 2, 0, 0, "character", 1
+"lubridate", "fast_strptime", 3, 0, 0, "logical", 1
+"lubridate", "fast_strptime", 4, 0, 0, "integer", 1
+"lubridate", "floor_date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "floor_date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "floor_date", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "floor_date", 1, 0, 0, "character", 1
+"lubridate", "floor_date", 2, 0, 0, "any", 1
+"lubridate", "floor_multi_unit", -1, 0, 0, "double", 1
+"lubridate", "floor_multi_unit", 0, 0, 0, "double", 1
+"lubridate", "floor_multi_unit", 1, 0, 0, "double", 1
+"lubridate", "floor_multi_unit1", -1, 0, 0, "double", 1
+"lubridate", "floor_multi_unit1", 0, 0, 0, "double", 1
+"lubridate", "floor_multi_unit1", 1, 0, 0, "double", 1
+"lubridate", "force_tz", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "force_tz", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "force_tz", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "force_tz", 1, 0, 0, "character", 1
+"lubridate", "force_tz", 2, 0, 0, "logical", 1
+"lubridate", "force_tzs", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "force_tzs", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "force_tzs", 1, 0, 0, "character[]", 1
+"lubridate", "force_tzs", 2, 0, 0, "character", 1
+"lubridate", "force_tzs", 3, 0, 0, "logical", 1
+"lubridate", "FUN", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "FUN", 0, 0, 0, "character", 1
+"lubridate", "FUN", 0, 0, 1, "class<`Interval`>", 1
+"lubridate", "FUN", 0, 0, 2, "class<`Period`>", 1
+"lubridate", "FUN", 1, 0, 0, "any", 1
+"lubridate", "FUN", 2, 0, 0, "...", 1
+"lubridate", "FUN", -1, 1, 0, "(character[] | null)", 1
+"lubridate", "FUN", 0, 1, 0, "character", 1
+"lubridate", "FUN", 1, 1, 0, "character[]", 1
+"lubridate", "FUN", 2, 1, 0, "logical", 1
+"lubridate", "FUN", -1, 2, 0, "character[]", 1
+"lubridate", "FUN", 0, 2, 0, "character[]", 1
+"lubridate", "FUN", 0, 2, 1, "double", 1
+"lubridate", "FUN", -1, 3, 0, "logical", 1
+"lubridate", "FUN", 0, 3, 0, "class<`Interval`>", 1
+"lubridate", "FUN", 0, 3, 1, "class<`Duration`>", 1
+"lubridate", "FUN", 0, 3, 2, "class<`Period`>", 1
+"lubridate", "FUN", 0, 3, 3, "double[]", 1
+"lubridate", ".get_locale_regs", -1, 0, 0, "list<character[] | list<character[]>>", 1
+"lubridate", ".get_locale_regs", 0, 0, 0, "character", 1
+"lubridate", ".get_train_set", -1, 0, 0, "character[]", 1
+"lubridate", ".get_train_set", 0, 0, 0, "character[]", 1
+"lubridate", "guess_formats", -1, 0, 0, "(character[] | null)", 1
+"lubridate", "guess_formats", 0, 0, 0, "character[]", 1
+"lubridate", "guess_formats", 1, 0, 0, "character[]", 1
+"lubridate", "guess_formats", 2, 0, 0, "character", 1
+"lubridate", "guess_formats", 3, 0, 0, "logical", 1
+"lubridate", "guess_formats", 4, 0, 0, "logical", 1
+"lubridate", "hm", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "hm", 0, 0, 0, "...", 1
+"lubridate", "hm", 1, 0, 0, "logical", 1
+"lubridate", "hm", 2, 0, 0, "logical", 1
+"lubridate", "hms", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "hms", 0, 0, 0, "...", 1
+"lubridate", "hms", 1, 0, 0, "logical", 1
+"lubridate", "hms", 2, 0, 0, "logical", 1
+"lubridate", "hour", -1, 0, 0, "integer[]", 1
+"lubridate", "hour", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "hour", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "hour", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "hour<-", -1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "hour<-", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "hour<-", 1, 0, 0, "double", 1
+"lubridate", "hour<-", -1, 1, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "hour<-", 0, 1, 0, "class<`Date`>", 1
+"lubridate", "hour<-", 1, 1, 0, "double", 1
+"lubridate", "hour<-", -1, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "hour<-", 0, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "hour<-", 1, 2, 0, "double", 1
+"lubridate", "hour<-", -1, 3, 0, "(class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", "hour<-", 0, 3, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "hour<-", 0, 3, 1, "class<`Date`>", 1
+"lubridate", "hour<-", 0, 3, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "hour<-", 1, 3, 0, "double", 1
+"lubridate", "hour.default", -1, 0, 0, "integer[]", 1
+"lubridate", "hour.default", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "hour.default", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "hour.default", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "hours", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "hours", 0, 0, 0, "double", 1
+"lubridate", "hours", 0, 0, 1, "integer[]", 1
+"lubridate", "int_aligns", -1, 0, 0, "logical", 1
+"lubridate", "int_aligns", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_aligns", 1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_diff", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_diff", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "integer_divide_spans", -1, 0, 0, "double", 1
+"lubridate", "integer_divide_spans", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "integer_divide_spans", 1, 0, 0, "class<`Period`>", 1
+"lubridate", "int_end", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "int_end", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_end<-", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_end<-", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_end<-", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "interval", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "interval", 0, 0, 0, "character", 1
+"lubridate", "interval", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "interval", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "interval", 1, 0, 0, "null", 1
+"lubridate", "interval", 1, 0, 1, "class<`Date`>", 1
+"lubridate", "interval", 1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "interval", 2, 0, 0, "character", 1
+"lubridate", "int_flip", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_flip", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_length", -1, 0, 0, "double", 1
+"lubridate", "int_length", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_overlaps", -1, 0, 0, "logical", 1
+"lubridate", "int_overlaps", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_overlaps", 1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_shift", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_shift", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_shift", 1, 0, 0, "class<`Duration`>", 1
+"lubridate", "int_standardize", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_standardize", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_start", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "int_start", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_start<-", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_start<-", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "int_start<-", 1, 0, 0, "class<`Date`>", 1
+"lubridate", ".int_to_period", -1, 0, 0, "class<`Period`>", 1
+"lubridate", ".int_to_period", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "is.Date", -1, 0, 0, "logical", 1
+"lubridate", "is.Date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.Date", 0, 0, 1, "class<`difftime`>", 1
+"lubridate", "is.Date", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "is.Date", 0, 0, 3, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "is.difftime", -1, 0, 0, "logical", 1
+"lubridate", "is.difftime", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.difftime", 0, 0, 1, "class<`difftime`>", 1
+"lubridate", "is.duration", -1, 0, 0, "logical", 1
+"lubridate", "is.duration", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.duration", 0, 0, 1, "class<`Duration`>", 1
+"lubridate", "is.instant", -1, 0, 0, "logical", 1
+"lubridate", "is.instant", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.instant", 0, 0, 1, "class<`difftime`>", 1
+"lubridate", "is.instant", 0, 0, 2, "class<`Duration`>", 1
+"lubridate", "is.instant", 0, 0, 3, "class<`Period`>", 1
+"lubridate", "is.instant", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "is.instant", 0, 0, 5, "double", 1
+"lubridate", "is.interval", -1, 0, 0, "logical", 1
+"lubridate", "is.interval", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "is.interval", 0, 0, 1, "class<`Duration`>", 1
+"lubridate", "is.interval", 0, 0, 2, "class<`Period`>", 1
+"lubridate", "is.interval", 0, 0, 3, "double[]", 1
+"lubridate", "is.period", -1, 0, 0, "logical", 1
+"lubridate", "is.period", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.period", 0, 0, 1, "class<`Period`>", 1
+"lubridate", "is.POSIXct", -1, 0, 0, "logical", 1
+"lubridate", "is.POSIXct", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.POSIXct", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "is.POSIXlt", -1, 0, 0, "logical", 1
+"lubridate", "is.POSIXlt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "is.POSIXt", -1, 0, 0, "logical", 1
+"lubridate", "is.POSIXt", 0, 0, 0, "character", 1
+"lubridate", "is.POSIXt", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "is.POSIXt", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "is.timepoint", -1, 0, 0, "logical", 1
+"lubridate", "is.timepoint", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.timepoint", 0, 0, 1, "class<`difftime`>", 1
+"lubridate", "is.timepoint", 0, 0, 2, "class<`Duration`>", 1
+"lubridate", "is.timepoint", 0, 0, 3, "class<`Period`>", 1
+"lubridate", "is.timepoint", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "is.timepoint", 0, 0, 5, "double", 1
+"lubridate", "is.timespan", -1, 0, 0, "logical", 1
+"lubridate", "is.timespan", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "is.timespan", 0, 0, 1, "class<`Duration`>", 1
+"lubridate", "leap_year", -1, 0, 0, "logical", 1
+"lubridate", "leap_year", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "leap_year", 0, 0, 1, "double", 1
+"lubridate", "local_time", -1, 0, 0, "class<`difftime`>", 1
+"lubridate", "local_time", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "local_time", 1, 0, 0, "character[]", 1
+"lubridate", "local_time", 1, 0, 1, "null", 1
+"lubridate", "local_time", 2, 0, 0, "character", 1
+"lubridate", "%m-%", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "%m-%", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "%m-%", 1, 0, 0, "class<`Period`>", 1
+"lubridate", "%m-%", -1, 1, 0, "class<`Date`>", 1
+"lubridate", "%m-%", 0, 1, 0, "class<`Date`>", 1
+"lubridate", "%m-%", 1, 1, 0, "class<`Period`>", 1
+"lubridate", "%m+%", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "%m+%", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "%m+%", 1, 0, 0, "class<`Period`>", 1
+"lubridate", "%m+%", -1, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "%m+%", 0, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "%m+%", 1, 1, 0, "class<`Period`>", 1
+"lubridate", "%m+%", -1, 2, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "%m+%", 0, 2, 0, "class<`Date`>", 1
+"lubridate", "%m+%", 0, 2, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "%m+%", 1, 2, 0, "class<`Period`>", 1
+"lubridate", "make_date", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "make_date", 0, 0, 0, "double", 1
+"lubridate", "make_date", 1, 0, 0, "double", 1
+"lubridate", "make_date", 2, 0, 0, "integer", 1
+"lubridate", "make_datetime", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "make_datetime", 0, 0, 0, "double", 1
+"lubridate", "make_datetime", 1, 0, 0, "double", 1
+"lubridate", "make_datetime", 2, 0, 0, "double", 1
+"lubridate", "make_datetime", 3, 0, 0, "integer", 1
+"lubridate", "make_datetime", 4, 0, 0, "integer", 1
+"lubridate", "make_datetime", 5, 0, 0, "double[]", 1
+"lubridate", "make_datetime", 6, 0, 0, "character", 1
+"lubridate", "make_difftime", -1, 0, 0, "class<`difftime`>", 1
+"lubridate", "make_difftime", 0, 0, 0, "double", 1
+"lubridate", "make_difftime", 0, 0, 1, "null", 1
+"lubridate", "make_difftime", 1, 0, 0, "character", 1
+"lubridate", "make_difftime", 2, 0, 0, "...", 1
+"lubridate", "match_lengths", -1, 0, 0, "list<class<`Interval`> | class<`Period`>>", 1
+"lubridate", "match_lengths", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "match_lengths", 1, 0, 0, "class<`Period`>", 1
+"lubridate", "mday", -1, 0, 0, "integer[]", 1
+"lubridate", "mday", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "mday", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "mday", 0, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "mday.default", -1, 0, 0, "integer[]", 1
+"lubridate", "mday.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "mday.default", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "mday.default", 0, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "mdy", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "mdy", 0, 0, 0, "...", 1
+"lubridate", "mdy", 1, 0, 0, "logical", 1
+"lubridate", "mdy", 2, 0, 0, "null", 1
+"lubridate", "mdy", 3, 0, 0, "character", 1
+"lubridate", "mdy", 4, 0, 0, "double", 1
+"lubridate", "minute", -1, 0, 0, "integer[]", 1
+"lubridate", "minute", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "minute", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "minute", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "minute<-", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "minute<-", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "minute<-", 1, 0, 0, "double", 1
+"lubridate", "minute<-", -1, 1, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "minute<-", 0, 1, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "minute<-", 1, 1, 0, "double", 1
+"lubridate", "minute<-", -1, 2, 0, "(class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", "minute<-", 0, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "minute<-", 0, 2, 1, "class<`Date`>", 1
+"lubridate", "minute<-", 0, 2, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "minute<-", 1, 2, 0, "double", 1
+"lubridate", "minute<-", -1, 3, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "minute<-", 0, 3, 0, "class<`Date`>", 1
+"lubridate", "minute<-", 1, 3, 0, "double", 1
+"lubridate", "minute.default", -1, 0, 0, "integer[]", 1
+"lubridate", "minute.default", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "minute.default", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "minute.default", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "minutes", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "minutes", 0, 0, 0, "double", 1
+"lubridate", ".mklt", -1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", ".mklt", 0, 0, 0, "list<double>", 1
+"lubridate", ".mklt", 1, 0, 0, "character", 1
+"lubridate", "modulo_interval_by_period", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "modulo_interval_by_period", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "modulo_interval_by_period", 1, 0, 0, "class<`Period`>", 1
+"lubridate", "month", -1, 0, 0, "(class<`factor`, `ordered`> | double[])", 1
+"lubridate", "month", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "month", 0, 0, 1, "double[]", 1
+"lubridate", "month", 0, 0, 2, "class<`Period`>", 1
+"lubridate", "month", 0, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "month", 1, 0, 0, "logical", 1
+"lubridate", "month", 2, 0, 0, "any", 1
+"lubridate", "month", 3, 0, 0, "any", 1
+"lubridate", "month<-", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "month<-", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "month<-", 1, 0, 0, "double", 1
+"lubridate", "month<-", -1, 1, 0, "class<`Date`>", 1
+"lubridate", "month<-", 0, 1, 0, "class<`Date`>", 1
+"lubridate", "month<-", 1, 1, 0, "double", 1
+"lubridate", "month.default", -1, 0, 0, "(class<`factor`, `ordered`> | double[])", 1
+"lubridate", "month.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "month.default", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "month.default", 1, 0, 0, "logical", 1
+"lubridate", "month.default", 2, 0, 0, "logical", 1
+"lubridate", "month.default", 3, 0, 0, "any", 1
+"lubridate", "month.numeric", -1, 0, 0, "(class<`factor`, `ordered`> | double[])", 1
+"lubridate", "month.numeric", 0, 0, 0, "double[]", 1
+"lubridate", "month.numeric", 1, 0, 0, "logical", 1
+"lubridate", "month.numeric", 2, 0, 0, "any", 1
+"lubridate", "month.numeric", 3, 0, 0, "any", 1
+"lubridate", "month.Period", -1, 0, 0, "double[]", 1
+"lubridate", "month.Period", 0, 0, 0, "class<`Period`>", 1
+"lubridate", "month.Period", 1, 0, 0, "logical", 1
+"lubridate", "month.Period", 2, 0, 0, "logical", 1
+"lubridate", "month.Period", 3, 0, 0, "any", 1
+"lubridate", "months.numeric", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "months.numeric", 0, 0, 0, "double", 1
+"lubridate", "months.numeric", 0, 0, 1, "integer[]", 1
+"lubridate", "months.numeric", 1, 0, 0, "any", 1
+"lubridate", "ms", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "ms", 0, 0, 0, "...", 1
+"lubridate", "ms", 1, 0, 0, "logical", 1
+"lubridate", "ms", 2, 0, 0, "logical", 1
+"lubridate", "multiply_duration_by_number", -1, 0, 0, "class<`Duration`>", 1
+"lubridate", "multiply_duration_by_number", 0, 0, 0, "class<`Duration`>", 1
+"lubridate", "multiply_duration_by_number", 1, 0, 0, "double", 1
+"lubridate", "multiply_duration_by_number", 1, 0, 1, "integer[]", 1
+"lubridate", "multiply_period_by_number", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "multiply_period_by_number", 0, 0, 0, "class<`Period`>", 1
+"lubridate", "multiply_period_by_number", 1, 0, 0, "double", 1
+"lubridate", "multiply_period_by_number", 1, 0, 1, "integer[]", 1
+"lubridate", "now", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "now", 0, 0, 0, "character", 1
+"lubridate", ".number_to_interval", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", ".number_to_interval", 0, 0, 0, "class<`difftime`>", 1
+"lubridate", ".number_to_interval", 0, 0, 1, "class<`Duration`>", 1
+"lubridate", ".number_to_interval", 0, 0, 2, "class<`Period`>", 1
+"lubridate", ".number_to_interval", 0, 0, 3, "double", 1
+"lubridate", ".number_to_interval", 1, 0, 0, "class<`Date`>", 1
+"lubridate", ".number_to_interval", 2, 0, 0, "...", 1
+"lubridate", ".num_to_date", -1, 0, 0, "character[]", 1
+"lubridate", ".num_to_date", 0, 0, 0, "character[]", 1
+"lubridate", ".num_to_date", 0, 0, 1, "double", 1
+"lubridate", ".parse_date_time", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", ".parse_date_time", 0, 0, 0, "character[]", 1
+"lubridate", ".parse_date_time", 1, 0, 0, "character[]", 1
+"lubridate", ".parse_date_time", 2, 0, 0, "character", 1
+"lubridate", ".parse_date_time", 3, 0, 0, "any", 1
+"lubridate", ".parse_date_time", 4, 0, 0, "any", 1
+"lubridate", "parse_date_time", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "parse_date_time", 0, 0, 0, "character[]", 1
+"lubridate", "parse_date_time", 1, 0, 0, "any", 1
+"lubridate", "parse_date_time", 2, 0, 0, "character", 1
+"lubridate", "parse_date_time", 3, 0, 0, "double", 1
+"lubridate", "parse_date_time", 4, 0, 0, "any", 1
+"lubridate", "parse_date_time", 5, 0, 0, "character", 1
+"lubridate", "parse_date_time", 6, 0, 0, "any", 1
+"lubridate", "parse_date_time", 7, 0, 0, "logical", 1
+"lubridate", "parse_date_time", 8, 0, 0, "logical", 1
+"lubridate", "parse_date_time", 9, 0, 0, "logical", 1
+"lubridate", "parse_date_time2", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", "parse_date_time2", 0, 0, 0, "character", 1
+"lubridate", "parse_date_time2", 1, 0, 0, "character", 1
+"lubridate", "parse_date_time2", 2, 0, 0, "character", 1
+"lubridate", "parse_date_time2", 3, 0, 0, "logical", 1
+"lubridate", "parse_date_time2", 4, 0, 0, "logical", 1
+"lubridate", "parse_date_time2", 5, 0, 0, "integer", 1
+"lubridate", "parse_dt", -1, 0, 0, "(^double[] | null | list<double>)", 1
+"lubridate", "parse_dt", 0, 0, 0, "character[]", 1
+"lubridate", "parse_dt", 1, 0, 0, "character", 1
+"lubridate", "parse_dt", 2, 0, 0, "logical", 1
+"lubridate", "parse_dt", 3, 0, 0, "logical", 1
+"lubridate", "parse_dt", 4, 0, 0, "integer", 1
+"lubridate", ".parse_hms", -1, 0, 0, "class<`matrix`>", 1
+"lubridate", ".parse_hms", 0, 0, 0, "...", 1
+"lubridate", ".parse_hms", 1, 0, 0, "character", 1
+"lubridate", ".parse_hms", 2, 0, 0, "logical", 1
+"lubridate", "parse_interval", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "parse_interval", 0, 0, 0, "character", 1
+"lubridate", "parse_interval", 1, 0, 0, "character", 1
+"lubridate", ".parse_iso_dt", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", ".parse_iso_dt", 0, 0, 0, "character[]", 1
+"lubridate", ".parse_iso_dt", 1, 0, 0, "character", 1
+"lubridate", "parse_period", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "parse_period", 0, 0, 0, "character[]", 1
+"lubridate", "parse_period_unit", -1, 0, 0, "list<double | character>", 1
+"lubridate", "parse_period_unit", 0, 0, 0, "character", 1
+"lubridate", ".parse_xxx", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", ".parse_xxx", 0, 0, 0, "...", 1
+"lubridate", ".parse_xxx", 1, 0, 0, "character", 1
+"lubridate", ".parse_xxx", 2, 0, 0, "any", 1
+"lubridate", ".parse_xxx", 3, 0, 0, "null", 1
+"lubridate", ".parse_xxx", 3, 0, 1, "character", 1
+"lubridate", ".parse_xxx", 4, 0, 0, "character", 1
+"lubridate", ".parse_xxx", 5, 0, 0, "double", 1
+"lubridate", ".parse_xxx_hms", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", ".parse_xxx_hms", 0, 0, 0, "...", 1
+"lubridate", ".parse_xxx_hms", 1, 0, 0, "character[]", 1
+"lubridate", ".parse_xxx_hms", 2, 0, 0, "double", 1
+"lubridate", ".parse_xxx_hms", 3, 0, 0, "any", 1
+"lubridate", ".parse_xxx_hms", 4, 0, 0, "character", 1
+"lubridate", ".parse_xxx_hms", 5, 0, 0, "character", 1
+"lubridate", "period", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "period", 0, 0, 0, "character", 1
+"lubridate", "period", 0, 0, 1, "double[]", 1
+"lubridate", "period", 0, 0, 2, "null", 1
+"lubridate", "period", 1, 0, 0, "character[]", 1
+"lubridate", "period", 2, 0, 0, "...", 1
+"lubridate", ".period_from_num", -1, 0, 0, "class<`Period`>", 1
+"lubridate", ".period_from_num", 0, 0, 0, "double[]", 1
+"lubridate", ".period_from_num", 1, 0, 0, "character[]", 1
+"lubridate", ".period_from_units", -1, 0, 0, "class<`Period`>", 1
+"lubridate", ".period_from_units", 0, 0, 0, "list<class<`difftime`> | double[]>", 1
+"lubridate", "period_to_seconds", -1, 0, 0, "double", 1
+"lubridate", "period_to_seconds", 0, 0, 0, "class<`Period`>", 1
+"lubridate", "pm", -1, 0, 0, "logical", 1
+"lubridate", "pm", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "pretty_dates", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "pretty_dates", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "pretty_dates", 1, 0, 0, "double", 1
+"lubridate", "pretty_dates", 2, 0, 0, "...", 1
+"lubridate", "pretty_point", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "pretty_point", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "pretty_point", 1, 0, 0, "character", 1
+"lubridate", "pretty_point", 2, 0, 0, "double", 1
+"lubridate", "pretty_point", 3, 0, 0, "logical", 1
+"lubridate", "pretty_point", 4, 0, 0, "...", 1
+"lubridate", "pretty_unit", -1, 0, 0, "character", 1
+"lubridate", "pretty_unit", 0, 0, 0, "class<`difftime`>", 1
+"lubridate", "pretty_unit", 1, 0, 0, "...", 1
+"lubridate", "quarter", -1, 0, 0, "double[]", 1
+"lubridate", "quarter", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "quarter", 1, 0, 0, "logical", 1
+"lubridate", "quarter", 2, 0, 0, "double", 1
+"lubridate", ".quick_month_add", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", ".quick_month_add", 0, 0, 0, "class<`Date`>", 1
+"lubridate", ".quick_month_add", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", ".quick_month_add", 1, 0, 0, "double[]", 1
+"lubridate", "reclass_date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", "reclass_date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "reclass_date", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date", 0, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "reclass_date", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "reclass_date", 1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date", 1, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "reclass_date.Date", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "reclass_date.Date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "reclass_date.Date", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date.Date", 0, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "reclass_date.Date", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "reclass_date_maybe", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "reclass_date_maybe", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "reclass_date_maybe", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date_maybe", 0, 0, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "reclass_date_maybe", 1, 0, 0, "class<`Date`>", 1
+"lubridate", "reclass_date_maybe", 1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date_maybe", 2, 0, 0, "any", 1
+"lubridate", "reclass_date.POSIXct", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date.POSIXct", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date.POSIXct", 0, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "reclass_date.POSIXct", 1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date.POSIXlt", -1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "reclass_date.POSIXlt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "reclass_date.POSIXlt", 0, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "reclass_date.POSIXlt", 1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "recognize", -1, 0, 0, "logical", 1
+"lubridate", "recognize", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "recognize", 0, 0, 1, "double", 1
+"lubridate", ".rep_maybe", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | double[])", 1
+"lubridate", ".rep_maybe", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", ".rep_maybe", 0, 0, 1, "double[]", 1
+"lubridate", ".rep_maybe", 1, 0, 0, "double", 1
+"lubridate", "rollback", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "rollback", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "rollback", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "rollback", 1, 0, 0, "any", 1
+"lubridate", "rollback", 2, 0, 0, "any", 1
+"lubridate", "round_date", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "round_date", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "round_date", 1, 0, 0, "character", 1
+"lubridate", "round_date", 2, 0, 0, "any", 1
+"lubridate", "second", -1, 0, 0, "double[]", 1
+"lubridate", "second", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "second", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "second", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "second<-", -1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "second<-", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "second<-", 1, 0, 0, "double", 1
+"lubridate", "second<-", -1, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "second<-", 0, 1, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "second<-", 1, 1, 0, "double", 1
+"lubridate", "second<-", -1, 2, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "second<-", 0, 2, 0, "class<`Date`>", 1
+"lubridate", "second<-", 1, 2, 0, "double", 1
+"lubridate", "second<-", -1, 3, 0, "(class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", "second<-", 0, 3, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "second<-", 0, 3, 1, "class<`Date`>", 1
+"lubridate", "second<-", 0, 3, 2, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "second<-", 1, 3, 0, "double", 1
+"lubridate", "second.default", -1, 0, 0, "double[]", 1
+"lubridate", "second.default", 0, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "second.default", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "second.default", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "seconds", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "seconds", 0, 0, 0, "double", 1
+"lubridate", "seconds_to_unit", -1, 0, 0, "double[]", 1
+"lubridate", "seconds_to_unit", 0, 0, 0, "double[]", 1
+"lubridate", "seconds_to_unit", 1, 0, 0, "character", 1
+"lubridate", ".select_formats", -1, 0, 0, "character[]", 1
+"lubridate", ".select_formats", 0, 0, 0, "integer[]", 1
+"lubridate", ".select_formats", 1, 0, 0, "logical", 1
+"lubridate", "semester", -1, 0, 0, "double[]", 1
+"lubridate", "semester", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "semester", 1, 0, 0, "logical", 1
+"lubridate", "setdiff", -1, 0, 0, "class<`Interval`>", 1
+"lubridate", "setdiff", 0, 0, 0, "class<`Interval`>", 1
+"lubridate", "setdiff", 1, 0, 0, "class<`Interval`>", 1
+"lubridate", ".shift_wday_names", -1, 0, 0, "character[]", 1
+"lubridate", ".shift_wday_names", 0, 0, 0, "character[]", 1
+"lubridate", ".shift_wday_names", 1, 0, 0, "integer", 1
+"lubridate", "standardise_date_names", -1, 0, 0, "character[]", 1
+"lubridate", "standardise_date_names", 0, 0, 0, "character[]", 1
+"lubridate", "standardise_difftime_names", -1, 0, 0, "character[]", 1
+"lubridate", "standardise_difftime_names", 0, 0, 0, "character[]", 1
+"lubridate", "standardise_period_names", -1, 0, 0, "character", 1
+"lubridate", "standardise_period_names", 0, 0, 0, "character", 1
+"lubridate", ".strptime", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", ".strptime", 0, 0, 0, "character[]", 1
+"lubridate", ".strptime", 1, 0, 0, "character", 1
+"lubridate", ".strptime", 2, 0, 0, "character", 1
+"lubridate", ".strptime", 3, 0, 0, "any", 1
+"lubridate", ".strptime", 4, 0, 0, "any", 1
+"lubridate", ".substitute_formats", -1, 0, 0, "(character[] | null)", 1
+"lubridate", ".substitute_formats", 0, 0, 0, "character", 1
+"lubridate", ".substitute_formats", 1, 0, 0, "character[]", 1
+"lubridate", ".substitute_formats", 2, 0, 0, "logical", 1
+"lubridate", "time_length", -1, 0, 0, "double", 1
+"lubridate", "time_length", 0, 0, 0, "class<`Duration`>", 1
+"lubridate", "time_length", 0, 0, 1, "class<`Interval`>", 1
+"lubridate", "time_length", 1, 0, 0, "character", 1
+"lubridate", "time_length", -1, 1, 0, "double", 1
+"lubridate", "time_length", 0, 1, 0, "class<`Interval`>", 1
+"lubridate", "time_length", 1, 1, 0, "character", 1
+"lubridate", "time_length", -1, 2, 0, "double", 1
+"lubridate", "time_length", 0, 2, 0, "class<`Duration`>", 1
+"lubridate", "time_length", 1, 2, 0, "character", 1
+"lubridate", "today", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "today", 0, 0, 0, "character", 1
+"lubridate", ".train_formats", -1, 0, 0, "integer[]", 1
+"lubridate", ".train_formats", 0, 0, 0, "character[]", 1
+"lubridate", ".train_formats", 1, 0, 0, "character[]", 1
+"lubridate", ".train_formats", 2, 0, 0, "any", 1
+"lubridate", "trunc_multi_unit", -1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "trunc_multi_unit", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "trunc_multi_unit", 1, 0, 0, "character", 1
+"lubridate", "trunc_multi_unit", 2, 0, 0, "double", 1
+"lubridate", "tz", -1, 0, 0, "character", 1
+"lubridate", "tz", 0, 0, 0, "character", 1
+"lubridate", "tz", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "tz", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "tz", 0, 0, 3, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "tz<-", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "tz<-", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "tz<-", 1, 0, 0, "character", 1
+"lubridate", "tz.default", -1, 0, 0, "character", 1
+"lubridate", "tz.default", 0, 0, 0, "character", 1
+"lubridate", "tz.default", 0, 0, 1, "class<`Date`>", 1
+"lubridate", "tz.default", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "tz.default", 0, 0, 3, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", ".units_within_seconds", -1, 0, 0, "list<double>", 1
+"lubridate", ".units_within_seconds", 0, 0, 0, "double", 1
+"lubridate", ".units_within_seconds", 1, 0, 0, "character", 1
+"lubridate", "update.Date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "update.Date", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "update.Date", 1, 0, 0, "...", 1
+"lubridate", "update.POSIXt", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | class<`POSIXlt`, `POSIXt`>)", 1
+"lubridate", "update.POSIXt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "update.POSIXt", 0, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
+"lubridate", "update.POSIXt", 1, 0, 0, "...", 1
+"lubridate", "update.POSIXt", 2, 0, 0, "logical", 1
+"lubridate", "update.POSIXt", 3, 0, 0, "double", 1
+"lubridate", "update.POSIXt", 4, 0, 0, "logical", 1
+"lubridate", "update.POSIXt", 4, 0, 1, "null", 1
+"lubridate", "wday", -1, 0, 0, "(class<`factor`, `ordered`> | double[])", 1
+"lubridate", "wday", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "wday", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "wday", 0, 0, 2, "double[]", 1
+"lubridate", "wday", 1, 0, 0, "logical", 1
+"lubridate", "wday", 2, 0, 0, "any", 1
+"lubridate", "wday", 3, 0, 0, "any", 1
+"lubridate", "wday", 4, 0, 0, "any", 1
+"lubridate", "wday.default", -1, 0, 0, "(class<`factor`, `ordered`> | double[])", 1
+"lubridate", "wday.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "wday.default", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "wday.default", 1, 0, 0, "logical", 1
+"lubridate", "wday.default", 2, 0, 0, "logical", 1
+"lubridate", "wday.default", 3, 0, 0, "double", 1
+"lubridate", "wday.default", 4, 0, 0, "any", 1
+"lubridate", "wday.numeric", -1, 0, 0, "(class<`factor`, `ordered`> | double[])", 1
+"lubridate", "wday.numeric", 0, 0, 0, "double[]", 1
+"lubridate", "wday.numeric", 1, 0, 0, "logical", 1
+"lubridate", "wday.numeric", 2, 0, 0, "any", 1
+"lubridate", "wday.numeric", 3, 0, 0, "double", 1
+"lubridate", "wday.numeric", 4, 0, 0, "any", 1
+"lubridate", "week", -1, 0, 0, "double", 1
+"lubridate", "week", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "week<-", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "week<-", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "week<-", 1, 0, 0, "double", 1
+"lubridate", "weeks", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "weeks", 0, 0, 0, "integer[]", 1
+"lubridate", ".within", -1, 0, 0, "logical[]", 1
+"lubridate", ".within", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", ".within", 1, 0, 0, "class<`Interval`>", 1
+"lubridate", "%within%", -1, 0, 0, "logical[]", 1
+"lubridate", "%within%", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "%within%", 1, 0, 0, "class<`Interval`>", 1
+"lubridate", "%within%", -1, 1, 0, "logical[]", 1
+"lubridate", "%within%", 0, 1, 0, "class<`Date`>", 1
+"lubridate", "%within%", 0, 1, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "%within%", 0, 1, 2, "class<`Interval`>", 1
+"lubridate", "%within%", 1, 1, 0, "class<`Interval`>", 1
+"lubridate", "%within%", 1, 1, 1, "list<class<`Interval`>>", 1
+"lubridate", "%within%", -1, 2, 0, "logical[]", 1
+"lubridate", "%within%", 0, 2, 0, "class<`Date`>", 1
+"lubridate", "%within%", 1, 2, 0, "list<class<`Interval`>>", 1
+"lubridate", "%within%", -1, 3, 0, "logical", 1
+"lubridate", "%within%", 0, 3, 0, "class<`Interval`>", 1
+"lubridate", "%within%", 1, 3, 0, "class<`Interval`>", 1
+"lubridate", "%within%", -1, 4, 0, "logical[]", 1
+"lubridate", "%within%", 0, 4, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "%within%", 1, 4, 0, "class<`Interval`>", 1
+"lubridate", ".with_tz", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", ".with_tz", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", ".with_tz", 1, 0, 0, "character", 1
+"lubridate", "with_tz", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "with_tz", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "with_tz", 1, 0, 0, "character", 1
+"lubridate", "yday", -1, 0, 0, "double", 1
+"lubridate", "yday", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "yday<-", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "yday<-", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "yday<-", 1, 0, 0, "double", 1
+"lubridate", "yday.default", -1, 0, 0, "double", 1
+"lubridate", "yday.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "year", -1, 0, 0, "double[]", 1
+"lubridate", "year", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "year", 0, 0, 1, "class<`Period`>", 1
+"lubridate", "year", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "year<-", -1, 0, 0, "class<`Date`>", 1
+"lubridate", "year<-", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "year<-", 1, 0, 0, "double", 1
+"lubridate", "year<-", -1, 1, 0, "class<`Date`>", 1
+"lubridate", "year<-", 0, 1, 0, "class<`Date`>", 1
+"lubridate", "year<-", 1, 1, 0, "double", 1
+"lubridate", "year.default", -1, 0, 0, "double[]", 1
+"lubridate", "year.default", 0, 0, 0, "class<`Date`>", 1
+"lubridate", "year.default", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "year.Period", -1, 0, 0, "double[]", 1
+"lubridate", "year.Period", 0, 0, 0, "class<`Period`>", 1
+"lubridate", "years", -1, 0, 0, "class<`Period`>", 1
+"lubridate", "years", 0, 0, 0, "double", 1
+"lubridate", "ymd", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"lubridate", "ymd", 0, 0, 0, "...", 1
+"lubridate", "ymd", 1, 0, 0, "logical", 1
+"lubridate", "ymd", 2, 0, 0, "null", 1
+"lubridate", "ymd", 2, 0, 1, "character", 1
+"lubridate", "ymd", 3, 0, 0, "character", 1
+"lubridate", "ymd", 4, 0, 0, "double", 1
+"lubridate", "ymd_hm", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "ymd_hm", 0, 0, 0, "...", 1
+"lubridate", "ymd_hm", 1, 0, 0, "logical", 1
+"lubridate", "ymd_hm", 2, 0, 0, "character", 1
+"lubridate", "ymd_hm", 3, 0, 0, "character", 1
+"lubridate", "ymd_hm", 4, 0, 0, "double", 1
+"lubridate", "ymd_hms", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lubridate", "ymd_hms", 0, 0, 0, "...", 1
+"lubridate", "ymd_hms", 1, 0, 0, "logical", 1
+"lubridate", "ymd_hms", 2, 0, 0, "character", 1
+"lubridate", "ymd_hms", 3, 0, 0, "character", 1
+"lubridate", "ymd_hms", 4, 0, 0, "double", 1

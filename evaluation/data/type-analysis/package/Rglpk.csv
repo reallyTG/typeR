@@ -1,13 +1,92 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"Rglpk", ".check_control_parameters", -1, 0, 0, "struct<`verbose`:integer, `presolve`:integer, `tm_limit`:integer, `canonicalize_status`:logical>", 1
-"Rglpk", ".check_control_parameters", 0, 0, 0, "tuple<>", 1
-"Rglpk", ".check_control_parameters", 0, 0, 1, "struct<`verbose`:logical, `canonicalize_status`:logical>", 1
-"Rglpk", "as.glp_bounds.list", -1, 0, 0, "struct<`type`:integer[], `lower`:double[], `upper`:double[]>", 1
-"Rglpk", "as.glp_bounds.list", 0, 0, 0, "tuple<>", 1
-"Rglpk", "as.glp_bounds.list", 0, 0, 1, "struct<`lower`:struct<`ind`:integer[], `val`:double[]>, `upper`:struct<`ind`:integer[], `val`:double[]>>", 1
+"Rglpk", "as.glp_bounds", -1, 0, 0, "class<`bound_table`, `data.frame`>", 1
+"Rglpk", "as.glp_bounds", 0, 0, 0, "list<any>", 1
+"Rglpk", "as.glp_bounds", 1, 0, 0, "...", 1
+"Rglpk", "as.glp_bounds.list", -1, 0, 0, "class<`bound_table`, `data.frame`>", 1
+"Rglpk", "as.glp_bounds.list", 0, 0, 0, "list<any>", 1
 "Rglpk", "as.glp_bounds.list", 1, 0, 0, "integer", 1
-"Rglpk", "filter", -1, 0, 0, "logical[]", 1
-"Rglpk", "filter", 0, 0, 0, "character[]", 1
-"Rglpk", "fun", -1, 0, 0, "null", 1
-"Rglpk", "fun", 0, 0, 0, "symbol", 1
-"Rglpk", "fun", 1, 0, 0, "character", 1
+"Rglpk", ".check_control_parameters", -1, 0, 0, "list<integer>", 1
+"Rglpk", ".check_control_parameters", 0, 0, 0, "list<any>", 1
+"Rglpk", "glp_bounds", -1, 0, 0, "class<`bound_table`, `data.frame`>", 1
+"Rglpk", "glp_bounds", 0, 0, 0, "list<any>", 1
+"Rglpk", "glp_bounds", 1, 0, 0, "integer", 1
+"Rglpk", "glp_bounds_check_sanity", -1, 0, 0, "null", 1
+"Rglpk", "glp_bounds_check_sanity", 0, 0, 0, "list<double[]>", 1
+"Rglpk", "glp_bounds_check_sanity", 1, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", -1, 0, 0, "list<double[] | character>", 1
+"Rglpk", "glp_call_interface", 0, 0, 0, "double[]", 1
+"Rglpk", "glp_call_interface", 1, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", 2, 0, 0, "integer[]", 1
+"Rglpk", "glp_call_interface", 3, 0, 0, "integer[]", 1
+"Rglpk", "glp_call_interface", 4, 0, 0, "double[]", 1
+"Rglpk", "glp_call_interface", 5, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", 6, 0, 0, "double[]", 1
+"Rglpk", "glp_call_interface", 7, 0, 0, "integer[]", 1
+"Rglpk", "glp_call_interface", 8, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", 9, 0, 0, "logical", 1
+"Rglpk", "glp_call_interface", 10, 0, 0, "logical[]", 1
+"Rglpk", "glp_call_interface", 11, 0, 0, "logical[]", 1
+"Rglpk", "glp_call_interface", 12, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", 13, 0, 0, "integer[]", 1
+"Rglpk", "glp_call_interface", 14, 0, 0, "double[]", 1
+"Rglpk", "glp_call_interface", 15, 0, 0, "double[]", 1
+"Rglpk", "glp_call_interface", 16, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", 17, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", 18, 0, 0, "integer", 1
+"Rglpk", "glp_call_interface", 19, 0, 0, "integer", 1
+"Rglpk", "glp_fix_bound_type", -1, 0, 0, "class<`bound_table`, `data.frame`>", 1
+"Rglpk", "glp_fix_bound_type", 0, 0, 0, "class<`bound_table`, `data.frame`>", 1
+"Rglpk", "glp_get_meta_data_from_file", -1, 0, 0, "list<character | integer>", 1
+"Rglpk", "glp_get_meta_data_from_file", 0, 0, 0, "list<character | integer>", 1
+"Rglpk", "glp_get_meta_data_from_file", 1, 0, 0, "logical", 1
+"Rglpk", "glp_merge_MP_data", -1, 0, 0, "list<any>", 1
+"Rglpk", "glp_merge_MP_data", 0, 0, 0, "list<character | integer>", 1
+"Rglpk", "glp_merge_MP_data", 1, 0, 0, "list<double[] | character[]>", 1
+"Rglpk", "glp_retrieve_MP_from_file", -1, 0, 0, "list<double[] | character[]>", 1
+"Rglpk", "glp_retrieve_MP_from_file", 0, 0, 0, "list<character | integer>", 1
+"Rglpk", "glp_retrieve_MP_from_file", 1, 0, 0, "logical", 1
+"Rglpk", "glp_retrieve_MP_from_file", 2, 0, 0, "logical", 1
+"Rglpk", "MILP", -1, 0, 0, "class<`MILP`>", 1
+"Rglpk", "MILP", 0, 0, 0, "double[]", 1
+"Rglpk", "MILP", 1, 0, 0, "list<class<`simple_triplet_matrix`> | character[] | double[]>", 1
+"Rglpk", "MILP", 2, 0, 0, "list<list<double[]>>", 1
+"Rglpk", "MILP", 3, 0, 0, "character[]", 1
+"Rglpk", "MILP", 4, 0, 0, "logical", 1
+"Rglpk", "Rglpk_call", -1, 0, 0, "list<double[] | null | list<double[]> | double[] | null | list<double[] | null>>", 1
+"Rglpk", "Rglpk_call", 0, 0, 0, "class<`simple_triplet_matrix`>", 1
+"Rglpk", "Rglpk_call", 0, 0, 1, "double[]", 1
+"Rglpk", "Rglpk_call", 1, 0, 0, "class<`simple_triplet_matrix`>", 1
+"Rglpk", "Rglpk_call", 1, 0, 1, "class<`matrix`>", 1
+"Rglpk", "Rglpk_call", 2, 0, 0, "character[]", 1
+"Rglpk", "Rglpk_call", 3, 0, 0, "double[]", 1
+"Rglpk", "Rglpk_call", 4, 0, 0, "null", 1
+"Rglpk", "Rglpk_call", 4, 0, 1, "list<list<double[]>>", 1
+"Rglpk", "Rglpk_call", 5, 0, 0, "character[]", 1
+"Rglpk", "Rglpk_call", 5, 0, 1, "null", 1
+"Rglpk", "Rglpk_call", 6, 0, 0, "logical", 1
+"Rglpk", "Rglpk_call", 7, 0, 0, "logical", 1
+"Rglpk", "Rglpk_call", 8, 0, 0, "integer", 1
+"Rglpk", "Rglpk_call", 9, 0, 0, "integer", 1
+"Rglpk", "Rglpk_call", 10, 0, 0, "integer", 1
+"Rglpk", "Rglpk_call", 11, 0, 0, "character", 1
+"Rglpk", "Rglpk_call", 12, 0, 0, "integer", 1
+"Rglpk", "Rglpk_call", 13, 0, 0, "logical", 1
+"Rglpk", "Rglpk_read_file", -1, 0, 0, "class<`MILP`, `MP_data_from_file`>", 1
+"Rglpk", "Rglpk_read_file", 0, 0, 0, "character", 1
+"Rglpk", "Rglpk_read_file", 1, 0, 0, "character", 1
+"Rglpk", "Rglpk_read_file", 2, 0, 0, "logical", 1
+"Rglpk", "Rglpk_read_file", 3, 0, 0, "logical", 1
+"Rglpk", "Rglpk_solve_LP", -1, 0, 0, "list<double[] | null | list<double[]> | double[] | null | list<double[] | null>>", 1
+"Rglpk", "Rglpk_solve_LP", 0, 0, 0, "class<`simple_triplet_matrix`>", 1
+"Rglpk", "Rglpk_solve_LP", 0, 0, 1, "double[]", 1
+"Rglpk", "Rglpk_solve_LP", 1, 0, 0, "class<`simple_triplet_matrix`>", 1
+"Rglpk", "Rglpk_solve_LP", 1, 0, 1, "class<`matrix`>", 1
+"Rglpk", "Rglpk_solve_LP", 2, 0, 0, "character[]", 1
+"Rglpk", "Rglpk_solve_LP", 3, 0, 0, "double[]", 1
+"Rglpk", "Rglpk_solve_LP", 4, 0, 0, "null", 1
+"Rglpk", "Rglpk_solve_LP", 4, 0, 1, "list<list<double[]>>", 1
+"Rglpk", "Rglpk_solve_LP", 5, 0, 0, "character[]", 1
+"Rglpk", "Rglpk_solve_LP", 5, 0, 1, "null", 1
+"Rglpk", "Rglpk_solve_LP", 6, 0, 0, "logical", 1
+"Rglpk", "Rglpk_solve_LP", 7, 0, 0, "list<any>", 1
+"Rglpk", "Rglpk_solve_LP", 8, 0, 0, "...", 1

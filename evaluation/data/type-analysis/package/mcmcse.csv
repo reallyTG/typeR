@@ -1,38 +1,61 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"mcmcse", "filter", -1, 0, 0, "logical[]", 1
-"mcmcse", "filter", 0, 0, 0, "character[]", 1
-"mcmcse", "fun", -1, 0, 0, "null", 1
-"mcmcse", "fun", 0, 0, 0, "symbol", 1
-"mcmcse", "fun", 1, 0, 0, "symbol", 1
-"mcmcse", "inseq", -1, 0, 0, "struct<`Sig`:^double[], `Dtm`:double[], `trunc`:integer, `sn`:integer>", 1
-"mcmcse", "inseq", 0, 0, 0, "^double[]", 1
+"mcmcse", "batchSize", -1, 0, 0, "double", 1
+"mcmcse", "batchSize", 0, 0, 0, "class<`matrix`>", 1
+"mcmcse", "batchSize", 0, 0, 1, "double[]", 1
+"mcmcse", "batchSize", 1, 0, 0, "character", 1
+"mcmcse", "batchSize", 2, 0, 0, "class<`function`>", 1
+"mcmcse", "batchSize", 2, 0, 1, "null", 1
+"mcmcse", "confRegion", -1, 0, 0, "class<`matrix`>", 1
+"mcmcse", "confRegion", 0, 0, 0, "list<class<`matrix`> | double[] | character>", 1
+"mcmcse", "confRegion", 1, 0, 0, "double[]", 1
+"mcmcse", "confRegion", 2, 0, 0, "double", 1
+"mcmcse", "inseq", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"mcmcse", "inseq", 0, 0, 0, "class<`matrix`>", 1
 "mcmcse", "inseq", 1, 0, 0, "logical", 1
-"mcmcse", "mbmc", -1, 0, 0, "^double[]", 1
-"mcmcse", "mbmc", 0, 0, 0, "^double[]", 1
-"mcmcse", "mbmc", 1, 0, 0, "double", 1
-"mcmcse", "mcse", -1, 0, 0, "struct<`est`:double, `se`:double>", 1
+"mcmcse", "mbmC", -1, 0, 0, "class<`matrix`>", 1
+"mcmcse", "mbmC", 0, 0, 0, "class<`matrix`>", 1
+"mcmcse", "mbmC", 1, 0, 0, "double", 1
+"mcmcse", "mcse", -1, 0, 0, "list<double>", 1
 "mcmcse", "mcse", 0, 0, 0, "double[]", 1
-"mcmcse", "mcse", 1, 0, 0, "character", 1
-"mcmcse", "mcse", 2, 0, 0, "null", 1
-"mcmcse", "mcse", 2, 0, 1, "any => any", 1
-"mcmcse", "mcse", 2, 0, 2, "language", 1
-"mcmcse", "mcse", 2, 0, 3, "symbol", 1
-"mcmcse", "mcse", 3, 0, 0, "character[]", 1
-"mcmcse", "mcse", 4, 0, 0, "logical", 1
-"mcmcse", "mcse.q", -1, 0, 0, "struct<`est`:double, `se`:double>", 1
+"mcmcse", "mcse", 1, 0, 0, "null", 1
+"mcmcse", "mcse", 2, 0, 0, "class<`function`>", 1
+"mcmcse", "mcse", 2, 0, 1, "null", 1
+"mcmcse", "mcse", 3, 0, 0, "double", 1
+"mcmcse", "mcse", 4, 0, 0, "character", 1
+"mcmcse", "mcse", 5, 0, 0, "logical", 1
+"mcmcse", "mcse.initseq", -1, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | null | double[]>", 1
+"mcmcse", "mcse.initseq", 0, 0, 0, "class<`matrix`>", 1
+"mcmcse", "mcse.initseq", 1, 0, 0, "null", 1
+"mcmcse", "mcse.initseq", 1, 0, 1, "class<`function`>", 1
+"mcmcse", "mcse.initseq", 2, 0, 0, "logical", 1
+"mcmcse", "mcse.initseq", 3, 0, 0, "logical", 1
+"mcmcse", "mcse.multi", -1, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double[] | character>", 1
+"mcmcse", "mcse.multi", 0, 0, 0, "class<`matrix`>", 1
+"mcmcse", "mcse.multi", 1, 0, 0, "character", 1
+"mcmcse", "mcse.multi", 2, 0, 0, "double", 1
+"mcmcse", "mcse.multi", 3, 0, 0, "null", 1
+"mcmcse", "mcse.multi", 4, 0, 0, "class<`function`>", 1
+"mcmcse", "mcse.multi", 4, 0, 1, "null", 1
+"mcmcse", "mcse.multi", 5, 0, 0, "logical", 1
+"mcmcse", "mcse.multi", 6, 0, 0, "logical", 1
+"mcmcse", "mcse.q", -1, 0, 0, "list<double>", 1
 "mcmcse", "mcse.q", 0, 0, 0, "double[]", 1
 "mcmcse", "mcse.q", 1, 0, 0, "double", 1
 "mcmcse", "mcse.q", 2, 0, 0, "character", 1
 "mcmcse", "mcse.q", 3, 0, 0, "null", 1
-"mcmcse", "mcse.q", 3, 0, 1, "double", 1
 "mcmcse", "mcse.q", 4, 0, 0, "character[]", 1
 "mcmcse", "mcse.q", 5, 0, 0, "logical", 1
-"mcmcse", "msvec", -1, 0, 0, "^double[]", 1
-"mcmcse", "msvec", 0, 0, 0, "^double[]", 1
-"mcmcse", "msvec", 1, 0, 0, "double", 1
-"mcmcse", "msvec", 2, 0, 0, "character", 1
-"mcmcse", "qqTest", -1, 0, 0, "null", 1
-"mcmcse", "qqTest", 0, 0, 0, "struct<`cov`:^double[], `cov.adj`:^double[], `vol`:double, `vol.adj`:double, `est`:double[], `nsim`:integer, `adjust`:logical>", 1
-"mcmcse", "qqTest", 0, 0, 1, "struct<`cov`:^double[], `vol`:double, `est`:double[], `nsim`:integer, `method`:character, `large`:logical, `size`:double>", 1
-"mcmcse", "quant", -1, 0, 0, "double", 1
-"mcmcse", "quant", 0, 0, 0, "double[]", 1
+"mcmcse", "minESS", -1, 0, 0, "double", 1
+"mcmcse", "minESS", 0, 0, 0, "double", 1
+"mcmcse", "minESS", 1, 0, 0, "double", 1
+"mcmcse", "minESS", 2, 0, 0, "double", 1
+"mcmcse", "minESS", 3, 0, 0, "null", 1
+"mcmcse", "msveC", -1, 0, 0, "class<`matrix`>", 1
+"mcmcse", "msveC", 0, 0, 0, "class<`matrix`>", 1
+"mcmcse", "msveC", 1, 0, 0, "double", 1
+"mcmcse", "msveC", 2, 0, 0, "character", 1
+"mcmcse", "multiESS", -1, 0, 0, "double", 1
+"mcmcse", "multiESS", 0, 0, 0, "class<`matrix`>", 1
+"mcmcse", "multiESS", 1, 0, 0, "null", 1
+"mcmcse", "multiESS", 2, 0, 0, "null", 1
+"mcmcse", "multiESS", 3, 0, 0, "...", 1

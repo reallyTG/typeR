@@ -2,24 +2,32 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sessioninfo", "%||%", -1, 0, 0, "character", 1
 "sessioninfo", "%||%", 0, 0, 0, "character", 1
 "sessioninfo", "%||%", 1, 0, 0, "null", 1
-"sessioninfo", "dep_types_hard", -1, 0, 0, "character[]", 1
-"sessioninfo", "dependent_packages", -1, 0, 0, "struct<`package`:character[], `ondiskversion`:character[], `loadedversion`:character[], `path`:character[], `loadedpath`:character[], `attached`:logical[]>", 1
+"sessioninfo", "dependent_packages", -1, 0, 0, "class<`data.frame`>", 1
 "sessioninfo", "dependent_packages", 0, 0, 0, "character", 1
 "sessioninfo", "dependent_packages", 1, 0, 0, "null", 1
-"sessioninfo", "filter", -1, 0, 0, "logical[]", 1
-"sessioninfo", "filter", 0, 0, 0, "character[]", 1
+"sessioninfo", "dep_types_hard", -1, 0, 0, "character[]", 1
 "sessioninfo", "find_deps", -1, 0, 0, "character[]", 1
 "sessioninfo", "find_deps", 0, 0, 0, "character", 1
-"sessioninfo", "find_deps", 1, 0, 0, "^character[]", 1
+"sessioninfo", "find_deps", 1, 0, 0, "class<`matrix`>", 1
 "sessioninfo", "find_deps", 2, 0, 0, "character[]", 1
 "sessioninfo", "find_deps", 3, 0, 0, "character[]", 1
 "sessioninfo", "find_deps", 4, 0, 0, "logical", 1
-"sessioninfo", "FUN", -1, 0, 0, "character", 1
-"sessioninfo", "FUN", 0, 0, 0, "character", 1
-"sessioninfo", "FUN", 0, 0, 1, "struct<`Package`:character, `Title`:character, `Description`:character, `Version`:character, `Authors@R`:character, `Depends`:character, `License`:character, `LazyData`:character, `URL`:character, `BugReports`:character, `VignetteBuilder`:character, `Suggests`:character, `RoxygenNote`:character, `Encoding`:character, `Collate`:character, `NeedsCompilation`:character, `Packaged`:character, `Author`:character, `Maintainer`:character, `Repository`:character, `Date/Publication`:character, `Built`:character>", 1
-"sessioninfo", "FUN", 0, 0, 2, "struct<`Package`:character, `Title`:character, `Version`:character, `Author`:character, `Maintainer`:character, `Description`:character, `License`:character, `LazyData`:character, `URL`:character, `BugReports`:character, `RoxygenNote`:character, `Suggests`:character, `Imports`:character, `Encoding`:character, `NeedsCompilation`:character, `Packaged`:character, `Repository`:character, `Date/Publication`:character, `Built`:character>", 1
-"sessioninfo", "FUN", 0, 0, 3, "struct<`Package`:character, `Title`:character, `Version`:character, `Authors@R`:character, `Description`:character, `License`:character, `Imports`:character, `Suggests`:character, `RoxygenNote`:character, `Collate`:character, `NeedsCompilation`:character, `Packaged`:character, `Author`:character, `Maintainer`:character, `Repository`:character, `Date/Publication`:character, `Built`:character>", 1
-"sessioninfo", "FUN", 0, 0, 4, "struct<`Package`:character, `Type`:character, `Title`:character, `Version`:character, `Date`:character, `RoxygenNote`:character, `NeedsCompilation`:character, `Packaged`:character, `Built`:character>", 1
-"sessioninfo", "FUN", 0, 0, 5, "struct<`Package`:character, `Version`:character, `Priority`:character, `Title`:character, `Author`:character, `Maintainer`:character, `Description`:character, `License`:character, `Built`:character>", 1
-"sessioninfo", "FUN", 1, 0, 0, "null", 1
-"sessioninfo", "FUN", 1, 0, 1, "character[]", 1
+"sessioninfo", "interpret_dependencies", -1, 0, 0, "list<character[]>", 1
+"sessioninfo", "interpret_dependencies", 0, 0, 0, "null", 1
+"sessioninfo", "is_na_scalar", -1, 0, 0, "logical", 1
+"sessioninfo", "is_na_scalar", 0, 0, 0, "null", 1
+"sessioninfo", "loaded_packages", -1, 0, 0, "class<`data.frame`>", 1
+"sessioninfo", "os_name", -1, 0, 0, "character", 1
+"sessioninfo", "package_info", -1, 0, 0, "class<`data.frame`, `packages_info`>", 1
+"sessioninfo", "package_info", 0, 0, 0, "character", 1
+"sessioninfo", "package_info", 0, 0, 1, "null", 1
+"sessioninfo", "package_info", 1, 0, 0, "logical", 1
+"sessioninfo", "package_info", 2, 0, 0, "null", 1
+"sessioninfo", "pkg_lib_paths", -1, 0, 0, "character[]", 1
+"sessioninfo", "platform_info", -1, 0, 0, "class<`platform_info`>", 1
+"sessioninfo", "session_info", -1, 0, 0, "class<`session_info`>", 1
+"sessioninfo", "session_info", 0, 0, 0, "character", 1
+"sessioninfo", "session_info", 0, 0, 1, "null", 1
+"sessioninfo", "session_info", 1, 0, 0, "logical", 1
+"sessioninfo", "sort_ci", -1, 0, 0, "character[]", 1
+"sessioninfo", "sort_ci", 0, 0, 0, "character[]", 1

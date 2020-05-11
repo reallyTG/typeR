@@ -1,11 +1,156 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"splitstackshape", ":::", -1, 0, 0, "struct<`title`:character[], `author`:character[], `customerID`:double[]>", 1
-"splitstackshape", ":::", 0, 0, 0, "struct<`title`:integer[], `author`:integer[], `customerID`:double[]>", 1
-"splitstackshape", ":::", 0, 0, 1, "tuple<character[], character, character[]>", 1
-"splitstackshape", ":::", 0, 0, 2, "character[]", 1
-"splitstackshape", ":::", 0, 0, 3, "list<character[]>", 1
-"splitstackshape", ":::", 1, 0, 0, "null", 1
-"splitstackshape", ":::", 1, 0, 1, "character[]", 1
-"splitstackshape", ":::", 1, 0, 2, "double[]", 1
-"splitstackshape", ":::", 2, 0, 0, "character", 1
-"splitstackshape", ":::", 3, 0, 0, "null", 1
+"splitstackshape", "charMat", -1, 0, 0, "class<`matrix`>", 1
+"splitstackshape", "charMat", 0, 0, 0, "list<character[]>", 1
+"splitstackshape", "charMat", 1, 0, 0, "double", 1
+"splitstackshape", "charMat", 1, 0, 1, "null", 1
+"splitstackshape", "charMat", 2, 0, 0, "character", 1
+"splitstackshape", "concat.split", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `data.table`>)", 1
+"splitstackshape", "concat.split", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "concat.split", 1, 0, 0, "double", 1
+"splitstackshape", "concat.split", 1, 0, 1, "character", 1
+"splitstackshape", "concat.split", 2, 0, 0, "character", 1
+"splitstackshape", "concat.split", 3, 0, 0, "character", 1
+"splitstackshape", "concat.split", 4, 0, 0, "character", 1
+"splitstackshape", "concat.split", 4, 0, 1, "null", 1
+"splitstackshape", "concat.split", 5, 0, 0, "character", 1
+"splitstackshape", "concat.split", 5, 0, 1, "null", 1
+"splitstackshape", "concat.split", 6, 0, 0, "logical", 1
+"splitstackshape", "concat.split", 7, 0, 0, "logical", 1
+"splitstackshape", "concat.split", 8, 0, 0, "null", 1
+"splitstackshape", "concat.split", 8, 0, 1, "double", 1
+"splitstackshape", "concat.split", 9, 0, 0, "...", 1
+"splitstackshape", "concat.split.expanded", -1, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "concat.split.expanded", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "concat.split.expanded", 1, 0, 0, "character", 1
+"splitstackshape", "concat.split.expanded", 1, 0, 1, "double", 1
+"splitstackshape", "concat.split.expanded", 2, 0, 0, "character", 1
+"splitstackshape", "concat.split.expanded", 3, 0, 0, "null", 1
+"splitstackshape", "concat.split.expanded", 3, 0, 1, "character", 1
+"splitstackshape", "concat.split.expanded", 4, 0, 0, "character", 1
+"splitstackshape", "concat.split.expanded", 5, 0, 0, "logical", 1
+"splitstackshape", "concat.split.expanded", 6, 0, 0, "logical", 1
+"splitstackshape", "concat.split.expanded", 7, 0, 0, "null", 1
+"splitstackshape", "concat.split.expanded", 7, 0, 1, "double", 1
+"splitstackshape", "concat.split.list", -1, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "concat.split.list", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "concat.split.list", 1, 0, 0, "character", 1
+"splitstackshape", "concat.split.list", 1, 0, 1, "double", 1
+"splitstackshape", "concat.split.list", 2, 0, 0, "character", 1
+"splitstackshape", "concat.split.list", 3, 0, 0, "logical", 1
+"splitstackshape", "concat.split.list", 4, 0, 0, "logical", 1
+"splitstackshape", "cSplit", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "cSplit", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "cSplit", 1, 0, 0, "character[]", 1
+"splitstackshape", "cSplit", 1, 0, 1, "double", 1
+"splitstackshape", "cSplit", 2, 0, 0, "character[]", 1
+"splitstackshape", "cSplit", 3, 0, 0, "character", 1
+"splitstackshape", "cSplit", 4, 0, 0, "logical", 1
+"splitstackshape", "cSplit", 5, 0, 0, "logical", 1
+"splitstackshape", "cSplit", 6, 0, 0, "logical", 1
+"splitstackshape", "cSplit", 7, 0, 0, "null", 1
+"splitstackshape", "cSplit", 8, 0, 0, "logical", 1
+"splitstackshape", "cSplit_e", -1, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "cSplit_e", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "cSplit_e", 1, 0, 0, "character", 1
+"splitstackshape", "cSplit_e", 1, 0, 1, "double", 1
+"splitstackshape", "cSplit_e", 2, 0, 0, "character", 1
+"splitstackshape", "cSplit_e", 3, 0, 0, "null", 1
+"splitstackshape", "cSplit_e", 3, 0, 1, "character", 1
+"splitstackshape", "cSplit_e", 4, 0, 0, "character", 1
+"splitstackshape", "cSplit_e", 5, 0, 0, "logical", 1
+"splitstackshape", "cSplit_e", 6, 0, 0, "logical", 1
+"splitstackshape", "cSplit_e", 7, 0, 0, "null", 1
+"splitstackshape", "cSplit_e", 7, 0, 1, "double", 1
+"splitstackshape", "cSplit_l", -1, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "cSplit_l", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "cSplit_l", 1, 0, 0, "character", 1
+"splitstackshape", "cSplit_l", 1, 0, 1, "double", 1
+"splitstackshape", "cSplit_l", 2, 0, 0, "character", 1
+"splitstackshape", "cSplit_l", 3, 0, 0, "logical", 1
+"splitstackshape", "cSplit_l", 4, 0, 0, "logical", 1
+"splitstackshape", "expandRows", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `data.table`>)", 1
+"splitstackshape", "expandRows", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "expandRows", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "expandRows", 1, 0, 0, "character", 1
+"splitstackshape", "expandRows", 1, 0, 1, "double[]", 1
+"splitstackshape", "expandRows", 2, 0, 0, "logical", 1
+"splitstackshape", "expandRows", 3, 0, 0, "logical", 1
+"splitstackshape", "getanID", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "getanID", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "getanID", 1, 0, 0, "character[]", 1
+"splitstackshape", "getanID", 1, 0, 1, "integer[]", 1
+"splitstackshape", "listCol_l", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "listCol_l", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "listCol_l", 1, 0, 0, "character", 1
+"splitstackshape", "listCol_l", 2, 0, 0, "logical", 1
+"splitstackshape", "listCol_w", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "listCol_w", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "listCol_w", 1, 0, 0, "character", 1
+"splitstackshape", "listCol_w", 2, 0, 0, "logical", 1
+"splitstackshape", "listCol_w", 3, 0, 0, "null", 1
+"splitstackshape", "merged.stack", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "merged.stack", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "merged.stack", 1, 0, 0, "null", 1
+"splitstackshape", "merged.stack", 2, 0, 0, "character[]", 1
+"splitstackshape", "merged.stack", 3, 0, 0, "character", 1
+"splitstackshape", "merged.stack", 4, 0, 0, "logical", 1
+"splitstackshape", "merged.stack", 5, 0, 0, "...", 1
+"splitstackshape", "Names", -1, 0, 0, "character[]", 1
+"splitstackshape", "Names", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "Names", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "Names", 1, 0, 0, "character[]", 1
+"splitstackshape", "Names", 1, 0, 1, "integer[]", 1
+"splitstackshape", "Names", 1, 0, 2, "double", 1
+"splitstackshape", "numMat", -1, 0, 0, "class<`matrix`>", 1
+"splitstackshape", "numMat", 0, 0, 0, "list<character[]>", 1
+"splitstackshape", "numMat", 1, 0, 0, "null", 1
+"splitstackshape", "numMat", 1, 0, 1, "double", 1
+"splitstackshape", "numMat", 2, 0, 0, "character", 1
+"splitstackshape", "othernames", -1, 0, 0, "character[]", 1
+"splitstackshape", "othernames", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "othernames", 1, 0, 0, "character[]", 1
+"splitstackshape", ".pad", -1, 0, 0, "character[]", 1
+"splitstackshape", ".pad", 0, 0, 0, "integer[]", 1
+"splitstackshape", "Reshape", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "Reshape", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "Reshape", 1, 0, 0, "character[]", 1
+"splitstackshape", "Reshape", 2, 0, 0, "character[]", 1
+"splitstackshape", "Reshape", 3, 0, 0, "character", 1
+"splitstackshape", "Reshape", 4, 0, 0, "any", 1
+"splitstackshape", "Reshape", 5, 0, 0, "...", 1
+"splitstackshape", "s_frac", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "s_frac", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "s_frac", 1, 0, 0, "character[]", 1
+"splitstackshape", "s_frac", 2, 0, 0, "double", 1
+"splitstackshape", "s_n", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "s_n", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "s_n", 1, 0, 0, "character[]", 1
+"splitstackshape", "s_n", 2, 0, 0, "double[]", 1
+"splitstackshape", "Stacked", -1, 0, 0, "list<class<`data.frame`, `data.table`>>", 1
+"splitstackshape", "Stacked", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "Stacked", 1, 0, 0, "character[]", 1
+"splitstackshape", "Stacked", 1, 0, 1, "null", 1
+"splitstackshape", "Stacked", 2, 0, 0, "character[]", 1
+"splitstackshape", "Stacked", 3, 0, 0, "character", 1
+"splitstackshape", "Stacked", 4, 0, 0, "logical", 1
+"splitstackshape", "Stacked", 5, 0, 0, "logical", 1
+"splitstackshape", "Stacked", 6, 0, 0, "logical", 1
+"splitstackshape", "Stacked", 7, 0, 0, "...", 1
+"splitstackshape", "stratified", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "stratified", 0, 0, 0, "class<`data.frame`>", 1
+"splitstackshape", "stratified", 1, 0, 0, "character[]", 1
+"splitstackshape", "stratified", 1, 0, 1, "double", 1
+"splitstackshape", "stratified", 2, 0, 0, "double[]", 1
+"splitstackshape", "stratified", 3, 0, 0, "null", 1
+"splitstackshape", "stratified", 3, 0, 1, "list<character[]>", 1
+"splitstackshape", "stratified", 4, 0, 0, "logical", 1
+"splitstackshape", "stratified", 5, 0, 0, "logical", 1
+"splitstackshape", "stratified", 6, 0, 0, "logical", 1
+"splitstackshape", "stratified", 7, 0, 0, "...", 1
+"splitstackshape", "strat_sub", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "strat_sub", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"splitstackshape", "strat_sub", 1, 0, 0, "list<character[]>", 1
+"splitstackshape", ".stripWhite", -1, 0, 0, "^character[]", 1
+"splitstackshape", ".stripWhite", 0, 0, 0, "^character[]", 1
+"splitstackshape", ".stripWhite", 0, 0, 1, "class<`factor`>", 1
+"splitstackshape", ".stripWhite", 1, 0, 0, "character", 1

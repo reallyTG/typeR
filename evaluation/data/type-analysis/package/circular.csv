@@ -1,16 +1,62 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
+"circular", "A1", -1, 0, 0, "double", 1
+"circular", "A1", 0, 0, 0, "double", 1
 "circular", "A1inv", -1, 0, 0, "double", 1
-"circular", "A1inv", 0, 0, 0, "double", 1
+"circular", "A1inv", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "A1inv", 0, 0, 1, "double", 1
+"circular", "allcrosses", -1, 0, 0, "class<`matrix`>", 1
+"circular", "allcrosses", 0, 0, 0, "double", 1
+"circular", "allcrosses", 1, 0, 0, "class<`density.circular`>", 1
+"circular", "allcrosses", 2, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "allcrosses", 3, 0, 0, "double", 1
+"circular", "allcrosses", 4, 0, 0, "...", 1
 "circular", "angular.deviation", -1, 0, 0, "double", 1
-"circular", "angular.deviation", 0, 0, 0, "double[]", 1
+"circular", "angular.deviation", 0, 0, 0, "class<`circular`, `numeric`>", 1
 "circular", "angular.deviation", 1, 0, 0, "logical", 1
+"circular", "AngularDeviationRad", -1, 0, 0, "double", 1
+"circular", "AngularDeviationRad", 0, 0, 0, "double[]", 1
 "circular", "angular.variance", -1, 0, 0, "double", 1
-"circular", "angular.variance", 0, 0, 0, "double[]", 1
+"circular", "angular.variance", 0, 0, 0, "class<`circular`, `numeric`>", 1
 "circular", "angular.variance", 1, 0, 0, "logical", 1
+"circular", "AngularVarianceRad", -1, 0, 0, "double", 1
+"circular", "AngularVarianceRad", 0, 0, 0, "double[]", 1
+"circular", "aov.circular", -1, 0, 0, "class<`aov.circular`>", 1
+"circular", "aov.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "aov.circular", 1, 0, 0, "double[]", 1
+"circular", "aov.circular", 2, 0, 0, "null", 1
+"circular", "aov.circular", 3, 0, 0, "character[]", 1
+"circular", "aov.circular", 4, 0, 0, "logical", 1
+"circular", "aov.circular", 5, 0, 0, "list<any>", 1
+"circular", "AovCircularRad", -1, 0, 0, "list<any>", 1
+"circular", "AovCircularRad", 0, 0, 0, "double[]", 1
+"circular", "AovCircularRad", 1, 0, 0, "double[]", 1
+"circular", "AovCircularRad", 2, 0, 0, "null", 1
+"circular", "AovCircularRad", 3, 0, 0, "character", 1
+"circular", "AovCircularRad", 4, 0, 0, "any", 1
+"circular", "area", -1, 0, 0, "list<double[]>", 1
+"circular", "area", 0, 0, 0, "class<`matrix`>", 1
+"circular", "area", 1, 0, 0, "class<`density.circular`>", 1
+"circular", "area", 2, 0, 0, "...", 1
+"circular", "area2", -1, 0, 0, "list<double[]>", 1
+"circular", "area2", 0, 0, 0, "class<`matrix`>", 1
+"circular", "area2", 1, 0, 0, "class<`density.circular`>", 1
+"circular", "area2", 2, 0, 0, "double[]", 1
+"circular", "area2", 3, 0, 0, "...", 1
+"circular", "areas.region.circular", -1, 0, 0, "class<`areas.region.circular`>", 1
+"circular", "areas.region.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "areas.region.circular", 1, 0, 0, "class<`matrix`>", 1
+"circular", "areas.region.circular", 2, 0, 0, "null", 1
+"circular", "areas.region.circular", 3, 0, 0, "double", 1
+"circular", "areas.region.circular", 4, 0, 0, "double", 1
+"circular", "areas.region.circular", 5, 0, 0, "any", 1
+"circular", "areas.region.circular", 6, 0, 0, "character[]", 1
+"circular", "areas.region.circular", 7, 0, 0, "any", 1
+"circular", "areas.region.circular", 8, 0, 0, "double", 1
+"circular", "areas.region.circular", 9, 0, 0, "...", 1
 "circular", "arrows.circular", -1, 0, 0, "null", 1
-"circular", "arrows.circular", 0, 0, 0, "double[]", 1
-"circular", "arrows.circular", 1, 0, 0, "null", 1
-"circular", "arrows.circular", 1, 0, 1, "double[]", 1
+"circular", "arrows.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "arrows.circular", 1, 0, 0, "double[]", 1
+"circular", "arrows.circular", 1, 0, 1, "null", 1
 "circular", "arrows.circular", 2, 0, 0, "double[]", 1
 "circular", "arrows.circular", 3, 0, 0, "double[]", 1
 "circular", "arrows.circular", 4, 0, 0, "logical", 1
@@ -18,21 +64,29 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "arrows.circular", 6, 0, 0, "null", 1
 "circular", "arrows.circular", 7, 0, 0, "null", 1
 "circular", "arrows.circular", 8, 0, 0, "null", 1
-"circular", "arrows.circular", 9, 0, 0, "double", 1
-"circular", "arrows.circular", 9, 0, 1, "null", 1
-"circular", "as.circular", -1, 0, 0, "^double[]", 1
-"circular", "as.circular", 0, 0, 0, "^double[]", 1
-"circular", "as.circular", 1, 0, 0, "tuple<>", 1
-"circular", "as.circular", 1, 0, 1, "struct<`units`:character, `zero`:double>", 1
-"circular", "as.circular", 2, 0, 0, "null", 1
+"circular", "arrows.circular", 9, 0, 0, "...", 1
+"circular", "as.circular", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "as.circular", 0, 0, 0, "class<`array`, `circular`>", 1
+"circular", "as.circular", 0, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "as.circular", 0, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "as.circular", 0, 0, 3, "class<`matrix`>", 1
+"circular", "as.circular", 0, 0, 4, "class<`circular`, `numeric`>", 1
+"circular", "as.circular", 0, 0, 5, "double[]", 1
+"circular", "as.circular", 1, 0, 0, "any", 1
+"circular", "as.circular", 2, 0, 0, "...", 1
+"circular", "as.data.frame.circular", -1, 0, 0, "class<`data.frame`>", 1
+"circular", "as.data.frame.circular", 0, 0, 0, "class<`circular`, `integer`>", 1
+"circular", "as.data.frame.circular", 0, 0, 1, "class<`circular`, `matrix`>", 1
+"circular", "as.data.frame.circular", 0, 0, 2, "class<`circular`, `numeric`>", 1
+"circular", "as.data.frame.circular", 1, 0, 0, "null", 1
+"circular", "as.data.frame.circular", 2, 0, 0, "logical", 1
+"circular", "as.data.frame.circular", 3, 0, 0, "...", 1
 "circular", "axis.circular", -1, 0, 0, "null", 1
-"circular", "axis.circular", 0, 0, 0, "null", 1
-"circular", "axis.circular", 0, 0, 1, "double[]", 1
-"circular", "axis.circular", 1, 0, 0, "null", 1
-"circular", "axis.circular", 1, 0, 1, "expression", 1
-"circular", "axis.circular", 2, 0, 0, "null", 1
-"circular", "axis.circular", 2, 0, 1, "character", 1
-"circular", "axis.circular", 2, 0, 2, "symbol", 1
+"circular", "axis.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "axis.circular", 0, 0, 1, "null", 1
+"circular", "axis.circular", 1, 0, 0, "expression", 1
+"circular", "axis.circular", 1, 0, 1, "null", 1
+"circular", "axis.circular", 2, 0, 0, "any", 1
 "circular", "axis.circular", 3, 0, 0, "null", 1
 "circular", "axis.circular", 3, 0, 1, "character", 1
 "circular", "axis.circular", 4, 0, 0, "null", 1
@@ -42,56 +96,1145 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "axis.circular", 6, 0, 0, "null", 1
 "circular", "axis.circular", 6, 0, 1, "character", 1
 "circular", "axis.circular", 7, 0, 0, "logical", 1
-"circular", "axis.circular", 8, 0, 0, "null", 1
-"circular", "axis.circular", 9, 0, 0, "null", 1
-"circular", "axis.circular", 10, 0, 0, "null", 1
-"circular", "axis.circular", 10, 0, 1, "double", 1
-"circular", "axis.circular", 11, 0, 0, "null", 1
-"circular", "axis.circular", 12, 0, 0, "null", 1
+"circular", "axis.circular", 8, 0, 0, "any", 1
+"circular", "axis.circular", 9, 0, 0, "any", 1
+"circular", "axis.circular", 10, 0, 0, "any", 1
+"circular", "axis.circular", 11, 0, 0, "any", 1
+"circular", "axis.circular", 12, 0, 0, "any", 1
 "circular", "axis.circular", 13, 0, 0, "double", 1
 "circular", "axis.circular", 14, 0, 0, "double", 1
 "circular", "axis.circular", 15, 0, 0, "double", 1
 "circular", "AxisCircularRad", -1, 0, 0, "null", 1
 "circular", "AxisCircularRad", 0, 0, 0, "double[]", 1
-"circular", "AxisCircularRad", 1, 0, 0, "symbol", 1
+"circular", "AxisCircularRad", 1, 0, 0, "any", 1
 "circular", "AxisCircularRad", 2, 0, 0, "character[]", 1
 "circular", "AxisCircularRad", 2, 0, 1, "expression", 1
-"circular", "AxisCircularRad", 3, 0, 0, "symbol", 1
+"circular", "AxisCircularRad", 3, 0, 0, "any", 1
 "circular", "AxisCircularRad", 4, 0, 0, "logical", 1
 "circular", "AxisCircularRad", 5, 0, 0, "double", 1
 "circular", "AxisCircularRad", 6, 0, 0, "double", 1
 "circular", "AxisCircularRad", 7, 0, 0, "double", 1
 "circular", "AxisCircularRad", 8, 0, 0, "character", 1
-"circular", "AxisCircularRad", 9, 0, 0, "character", 1
-"circular", "AxisCircularRad", 9, 0, 1, "symbol", 1
-"circular", "AxisCircularRad", 10, 0, 0, "double", 1
-"circular", "AxisCircularRad", 10, 0, 1, "symbol", 1
+"circular", "AxisCircularRad", 9, 0, 0, "any", 1
+"circular", "AxisCircularRad", 10, 0, 0, "any", 1
+"circular", "bw.cv.ml.circular", -1, 0, 0, "double", 1
+"circular", "bw.cv.ml.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "bw.cv.ml.circular", 1, 0, 0, "double", 1
+"circular", "bw.cv.ml.circular", 1, 0, 1, "null", 1
+"circular", "bw.cv.ml.circular", 2, 0, 0, "double", 1
+"circular", "bw.cv.ml.circular", 2, 0, 1, "null", 1
+"circular", "bw.cv.ml.circular", 3, 0, 0, "double", 1
+"circular", "bw.cv.ml.circular", 4, 0, 0, "character[]", 1
+"circular", "bw.cv.ml.circular", 5, 0, 0, "null", 1
+"circular", "bw.cv.ml.circular", 6, 0, 0, "double", 1
+"circular", "bw.cv.mse.circular", -1, 0, 0, "double", 1
+"circular", "bw.cv.mse.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "bw.cv.mse.circular", 1, 0, 0, "double", 1
+"circular", "bw.cv.mse.circular", 1, 0, 1, "null", 1
+"circular", "bw.cv.mse.circular", 2, 0, 0, "double", 1
+"circular", "bw.cv.mse.circular", 2, 0, 1, "null", 1
+"circular", "bw.cv.mse.circular", 3, 0, 0, "double", 1
+"circular", "bw.cv.mse.circular", 4, 0, 0, "character[]", 1
+"circular", "bw.cv.mse.circular", 5, 0, 0, "null", 1
+"circular", "bw.cv.mse.circular", 6, 0, 0, "double", 1
+"circular", "bw.nrd.circular", -1, 0, 0, "double", 1
+"circular", "bw.nrd.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "bw.nrd.circular", 1, 0, 0, "null", 1
+"circular", "bw.nrd.circular", 2, 0, 0, "null", 1
+"circular", "bw.nrd.circular", 3, 0, 0, "character[]", 1
+"circular", "bw.nrd.circular", 4, 0, 0, "logical", 1
+"circular", "bw.nrd.circular", 5, 0, 0, "double", 1
+"circular", "c.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "c.circular", 0, 0, 0, "...", 1
+"circular", "c.circular", 1, 0, 0, "logical", 1
+"circular", "circle.control", -1, 0, 0, "list<double | character>", 1
+"circular", "circle.control", 0, 0, 0, "double", 1
+"circular", "circle.control", 1, 0, 0, "character", 1
+"circular", "circle.control", 2, 0, 0, "double", 1
+"circular", "circle.control", 3, 0, 0, "character", 1
+"circular", "circle.control", 4, 0, 0, "double", 1
+"circular", "circle.control", 5, 0, 0, "double", 1
+"circular", "circle.control", 6, 0, 0, "double", 1
+"circular", "circle.control", 7, 0, 0, "double", 1
 "circular", "CirclePlotRad", -1, 0, 0, "null", 1
 "circular", "CirclePlotRad", 0, 0, 0, "double[]", 1
 "circular", "CirclePlotRad", 1, 0, 0, "double[]", 1
 "circular", "CirclePlotRad", 2, 0, 0, "null", 1
 "circular", "CirclePlotRad", 3, 0, 0, "double", 1
 "circular", "CirclePlotRad", 4, 0, 0, "double", 1
-"circular", "CirclePlotRad", 5, 0, 0, "null", 1
-"circular", "CirclePlotRad", 5, 0, 1, "character", 1
-"circular", "CirclePlotRad", 5, 0, 2, "expression", 1
+"circular", "CirclePlotRad", 5, 0, 0, "character", 1
+"circular", "CirclePlotRad", 5, 0, 1, "expression", 1
+"circular", "CirclePlotRad", 5, 0, 2, "null", 1
 "circular", "CirclePlotRad", 6, 0, 0, "null", 1
 "circular", "CirclePlotRad", 7, 0, 0, "character", 1
 "circular", "CirclePlotRad", 7, 0, 1, "expression", 1
 "circular", "CirclePlotRad", 8, 0, 0, "character", 1
-"circular", "CirclePlotRad", 9, 0, 0, "struct<`n`:double, `type`:character, `col`:double, `bg`:character, `pch`:double, `cex`:double, `lty`:double, `lwd`:double>", 1
-"circular", "circles", -1, 0, 0, "null", 1
-"circular", "circles", 0, 0, 0, "double", 1
-"circular", "circles", 1, 0, 0, "double[]", 1
-"circular", "circles", 2, 0, 0, "double", 1
-"circular", "circles", 3, 0, 0, "character", 1
-"circular", "circles", 4, 0, 0, "null", 1
-"circular", "circles", 5, 0, 0, "logical", 1
+"circular", "CirclePlotRad", 9, 0, 0, "list<double | character>", 1
+"circular", "circular", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "circular", 0, 0, 0, "class<`array`>", 1
+"circular", "circular", 0, 0, 1, "class<`matrix`>", 1
+"circular", "circular", 0, 0, 2, "class<`data.frame`>", 1
+"circular", "circular", 0, 0, 3, "class<`circular`, `numeric`>", 1
+"circular", "circular", 0, 0, 4, "double[]", 1
+"circular", "circular", 0, 0, 5, "null", 1
+"circular", "circular", 1, 0, 0, "character[]", 1
+"circular", "circular", 2, 0, 0, "character[]", 1
+"circular", "circular", 3, 0, 0, "character[]", 1
+"circular", "circular", 4, 0, 0, "character[]", 1
+"circular", "circular", 5, 0, 0, "any", 1
+"circular", "circular", 6, 0, 0, "character[]", 1
+"circular", "circular", 7, 0, 0, "null", 1
+"circular", "[.circular", -1, 0, 0, "(class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "[.circular", 0, 0, 0, "class<`circular`, `matrix`>", 1
+"circular", "[.circular", 0, 0, 1, "class<`circular`, `numeric`>", 1
+"circular", "[.circular", 1, 0, 0, "any", 1
+"circular", "[.circular", 2, 0, 0, "...", 1
 "circular", "circular.colors", -1, 0, 0, "character[]", 1
 "circular", "circular.colors", 0, 0, 0, "double", 1
 "circular", "circular.colors", 1, 0, 0, "double", 1
 "circular", "circular.colors", 2, 0, 0, "double", 1
 "circular", "circular.colors", 3, 0, 0, "double", 1
-"circular", "circular.colors", 4, 0, 0, "null", 1
-"circular", "circularp", -1, 0, 0, "null", 1
-"circular", "circularp", 0, 0, 0, "^double[]", 1
+"circular", "circular.colors", 4, 0, 0, "...", 1
+"circular", "circularp", -1, 0, 0, "(null | list<character | double>)", 1
+"circular", "circularp", 0, 0, 0, "class<`matrix`>", 1
+"circular", "circularp", 0, 0, 1, "double[]", 1
+"circular", "circularp", 0, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "circularp", 0, 0, 3, "class<`circular`, `numeric`>", 1
+"circular", "circularp<-", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`> | double[])", 1
+"circular", "circularp<-", 0, 0, 0, "class<`array`, `circular`>", 1
+"circular", "circularp<-", 0, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "circularp<-", 0, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "circularp<-", 0, 0, 3, "class<`circular`, `numeric`>", 1
+"circular", "circularp<-", 0, 0, 4, "double[]", 1
+"circular", "circularp<-", 1, 0, 0, "list<character | double>", 1
+"circular", "conversion.circular", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "conversion.circular", 0, 0, 0, "class<`array`, `circular`>", 1
+"circular", "conversion.circular", 0, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "conversion.circular", 0, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "conversion.circular", 0, 0, 3, "class<`matrix`>", 1
+"circular", "conversion.circular", 0, 0, 4, "class<`circular`, `numeric`>", 1
+"circular", "conversion.circular", 0, 0, 5, "double[]", 1
+"circular", "conversion.circular", 1, 0, 0, "character[]", 1
+"circular", "conversion.circular", 2, 0, 0, "character", 1
+"circular", "conversion.circular", 2, 0, 1, "null", 1
+"circular", "conversion.circular", 3, 0, 0, "character", 1
+"circular", "conversion.circular", 3, 0, 1, "null", 1
+"circular", "conversion.circular", 4, 0, 0, "character", 1
+"circular", "conversion.circular", 4, 0, 1, "null", 1
+"circular", "conversion.circular", 5, 0, 0, "double", 1
+"circular", "conversion.circular", 5, 0, 1, "null", 1
+"circular", "conversion.circular", 6, 0, 0, "character", 1
+"circular", "conversion.circular", 6, 0, 1, "null", 1
+"circular", "coord2rad", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "coord2rad", 0, 0, 0, "class<`matrix`>", 1
+"circular", "coord2rad", 1, 0, 0, "null", 1
+"circular", "coord2rad", 2, 0, 0, "list<any>", 1
+"circular", "cor.circular", -1, 0, 0, "list<double>", 1
+"circular", "cor.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "cor.circular", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "cor.circular", 2, 0, 0, "logical", 1
+"circular", "CorCircularRad", -1, 0, 0, "double[]", 1
+"circular", "CorCircularRad", 0, 0, 0, "double[]", 1
+"circular", "CorCircularRad", 1, 0, 0, "double[]", 1
+"circular", "CorCircularRad", 2, 0, 0, "logical", 1
+"circular", "cross", -1, 0, 0, "double", 1
+"circular", "cross", 0, 0, 0, "double", 1
+"circular", "cross", 1, 0, 0, "class<`density.circular`>", 1
+"circular", "cross", 2, 0, 0, "double", 1
+"circular", "cross", 3, 0, 0, "double", 1
+"circular", "cross", 4, 0, 0, "...", 1
+"circular", "curve.circular", -1, 0, 0, "list<double[] | character>", 1
+"circular", "curve.circular", 0, 0, 0, "any", 1
+"circular", "curve.circular", 1, 0, 0, "double", 1
+"circular", "curve.circular", 1, 0, 1, "null", 1
+"circular", "curve.circular", 2, 0, 0, "double", 1
+"circular", "curve.circular", 2, 0, 1, "null", 1
+"circular", "curve.circular", 3, 0, 0, "double", 1
+"circular", "curve.circular", 4, 0, 0, "logical", 1
+"circular", "curve.circular", 5, 0, 0, "double", 1
+"circular", "curve.circular", 6, 0, 0, "logical", 1
+"circular", "curve.circular", 7, 0, 0, "logical", 1
+"circular", "curve.circular", 8, 0, 0, "double", 1
+"circular", "curve.circular", 9, 0, 0, "double", 1
+"circular", "curve.circular", 10, 0, 0, "double", 1
+"circular", "curve.circular", 11, 0, 0, "double", 1
+"circular", "curve.circular", 12, 0, 0, "null", 1
+"circular", "curve.circular", 13, 0, 0, "any", 1
+"circular", "curve.circular", 14, 0, 0, "any", 1
+"circular", "curve.circular", 15, 0, 0, "double", 1
+"circular", "curve.circular", 16, 0, 0, "character[]", 1
+"circular", "curve.circular", 17, 0, 0, "null", 1
+"circular", "curve.circular", 17, 0, 1, "character", 1
+"circular", "curve.circular", 18, 0, 0, "null", 1
+"circular", "curve.circular", 19, 0, 0, "character", 1
+"circular", "curve.circular", 19, 0, 1, "expression", 1
+"circular", "dasytriangular", -1, 0, 0, "double[]", 1
+"circular", "dasytriangular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dasytriangular", 1, 0, 0, "double", 1
+"circular", "DasytriangularRad", -1, 0, 0, "double[]", 1
+"circular", "DasytriangularRad", 0, 0, 0, "double[]", 1
+"circular", "DasytriangularRad", 1, 0, 0, "double", 1
+"circular", "dcircularuniform", -1, 0, 0, "double[]", 1
+"circular", "dcircularuniform", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "density.circular", -1, 0, 0, "class<`density.circular`>", 1
+"circular", "density.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "density.circular", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "density.circular", 1, 0, 1, "null", 1
+"circular", "density.circular", 2, 0, 0, "double", 1
+"circular", "density.circular", 3, 0, 0, "double", 1
+"circular", "density.circular", 4, 0, 0, "any", 1
+"circular", "density.circular", 5, 0, 0, "character[]", 1
+"circular", "density.circular", 6, 0, 0, "any", 1
+"circular", "density.circular", 7, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "density.circular", 8, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "density.circular", 9, 0, 0, "double", 1
+"circular", "density.circular", 10, 0, 0, "null", 1
+"circular", "density.circular", 11, 0, 0, "double", 1
+"circular", "density.circular", 12, 0, 0, "list<any>", 1
+"circular", "density.circular", 13, 0, 0, "...", 1
+"circular", "DensityCircularRad", -1, 0, 0, "double[]", 1
+"circular", "DensityCircularRad", 0, 0, 0, "double[]", 1
+"circular", "DensityCircularRad", 1, 0, 0, "double[]", 1
+"circular", "DensityCircularRad", 2, 0, 0, "double", 1
+"circular", "DensityCircularRad", 3, 0, 0, "character", 1
+"circular", "DensityCircularRad", 4, 0, 0, "any", 1
+"circular", "DensityCircularRad", 5, 0, 0, "any", 1
+"circular", "dgenvonmises", -1, 0, 0, "double[]", 1
+"circular", "dgenvonmises", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dgenvonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dgenvonmises", 2, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dgenvonmises", 3, 0, 0, "double", 1
+"circular", "dgenvonmises", 4, 0, 0, "double", 1
+"circular", "DgenvonmisesRad", -1, 0, 0, "double[]", 1
+"circular", "DgenvonmisesRad", 0, 0, 0, "double[]", 1
+"circular", "DgenvonmisesRad", 1, 0, 0, "double", 1
+"circular", "DgenvonmisesRad", 2, 0, 0, "double", 1
+"circular", "DgenvonmisesRad", 3, 0, 0, "double", 1
+"circular", "DgenvonmisesRad", 4, 0, 0, "double", 1
+"circular", "djonespewsey", -1, 0, 0, "double[]", 1
+"circular", "djonespewsey", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "djonespewsey", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "djonespewsey", 2, 0, 0, "double", 1
+"circular", "djonespewsey", 3, 0, 0, "double", 1
+"circular", "DjonespewseyRad", -1, 0, 0, "double[]", 1
+"circular", "DjonespewseyRad", 0, 0, 0, "double[]", 1
+"circular", "DjonespewseyRad", 1, 0, 0, "double", 1
+"circular", "DjonespewseyRad", 2, 0, 0, "double", 1
+"circular", "DjonespewseyRad", 3, 0, 0, "double", 1
+"circular", "dkatojones", -1, 0, 0, "double[]", 1
+"circular", "dkatojones", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dkatojones", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dkatojones", 2, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dkatojones", 3, 0, 0, "double", 1
+"circular", "dkatojones", 4, 0, 0, "double", 1
+"circular", "DkatojonesRad", -1, 0, 0, "double[]", 1
+"circular", "DkatojonesRad", 0, 0, 0, "double[]", 1
+"circular", "DkatojonesRad", 1, 0, 0, "double", 1
+"circular", "DkatojonesRad", 2, 0, 0, "double", 1
+"circular", "DkatojonesRad", 3, 0, 0, "double", 1
+"circular", "DkatojonesRad", 4, 0, 0, "double", 1
+"circular", "dmixedvonmises", -1, 0, 0, "double[]", 1
+"circular", "dmixedvonmises", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dmixedvonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dmixedvonmises", 2, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dmixedvonmises", 3, 0, 0, "double", 1
+"circular", "dmixedvonmises", 4, 0, 0, "double", 1
+"circular", "dmixedvonmises", 5, 0, 0, "double", 1
+"circular", "DmixedvonmisesRad", -1, 0, 0, "double[]", 1
+"circular", "DmixedvonmisesRad", 0, 0, 0, "double[]", 1
+"circular", "DmixedvonmisesRad", 1, 0, 0, "double", 1
+"circular", "DmixedvonmisesRad", 2, 0, 0, "double", 1
+"circular", "DmixedvonmisesRad", 3, 0, 0, "double", 1
+"circular", "DmixedvonmisesRad", 4, 0, 0, "double", 1
+"circular", "DmixedvonmisesRad", 5, 0, 0, "double", 1
+"circular", "dpnorm", -1, 0, 0, "double[]", 1
+"circular", "dpnorm", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dpnorm", 1, 0, 0, "double[]", 1
+"circular", "dpnorm", 2, 0, 0, "class<`matrix`>", 1
+"circular", "dpnorm", 3, 0, 0, "logical", 1
+"circular", "DpnormRad", -1, 0, 0, "double[]", 1
+"circular", "DpnormRad", 0, 0, 0, "double[]", 1
+"circular", "DpnormRad", 1, 0, 0, "double[]", 1
+"circular", "DpnormRad", 2, 0, 0, "class<`matrix`>", 1
+"circular", "DpnormRad", 3, 0, 0, "logical", 1
+"circular", "dtriangular", -1, 0, 0, "double[]", 1
+"circular", "dtriangular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dtriangular", 1, 0, 0, "double", 1
+"circular", "DtriangularRad", -1, 0, 0, "double[]", 1
+"circular", "DtriangularRad", 0, 0, 0, "double[]", 1
+"circular", "DtriangularRad", 1, 0, 0, "double", 1
+"circular", "dvonmises", -1, 0, 0, "double[]", 1
+"circular", "dvonmises", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dvonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dvonmises", 2, 0, 0, "double", 1
+"circular", "dvonmises", 3, 0, 0, "logical", 1
+"circular", "DvonmisesRad", -1, 0, 0, "double[]", 1
+"circular", "DvonmisesRad", 0, 0, 0, "double[]", 1
+"circular", "DvonmisesRad", 1, 0, 0, "double[]", 1
+"circular", "DvonmisesRad", 2, 0, 0, "double", 1
+"circular", "DvonmisesRad", 3, 0, 0, "logical", 1
+"circular", "dwrappedcauchy", -1, 0, 0, "double[]", 1
+"circular", "dwrappedcauchy", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dwrappedcauchy", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dwrappedcauchy", 2, 0, 0, "double", 1
+"circular", "DwrappedcauchyRad", -1, 0, 0, "double[]", 1
+"circular", "DwrappedcauchyRad", 0, 0, 0, "double[]", 1
+"circular", "DwrappedcauchyRad", 1, 0, 0, "double", 1
+"circular", "DwrappedcauchyRad", 2, 0, 0, "double", 1
+"circular", "dwrappednormal", -1, 0, 0, "double[]", 1
+"circular", "dwrappednormal", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dwrappednormal", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "dwrappednormal", 2, 0, 0, "double", 1
+"circular", "dwrappednormal", 3, 0, 0, "double", 1
+"circular", "dwrappednormal", 4, 0, 0, "null", 1
+"circular", "dwrappednormal", 5, 0, 0, "double", 1
+"circular", "DwrappednormalRad", -1, 0, 0, "double[]", 1
+"circular", "DwrappednormalRad", 0, 0, 0, "double[]", 1
+"circular", "DwrappednormalRad", 1, 0, 0, "double", 1
+"circular", "DwrappednormalRad", 2, 0, 0, "double", 1
+"circular", "DwrappednormalRad", 3, 0, 0, "null", 1
+"circular", "DwrappednormalRad", 4, 0, 0, "double", 1
+"circular", "equal.kappa.test", -1, 0, 0, "class<`equal.kappa.test`>", 1
+"circular", "equal.kappa.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "equal.kappa.test", 1, 0, 0, "double[]", 1
+"circular", "EqualKappaTestRad", -1, 0, 0, "list<class<`array`> | double>", 1
+"circular", "EqualKappaTestRad", 0, 0, 0, "double[]", 1
+"circular", "EqualKappaTestRad", 1, 0, 0, "class<`factor`>", 1
+"circular", "EqualKappaTestRad", 1, 0, 1, "double[]", 1
+"circular", "EqualKappaTestRad", 1, 0, 2, "character[]", 1
+"circular", "f", -1, 0, 0, "double[]", 1
+"circular", "f", 0, 0, 0, "double[]", 1
+"circular", "f", 1, 0, 0, "double[]", 1
+"circular", "f", 2, 0, 0, "double", 1
+"circular", "f", 3, 0, 0, "logical", 1
+"circular", "f", -1, 1, 0, "double[]", 1
+"circular", "f", 0, 1, 0, "double[]", 1
+"circular", "f", 1, 1, 0, "double", 1
+"circular", "f", 2, 1, 0, "double", 1
+"circular", "f", 3, 1, 0, "null", 1
+"circular", "f", 4, 1, 0, "double", 1
+"circular", "FUN", -1, 0, 0, "double[]", 1
+"circular", "FUN", 0, 0, 0, "double[]", 1
+"circular", "FUN", 1, 0, 0, "double[]", 1
+"circular", "FUN", 2, 0, 0, "double", 1
+"circular", "FUN", 3, 0, 0, "logical", 1
+"circular", "FUN", -1, 1, 0, "double", 1
+"circular", "FUN", 0, 1, 0, "double[]", 1
+"circular", "FUN", 0, 1, 1, "class<`circular`, `numeric`>", 1
+"circular", "FUN", -1, 2, 0, "double[]", 1
+"circular", "FUN", 0, 2, 0, "double[]", 1
+"circular", "FUN", 1, 2, 0, "integer", 1
+"circular", "FUN", 2, 2, 0, "integer", 1
+"circular", "FUN", 3, 2, 0, "...", 1
+"circular", "FUN", -1, 3, 0, "double", 1
+"circular", "FUN", 0, 3, 0, "double[]", 1
+"circular", "FUN", 1, 3, 0, "null", 1
+"circular", "FUN", 1, 3, 1, "double[]", 1
+"circular", "FUN", 2, 3, 0, "logical", 1
+"circular", "FUN", 3, 3, 0, "any", 1
+"circular", "FUN", 4, 3, 0, "...", 1
+"circular", "FUN", -1, 4, 0, "double", 1
+"circular", "FUN", 0, 4, 0, "double[]", 1
+"circular", "IntersectIntervalRad", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"circular", "IntersectIntervalRad", 0, 0, 0, "class<`circular`, `matrix`>", 1
+"circular", "IntersectIntervalRad", 1, 0, 0, "double[]", 1
+"circular", "intersect.modal.region", -1, 0, 0, "list<double | list<class<`areas.region.circular`> | class<`matrix`>> | double | list<null | class<`matrix`>>>", 1
+"circular", "intersect.modal.region", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "intersect.modal.region", 1, 0, 0, "...", 1
+"circular", "intersect.modal.region.circular", -1, 0, 0, "list<double | list<class<`areas.region.circular`> | class<`matrix`>> | double | list<null | class<`matrix`>>>", 1
+"circular", "intersect.modal.region.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "intersect.modal.region.circular", 1, 0, 0, "class<`circular`, `matrix`>", 1
+"circular", "intersect.modal.region.circular", 2, 0, 0, "null", 1
+"circular", "intersect.modal.region.circular", 3, 0, 0, "double", 1
+"circular", "intersect.modal.region.circular", 4, 0, 0, "double", 1
+"circular", "intersect.modal.region.circular", 5, 0, 0, "double", 1
+"circular", "intersect.modal.region.circular", 6, 0, 0, "any", 1
+"circular", "intersect.modal.region.circular", 7, 0, 0, "character[]", 1
+"circular", "intersect.modal.region.circular", 8, 0, 0, "logical", 1
+"circular", "intersect.modal.region.circular", 9, 0, 0, "double", 1
+"circular", "intersect.modal.region.circular", 10, 0, 0, "double", 1
+"circular", "intersect.modal.region.circular", 11, 0, 0, "double", 1
+"circular", "intersect.modal.region.circular", 12, 0, 0, "...", 1
+"circular", "is.circular", -1, 0, 0, "logical", 1
+"circular", "is.circular", 0, 0, 0, "class<`array`, `circular`>", 1
+"circular", "is.circular", 0, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "is.circular", 0, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "is.circular", 0, 0, 3, "class<`circular`, `numeric`>", 1
+"circular", "is.circular", 0, 0, 4, "class<`matrix`>", 1
+"circular", "is.circular", 0, 0, 5, "double[]", 1
+"circular", "kuiper.test", -1, 0, 0, "class<`kuiper.test`>", 1
+"circular", "kuiper.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "kuiper.test", 1, 0, 0, "double", 1
+"circular", "KuiperTestRad", -1, 0, 0, "double", 1
+"circular", "KuiperTestRad", 0, 0, 0, "double[]", 1
+"circular", "KuiperTestRad", 1, 0, 0, "double", 1
+"circular", "lines.circular", -1, 0, 0, "list<double[] | character>", 1
+"circular", "lines.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "lines.circular", 1, 0, 0, "double[]", 1
+"circular", "lines.circular", 2, 0, 0, "logical", 1
+"circular", "lines.circular", 3, 0, 0, "logical", 1
+"circular", "lines.circular", 4, 0, 0, "double", 1
+"circular", "lines.circular", 5, 0, 0, "double", 1
+"circular", "lines.circular", 6, 0, 0, "null", 1
+"circular", "lines.circular", 7, 0, 0, "null", 1
+"circular", "lines.circular", 8, 0, 0, "null", 1
+"circular", "lines.circular", 9, 0, 0, "null", 1
+"circular", "lines.circular", 10, 0, 0, "...", 1
+"circular", "LinesCircularRad", -1, 0, 0, "list<double[]>", 1
+"circular", "LinesCircularRad", 0, 0, 0, "double[]", 1
+"circular", "LinesCircularRad", 1, 0, 0, "double[]", 1
+"circular", "LinesCircularRad", 2, 0, 0, "logical", 1
+"circular", "LinesCircularRad", 3, 0, 0, "logical", 1
+"circular", "LinesCircularRad", 4, 0, 0, "double", 1
+"circular", "LinesCircularRad", 5, 0, 0, "double", 1
+"circular", "LinesCircularRad", 6, 0, 0, "...", 1
+"circular", "lines.density.circular", -1, 0, 0, "list<double[] | character | null | double | character>", 1
+"circular", "lines.density.circular", 0, 0, 0, "class<`density.circular`>", 1
+"circular", "lines.density.circular", 1, 0, 0, "character", 1
+"circular", "lines.density.circular", 2, 0, 0, "logical", 1
+"circular", "lines.density.circular", 3, 0, 0, "logical", 1
+"circular", "lines.density.circular", 4, 0, 0, "double", 1
+"circular", "lines.density.circular", 5, 0, 0, "double", 1
+"circular", "lines.density.circular", 6, 0, 0, "double", 1
+"circular", "lines.density.circular", 7, 0, 0, "character[]", 1
+"circular", "lines.density.circular", 8, 0, 0, "null", 1
+"circular", "lines.density.circular", 9, 0, 0, "double", 1
+"circular", "lines.density.circular", 10, 0, 0, "double", 1
+"circular", "lines.density.circular", 11, 0, 0, "double", 1
+"circular", "lines.density.circular", 12, 0, 0, "double", 1
+"circular", "lines.density.circular", 13, 0, 0, "logical", 1
+"circular", "lines.density.circular", 14, 0, 0, "logical", 1
+"circular", "lines.density.circular", 15, 0, 0, "null", 1
+"circular", "lines.density.circular", 15, 0, 1, "list<double[] | character>", 1
+"circular", "lines.density.circular", 16, 0, 0, "null", 1
+"circular", "lines.density.circular", 17, 0, 0, "null", 1
+"circular", "lines.density.circular", 18, 0, 0, "...", 1
+"circular", "lines.edf", -1, 0, 0, "null", 1
+"circular", "lines.edf", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "lines.edf", 1, 0, 0, "character", 1
+"circular", "lines.edf", 2, 0, 0, "...", 1
+"circular", "lm.circular", -1, 0, 0, "(class<`lm.circular.cc`> | class<`lm.circular.cl`>)", 1
+"circular", "lm.circular", 0, 0, 0, "...", 1
+"circular", "lm.circular", 1, 0, 0, "character[]", 1
+"circular", "lm.circular.cc", -1, 0, 0, "class<`lm.circular.cc`>", 1
+"circular", "lm.circular.cc", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "lm.circular.cc", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "lm.circular.cc", 2, 0, 0, "double", 1
+"circular", "lm.circular.cc", 3, 0, 0, "double", 1
+"circular", "lm.circular.cc", 4, 0, 0, "list<any>", 1
+"circular", "LmCircularccRad", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"circular", "LmCircularccRad", 0, 0, 0, "double[]", 1
+"circular", "LmCircularccRad", 1, 0, 0, "double[]", 1
+"circular", "LmCircularccRad", 2, 0, 0, "double", 1
+"circular", "lm.circular.cl", -1, 0, 0, "class<`lm.circular.cl`>", 1
+"circular", "lm.circular.cl", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "lm.circular.cl", 1, 0, 0, "class<`matrix`>", 1
+"circular", "lm.circular.cl", 2, 0, 0, "double[]", 1
+"circular", "lm.circular.cl", 3, 0, 0, "logical", 1
+"circular", "lm.circular.cl", 4, 0, 0, "double", 1
+"circular", "lm.circular.cl", 5, 0, 0, "list<any>", 1
+"circular", "LmCircularclRad", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"circular", "LmCircularclRad", 0, 0, 0, "double[]", 1
+"circular", "LmCircularclRad", 1, 0, 0, "class<`matrix`>", 1
+"circular", "LmCircularclRad", 2, 0, 0, "double[]", 1
+"circular", "LmCircularclRad", 3, 0, 0, "logical", 1
+"circular", "LmCircularclRad", 4, 0, 0, "double", 1
+"circular", "lsfit.circle", -1, 0, 0, "class<`lsfit.circle`>", 1
+"circular", "lsfit.circle", 0, 0, 0, "double[]", 1
+"circular", "lsfit.circle", 1, 0, 0, "double[]", 1
+"circular", "lsfit.circle", 2, 0, 0, "null", 1
+"circular", "lsfit.circle", 3, 0, 0, "character[]", 1
+"circular", "lsfit.circle", 4, 0, 0, "character[]", 1
+"circular", "lsfit.circle", 5, 0, 0, "character[]", 1
+"circular", "lsfit.circle", 6, 0, 0, "double", 1
+"circular", "lsfit.circle", 7, 0, 0, "character[]", 1
+"circular", "lsfit.circle", 8, 0, 0, "...", 1
+"circular", "LsfitCircleRad", -1, 0, 0, "list<double[] | list<double[] | null | class<`matrix`>>>", 1
+"circular", "LsfitCircleRad", 0, 0, 0, "double[]", 1
+"circular", "LsfitCircleRad", 1, 0, 0, "double[]", 1
+"circular", "LsfitCircleRad", 2, 0, 0, "null", 1
+"circular", "LsfitCircleRad", 3, 0, 0, "...", 1
+"circular", "mean.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mean.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mean.circular", 1, 0, 0, "logical", 1
+"circular", "mean.circular", 2, 0, 0, "list<any>", 1
+"circular", "mean.circular", 3, 0, 0, "...", 1
+"circular", "MeanCircularRad", -1, 0, 0, "double", 1
+"circular", "MeanCircularRad", 0, 0, 0, "double[]", 1
+"circular", "meandeviation", -1, 0, 0, "double", 1
+"circular", "meandeviation", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "meandeviation", 1, 0, 0, "logical", 1
+"circular", "MeanDeviationRad", -1, 0, 0, "double", 1
+"circular", "MeanDeviationRad", 0, 0, 0, "double[]", 1
+"circular", "median.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "median.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "median.circular", 1, 0, 0, "logical", 1
+"circular", "median.circular", 2, 0, 0, "...", 1
+"circular", "MedianCircularRad", -1, 0, 0, "(double | null)", 1
+"circular", "MedianCircularRad", 0, 0, 0, "double[]", 1
+"circular", "medianHL.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "medianHL.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "medianHL.circular", 1, 0, 0, "logical", 1
+"circular", "medianHL.circular", 2, 0, 0, "character", 1
+"circular", "medianHL.circular", 3, 0, 0, "null", 1
+"circular", "MedianHLCircularRad", -1, 0, 0, "double", 1
+"circular", "MedianHLCircularRad", 0, 0, 0, "double[]", 1
+"circular", "MedianHLCircularRad", 1, 0, 0, "character", 1
+"circular", "MedianHLCircularRad", 2, 0, 0, "null", 1
+"circular", "minusPiPlusPi", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "minusPiPlusPi", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "MinusPiPlusPiRad", -1, 0, 0, "double[]", 1
+"circular", "MinusPiPlusPiRad", 0, 0, 0, "double[]", 1
+"circular", "MinusPiPlusPiRad", 0, 0, 1, "null", 1
+"circular", "mle.vonmises", -1, 0, 0, "class<`mle.vonmises`>", 1
+"circular", "mle.vonmises", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mle.vonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mle.vonmises", 1, 0, 1, "null", 1
+"circular", "mle.vonmises", 2, 0, 0, "null", 1
+"circular", "mle.vonmises", 3, 0, 0, "logical", 1
+"circular", "mle.vonmises", 4, 0, 0, "list<any>", 1
+"circular", "mle.vonmises.bootstrap.ci", -1, 0, 0, "class<`mle.vonmises.bootstrap.ci`>", 1
+"circular", "mle.vonmises.bootstrap.ci", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mle.vonmises.bootstrap.ci", 1, 0, 0, "null", 1
+"circular", "mle.vonmises.bootstrap.ci", 2, 0, 0, "logical", 1
+"circular", "mle.vonmises.bootstrap.ci", 3, 0, 0, "double", 1
+"circular", "mle.vonmises.bootstrap.ci", 4, 0, 0, "double", 1
+"circular", "mle.vonmises.bootstrap.ci", 5, 0, 0, "list<any>", 1
+"circular", "MleVonmisesBootstrapCiRad", -1, 0, 0, "list<double[]>", 1
+"circular", "MleVonmisesBootstrapCiRad", 0, 0, 0, "double[]", 1
+"circular", "MleVonmisesBootstrapCiRad", 1, 0, 0, "double", 1
+"circular", "MleVonmisesBootstrapCiRad", 2, 0, 0, "logical", 1
+"circular", "MleVonmisesBootstrapCiRad", 3, 0, 0, "double", 1
+"circular", "MleVonmisesBootstrapCiRad", 4, 0, 0, "double", 1
+"circular", "MlevonmisesRad", -1, 0, 0, "double[]", 1
+"circular", "MlevonmisesRad", 0, 0, 0, "double[]", 1
+"circular", "MlevonmisesRad", 1, 0, 0, "double", 1
+"circular", "MlevonmisesRad", 1, 0, 1, "null", 1
+"circular", "MlevonmisesRad", 2, 0, 0, "null", 1
+"circular", "MlevonmisesRad", 3, 0, 0, "logical", 1
+"circular", "mle.wrappedcauchy", -1, 0, 0, "class<`mle.wrappedcauchy`>", 1
+"circular", "mle.wrappedcauchy", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mle.wrappedcauchy", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mle.wrappedcauchy", 1, 0, 1, "null", 1
+"circular", "mle.wrappedcauchy", 2, 0, 0, "null", 1
+"circular", "mle.wrappedcauchy", 3, 0, 0, "double", 1
+"circular", "mle.wrappedcauchy", 4, 0, 0, "double", 1
+"circular", "mle.wrappedcauchy", 5, 0, 0, "list<any>", 1
+"circular", "MlewrappedcauchyRad", -1, 0, 0, "double[]", 1
+"circular", "MlewrappedcauchyRad", 0, 0, 0, "double[]", 1
+"circular", "MlewrappedcauchyRad", 1, 0, 0, "double", 1
+"circular", "MlewrappedcauchyRad", 1, 0, 1, "null", 1
+"circular", "MlewrappedcauchyRad", 2, 0, 0, "null", 1
+"circular", "MlewrappedcauchyRad", 3, 0, 0, "double", 1
+"circular", "MlewrappedcauchyRad", 4, 0, 0, "double", 1
+"circular", "mle.wrappednormal", -1, 0, 0, "class<`mle.wrappednormal`>", 1
+"circular", "mle.wrappednormal", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mle.wrappednormal", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "mle.wrappednormal", 1, 0, 1, "null", 1
+"circular", "mle.wrappednormal", 2, 0, 0, "null", 1
+"circular", "mle.wrappednormal", 3, 0, 0, "null", 1
+"circular", "mle.wrappednormal", 4, 0, 0, "null", 1
+"circular", "mle.wrappednormal", 5, 0, 0, "double", 1
+"circular", "mle.wrappednormal", 6, 0, 0, "double", 1
+"circular", "mle.wrappednormal", 7, 0, 0, "double", 1
+"circular", "mle.wrappednormal", 8, 0, 0, "double", 1
+"circular", "mle.wrappednormal", 9, 0, 0, "logical", 1
+"circular", "mle.wrappednormal", 10, 0, 0, "list<any>", 1
+"circular", "MlewrappednormalRad", -1, 0, 0, "double[]", 1
+"circular", "MlewrappednormalRad", 0, 0, 0, "double[]", 1
+"circular", "MlewrappednormalRad", 1, 0, 0, "double", 1
+"circular", "MlewrappednormalRad", 1, 0, 1, "null", 1
+"circular", "MlewrappednormalRad", 2, 0, 0, "null", 1
+"circular", "MlewrappednormalRad", 3, 0, 0, "null", 1
+"circular", "MlewrappednormalRad", 4, 0, 0, "double", 1
+"circular", "MlewrappednormalRad", 5, 0, 0, "null", 1
+"circular", "MlewrappednormalRad", 6, 0, 0, "double", 1
+"circular", "MlewrappednormalRad", 7, 0, 0, "double", 1
+"circular", "MlewrappednormalRad", 8, 0, 0, "double", 1
+"circular", "MlewrappednormalRad", 9, 0, 0, "logical", 1
+"circular", "modal.region", -1, 0, 0, "class<`modal.region.circular`>", 1
+"circular", "modal.region", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "modal.region", 1, 0, 0, "...", 1
+"circular", "modal.region.circular", -1, 0, 0, "class<`modal.region.circular`>", 1
+"circular", "modal.region.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "modal.region.circular", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "modal.region.circular", 1, 0, 1, "null", 1
+"circular", "modal.region.circular", 2, 0, 0, "double", 1
+"circular", "modal.region.circular", 3, 0, 0, "double", 1
+"circular", "modal.region.circular", 4, 0, 0, "double", 1
+"circular", "modal.region.circular", 5, 0, 0, "any", 1
+"circular", "modal.region.circular", 6, 0, 0, "character[]", 1
+"circular", "modal.region.circular", 7, 0, 0, "any", 1
+"circular", "modal.region.circular", 8, 0, 0, "any", 1
+"circular", "modal.region.circular", 9, 0, 0, "double", 1
+"circular", "modal.region.circular", 10, 0, 0, "double", 1
+"circular", "modal.region.circular", 11, 0, 0, "...", 1
+"circular", "plot.circular", -1, 0, 0, "list<double | character>", 1
+"circular", "plot.circular", 0, 0, 0, "class<`circular`, `integer`>", 1
+"circular", "plot.circular", 0, 0, 1, "class<`circular`, `matrix`>", 1
+"circular", "plot.circular", 0, 0, 2, "class<`circular`, `numeric`>", 1
+"circular", "plot.circular", 1, 0, 0, "double", 1
+"circular", "plot.circular", 2, 0, 0, "double", 1
+"circular", "plot.circular", 3, 0, 0, "logical", 1
+"circular", "plot.circular", 4, 0, 0, "logical", 1
+"circular", "plot.circular", 5, 0, 0, "double", 1
+"circular", "plot.circular", 6, 0, 0, "double", 1
+"circular", "plot.circular", 7, 0, 0, "double", 1
+"circular", "plot.circular", 8, 0, 0, "null", 1
+"circular", "plot.circular", 8, 0, 1, "double", 1
+"circular", "plot.circular", 9, 0, 0, "logical", 1
+"circular", "plot.circular", 10, 0, 0, "double", 1
+"circular", "plot.circular", 11, 0, 0, "double", 1
+"circular", "plot.circular", 12, 0, 0, "null", 1
+"circular", "plot.circular", 12, 0, 1, "double", 1
+"circular", "plot.circular", 13, 0, 0, "double", 1
+"circular", "plot.circular", 14, 0, 0, "null", 1
+"circular", "plot.circular", 15, 0, 0, "double[]", 1
+"circular", "plot.circular", 16, 0, 0, "double[]", 1
+"circular", "plot.circular", 17, 0, 0, "double", 1
+"circular", "plot.circular", 18, 0, 0, "null", 1
+"circular", "plot.circular", 19, 0, 0, "null", 1
+"circular", "plot.circular", 19, 0, 1, "character", 1
+"circular", "plot.density.circular", -1, 0, 0, "(null | list<double[] | character>)", 1
+"circular", "plot.density.circular", 0, 0, 0, "class<`density.circular`>", 1
+"circular", "plot.density.circular", 1, 0, 0, "character", 1
+"circular", "plot.density.circular", 1, 0, 1, "null", 1
+"circular", "plot.density.circular", 2, 0, 0, "null", 1
+"circular", "plot.density.circular", 3, 0, 0, "character", 1
+"circular", "plot.density.circular", 3, 0, 1, "null", 1
+"circular", "plot.density.circular", 4, 0, 0, "character", 1
+"circular", "plot.density.circular", 5, 0, 0, "character", 1
+"circular", "plot.density.circular", 6, 0, 0, "logical", 1
+"circular", "plot.density.circular", 7, 0, 0, "logical", 1
+"circular", "plot.density.circular", 8, 0, 0, "double", 1
+"circular", "plot.density.circular", 9, 0, 0, "double", 1
+"circular", "plot.density.circular", 10, 0, 0, "double", 1
+"circular", "plot.density.circular", 11, 0, 0, "character[]", 1
+"circular", "plot.density.circular", 12, 0, 0, "logical", 1
+"circular", "plot.density.circular", 13, 0, 0, "logical", 1
+"circular", "plot.density.circular", 14, 0, 0, "null", 1
+"circular", "plot.density.circular", 15, 0, 0, "double", 1
+"circular", "plot.density.circular", 16, 0, 0, "double", 1
+"circular", "plot.density.circular", 17, 0, 0, "double", 1
+"circular", "plot.density.circular", 18, 0, 0, "double", 1
+"circular", "plot.density.circular", 19, 0, 0, "double", 1
+"circular", "plot.edf", -1, 0, 0, "null", 1
+"circular", "plot.edf", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "plot.edf", 1, 0, 0, "character", 1
+"circular", "plot.edf", 2, 0, 0, "double[]", 1
+"circular", "plot.edf", 3, 0, 0, "double[]", 1
+"circular", "plot.edf", 4, 0, 0, "...", 1
+"circular", "plot.function.circular", -1, 0, 0, "list<double[] | character>", 1
+"circular", "plot.function.circular", 0, 0, 0, "class<`function`>", 1
+"circular", "plot.function.circular", 1, 0, 0, "double", 1
+"circular", "plot.function.circular", 2, 0, 0, "double", 1
+"circular", "plot.function.circular", 3, 0, 0, "...", 1
+"circular", "plot.lsfit.circle", -1, 0, 0, "class<`lsfit.circle`>", 1
+"circular", "plot.lsfit.circle", 0, 0, 0, "class<`lsfit.circle`>", 1
+"circular", "plot.lsfit.circle", 1, 0, 0, "logical", 1
+"circular", "plot.lsfit.circle", 2, 0, 0, "null", 1
+"circular", "plot.lsfit.circle", 3, 0, 0, "null", 1
+"circular", "plot.lsfit.circle", 4, 0, 0, "null", 1
+"circular", "plot.lsfit.circle", 5, 0, 0, "null", 1
+"circular", "plot.lsfit.circle", 6, 0, 0, "null", 1
+"circular", "plot.lsfit.circle", 7, 0, 0, "any", 1
+"circular", "plot.lsfit.circle", 8, 0, 0, "double", 1
+"circular", "plot.lsfit.circle", 9, 0, 0, "double", 1
+"circular", "plot.lsfit.circle", 10, 0, 0, "...", 1
+"circular", "plot.modal.region.circular", -1, 0, 0, "null", 1
+"circular", "plot.modal.region.circular", 0, 0, 0, "class<`modal.region.circular`>", 1
+"circular", "plot.modal.region.circular", 1, 0, 0, "character[]", 1
+"circular", "plot.modal.region.circular", 2, 0, 0, "null", 1
+"circular", "plot.modal.region.circular", 3, 0, 0, "null", 1
+"circular", "plot.modal.region.circular", 4, 0, 0, "null", 1
+"circular", "plot.modal.region.circular", 5, 0, 0, "null", 1
+"circular", "plot.modal.region.circular", 6, 0, 0, "null", 1
+"circular", "plot.modal.region.circular", 7, 0, 0, "list<any>", 1
+"circular", "plot.modal.region.circular", 8, 0, 0, "...", 1
+"circular", "plot.totalvariation.circular", -1, 0, 0, "class<`totalvariation.circular`>", 1
+"circular", "plot.totalvariation.circular", 0, 0, 0, "class<`totalvariation.circular`>", 1
+"circular", "plot.totalvariation.circular", 1, 0, 0, "logical", 1
+"circular", "plot.totalvariation.circular", 2, 0, 0, "logical", 1
+"circular", "plot.totalvariation.circular", 3, 0, 0, "character[]", 1
+"circular", "plot.totalvariation.circular", 4, 0, 0, "null", 1
+"circular", "plot.totalvariation.circular", 5, 0, 0, "null", 1
+"circular", "plot.totalvariation.circular", 6, 0, 0, "null", 1
+"circular", "plot.totalvariation.circular", 7, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 8, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 9, 0, 0, "logical", 1
+"circular", "plot.totalvariation.circular", 10, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 11, 0, 0, "list<any>", 1
+"circular", "plot.totalvariation.circular", 12, 0, 0, "list<any>", 1
+"circular", "plot.totalvariation.circular", 13, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 14, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 15, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 16, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 17, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 18, 0, 0, "double", 1
+"circular", "plot.totalvariation.circular", 19, 0, 0, "logical", 1
+"circular", "points.circular", -1, 0, 0, "list<double | character>", 1
+"circular", "points.circular", 0, 0, 0, "class<`circular`, `integer`>", 1
+"circular", "points.circular", 0, 0, 1, "class<`circular`, `numeric`>", 1
+"circular", "points.circular", 1, 0, 0, "double", 1
+"circular", "points.circular", 2, 0, 0, "double", 1
+"circular", "points.circular", 3, 0, 0, "logical", 1
+"circular", "points.circular", 4, 0, 0, "double", 1
+"circular", "points.circular", 5, 0, 0, "double", 1
+"circular", "points.circular", 6, 0, 0, "double", 1
+"circular", "points.circular", 7, 0, 0, "null", 1
+"circular", "points.circular", 8, 0, 0, "double", 1
+"circular", "points.circular", 8, 0, 1, "null", 1
+"circular", "points.circular", 9, 0, 0, "null", 1
+"circular", "points.circular", 10, 0, 0, "null", 1
+"circular", "points.circular", 10, 0, 1, "list<double | character | double[] | character>", 1
+"circular", "points.circular", 11, 0, 0, "null", 1
+"circular", "points.circular", 12, 0, 0, "null", 1
+"circular", "points.circular", 13, 0, 0, "...", 1
+"circular", "PointsCircularRad", -1, 0, 0, "null", 1
+"circular", "PointsCircularRad", 0, 0, 0, "double[]", 1
+"circular", "PointsCircularRad", 1, 0, 0, "any", 1
+"circular", "PointsCircularRad", 2, 0, 0, "logical", 1
+"circular", "PointsCircularRad", 3, 0, 0, "double", 1
+"circular", "PointsCircularRad", 4, 0, 0, "double", 1
+"circular", "PointsCircularRad", 5, 0, 0, "double", 1
+"circular", "PointsCircularRad", 6, 0, 0, "any", 1
+"circular", "PointsCircularRad", 7, 0, 0, "double", 1
+"circular", "PointsCircularRad", 8, 0, 0, "double", 1
+"circular", "PointsCircularRad", 9, 0, 0, "any", 1
+"circular", "PointsCircularRad", 10, 0, 0, "any", 1
+"circular", "PointsCircularRad", 11, 0, 0, "double", 1
+"circular", "PointsCircularRad", 12, 0, 0, "...", 1
+"circular", "pp.plot", -1, 0, 0, "list<class<`circular`, `numeric`> | double>", 1
+"circular", "pp.plot", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "pp.plot", 1, 0, 0, "logical", 1
+"circular", "pp.plot", 2, 0, 0, "double", 1
+"circular", "pp.plot", 3, 0, 0, "character", 1
+"circular", "pp.plot", 4, 0, 0, "character", 1
+"circular", "pp.plot", 5, 0, 0, "list<any>", 1
+"circular", "pp.plot", 6, 0, 0, "...", 1
+"circular", "pp.unif.plot", -1, 0, 0, "null", 1
+"circular", "pp.unif.plot", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "pp.unif.plot", 1, 0, 0, "logical", 1
+"circular", "pp.unif.plot", 2, 0, 0, "double", 1
+"circular", "pp.unif.plot", 2, 0, 1, "null", 1
+"circular", "pp.unif.plot", 3, 0, 0, "character", 1
+"circular", "pp.unif.plot", 4, 0, 0, "character", 1
+"circular", "pp.unif.plot", 5, 0, 0, "null", 1
+"circular", "pp.unif.plot", 6, 0, 0, "null", 1
+"circular", "pp.unif.plot", 7, 0, 0, "null", 1
+"circular", "pp.unif.plot", 8, 0, 0, "...", 1
+"circular", "print.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "print.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "print.circular", 1, 0, 0, "logical", 1
+"circular", "print.circular", 2, 0, 0, "...", 1
+"circular", "print.rao.spacing.test", -1, 0, 0, "class<`rao.spacing.test`>", 1
+"circular", "print.rao.spacing.test", 0, 0, 0, "class<`rao.spacing.test`>", 1
+"circular", "print.rao.spacing.test", 1, 0, 0, "double", 1
+"circular", "print.rao.spacing.test", 2, 0, 0, "...", 1
+"circular", "prodseq", -1, 0, 0, "double[]", 1
+"circular", "prodseq", 0, 0, 0, "double[]", 1
+"circular", "prodseq", 1, 0, 0, "integer", 1
+"circular", "prodseq", 2, 0, 0, "integer", 1
+"circular", "prodseq", 3, 0, 0, "...", 1
+"circular", "pvonmises", -1, 0, 0, "double[]", 1
+"circular", "pvonmises", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "pvonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "pvonmises", 2, 0, 0, "double", 1
+"circular", "pvonmises", 3, 0, 0, "null", 1
+"circular", "pvonmises", 4, 0, 0, "double", 1
+"circular", "PvonmisesRad", -1, 0, 0, "double[]", 1
+"circular", "PvonmisesRad", 0, 0, 0, "double[]", 1
+"circular", "PvonmisesRad", 1, 0, 0, "double", 1
+"circular", "PvonmisesRad", 2, 0, 0, "double", 1
+"circular", "PvonmisesRad", 3, 0, 0, "double", 1
+"circular", "pwrappednormal", -1, 0, 0, "double[]", 1
+"circular", "pwrappednormal", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "pwrappednormal", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "pwrappednormal", 2, 0, 0, "double", 1
+"circular", "pwrappednormal", 3, 0, 0, "double", 1
+"circular", "pwrappednormal", 4, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "pwrappednormal", 4, 0, 1, "null", 1
+"circular", "pwrappednormal", 5, 0, 0, "null", 1
+"circular", "pwrappednormal", 6, 0, 0, "double", 1
+"circular", "pwrappednormal", 7, 0, 0, "...", 1
+"circular", "quantile.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "quantile.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "quantile.circular", 1, 0, 0, "double[]", 1
+"circular", "quantile.circular", 2, 0, 0, "logical", 1
+"circular", "quantile.circular", 3, 0, 0, "logical", 1
+"circular", "quantile.circular", 4, 0, 0, "double", 1
+"circular", "quantile.circular", 5, 0, 0, "...", 1
+"circular", "QuantileCircularRad", -1, 0, 0, "double[]", 1
+"circular", "QuantileCircularRad", 0, 0, 0, "double[]", 1
+"circular", "QuantileCircularRad", 1, 0, 0, "double[]", 1
+"circular", "QuantileCircularRad", 2, 0, 0, "logical", 1
+"circular", "QuantileCircularRad", 3, 0, 0, "double", 1
+"circular", "QuantileCircularRad", 4, 0, 0, "...", 1
+"circular", "qvonmises", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "qvonmises", 0, 0, 0, "double[]", 1
+"circular", "qvonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "qvonmises", 2, 0, 0, "double", 1
+"circular", "qvonmises", 3, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "qvonmises", 3, 0, 1, "null", 1
+"circular", "qvonmises", 4, 0, 0, "double", 1
+"circular", "qvonmises", 5, 0, 0, "list<any>", 1
+"circular", "qvonmises", 6, 0, 0, "...", 1
+"circular", "qwrappednormal", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "qwrappednormal", 0, 0, 0, "double[]", 1
+"circular", "qwrappednormal", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "qwrappednormal", 2, 0, 0, "null", 1
+"circular", "qwrappednormal", 3, 0, 0, "double", 1
+"circular", "qwrappednormal", 4, 0, 0, "null", 1
+"circular", "qwrappednormal", 5, 0, 0, "null", 1
+"circular", "qwrappednormal", 6, 0, 0, "double", 1
+"circular", "qwrappednormal", 7, 0, 0, "double", 1
+"circular", "qwrappednormal", 8, 0, 0, "list<any>", 1
+"circular", "qwrappednormal", 9, 0, 0, "...", 1
+"circular", "range.circular", -1, 0, 0, "list<class<`circular`, `numeric`> | double>", 1
+"circular", "range.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "range.circular", 1, 0, 0, "logical", 1
+"circular", "range.circular", 2, 0, 0, "logical", 1
+"circular", "range.circular", 3, 0, 0, "logical", 1
+"circular", "range.circular", 4, 0, 0, "list<any>", 1
+"circular", "range.circular", 5, 0, 0, "...", 1
+"circular", "RangeCircularRad", -1, 0, 0, "(double | list<double>)", 1
+"circular", "RangeCircularRad", 0, 0, 0, "double[]", 1
+"circular", "RangeCircularRad", 1, 0, 0, "logical", 1
+"circular", "rao.spacing.test", -1, 0, 0, "class<`rao.spacing.test`>", 1
+"circular", "rao.spacing.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rao.spacing.test", 1, 0, 0, "double", 1
+"circular", "RaoSpacingTestDeg", -1, 0, 0, "double", 1
+"circular", "RaoSpacingTestDeg", 0, 0, 0, "double[]", 1
+"circular", "rao.test", -1, 0, 0, "class<`rao.test`>", 1
+"circular", "rao.test", 0, 0, 0, "...", 1
+"circular", "rao.test", 1, 0, 0, "double", 1
+"circular", "RaoTestRad", -1, 0, 0, "list<double[]>", 1
+"circular", "RaoTestRad", 0, 0, 0, "list<double[]>", 1
+"circular", "rayleigh.test", -1, 0, 0, "class<`rayleigh.test`>", 1
+"circular", "rayleigh.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rayleigh.test", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rayleigh.test", 1, 0, 1, "null", 1
+"circular", "RayleighTestRad", -1, 0, 0, "list<double | double | null>", 1
+"circular", "RayleighTestRad", 0, 0, 0, "double[]", 1
+"circular", "RayleighTestRad", 1, 0, 0, "double", 1
+"circular", "RayleighTestRad", 1, 0, 1, "null", 1
+"circular", "rcardioid", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rcardioid", 0, 0, 0, "double", 1
+"circular", "rcardioid", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rcardioid", 2, 0, 0, "double", 1
+"circular", "rcardioid", 3, 0, 0, "list<any>", 1
+"circular", "RcardioidRad", -1, 0, 0, "double[]", 1
+"circular", "RcardioidRad", 0, 0, 0, "double", 1
+"circular", "RcardioidRad", 1, 0, 0, "double", 1
+"circular", "RcardioidRad", 2, 0, 0, "double", 1
+"circular", "rcircularuniform", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rcircularuniform", 0, 0, 0, "double", 1
+"circular", "rcircularuniform", 1, 0, 0, "list<character>", 1
+"circular", "rho.circular", -1, 0, 0, "double", 1
+"circular", "rho.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rho.circular", 1, 0, 0, "logical", 1
+"circular", "RhoCircularRad", -1, 0, 0, "double", 1
+"circular", "RhoCircularRad", 0, 0, 0, "double[]", 1
+"circular", "RhoCircularRad", 0, 0, 1, "class<`circular`, `numeric`>", 1
+"circular", "rkatojones", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rkatojones", 0, 0, 0, "double", 1
+"circular", "rkatojones", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rkatojones", 2, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rkatojones", 3, 0, 0, "double", 1
+"circular", "rkatojones", 4, 0, 0, "double", 1
+"circular", "rkatojones", 5, 0, 0, "list<any>", 1
+"circular", "rkatojonesRad", -1, 0, 0, "double[]", 1
+"circular", "rkatojonesRad", 0, 0, 0, "double", 1
+"circular", "rkatojonesRad", 1, 0, 0, "double", 1
+"circular", "rkatojonesRad", 2, 0, 0, "double", 1
+"circular", "rkatojonesRad", 3, 0, 0, "double", 1
+"circular", "rkatojonesRad", 4, 0, 0, "double", 1
+"circular", "rmixedvonmises", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rmixedvonmises", 0, 0, 0, "double", 1
+"circular", "rmixedvonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rmixedvonmises", 2, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rmixedvonmises", 3, 0, 0, "double", 1
+"circular", "rmixedvonmises", 4, 0, 0, "double", 1
+"circular", "rmixedvonmises", 5, 0, 0, "double", 1
+"circular", "rmixedvonmises", 6, 0, 0, "list<any>", 1
+"circular", "RmixedvonmisesRad", -1, 0, 0, "double[]", 1
+"circular", "RmixedvonmisesRad", 0, 0, 0, "double", 1
+"circular", "RmixedvonmisesRad", 1, 0, 0, "double", 1
+"circular", "RmixedvonmisesRad", 2, 0, 0, "double", 1
+"circular", "RmixedvonmisesRad", 3, 0, 0, "double", 1
+"circular", "RmixedvonmisesRad", 4, 0, 0, "double", 1
+"circular", "RmixedvonmisesRad", 5, 0, 0, "double", 1
+"circular", "rose.diag", -1, 0, 0, "list<double | character>", 1
+"circular", "rose.diag", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rose.diag", 1, 0, 0, "double", 1
+"circular", "rose.diag", 2, 0, 0, "double", 1
+"circular", "rose.diag", 3, 0, 0, "logical", 1
+"circular", "rose.diag", 4, 0, 0, "double", 1
+"circular", "rose.diag", 5, 0, 0, "double", 1
+"circular", "rose.diag", 6, 0, 0, "logical", 1
+"circular", "rose.diag", 7, 0, 0, "logical", 1
+"circular", "rose.diag", 8, 0, 0, "double", 1
+"circular", "rose.diag", 9, 0, 0, "double", 1
+"circular", "rose.diag", 10, 0, 0, "character[]", 1
+"circular", "rose.diag", 11, 0, 0, "null", 1
+"circular", "rose.diag", 12, 0, 0, "double", 1
+"circular", "rose.diag", 12, 0, 1, "null", 1
+"circular", "rose.diag", 13, 0, 0, "double", 1
+"circular", "rose.diag", 14, 0, 0, "null", 1
+"circular", "rose.diag", 15, 0, 0, "any", 1
+"circular", "rose.diag", 16, 0, 0, "any", 1
+"circular", "rose.diag", 17, 0, 0, "double", 1
+"circular", "rose.diag", 18, 0, 0, "double", 1
+"circular", "rose.diag", 19, 0, 0, "null", 1
+"circular", "RosediagRad", -1, 0, 0, "null", 1
+"circular", "RosediagRad", 0, 0, 0, "double[]", 1
+"circular", "RosediagRad", 1, 0, 0, "double", 1
+"circular", "RosediagRad", 2, 0, 0, "character", 1
+"circular", "RosediagRad", 3, 0, 0, "double", 1
+"circular", "RosediagRad", 4, 0, 0, "logical", 1
+"circular", "RosediagRad", 5, 0, 0, "character", 1
+"circular", "RosediagRad", 6, 0, 0, "double", 1
+"circular", "RosediagRad", 7, 0, 0, "integer", 1
+"circular", "RosediagRad", 8, 0, 0, "double", 1
+"circular", "RosediagRad", 8, 0, 1, "null", 1
+"circular", "RosediagRad", 9, 0, 0, "...", 1
+"circular", "rpnorm", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rpnorm", 0, 0, 0, "double", 1
+"circular", "rpnorm", 1, 0, 0, "double[]", 1
+"circular", "rpnorm", 2, 0, 0, "class<`matrix`>", 1
+"circular", "rpnorm", 3, 0, 0, "list<character>", 1
+"circular", "RpnormRad", -1, 0, 0, "double[]", 1
+"circular", "RpnormRad", 0, 0, 0, "double", 1
+"circular", "RpnormRad", 1, 0, 0, "double[]", 1
+"circular", "RpnormRad", 2, 0, 0, "class<`matrix`>", 1
+"circular", "rstable", -1, 0, 0, "double[]", 1
+"circular", "rstable", 0, 0, 0, "double", 1
+"circular", "rstable", 1, 0, 0, "double", 1
+"circular", "rstable", 2, 0, 0, "double", 1
+"circular", "rstable", 3, 0, 0, "double", 1
+"circular", "rtriangular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rtriangular", 0, 0, 0, "double", 1
+"circular", "rtriangular", 1, 0, 0, "double", 1
+"circular", "rtriangular", 2, 0, 0, "list<character>", 1
+"circular", "RtriangularRad", -1, 0, 0, "double[]", 1
+"circular", "RtriangularRad", 0, 0, 0, "double", 1
+"circular", "RtriangularRad", 1, 0, 0, "double", 1
+"circular", "RuniformRad", -1, 0, 0, "double[]", 1
+"circular", "RuniformRad", 0, 0, 0, "double", 1
+"circular", "rvonmises", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rvonmises", 0, 0, 0, "double", 1
+"circular", "rvonmises", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rvonmises", 2, 0, 0, "double", 1
+"circular", "rvonmises", 3, 0, 0, "list<any>", 1
+"circular", "RvonmisesRad", -1, 0, 0, "double[]", 1
+"circular", "RvonmisesRad", 0, 0, 0, "double", 1
+"circular", "RvonmisesRad", 1, 0, 0, "double", 1
+"circular", "RvonmisesRad", 2, 0, 0, "double", 1
+"circular", "rwrappedcauchy", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rwrappedcauchy", 0, 0, 0, "double", 1
+"circular", "rwrappedcauchy", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rwrappedcauchy", 2, 0, 0, "double", 1
+"circular", "rwrappedcauchy", 3, 0, 0, "list<any>", 1
+"circular", "RwrappedcauchyRad", -1, 0, 0, "double[]", 1
+"circular", "RwrappedcauchyRad", 0, 0, 0, "double", 1
+"circular", "RwrappedcauchyRad", 1, 0, 0, "double", 1
+"circular", "RwrappedcauchyRad", 2, 0, 0, "double", 1
+"circular", "rwrappednormal", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rwrappednormal", 0, 0, 0, "double", 1
+"circular", "rwrappednormal", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "rwrappednormal", 2, 0, 0, "double", 1
+"circular", "rwrappednormal", 2, 0, 1, "null", 1
+"circular", "rwrappednormal", 3, 0, 0, "double", 1
+"circular", "rwrappednormal", 4, 0, 0, "list<any>", 1
+"circular", "RwrappednormalRad", -1, 0, 0, "double[]", 1
+"circular", "RwrappednormalRad", 0, 0, 0, "double", 1
+"circular", "RwrappednormalRad", 1, 0, 0, "double", 1
+"circular", "RwrappednormalRad", 2, 0, 0, "double", 1
+"circular", "sd", -1, 0, 0, "double", 1
+"circular", "sd", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "sd", 1, 0, 0, "...", 1
+"circular", "sd.circular", -1, 0, 0, "double", 1
+"circular", "sd.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "sd.circular", 1, 0, 0, "logical", 1
+"circular", "sd.circular", 2, 0, 0, "...", 1
+"circular", "SdCircularRad", -1, 0, 0, "double", 1
+"circular", "SdCircularRad", 0, 0, 0, "double[]", 1
+"circular", "summary.circular", -1, 0, 0, "double[]", 1
+"circular", "summary.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "summary.circular", 1, 0, 0, "double", 1
+"circular", "summary.circular", 2, 0, 0, "...", 1
+"circular", "ticks.circular", -1, 0, 0, "null", 1
+"circular", "ticks.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "ticks.circular", 1, 0, 0, "character[]", 1
+"circular", "ticks.circular", 2, 0, 0, "null", 1
+"circular", "ticks.circular", 3, 0, 0, "null", 1
+"circular", "ticks.circular", 4, 0, 0, "double", 1
+"circular", "ticks.circular", 5, 0, 0, "null", 1
+"circular", "ticks.circular", 6, 0, 0, "...", 1
+"circular", "TicksCircularRad", -1, 0, 0, "null", 1
+"circular", "TicksCircularRad", 0, 0, 0, "double[]", 1
+"circular", "TicksCircularRad", 1, 0, 0, "double", 1
+"circular", "TicksCircularRad", 2, 0, 0, "character", 1
+"circular", "TicksCircularRad", 3, 0, 0, "...", 1
+"circular", "totalvariation.circular", -1, 0, 0, "class<`totalvariation.circular`>", 1
+"circular", "totalvariation.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "totalvariation.circular", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "totalvariation.circular", 2, 0, 0, "null", 1
+"circular", "totalvariation.circular", 3, 0, 0, "double", 1
+"circular", "totalvariation.circular", 4, 0, 0, "double", 1
+"circular", "totalvariation.circular", 5, 0, 0, "double", 1
+"circular", "totalvariation.circular", 6, 0, 0, "any", 1
+"circular", "totalvariation.circular", 7, 0, 0, "character[]", 1
+"circular", "totalvariation.circular", 8, 0, 0, "logical", 1
+"circular", "totalvariation.circular", 9, 0, 0, "double", 1
+"circular", "totalvariation.circular", 10, 0, 0, "double", 1
+"circular", "totalvariation.circular", 11, 0, 0, "double", 1
+"circular", "totalvariation.circular", 12, 0, 0, "...", 1
+"circular", "trigonometric.moment", -1, 0, 0, "list<class<`circular`, `numeric`> | double | class<`call`>>", 1
+"circular", "trigonometric.moment", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "trigonometric.moment", 1, 0, 0, "double", 1
+"circular", "trigonometric.moment", 2, 0, 0, "logical", 1
+"circular", "trigonometric.moment", 3, 0, 0, "list<character>", 1
+"circular", "TrigonometricMomentRad", -1, 0, 0, "double[]", 1
+"circular", "TrigonometricMomentRad", 0, 0, 0, "double[]", 1
+"circular", "TrigonometricMomentRad", 1, 0, 0, "double", 1
+"circular", "TrigonometricMomentRad", 2, 0, 0, "logical", 1
+"circular", "unique.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "unique.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "unique.circular", 1, 0, 0, "...", 1
+"circular", "var", -1, 0, 0, "double", 1
+"circular", "var", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "var", 1, 0, 0, "...", 1
+"circular", "var.circular", -1, 0, 0, "double", 1
+"circular", "var.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "var.circular", 1, 0, 0, "logical", 1
+"circular", "var.circular", 2, 0, 0, "...", 1
+"circular", "VarCircularRad", -1, 0, 0, "double", 1
+"circular", "VarCircularRad", 0, 0, 0, "double[]", 1
+"circular", "var.default", -1, 0, 0, "double", 1
+"circular", "var.default", 0, 0, 0, "double[]", 1
+"circular", "var.default", 1, 0, 0, "null", 1
+"circular", "var.default", 1, 0, 1, "double[]", 1
+"circular", "var.default", 2, 0, 0, "logical", 1
+"circular", "var.default", 3, 0, 0, "any", 1
+"circular", "var.default", 4, 0, 0, "...", 1
+"circular", "wallraff.test", -1, 0, 0, "class<`htest`>", 1
+"circular", "wallraff.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "wallraff.test", 0, 0, 1, "class<`formula`>", 1
+"circular", "wallraff.test", 0, 0, 2, "list<class<`circular`, `numeric`>>", 1
+"circular", "wallraff.test", 1, 0, 0, "...", 1
+"circular", "wallraff.test.default", -1, 0, 0, "class<`htest`>", 1
+"circular", "wallraff.test.default", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "wallraff.test.default", 1, 0, 0, "class<`factor`>", 1
+"circular", "wallraff.test.default", 2, 0, 0, "null", 1
+"circular", "wallraff.test.default", 2, 0, 1, "class<`circular`, `numeric`>", 1
+"circular", "wallraff.test.default", 2, 0, 2, "double", 1
+"circular", "wallraff.test.default", 3, 0, 0, "...", 1
+"circular", "wallraff.test.formula", -1, 0, 0, "class<`htest`>", 1
+"circular", "wallraff.test.formula", 0, 0, 0, "class<`formula`>", 1
+"circular", "wallraff.test.formula", 1, 0, 0, "class<`data.frame`>", 1
+"circular", "wallraff.test.formula", 2, 0, 0, "null", 1
+"circular", "wallraff.test.formula", 3, 0, 0, "...", 1
+"circular", "wallraff.test.list", -1, 0, 0, "class<`htest`>", 1
+"circular", "wallraff.test.list", 0, 0, 0, "list<class<`circular`, `numeric`>>", 1
+"circular", "wallraff.test.list", 1, 0, 0, "null", 1
+"circular", "wallraff.test.list", 1, 0, 1, "class<`circular`, `numeric`>", 1
+"circular", "wallraff.test.list", 1, 0, 2, "double", 1
+"circular", "wallraff.test.list", 2, 0, 0, "...", 1
+"circular", "WallraffTestRad", -1, 0, 0, "class<`htest`>", 1
+"circular", "WallraffTestRad", 0, 0, 0, "double[]", 1
+"circular", "WallraffTestRad", 1, 0, 0, "class<`factor`>", 1
+"circular", "WallraffTestRad", 2, 0, 0, "double[]", 1
+"circular", "watson.test", -1, 0, 0, "class<`watson.test`>", 1
+"circular", "watson.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "watson.test", 1, 0, 0, "double", 1
+"circular", "watson.test", 2, 0, 0, "character[]", 1
+"circular", "WatsonTestRad", -1, 0, 0, "list<double | double | null>", 1
+"circular", "WatsonTestRad", 0, 0, 0, "double[]", 1
+"circular", "WatsonTestRad", 1, 0, 0, "character", 1
+"circular", "watson.two.test", -1, 0, 0, "class<`watson.two.test`>", 1
+"circular", "watson.two.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "watson.two.test", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "watson.two.test", 2, 0, 0, "double", 1
+"circular", "WatsonTwoTestRad", -1, 0, 0, "list<double>", 1
+"circular", "WatsonTwoTestRad", 0, 0, 0, "double[]", 1
+"circular", "WatsonTwoTestRad", 1, 0, 0, "double[]", 1
+"circular", "watson.wheeler.test", -1, 0, 0, "class<`htest`>", 1
+"circular", "watson.wheeler.test", 0, 0, 0, "list<class<`circular`, `numeric`>>", 1
+"circular", "watson.wheeler.test", 1, 0, 0, "...", 1
+"circular", "watson.wheeler.test.default", -1, 0, 0, "class<`htest`>", 1
+"circular", "watson.wheeler.test.default", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "watson.wheeler.test.default", 1, 0, 0, "character[]", 1
+"circular", "watson.wheeler.test.default", 2, 0, 0, "...", 1
+"circular", "watson.wheeler.test.list", -1, 0, 0, "class<`htest`>", 1
+"circular", "watson.wheeler.test.list", 0, 0, 0, "list<class<`circular`, `numeric`>>", 1
+"circular", "watson.wheeler.test.list", 1, 0, 0, "...", 1
+"circular", "WatsonWheelerTestRad", -1, 0, 0, "class<`htest`>", 1
+"circular", "WatsonWheelerTestRad", 0, 0, 0, "double[]", 1
+"circular", "WatsonWheelerTestRad", 1, 0, 0, "character[]", 1
+"circular", "watson.williams.test", -1, 0, 0, "class<`htest`>", 1
+"circular", "watson.williams.test", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "watson.williams.test", 0, 0, 1, "class<`formula`>", 1
+"circular", "watson.williams.test", 0, 0, 2, "list<class<`circular`, `numeric`>>", 1
+"circular", "watson.williams.test", 1, 0, 0, "...", 1
+"circular", "watson.williams.test.default", -1, 0, 0, "class<`htest`>", 1
+"circular", "watson.williams.test.default", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "watson.williams.test.default", 1, 0, 0, "class<`factor`>", 1
+"circular", "watson.williams.test.default", 1, 0, 1, "character[]", 1
+"circular", "watson.williams.test.default", 2, 0, 0, "...", 1
+"circular", "watson.williams.test.formula", -1, 0, 0, "class<`htest`>", 1
+"circular", "watson.williams.test.formula", 0, 0, 0, "class<`formula`>", 1
+"circular", "watson.williams.test.formula", 1, 0, 0, "class<`data.frame`>", 1
+"circular", "watson.williams.test.formula", 2, 0, 0, "...", 1
+"circular", "watson.williams.test.list", -1, 0, 0, "class<`htest`>", 1
+"circular", "watson.williams.test.list", 0, 0, 0, "list<class<`circular`, `numeric`>>", 1
+"circular", "watson.williams.test.list", 1, 0, 0, "...", 1
+"circular", "WatsonWilliamsTestRad", -1, 0, 0, "class<`htest`>", 1
+"circular", "WatsonWilliamsTestRad", 0, 0, 0, "double[]", 1
+"circular", "WatsonWilliamsTestRad", 1, 0, 0, "class<`factor`>", 1
+"circular", "WatsonWilliamsTestRad", 1, 0, 1, "character[]", 1
+"circular", "WatsonWilliamsTestRad", 2, 0, 0, "list<class<`array`> | double>", 1
+"circular", "weighted.mean.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "weighted.mean.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "weighted.mean.circular", 1, 0, 0, "double[]", 1
+"circular", "weighted.mean.circular", 2, 0, 0, "logical", 1
+"circular", "weighted.mean.circular", 3, 0, 0, "list<any>", 1
+"circular", "weighted.mean.circular", 4, 0, 0, "...", 1
+"circular", "WeightedMeanCircularRad", -1, 0, 0, "double", 1
+"circular", "WeightedMeanCircularRad", 0, 0, 0, "double[]", 1
+"circular", "WeightedMeanCircularRad", 1, 0, 0, "double[]", 1
+"circular", "windrose", -1, 0, 0, "list<any>", 1
+"circular", "windrose", 0, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "windrose", 0, 0, 1, "class<`data.frame`>", 1
+"circular", "windrose", 1, 0, 0, "double[]", 1
+"circular", "windrose", 1, 0, 1, "null", 1
+"circular", "windrose", 2, 0, 0, "null", 1
+"circular", "windrose", 2, 0, 1, "class<`circular`, `numeric`>", 1
+"circular", "windrose", 3, 0, 0, "double", 1
+"circular", "windrose", 4, 0, 0, "double", 1
+"circular", "windrose", 5, 0, 0, "character", 1
+"circular", "windrose", 6, 0, 0, "double", 1
+"circular", "windrose", 7, 0, 0, "null", 1
+"circular", "windrose", 8, 0, 0, "logical", 1
+"circular", "windrose", 9, 0, 0, "double", 1
+"circular", "windrose", 10, 0, 0, "double", 1
+"circular", "windrose", 11, 0, 0, "logical", 1
+"circular", "windrose", 12, 0, 0, "logical", 1
+"circular", "windrose", 13, 0, 0, "double", 1
+"circular", "windrose", 14, 0, 0, "double", 1
+"circular", "windrose", 15, 0, 0, "double", 1
+"circular", "windrose", 16, 0, 0, "double", 1
+"circular", "windrose", 17, 0, 0, "null", 1
+"circular", "windrose", 18, 0, 0, "null", 1
+"circular", "windrose", 19, 0, 0, "null", 1
+"circular", "x", -1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "x", 0, 0, 0, "double[]", 1
+"circular", "x", 1, 0, 0, "class<`circular`, `numeric`>", 1
+"circular", "x", 2, 0, 0, "null", 1
+"circular", "x", 3, 0, 0, "double", 1
+"circular", "x", 4, 0, 0, "null", 1
+"circular", "x", 5, 0, 0, "null", 1
+"circular", "x", 6, 0, 0, "double", 1
+"circular", "x", 7, 0, 0, "double", 1
+"circular", "x", 8, 0, 0, "list<any>", 1
+"circular", "x", 9, 0, 0, "...", 1

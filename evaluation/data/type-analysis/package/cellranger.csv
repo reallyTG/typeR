@@ -1,15 +1,226 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"cellranger", "[.cell_addr", -1, 0, 0, "struct<`row`:integer[], `col`:integer[]>", 1
-"cellranger", "[.cell_addr", 0, 0, 0, "struct<`row`:integer[], `col`:integer[]>", 1
-"cellranger", "[.cell_addr", 1, 0, 0, "integer[]", 1
-"cellranger", "[[.cell_addr", -1, 0, 0, "struct<`row`:integer, `col`:integer>", 1
-"cellranger", "[[.cell_addr", 0, 0, 0, "struct<`row`:integer[], `col`:integer[]>", 1
-"cellranger", "[[.cell_addr", 1, 0, 0, "double", 1
 "cellranger", "%||%", -1, 0, 0, "logical", 1
-"cellranger", "%||%", 0, 0, 0, "null", 1
-"cellranger", "%||%", 0, 0, 1, "logical", 1
-"cellranger", "%||%", 1, 0, 0, "language", 1
-"cellranger", "%||%", 1, 0, 1, "logical", 1
-"cellranger", "A1_to_R1C1", -1, 0, 0, "null", 1
+"cellranger", "%||%", 0, 0, 0, "logical", 1
+"cellranger", "%||%", 0, 0, 1, "null", 1
+"cellranger", "%||%", 1, 0, 0, "any", 1
+"cellranger", "A1_to_R1C1", -1, 0, 0, "(^character[] | null)", 1
 "cellranger", "A1_to_R1C1", 0, 0, 0, "character[]", 1
 "cellranger", "A1_to_R1C1", 1, 0, 0, "logical", 1
+"cellranger", "A1_to_ra_ref", -1, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "A1_to_ra_ref", 0, 0, 0, "character[]", 1
+"cellranger", "A1_to_ra_ref", 1, 0, 0, "logical", 1
+"cellranger", "addr_col", -1, 0, 0, "integer[]", 1
+"cellranger", "addr_col", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "addr_col", 1, 0, 0, "...", 1
+"cellranger", "addr_col.cell_addr", -1, 0, 0, "integer[]", 1
+"cellranger", "addr_col.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "addr_col.cell_addr", 1, 0, 0, "...", 1
+"cellranger", "addr_row", -1, 0, 0, "integer[]", 1
+"cellranger", "addr_row", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "addr_row", 1, 0, 0, "...", 1
+"cellranger", "addr_row.cell_addr", -1, 0, 0, "(integer[] | null)", 1
+"cellranger", "addr_row.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "addr_row.cell_addr", 1, 0, 0, "...", 1
+"cellranger", "add_single_quotes", -1, 0, 0, "(character | null)", 1
+"cellranger", "add_single_quotes", 0, 0, 0, "character", 1
+"cellranger", "add_single_quotes", 0, 0, 1, "null", 1
+"cellranger", "anchored", -1, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "anchored", 0, 0, 0, "character", 1
+"cellranger", "anchored", 1, 0, 0, "double[]", 1
+"cellranger", "anchored", 2, 0, 0, "null", 1
+"cellranger", "anchored", 2, 0, 1, "character[]", 1
+"cellranger", "anchored", 2, 0, 2, "class<`data.frame`>", 1
+"cellranger", "anchored", 3, 0, 0, "null", 1
+"cellranger", "anchored", 3, 0, 1, "logical", 1
+"cellranger", "anchored", 4, 0, 0, "logical", 1
+"cellranger", "as.cell_addr", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.cell_addr", 0, 0, 0, "character[]", 1
+"cellranger", "as.cell_addr", 0, 0, 1, "class<`list`, `ra_ref`>", 1
+"cellranger", "as.cell_addr", 1, 0, 0, "...", 1
+"cellranger", "as.cell_addr.character", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.cell_addr.character", 0, 0, 0, "character[]", 1
+"cellranger", "as.cell_addr.character", 1, 0, 0, "null", 1
+"cellranger", "as.cell_addr.character", 2, 0, 0, "logical", 1
+"cellranger", "as.cell_addr.character", 3, 0, 0, "...", 1
+"cellranger", "as.cell_addr.ra_ref", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.cell_addr.ra_ref", 0, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "as.cell_addr.ra_ref", 1, 0, 0, "...", 1
+"cellranger", "as.cell_addr_v", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.cell_addr_v", 0, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "as.cell_addr_v", 1, 0, 0, "...", 1
+"cellranger", "as.cell_addr_v.list", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.cell_addr_v.list", 0, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "as.cell_addr_v.list", 1, 0, 0, "...", 1
+"cellranger", "as.cell_limits", -1, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "as.cell_limits", 0, 0, 0, "character", 1
+"cellranger", "as.cell_limits", 1, 0, 0, "...", 1
+"cellranger", "as.cell_limits.character", -1, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "as.cell_limits.character", 0, 0, 0, "character", 1
+"cellranger", "as.cell_limits.character", 1, 0, 0, "null", 1
+"cellranger", "as.cell_limits.character", 2, 0, 0, "...", 1
+"cellranger", "as.range", -1, 0, 0, "character", 1
+"cellranger", "as.range", 0, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "as.range", 1, 0, 0, "character[]", 1
+"cellranger", "as.range", 2, 0, 0, "logical", 1
+"cellranger", "as.range", 3, 0, 0, "null", 1
+"cellranger", "as.ra_ref", -1, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "as.ra_ref", 0, 0, 0, "character", 1
+"cellranger", "as.ra_ref", 0, 0, 1, "class<`cell_addr`>", 1
+"cellranger", "as.ra_ref", 1, 0, 0, "...", 1
+"cellranger", "as.ra_ref.cell_addr", -1, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "as.ra_ref.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.ra_ref.cell_addr", 1, 0, 0, "...", 1
+"cellranger", "as.ra_ref.character", -1, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "as.ra_ref.character", 0, 0, 0, "character", 1
+"cellranger", "as.ra_ref.character", 1, 0, 0, "character", 1
+"cellranger", "as.ra_ref.character", 1, 0, 1, "null", 1
+"cellranger", "as.ra_ref.character", 2, 0, 0, "logical", 1
+"cellranger", "as.ra_ref.character", 3, 0, 0, "...", 1
+"cellranger", "as.ra_ref_v", -1, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "as.ra_ref_v", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.ra_ref_v", 0, 0, 1, "character[]", 1
+"cellranger", "as.ra_ref_v", 1, 0, 0, "...", 1
+"cellranger", "as.ra_ref_v.cell_addr", -1, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "as.ra_ref_v.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "as.ra_ref_v.cell_addr", 1, 0, 0, "...", 1
+"cellranger", "as.ra_ref_v.character", -1, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "as.ra_ref_v.character", 0, 0, 0, "character[]", 1
+"cellranger", "as.ra_ref_v.character", 1, 0, 0, "null", 1
+"cellranger", "as.ra_ref_v.character", 1, 0, 1, "character", 1
+"cellranger", "as.ra_ref_v.character", 2, 0, 0, "any", 1
+"cellranger", "as.ra_ref_v.character", 3, 0, 0, "...", 1
+"cellranger", "[.cell_addr", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "[.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "[.cell_addr", 1, 0, 0, "integer[]", 1
+"cellranger", "[[.cell_addr", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "[[.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "[[.cell_addr", 1, 0, 0, "double", 1
+"cellranger", "cell_addr", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "cell_addr", 0, 0, 0, "double", 1
+"cellranger", "cell_addr", 0, 0, 1, "^integer[]", 1
+"cellranger", "cell_addr", 0, 0, 2, "null", 1
+"cellranger", "cell_addr", 1, 0, 0, "double", 1
+"cellranger", "cell_addr", 1, 0, 1, "integer[]", 1
+"cellranger", "cell_cols", -1, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "cell_cols", 0, 0, 0, "^character[]", 1
+"cellranger", "cell_cols", 0, 0, 1, "^double[]", 1
+"cellranger", "cell_limits", -1, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "cell_limits", 0, 0, 0, "^double[]", 1
+"cellranger", "cell_limits", 0, 0, 1, "list<integer>", 1
+"cellranger", "cell_limits", 1, 0, 0, "^double[]", 1
+"cellranger", "cell_limits", 1, 0, 1, "list<integer>", 1
+"cellranger", "cell_limits", 2, 0, 0, "null", 1
+"cellranger", "cell_limits", 2, 0, 1, "character", 1
+"cellranger", "cell_rows", -1, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "cell_rows", 0, 0, 0, "^double[]", 1
+"cellranger", "dim.cell_limits", -1, 0, 0, "^double[]", 1
+"cellranger", "dim.cell_limits", 0, 0, 0, "class<`cell_limits`, `list`>", 1
+"cellranger", "FUN", -1, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "FUN", 0, 0, 0, "character[]", 1
+"cellranger", "FUN", 0, 0, 1, "class<`list`, `ra_ref`>", 1
+"cellranger", "FUN", 1, 0, 0, "...", 1
+"cellranger", "FUN", -1, 1, 0, "(character[] | null)", 1
+"cellranger", "FUN", 0, 1, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "FUN", 0, 1, 1, "class<`cell_addr`>", 1
+"cellranger", "FUN", 1, 1, 0, "any", 1
+"cellranger", "FUN", 2, 1, 0, "any", 1
+"cellranger", "FUN", 3, 1, 0, "null", 1
+"cellranger", "FUN", 3, 1, 1, "logical", 1
+"cellranger", "FUN", 4, 1, 0, "...", 1
+"cellranger", "guess_fo", -1, 0, 0, "(character[] | null)", 1
+"cellranger", "guess_fo", 0, 0, 0, "character[]", 1
+"cellranger", "guess_fo", 0, 0, 1, "double", 1
+"cellranger", "guess_fo", 1, 0, 0, "character[]", 1
+"cellranger", "is_A1", -1, 0, 0, "logical[]", 1
+"cellranger", "is_A1", 0, 0, 0, "character[]", 1
+"cellranger", "is_A1", 0, 0, 1, "double", 1
+"cellranger", "isFALSE", -1, 0, 0, "logical", 1
+"cellranger", "isFALSE", 0, 0, 0, "logical", 1
+"cellranger", "is_R1C1", -1, 0, 0, "logical[]", 1
+"cellranger", "is_R1C1", 0, 0, 0, "character[]", 1
+"cellranger", "is_R1C1", 0, 0, 1, "double", 1
+"cellranger", "isTOGGLE", -1, 0, 0, "logical", 1
+"cellranger", "isTOGGLE", 0, 0, 0, "logical", 1
+"cellranger", "isTOGGLE", 0, 0, 1, "null", 1
+"cellranger", "isTRUE_v", -1, 0, 0, "logical[]", 1
+"cellranger", "isTRUE_v", 0, 0, 0, "^logical[]", 1
+"cellranger", "isTRUE_v", 0, 0, 1, "null", 1
+"cellranger", "length.cell_addr", -1, 0, 0, "integer", 1
+"cellranger", "length.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "letter_to_num", -1, 0, 0, "(^integer[] | null)", 1
+"cellranger", "letter_to_num", 0, 0, 0, "^character[]", 1
+"cellranger", "letter_to_num", 0, 0, 1, "null", 1
+"cellranger", "num_to_letter", -1, 0, 0, "^character[]", 1
+"cellranger", "num_to_letter", 0, 0, 0, "^double[]", 1
+"cellranger", "parse_ref_string", -1, 0, 0, "list<character[]>", 1
+"cellranger", "parse_ref_string", 0, 0, 0, "character", 1
+"cellranger", "parse_ref_string", 1, 0, 0, "null", 1
+"cellranger", "print.ra_ref", -1, 0, 0, "null", 1
+"cellranger", "print.ra_ref", 0, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "print.ra_ref", 1, 0, 0, "character", 1
+"cellranger", "print.ra_ref", 2, 0, 0, "...", 1
+"cellranger", "R1C1_to_A1", -1, 0, 0, "^character[]", 1
+"cellranger", "R1C1_to_A1", 0, 0, 0, "character[]", 1
+"cellranger", "R1C1_to_A1", 1, 0, 0, "logical", 1
+"cellranger", "R1C1_to_ra_ref", -1, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "R1C1_to_ra_ref", 0, 0, 0, "character[]", 1
+"cellranger", "ra_ref", -1, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "ra_ref", 0, 0, 0, "double", 1
+"cellranger", "ra_ref", 0, 0, 1, "null", 1
+"cellranger", "ra_ref", 0, 0, 2, "character", 1
+"cellranger", "ra_ref", 1, 0, 0, "logical", 1
+"cellranger", "ra_ref", 1, 0, 1, "null", 1
+"cellranger", "ra_ref", 2, 0, 0, "double", 1
+"cellranger", "ra_ref", 2, 0, 1, "null", 1
+"cellranger", "ra_ref", 2, 0, 2, "character", 1
+"cellranger", "ra_ref", 3, 0, 0, "logical", 1
+"cellranger", "ra_ref", 3, 0, 1, "null", 1
+"cellranger", "ra_ref", 4, 0, 0, "character", 1
+"cellranger", "ra_ref", 4, 0, 1, "null", 1
+"cellranger", "ra_ref", 5, 0, 0, "null", 1
+"cellranger", "rel_abs_format", -1, 0, 0, "(character | integer)", 1
+"cellranger", "rel_abs_format", 0, 0, 0, "logical", 1
+"cellranger", "rel_abs_format", 1, 0, 0, "any", 1
+"cellranger", "rel_abs_format", 2, 0, 0, "character[]", 1
+"cellranger", "relativize", -1, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "relativize", 0, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "to_string", -1, 0, 0, "(character[] | null)", 1
+"cellranger", "to_string", 0, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "to_string", 0, 0, 1, "class<`cell_addr`>", 1
+"cellranger", "to_string", 1, 0, 0, "any", 1
+"cellranger", "to_string", 2, 0, 0, "any", 1
+"cellranger", "to_string", 3, 0, 0, "null", 1
+"cellranger", "to_string", 3, 0, 1, "logical", 1
+"cellranger", "to_string", 4, 0, 0, "...", 1
+"cellranger", "to_string.cell_addr", -1, 0, 0, "character[]", 1
+"cellranger", "to_string.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "to_string.cell_addr", 1, 0, 0, "character[]", 1
+"cellranger", "to_string.cell_addr", 2, 0, 0, "any", 1
+"cellranger", "to_string.cell_addr", 3, 0, 0, "logical", 1
+"cellranger", "to_string.cell_addr", 4, 0, 0, "...", 1
+"cellranger", "to_string.ra_ref", -1, 0, 0, "(character | null)", 1
+"cellranger", "to_string.ra_ref", 0, 0, 0, "class<`list`, `ra_ref`>", 1
+"cellranger", "to_string.ra_ref", 1, 0, 0, "any", 1
+"cellranger", "to_string.ra_ref", 2, 0, 0, "any", 1
+"cellranger", "to_string.ra_ref", 3, 0, 0, "null", 1
+"cellranger", "to_string.ra_ref", 3, 0, 1, "logical", 1
+"cellranger", "to_string.ra_ref", 4, 0, 0, "...", 1
+"cellranger", "to_string_v", -1, 0, 0, "character[]", 1
+"cellranger", "to_string_v", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "to_string_v", 0, 0, 1, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "to_string_v", 1, 0, 0, "any", 1
+"cellranger", "to_string_v", 2, 0, 0, "logical", 1
+"cellranger", "to_string_v", 3, 0, 0, "null", 1
+"cellranger", "to_string_v", 4, 0, 0, "...", 1
+"cellranger", "to_string_v.cell_addr", -1, 0, 0, "character[]", 1
+"cellranger", "to_string_v.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
+"cellranger", "to_string_v.cell_addr", 1, 0, 0, "character[]", 1
+"cellranger", "to_string_v.cell_addr", 2, 0, 0, "any", 1
+"cellranger", "to_string_v.cell_addr", 3, 0, 0, "logical", 1
+"cellranger", "to_string_v.cell_addr", 4, 0, 0, "...", 1
+"cellranger", "to_string_v.list", -1, 0, 0, "character[]", 1
+"cellranger", "to_string_v.list", 0, 0, 0, "list<class<`list`, `ra_ref`>>", 1
+"cellranger", "to_string_v.list", 1, 0, 0, "character[]", 1
+"cellranger", "to_string_v.list", 2, 0, 0, "logical", 1
+"cellranger", "to_string_v.list", 3, 0, 0, "null", 1
+"cellranger", "to_string_v.list", 4, 0, 0, "...", 1

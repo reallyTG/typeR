@@ -1,75 +1,104 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"ellipse", "ellipse.arima0", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.arima0", 0, 0, 0, "struct<`coef`:double[], `sigma2`:double, `var.coef`:^double[], `mask`:logical[], `loglik`:double, `aic`:double, `arma`:double[], `residuals`:double[], `call`:language, `series`:character, `code`:integer, `n.cond`:integer>", 1
+"ellipse", "ellipse", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse", 0, 0, 0, "class<`arima0`>", 1
+"ellipse", "ellipse", 0, 0, 1, "class<`glm`, `lm`>", 1
+"ellipse", "ellipse", 0, 0, 2, "class<`lm`>", 1
+"ellipse", "ellipse", 0, 0, 3, "class<`matrix`>", 1
+"ellipse", "ellipse", 0, 0, 4, "class<`nls`>", 1
+"ellipse", "ellipse", 0, 0, 5, "class<`profile`, `profile.glm`>", 1
+"ellipse", "ellipse", 0, 0, 6, "class<`profile`, `profile.nls`>", 1
+"ellipse", "ellipse", 0, 0, 7, "double", 1
+"ellipse", "ellipse", 1, 0, 0, "...", 1
+"ellipse", "ellipse.arima0", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.arima0", 0, 0, 0, "class<`arima0`>", 1
 "ellipse", "ellipse.arima0", 1, 0, 0, "double[]", 1
 "ellipse", "ellipse.arima0", 2, 0, 0, "double", 1
 "ellipse", "ellipse.arima0", 3, 0, 0, "double", 1
-"ellipse", "ellipse.arima0", 4, 0, 0, "null", 1
-"ellipse", "ellipse.default", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.default", 0, 0, 0, "^double[]", 1
-"ellipse", "ellipse.default", 1, 0, 0, "language", 1
-"ellipse", "ellipse.default", 1, 0, 1, "double[]", 1
+"ellipse", "ellipse.arima0", 4, 0, 0, "...", 1
+"ellipse", "ellipse.default", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.default", 0, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.default", 0, 0, 1, "double", 1
+"ellipse", "ellipse.default", 1, 0, 0, "any", 1
 "ellipse", "ellipse.default", 2, 0, 0, "double[]", 1
 "ellipse", "ellipse.default", 3, 0, 0, "double", 1
 "ellipse", "ellipse.default", 4, 0, 0, "double", 1
-"ellipse", "ellipse.default", 5, 0, 0, "double[]", 1
-"ellipse", "ellipse.default", 5, 0, 1, "language", 1
+"ellipse", "ellipse.default", 5, 0, 0, "any", 1
 "ellipse", "ellipse.default", 6, 0, 0, "double", 1
-"ellipse", "ellipse.default", 7, 0, 0, "null", 1
-"ellipse", "ellipse.glm", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.glm", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `fitted.values`:double[], `effects`:double[], `R`:^double[], `rank`:integer, `qr`:struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[], `tol`:double>, `family`:struct<`family`:character, `link`:character, `linkfun`:any => any, `linkinv`:any => any, `variance`:any => any, `dev.resids`:any => any, `aic`:any => any, `mu.eta`:any => any, `initialize`:expression, `validmu`:any => any, `valideta`:any => any, `simulate`:any => any>, `linear.predictors`:double[], `deviance`:double, `aic`:double, `null.deviance`:double, `iter`:integer, `weights`:double[], `prior.weights`:double[], `df.residual`:integer, `df.null`:integer, `y`:double[], `converged`:logical, `boundary`:logical, `model`:struct<`counts`:double[], `outcome`:integer[], `treatment`:integer[]>, `call`:language, `formula`:language, `terms`:language, `data`:environment, `offset`:null, `control`:struct<`epsilon`:double, `maxit`:double, `trace`:logical>, `method`:character, `contrasts`:struct<`outcome`:character, `treatment`:character>, `xlevels`:struct<`outcome`:character[], `treatment`:character[]>>", 1
+"ellipse", "ellipse.default", 7, 0, 0, "...", 1
+"ellipse", "ellipse.glm", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
 "ellipse", "ellipse.glm", 1, 0, 0, "double[]", 1
 "ellipse", "ellipse.glm", 2, 0, 0, "double", 1
-"ellipse", "ellipse.glm", 3, 0, 0, "null", 1
+"ellipse", "ellipse.glm", 3, 0, 0, "any", 1
 "ellipse", "ellipse.glm", 4, 0, 0, "double", 1
-"ellipse", "ellipse.glm", 5, 0, 0, "null", 1
-"ellipse", "ellipse.glm", 6, 0, 0, "null", 1
-"ellipse", "ellipse.lm", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.lm", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`mpg`:double[], `disp`:double[], `cyl`:double[]>>", 1
+"ellipse", "ellipse.glm", 5, 0, 0, "any", 1
+"ellipse", "ellipse.glm", 6, 0, 0, "...", 1
+"ellipse", "ellipse.lm", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.lm", 0, 0, 0, "class<`lm`>", 1
 "ellipse", "ellipse.lm", 1, 0, 0, "character[]", 1
 "ellipse", "ellipse.lm", 2, 0, 0, "double", 1
 "ellipse", "ellipse.lm", 3, 0, 0, "double", 1
-"ellipse", "ellipse.lm", 4, 0, 0, "null", 1
-"ellipse", "ellipse.nls", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.nls", 0, 0, 0, "struct<`m`:struct<`resid`:any => any, `fitted`:any => any, `formula`:any => any, `deviance`:any => any, `lhs`:any => any, `gradient`:any => any, `conv`:any => any, `incr`:any => any, `setVarying`:any => any, `setPars`:any => any, `getPars`:any => any, `getAllPars`:any => any, `getEnv`:any => any, `trace`:any => any, `Rmat`:any => any, `predict`:any => any>, `convInfo`:struct<`isConv`:logical, `finIter`:integer, `finTol`:double, `stopCode`:integer, `stopMessage`:character>, `data`:symbol, `call`:language, `dataClasses`:character[], `control`:struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>>", 1
-"ellipse", "ellipse.nls", 0, 0, 1, "struct<`m`:struct<`resid`:any => any, `fitted`:any => any, `formula`:any => any, `deviance`:any => any, `lhs`:any => any, `gradient`:any => any, `conv`:any => any, `incr`:any => any, `setVarying`:any => any, `setPars`:any => any, `getPars`:any => any, `getAllPars`:any => any, `getEnv`:any => any, `trace`:any => any, `Rmat`:any => any, `predict`:any => any>, `convInfo`:struct<`isConv`:logical, `finIter`:integer, `finTol`:double, `stopCode`:integer, `stopMessage`:character>, `data`:symbol, `call`:language, `dataClasses`:character, `control`:struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>>", 1
+"ellipse", "ellipse.lm", 4, 0, 0, "...", 1
+"ellipse", "ellipse.nls", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.nls", 0, 0, 0, "class<`nls`>", 1
 "ellipse", "ellipse.nls", 1, 0, 0, "character[]", 1
+"ellipse", "ellipse.nls", 1, 0, 1, "integer[]", 1
 "ellipse", "ellipse.nls", 2, 0, 0, "double", 1
 "ellipse", "ellipse.nls", 3, 0, 0, "double", 1
-"ellipse", "ellipse.nls", 4, 0, 0, "null", 1
-"ellipse", "ellipse.profile", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.profile", 0, 0, 0, "struct<`(Intercept)`:struct<`z`:double[], `par.vals`:^double[]>, `outcome2`:struct<`z`:double[], `par.vals`:^double[]>, `outcome3`:struct<`z`:double[], `par.vals`:^double[]>, `treatment2`:struct<`z`:double[], `par.vals`:^double[]>, `treatment3`:struct<`z`:double[], `par.vals`:^double[]>>", 1
-"ellipse", "ellipse.profile", 0, 0, 1, "struct<`Vm`:struct<`tau`:double[], `par.vals`:^double[]>, `delV`:struct<`tau`:double[], `par.vals`:^double[]>, `K`:struct<`tau`:double[], `par.vals`:^double[]>>", 1
+"ellipse", "ellipse.nls", 4, 0, 0, "...", 1
+"ellipse", "ellipse.profile", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.profile", 0, 0, 0, "class<`profile`, `profile.glm`>", 1
+"ellipse", "ellipse.profile", 0, 0, 1, "class<`profile`, `profile.nls`>", 1
 "ellipse", "ellipse.profile", 1, 0, 0, "integer[]", 1
 "ellipse", "ellipse.profile", 1, 0, 1, "character[]", 1
-"ellipse", "ellipse.profile", 2, 0, 0, "symbol", 1
+"ellipse", "ellipse.profile", 2, 0, 0, "any", 1
 "ellipse", "ellipse.profile", 3, 0, 0, "double", 1
 "ellipse", "ellipse.profile", 4, 0, 0, "double", 1
-"ellipse", "ellipse.profile", 5, 0, 0, "null", 1
-"ellipse", "ellipse.profile.glm", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.profile.glm", 0, 0, 0, "struct<`(Intercept)`:struct<`z`:double[], `par.vals`:^double[]>, `outcome2`:struct<`z`:double[], `par.vals`:^double[]>, `outcome3`:struct<`z`:double[], `par.vals`:^double[]>, `treatment2`:struct<`z`:double[], `par.vals`:^double[]>, `treatment3`:struct<`z`:double[], `par.vals`:^double[]>>", 1
+"ellipse", "ellipse.profile", 5, 0, 0, "...", 1
+"ellipse", "ellipse.profile.glm", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.profile.glm", 0, 0, 0, "class<`profile`, `profile.glm`>", 1
 "ellipse", "ellipse.profile.glm", 1, 0, 0, "integer[]", 1
 "ellipse", "ellipse.profile.glm", 2, 0, 0, "double", 1
-"ellipse", "ellipse.profile.glm", 3, 0, 0, "null", 1
+"ellipse", "ellipse.profile.glm", 3, 0, 0, "any", 1
 "ellipse", "ellipse.profile.glm", 4, 0, 0, "double", 1
-"ellipse", "ellipse.profile.glm", 5, 0, 0, "null", 1
-"ellipse", "ellipse.profile.glm", 6, 0, 0, "null", 1
-"ellipse", "ellipse.profile.nls", -1, 0, 0, "^double[]", 1
-"ellipse", "ellipse.profile.nls", 0, 0, 0, "struct<`Vm`:struct<`tau`:double[], `par.vals`:^double[]>, `delV`:struct<`tau`:double[], `par.vals`:^double[]>, `K`:struct<`tau`:double[], `par.vals`:^double[]>>", 1
+"ellipse", "ellipse.profile.glm", 5, 0, 0, "any", 1
+"ellipse", "ellipse.profile.glm", 6, 0, 0, "...", 1
+"ellipse", "ellipse.profile.nls", -1, 0, 0, "class<`matrix`>", 1
+"ellipse", "ellipse.profile.nls", 0, 0, 0, "class<`profile`, `profile.nls`>", 1
 "ellipse", "ellipse.profile.nls", 1, 0, 0, "character[]", 1
+"ellipse", "ellipse.profile.nls", 1, 0, 1, "integer[]", 1
 "ellipse", "ellipse.profile.nls", 2, 0, 0, "double", 1
 "ellipse", "ellipse.profile.nls", 3, 0, 0, "double", 1
 "ellipse", "ellipse.profile.nls", 4, 0, 0, "double", 1
-"ellipse", "ellipse.profile.nls", 5, 0, 0, "null", 1
-"ellipse", "filter", -1, 0, 0, "logical[]", 1
-"ellipse", "filter", 0, 0, 0, "character[]", 1
-"ellipse", "getad", -1, 0, 0, "double[]", 1
-"ellipse", "getad", 0, 0, 0, "double", 1
-"ellipse", "getad", 1, 0, 0, "double", 1
-"ellipse", "myapprox", -1, 0, 0, "double[]", 1
-"ellipse", "myapprox", 0, 0, 0, "double[]", 1
-"ellipse", "myapprox", 1, 0, 0, "double[]", 1
-"ellipse", "myapprox", 2, 0, 0, "double[]", 1
-"ellipse", "pairs.default", -1, 0, 0, "null", 1
-"ellipse", "pairs.default", 0, 0, 0, "struct<`POP`:double[], `MOR`:integer[], `CAR`:double[], `DR`:double[], `GNP`:double[], `DEN`:double[], `TB`:double[]>", 1
-"ellipse", "pairs.default", 1, 0, 0, "null", 1
+"ellipse", "ellipse.profile.nls", 5, 0, 0, "...", 1
+"ellipse", "pairs", -1, 0, 0, "null", 1
+"ellipse", "pairs", 0, 0, 0, "class<`data.frame`>", 1
+"ellipse", "pairs", 0, 0, 1, "class<`formula`>", 1
+"ellipse", "pairs", 1, 0, 0, "...", 1
+"ellipse", "pairs.profile", -1, 0, 0, "null", 1
+"ellipse", "pairs.profile", 0, 0, 0, "class<`profile`, `profile.nls`>", 1
+"ellipse", "pairs.profile", 1, 0, 0, "character[]", 1
+"ellipse", "pairs.profile", 2, 0, 0, "class<`function`>", 1
+"ellipse", "pairs.profile", 3, 0, 0, "logical", 1
+"ellipse", "pairs.profile", 4, 0, 0, "logical", 1
+"ellipse", "pairs.profile", 5, 0, 0, "logical", 1
+"ellipse", "pairs.profile", 6, 0, 0, "logical", 1
+"ellipse", "pairs.profile", 7, 0, 0, "logical", 1
+"ellipse", "pairs.profile", 8, 0, 0, "double", 1
+"ellipse", "pairs.profile", 9, 0, 0, "...", 1
+"ellipse", "plotcorr", -1, 0, 0, "null", 1
+"ellipse", "plotcorr", 0, 0, 0, "class<`matrix`>", 1
+"ellipse", "plotcorr", 1, 0, 0, "logical", 1
+"ellipse", "plotcorr", 2, 0, 0, "character[]", 1
+"ellipse", "plotcorr", 3, 0, 0, "logical", 1
+"ellipse", "plotcorr", 4, 0, 0, "character[]", 1
+"ellipse", "plotcorr", 5, 0, 0, "logical", 1
+"ellipse", "plotcorr", 6, 0, 0, "character", 1
+"ellipse", "plotcorr", 7, 0, 0, "logical", 1
+"ellipse", "plotcorr", 8, 0, 0, "character", 1
+"ellipse", "plotcorr", 9, 0, 0, "character", 1
+"ellipse", "plotcorr", 10, 0, 0, "double", 1
+"ellipse", "plotcorr", 11, 0, 0, "double", 1
+"ellipse", "plotcorr", 12, 0, 0, "any", 1
+"ellipse", "plotcorr", 13, 0, 0, "double[]", 1
+"ellipse", "plotcorr", 14, 0, 0, "...", 1

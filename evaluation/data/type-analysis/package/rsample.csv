@@ -1,26 +1,252 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"rsample", "_fseq", -1, 0, 0, "struct<`..index`:integer[], `..group`:integer[], `..folds`:integer[]>", 1
-"rsample", "_fseq", 0, 0, 0, "struct<`..index`:integer[], `..group`:integer[]>", 1
-"rsample", ".f", -1, 0, 0, "struct<`idx`:integer[]>", 1
-"rsample", ".f", 0, 0, 0, "integer[]", 1
-"rsample", ".f", 0, 0, 1, "struct<`analysis`:integer[], `assessment`:integer[]>", 1
-"rsample", ".f", 0, 0, 2, "struct<`analysis`:integer[], `assessment`:null>", 1
-"rsample", ".f", 0, 0, 3, "struct<>", 1
-"rsample", ".f", 0, 0, 4, "struct<`data`:struct<`Age`:integer[], `Attrition`:integer[], `BusinessTravel`:integer[], `DailyRate`:integer[], `Department`:integer[], `DistanceFromHome`:integer[], `Education`:integer[], `EducationField`:integer[], `EnvironmentSatisfaction`:integer[], `Gender`:integer[], `HourlyRate`:integer[], `JobInvolvement`:integer[], `JobLevel`:integer[], `JobRole`:integer[], `JobSatisfaction`:integer[], `MaritalStatus`:integer[], `MonthlyIncome`:integer[], `MonthlyRate`:integer[], `NumCompaniesWorked`:integer[], `OverTime`:integer[], `PercentSalaryHike`:integer[], `PerformanceRating`:integer[], `RelationshipSatisfaction`:integer[], `StockOptionLevel`:integer[], `TotalWorkingYears`:integer[], `TrainingTimesLastYear`:integer[], `WorkLifeBalance`:integer[], `YearsAtCompany`:integer[], `YearsInCurrentRole`:integer[], `YearsSinceLastPromotion`:integer[], `YearsWithCurrManager`:integer[]>, `in_id`:integer[], `out_id`:null>", 1
-"rsample", ".f", 0, 0, 5, "struct<`data`:struct<`day`:integer[]>, `in_id`:integer[], `out_id`:integer[]>", 1
-"rsample", ".f", 0, 0, 6, "struct<`data`:struct<`id`:integer[], `dat`:double[]>, `in_id`:integer[], `out_id`:null>", 1
-"rsample", ".f", 0, 0, 7, "struct<`data`:struct<`mpg`:double[], `cyl`:double[], `disp`:double[], `hp`:double[], `drat`:double[], `wt`:double[], `qsec`:double[], `vs`:double[], `am`:double[], `gear`:double[], `carb`:double[]>, `in_id`:integer[], `out_id`:integer[]>", 1
-"rsample", ".f", 0, 0, 8, "struct<`data`:struct<`mpg`:double[], `cyl`:double[], `disp`:double[], `hp`:double[], `drat`:double[], `wt`:double[], `qsec`:double[], `vs`:double[], `am`:double[], `gear`:double[], `carb`:double[]>, `in_id`:integer[], `out_id`:null>", 1
-"rsample", ".f", 0, 0, 9, "struct<`data`:struct<`row`:integer[], `some_var`:double[]>, `in_id`:integer[], `out_id`:integer>", 1
-"rsample", ".f", 0, 0, 10, "struct<`data`:struct<`Sepal.Length`:double[], `Sepal.Width`:double[], `Petal.Length`:double[], `Petal.Width`:double[], `Species`:integer[]>, `in_id`:integer[], `out_id`:null>", 1
-"rsample", ".f", 0, 0, 11, "struct<`data`:struct<`year`:double[], `data`:list<struct<`date`:double[], `S4248SM144NCEN`:double[]>>>, `in_id`:integer[], `out_id`:integer>", 1
-"rsample", ".f", 0, 0, 12, "struct<`data`:struct<`Age`:integer[], `Attrition`:integer[], `BusinessTravel`:integer[], `DailyRate`:integer[], `Department`:integer[], `DistanceFromHome`:integer[], `Education`:integer[], `EducationField`:integer[], `EnvironmentSatisfaction`:integer[], `Gender`:integer[], `HourlyRate`:integer[], `JobInvolvement`:integer[], `JobLevel`:integer[], `JobRole`:integer[], `JobSatisfaction`:integer[], `MaritalStatus`:integer[], `MonthlyIncome`:integer[], `MonthlyRate`:integer[], `NumCompaniesWorked`:integer[], `OverTime`:integer[], `PercentSalaryHike`:integer[], `PerformanceRating`:integer[], `RelationshipSatisfaction`:integer[], `StockOptionLevel`:integer[], `TotalWorkingYears`:integer[], `TrainingTimesLastYear`:integer[], `WorkLifeBalance`:integer[], `YearsAtCompany`:integer[], `YearsInCurrentRole`:integer[], `YearsSinceLastPromotion`:integer[], `YearsWithCurrManager`:integer[]>, `in_id`:integer[], `out_id`:integer[]>", 1
-"rsample", ".f", 0, 0, 13, "struct<`data`:struct<`id`:integer[], `dat`:double[]>, `in_id`:integer[], `out_id`:integer[]>", 1
-"rsample", ".f", 0, 0, 14, "struct<`data`:struct<`Sepal.Length`:double[], `Sepal.Width`:double[], `Petal.Length`:double[], `Petal.Width`:double[], `Species`:integer[]>, `in_id`:integer[], `out_id`:integer[]>", 1
-"rsample", ".f", 1, 0, 0, "struct<`idx`:integer[], `strata`:integer[]>", 1
-"rsample", ".f", 1, 0, 1, "double", 1
-"rsample", ".f", 1, 0, 2, "language", 1
-"rsample", ".f", 2, 0, 0, "character", 1
-"rsample", ".f", 2, 0, 1, "double", 1
-"rsample", ".f", 3, 0, 0, "logical", 1
-"rsample", ".f", 3, 0, 1, "null", 1
+"rsample", "add_class", -1, 0, 0, "(class<`apparent`, `data.frame`, `rset`, `tbl`, `tbl_df`> | class<`boot_split`, `rsplit`> | class<`bootstraps`, `data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`> | class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `group_vfold_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `loo_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`, `vfold_cv`> | class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`> | class<`group_vfold_split`, `rsplit`> | class<`mc_split`, `rsplit`> | class<`rof_split`, `rsplit`> | class<`rsplit`, `vfold_split`>)", 1
+"rsample", "add_class", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", 0, 0, 1, "class<`rsplit`>", 1
+"rsample", "add_class", 0, 0, 2, "class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", 0, 0, 3, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "add_class", 1, 0, 0, "character[]", 1
+"rsample", "add_class", 2, 0, 0, "logical", 1
+"rsample", "add_resample_id", -1, 0, 0, "any", 1
+"rsample", "add_resample_id", 0, 0, 0, "any", 1
+"rsample", "add_resample_id", 1, 0, 0, "any", 1
+"rsample", "add_resample_id", 2, 0, 0, "double", 1
+"rsample", "add_resample_id", 2, 0, 1, "logical[]", 1
+"rsample", "analysis", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "analysis", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
+"rsample", "analysis", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
+"rsample", "analysis", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "analysis", 0, 0, 3, "class<`rof_split`, `rsplit`>", 1
+"rsample", "analysis", 0, 0, 4, "class<`rsplit`>", 1
+"rsample", "analysis", 1, 0, 0, "...", 1
+"rsample", "apparent", -1, 0, 0, "class<`apparent`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "apparent", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "apparent", 1, 0, 0, "...", 1
+"rsample", "as.data.frame.rsplit", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "as.data.frame.rsplit", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
+"rsample", "as.data.frame.rsplit", 0, 0, 1, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "as.data.frame.rsplit", 0, 0, 2, "class<`mc_split`, `rsplit`>", 1
+"rsample", "as.data.frame.rsplit", 0, 0, 3, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "as.data.frame.rsplit", 0, 0, 4, "class<`rof_split`, `rsplit`>", 1
+"rsample", "as.data.frame.rsplit", 0, 0, 5, "class<`rsplit`>", 1
+"rsample", "as.data.frame.rsplit", 1, 0, 0, "null", 1
+"rsample", "as.data.frame.rsplit", 2, 0, 0, "logical", 1
+"rsample", "as.data.frame.rsplit", 3, 0, 0, "character", 1
+"rsample", "as.data.frame.rsplit", 4, 0, 0, "...", 1
+"rsample", "as.integer.rsplit", -1, 0, 0, "integer[]", 1
+"rsample", "as.integer.rsplit", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
+"rsample", "as.integer.rsplit", 0, 0, 1, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "as.integer.rsplit", 0, 0, 2, "class<`mc_split`, `rsplit`>", 1
+"rsample", "as.integer.rsplit", 0, 0, 3, "class<`rof_split`, `rsplit`>", 1
+"rsample", "as.integer.rsplit", 0, 0, 4, "class<`rsplit`>", 1
+"rsample", "as.integer.rsplit", 0, 0, 5, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "as.integer.rsplit", 1, 0, 0, "character", 1
+"rsample", "as.integer.rsplit", 2, 0, 0, "...", 1
+"rsample", "assessment", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "assessment", 0, 0, 0, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "assessment", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
+"rsample", "assessment", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "assessment", 0, 0, 3, "class<`rof_split`, `rsplit`>", 1
+"rsample", "assessment", 1, 0, 0, "...", 1
+"rsample", "boot_splits", -1, 0, 0, "list<character[] | list<class<`boot_split`, `rsplit`>>>", 1
+"rsample", "boot_splits", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "boot_splits", 1, 0, 0, "double", 1
+"rsample", "boot_splits", 2, 0, 0, "null", 1
+"rsample", "boot_splits", 2, 0, 1, "character", 1
+"rsample", "boot_splits", 3, 0, 0, "any", 1
+"rsample", "bootstraps", -1, 0, 0, "class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "bootstraps", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "bootstraps", 1, 0, 0, "double", 1
+"rsample", "bootstraps", 2, 0, 0, "character", 1
+"rsample", "bootstraps", 2, 0, 1, "null", 1
+"rsample", "bootstraps", 3, 0, 0, "double", 1
+"rsample", "bootstraps", 4, 0, 0, "logical", 1
+"rsample", "bootstraps", 5, 0, 0, "...", 1
+"rsample", "complement", -1, 0, 0, "integer[]", 1
+"rsample", "complement", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
+"rsample", "complement", 0, 0, 1, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "complement", 0, 0, 2, "class<`mc_split`, `rsplit`>", 1
+"rsample", "complement", 0, 0, 3, "class<`rof_split`, `rsplit`>", 1
+"rsample", "complement", 0, 0, 4, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "complement", 1, 0, 0, "...", 1
+"rsample", "complement.boot_split", -1, 0, 0, "integer[]", 1
+"rsample", "complement.boot_split", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
+"rsample", "complement.boot_split", 1, 0, 0, "...", 1
+"rsample", "complement.group_vfold_split", -1, 0, 0, "integer[]", 1
+"rsample", "complement.group_vfold_split", 0, 0, 0, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "complement.group_vfold_split", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
+"rsample", "complement.group_vfold_split", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "complement.group_vfold_split", 1, 0, 0, "...", 1
+"rsample", "complement.mc_split", -1, 0, 0, "integer[]", 1
+"rsample", "complement.mc_split", 0, 0, 0, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "complement.mc_split", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
+"rsample", "complement.mc_split", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "complement.mc_split", 1, 0, 0, "...", 1
+"rsample", "complement.rof_split", -1, 0, 0, "integer[]", 1
+"rsample", "complement.rof_split", 0, 0, 0, "class<`rof_split`, `rsplit`>", 1
+"rsample", "complement.rof_split", 1, 0, 0, "...", 1
+"rsample", "complement.vfold_split", -1, 0, 0, "integer[]", 1
+"rsample", "complement.vfold_split", 0, 0, 0, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "complement.vfold_split", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
+"rsample", "complement.vfold_split", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "complement.vfold_split", 1, 0, 0, "...", 1
+"rsample", ".f", -1, 0, 0, "(class<`rsplit`, `vfold_split`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", ".f", 0, 0, 0, "class<`rsplit`, `vfold_split`>", 1
+"rsample", ".f", 0, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", ".f", 1, 0, 0, "...", 1
+"rsample", "form_pred", -1, 0, 0, "character[]", 1
+"rsample", "form_pred", 0, 0, 0, "class<`formula`>", 1
+"rsample", "form_pred", 0, 0, 1, "class<`formula`, `terms`>", 1
+"rsample", "form_pred", 1, 0, 0, "...", 1
+"rsample", "gather.rset", -1, 0, 0, "class<`data.frame`>", 1
+"rsample", "gather.rset", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "gather.rset", 1, 0, 0, "null", 1
+"rsample", "gather.rset", 2, 0, 0, "null", 1
+"rsample", "gather.rset", 3, 0, 0, "...", 1
+"rsample", "gather.rset", 4, 0, 0, "logical", 1
+"rsample", "gather.rset", 5, 0, 0, "logical", 1
+"rsample", "gather.rset", 6, 0, 0, "logical", 1
+"rsample", "group_vfold_cv", -1, 0, 0, "class<`data.frame`, `group_vfold_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "group_vfold_cv", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "group_vfold_cv", 1, 0, 0, "character", 1
+"rsample", "group_vfold_cv", 2, 0, 0, "null", 1
+"rsample", "group_vfold_cv", 2, 0, 1, "double", 1
+"rsample", "group_vfold_cv", 3, 0, 0, "...", 1
+"rsample", "group_vfold_splits", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "group_vfold_splits", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "group_vfold_splits", 1, 0, 0, "character", 1
+"rsample", "group_vfold_splits", 2, 0, 0, "double", 1
+"rsample", "group_vfold_splits", 2, 0, 1, "null", 1
+"rsample", "initial_split", -1, 0, 0, "class<`mc_split`, `rsplit`>", 1
+"rsample", "initial_split", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "initial_split", 1, 0, 0, "double", 1
+"rsample", "initial_split", 2, 0, 0, "null", 1
+"rsample", "initial_split", 3, 0, 0, "double", 1
+"rsample", "initial_split", 4, 0, 0, "...", 1
+"rsample", "initial_time_split", -1, 0, 0, "class<`rsplit`>", 1
+"rsample", "initial_time_split", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "initial_time_split", 1, 0, 0, "double", 1
+"rsample", "initial_time_split", 2, 0, 0, "...", 1
+"rsample", "is_rset", -1, 0, 0, "logical", 1
+"rsample", "is_rset", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "labels.rsplit", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "labels.rsplit", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
+"rsample", "labels.rsplit", 0, 0, 1, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "labels.rsplit", 1, 0, 0, "...", 1
+"rsample", "labels.vfold_cv", -1, 0, 0, "any", 1
+"rsample", "labels.vfold_cv", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "labels.vfold_cv", 0, 0, 1, "class<`data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "labels.vfold_cv", 1, 0, 0, "logical", 1
+"rsample", "labels.vfold_cv", 2, 0, 0, "...", 1
+"rsample", "loo_cv", -1, 0, 0, "class<`data.frame`, `loo_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "loo_cv", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "loo_cv", 1, 0, 0, "...", 1
+"rsample", "make_strata", -1, 0, 0, "class<`factor`>", 1
+"rsample", "make_strata", 0, 0, 0, "character[]", 1
+"rsample", "make_strata", 0, 0, 1, "class<`factor`>", 1
+"rsample", "make_strata", 0, 0, 2, "double[]", 1
+"rsample", "make_strata", 1, 0, 0, "any", 1
+"rsample", "make_strata", 2, 0, 0, "double", 1
+"rsample", "make_strata", 3, 0, 0, "double", 1
+"rsample", "make_strata", 4, 0, 0, "double", 1
+"rsample", "maybe_rset", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "maybe_rset", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "maybe_rset", 1, 0, 0, "any", 1
+"rsample", "maybe_rset", 2, 0, 0, "any", 1
+"rsample", "mc_cv", -1, 0, 0, "class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "mc_cv", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "mc_cv", 1, 0, 0, "double", 1
+"rsample", "mc_cv", 2, 0, 0, "double", 1
+"rsample", "mc_cv", 3, 0, 0, "any", 1
+"rsample", "mc_cv", 4, 0, 0, "any", 1
+"rsample", "mc_cv", 5, 0, 0, "...", 1
+"rsample", "mc_splits", -1, 0, 0, "list<character[] | list<class<`mc_split`, `rsplit`>> | character | list<class<`mc_split`, `rsplit`>>>", 1
+"rsample", "mc_splits", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "mc_splits", 1, 0, 0, "double", 1
+"rsample", "mc_splits", 2, 0, 0, "double", 1
+"rsample", "mc_splits", 3, 0, 0, "null", 1
+"rsample", "mc_splits", 3, 0, 1, "character", 1
+"rsample", "mc_splits", 4, 0, 0, "any", 1
+"rsample", "names0", -1, 0, 0, "character[]", 1
+"rsample", "names0", 0, 0, 0, "double", 1
+"rsample", "names0", 1, 0, 0, "character", 1
+"rsample", "nested_cv", -1, 0, 0, "(class<`bootstraps`, `data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", "nested_cv", 0, 0, 0, "any", 1
+"rsample", "nested_cv", 1, 0, 0, "any", 1
+"rsample", "nested_cv", 2, 0, 0, "any", 1
+"rsample", "new_rset", -1, 0, 0, "(class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `group_vfold_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `loo_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", "new_rset", 0, 0, 0, "list<any>", 1
+"rsample", "new_rset", 1, 0, 0, "character[]", 1
+"rsample", "new_rset", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "new_rset", 2, 0, 0, "null", 1
+"rsample", "new_rset", 2, 0, 1, "list<double | null | character | double | character>", 1
+"rsample", "new_rset", 3, 0, 0, "character[]", 1
+"rsample", "populate", -1, 0, 0, "(class<`rsplit`, `vfold_split`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", "populate", 0, 0, 0, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "populate", 0, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "populate", 1, 0, 0, "...", 1
+"rsample", "populate.rset", -1, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "populate.rset", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "populate.rset", 1, 0, 0, "...", 1
+"rsample", "populate.rsplit", -1, 0, 0, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "populate.rsplit", 0, 0, 0, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "populate.rsplit", 1, 0, 0, "...", 1
+"rsample", "register_s3_method", -1, 0, 0, "null", 1
+"rsample", "register_s3_method", 0, 0, 0, "character", 1
+"rsample", "register_s3_method", 1, 0, 0, "character", 1
+"rsample", "register_s3_method", 2, 0, 0, "character", 1
+"rsample", "register_s3_method", 3, 0, 0, "null", 1
+"rsample", "rolling_origin", -1, 0, 0, "class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "rolling_origin", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "rolling_origin", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "rolling_origin", 1, 0, 0, "double", 1
+"rsample", "rolling_origin", 2, 0, 0, "double", 1
+"rsample", "rolling_origin", 3, 0, 0, "logical", 1
+"rsample", "rolling_origin", 4, 0, 0, "double", 1
+"rsample", "rolling_origin", 5, 0, 0, "...", 1
+"rsample", "rsplit", -1, 0, 0, "class<`rsplit`>", 1
+"rsample", "rsplit", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "rsplit", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "rsplit", 1, 0, 0, "integer[]", 1
+"rsample", "rsplit", 2, 0, 0, "integer[]", 1
+"rsample", "rsplit", 2, 0, 1, "null", 1
+"rsample", "select.rset", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "select.rset", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "select.rset", 1, 0, 0, "...", 1
+"rsample", "strata_check", -1, 0, 0, "null", 1
+"rsample", "strata_check", 0, 0, 0, "character", 1
+"rsample", "strata_check", 0, 0, 1, "null", 1
+"rsample", "strata_check", 1, 0, 0, "any", 1
+"rsample", "testing", -1, 0, 0, "class<`data.frame`>", 1
+"rsample", "testing", 0, 0, 0, "class<`mc_split`, `rsplit`>", 1
+"rsample", "tidy.rset", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "tidy.rset", 0, 0, 0, "class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "tidy.rset", 0, 0, 1, "class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "tidy.rset", 0, 0, 2, "class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "tidy.rset", 1, 0, 0, "...", 1
+"rsample", "tidy.rsplit", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "tidy.rsplit", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
+"rsample", "tidy.rsplit", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
+"rsample", "tidy.rsplit", 0, 0, 2, "class<`rof_split`, `rsplit`>", 1
+"rsample", "tidy.rsplit", 0, 0, 3, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "tidy.rsplit", 1, 0, 0, "logical", 1
+"rsample", "tidy.rsplit", 2, 0, 0, "...", 1
+"rsample", "tidy.vfold_cv", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "tidy.vfold_cv", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "tidy.vfold_cv", 1, 0, 0, "...", 1
+"rsample", "training", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "training", 0, 0, 0, "class<`mc_split`, `rsplit`>", 1
+"rsample", "training", 0, 0, 1, "class<`rsplit`>", 1
+"rsample", "vfold_cv", -1, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "vfold_cv", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "vfold_cv", 1, 0, 0, "double", 1
+"rsample", "vfold_cv", 2, 0, 0, "double", 1
+"rsample", "vfold_cv", 3, 0, 0, "character", 1
+"rsample", "vfold_cv", 3, 0, 1, "null", 1
+"rsample", "vfold_cv", 4, 0, 0, "double", 1
+"rsample", "vfold_cv", 5, 0, 0, "...", 1
+"rsample", "vfold_splits", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"rsample", "vfold_splits", 0, 0, 0, "class<`data.frame`>", 1
+"rsample", "vfold_splits", 1, 0, 0, "double", 1
+"rsample", "vfold_splits", 2, 0, 0, "character", 1
+"rsample", "vfold_splits", 2, 0, 1, "null", 1
+"rsample", "vfold_splits", 3, 0, 0, "any", 1

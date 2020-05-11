@@ -1,12 +1,18 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dygraphs", "filter", -1, 0, 0, "logical[]", 1
-"dygraphs", "filter", 0, 0, 0, "character[]", 1
+"dygraphs", "%||%", -1, 0, 0, "double", 1
+"dygraphs", "%||%", 0, 0, 0, "null", 1
+"dygraphs", "%||%", 1, 0, 0, "double", 1
 "dygraphs", "asISO8601Time", -1, 0, 0, "character[]", 1
-"dygraphs", "asISO8601Time", 0, 0, 0, "double[]", 1
-"dygraphs", "asISO8601Time", 0, 0, 1, "character", 1
-"dygraphs", "dyAnnotation", -1, 0, 0, "struct<`x`:struct<`attrs`:struct<`axes`:struct<`x`:struct<`pixelsPerLabel`:double>, `y`:struct<`valueRange`:double[]>>, `title`:character, `labels`:character[], `legend`:character, `retainDateWindow`:logical>, `scale`:character, `annotations`:tuple<struct<`x`:character, `shortText`:character, `text`:character, `attachAtBottom`:logical, `series`:character>>, `shadings`:tuple<>, `events`:tuple<>, `format`:character, `data`:tuple<character[], ^double[]>>, `width`:null, `height`:null, `sizingPolicy`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `viewer`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:double, `fill`:logical, `suppress`:logical, `paneHeight`:null>, `browser`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `fill`:logical, `external`:logical>, `knitr`:struct<`defaultWidth`:null, `defaultHeight`:null, `figure`:logical>>, `dependencies`:null, `elementId`:null, `preRenderHook`:null, `jsHooks`:tuple<>>", 1
-"dygraphs", "dyAnnotation", 0, 0, 0, "struct<`x`:struct<`attrs`:struct<`axes`:struct<`x`:struct<`pixelsPerLabel`:double>, `y`:struct<`valueRange`:double[]>>, `title`:character, `labels`:character[], `legend`:character, `retainDateWindow`:logical>, `scale`:character, `annotations`:tuple<>, `shadings`:tuple<>, `events`:tuple<>, `format`:character, `data`:tuple<character[], ^double[]>>, `width`:null, `height`:null, `sizingPolicy`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `viewer`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:double, `fill`:logical, `suppress`:logical, `paneHeight`:null>, `browser`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `fill`:logical, `external`:logical>, `knitr`:struct<`defaultWidth`:null, `defaultHeight`:null, `figure`:logical>>, `dependencies`:null, `elementId`:null, `preRenderHook`:null, `jsHooks`:tuple<>>", 1
-"dygraphs", "dyAnnotation", 0, 0, 1, "struct<`x`:struct<`attrs`:struct<`axes`:struct<`x`:struct<`pixelsPerLabel`:double>, `y`:struct<`valueRange`:double[]>>, `title`:character, `labels`:character[], `legend`:character, `retainDateWindow`:logical>, `scale`:character, `annotations`:tuple<struct<`x`:character, `shortText`:character, `text`:character, `attachAtBottom`:logical, `series`:character>>, `shadings`:tuple<>, `events`:tuple<>, `format`:character, `data`:tuple<character[], ^double[]>>, `width`:null, `height`:null, `sizingPolicy`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `viewer`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:double, `fill`:logical, `suppress`:logical, `paneHeight`:null>, `browser`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `fill`:logical, `external`:logical>, `knitr`:struct<`defaultWidth`:null, `defaultHeight`:null, `figure`:logical>>, `dependencies`:null, `elementId`:null, `preRenderHook`:null, `jsHooks`:tuple<>>", 1
+"dygraphs", "asISO8601Time", 0, 0, 0, "class<`Date`>", 1
+"dygraphs", "asISO8601Time", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"dygraphs", "asISO8601Time", 0, 0, 2, "class<`yearmon`>", 1
+"dygraphs", "asISO8601Time", 0, 0, 3, "class<`yearqtr`>", 1
+"dygraphs", "asISO8601Time", 0, 0, 4, "character", 1
+"dygraphs", "computeYaxisRange", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "computeYaxisRange", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "computeYaxisRange", 1, 0, 0, "character[]", 1
+"dygraphs", "dyAnnotation", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyAnnotation", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
 "dygraphs", "dyAnnotation", 1, 0, 0, "character", 1
 "dygraphs", "dyAnnotation", 2, 0, 0, "character", 1
 "dygraphs", "dyAnnotation", 3, 0, 0, "character", 1
@@ -20,12 +26,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dygraphs", "dyAnnotation", 11, 0, 0, "null", 1
 "dygraphs", "dyAnnotation", 12, 0, 0, "null", 1
 "dygraphs", "dyAnnotation", 13, 0, 0, "null", 1
-"dygraphs", "dyAxis", -1, 0, 0, "struct<`x`:struct<`attrs`:struct<`axes`:struct<`x`:struct<`pixelsPerLabel`:double>, `y`:struct<`valueRange`:double[]>>, `series`:struct<`mdeaths`:struct<`axis`:character>>, `labels`:character[], `legend`:character, `retainDateWindow`:logical>, `scale`:character, `annotations`:tuple<>, `shadings`:tuple<>, `events`:tuple<>, `format`:character, `data`:list<character[] | double[]>>, `width`:null, `height`:null, `sizingPolicy`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `viewer`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:double, `fill`:logical, `suppress`:logical, `paneHeight`:null>, `browser`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `fill`:logical, `external`:logical>, `knitr`:struct<`defaultWidth`:null, `defaultHeight`:null, `figure`:logical>>, `dependencies`:null, `elementId`:null, `preRenderHook`:null, `jsHooks`:tuple<>>", 1
-"dygraphs", "dyAxis", 0, 0, 0, "struct<`x`:struct<`attrs`:struct<`labels`:character[], `legend`:character, `retainDateWindow`:logical, `axes`:struct<`x`:struct<`pixelsPerLabel`:double>>, `series`:struct<`mdeaths`:struct<`axis`:character>>>, `scale`:character, `annotations`:tuple<>, `shadings`:tuple<>, `events`:tuple<>, `format`:character, `data`:list<character[] | double[]>>, `width`:null, `height`:null, `sizingPolicy`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `viewer`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:double, `fill`:logical, `suppress`:logical, `paneHeight`:null>, `browser`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `fill`:logical, `external`:logical>, `knitr`:struct<`defaultWidth`:null, `defaultHeight`:null, `figure`:logical>>, `dependencies`:null, `elementId`:null, `preRenderHook`:null, `jsHooks`:tuple<>>", 1
-"dygraphs", "dyAxis", 0, 0, 1, "struct<`x`:struct<`attrs`:struct<`title`:character, `labels`:character[], `legend`:character, `retainDateWindow`:logical, `axes`:struct<`x`:struct<`pixelsPerLabel`:double>>>, `scale`:character, `annotations`:tuple<>, `shadings`:tuple<>, `events`:tuple<>, `format`:character, `data`:tuple<character[], ^double[]>>, `width`:null, `height`:null, `sizingPolicy`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `viewer`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:double, `fill`:logical, `suppress`:logical, `paneHeight`:null>, `browser`:struct<`defaultWidth`:null, `defaultHeight`:null, `padding`:null, `fill`:logical, `external`:logical>, `knitr`:struct<`defaultWidth`:null, `defaultHeight`:null, `figure`:logical>>, `dependencies`:null, `elementId`:null, `preRenderHook`:null, `jsHooks`:tuple<>>", 1
+"dygraphs", "dyAxis", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyAxis", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
 "dygraphs", "dyAxis", 1, 0, 0, "character", 1
-"dygraphs", "dyAxis", 2, 0, 0, "null", 1
-"dygraphs", "dyAxis", 2, 0, 1, "character", 1
+"dygraphs", "dyAxis", 2, 0, 0, "character", 1
+"dygraphs", "dyAxis", 2, 0, 1, "null", 1
 "dygraphs", "dyAxis", 3, 0, 0, "double[]", 1
 "dygraphs", "dyAxis", 4, 0, 0, "null", 1
 "dygraphs", "dyAxis", 5, 0, 0, "null", 1
@@ -42,3 +47,208 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dygraphs", "dyAxis", 16, 0, 0, "null", 1
 "dygraphs", "dyAxis", 17, 0, 0, "null", 1
 "dygraphs", "dyAxis", 18, 0, 0, "null", 1
+"dygraphs", "dyAxis", 19, 0, 0, "null", 1
+"dygraphs", "dyBarChart", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyBarChart", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyBarSeries", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyBarSeries", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyBarSeries", 1, 0, 0, "character", 1
+"dygraphs", "dyBarSeries", 2, 0, 0, "...", 1
+"dygraphs", "dyCandlestick", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyCandlestick", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyCandlestick", 1, 0, 0, "logical", 1
+"dygraphs", "dyCandlestickGroup", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyCandlestickGroup", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyCandlestickGroup", 1, 0, 0, "character[]", 1
+"dygraphs", "dyCandlestickGroup", 2, 0, 0, "...", 1
+"dygraphs", "dyCrosshair", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyCrosshair", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyCrosshair", 1, 0, 0, "character", 1
+"dygraphs", "dyDependency", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyDependency", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyDependency", 1, 0, 0, "class<`html_dependency`>", 1
+"dygraphs", "dyEvent", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyEvent", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyEvent", 1, 0, 0, "character[]", 1
+"dygraphs", "dyEvent", 2, 0, 0, "character[]", 1
+"dygraphs", "dyEvent", 3, 0, 0, "character", 1
+"dygraphs", "dyEvent", 4, 0, 0, "character", 1
+"dygraphs", "dyEvent", 5, 0, 0, "character", 1
+"dygraphs", "dyEvent", 6, 0, 0, "any", 1
+"dygraphs", "dyFilledLine", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyFilledLine", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyFilledLine", 1, 0, 0, "character", 1
+"dygraphs", "dyFilledLine", 2, 0, 0, "...", 1
+"dygraphs", "dygraph", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dygraph", 0, 0, 0, "class<`data.frame`>", 1
+"dygraphs", "dygraph", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"dygraphs", "dygraph", 0, 0, 2, "class<`matrix`>", 1
+"dygraphs", "dygraph", 0, 0, 3, "class<`matrix`, `mts`, `ts`>", 1
+"dygraphs", "dygraph", 0, 0, 4, "class<`ts`>", 1
+"dygraphs", "dygraph", 1, 0, 0, "null", 1
+"dygraphs", "dygraph", 1, 0, 1, "character", 1
+"dygraphs", "dygraph", 2, 0, 0, "null", 1
+"dygraphs", "dygraph", 3, 0, 0, "null", 1
+"dygraphs", "dygraph", 4, 0, 0, "null", 1
+"dygraphs", "dygraph", 5, 0, 0, "null", 1
+"dygraphs", "dygraph", 6, 0, 0, "null", 1
+"dygraphs", "dygraph", 7, 0, 0, "null", 1
+"dygraphs", "dygraph", 8, 0, 0, "null", 1
+"dygraphs", "dygraphColors", -1, 0, 0, "character[]", 1
+"dygraphs", "dygraphColors", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dygraphColors", 1, 0, 0, "double", 1
+"dygraphs", "dyGroup", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyGroup", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyGroup", 1, 0, 0, "character[]", 1
+"dygraphs", "dyGroup", 2, 0, 0, "null", 1
+"dygraphs", "dyGroup", 3, 0, 0, "null", 1
+"dygraphs", "dyGroup", 4, 0, 0, "character", 1
+"dygraphs", "dyGroup", 5, 0, 0, "null", 1
+"dygraphs", "dyGroup", 6, 0, 0, "null", 1
+"dygraphs", "dyGroup", 7, 0, 0, "null", 1
+"dygraphs", "dyGroup", 8, 0, 0, "null", 1
+"dygraphs", "dyGroup", 9, 0, 0, "null", 1
+"dygraphs", "dyGroup", 10, 0, 0, "null", 1
+"dygraphs", "dyGroup", 11, 0, 0, "null", 1
+"dygraphs", "dyGroup", 12, 0, 0, "null", 1
+"dygraphs", "dyGroup", 13, 0, 0, "null", 1
+"dygraphs", "dyGroup", 14, 0, 0, "null", 1
+"dygraphs", "dyGroup", 15, 0, 0, "character", 1
+"dygraphs", "dyHighlight", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyHighlight", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyHighlight", 1, 0, 0, "double", 1
+"dygraphs", "dyHighlight", 2, 0, 0, "double", 1
+"dygraphs", "dyHighlight", 3, 0, 0, "list<any>", 1
+"dygraphs", "dyHighlight", 4, 0, 0, "logical", 1
+"dygraphs", "dyLegend", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyLegend", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyLegend", 1, 0, 0, "character", 1
+"dygraphs", "dyLegend", 2, 0, 0, "double", 1
+"dygraphs", "dyLegend", 3, 0, 0, "logical", 1
+"dygraphs", "dyLegend", 4, 0, 0, "null", 1
+"dygraphs", "dyLegend", 5, 0, 0, "logical", 1
+"dygraphs", "dyLegend", 6, 0, 0, "logical", 1
+"dygraphs", "dyLimit", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyLimit", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyLimit", 1, 0, 0, "double", 1
+"dygraphs", "dyLimit", 2, 0, 0, "character", 1
+"dygraphs", "dyLimit", 3, 0, 0, "character[]", 1
+"dygraphs", "dyLimit", 4, 0, 0, "character", 1
+"dygraphs", "dyLimit", 5, 0, 0, "character", 1
+"dygraphs", "dyMultiColumn", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyMultiColumn", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyOptions", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyOptions", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyOptions", 1, 0, 0, "logical", 1
+"dygraphs", "dyOptions", 2, 0, 0, "logical", 1
+"dygraphs", "dyOptions", 3, 0, 0, "double", 1
+"dygraphs", "dyOptions", 4, 0, 0, "logical", 1
+"dygraphs", "dyOptions", 5, 0, 0, "logical", 1
+"dygraphs", "dyOptions", 6, 0, 0, "logical", 1
+"dygraphs", "dyOptions", 7, 0, 0, "double", 1
+"dygraphs", "dyOptions", 8, 0, 0, "character[]", 1
+"dygraphs", "dyOptions", 9, 0, 0, "logical", 1
+"dygraphs", "dyOptions", 10, 0, 0, "logical", 1
+"dygraphs", "dyOptions", 11, 0, 0, "double", 1
+"dygraphs", "dyOptions", 12, 0, 0, "null", 1
+"dygraphs", "dyOptions", 13, 0, 0, "null", 1
+"dygraphs", "dyOptions", 14, 0, 0, "character", 1
+"dygraphs", "dyOptions", 15, 0, 0, "null", 1
+"dygraphs", "dyOptions", 16, 0, 0, "null", 1
+"dygraphs", "dyOptions", 17, 0, 0, "double", 1
+"dygraphs", "dyOptions", 18, 0, 0, "double", 1
+"dygraphs", "dyOptions", 19, 0, 0, "logical", 1
+"dygraphs", "dyPlotter", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyPlotter", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyPlotter", 1, 0, 0, "character", 1
+"dygraphs", "dyPlotter", 2, 0, 0, "character", 1
+"dygraphs", "dyPlotter", 3, 0, 0, "character", 1
+"dygraphs", "dyPlugin", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyPlugin", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyPlugin", 1, 0, 0, "character", 1
+"dygraphs", "dyPlugin", 2, 0, 0, "character", 1
+"dygraphs", "dyPlugin", 3, 0, 0, "list<any>", 1
+"dygraphs", "dyPlugin", 4, 0, 0, "character", 1
+"dygraphs", "dyRangeSelector", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyRangeSelector", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyRangeSelector", 1, 0, 0, "character[]", 1
+"dygraphs", "dyRangeSelector", 1, 0, 1, "null", 1
+"dygraphs", "dyRangeSelector", 2, 0, 0, "double", 1
+"dygraphs", "dyRangeSelector", 3, 0, 0, "character", 1
+"dygraphs", "dyRangeSelector", 4, 0, 0, "character", 1
+"dygraphs", "dyRangeSelector", 5, 0, 0, "logical", 1
+"dygraphs", "dyRangeSelector", 6, 0, 0, "logical", 1
+"dygraphs", "dyRoller", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyRoller", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyRoller", 1, 0, 0, "logical", 1
+"dygraphs", "dyRoller", 2, 0, 0, "double", 1
+"dygraphs", "dySeries", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dySeries", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dySeries", 1, 0, 0, "character", 1
+"dygraphs", "dySeries", 2, 0, 0, "character", 1
+"dygraphs", "dySeries", 2, 0, 1, "null", 1
+"dygraphs", "dySeries", 3, 0, 0, "null", 1
+"dygraphs", "dySeries", 3, 0, 1, "character", 1
+"dygraphs", "dySeries", 4, 0, 0, "character", 1
+"dygraphs", "dySeries", 5, 0, 0, "null", 1
+"dygraphs", "dySeries", 5, 0, 1, "logical", 1
+"dygraphs", "dySeries", 6, 0, 0, "null", 1
+"dygraphs", "dySeries", 7, 0, 0, "null", 1
+"dygraphs", "dySeries", 8, 0, 0, "null", 1
+"dygraphs", "dySeries", 8, 0, 1, "logical", 1
+"dygraphs", "dySeries", 9, 0, 0, "null", 1
+"dygraphs", "dySeries", 10, 0, 0, "null", 1
+"dygraphs", "dySeries", 11, 0, 0, "null", 1
+"dygraphs", "dySeries", 12, 0, 0, "null", 1
+"dygraphs", "dySeries", 12, 0, 1, "character", 1
+"dygraphs", "dySeries", 13, 0, 0, "null", 1
+"dygraphs", "dySeries", 14, 0, 0, "null", 1
+"dygraphs", "dySeries", 15, 0, 0, "null", 1
+"dygraphs", "dySeries", 15, 0, 1, "character", 1
+"dygraphs", "dyShading", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyShading", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyShading", 1, 0, 0, "character", 1
+"dygraphs", "dyShading", 2, 0, 0, "character", 1
+"dygraphs", "dyShading", 3, 0, 0, "character", 1
+"dygraphs", "dyShading", 4, 0, 0, "character", 1
+"dygraphs", "dyShadow", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyShadow", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyShadow", 1, 0, 0, "character", 1
+"dygraphs", "dyShadow", 2, 0, 0, "...", 1
+"dygraphs", "dyStackedBarGroup", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyStackedBarGroup", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyStackedBarGroup", 1, 0, 0, "character[]", 1
+"dygraphs", "dyStackedBarGroup", 2, 0, 0, "...", 1
+"dygraphs", "dyStackedRibbonGroup", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyStackedRibbonGroup", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyStackedRibbonGroup", 1, 0, 0, "character[]", 1
+"dygraphs", "dyStackedRibbonGroup", 2, 0, 0, "...", 1
+"dygraphs", "dyStemSeries", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyStemSeries", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyStemSeries", 1, 0, 0, "character", 1
+"dygraphs", "dyStemSeries", 2, 0, 0, "...", 1
+"dygraphs", "dyUnzoom", -1, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "dyUnzoom", 0, 0, 0, "class<`dygraphs`, `htmlwidget`>", 1
+"dygraphs", "FUN", -1, 0, 0, "character[]", 1
+"dygraphs", "FUN", 0, 0, 0, "class<`Date`>", 1
+"dygraphs", "FUN", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"dygraphs", "FUN", 0, 0, 2, "class<`yearmon`>", 1
+"dygraphs", "FUN", 0, 0, 3, "class<`yearqtr`>", 1
+"dygraphs", "FUN", 0, 0, 4, "character", 1
+"dygraphs", "hsvToRGB", -1, 0, 0, "character", 1
+"dygraphs", "hsvToRGB", 0, 0, 0, "double", 1
+"dygraphs", "hsvToRGB", 1, 0, 0, "double", 1
+"dygraphs", "hsvToRGB", 2, 0, 0, "double", 1
+"dygraphs", "mergeLists", -1, 0, 0, "list<any>", 1
+"dygraphs", "mergeLists", 0, 0, 0, "null", 1
+"dygraphs", "mergeLists", 0, 0, 1, "list<any>", 1
+"dygraphs", "mergeLists", 1, 0, 0, "list<any>", 1
+"dygraphs", "mergeLists", 2, 0, 0, "logical", 1
+"dygraphs", "resolveStemPlot", -1, 0, 0, "(character | null)", 1
+"dygraphs", "resolveStemPlot", 0, 0, 0, "null", 1
+"dygraphs", "resolveStemPlot", 0, 0, 1, "logical", 1
+"dygraphs", "resolveStemPlot", 1, 0, 0, "character", 1
+"dygraphs", "resolveStemPlot", 1, 0, 1, "null", 1
+"dygraphs", "resolveStrokePattern", -1, 0, 0, "(double[] | null)", 1
+"dygraphs", "resolveStrokePattern", 0, 0, 0, "character", 1
+"dygraphs", "resolveStrokePattern", 0, 0, 1, "null", 1
