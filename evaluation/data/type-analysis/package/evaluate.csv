@@ -1,10 +1,109 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
 "evaluate", "append_break", -1, 0, 0, "character[]", 1
 "evaluate", "append_break", 0, 0, 0, "character[]", 1
-"evaluate", "filter", -1, 0, 0, "logical[]", 1
-"evaluate", "filter", 0, 0, 0, "character[]", 1
-"evaluate", "FUN", -1, 0, 0, "struct<`src`:character, `expr`:tuple<expression>, `line`:integer>", 1
-"evaluate", "FUN", 0, 0, 0, "struct<`V1`:integer, `V2`:integer, `i`:integer>", 1
-"evaluate", "FUN", 0, 0, 1, "integer", 1
-"evaluate", "FUN", 0, 0, 2, "struct<`message`:character, `call`:language>", 1
-"evaluate", "FUN", 0, 0, 3, "struct<`src`:character>", 1
+"evaluate", "evaluate", -1, 0, 0, "list<any>", 1
+"evaluate", "evaluate", 0, 0, 0, "class<`connection`, `file`>", 1
+"evaluate", "evaluate", 0, 0, 1, "character", 1
+"evaluate", "evaluate", 1, 0, 0, "any", 1
+"evaluate", "evaluate", 2, 0, 0, "null", 1
+"evaluate", "evaluate", 3, 0, 0, "logical", 1
+"evaluate", "evaluate", 4, 0, 0, "double", 1
+"evaluate", "evaluate", 5, 0, 0, "logical", 1
+"evaluate", "evaluate", 6, 0, 0, "logical", 1
+"evaluate", "evaluate", 7, 0, 0, "logical", 1
+"evaluate", "evaluate", 8, 0, 0, "class<`output_handler`>", 1
+"evaluate", "evaluate", 9, 0, 0, "null", 1
+"evaluate", "evaluate", 10, 0, 0, "logical", 1
+"evaluate", "evaluate_call", -1, 0, 0, "list<any>", 1
+"evaluate", "evaluate_call", 0, 0, 0, "expression", 1
+"evaluate", "evaluate_call", 0, 0, 1, "null", 1
+"evaluate", "evaluate_call", 1, 0, 0, "character", 1
+"evaluate", "evaluate_call", 2, 0, 0, "any", 1
+"evaluate", "evaluate_call", 3, 0, 0, "any", 1
+"evaluate", "evaluate_call", 4, 0, 0, "logical", 1
+"evaluate", "evaluate_call", 5, 0, 0, "logical", 1
+"evaluate", "evaluate_call", 6, 0, 0, "any", 1
+"evaluate", "evaluate_call", 7, 0, 0, "any", 1
+"evaluate", "evaluate_call", 8, 0, 0, "any", 1
+"evaluate", "evaluate_call", 9, 0, 0, "class<`output_handler`>", 1
+"evaluate", "evaluate_call", 10, 0, 0, "any", 1
+"evaluate", "FUN", -1, 0, 0, "(class<`recordedplot`> | null | list<null | class<`recordedplot`> | null>)", 1
+"evaluate", "FUN", 0, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "FUN", 0, 0, 1, "character", 1
+"evaluate", "FUN", 0, 0, 2, "class<`condition`, `error`, `simpleError`>", 1
+"evaluate", "FUN", 0, 0, 3, "class<`condition`, `message`, `simpleMessage`>", 1
+"evaluate", "FUN", 0, 0, 4, "class<`condition`, `simpleWarning`, `warning`>", 1
+"evaluate", "FUN", 0, 0, 5, "class<`source`>", 1
+"evaluate", "FUN", 0, 0, 6, "null", 1
+"evaluate", "FUN", 0, 0, 7, "list<any>", 1
+"evaluate", "inject_funs", -1, 0, 0, "list<any>", 1
+"evaluate", "inject_funs", 0, 0, 0, "...", 1
+"evaluate", "is.empty", -1, 0, 0, "logical", 1
+"evaluate", "is.empty", 0, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "is_par_change", -1, 0, 0, "logical", 1
+"evaluate", "is_par_change", 0, 0, 0, "null", 1
+"evaluate", "is_par_change", 1, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "line_prompt", -1, 0, 0, "character", 1
+"evaluate", "line_prompt", 0, 0, 0, "character", 1
+"evaluate", "line_prompt", 1, 0, 0, "character", 1
+"evaluate", "line_prompt", 2, 0, 0, "any", 1
+"evaluate", "new_source", -1, 0, 0, "class<`source`>", 1
+"evaluate", "new_source", 0, 0, 0, "character", 1
+"evaluate", "parse_all", -1, 0, 0, "class<`data.frame`>", 1
+"evaluate", "parse_all", 0, 0, 0, "character[]", 1
+"evaluate", "parse_all", 0, 0, 1, "class<`connection`, `file`>", 1
+"evaluate", "parse_all", 1, 0, 0, "null", 1
+"evaluate", "parse_all", 1, 0, 1, "character", 1
+"evaluate", "parse_all", 2, 0, 0, "logical", 1
+"evaluate", "parse_all.character", -1, 0, 0, "class<`data.frame`>", 1
+"evaluate", "parse_all.character", 0, 0, 0, "character[]", 1
+"evaluate", "parse_all.character", 1, 0, 0, "null", 1
+"evaluate", "parse_all.character", 1, 0, 1, "character", 1
+"evaluate", "parse_all.character", 2, 0, 0, "logical", 1
+"evaluate", "parse_all.connection", -1, 0, 0, "class<`data.frame`>", 1
+"evaluate", "parse_all.connection", 0, 0, 0, "class<`connection`, `file`>", 1
+"evaluate", "parse_all.connection", 1, 0, 0, "null", 1
+"evaluate", "parse_all.connection", 2, 0, 0, "...", 1
+"evaluate", "plot_calls", -1, 0, 0, "(character[] | null)", 1
+"evaluate", "plot_calls", 0, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "plot_calls", 0, 0, 1, "null", 1
+"evaluate", "plot_snapshot", -1, 0, 0, "(class<`recordedplot`> | null)", 1
+"evaluate", "plot_snapshot", 0, 0, 0, "logical", 1
+"evaluate", "remove_hooks", -1, 0, 0, "null", 1
+"evaluate", "remove_hooks", 0, 0, 0, "list<class<`function`>>", 1
+"evaluate", "render", -1, 0, 0, "null", 1
+"evaluate", "render", 0, 0, 0, "null", 1
+"evaluate", "render", 0, 0, 1, "class<`FOO_BAR`>", 1
+"evaluate", "replay", -1, 0, 0, "(class<`recordedplot`> | null | list<null | class<`recordedplot`> | null>)", 1
+"evaluate", "replay", 0, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "replay", 0, 0, 1, "character", 1
+"evaluate", "replay", 0, 0, 2, "class<`condition`, `error`, `simpleError`>", 1
+"evaluate", "replay", 0, 0, 3, "class<`condition`, `message`, `simpleMessage`>", 1
+"evaluate", "replay", 0, 0, 4, "class<`condition`, `simpleWarning`, `warning`>", 1
+"evaluate", "replay", 0, 0, 5, "class<`source`>", 1
+"evaluate", "replay", 0, 0, 6, "null", 1
+"evaluate", "replay", 0, 0, 7, "list<any>", 1
+"evaluate", "replay.character", -1, 0, 0, "null", 1
+"evaluate", "replay.character", 0, 0, 0, "character", 1
+"evaluate", "replay.default", -1, 0, 0, "null", 1
+"evaluate", "replay.default", 0, 0, 0, "null", 1
+"evaluate", "replay.error", -1, 0, 0, "null", 1
+"evaluate", "replay.error", 0, 0, 0, "class<`condition`, `error`, `simpleError`>", 1
+"evaluate", "replay.list", -1, 0, 0, "list<null | class<`recordedplot`> | null>", 1
+"evaluate", "replay.list", 0, 0, 0, "list<any>", 1
+"evaluate", "replay.message", -1, 0, 0, "null", 1
+"evaluate", "replay.message", 0, 0, 0, "class<`condition`, `message`, `simpleMessage`>", 1
+"evaluate", "replay.recordedplot", -1, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "replay.recordedplot", 0, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "replay.source", -1, 0, 0, "null", 1
+"evaluate", "replay.source", 0, 0, 0, "class<`source`>", 1
+"evaluate", "replay.warning", -1, 0, 0, "null", 1
+"evaluate", "replay.warning", 0, 0, 0, "class<`condition`, `simpleWarning`, `warning`>", 1
+"evaluate", "set_hooks", -1, 0, 0, "list<list<any>>", 1
+"evaluate", "set_hooks", 0, 0, 0, "list<class<`function`> | list<any>>", 1
+"evaluate", "set_hooks", 1, 0, 0, "character", 1
+"evaluate", "value_handler", -1, 0, 0, "null", 1
+"evaluate", "value_handler", 0, 0, 0, "null", 1
+"evaluate", "value_handler", 0, 0, 1, "class<`FOO_BAR`>", 1
+"evaluate", "watchout", -1, 0, 0, "list<class<`function`>>", 1
+"evaluate", "watchout", 0, 0, 0, "logical", 1

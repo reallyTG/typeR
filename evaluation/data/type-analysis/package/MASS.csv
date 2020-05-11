@@ -1,35 +1,730 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"MASS", "dens", -1, 0, 0, "double[]", 1
-"MASS", "dens", 0, 0, 0, "double[]", 1
-"MASS", "dens", 1, 0, 0, "double[]", 1
-"MASS", "dens", 2, 0, 0, "null", 1
-"MASS", "dens", 2, 0, 1, "double", 1
-"MASS", "filter", -1, 0, 0, "logical[]", 1
-"MASS", "filter", 0, 0, 0, "character[]", 1
-"MASS", "fitdistr", -1, 0, 0, "struct<`estimate`:double[], `sd`:double[], `vcov`:^double[], `loglik`:double, `n`:integer>", 1
+"MASS", "addterm", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "addterm", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "addterm", 0, 0, 1, "class<`glm`, `lm`>", 1
+"MASS", "addterm", 0, 0, 2, "class<`lme`>", 1
+"MASS", "addterm", 0, 0, 3, "class<`polr`>", 1
+"MASS", "addterm", 1, 0, 0, "...", 1
+"MASS", "addterm.default", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "addterm.default", 0, 0, 0, "class<`lme`>", 1
+"MASS", "addterm.default", 0, 0, 1, "class<`polr`>", 1
+"MASS", "addterm.default", 1, 0, 0, "character[]", 1
+"MASS", "addterm.default", 1, 0, 1, "class<`formula`>", 1
+"MASS", "addterm.default", 2, 0, 0, "double", 1
+"MASS", "addterm.default", 3, 0, 0, "character[]", 1
+"MASS", "addterm.default", 4, 0, 0, "double", 1
+"MASS", "addterm.default", 5, 0, 0, "logical", 1
+"MASS", "addterm.default", 6, 0, 0, "double", 1
+"MASS", "addterm.default", 7, 0, 0, "...", 1
+"MASS", "addterm.glm", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "addterm.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "addterm.glm", 1, 0, 0, "character[]", 1
+"MASS", "addterm.glm", 1, 0, 1, "class<`formula`>", 1
+"MASS", "addterm.glm", 2, 0, 0, "double", 1
+"MASS", "addterm.glm", 3, 0, 0, "character[]", 1
+"MASS", "addterm.glm", 4, 0, 0, "double", 1
+"MASS", "addterm.glm", 5, 0, 0, "logical", 1
+"MASS", "addterm.glm", 6, 0, 0, "double", 1
+"MASS", "addterm.glm", 7, 0, 0, "...", 1
+"MASS", "addterm.lm", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "addterm.lm", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "addterm.lm", 1, 0, 0, "character[]", 1
+"MASS", "addterm.lm", 1, 0, 1, "class<`aov`, `lm`>", 1
+"MASS", "addterm.lm", 2, 0, 0, "double", 1
+"MASS", "addterm.lm", 3, 0, 0, "character[]", 1
+"MASS", "addterm.lm", 4, 0, 0, "double", 1
+"MASS", "addterm.lm", 5, 0, 0, "logical", 1
+"MASS", "addterm.lm", 6, 0, 0, "...", 1
+"MASS", "anova.loglm", -1, 0, 0, "class<`anova.loglm`>", 1
+"MASS", "anova.loglm", 0, 0, 0, "class<`loglm`>", 1
+"MASS", "anova.loglm", 1, 0, 0, "...", 1
+"MASS", "anova.loglm", 2, 0, 0, "character[]", 1
+"MASS", "anova.negbin", -1, 0, 0, "(class<`anova`, `data.frame`> | class<`Anova`, `data.frame`>)", 1
+"MASS", "anova.negbin", 0, 0, 0, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "anova.negbin", 1, 0, 0, "...", 1
+"MASS", "anova.negbin", 2, 0, 0, "character", 1
+"MASS", "anova.polr", -1, 0, 0, "class<`Anova`, `data.frame`>", 1
+"MASS", "anova.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "anova.polr", 1, 0, 0, "...", 1
+"MASS", "anova.polr", 2, 0, 0, "character[]", 1
+"MASS", "area", -1, 0, 0, "double", 1
+"MASS", "area", 0, 0, 0, "class<`function`>", 1
+"MASS", "area", 1, 0, 0, "double", 1
+"MASS", "area", 2, 0, 0, "double", 1
+"MASS", "area", 3, 0, 0, "...", 1
+"MASS", "area", 4, 0, 0, "double", 1
+"MASS", "area", 5, 0, 0, "double", 1
+"MASS", "area", 6, 0, 0, "any", 1
+"MASS", "area", 7, 0, 0, "double", 1
+"MASS", "bandwidth.nrd", -1, 0, 0, "double", 1
+"MASS", "bandwidth.nrd", 0, 0, 0, "double[]", 1
+"MASS", "bcv", -1, 0, 0, "double", 1
+"MASS", "bcv", 0, 0, 0, "double[]", 1
+"MASS", "bcv", 1, 0, 0, "double", 1
+"MASS", "bcv", 2, 0, 0, "double", 1
+"MASS", "bcv", 3, 0, 0, "double", 1
+"MASS", "biplot.bdr", -1, 0, 0, "null", 1
+"MASS", "biplot.bdr", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "biplot.bdr", 1, 0, 0, "class<`matrix`>", 1
+"MASS", "biplot.bdr", 2, 0, 0, "any", 1
+"MASS", "biplot.bdr", 3, 0, 0, "double[]", 1
+"MASS", "biplot.bdr", 4, 0, 0, "null", 1
+"MASS", "biplot.bdr", 5, 0, 0, "null", 1
+"MASS", "biplot.bdr", 6, 0, 0, "null", 1
+"MASS", "biplot.bdr", 7, 0, 0, "null", 1
+"MASS", "biplot.bdr", 8, 0, 0, "...", 1
+"MASS", "biplot.correspondence", -1, 0, 0, "null", 1
+"MASS", "biplot.correspondence", 0, 0, 0, "class<`correspondence`>", 1
+"MASS", "biplot.correspondence", 1, 0, 0, "character[]", 1
+"MASS", "biplot.correspondence", 2, 0, 0, "...", 1
+"MASS", "boxcox", -1, 0, 0, "list<double[]>", 1
+"MASS", "boxcox", 0, 0, 0, "class<`formula`>", 1
+"MASS", "boxcox", 1, 0, 0, "...", 1
+"MASS", "boxcox.default", -1, 0, 0, "list<double[]>", 1
+"MASS", "boxcox.default", 0, 0, 0, "class<`lm`>", 1
+"MASS", "boxcox.default", 1, 0, 0, "double[]", 1
+"MASS", "boxcox.default", 2, 0, 0, "logical", 1
+"MASS", "boxcox.default", 3, 0, 0, "logical", 1
+"MASS", "boxcox.default", 4, 0, 0, "double", 1
+"MASS", "boxcox.default", 5, 0, 0, "expression", 1
+"MASS", "boxcox.default", 6, 0, 0, "character", 1
+"MASS", "boxcox.default", 7, 0, 0, "...", 1
+"MASS", "boxcox.formula", -1, 0, 0, "list<double[]>", 1
+"MASS", "boxcox.formula", 0, 0, 0, "class<`formula`>", 1
+"MASS", "boxcox.formula", 1, 0, 0, "double[]", 1
+"MASS", "boxcox.formula", 2, 0, 0, "logical", 1
+"MASS", "boxcox.formula", 3, 0, 0, "any", 1
+"MASS", "boxcox.formula", 4, 0, 0, "any", 1
+"MASS", "boxcox.formula", 5, 0, 0, "any", 1
+"MASS", "boxcox.formula", 6, 0, 0, "character", 1
+"MASS", "boxcox.formula", 7, 0, 0, "...", 1
+"MASS", "confint.glm", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"MASS", "confint.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "confint.glm", 1, 0, 0, "any", 1
+"MASS", "confint.glm", 2, 0, 0, "double", 1
+"MASS", "confint.glm", 3, 0, 0, "logical", 1
+"MASS", "confint.glm", 4, 0, 0, "...", 1
+"MASS", "confint.nls", -1, 0, 0, "double[]", 1
+"MASS", "confint.nls", 0, 0, 0, "class<`nls`>", 1
+"MASS", "confint.nls", 1, 0, 0, "character", 1
+"MASS", "confint.nls", 2, 0, 0, "double", 1
+"MASS", "confint.nls", 3, 0, 0, "...", 1
+"MASS", "confint.profile.glm", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"MASS", "confint.profile.glm", 0, 0, 0, "class<`profile`, `profile.glm`>", 1
+"MASS", "confint.profile.glm", 1, 0, 0, "integer[]", 1
+"MASS", "confint.profile.glm", 2, 0, 0, "double", 1
+"MASS", "confint.profile.glm", 3, 0, 0, "...", 1
+"MASS", "confint.profile.nls", -1, 0, 0, "double[]", 1
+"MASS", "confint.profile.nls", 0, 0, 0, "class<`profile`, `profile.nls`>", 1
+"MASS", "confint.profile.nls", 1, 0, 0, "character", 1
+"MASS", "confint.profile.nls", 2, 0, 0, "double", 1
+"MASS", "confint.profile.nls", 3, 0, 0, "...", 1
+"MASS", "confint.profile.polr", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "confint.profile.polr", 0, 0, 0, "class<`profile`, `profile.polr`>", 1
+"MASS", "confint.profile.polr", 1, 0, 0, "integer[]", 1
+"MASS", "confint.profile.polr", 2, 0, 0, "double", 1
+"MASS", "confint.profile.polr", 3, 0, 0, "...", 1
+"MASS", "contr.sdif", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "contr.sdif", 0, 0, 0, "double", 1
+"MASS", "contr.sdif", 1, 0, 0, "logical", 1
+"MASS", "contr.sdif", 2, 0, 0, "logical", 1
+"MASS", "corresp", -1, 0, 0, "class<`correspondence`>", 1
+"MASS", "corresp", 0, 0, 0, "class<`data.frame`>", 1
+"MASS", "corresp", 0, 0, 1, "class<`formula`>", 1
+"MASS", "corresp", 1, 0, 0, "...", 1
+"MASS", "corresp.data.frame", -1, 0, 0, "class<`correspondence`>", 1
+"MASS", "corresp.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"MASS", "corresp.data.frame", 1, 0, 0, "...", 1
+"MASS", "corresp.formula", -1, 0, 0, "class<`correspondence`>", 1
+"MASS", "corresp.formula", 0, 0, 0, "class<`formula`>", 1
+"MASS", "corresp.formula", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "corresp.formula", 2, 0, 0, "...", 1
+"MASS", "corresp.matrix", -1, 0, 0, "class<`correspondence`>", 1
+"MASS", "corresp.matrix", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "corresp.matrix", 0, 0, 1, "class<`table`>", 1
+"MASS", "corresp.matrix", 1, 0, 0, "double", 1
+"MASS", "corresp.matrix", 2, 0, 0, "...", 1
+"MASS", "cov.rob", -1, 0, 0, "list<double[] | class<`matrix`> | character>", 1
+"MASS", "cov.rob", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "cov.rob", 0, 0, 1, "class<`data.frame`>", 1
+"MASS", "cov.rob", 1, 0, 0, "logical", 1
+"MASS", "cov.rob", 2, 0, 0, "double", 1
+"MASS", "cov.rob", 3, 0, 0, "character[]", 1
+"MASS", "cov.rob", 4, 0, 0, "character", 1
+"MASS", "cov.rob", 5, 0, 0, "any", 1
+"MASS", "cov.trob", -1, 0, 0, "list<class<`matrix`> | double[] | class<`call`>>", 1
+"MASS", "cov.trob", 0, 0, 0, "class<`data.frame`>", 1
+"MASS", "cov.trob", 1, 0, 0, "double[]", 1
+"MASS", "cov.trob", 2, 0, 0, "logical", 1
+"MASS", "cov.trob", 3, 0, 0, "logical", 1
+"MASS", "cov.trob", 4, 0, 0, "double", 1
+"MASS", "cov.trob", 5, 0, 0, "double", 1
+"MASS", "cov.trob", 6, 0, 0, "double", 1
+"MASS", "denumerate", -1, 0, 0, "(class<`formula`> | class<`formula`, `terms`>)", 1
+"MASS", "denumerate", 0, 0, 0, "class<`formula`>", 1
+"MASS", "denumerate", 0, 0, 1, "class<`formula`, `terms`>", 1
+"MASS", "denumerate.formula", -1, 0, 0, "(class<`(`> | class<`call`> | class<`name`> | class<`formula`> | class<`formula`, `terms`>)", 1
+"MASS", "denumerate.formula", 0, 0, 0, "class<`(`>", 1
+"MASS", "denumerate.formula", 0, 0, 1, "class<`call`>", 1
+"MASS", "denumerate.formula", 0, 0, 2, "class<`name`>", 1
+"MASS", "denumerate.formula", 0, 0, 3, "double", 1
+"MASS", "denumerate.formula", 0, 0, 4, "class<`formula`>", 1
+"MASS", "denumerate.formula", 0, 0, 5, "class<`formula`, `terms`>", 1
+"MASS", "dose.p", -1, 0, 0, "class<`glm.dose`>", 1
+"MASS", "dose.p", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "dose.p", 1, 0, 0, "double[]", 1
+"MASS", "dose.p", 2, 0, 0, "double[]", 1
+"MASS", "dropterm", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "dropterm", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "dropterm", 0, 0, 1, "class<`glm`, `lm`>", 1
+"MASS", "dropterm", 0, 0, 2, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "dropterm", 0, 0, 3, "class<`gls`>", 1
+"MASS", "dropterm", 0, 0, 4, "class<`lm`>", 1
+"MASS", "dropterm", 0, 0, 5, "class<`lme`>", 1
+"MASS", "dropterm", 0, 0, 6, "class<`polr`>", 1
+"MASS", "dropterm", 1, 0, 0, "...", 1
+"MASS", "dropterm.default", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "dropterm.default", 0, 0, 0, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "dropterm.default", 0, 0, 1, "class<`gls`>", 1
+"MASS", "dropterm.default", 0, 0, 2, "class<`lme`>", 1
+"MASS", "dropterm.default", 0, 0, 3, "class<`polr`>", 1
+"MASS", "dropterm.default", 1, 0, 0, "character[]", 1
+"MASS", "dropterm.default", 2, 0, 0, "double", 1
+"MASS", "dropterm.default", 3, 0, 0, "character[]", 1
+"MASS", "dropterm.default", 4, 0, 0, "double", 1
+"MASS", "dropterm.default", 5, 0, 0, "logical", 1
+"MASS", "dropterm.default", 6, 0, 0, "double", 1
+"MASS", "dropterm.default", 7, 0, 0, "...", 1
+"MASS", "dropterm.glm", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "dropterm.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "dropterm.glm", 1, 0, 0, "any", 1
+"MASS", "dropterm.glm", 2, 0, 0, "double", 1
+"MASS", "dropterm.glm", 3, 0, 0, "character[]", 1
+"MASS", "dropterm.glm", 4, 0, 0, "double", 1
+"MASS", "dropterm.glm", 5, 0, 0, "logical", 1
+"MASS", "dropterm.glm", 6, 0, 0, "double", 1
+"MASS", "dropterm.glm", 7, 0, 0, "...", 1
+"MASS", "dropterm.lm", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "dropterm.lm", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "dropterm.lm", 0, 0, 1, "class<`lm`>", 1
+"MASS", "dropterm.lm", 1, 0, 0, "character[]", 1
+"MASS", "dropterm.lm", 2, 0, 0, "double", 1
+"MASS", "dropterm.lm", 3, 0, 0, "character[]", 1
+"MASS", "dropterm.lm", 4, 0, 0, "double", 1
+"MASS", "dropterm.lm", 5, 0, 0, "logical", 1
+"MASS", "dropterm.lm", 6, 0, 0, "...", 1
+"MASS", "dropterm.negbin", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "dropterm.negbin", 0, 0, 0, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "dropterm.negbin", 1, 0, 0, "...", 1
+"MASS", "eqscplot", -1, 0, 0, "null", 1
+"MASS", "eqscplot", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "eqscplot", 1, 0, 0, "any", 1
+"MASS", "eqscplot", 2, 0, 0, "double", 1
+"MASS", "eqscplot", 3, 0, 0, "double", 1
+"MASS", "eqscplot", 4, 0, 0, "any", 1
+"MASS", "eqscplot", 5, 0, 0, "...", 1
+"MASS", "extractAIC.polr", -1, 0, 0, "double[]", 1
+"MASS", "extractAIC.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "extractAIC.polr", 1, 0, 0, "any", 1
+"MASS", "extractAIC.polr", 2, 0, 0, "double", 1
+"MASS", "extractAIC.polr", 3, 0, 0, "...", 1
+"MASS", "fitdistr", -1, 0, 0, "class<`fitdistr`>", 1
 "MASS", "fitdistr", 0, 0, 0, "double[]", 1
-"MASS", "fitdistr", 1, 0, 0, "any => any", 1
-"MASS", "fitdistr", 1, 0, 1, "character", 1
-"MASS", "fitdistr", 2, 0, 0, "struct<`shape`:double, `rate`:double>", 1
-"MASS", "fitdistr", 2, 0, 1, "struct<`loc`:double, `scale`:double>", 1
-"MASS", "fitdistr", 2, 0, 2, "null", 1
-"MASS", "fitdistr", 2, 0, 3, "struct<`m`:double, `s`:double>", 1
-"MASS", "fitdistr", 3, 0, 0, "null", 1
-"MASS", "fitdistr", 3, 0, 1, "double", 1
-"MASS", "fn", -1, 0, 0, "double", 1
-"MASS", "fn", 0, 0, 0, "double[]", 1
-"MASS", "fn", 1, 0, 0, "double[]", 1
-"MASS", "::", -1, 0, 0, "null", 1
-"MASS", "::", 0, 0, 0, "^double[]", 1
-"MASS", "::", 0, 0, 1, "struct<>", 1
-"MASS", "::", 1, 0, 0, "double[]", 1
-"MASS", "::", 2, 0, 0, "^double[]", 1
-"MASS", "::", 2, 0, 1, "null", 1
-"MASS", "::", 3, 0, 0, "double", 1
-"MASS", "::", 3, 0, 1, "null", 1
-"MASS", "::", 3, 0, 2, "character[]", 1
-"MASS", "::", 4, 0, 0, "null", 1
-"MASS", "::", 4, 0, 1, "character", 1
-"MASS", "::", 4, 0, 2, "double[]", 1
-"MASS", "::", 5, 0, 0, "logical", 1
-"MASS", "::", 5, 0, 1, "null", 1
+"MASS", "fitdistr", 1, 0, 0, "character", 1
+"MASS", "fitdistr", 1, 0, 1, "class<`function`>", 1
+"MASS", "fitdistr", 2, 0, 0, "any", 1
+"MASS", "fitdistr", 3, 0, 0, "...", 1
+"MASS", "fractions", -1, 0, 0, "class<`fractions`, `matrix`>", 1
+"MASS", "fractions", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "fractions", 1, 0, 0, "double", 1
+"MASS", "fractions", 2, 0, 0, "double", 1
+"MASS", "fractions", 3, 0, 0, "...", 1
+"MASS", "gamma.dispersion", -1, 0, 0, "double", 1
+"MASS", "gamma.dispersion", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "gamma.dispersion", 1, 0, 0, "...", 1
+"MASS", "gamma.shape", -1, 0, 0, "class<`gamma.shape`>", 1
+"MASS", "gamma.shape", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "gamma.shape", 1, 0, 0, "...", 1
+"MASS", "gamma.shape.glm", -1, 0, 0, "class<`gamma.shape`>", 1
+"MASS", "gamma.shape.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "gamma.shape.glm", 1, 0, 0, "double", 1
+"MASS", "gamma.shape.glm", 2, 0, 0, "double", 1
+"MASS", "gamma.shape.glm", 3, 0, 0, "logical", 1
+"MASS", "gamma.shape.glm", 4, 0, 0, "...", 1
+"MASS", "ginv", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "ginv", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "ginv", 1, 0, 0, "double", 1
+"MASS", "glm.convert", -1, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "glm.convert", 0, 0, 0, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "glmmPQL", -1, 0, 0, "class<`glmmPQL`, `lme`>", 1
+"MASS", "glmmPQL", 0, 0, 0, "class<`formula`>", 1
+"MASS", "glmmPQL", 1, 0, 0, "class<`formula`>", 1
+"MASS", "glmmPQL", 2, 0, 0, "class<`function`>", 1
+"MASS", "glmmPQL", 3, 0, 0, "class<`data.frame`>", 1
+"MASS", "glmmPQL", 4, 0, 0, "any", 1
+"MASS", "glmmPQL", 5, 0, 0, "any", 1
+"MASS", "glmmPQL", 6, 0, 0, "any", 1
+"MASS", "glmmPQL", 7, 0, 0, "double", 1
+"MASS", "glmmPQL", 8, 0, 0, "logical", 1
+"MASS", "glmmPQL", 9, 0, 0, "...", 1
+"MASS", "glm.nb", -1, 0, 0, "any", 1
+"MASS", "glm.nb", 0, 0, 0, "any", 1
+"MASS", "glm.nb", 1, 0, 0, "any", 1
+"MASS", "glm.nb", 2, 0, 0, "any", 1
+"MASS", "glm.nb", 3, 0, 0, "any", 1
+"MASS", "glm.nb", 4, 0, 0, "any", 1
+"MASS", "glm.nb", 5, 0, 0, "null", 1
+"MASS", "glm.nb", 5, 0, 1, "double[]", 1
+"MASS", "glm.nb", 6, 0, 0, "any", 1
+"MASS", "glm.nb", 7, 0, 0, "any", 1
+"MASS", "glm.nb", 8, 0, 0, "list<double>", 1
+"MASS", "glm.nb", 9, 0, 0, "character", 1
+"MASS", "glm.nb", 10, 0, 0, "logical", 1
+"MASS", "glm.nb", 11, 0, 0, "logical", 1
+"MASS", "glm.nb", 12, 0, 0, "logical", 1
+"MASS", "glm.nb", 13, 0, 0, "null", 1
+"MASS", "glm.nb", 14, 0, 0, "...", 1
+"MASS", "glm.nb", 15, 0, 0, "any", 1
+"MASS", "glm.nb", 16, 0, 0, "any", 1
+"MASS", "huber", -1, 0, 0, "list<double>", 1
+"MASS", "huber", 0, 0, 0, "double[]", 1
+"MASS", "huber", 1, 0, 0, "double", 1
+"MASS", "huber", 2, 0, 0, "double", 1
+"MASS", "hubers", -1, 0, 0, "list<double>", 1
+"MASS", "hubers", 0, 0, 0, "double[]", 1
+"MASS", "hubers", 1, 0, 0, "double", 1
+"MASS", "hubers", 2, 0, 0, "any", 1
+"MASS", "hubers", 3, 0, 0, "any", 1
+"MASS", "hubers", 4, 0, 0, "any", 1
+"MASS", "hubers", 5, 0, 0, "double", 1
+"MASS", "isoMDS", -1, 0, 0, "list<class<`matrix`> | double>", 1
+"MASS", "isoMDS", 0, 0, 0, "class<`dist`>", 1
+"MASS", "isoMDS", 1, 0, 0, "class<`matrix`>", 1
+"MASS", "isoMDS", 2, 0, 0, "double", 1
+"MASS", "isoMDS", 3, 0, 0, "double", 1
+"MASS", "isoMDS", 4, 0, 0, "logical", 1
+"MASS", "isoMDS", 5, 0, 0, "double", 1
+"MASS", "isoMDS", 6, 0, 0, "double", 1
+"MASS", "kde2d", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"MASS", "kde2d", 0, 0, 0, "double[]", 1
+"MASS", "kde2d", 1, 0, 0, "double[]", 1
+"MASS", "kde2d", 2, 0, 0, "any", 1
+"MASS", "kde2d", 3, 0, 0, "double", 1
+"MASS", "kde2d", 4, 0, 0, "double[]", 1
+"MASS", "lda", -1, 0, 0, "class<`lda`>", 1
+"MASS", "lda", 0, 0, 0, "any", 1
+"MASS", "lda", 1, 0, 0, "...", 1
+"MASS", "lda.default", -1, 0, 0, "class<`lda`>", 1
+"MASS", "lda.default", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "lda.default", 1, 0, 0, "class<`factor`>", 1
+"MASS", "lda.default", 2, 0, 0, "double[]", 1
+"MASS", "lda.default", 3, 0, 0, "double", 1
+"MASS", "lda.default", 4, 0, 0, "character[]", 1
+"MASS", "lda.default", 5, 0, 0, "logical", 1
+"MASS", "lda.default", 6, 0, 0, "double", 1
+"MASS", "lda.default", 7, 0, 0, "...", 1
+"MASS", "lda.formula", -1, 0, 0, "class<`lda`>", 1
+"MASS", "lda.formula", 0, 0, 0, "class<`formula`>", 1
+"MASS", "lda.formula", 1, 0, 0, "any", 1
+"MASS", "lda.formula", 2, 0, 0, "...", 1
+"MASS", "lda.formula", 3, 0, 0, "any", 1
+"MASS", "lda.formula", 4, 0, 0, "any", 1
+"MASS", "lda.matrix", -1, 0, 0, "class<`lda`>", 1
+"MASS", "lda.matrix", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "lda.matrix", 1, 0, 0, "class<`factor`>", 1
+"MASS", "lda.matrix", 2, 0, 0, "...", 1
+"MASS", "lda.matrix", 3, 0, 0, "any", 1
+"MASS", "lda.matrix", 4, 0, 0, "any", 1
+"MASS", "lm.ridge", -1, 0, 0, "class<`ridgelm`>", 1
+"MASS", "lm.ridge", 0, 0, 0, "any", 1
+"MASS", "lm.ridge", 1, 0, 0, "any", 1
+"MASS", "lm.ridge", 2, 0, 0, "any", 1
+"MASS", "lm.ridge", 3, 0, 0, "any", 1
+"MASS", "lm.ridge", 4, 0, 0, "double[]", 1
+"MASS", "lm.ridge", 5, 0, 0, "logical", 1
+"MASS", "lm.ridge", 6, 0, 0, "logical", 1
+"MASS", "lm.ridge", 7, 0, 0, "logical", 1
+"MASS", "lm.ridge", 8, 0, 0, "null", 1
+"MASS", "lm.ridge", 9, 0, 0, "...", 1
+"MASS", "lmwork", -1, 0, 0, "list<double[]>", 1
+"MASS", "lmwork", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "logLik.glmmPQL", -1, 0, 0, "class<`logLik`>", 1
+"MASS", "logLik.glmmPQL", 0, 0, 0, "class<`glmmPQL`, `lme`>", 1
+"MASS", "logLik.glmmPQL", 1, 0, 0, "...", 1
+"MASS", "loglm", -1, 0, 0, "class<`loglm`>", 1
+"MASS", "loglm", 0, 0, 0, "any", 1
+"MASS", "loglm", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "loglm", 1, 0, 1, "class<`table`, `xtabs`>", 1
+"MASS", "loglm", 2, 0, 0, "any", 1
+"MASS", "loglm", 3, 0, 0, "any", 1
+"MASS", "loglm", 4, 0, 0, "...", 1
+"MASS", "loglm1", -1, 0, 0, "class<`loglm`>", 1
+"MASS", "loglm1", 0, 0, 0, "any", 1
+"MASS", "loglm1", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "loglm1", 1, 0, 1, "class<`table`, `xtabs`>", 1
+"MASS", "loglm1", 2, 0, 0, "...", 1
+"MASS", "loglm1.data.frame", -1, 0, 0, "class<`loglm`>", 1
+"MASS", "loglm1.data.frame", 0, 0, 0, "any", 1
+"MASS", "loglm1.data.frame", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "loglm1.data.frame", 2, 0, 0, "...", 1
+"MASS", "loglm1.default", -1, 0, 0, "class<`loglm`>", 1
+"MASS", "loglm1.default", 0, 0, 0, "any", 1
+"MASS", "loglm1.default", 1, 0, 0, "class<`array`>", 1
+"MASS", "loglm1.default", 1, 0, 1, "class<`matrix`>", 1
+"MASS", "loglm1.default", 2, 0, 0, "class<`array`>", 1
+"MASS", "loglm1.default", 2, 0, 1, "double[]", 1
+"MASS", "loglm1.default", 3, 0, 0, "logical", 1
+"MASS", "loglm1.default", 4, 0, 0, "logical", 1
+"MASS", "loglm1.default", 5, 0, 0, "logical", 1
+"MASS", "loglm1.default", 6, 0, 0, "double", 1
+"MASS", "loglm1.default", 7, 0, 0, "double", 1
+"MASS", "loglm1.default", 8, 0, 0, "logical", 1
+"MASS", "loglm1.default", 9, 0, 0, "...", 1
+"MASS", "loglm1.xtabs", -1, 0, 0, "class<`loglm`>", 1
+"MASS", "loglm1.xtabs", 0, 0, 0, "any", 1
+"MASS", "loglm1.xtabs", 1, 0, 0, "class<`table`, `xtabs`>", 1
+"MASS", "loglm1.xtabs", 2, 0, 0, "...", 1
+"MASS", "logtrans", -1, 0, 0, "list<double[]>", 1
+"MASS", "logtrans", 0, 0, 0, "class<`formula`>", 1
+"MASS", "logtrans", 1, 0, 0, "...", 1
+"MASS", "logtrans.default", -1, 0, 0, "list<double[]>", 1
+"MASS", "logtrans.default", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "logtrans.default", 1, 0, 0, "...", 1
+"MASS", "logtrans.default", 2, 0, 0, "double[]", 1
+"MASS", "logtrans.default", 3, 0, 0, "logical", 1
+"MASS", "logtrans.default", 4, 0, 0, "logical", 1
+"MASS", "logtrans.default", 5, 0, 0, "character", 1
+"MASS", "logtrans.default", 6, 0, 0, "character", 1
+"MASS", "logtrans.formula", -1, 0, 0, "list<double[]>", 1
+"MASS", "logtrans.formula", 0, 0, 0, "class<`formula`>", 1
+"MASS", "logtrans.formula", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "logtrans.formula", 2, 0, 0, "...", 1
+"MASS", "lqs", -1, 0, 0, "class<`lqs`>", 1
+"MASS", "lqs", 0, 0, 0, "class<`formula`>", 1
+"MASS", "lqs", 0, 0, 1, "class<`matrix`>", 1
+"MASS", "lqs", 1, 0, 0, "...", 1
+"MASS", "lqs.default", -1, 0, 0, "class<`lqs`>", 1
+"MASS", "lqs.default", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "lqs.default", 1, 0, 0, "double[]", 1
+"MASS", "lqs.default", 2, 0, 0, "logical", 1
+"MASS", "lqs.default", 3, 0, 0, "character[]", 1
+"MASS", "lqs.default", 4, 0, 0, "any", 1
+"MASS", "lqs.default", 5, 0, 0, "list<null | character | logical | null | integer>", 1
+"MASS", "lqs.default", 6, 0, 0, "double", 1
+"MASS", "lqs.default", 7, 0, 0, "any", 1
+"MASS", "lqs.default", 8, 0, 0, "...", 1
+"MASS", "lqs.formula", -1, 0, 0, "class<`lqs`>", 1
+"MASS", "lqs.formula", 0, 0, 0, "class<`formula`>", 1
+"MASS", "lqs.formula", 1, 0, 0, "any", 1
+"MASS", "lqs.formula", 2, 0, 0, "...", 1
+"MASS", "lqs.formula", 3, 0, 0, "character[]", 1
+"MASS", "lqs.formula", 4, 0, 0, "any", 1
+"MASS", "lqs.formula", 5, 0, 0, "any", 1
+"MASS", "lqs.formula", 6, 0, 0, "logical", 1
+"MASS", "lqs.formula", 7, 0, 0, "logical", 1
+"MASS", "lqs.formula", 8, 0, 0, "logical", 1
+"MASS", "lqs.formula", 9, 0, 0, "null", 1
+"MASS", "lqs.formula", 9, 0, 1, "list<character>", 1
+"MASS", "mca", -1, 0, 0, "class<`mca`>", 1
+"MASS", "mca", 0, 0, 0, "class<`data.frame`>", 1
+"MASS", "mca", 1, 0, 0, "double", 1
+"MASS", "mca", 2, 0, 0, "logical", 1
+"MASS", "model.frame.polr", -1, 0, 0, "class<`data.frame`>", 1
+"MASS", "model.frame.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "model.frame.polr", 1, 0, 0, "...", 1
+"MASS", "mvrnorm", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "mvrnorm", 0, 0, 0, "double", 1
+"MASS", "mvrnorm", 1, 0, 0, "double[]", 1
+"MASS", "mvrnorm", 2, 0, 0, "class<`matrix`>", 1
+"MASS", "mvrnorm", 3, 0, 0, "double", 1
+"MASS", "mvrnorm", 4, 0, 0, "logical", 1
+"MASS", "mvrnorm", 5, 0, 0, "logical", 1
+"MASS", "negative.binomial", -1, 0, 0, "class<`family`>", 1
+"MASS", "negative.binomial", 0, 0, 0, "double", 1
+"MASS", "negative.binomial", 1, 0, 0, "any", 1
+"MASS", "nobs.polr", -1, 0, 0, "integer", 1
+"MASS", "nobs.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "nobs.polr", 1, 0, 0, "...", 1
+"MASS", "Ops.fractions", -1, 0, 0, "class<`fractions`, `matrix`>", 1
+"MASS", "Ops.fractions", 0, 0, 0, "class<`fractions`, `matrix`>", 1
+"MASS", "Ops.fractions", 1, 0, 0, "double", 1
+"MASS", "pairs.profile", -1, 0, 0, "double[]", 1
+"MASS", "pairs.profile", 0, 0, 0, "class<`profile`, `profile.glm`>", 1
+"MASS", "pairs.profile", 0, 0, 1, "class<`profile`, `profile.nls`>", 1
+"MASS", "pairs.profile", 0, 0, 2, "class<`profile`, `profile.polr`>", 1
+"MASS", "pairs.profile", 1, 0, 0, "integer[]", 1
+"MASS", "pairs.profile", 2, 0, 0, "...", 1
+"MASS", "parcoord", -1, 0, 0, "null", 1
+"MASS", "parcoord", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "parcoord", 1, 0, 0, "double[]", 1
+"MASS", "parcoord", 2, 0, 0, "double", 1
+"MASS", "parcoord", 3, 0, 0, "logical", 1
+"MASS", "parcoord", 4, 0, 0, "...", 1
+"MASS", "plot.correspondence", -1, 0, 0, "null", 1
+"MASS", "plot.correspondence", 0, 0, 0, "class<`correspondence`>", 1
+"MASS", "plot.correspondence", 1, 0, 0, "double", 1
+"MASS", "plot.correspondence", 2, 0, 0, "...", 1
+"MASS", "plot.mca", -1, 0, 0, "class<`mca`>", 1
+"MASS", "plot.mca", 0, 0, 0, "class<`mca`>", 1
+"MASS", "plot.mca", 1, 0, 0, "logical", 1
+"MASS", "plot.mca", 2, 0, 0, "any", 1
+"MASS", "plot.mca", 3, 0, 0, "double", 1
+"MASS", "plot.mca", 4, 0, 0, "...", 1
+"MASS", "plot.profile", -1, 0, 0, "null", 1
+"MASS", "plot.profile", 0, 0, 0, "class<`profile`, `profile.glm`>", 1
+"MASS", "plot.profile", 0, 0, 1, "class<`profile`, `profile.polr`>", 1
+"MASS", "plot.profile", 1, 0, 0, "...", 1
+"MASS", "plot.ridgelm", -1, 0, 0, "null", 1
+"MASS", "plot.ridgelm", 0, 0, 0, "class<`ridgelm`>", 1
+"MASS", "plot.ridgelm", 1, 0, 0, "...", 1
+"MASS", "polr", -1, 0, 0, "class<`polr`>", 1
+"MASS", "polr", 0, 0, 0, "any", 1
+"MASS", "polr", 1, 0, 0, "any", 1
+"MASS", "polr", 2, 0, 0, "any", 1
+"MASS", "polr", 3, 0, 0, "any", 1
+"MASS", "polr", 4, 0, 0, "...", 1
+"MASS", "polr", 5, 0, 0, "any", 1
+"MASS", "polr", 6, 0, 0, "any", 1
+"MASS", "polr", 7, 0, 0, "null", 1
+"MASS", "polr", 8, 0, 0, "logical", 1
+"MASS", "polr", 9, 0, 0, "logical", 1
+"MASS", "polr", 10, 0, 0, "character[]", 1
+"MASS", "polr.fit", -1, 0, 0, "list<double[] | list<double[] | null> | double[] | list<double[] | null | class<`matrix`>>>", 1
+"MASS", "polr.fit", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "polr.fit", 1, 0, 0, "class<`factor`, `ordered`>", 1
+"MASS", "polr.fit", 1, 0, 1, "integer[]", 1
+"MASS", "polr.fit", 2, 0, 0, "integer[]", 1
+"MASS", "polr.fit", 3, 0, 0, "double[]", 1
+"MASS", "polr.fit", 4, 0, 0, "double[]", 1
+"MASS", "polr.fit", 5, 0, 0, "character", 1
+"MASS", "polr.fit", 6, 0, 0, "...", 1
+"MASS", "predict.glmmPQL", -1, 0, 0, "double[]", 1
+"MASS", "predict.glmmPQL", 0, 0, 0, "class<`glmmPQL`, `lme`>", 1
+"MASS", "predict.glmmPQL", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "predict.glmmPQL", 2, 0, 0, "character", 1
+"MASS", "predict.glmmPQL", 3, 0, 0, "double", 1
+"MASS", "predict.glmmPQL", 4, 0, 0, "class<`function`>", 1
+"MASS", "predict.glmmPQL", 5, 0, 0, "...", 1
+"MASS", "predict.lda", -1, 0, 0, "list<class<`factor`> | class<`matrix`>>", 1
+"MASS", "predict.lda", 0, 0, 0, "class<`lda`>", 1
+"MASS", "predict.lda", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "predict.lda", 1, 0, 1, "class<`matrix`>", 1
+"MASS", "predict.lda", 2, 0, 0, "double[]", 1
+"MASS", "predict.lda", 3, 0, 0, "any", 1
+"MASS", "predict.lda", 4, 0, 0, "character[]", 1
+"MASS", "predict.lda", 5, 0, 0, "...", 1
+"MASS", "predict.lqs", -1, 0, 0, "double[]", 1
+"MASS", "predict.lqs", 0, 0, 0, "class<`lqs`>", 1
+"MASS", "predict.lqs", 1, 0, 0, "any", 1
+"MASS", "predict.lqs", 2, 0, 0, "any", 1
+"MASS", "predict.lqs", 3, 0, 0, "...", 1
+"MASS", "predict.polr", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "predict.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "predict.polr", 1, 0, 0, "class<`data.frame`>", 1
+"MASS", "predict.polr", 2, 0, 0, "character", 1
+"MASS", "predict.polr", 3, 0, 0, "...", 1
+"MASS", "predict.qda", -1, 0, 0, "list<class<`factor`> | class<`matrix`>>", 1
+"MASS", "predict.qda", 0, 0, 0, "class<`qda`>", 1
+"MASS", "predict.qda", 1, 0, 0, "class<`matrix`>", 1
+"MASS", "predict.qda", 2, 0, 0, "double[]", 1
+"MASS", "predict.qda", 3, 0, 0, "character[]", 1
+"MASS", "predict.qda", 4, 0, 0, "...", 1
+"MASS", "profile.glm", -1, 0, 0, "class<`profile`, `profile.glm`>", 1
+"MASS", "profile.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
+"MASS", "profile.glm", 1, 0, 0, "integer[]", 1
+"MASS", "profile.glm", 2, 0, 0, "double", 1
+"MASS", "profile.glm", 3, 0, 0, "double", 1
+"MASS", "profile.glm", 4, 0, 0, "double", 1
+"MASS", "profile.glm", 5, 0, 0, "logical", 1
+"MASS", "profile.glm", 6, 0, 0, "...", 1
+"MASS", "profile.polr", -1, 0, 0, "class<`profile`, `profile.polr`>", 1
+"MASS", "profile.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "profile.polr", 1, 0, 0, "integer[]", 1
+"MASS", "profile.polr", 2, 0, 0, "double", 1
+"MASS", "profile.polr", 3, 0, 0, "double", 1
+"MASS", "profile.polr", 4, 0, 0, "double", 1
+"MASS", "profile.polr", 5, 0, 0, "logical", 1
+"MASS", "profile.polr", 6, 0, 0, "...", 1
+"MASS", "qda", -1, 0, 0, "class<`qda`>", 1
+"MASS", "qda", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "qda", 1, 0, 0, "...", 1
+"MASS", "qda.default", -1, 0, 0, "class<`qda`>", 1
+"MASS", "qda.default", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "qda.default", 1, 0, 0, "class<`factor`>", 1
+"MASS", "qda.default", 2, 0, 0, "double[]", 1
+"MASS", "qda.default", 3, 0, 0, "character[]", 1
+"MASS", "qda.default", 4, 0, 0, "logical", 1
+"MASS", "qda.default", 5, 0, 0, "double", 1
+"MASS", "qda.default", 6, 0, 0, "...", 1
+"MASS", "qda.matrix", -1, 0, 0, "class<`qda`>", 1
+"MASS", "qda.matrix", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "qda.matrix", 1, 0, 0, "class<`factor`>", 1
+"MASS", "qda.matrix", 2, 0, 0, "...", 1
+"MASS", "qda.matrix", 3, 0, 0, "any", 1
+"MASS", "qda.matrix", 4, 0, 0, "any", 1
+"MASS", ".rat", -1, 0, 0, "list<class<`matrix`>>", 1
+"MASS", ".rat", 0, 0, 0, "class<`matrix`>", 1
+"MASS", ".rat", 1, 0, 0, "double", 1
+"MASS", ".rat", 2, 0, 0, "double", 1
+"MASS", "rational", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "rational", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "rational", 1, 0, 0, "double", 1
+"MASS", "rational", 2, 0, 0, "double", 1
+"MASS", "rational", 3, 0, 0, "...", 1
+"MASS", "renumerate", -1, 0, 0, "any", 1
+"MASS", "renumerate", 0, 0, 0, "class<`formula`>", 1
+"MASS", "renumerate", 0, 0, 1, "class<`formula`, `terms`>", 1
+"MASS", "renumerate", 0, 0, 2, "null", 1
+"MASS", "renumerate.formula", -1, 0, 0, "(class<`call`> | class<`name`> | class<`formula`> | class<`formula`, `terms`>)", 1
+"MASS", "renumerate.formula", 0, 0, 0, "class<`call`>", 1
+"MASS", "renumerate.formula", 0, 0, 1, "class<`name`>", 1
+"MASS", "renumerate.formula", 0, 0, 2, "class<`formula`>", 1
+"MASS", "renumerate.formula", 0, 0, 3, "class<`formula`, `terms`>", 1
+"MASS", "rlm", -1, 0, 0, "class<`lm`, `rlm`>", 1
+"MASS", "rlm", 0, 0, 0, "class<`formula`>", 1
+"MASS", "rlm", 0, 0, 1, "class<`matrix`>", 1
+"MASS", "rlm", 1, 0, 0, "...", 1
+"MASS", "rlm.default", -1, 0, 0, "class<`lm`, `rlm`>", 1
+"MASS", "rlm.default", 0, 0, 0, "class<`matrix`>", 1
+"MASS", "rlm.default", 1, 0, 0, "double[]", 1
+"MASS", "rlm.default", 1, 0, 1, "class<`matrix`>", 1
+"MASS", "rlm.default", 2, 0, 0, "any", 1
+"MASS", "rlm.default", 3, 0, 0, "...", 1
+"MASS", "rlm.default", 4, 0, 0, "any", 1
+"MASS", "rlm.default", 5, 0, 0, "character", 1
+"MASS", "rlm.default", 5, 0, 1, "double[]", 1
+"MASS", "rlm.default", 6, 0, 0, "any", 1
+"MASS", "rlm.default", 7, 0, 0, "any", 1
+"MASS", "rlm.default", 8, 0, 0, "double", 1
+"MASS", "rlm.default", 9, 0, 0, "character[]", 1
+"MASS", "rlm.default", 10, 0, 0, "character[]", 1
+"MASS", "rlm.default", 11, 0, 0, "double", 1
+"MASS", "rlm.default", 12, 0, 0, "double", 1
+"MASS", "rlm.default", 13, 0, 0, "character", 1
+"MASS", "rlm.default", 14, 0, 0, "null", 1
+"MASS", "rlm.formula", -1, 0, 0, "class<`lm`, `rlm`>", 1
+"MASS", "rlm.formula", 0, 0, 0, "class<`formula`>", 1
+"MASS", "rlm.formula", 1, 0, 0, "any", 1
+"MASS", "rlm.formula", 2, 0, 0, "any", 1
+"MASS", "rlm.formula", 3, 0, 0, "...", 1
+"MASS", "rlm.formula", 4, 0, 0, "any", 1
+"MASS", "rlm.formula", 5, 0, 0, "any", 1
+"MASS", "rlm.formula", 6, 0, 0, "character[]", 1
+"MASS", "rlm.formula", 7, 0, 0, "character[]", 1
+"MASS", "rlm.formula", 8, 0, 0, "logical", 1
+"MASS", "rlm.formula", 9, 0, 0, "logical", 1
+"MASS", "rlm.formula", 10, 0, 0, "logical", 1
+"MASS", "rlm.formula", 11, 0, 0, "null", 1
+"MASS", "rms.curv", -1, 0, 0, "class<`rms.curv`>", 1
+"MASS", "rms.curv", 0, 0, 0, "class<`nls`>", 1
+"MASS", "rnegbin", -1, 0, 0, "integer[]", 1
+"MASS", "rnegbin", 0, 0, 0, "double[]", 1
+"MASS", "rnegbin", 1, 0, 0, "double[]", 1
+"MASS", "rnegbin", 2, 0, 0, "double", 1
+"MASS", "safe_pchisq", -1, 0, 0, "double[]", 1
+"MASS", "safe_pchisq", 0, 0, 0, "double[]", 1
+"MASS", "safe_pchisq", 1, 0, 0, "double[]", 1
+"MASS", "safe_pchisq", 2, 0, 0, "...", 1
+"MASS", "safe_pf", -1, 0, 0, "double[]", 1
+"MASS", "safe_pf", 0, 0, 0, "double[]", 1
+"MASS", "safe_pf", 1, 0, 0, "double[]", 1
+"MASS", "safe_pf", 2, 0, 0, "...", 1
+"MASS", "sammon", -1, 0, 0, "list<class<`matrix`> | double | class<`call`>>", 1
+"MASS", "sammon", 0, 0, 0, "class<`dist`>", 1
+"MASS", "sammon", 1, 0, 0, "class<`matrix`>", 1
+"MASS", "sammon", 2, 0, 0, "double", 1
+"MASS", "sammon", 3, 0, 0, "double", 1
+"MASS", "sammon", 4, 0, 0, "logical", 1
+"MASS", "sammon", 5, 0, 0, "double", 1
+"MASS", "sammon", 6, 0, 0, "double", 1
+"MASS", "select", -1, 0, 0, "null", 1
+"MASS", "select", 0, 0, 0, "class<`ridgelm`>", 1
+"MASS", "select.ridgelm", -1, 0, 0, "null", 1
+"MASS", "select.ridgelm", 0, 0, 0, "class<`ridgelm`>", 1
+"MASS", "Shepard", -1, 0, 0, "list<double[]>", 1
+"MASS", "Shepard", 0, 0, 0, "class<`dist`>", 1
+"MASS", "Shepard", 1, 0, 0, "class<`matrix`>", 1
+"MASS", "Shepard", 2, 0, 0, "double", 1
+"MASS", "simulate.negbin", -1, 0, 0, "class<`data.frame`>", 1
+"MASS", "simulate.negbin", 0, 0, 0, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "simulate.negbin", 1, 0, 0, "double", 1
+"MASS", "simulate.negbin", 2, 0, 0, "null", 1
+"MASS", "simulate.negbin", 3, 0, 0, "...", 1
+"MASS", "stepAIC", -1, 0, 0, "(class<`aov`, `lm`> | class<`glm`, `lm`> | class<`glm`, `lm`, `negbin`> | class<`gls`> | class<`lm`> | class<`lme`> | class<`polr`>)", 1
+"MASS", "stepAIC", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "stepAIC", 0, 0, 1, "class<`glm`, `lm`>", 1
+"MASS", "stepAIC", 0, 0, 2, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "stepAIC", 0, 0, 3, "class<`gls`>", 1
+"MASS", "stepAIC", 0, 0, 4, "class<`lm`>", 1
+"MASS", "stepAIC", 0, 0, 5, "class<`lme`>", 1
+"MASS", "stepAIC", 0, 0, 6, "class<`polr`>", 1
+"MASS", "stepAIC", 1, 0, 0, "any", 1
+"MASS", "stepAIC", 2, 0, 0, "double", 1
+"MASS", "stepAIC", 3, 0, 0, "character[]", 1
+"MASS", "stepAIC", 4, 0, 0, "double", 1
+"MASS", "stepAIC", 5, 0, 0, "null", 1
+"MASS", "stepAIC", 6, 0, 0, "double", 1
+"MASS", "stepAIC", 7, 0, 0, "logical", 1
+"MASS", "stepAIC", 8, 0, 0, "double", 1
+"MASS", "stepAIC", 9, 0, 0, "...", 1
+"MASS", "studres", -1, 0, 0, "double[]", 1
+"MASS", "studres", 0, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "summary.negbin", -1, 0, 0, "class<`summary.glm`, `summary.negbin`>", 1
+"MASS", "summary.negbin", 0, 0, 0, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "summary.negbin", 1, 0, 0, "double", 1
+"MASS", "summary.negbin", 1, 0, 1, "null", 1
+"MASS", "summary.negbin", 2, 0, 0, "logical", 1
+"MASS", "summary.negbin", 3, 0, 0, "...", 1
+"MASS", "summary.polr", -1, 0, 0, "class<`summary.polr`>", 1
+"MASS", "summary.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "summary.polr", 1, 0, 0, "double", 1
+"MASS", "summary.polr", 2, 0, 0, "logical", 1
+"MASS", "summary.polr", 3, 0, 0, "...", 1
+"MASS", "summary.rlm", -1, 0, 0, "class<`summary.rlm`>", 1
+"MASS", "summary.rlm", 0, 0, 0, "class<`lm`, `rlm`>", 1
+"MASS", "summary.rlm", 1, 0, 0, "character[]", 1
+"MASS", "summary.rlm", 2, 0, 0, "logical", 1
+"MASS", "summary.rlm", 3, 0, 0, "...", 1
+"MASS", "theta.md", -1, 0, 0, "double", 1
+"MASS", "theta.md", 0, 0, 0, "double[]", 1
+"MASS", "theta.md", 1, 0, 0, "double[]", 1
+"MASS", "theta.md", 2, 0, 0, "double", 1
+"MASS", "theta.md", 3, 0, 0, "any", 1
+"MASS", "theta.md", 4, 0, 0, "double", 1
+"MASS", "theta.md", 5, 0, 0, "double", 1
+"MASS", "theta.ml", -1, 0, 0, "double", 1
+"MASS", "theta.ml", 0, 0, 0, "double[]", 1
+"MASS", "theta.ml", 1, 0, 0, "double[]", 1
+"MASS", "theta.ml", 2, 0, 0, "double", 1
+"MASS", "theta.ml", 3, 0, 0, "any", 1
+"MASS", "theta.ml", 4, 0, 0, "double", 1
+"MASS", "theta.ml", 5, 0, 0, "double", 1
+"MASS", "theta.ml", 6, 0, 0, "logical", 1
+"MASS", "theta.mm", -1, 0, 0, "double", 1
+"MASS", "theta.mm", 0, 0, 0, "double[]", 1
+"MASS", "theta.mm", 1, 0, 0, "double[]", 1
+"MASS", "theta.mm", 2, 0, 0, "double", 1
+"MASS", "theta.mm", 3, 0, 0, "any", 1
+"MASS", "theta.mm", 4, 0, 0, "double", 1
+"MASS", "theta.mm", 5, 0, 0, "double", 1
+"MASS", "ucv", -1, 0, 0, "double", 1
+"MASS", "ucv", 0, 0, 0, "double[]", 1
+"MASS", "ucv", 1, 0, 0, "double", 1
+"MASS", "ucv", 2, 0, 0, "double", 1
+"MASS", "ucv", 3, 0, 0, "double", 1
+"MASS", "update.loglm", -1, 0, 0, "class<`loglm`>", 1
+"MASS", "update.loglm", 0, 0, 0, "class<`loglm`>", 1
+"MASS", "update.loglm", 1, 0, 0, "class<`formula`>", 1
+"MASS", "update.loglm", 2, 0, 0, "...", 1
+"MASS", "vcov.fitdistr", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "vcov.fitdistr", 0, 0, 0, "class<`fitdistr`>", 1
+"MASS", "vcov.fitdistr", 1, 0, 0, "...", 1
+"MASS", "vcov.polr", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "vcov.polr", 0, 0, 0, "class<`polr`>", 1
+"MASS", "vcov.polr", 1, 0, 0, "...", 1
+"MASS", "width.SJ", -1, 0, 0, "double", 1
+"MASS", "width.SJ", 0, 0, 0, "double[]", 1
+"MASS", "width.SJ", 1, 0, 0, "double", 1
+"MASS", "width.SJ", 2, 0, 0, "any", 1
+"MASS", "width.SJ", 3, 0, 0, "any", 1
+"MASS", "width.SJ", 4, 0, 0, "character[]", 1

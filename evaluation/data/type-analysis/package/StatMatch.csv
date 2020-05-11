@@ -1,72 +1,108 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"StatMatch", "cohen.ef", -1, 0, 0, "double", 1
-"StatMatch", "cohen.ef", 0, 0, 0, "^double[]", 1
-"StatMatch", "comb.samples", -1, 0, 0, "struct<`yz.CIA`:^double[], `call`:language>", 1
-"StatMatch", "comb.samples", 0, 0, 0, "struct<`cluster`:struct<`id`:integer[]>, `strata`:struct<`V1`:double[]>, `has.strata`:logical, `prob`:double[], `allprob`:struct<`f`:double[]>, `call`:language, `variables`:struct<`Eth`:integer[], `Sex`:integer[], `Age`:integer[], `Lrn`:integer[], `f`:double[]>, `fpc`:struct<`popsize`:^double[], `sampsize`:^integer[]>, `pps`:logical, `postStrata`:tuple<struct<`qr`:struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[]>, `w`:double[], `stage`:double, `index`:null>>>", 1
-"StatMatch", "comb.samples", 1, 0, 0, "struct<`cluster`:struct<`id`:integer[]>, `strata`:struct<`V1`:double[]>, `has.strata`:logical, `prob`:double[], `allprob`:struct<`f`:double[]>, `call`:language, `variables`:struct<`Eth`:integer[], `Sex`:integer[], `Age`:integer[], `c.Days`:integer[], `f`:double[]>, `fpc`:struct<`popsize`:^double[], `sampsize`:^integer[]>, `pps`:logical, `postStrata`:tuple<struct<`qr`:struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[]>, `w`:double[], `stage`:double, `index`:null>>>", 1
-"StatMatch", "comb.samples", 2, 0, 0, "null", 1
-"StatMatch", "comb.samples", 2, 0, 1, "struct<`cluster`:struct<`id`:integer[]>, `strata`:struct<`V1`:double[]>, `has.strata`:logical, `prob`:double[], `allprob`:struct<`f`:double[]>, `call`:language, `variables`:struct<`Lrn`:integer[], `c.Days`:integer[], `f`:double[]>, `fpc`:struct<`popsize`:^double[], `sampsize`:^integer[]>, `pps`:logical>", 1
-"StatMatch", "comb.samples", 3, 0, 0, "character", 1
-"StatMatch", "comb.samples", 4, 0, 0, "character", 1
-"StatMatch", "comb.samples", 5, 0, 0, "language", 1
-"StatMatch", "comb.samples", 6, 0, 0, "null", 1
-"StatMatch", "comb.samples", 6, 0, 1, "character", 1
-"StatMatch", "comb.samples", 7, 0, 0, "logical", 1
-"StatMatch", "comb.samples", 8, 0, 0, "character", 1
-"StatMatch", "comb.samples", 8, 0, 1, "null", 1
-"StatMatch", "comp.prop", -1, 0, 0, "struct<`meas`:double[], `chi.sq`:double[], `p.exp`:^double[]>", 1
-"StatMatch", "comp.prop", 0, 0, 0, "^integer[]", 1
-"StatMatch", "comp.prop", 1, 0, 0, "^integer[]", 1
+"StatMatch", "comp.prop", -1, 0, 0, "list<double[] | class<`table`, `xtabs`>>", 1
+"StatMatch", "comp.prop", 0, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "comp.prop", 1, 0, 0, "class<`table`, `xtabs`>", 1
 "StatMatch", "comp.prop", 2, 0, 0, "integer", 1
-"StatMatch", "comp.prop", 3, 0, 0, "null", 1
-"StatMatch", "comp.prop", 3, 0, 1, "language", 1
-"StatMatch", "comp.prop", 3, 0, 2, "integer", 1
+"StatMatch", "comp.prop", 3, 0, 0, "any", 1
 "StatMatch", "comp.prop", 4, 0, 0, "logical", 1
-"StatMatch", "create.fused", -1, 0, 0, "struct<`HH.P.id`:character[], `area5`:integer[], `urb`:integer[], `hsize`:integer[], `hsize5`:integer[], `age`:double[], `c.age`:integer[], `sex`:integer[], `marital`:integer[], `edu7`:integer[], `n.income`:double[], `c.neti`:integer[], `ww`:double[], `labour5`:^integer[]>", 1
-"StatMatch", "create.fused", 0, 0, 0, "struct<`HH.P.id`:character[], `area5`:integer[], `urb`:integer[], `hsize`:integer[], `hsize5`:integer[], `age`:double[], `c.age`:integer[], `sex`:integer[], `marital`:integer[], `edu7`:integer[], `n.income`:double[], `c.neti`:integer[], `ww`:double[]>", 1
-"StatMatch", "create.fused", 1, 0, 0, "struct<`HH.P.id`:character[], `area5`:integer[], `urb`:integer[], `hsize`:integer[], `hsize5`:integer[], `age`:double[], `c.age`:integer[], `sex`:integer[], `marital`:integer[], `edu7`:integer[], `labour5`:integer[], `ww`:double[]>", 1
-"StatMatch", "create.fused", 2, 0, 0, "^character[]", 1
+"StatMatch", "create.fused", -1, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "create.fused", 0, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "create.fused", 1, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "create.fused", 2, 0, 0, "class<`matrix`>", 1
 "StatMatch", "create.fused", 3, 0, 0, "character", 1
 "StatMatch", "create.fused", 4, 0, 0, "logical", 1
-"StatMatch", "create.fused", 5, 0, 0, "null", 1
-"StatMatch", "create.fused", 5, 0, 1, "character[]", 1
-"StatMatch", "dum.fcn", -1, 0, 0, "^double[]", 1
-"StatMatch", "dum.fcn", 0, 0, 0, "integer[]", 1
-"StatMatch", "dum.fcn", 1, 0, 0, "logical", 1
-"StatMatch", "fact2dummy", -1, 0, 0, "^double[]", 1
-"StatMatch", "fact2dummy", 0, 0, 0, "struct<`Petal.Length`:double[], `Petal.Width`:double[]>", 1
+"StatMatch", "create.fused", 5, 0, 0, "character[]", 1
+"StatMatch", "create.fused", 5, 0, 1, "null", 1
+"StatMatch", "fact2dummy", -1, 0, 0, "class<`matrix`>", 1
+"StatMatch", "fact2dummy", 0, 0, 0, "class<`data.frame`>", 1
 "StatMatch", "fact2dummy", 1, 0, 0, "logical", 1
 "StatMatch", "fact2dummy", 2, 0, 0, "character", 1
-"StatMatch", "fb.yz", -1, 0, 0, "struct<`low.u`:^double[], `up.u`:^double[], `IA`:^double[], `H`:double[], `uncertainty`:double>", 1
-"StatMatch", "fb.yz", 0, 0, 0, "integer[]", 1
-"StatMatch", "fb.yz", 1, 0, 0, "integer[]", 1
-"StatMatch", "fb.yz", 2, 0, 0, "character", 1
-"StatMatch", "Fbwidths.by.x", -1, 0, 0, "struct<`|Eth`:struct<`Var1`:integer[], `Var2`:integer[], `lower`:double[], `upper`:double[], `width`:double[], `CIA`:double[]>, `|Sex`:struct<`Var1`:integer[], `Var2`:integer[], `lower`:double[], `upper`:double[], `width`:double[], `CIA`:double[]>, `|Age`:struct<`Var1`:integer[], `Var2`:integer[], `lower`:double[], `upper`:double[], `width`:double[], `CIA`:double[]>, `|Eth+Sex`:struct<`Var1`:integer[], `Var2`:integer[], `lower`:double[], `upper`:double[], `width`:double[], `CIA`:double[]>, `|Eth+Age`:struct<`Var1`:integer[], `Var2`:integer[], `lower`:double[], `upper`:double[], `width`:double[], `CIA`:double[]>, `|Sex+Age`:struct<`Var1`:integer[], `Var2`:integer[], `lower`:double[], `upper`:double[], `width`:double[], `CIA`:double[]>, `|Eth+Sex+Age`:null, `sum.unc`:struct<`x.vars`:double[], `x.cells`:^double[], `x.freq0`:^double[], `xy.cells`:^double[], `xy.freq0`:^double[], `xz.cells`:^double[], `xz.freq0`:^double[], `av.n`:double[], `cohen.ef`:^double[], `av.width`:^double[], `penalty1`:double[], `av.width.pen1`:^double[], `penalty2`:double[], `av.width.pen2`:^double[]>>", 1
-"StatMatch", "Fbwidths.by.x", 0, 0, 0, "integer[]", 1
-"StatMatch", "Fbwidths.by.x", 1, 0, 0, "integer[]", 1
-"StatMatch", "Fbwidths.by.x", 2, 0, 0, "integer[]", 1
+"StatMatch", "Fbwidths.by.x", -1, 0, 0, "list<class<`data.frame`> | null>", 1
+"StatMatch", "Fbwidths.by.x", 0, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "Fbwidths.by.x", 1, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "Fbwidths.by.x", 2, 0, 0, "class<`table`, `xtabs`>", 1
 "StatMatch", "Fbwidths.by.x", 3, 0, 0, "character", 1
 "StatMatch", "Fbwidths.by.x", 4, 0, 0, "null", 1
 "StatMatch", "Fbwidths.by.x", 5, 0, 0, "null", 1
-"StatMatch", "Fbwidths.by.x", 6, 0, 0, "logical", 1
-"StatMatch", "Fbwidths.by.x", 6, 0, 1, "null", 1
-"StatMatch", "filter", -1, 0, 0, "logical[]", 1
-"StatMatch", "filter", 0, 0, 0, "character[]", 1
-"StatMatch", "findbest.fcn", -1, 0, 0, "struct<`ord`:integer[], `bst`:character[], `av`:double[], `pen`:double[], `av.pen`:double[], `c.info`:^double[]>", 1
-"StatMatch", "findbest.fcn", 0, 0, 0, "integer[]", 1
-"StatMatch", "findbest.fcn", 1, 0, 0, "integer[]", 1
-"StatMatch", "findbest.fcn", 2, 0, 0, "integer[]", 1
-"StatMatch", "findbest.fcn", 3, 0, 0, "tuple<character[], character[]>", 1
-"StatMatch", "findbest.fcn", 4, 0, 0, "double", 1
-"StatMatch", "findbest.fcn", 5, 0, 0, "integer", 1
-"StatMatch", "findbest.fcn", 6, 0, 0, "integer", 1
-"StatMatch", "findbest.fcn", 7, 0, 0, "logical", 1
-"StatMatch", "Frechet.bounds.cat", -1, 0, 0, "struct<`bounds`:struct<`Eth`:integer[], `Lrn`:integer[], `low.u`:double[], `low.cx`:double[], `CIA`:double[], `up.cx`:double[], `up.u`:double[]>, `uncertainty`:double[]>", 1
-"StatMatch", "Frechet.bounds.cat", 0, 0, 0, "null", 1
-"StatMatch", "Frechet.bounds.cat", 0, 0, 1, "^double[]", 1
-"StatMatch", "Frechet.bounds.cat", 1, 0, 0, "^double[]", 1
-"StatMatch", "Frechet.bounds.cat", 2, 0, 0, "^double[]", 1
+"StatMatch", "Fbwidths.by.x", 6, 0, 0, "...", 1
+"StatMatch", "Frechet.bounds.cat", -1, 0, 0, "list<class<`data.frame`> | double[] | class<`table`> | double[]>", 1
+"StatMatch", "Frechet.bounds.cat", 0, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "Frechet.bounds.cat", 0, 0, 1, "null", 1
+"StatMatch", "Frechet.bounds.cat", 1, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "Frechet.bounds.cat", 2, 0, 0, "class<`table`, `xtabs`>", 1
 "StatMatch", "Frechet.bounds.cat", 3, 0, 0, "character", 1
 "StatMatch", "Frechet.bounds.cat", 4, 0, 0, "logical", 1
 "StatMatch", "Frechet.bounds.cat", 5, 0, 0, "double", 1
 "StatMatch", "Frechet.bounds.cat", 6, 0, 0, "logical", 1
+"StatMatch", "gower.dist", -1, 0, 0, "class<`matrix`>", 1
+"StatMatch", "gower.dist", 0, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "gower.dist", 1, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "gower.dist", 2, 0, 0, "null", 1
+"StatMatch", "gower.dist", 3, 0, 0, "logical", 1
+"StatMatch", "gower.dist", 4, 0, 0, "null", 1
+"StatMatch", "gower.dist", 4, 0, 1, "double[]", 1
+"StatMatch", "harmonize.x", -1, 0, 0, "list<class<`survey.design`, `survey.design2`> | double[] | class<`call`>>", 1
+"StatMatch", "harmonize.x", 0, 0, 0, "class<`survey.design`, `survey.design2`>", 1
+"StatMatch", "harmonize.x", 1, 0, 0, "class<`survey.design`, `survey.design2`>", 1
+"StatMatch", "harmonize.x", 2, 0, 0, "class<`formula`>", 1
+"StatMatch", "harmonize.x", 3, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "harmonize.x", 3, 0, 1, "double[]", 1
+"StatMatch", "harmonize.x", 3, 0, 2, "null", 1
+"StatMatch", "harmonize.x", 4, 0, 0, "character", 1
+"StatMatch", "harmonize.x", 5, 0, 0, "...", 1
+"StatMatch", "mahalanobis.dist", -1, 0, 0, "class<`matrix`>", 1
+"StatMatch", "mahalanobis.dist", 0, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "mahalanobis.dist", 1, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "mahalanobis.dist", 1, 0, 1, "null", 1
+"StatMatch", "mahalanobis.dist", 2, 0, 0, "class<`matrix`>", 1
+"StatMatch", "mahalanobis.dist", 2, 0, 1, "null", 1
+"StatMatch", "NND.hotdeck", -1, 0, 0, "list<class<`matrix`> | double[] | class<`call`>>", 1
+"StatMatch", "NND.hotdeck", 0, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "NND.hotdeck", 1, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "NND.hotdeck", 2, 0, 0, "character[]", 1
+"StatMatch", "NND.hotdeck", 3, 0, 0, "character", 1
+"StatMatch", "NND.hotdeck", 3, 0, 1, "null", 1
+"StatMatch", "NND.hotdeck", 4, 0, 0, "character", 1
+"StatMatch", "NND.hotdeck", 5, 0, 0, "logical", 1
+"StatMatch", "NND.hotdeck", 6, 0, 0, "character", 1
+"StatMatch", "NND.hotdeck", 7, 0, 0, "double", 1
+"StatMatch", "NND.hotdeck", 8, 0, 0, "logical", 1
+"StatMatch", "NND.hotdeck", 9, 0, 0, "...", 1
+"StatMatch", "pBayes", -1, 0, 0, "list<double[] | class<`array`> | class<`table`, `xtabs`> | double[] | class<`table`, `xtabs`>>", 1
+"StatMatch", "pBayes", 0, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "pBayes", 1, 0, 0, "character", 1
+"StatMatch", "pBayes", 2, 0, 0, "null", 1
+"StatMatch", "RANDwNND.hotdeck", -1, 0, 0, "list<class<`matrix`> | double[] | class<`call`> | class<`matrix`> | integer[] | class<`call`>>", 1
+"StatMatch", "RANDwNND.hotdeck", 0, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "RANDwNND.hotdeck", 1, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "RANDwNND.hotdeck", 2, 0, 0, "character[]", 1
+"StatMatch", "RANDwNND.hotdeck", 3, 0, 0, "character[]", 1
+"StatMatch", "RANDwNND.hotdeck", 4, 0, 0, "character", 1
+"StatMatch", "RANDwNND.hotdeck", 5, 0, 0, "character", 1
+"StatMatch", "RANDwNND.hotdeck", 6, 0, 0, "null", 1
+"StatMatch", "RANDwNND.hotdeck", 6, 0, 1, "double", 1
+"StatMatch", "RANDwNND.hotdeck", 7, 0, 0, "null", 1
+"StatMatch", "RANDwNND.hotdeck", 7, 0, 1, "character", 1
+"StatMatch", "RANDwNND.hotdeck", 8, 0, 0, "logical", 1
+"StatMatch", "RANDwNND.hotdeck", 9, 0, 0, "...", 1
+"StatMatch", "rankNND.hotdeck", -1, 0, 0, "list<class<`matrix`> | double[] | class<`call`>>", 1
+"StatMatch", "rankNND.hotdeck", 0, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "rankNND.hotdeck", 1, 0, 0, "class<`data.frame`>", 1
+"StatMatch", "rankNND.hotdeck", 2, 0, 0, "character", 1
+"StatMatch", "rankNND.hotdeck", 3, 0, 0, "character", 1
+"StatMatch", "rankNND.hotdeck", 4, 0, 0, "character", 1
+"StatMatch", "rankNND.hotdeck", 5, 0, 0, "character", 1
+"StatMatch", "rankNND.hotdeck", 5, 0, 1, "null", 1
+"StatMatch", "rankNND.hotdeck", 6, 0, 0, "character", 1
+"StatMatch", "rankNND.hotdeck", 6, 0, 1, "null", 1
+"StatMatch", "rankNND.hotdeck", 7, 0, 0, "logical", 1
+"StatMatch", "rankNND.hotdeck", 8, 0, 0, "character", 1
+"StatMatch", "rankNND.hotdeck", 9, 0, 0, "logical", 1
+"StatMatch", "selMtc.by.unc", -1, 0, 0, "list<double[] | class<`data.frame`> | list<character[]>>", 1
+"StatMatch", "selMtc.by.unc", 0, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "selMtc.by.unc", 1, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "selMtc.by.unc", 2, 0, 0, "class<`table`, `xtabs`>", 1
+"StatMatch", "selMtc.by.unc", 3, 0, 0, "double", 1
+"StatMatch", "selMtc.by.unc", 4, 0, 0, "null", 1
+"StatMatch", "selMtc.by.unc", 5, 0, 0, "null", 1
+"StatMatch", "selMtc.by.unc", 6, 0, 0, "logical", 1

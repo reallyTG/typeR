@@ -1,43 +1,73 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"irlba", "convtests", -1, 0, 0, "struct<`converged`:logical, `k`:double>", 1
-"irlba", "convtests", 0, 0, 0, "symbol", 1
+"irlba", "convtests", -1, 0, 0, "list<double>", 1
+"irlba", "convtests", 0, 0, 0, "any", 1
 "irlba", "convtests", 1, 0, 0, "double", 1
 "irlba", "convtests", 2, 0, 0, "double", 1
-"irlba", "convtests", 3, 0, 0, "struct<`d`:double[], `u`:^double[], `v`:^double[]>", 1
-"irlba", "convtests", 4, 0, 0, "^double[]", 1
+"irlba", "convtests", 3, 0, 0, "list<double[] | class<`matrix`>>", 1
+"irlba", "convtests", 4, 0, 0, "class<`matrix`>", 1
 "irlba", "convtests", 5, 0, 0, "double", 1
 "irlba", "convtests", 6, 0, 0, "double", 1
-"irlba", "convtests", 7, 0, 0, "null", 1
-"irlba", "convtests", 7, 0, 1, "double[]", 1
+"irlba", "convtests", 7, 0, 0, "double[]", 1
+"irlba", "convtests", 7, 0, 1, "null", 1
 "irlba", "convtests", 8, 0, 0, "double", 1
-"irlba", "convtests", 9, 0, 0, "double", 1
-"irlba", "convtests", 10, 0, 0, "double", 1
-"irlba", "convtests", 11, 0, 0, "double", 1
-"irlba", "cross", -1, 0, 0, "^complex[]", 1
-"irlba", "cross", 0, 0, 0, "^complex[]", 1
-"irlba", "cross", 1, 0, 0, "^complex[]", 1
-"irlba", "filter", -1, 0, 0, "logical[]", 1
-"irlba", "filter", 0, 0, 0, "character[]", 1
-"irlba", "FUN", -1, 0, 0, "double", 1
-"irlba", "FUN", 0, 0, 0, "double[]", 1
+"irlba", "convtests", 9, 0, 0, "any", 1
+"irlba", "convtests", 10, 0, 0, "any", 1
+"irlba", "convtests", 11, 0, 0, "any", 1
+"irlba", "cross", -1, 0, 0, "class<`matrix`>", 1
+"irlba", "cross", 0, 0, 0, "class<`matrix`>", 1
+"irlba", "cross", 0, 0, 1, "complex[]", 1
+"irlba", "cross", 1, 0, 0, "any", 1
+"irlba", "irlba", -1, 0, 0, "list<any>", 1
+"irlba", "irlba", 0, 0, 0, "class<`matrix`>", 1
+"irlba", "irlba", 0, 0, 1, "class<`dgCMatrix`>", 1
+"irlba", "irlba", 0, 0, 2, "class<`dgTMatrix`>", 1
+"irlba", "irlba", 0, 0, 3, "class<`scaled_matrix`>", 1
+"irlba", "irlba", 0, 0, 4, "class<`dgeMatrix`>", 1
+"irlba", "irlba", 0, 0, 5, "class<`lgCMatrix`>", 1
+"irlba", "irlba", 1, 0, 0, "double", 1
+"irlba", "irlba", 2, 0, 0, "double", 1
+"irlba", "irlba", 3, 0, 0, "double", 1
+"irlba", "irlba", 4, 0, 0, "double", 1
+"irlba", "irlba", 5, 0, 0, "logical", 1
+"irlba", "irlba", 6, 0, 0, "double", 1
+"irlba", "irlba", 7, 0, 0, "double[]", 1
+"irlba", "irlba", 7, 0, 1, "null", 1
+"irlba", "irlba", 7, 0, 2, "list<double[] | class<`matrix`>>", 1
+"irlba", "irlba", 8, 0, 0, "logical", 1
+"irlba", "irlba", 9, 0, 0, "logical", 1
+"irlba", "irlba", 10, 0, 0, "null", 1
+"irlba", "irlba", 10, 0, 1, "double[]", 1
+"irlba", "irlba", 11, 0, 0, "null", 1
+"irlba", "irlba", 11, 0, 1, "double[]", 1
+"irlba", "irlba", 12, 0, 0, "null", 1
+"irlba", "irlba", 12, 0, 1, "double", 1
+"irlba", "irlba", 13, 0, 0, "null", 1
+"irlba", "irlba", 14, 0, 0, "any", 1
+"irlba", "irlba", 15, 0, 0, "any", 1
+"irlba", "irlba", 16, 0, 0, "logical", 1
+"irlba", "irlba", 17, 0, 0, "...", 1
 "irlba", "norm2", -1, 0, 0, "double", 1
-"irlba", "norm2", 0, 0, 0, "^complex[]", 1
-"irlba", "orthog", -1, 0, 0, "^complex[]", 1
-"irlba", "orthog", 0, 0, 0, "^complex[]", 1
-"irlba", "orthog", 1, 0, 0, "^complex[]", 1
-"irlba", "prcomp_irlba", -1, 0, 0, "struct<`scale`:logical, `totalvar`:double, `sdev`:double[], `rotation`:^double[], `center`:double[], `x`:^double[]>", 1
-"irlba", "prcomp_irlba", 0, 0, 0, "^double[]", 1
+"irlba", "norm2", 0, 0, 0, "class<`matrix`>", 1
+"irlba", "norm2", 0, 0, 1, "complex[]", 1
+"irlba", "orthog", -1, 0, 0, "class<`matrix`>", 1
+"irlba", "orthog", 0, 0, 0, "class<`matrix`>", 1
+"irlba", "orthog", 0, 0, 1, "complex[]", 1
+"irlba", "orthog", 1, 0, 0, "class<`matrix`>", 1
+"irlba", "orthog", 1, 0, 1, "complex[]", 1
+"irlba", "partial_eigen", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"irlba", "partial_eigen", 0, 0, 0, "class<`matrix`>", 1
+"irlba", "partial_eigen", 1, 0, 0, "double", 1
+"irlba", "partial_eigen", 2, 0, 0, "logical", 1
+"irlba", "partial_eigen", 3, 0, 0, "...", 1
+"irlba", "prcomp_irlba", -1, 0, 0, "class<`irlba_prcomp`, `prcomp`>", 1
+"irlba", "prcomp_irlba", 0, 0, 0, "class<`matrix`>", 1
 "irlba", "prcomp_irlba", 1, 0, 0, "double", 1
 "irlba", "prcomp_irlba", 2, 0, 0, "logical", 1
 "irlba", "prcomp_irlba", 3, 0, 0, "logical", 1
 "irlba", "prcomp_irlba", 4, 0, 0, "logical", 1
-"irlba", "prcomp_irlba", 5, 0, 0, "null", 1
-"irlba", "soft", -1, 0, 0, "^double[]", 1
-"irlba", "soft", 0, 0, 0, "^double[]", 1
-"irlba", "soft", 1, 0, 0, "^double[]", 1
-"irlba", "soft", 2, 0, 0, "double[]", 1
-"irlba", "ssvd", -1, 0, 0, "struct<`u`:^double[], `v`:^double[], `d`:^double[], `iter`:double, `lambda`:double[], `center`:logical, `scale`:logical, `n`:double[], `alpha`:double>", 1
-"irlba", "ssvd", 0, 0, 0, "^double[]", 1
+"irlba", "prcomp_irlba", 5, 0, 0, "...", 1
+"irlba", "ssvd", -1, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double>", 1
+"irlba", "ssvd", 0, 0, 0, "class<`matrix`>", 1
 "irlba", "ssvd", 1, 0, 0, "double", 1
 "irlba", "ssvd", 2, 0, 0, "double[]", 1
 "irlba", "ssvd", 3, 0, 0, "double", 1
@@ -46,4 +76,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "irlba", "ssvd", 6, 0, 0, "logical", 1
 "irlba", "ssvd", 7, 0, 0, "double", 1
 "irlba", "ssvd", 8, 0, 0, "null", 1
-"irlba", "ssvd", 9, 0, 0, "null", 1
+"irlba", "ssvd", 9, 0, 0, "...", 1
+"irlba", "summary.irlba_prcomp", -1, 0, 0, "class<`summary.prcomp`>", 1
+"irlba", "summary.irlba_prcomp", 0, 0, 0, "class<`irlba_prcomp`, `prcomp`>", 1
+"irlba", "summary.irlba_prcomp", 1, 0, 0, "...", 1
+"irlba", "svdr", -1, 0, 0, "list<double[] | class<`matrix`> | double[]>", 1
+"irlba", "svdr", 0, 0, 0, "class<`dgeMatrix`>", 1
+"irlba", "svdr", 0, 0, 1, "class<`matrix`>", 1
+"irlba", "svdr", 0, 0, 2, "class<`lgCMatrix`>", 1
+"irlba", "svdr", 1, 0, 0, "double", 1
+"irlba", "svdr", 2, 0, 0, "double", 1
+"irlba", "svdr", 3, 0, 0, "integer", 1
+"irlba", "svdr", 4, 0, 0, "double", 1
+"irlba", "svdr", 5, 0, 0, "double[]", 1
+"irlba", "svdr", 5, 0, 1, "null", 1
+"irlba", "svdr", 6, 0, 0, "null", 1
+"irlba", "svdr", 7, 0, 0, "logical", 1

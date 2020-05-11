@@ -1,73 +1,263 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"KFAS", "[.SSModel", -1, 0, 0, "double[]", 1
-"KFAS", "[.SSModel", 0, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:character, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character[], `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "[.SSModel", 1, 0, 0, "character", 1
-"KFAS", "[.SSModel", 2, 0, 0, "null", 1
-"KFAS", "[.SSModel", 3, 0, 0, "null", 1
-"KFAS", "[.SSModel", 4, 0, 0, "null", 1
-"KFAS", "[.SSModel", 5, 0, 0, "double", 1
-"KFAS", "[.SSModel", 6, 0, 0, "logical", 1
-"KFAS", "[.SSModel", 7, 0, 0, "null", 1
-"KFAS", "[<-.SSModel", -1, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:double, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "[<-.SSModel", 0, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:double, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "[<-.SSModel", 1, 0, 0, "character", 1
-"KFAS", "[<-.SSModel", 2, 0, 0, "character", 1
-"KFAS", "[<-.SSModel", 2, 0, 1, "null", 1
-"KFAS", "[<-.SSModel", 3, 0, 0, "null", 1
-"KFAS", "[<-.SSModel", 3, 0, 1, "character", 1
-"KFAS", "[<-.SSModel", 4, 0, 0, "null", 1
-"KFAS", "[<-.SSModel", 5, 0, 0, "null", 1
-"KFAS", "[<-.SSModel", 6, 0, 0, "null", 1
-"KFAS", "[<-.SSModel", 7, 0, 0, "^double[]", 1
-"KFAS", "approxSSM", -1, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:double[], `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character[], `tol`:double, `call`:language, `terms`:language, `thetahat`:^double[], `iterations`:integer, `difference`:double>", 1
-"KFAS", "approxSSM", 0, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:character, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character[], `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "approxSSM", 1, 0, 0, "null", 1
+"KFAS", "approxSSM", -1, 0, 0, "class<`SSModel`, `approxSSM`>", 1
+"KFAS", "approxSSM", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "approxSSM", 1, 0, 0, "any", 1
 "KFAS", "approxSSM", 2, 0, 0, "double", 1
 "KFAS", "approxSSM", 3, 0, 0, "double", 1
 "KFAS", "artransform", -1, 0, 0, "double[]", 1
 "KFAS", "artransform", 0, 0, 0, "double[]", 1
-"KFAS", "checkfn", -1, 0, 0, "logical", 1
-"KFAS", "checkfn", 0, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:double[], `T`:double, `R`:double, `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character[], `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "checkfn", 0, 0, 1, "struct<`y`:^double[], `Z`:double[], `H`:double, `T`:double[], `R`:double[], `Q`:double[], `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "checkfn", 0, 0, 2, "struct<`y`:^double[], `Z`:double[], `H`:character, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character[], `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "coef.KFS", -1, 0, 0, "^double[]", 1
-"KFAS", "coef.KFS", 0, 0, 0, "struct<`model`:struct<`y`:^double[], `Z`:double[], `H`:double, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>, `all_gaussian`:logical, `dims`:struct<`p`:integer, `m`:integer, `n`:integer>, `KFS_transform`:character, `d`:integer, `j`:integer, `logLik`:double, `alphahat`:^double[], `V`:double[], `call`:language>", 1
-"KFAS", "coef.KFS", 0, 0, 1, "struct<`model`:struct<`y`:^double[], `Z`:double[], `H`:double[], `T`:double, `R`:double, `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character[], `tol`:double, `call`:language, `terms`:language>, `all_gaussian`:logical, `dims`:struct<`p`:integer, `m`:integer, `n`:integer>, `KFS_transform`:character, `d`:integer, `j`:integer, `logLik`:double, `a`:^double[], `P`:double[], `Pinf`:double, `att`:^double[], `Ptt`:double[], `v`:^double[], `F`:^double[], `Finf`:^double[], `alphahat`:^double[], `V`:double[], `muhat`:^double[], `V_mu`:double[], `call`:language>", 1
-"KFAS", "coef.KFS", 0, 0, 2, "struct<`model`:struct<`y`:^double[], `Z`:double[], `H`:character, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character, `tol`:double, `call`:language, `terms`:language>, `all_gaussian`:logical, `dims`:struct<`p`:integer, `m`:integer, `n`:integer>, `KFS_transform`:character, `d`:integer, `j`:integer, `alphahat`:^double[], `V`:double[], `muhat`:^double[], `V_mu`:double[], `call`:language>", 1
-"KFAS", "coef.KFS", 1, 0, 0, "null", 1
-"KFAS", "coef.KFS", 1, 0, 1, "double[]", 1
-"KFAS", "coef.KFS", 1, 0, 2, "symbol", 1
-"KFAS", "coef.KFS", 2, 0, 0, "null", 1
-"KFAS", "coef.KFS", 2, 0, 1, "double[]", 1
+"KFAS", "coef.KFS", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`> | double[])", 1
+"KFAS", "coef.KFS", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "coef.KFS", 1, 0, 0, "any", 1
+"KFAS", "coef.KFS", 2, 0, 0, "double[]", 1
+"KFAS", "coef.KFS", 2, 0, 1, "null", 1
 "KFAS", "coef.KFS", 3, 0, 0, "logical", 1
-"KFAS", "coef.KFS", 4, 0, 0, "character", 1
+"KFAS", "coef.KFS", 4, 0, 0, "character[]", 1
 "KFAS", "coef.KFS", 5, 0, 0, "logical", 1
-"KFAS", "coef.KFS", 6, 0, 0, "null", 1
-"KFAS", "coef.SSModel", -1, 0, 0, "^double[]", 1
-"KFAS", "coef.SSModel", 0, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:double, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "coef.SSModel", 1, 0, 0, "null", 1
-"KFAS", "coef.SSModel", 1, 0, 1, "double[]", 1
-"KFAS", "coef.SSModel", 2, 0, 0, "null", 1
-"KFAS", "coef.SSModel", 2, 0, 1, "double[]", 1
+"KFAS", "coef.KFS", 6, 0, 0, "...", 1
+"KFAS", "coef.SSModel", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | double[])", 1
+"KFAS", "coef.SSModel", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "coef.SSModel", 1, 0, 0, "double[]", 1
+"KFAS", "coef.SSModel", 1, 0, 1, "null", 1
+"KFAS", "coef.SSModel", 2, 0, 0, "double[]", 1
+"KFAS", "coef.SSModel", 2, 0, 1, "null", 1
 "KFAS", "coef.SSModel", 3, 0, 0, "logical", 1
 "KFAS", "coef.SSModel", 4, 0, 0, "character", 1
 "KFAS", "coef.SSModel", 5, 0, 0, "logical", 1
 "KFAS", "coef.SSModel", 6, 0, 0, "double", 1
-"KFAS", "coef.SSModel", 7, 0, 0, "null", 1
-"KFAS", "filter", -1, 0, 0, "logical[]", 1
-"KFAS", "filter", 0, 0, 0, "character[]", 1
-"KFAS", "fitSSM", -1, 0, 0, "struct<`optim.out`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:character>, `model`:struct<`y`:^double[], `Z`:double[], `H`:character, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character[], `tol`:double, `call`:language, `terms`:language>>", 1
-"KFAS", "fitSSM", 0, 0, 0, "struct<`y`:^double[], `Z`:double[], `H`:character, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character[], `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "fitSSM", 0, 0, 1, "struct<`y`:^double[], `Z`:double[], `H`:double, `T`:double[], `R`:double[], `Q`:double, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "fitSSM", 0, 0, 2, "struct<`y`:^double[], `Z`:double[], `H`:^double[], `T`:double, `R`:double, `Q`:null, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character[], `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "fitSSM", 0, 0, 3, "struct<`y`:^double[], `Z`:double[], `H`:null, `T`:double[], `R`:double[], `Q`:^double[], `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "fitSSM", 0, 0, 4, "struct<`y`:^double[], `Z`:double[], `H`:null, `T`:double[], `R`:double[], `Q`:null, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:character, `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
-"KFAS", "fitSSM", 0, 0, 5, "struct<`y`:^double[], `Z`:double[], `H`:character, `T`:double[], `R`:double[], `Q`:null, `a1`:^double[], `P1`:^double[], `P1inf`:^double[], `u`:^double[], `distribution`:character, `tol`:double, `call`:language, `terms`:language>", 1
+"KFAS", "coef.SSModel", 7, 0, 0, "...", 1
+"KFAS", "fitSSM", -1, 0, 0, "list<any>", 1
+"KFAS", "fitSSM", 0, 0, 0, "class<`SSModel`>", 1
 "KFAS", "fitSSM", 1, 0, 0, "double[]", 1
-"KFAS", "fitSSM", 2, 0, 0, "any => any", 1
-"KFAS", "fitSSM", 2, 0, 1, "null", 1
-"KFAS", "fitSSM", 3, 0, 0, "null", 1
-"KFAS", "fitSSM", 3, 0, 1, "any => any", 1
+"KFAS", "fitSSM", 2, 0, 0, "any", 1
+"KFAS", "fitSSM", 3, 0, 0, "any", 1
 "KFAS", "fitSSM", 4, 0, 0, "null", 1
-"KFAS", "fitSSM", 5, 0, 0, "character", 1
-"KFAS", "fitSSM", 5, 0, 1, "null", 1
+"KFAS", "fitSSM", 5, 0, 0, "...", 1
+"KFAS", "fitted.KFS", -1, 0, 0, "(class<`ts`> | double[])", 1
+"KFAS", "fitted.KFS", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "fitted.KFS", 1, 0, 0, "null", 1
+"KFAS", "fitted.KFS", 2, 0, 0, "null", 1
+"KFAS", "fitted.KFS", 3, 0, 0, "logical", 1
+"KFAS", "fitted.KFS", 4, 0, 0, "...", 1
+"KFAS", "fitted.SSModel", -1, 0, 0, "double[]", 1
+"KFAS", "fitted.SSModel", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "fitted.SSModel", 1, 0, 0, "null", 1
+"KFAS", "fitted.SSModel", 2, 0, 0, "null", 1
+"KFAS", "fitted.SSModel", 3, 0, 0, "logical", 1
+"KFAS", "fitted.SSModel", 4, 0, 0, "double", 1
+"KFAS", "fitted.SSModel", 5, 0, 0, "...", 1
+"KFAS", "hatvalues.KFS", -1, 0, 0, "class<`ts`>", 1
+"KFAS", "hatvalues.KFS", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "hatvalues.KFS", 1, 0, 0, "...", 1
+"KFAS", "importanceSSM", -1, 0, 0, "list<class<`array`> | double[]>", 1
+"KFAS", "importanceSSM", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "importanceSSM", 1, 0, 0, "character[]", 1
+"KFAS", "importanceSSM", 2, 0, 0, "logical", 1
+"KFAS", "importanceSSM", 3, 0, 0, "double", 1
+"KFAS", "importanceSSM", 4, 0, 0, "logical", 1
+"KFAS", "importanceSSM", 5, 0, 0, "any", 1
+"KFAS", "importanceSSM", 6, 0, 0, "logical", 1
+"KFAS", "importanceSSM", 7, 0, 0, "double", 1
+"KFAS", "initTheta", -1, 0, 0, "class<`matrix`>", 1
+"KFAS", "initTheta", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "initTheta", 0, 0, 1, "class<`ts`>", 1
+"KFAS", "initTheta", 1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "initTheta", 1, 0, 1, "class<`matrix`>", 1
+"KFAS", "initTheta", 1, 0, 2, "class<`ts`>", 1
+"KFAS", "initTheta", 2, 0, 0, "character[]", 1
+"KFAS", "interval", -1, 0, 0, "list<class<`matrix`>>", 1
+"KFAS", "interval", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "interval", 1, 0, 0, "character", 1
+"KFAS", "interval", 2, 0, 0, "double", 1
+"KFAS", "interval", 3, 0, 0, "character", 1
+"KFAS", "interval", 4, 0, 0, "integer[]", 1
+"KFAS", "interval", 5, 0, 0, "double", 1
+"KFAS", "interval", 6, 0, 0, "logical", 1
+"KFAS", "interval", 7, 0, 0, "integer[]", 1
+"KFAS", "interval", 8, 0, 0, "any", 1
+"KFAS", "interval", 9, 0, 0, "double", 1
+"KFAS", "interval", 10, 0, 0, "logical", 1
+"KFAS", "is.SSModel", -1, 0, 0, "(logical | null)", 1
+"KFAS", "is.SSModel", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "is.SSModel", 0, 0, 1, "class<`SSModel`, `approxSSM`>", 1
+"KFAS", "is.SSModel", 1, 0, 0, "logical", 1
+"KFAS", "is.SSModel", 2, 0, 0, "logical", 1
+"KFAS", "KFS", -1, 0, 0, "class<`KFS`>", 1
+"KFAS", "KFS", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "KFS", 0, 0, 1, "class<`SSModel`, `approxSSM`>", 1
+"KFAS", "KFS", 1, 0, 0, "any", 1
+"KFAS", "KFS", 2, 0, 0, "any", 1
+"KFAS", "KFS", 3, 0, 0, "logical", 1
+"KFAS", "KFS", 4, 0, 0, "any", 1
+"KFAS", "KFS", 5, 0, 0, "any", 1
+"KFAS", "KFS", 6, 0, 0, "any", 1
+"KFAS", "KFS", 7, 0, 0, "double", 1
+"KFAS", "KFS", 8, 0, 0, "double", 1
+"KFAS", "KFS", 9, 0, 0, "logical", 1
+"KFAS", "ldl", -1, 0, 0, "class<`matrix`>", 1
+"KFAS", "ldl", 0, 0, 0, "class<`matrix`>", 1
+"KFAS", "ldl", 1, 0, 0, "any", 1
+"KFAS", "logLik.SSModel", -1, 0, 0, "double", 1
+"KFAS", "logLik.SSModel", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "logLik.SSModel", 1, 0, 0, "logical", 1
+"KFAS", "logLik.SSModel", 2, 0, 0, "double", 1
+"KFAS", "logLik.SSModel", 3, 0, 0, "logical", 1
+"KFAS", "logLik.SSModel", 4, 0, 0, "any", 1
+"KFAS", "logLik.SSModel", 5, 0, 0, "logical", 1
+"KFAS", "logLik.SSModel", 6, 0, 0, "any", 1
+"KFAS", "logLik.SSModel", 7, 0, 0, "double", 1
+"KFAS", "logLik.SSModel", 8, 0, 0, "any", 1
+"KFAS", "logLik.SSModel", 9, 0, 0, "double", 1
+"KFAS", "logLik.SSModel", 10, 0, 0, "...", 1
+"KFAS", "pearson_standardized", -1, 0, 0, "class<`ts`>", 1
+"KFAS", "pearson_standardized", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "pearson_standardized", 1, 0, 0, "character", 1
+"KFAS", "pearson_standardized", 2, 0, 0, "double", 1
+"KFAS", "predict.SSModel", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | list<class<`matrix`, `mts`, `ts`>>)", 1
+"KFAS", "predict.SSModel", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "predict.SSModel", 1, 0, 0, "any", 1
+"KFAS", "predict.SSModel", 2, 0, 0, "any", 1
+"KFAS", "predict.SSModel", 3, 0, 0, "character", 1
+"KFAS", "predict.SSModel", 4, 0, 0, "double", 1
+"KFAS", "predict.SSModel", 5, 0, 0, "character[]", 1
+"KFAS", "predict.SSModel", 6, 0, 0, "null", 1
+"KFAS", "predict.SSModel", 7, 0, 0, "logical", 1
+"KFAS", "predict.SSModel", 8, 0, 0, "double", 1
+"KFAS", "predict.SSModel", 9, 0, 0, "logical", 1
+"KFAS", "predict.SSModel", 10, 0, 0, "double", 1
+"KFAS", "predict.SSModel", 11, 0, 0, "logical", 1
+"KFAS", "predict.SSModel", 12, 0, 0, "...", 1
+"KFAS", "recursive_standardized", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"KFAS", "recursive_standardized", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "recursive_standardized", 1, 0, 0, "character", 1
+"KFAS", "recursive_standardized", 2, 0, 0, "double", 1
+"KFAS", "rename_states", -1, 0, 0, "class<`SSModel`>", 1
+"KFAS", "rename_states", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "rename_states", 1, 0, 0, "character", 1
+"KFAS", "rstandard.KFS", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"KFAS", "rstandard.KFS", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "rstandard.KFS", 1, 0, 0, "character[]", 1
+"KFAS", "rstandard.KFS", 2, 0, 0, "character[]", 1
+"KFAS", "rstandard.KFS", 3, 0, 0, "double", 1
+"KFAS", "rstandard.KFS", 4, 0, 0, "...", 1
+"KFAS", "signal", -1, 0, 0, "list<class<`matrix`, `mts`, `ts`> | class<`array`> | class<`ts`> | class<`array`>>", 1
+"KFAS", "signal", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "signal", 1, 0, 0, "character[]", 1
+"KFAS", "signal", 2, 0, 0, "logical", 1
+"KFAS", "simHelper", -1, 0, 0, "list<class<`array`> | class<`matrix`> | double[]>", 1
+"KFAS", "simHelper", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "simHelper", 1, 0, 0, "double", 1
+"KFAS", "simHelper", 2, 0, 0, "logical", 1
+"KFAS", "simulateSSM", -1, 0, 0, "class<`array`>", 1
+"KFAS", "simulateSSM", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "simulateSSM", 1, 0, 0, "character[]", 1
+"KFAS", "simulateSSM", 2, 0, 0, "logical", 1
+"KFAS", "simulateSSM", 3, 0, 0, "double", 1
+"KFAS", "simulateSSM", 4, 0, 0, "logical", 1
+"KFAS", "simulateSSM", 5, 0, 0, "logical", 1
+"KFAS", "SSMarima", -1, 0, 0, "any", 1
+"KFAS", "SSMarima", 0, 0, 0, "double[]", 1
+"KFAS", "SSMarima", 0, 0, 1, "null", 1
+"KFAS", "SSMarima", 1, 0, 0, "any", 1
+"KFAS", "SSMarima", 2, 0, 0, "double", 1
+"KFAS", "SSMarima", 3, 0, 0, "any", 1
+"KFAS", "SSMarima", 4, 0, 0, "logical", 1
+"KFAS", "SSMarima", 5, 0, 0, "any", 1
+"KFAS", "SSMarima", 6, 0, 0, "double", 1
+"KFAS", "SSMarima", 7, 0, 0, "null", 1
+"KFAS", "SSMarima", 8, 0, 0, "any", 1
+"KFAS", "SSMcustom", -1, 0, 0, "list<any>", 1
+"KFAS", "SSMcustom", 0, 0, 0, "double", 1
+"KFAS", "SSMcustom", 0, 0, 1, "class<`matrix`>", 1
+"KFAS", "SSMcustom", 0, 0, 2, "class<`array`>", 1
+"KFAS", "SSMcustom", 1, 0, 0, "double", 1
+"KFAS", "SSMcustom", 1, 0, 1, "class<`matrix`>", 1
+"KFAS", "SSMcustom", 1, 0, 2, "class<`array`>", 1
+"KFAS", "SSMcustom", 2, 0, 0, "any", 1
+"KFAS", "SSMcustom", 3, 0, 0, "double", 1
+"KFAS", "SSMcustom", 3, 0, 1, "null", 1
+"KFAS", "SSMcustom", 3, 0, 2, "class<`matrix`>", 1
+"KFAS", "SSMcustom", 3, 0, 3, "class<`array`>", 1
+"KFAS", "SSMcustom", 4, 0, 0, "any", 1
+"KFAS", "SSMcustom", 5, 0, 0, "any", 1
+"KFAS", "SSMcustom", 6, 0, 0, "any", 1
+"KFAS", "SSMcustom", 7, 0, 0, "integer[]", 1
+"KFAS", "SSMcustom", 8, 0, 0, "integer", 1
+"KFAS", "SSMcustom", 9, 0, 0, "character", 1
+"KFAS", "SSMcustom", 9, 0, 1, "null", 1
+"KFAS", "SSModel", -1, 0, 0, "class<`SSModel`>", 1
+"KFAS", "SSModel", 0, 0, 0, "class<`formula`>", 1
+"KFAS", "SSModel", 1, 0, 0, "any", 1
+"KFAS", "SSModel", 2, 0, 0, "any", 1
+"KFAS", "SSModel", 3, 0, 0, "any", 1
+"KFAS", "SSModel", 4, 0, 0, "any", 1
+"KFAS", "SSModel", 5, 0, 0, "double", 1
+"KFAS", "[<-.SSModel", -1, 0, 0, "class<`SSModel`>", 1
+"KFAS", "[<-.SSModel", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "[<-.SSModel", 1, 0, 0, "character", 1
+"KFAS", "[<-.SSModel", 2, 0, 0, "any", 1
+"KFAS", "[<-.SSModel", 3, 0, 0, "any", 1
+"KFAS", "[<-.SSModel", 4, 0, 0, "any", 1
+"KFAS", "[<-.SSModel", 5, 0, 0, "any", 1
+"KFAS", "[<-.SSModel", 6, 0, 0, "...", 1
+"KFAS", "[<-.SSModel", 7, 0, 0, "class<`matrix`>", 1
+"KFAS", "[<-.SSModel", 7, 0, 1, "double[]", 1
+"KFAS", "[.SSModel", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[] | list<class<`ts`> | class<`array`> | class<`matrix`>>)", 1
+"KFAS", "[.SSModel", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "[.SSModel", 1, 0, 0, "character[]", 1
+"KFAS", "[.SSModel", 2, 0, 0, "any", 1
+"KFAS", "[.SSModel", 3, 0, 0, "any", 1
+"KFAS", "[.SSModel", 4, 0, 0, "any", 1
+"KFAS", "[.SSModel", 5, 0, 0, "any", 1
+"KFAS", "[.SSModel", 6, 0, 0, "logical", 1
+"KFAS", "[.SSModel", 7, 0, 0, "...", 1
+"KFAS", "SSMregression", -1, 0, 0, "list<any>", 1
+"KFAS", "SSMregression", 0, 0, 0, "class<`formula`>", 1
+"KFAS", "SSMregression", 0, 0, 1, "list<class<`formula`>>", 1
+"KFAS", "SSMregression", 1, 0, 0, "any", 1
+"KFAS", "SSMregression", 2, 0, 0, "any", 1
+"KFAS", "SSMregression", 3, 0, 0, "any", 1
+"KFAS", "SSMregression", 4, 0, 0, "integer[]", 1
+"KFAS", "SSMregression", 5, 0, 0, "any", 1
+"KFAS", "SSMregression", 6, 0, 0, "any", 1
+"KFAS", "SSMregression", 7, 0, 0, "any", 1
+"KFAS", "SSMregression", 8, 0, 0, "any", 1
+"KFAS", "SSMregression", 9, 0, 0, "integer", 1
+"KFAS", "SSMregression", 10, 0, 0, "logical", 1
+"KFAS", "SSMregression", 11, 0, 0, "null", 1
+"KFAS", "SSMregression", 12, 0, 0, "any", 1
+"KFAS", "SSMseasonal", -1, 0, 0, "list<any>", 1
+"KFAS", "SSMseasonal", 0, 0, 0, "double", 1
+"KFAS", "SSMseasonal", 1, 0, 0, "any", 1
+"KFAS", "SSMseasonal", 2, 0, 0, "character", 1
+"KFAS", "SSMseasonal", 3, 0, 0, "any", 1
+"KFAS", "SSMseasonal", 4, 0, 0, "integer", 1
+"KFAS", "SSMseasonal", 5, 0, 0, "any", 1
+"KFAS", "SSMseasonal", 6, 0, 0, "any", 1
+"KFAS", "SSMseasonal", 7, 0, 0, "any", 1
+"KFAS", "SSMseasonal", 8, 0, 0, "integer", 1
+"KFAS", "SSMseasonal", 9, 0, 0, "null", 1
+"KFAS", "SSMseasonal", 10, 0, 0, "any", 1
+"KFAS", "SSMseasonal", 11, 0, 0, "any", 1
+"KFAS", "SSMtrend", -1, 0, 0, "list<any>", 1
+"KFAS", "SSMtrend", 0, 0, 0, "double", 1
+"KFAS", "SSMtrend", 1, 0, 0, "double", 1
+"KFAS", "SSMtrend", 1, 0, 1, "null", 1
+"KFAS", "SSMtrend", 1, 0, 2, "list<any>", 1
+"KFAS", "SSMtrend", 2, 0, 0, "any", 1
+"KFAS", "SSMtrend", 3, 0, 0, "integer[]", 1
+"KFAS", "SSMtrend", 4, 0, 0, "any", 1
+"KFAS", "SSMtrend", 5, 0, 0, "any", 1
+"KFAS", "SSMtrend", 6, 0, 0, "any", 1
+"KFAS", "SSMtrend", 7, 0, 0, "integer", 1
+"KFAS", "SSMtrend", 8, 0, 0, "null", 1
+"KFAS", "SSMtrend", 9, 0, 0, "any", 1
+"KFAS", "state_standardized", -1, 0, 0, "class<`ts`>", 1
+"KFAS", "state_standardized", 0, 0, 0, "class<`KFS`>", 1
+"KFAS", "state_standardized", 1, 0, 0, "character", 1
+"KFAS", "state_standardized", 2, 0, 0, "double", 1
+"KFAS", "transformSSM", -1, 0, 0, "class<`SSModel`>", 1
+"KFAS", "transformSSM", 0, 0, 0, "class<`SSModel`>", 1
+"KFAS", "transformSSM", 1, 0, 0, "character", 1
+"KFAS", "varianceFilter", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "varianceFilter", 0, 0, 0, "class<`KFS`>", 1

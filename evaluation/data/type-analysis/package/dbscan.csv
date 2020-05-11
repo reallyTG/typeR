@@ -1,53 +1,85 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dbscan", "::", -1, 0, 0, "struct<`dist`:^double[], `id`:^integer[], `k`:integer, `sort`:logical>", 1
-"dbscan", "::", 0, 0, 0, "^double[]", 1
-"dbscan", "::", 1, 0, 0, "double", 1
-"dbscan", "::", 2, 0, 0, "logical", 1
-"dbscan", "::", 3, 0, 0, "character", 1
-"dbscan", "::", 3, 0, 1, "integer", 1
-"dbscan", "::", 4, 0, 0, "double", 1
-"dbscan", "::", 5, 0, 0, "character", 1
-"dbscan", "::", 5, 0, 1, "integer[]", 1
-"dbscan", "::", 6, 0, 0, "double", 1
-"dbscan", ".predict_frNN", -1, 0, 0, "integer[]", 1
-"dbscan", ".predict_frNN", 0, 0, 0, "^double[]", 1
-"dbscan", ".predict_frNN", 1, 0, 0, "^double[]", 1
-"dbscan", ".predict_frNN", 2, 0, 0, "integer[]", 1
-"dbscan", ".predict_frNN", 3, 0, 0, "double", 1
-"dbscan", ".predict_frNN", 4, 0, 0, "null", 1
+"dbscan", "::", -1, 0, 0, "any", 1
+"dbscan", "::", 0, 0, 0, "class<`dist`>", 1
+"dbscan", "::", 0, 0, 1, "class<`matrix`>", 1
+"dbscan", "::", 0, 0, 2, "class<`data.frame`>", 1
+"dbscan", "::", 0, 0, 3, "class<`NN`, `frNN`>", 1
+"dbscan", "::", 1, 0, 0, "any", 1
+"dbscan", "::", 2, 0, 0, "double", 1
+"dbscan", "::", 3, 0, 0, "null", 1
+"dbscan", "::", 4, 0, 0, "logical", 1
+"dbscan", "::", 5, 0, 0, "...", 1
+"dbscan", "::", -1, 1, 0, "any", 1
+"dbscan", "::", 0, 1, 0, "class<`matrix`>", 1
+"dbscan", "::", 0, 1, 1, "class<`data.frame`>", 1
+"dbscan", "::", 0, 1, 2, "class<`data.frame`, `data.table`>", 1
+"dbscan", "::", 0, 1, 3, "class<`dist`>", 1
+"dbscan", "::", 0, 1, 4, "class<`NN`, `kNN`>", 1
+"dbscan", "::", 1, 1, 0, "double", 1
+"dbscan", "::", 2, 1, 0, "null", 1
+"dbscan", "::", 2, 1, 1, "class<`data.frame`>", 1
+"dbscan", "::", 3, 1, 0, "logical", 1
+"dbscan", "::", 4, 1, 0, "character", 1
+"dbscan", "::", 5, 1, 0, "any", 1
+"dbscan", "::", 6, 1, 0, "any", 1
+"dbscan", "::", 7, 1, 0, "any", 1
+"dbscan", "adjacencylist", -1, 0, 0, "list<integer[]>", 1
+"dbscan", "adjacencylist", 0, 0, 0, "class<`NN`, `frNN`>", 1
+"dbscan", "adjacencylist", 0, 0, 1, "class<`NN`, `kNN`>", 1
+"dbscan", "adjacencylist", 0, 0, 2, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "adjacencylist", 1, 0, 0, "...", 1
 "dbscan", "adjacencylist.frNN", -1, 0, 0, "list<integer[]>", 1
-"dbscan", "adjacencylist.frNN", 0, 0, 0, "struct<`dist`:list<double[]>, `id`:list<integer[]>, `eps`:double, `sort`:logical>", 1
-"dbscan", "adjacencylist.frNN", 1, 0, 0, "null", 1
+"dbscan", "adjacencylist.frNN", 0, 0, 0, "class<`NN`, `frNN`>", 1
+"dbscan", "adjacencylist.frNN", 1, 0, 0, "...", 1
 "dbscan", "adjacencylist.kNN", -1, 0, 0, "list<integer[]>", 1
-"dbscan", "adjacencylist.kNN", 0, 0, 0, "struct<`dist`:^double[], `id`:^integer[], `k`:integer, `sort`:logical>", 1
-"dbscan", "adjacencylist.kNN", 1, 0, 0, "null", 1
+"dbscan", "adjacencylist.kNN", 0, 0, 0, "class<`NN`, `kNN`>", 1
+"dbscan", "adjacencylist.kNN", 0, 0, 1, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "adjacencylist.kNN", 1, 0, 0, "...", 1
 "dbscan", "all_children", -1, 0, 0, "integer[]", 1
-"dbscan", "all_children", 0, 0, 0, "struct<`0`:integer[], `2`:integer[], `4`:integer[], `5`:integer[], `6`:integer[]>", 1
+"dbscan", "all_children", 0, 0, 0, "list<integer[]>", 1
 "dbscan", "all_children", 1, 0, 0, "double", 1
 "dbscan", "all_children", 2, 0, 0, "logical", 1
-"dbscan", "computeStability", -1, 0, 0, "struct<`10`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `7`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `6`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `8`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `5`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `0`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `9`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `4`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `1`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `2`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `3`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>>", 1
-"dbscan", "computeStability", 0, 0, 0, "struct<`merge`:^integer[], `height`:double[], `order`:integer[], `labels`:null, `method`:character, `dist.method`:character>", 1
+"dbscan", "as.dendrogram.optics", -1, 0, 0, "any", 1
+"dbscan", "as.dendrogram.optics", 0, 0, 0, "class<`optics`>", 1
+"dbscan", "as.dendrogram.optics", 1, 0, 0, "...", 1
+"dbscan", "as.dendrogram.reachability", -1, 0, 0, "class<`dendrogram`>", 1
+"dbscan", "as.dendrogram.reachability", 0, 0, 0, "class<`reachability`>", 1
+"dbscan", "as.dendrogram.reachability", 1, 0, 0, "...", 1
+"dbscan", "as.reachability", -1, 0, 0, "class<`reachability`>", 1
+"dbscan", "as.reachability", 0, 0, 0, "class<`dendrogram`>", 1
+"dbscan", "as.reachability", 0, 0, 1, "class<`optics`>", 1
+"dbscan", "as.reachability", 1, 0, 0, "...", 1
+"dbscan", "as.reachability.dendrogram", -1, 0, 0, "class<`reachability`>", 1
+"dbscan", "as.reachability.dendrogram", 0, 0, 0, "class<`dendrogram`>", 1
+"dbscan", "as.reachability.dendrogram", 1, 0, 0, "...", 1
+"dbscan", "as.reachability.optics", -1, 0, 0, "class<`reachability`>", 1
+"dbscan", "as.reachability.optics", 0, 0, 0, "class<`optics`>", 1
+"dbscan", "as.reachability.optics", 1, 0, 0, "...", 1
+"dbscan", "buildDendrogram", -1, 0, 0, "class<`dendrogram`>", 1
+"dbscan", "buildDendrogram", 0, 0, 0, "class<`hclust`>", 1
+"dbscan", "computeStability", -1, 0, 0, "list<list<double[]>>", 1
+"dbscan", "computeStability", 0, 0, 0, "class<`hclust`>", 1
 "dbscan", "computeStability", 1, 0, 0, "double", 1
 "dbscan", "computeStability", 2, 0, 0, "logical", 1
-"dbscan", "dbscan", -1, 0, 0, "struct<`cluster`:integer[], `eps`:double, `minPts`:double>", 1
-"dbscan", "dbscan", 0, 0, 0, "^double[]", 1
-"dbscan", "dbscan", 0, 0, 1, "struct<`dist`:list<double[]>, `id`:list<integer[]>, `eps`:double, `sort`:logical>", 1
-"dbscan", "dbscan", 0, 0, 2, "struct<`ids`:tuple<double[], double[], double[], double[], double[]>, `eps`:double>", 1
-"dbscan", "dbscan", 1, 0, 0, "double", 1
-"dbscan", "dbscan", 1, 0, 1, "null", 1
+"dbscan", "dbscan", -1, 0, 0, "any", 1
+"dbscan", "dbscan", 0, 0, 0, "class<`dist`>", 1
+"dbscan", "dbscan", 0, 0, 1, "class<`matrix`>", 1
+"dbscan", "dbscan", 0, 0, 2, "class<`data.frame`>", 1
+"dbscan", "dbscan", 0, 0, 3, "class<`NN`, `frNN`>", 1
+"dbscan", "dbscan", 1, 0, 0, "any", 1
 "dbscan", "dbscan", 2, 0, 0, "double", 1
 "dbscan", "dbscan", 3, 0, 0, "null", 1
 "dbscan", "dbscan", 4, 0, 0, "logical", 1
-"dbscan", "dbscan", 5, 0, 0, "null", 1
+"dbscan", "dbscan", 5, 0, 0, "...", 1
 "dbscan", "dbscan_density_int", -1, 0, 0, "integer[]", 1
-"dbscan", "dbscan_density_int", 0, 0, 0, "^double[]", 1
+"dbscan", "dbscan_density_int", 0, 0, 0, "class<`matrix`>", 1
 "dbscan", "dbscan_density_int", 1, 0, 0, "double", 1
 "dbscan", "dbscan_density_int", 2, 0, 0, "integer", 1
 "dbscan", "dbscan_density_int", 3, 0, 0, "integer", 1
 "dbscan", "dbscan_density_int", 4, 0, 0, "integer", 1
 "dbscan", "dbscan_density_int", 5, 0, 0, "double", 1
 "dbscan", "dbscan_int", -1, 0, 0, "integer[]", 1
-"dbscan", "dbscan_int", 0, 0, 0, "^double[]", 1
+"dbscan", "dbscan_int", 0, 0, 0, "class<`matrix`>", 1
 "dbscan", "dbscan_int", 1, 0, 0, "double", 1
 "dbscan", "dbscan_int", 2, 0, 0, "integer", 1
 "dbscan", "dbscan_int", 3, 0, 0, "double[]", 1
@@ -56,21 +88,298 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbscan", "dbscan_int", 6, 0, 0, "integer", 1
 "dbscan", "dbscan_int", 7, 0, 0, "integer", 1
 "dbscan", "dbscan_int", 8, 0, 0, "double", 1
-"dbscan", "dbscan_int", 9, 0, 0, "tuple<>", 1
-"dbscan", "dbscan_int", 9, 0, 1, "tuple<double[], double[], double[], double[], double[]>", 1
-"dbscan", "dbscan_int", 9, 0, 2, "list<integer[]>", 1
-"dbscan", "distToAdjacency", -1, 0, 0, "struct<`100`:integer[], `99`:integer[], `98`:integer[], `97`:integer[], `96`:integer[], `95`:integer[], `94`:integer[], `93`:integer[], `92`:integer[], `91`:integer[], `90`:integer[], `89`:integer[], `88`:integer[], `87`:integer[], `86`:integer[], `85`:integer[], `84`:integer[], `83`:integer[], `82`:integer[], `81`:integer[], `80`:integer[], `79`:integer[], `36`:integer[], `35`:integer[], `34`:integer[], `33`:integer[], `32`:integer[], `31`:integer[], `30`:integer[], `29`:integer[], `28`:integer[], `27`:integer[], `26`:integer[], `25`:integer[], `24`:integer[], `23`:integer[], `22`:integer[], `21`:integer[], `20`:integer[], `19`:integer[], `18`:integer[], `17`:integer[], `6`:integer[], `5`:integer[], `4`:integer[], `3`:integer[], `1`:integer[], `2`:integer[], `7`:integer[], `8`:integer[], `9`:integer[], `10`:integer[], `11`:integer[], `12`:integer[], `13`:integer[], `14`:integer[], `15`:integer[], `16`:integer[], `37`:integer[], `38`:integer[], `39`:integer[], `40`:integer[], `41`:integer[], `42`:integer[], `43`:integer[], `44`:integer[], `45`:integer[], `46`:integer[], `47`:integer[], `48`:integer[], `49`:integer[], `50`:integer[], `51`:integer[], `52`:integer[], `53`:integer[], `54`:integer[], `55`:integer[], `56`:integer[], `57`:integer[], `58`:integer[], `59`:integer[], `60`:integer[], `61`:integer[], `62`:integer[], `63`:integer[], `64`:integer[], `65`:integer[], `66`:integer[], `67`:integer[], `68`:integer[], `69`:integer[], `70`:integer[], `71`:integer[], `72`:integer[], `73`:integer[], `74`:integer[], `75`:integer[], `76`:integer[], `77`:integer[], `78`:integer[]>", 1
-"dbscan", "distToAdjacency", 0, 0, 0, "integer[]", 1
+"dbscan", "dbscan_int", 9, 0, 0, "list<any>", 1
+"dbscan", "dendrogram_to_reach", -1, 0, 0, "class<`reachability`>", 1
+"dbscan", "dendrogram_to_reach", 0, 0, 0, "class<`dendrogram`>", 1
+"dbscan", "distToAdjacency", -1, 0, 0, "list<integer[]>", 1
+"dbscan", "distToAdjacency", 0, 0, 0, "double[]", 1
 "dbscan", "distToAdjacency", 1, 0, 0, "integer", 1
-"dbscan", "extractDBSCAN", -1, 0, 0, "struct<`order`:integer[], `reachdist`:double[], `coredist`:double[], `predecessor`:^integer[], `minPts`:double, `eps`:double, `eps_cl`:double, `xi`:null, `cluster`:integer[]>", 1
-"dbscan", "extractDBSCAN", 0, 0, 0, "struct<`order`:integer[], `reachdist`:double[], `coredist`:double[], `predecessor`:^integer[], `minPts`:double, `eps`:double, `eps_cl`:null, `xi`:null>", 1
+"dbscan", "extractClusterLabels", -1, 0, 0, "double[]", 1
+"dbscan", "extractClusterLabels", 0, 0, 0, "class<`data.frame`>", 1
+"dbscan", "extractClusterLabels", 1, 0, 0, "integer[]", 1
+"dbscan", "extractClusterLabels", 2, 0, 0, "logical", 1
+"dbscan", "extractDBSCAN", -1, 0, 0, "class<`optics`>", 1
+"dbscan", "extractDBSCAN", 0, 0, 0, "class<`optics`>", 1
 "dbscan", "extractDBSCAN", 1, 0, 0, "double", 1
-"dbscan", "extractSemiSupervised", -1, 0, 0, "struct<`10`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `7`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `6`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `8`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `5`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `0`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `9`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `4`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `1`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `2`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `3`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>>", 1
-"dbscan", "extractSemiSupervised", 0, 0, 0, "struct<`10`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `7`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `6`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `8`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `5`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `0`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `9`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `4`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `1`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>, `2`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double, `score`:double>, `3`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `vscore`:double>>", 1
-"dbscan", "extractSemiSupervised", 1, 0, 0, "struct<`12`:double[]>", 1
+"dbscan", "extractFOSC", -1, 0, 0, "any", 1
+"dbscan", "extractFOSC", 0, 0, 0, "class<`data.frame`>", 1
+"dbscan", "extractFOSC", 0, 0, 1, "class<`hclust`>", 1
+"dbscan", "extractFOSC", 1, 0, 0, "null", 1
+"dbscan", "extractFOSC", 1, 0, 1, "class<`matrix`>", 1
+"dbscan", "extractFOSC", 1, 0, 2, "double[]", 1
+"dbscan", "extractFOSC", 1, 0, 3, "list<double[]>", 1
+"dbscan", "extractFOSC", 2, 0, 0, "double", 1
+"dbscan", "extractFOSC", 3, 0, 0, "double", 1
+"dbscan", "extractFOSC", 4, 0, 0, "logical", 1
+"dbscan", "extractFOSC", 5, 0, 0, "logical", 1
+"dbscan", "extractSemiSupervised", -1, 0, 0, "list<list<double[]>>", 1
+"dbscan", "extractSemiSupervised", 0, 0, 0, "list<list<double[]>>", 1
+"dbscan", "extractSemiSupervised", 1, 0, 0, "list<double[]>", 1
 "dbscan", "extractSemiSupervised", 2, 0, 0, "double", 1
 "dbscan", "extractSemiSupervised", 3, 0, 0, "logical", 1
-"dbscan", "extractUnsupervised", -1, 0, 0, "struct<`10`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `7`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `6`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `8`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `5`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `0`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `9`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `4`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `1`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `2`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `3`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>>", 1
-"dbscan", "extractUnsupervised", 0, 0, 0, "struct<`10`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `7`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `6`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `8`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `5`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `0`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `9`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `4`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `1`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `2`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `3`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>>", 1
-"dbscan", "extractUnsupervised", 0, 0, 1, "struct<`20`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `18`:struct<`contains`:integer, `eps`:double, `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `17`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `16`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `3`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `13`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `21`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `4`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `9`:struct<`contains`:integer, `eps`:double, `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `11`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `0`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `22`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `5`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `8`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `6`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `1`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `12`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `7`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `10`:struct<`contains`:integer, `eps`:double, `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `2`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>, `14`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `19`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer>, `15`:struct<`contains`:integer[], `eps`:double[], `eps_birth`:double, `eps_death`:double, `stability`:double, `n_children`:integer, `score`:double>>", 1
+"dbscan", "extractUnsupervised", -1, 0, 0, "list<list<double[]>>", 1
+"dbscan", "extractUnsupervised", 0, 0, 0, "list<list<double[]>>", 1
 "dbscan", "extractUnsupervised", 1, 0, 0, "logical", 1
+"dbscan", "extractXi", -1, 0, 0, "class<`optics`>", 1
+"dbscan", "extractXi", 0, 0, 0, "class<`optics`>", 1
+"dbscan", "extractXi", 1, 0, 0, "double", 1
+"dbscan", "extractXi", 2, 0, 0, "logical", 1
+"dbscan", "extractXi", 3, 0, 0, "logical", 1
+"dbscan", "frNN", -1, 0, 0, "any", 1
+"dbscan", "frNN", 0, 0, 0, "class<`data.frame`>", 1
+"dbscan", "frNN", 0, 0, 1, "class<`dist`>", 1
+"dbscan", "frNN", 0, 0, 2, "class<`matrix`>", 1
+"dbscan", "frNN", 0, 0, 3, "class<`NN`, `frNN`>", 1
+"dbscan", "frNN", 1, 0, 0, "double", 1
+"dbscan", "frNN", 2, 0, 0, "class<`data.frame`>", 1
+"dbscan", "frNN", 2, 0, 1, "null", 1
+"dbscan", "frNN", 3, 0, 0, "logical", 1
+"dbscan", "frNN", 4, 0, 0, "character", 1
+"dbscan", "frNN", 5, 0, 0, "double", 1
+"dbscan", "frNN", 6, 0, 0, "character", 1
+"dbscan", "frNN", 7, 0, 0, "double", 1
+"dbscan", "frNN_int", -1, 0, 0, "list<double | list<double[]>>", 1
+"dbscan", "frNN_int", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "frNN_int", 1, 0, 0, "double", 1
+"dbscan", "frNN_int", 2, 0, 0, "integer", 1
+"dbscan", "frNN_int", 3, 0, 0, "integer", 1
+"dbscan", "frNN_int", 4, 0, 0, "integer", 1
+"dbscan", "frNN_int", 5, 0, 0, "double", 1
+"dbscan", "frNN_query_int", -1, 0, 0, "list<double | list<double[]>>", 1
+"dbscan", "frNN_query_int", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "frNN_query_int", 1, 0, 0, "class<`matrix`>", 1
+"dbscan", "frNN_query_int", 2, 0, 0, "double", 1
+"dbscan", "frNN_query_int", 3, 0, 0, "integer", 1
+"dbscan", "frNN_query_int", 4, 0, 0, "integer", 1
+"dbscan", "frNN_query_int", 5, 0, 0, "integer", 1
+"dbscan", "frNN_query_int", 6, 0, 0, "double", 1
+"dbscan", "glosh", -1, 0, 0, "double[]", 1
+"dbscan", "glosh", 0, 0, 0, "class<`hclust`>", 1
+"dbscan", "glosh", 0, 0, 1, "class<`matrix`>", 1
+"dbscan", "glosh", 1, 0, 0, "double", 1
+"dbscan", "glosh", 2, 0, 0, "...", 1
+"dbscan", "hclustMergeOrder", -1, 0, 0, "class<`hclust`>", 1
+"dbscan", "hclustMergeOrder", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "hclustMergeOrder", 1, 0, 0, "integer[]", 1
+"dbscan", "hdbscan", -1, 0, 0, "class<`hdbscan`>", 1
+"dbscan", "hdbscan", 0, 0, 0, "class<`data.frame`>", 1
+"dbscan", "hdbscan", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"dbscan", "hdbscan", 0, 0, 2, "class<`matrix`>", 1
+"dbscan", "hdbscan", 1, 0, 0, "double", 1
+"dbscan", "hdbscan", 2, 0, 0, "null", 1
+"dbscan", "hdbscan", 3, 0, 0, "logical", 1
+"dbscan", "hdbscan", 4, 0, 0, "logical", 1
+"dbscan", "hullplot", -1, 0, 0, "null", 1
+"dbscan", "hullplot", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "hullplot", 1, 0, 0, "class<`dbscan`, `dbscan_fast`>", 1
+"dbscan", "hullplot", 1, 0, 1, "class<`kmeans`>", 1
+"dbscan", "hullplot", 1, 0, 2, "class<`optics`>", 1
+"dbscan", "hullplot", 1, 0, 3, "integer[]", 1
+"dbscan", "hullplot", 2, 0, 0, "null", 1
+"dbscan", "hullplot", 2, 0, 1, "character", 1
+"dbscan", "hullplot", 3, 0, 0, "double", 1
+"dbscan", "hullplot", 4, 0, 0, "double", 1
+"dbscan", "hullplot", 5, 0, 0, "double", 1
+"dbscan", "hullplot", 6, 0, 0, "logical", 1
+"dbscan", "hullplot", 7, 0, 0, "double", 1
+"dbscan", "hullplot", 8, 0, 0, "character", 1
+"dbscan", "hullplot", 9, 0, 0, "...", 1
+"dbscan", "jpclust", -1, 0, 0, "class<`general_clustering`>", 1
+"dbscan", "jpclust", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"dbscan", "jpclust", 0, 0, 1, "class<`NN`, `kNN`>", 1
+"dbscan", "jpclust", 1, 0, 0, "double", 1
+"dbscan", "jpclust", 2, 0, 0, "double", 1
+"dbscan", "jpclust", 3, 0, 0, "...", 1
+"dbscan", "JP_int", -1, 0, 0, "integer[]", 1
+"dbscan", "JP_int", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "JP_int", 1, 0, 0, "integer", 1
+"dbscan", "kNN", -1, 0, 0, "any", 1
+"dbscan", "kNN", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "kNN", 0, 0, 1, "class<`data.frame`>", 1
+"dbscan", "kNN", 0, 0, 2, "class<`data.frame`, `data.table`>", 1
+"dbscan", "kNN", 0, 0, 3, "class<`dist`>", 1
+"dbscan", "kNN", 0, 0, 4, "class<`NN`, `kNN`>", 1
+"dbscan", "kNN", 1, 0, 0, "double", 1
+"dbscan", "kNN", 2, 0, 0, "null", 1
+"dbscan", "kNN", 2, 0, 1, "class<`data.frame`>", 1
+"dbscan", "kNN", 3, 0, 0, "logical", 1
+"dbscan", "kNN", 4, 0, 0, "character", 1
+"dbscan", "kNN", 5, 0, 0, "any", 1
+"dbscan", "kNN", 6, 0, 0, "any", 1
+"dbscan", "kNN", 7, 0, 0, "any", 1
+"dbscan", "kNNdist", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"dbscan", "kNNdist", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "kNNdist", 0, 0, 1, "class<`data.frame`>", 1
+"dbscan", "kNNdist", 0, 0, 2, "class<`dist`>", 1
+"dbscan", "kNNdist", 1, 0, 0, "double", 1
+"dbscan", "kNNdist", 2, 0, 0, "logical", 1
+"dbscan", "kNNdist", 3, 0, 0, "...", 1
+"dbscan", "kNNdistplot", -1, 0, 0, "null", 1
+"dbscan", "kNNdistplot", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "kNNdistplot", 1, 0, 0, "double", 1
+"dbscan", "kNNdistplot", 2, 0, 0, "...", 1
+"dbscan", "kNN_int", -1, 0, 0, "list<class<`matrix`> | integer>", 1
+"dbscan", "kNN_int", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "kNN_int", 1, 0, 0, "integer", 1
+"dbscan", "kNN_int", 2, 0, 0, "integer", 1
+"dbscan", "kNN_int", 3, 0, 0, "integer", 1
+"dbscan", "kNN_int", 4, 0, 0, "integer", 1
+"dbscan", "kNN_int", 5, 0, 0, "double", 1
+"dbscan", "kNN_query_int", -1, 0, 0, "list<class<`matrix`> | integer>", 1
+"dbscan", "kNN_query_int", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "kNN_query_int", 1, 0, 0, "class<`matrix`>", 1
+"dbscan", "kNN_query_int", 2, 0, 0, "integer", 1
+"dbscan", "kNN_query_int", 3, 0, 0, "integer", 1
+"dbscan", "kNN_query_int", 4, 0, 0, "integer", 1
+"dbscan", "kNN_query_int", 5, 0, 0, "integer", 1
+"dbscan", "kNN_query_int", 6, 0, 0, "double", 1
+"dbscan", "lof", -1, 0, 0, "any", 1
+"dbscan", "lof", 0, 0, 0, "class<`dist`>", 1
+"dbscan", "lof", 0, 0, 1, "class<`matrix`>", 1
+"dbscan", "lof", 1, 0, 0, "double", 1
+"dbscan", "lof", 2, 0, 0, "...", 1
+"dbscan", ".matrixlike", -1, 0, 0, "logical", 1
+"dbscan", ".matrixlike", 0, 0, 0, "class<`data.frame`>", 1
+"dbscan", ".matrixlike", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"dbscan", ".matrixlike", 0, 0, 2, "class<`dist`>", 1
+"dbscan", ".matrixlike", 0, 0, 3, "class<`matrix`>", 1
+"dbscan", ".memberDend", -1, 0, 0, "integer", 1
+"dbscan", ".memberDend", 0, 0, 0, "class<`dendrogram`>", 1
+"dbscan", ".midcache.dendrogram", -1, 0, 0, "class<`dendrogram`>", 1
+"dbscan", ".midcache.dendrogram", 0, 0, 0, "class<`dendrogram`>", 1
+"dbscan", ".midcache.dendrogram", 1, 0, 0, "character", 1
+"dbscan", ".midcache.dendrogram", 2, 0, 0, "logical", 1
+"dbscan", "mrd", -1, 0, 0, "double[]", 1
+"dbscan", "mrd", 0, 0, 0, "class<`dist`>", 1
+"dbscan", "mrd", 1, 0, 0, "double[]", 1
+"dbscan", "node_xy", -1, 0, 0, "class<`matrix`>", 1
+"dbscan", "node_xy", 0, 0, 0, "list<list<double[]>>", 1
+"dbscan", "node_xy", 1, 0, 0, "list<integer[]>", 1
+"dbscan", "node_xy", 2, 0, 0, "integer", 1
+"dbscan", "optics", -1, 0, 0, "any", 1
+"dbscan", "optics", 0, 0, 0, "class<`data.frame`>", 1
+"dbscan", "optics", 0, 0, 1, "class<`dist`>", 1
+"dbscan", "optics", 0, 0, 2, "class<`matrix`>", 1
+"dbscan", "optics", 1, 0, 0, "double", 1
+"dbscan", "optics", 1, 0, 1, "null", 1
+"dbscan", "optics", 2, 0, 0, "double", 1
+"dbscan", "optics", 3, 0, 0, "...", 1
+"dbscan", "optics_int", -1, 0, 0, "list<double[] | ^integer[]>", 1
+"dbscan", "optics_int", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "optics_int", 1, 0, 0, "double", 1
+"dbscan", "optics_int", 2, 0, 0, "integer", 1
+"dbscan", "optics_int", 3, 0, 0, "integer", 1
+"dbscan", "optics_int", 4, 0, 0, "integer", 1
+"dbscan", "optics_int", 5, 0, 0, "integer", 1
+"dbscan", "optics_int", 6, 0, 0, "double", 1
+"dbscan", "optics_int", 7, 0, 0, "class<`NN`, `frNN`>", 1
+"dbscan", "optics_int", 7, 0, 1, "list<any>", 1
+"dbscan", "plot.hdbscan", -1, 0, 0, "class<`hdbscan`>", 1
+"dbscan", "plot.hdbscan", 0, 0, 0, "class<`hdbscan`>", 1
+"dbscan", "plot.hdbscan", 1, 0, 0, "character", 1
+"dbscan", "plot.hdbscan", 1, 0, 1, "double", 1
+"dbscan", "plot.hdbscan", 2, 0, 0, "character[]", 1
+"dbscan", "plot.hdbscan", 3, 0, 0, "logical", 1
+"dbscan", "plot.hdbscan", 4, 0, 0, "...", 1
+"dbscan", "plot.NN", -1, 0, 0, "null", 1
+"dbscan", "plot.NN", 0, 0, 0, "class<`NN`, `frNN`>", 1
+"dbscan", "plot.NN", 0, 0, 1, "class<`NN`, `kNN`>", 1
+"dbscan", "plot.NN", 0, 0, 2, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "plot.NN", 1, 0, 0, "class<`data.frame`>", 1
+"dbscan", "plot.NN", 2, 0, 0, "null", 1
+"dbscan", "plot.NN", 3, 0, 0, "...", 1
+"dbscan", "plot.optics", -1, 0, 0, "(null | list<character | double[] | null>)", 1
+"dbscan", "plot.optics", 0, 0, 0, "class<`optics`>", 1
+"dbscan", "plot.optics", 1, 0, 0, "logical", 1
+"dbscan", "plot.optics", 2, 0, 0, "logical", 1
+"dbscan", "plot.optics", 3, 0, 0, "...", 1
+"dbscan", "plot.reachability", -1, 0, 0, "null", 1
+"dbscan", "plot.reachability", 0, 0, 0, "class<`reachability`>", 1
+"dbscan", "plot.reachability", 1, 0, 0, "logical", 1
+"dbscan", "plot.reachability", 2, 0, 0, "character", 1
+"dbscan", "plot.reachability", 2, 0, 1, "null", 1
+"dbscan", "plot.reachability", 3, 0, 0, "character", 1
+"dbscan", "plot.reachability", 4, 0, 0, "character", 1
+"dbscan", "plot.reachability", 5, 0, 0, "...", 1
+"dbscan", "pointdensity", -1, 0, 0, "double[]", 1
+"dbscan", "pointdensity", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "pointdensity", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"dbscan", "pointdensity", 1, 0, 0, "double", 1
+"dbscan", "pointdensity", 2, 0, 0, "character", 1
+"dbscan", "pointdensity", 3, 0, 0, "character", 1
+"dbscan", "pointdensity", 4, 0, 0, "double", 1
+"dbscan", "pointdensity", 5, 0, 0, "character", 1
+"dbscan", "pointdensity", 6, 0, 0, "double", 1
+"dbscan", "predict.dbscan_fast", -1, 0, 0, "integer[]", 1
+"dbscan", "predict.dbscan_fast", 0, 0, 0, "class<`dbscan`, `dbscan_fast`>", 1
+"dbscan", "predict.dbscan_fast", 1, 0, 0, "class<`matrix`>", 1
+"dbscan", "predict.dbscan_fast", 2, 0, 0, "class<`matrix`>", 1
+"dbscan", "predict.dbscan_fast", 3, 0, 0, "...", 1
+"dbscan", ".predict_frNN", -1, 0, 0, "integer[]", 1
+"dbscan", ".predict_frNN", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", ".predict_frNN", 1, 0, 0, "class<`matrix`>", 1
+"dbscan", ".predict_frNN", 2, 0, 0, "integer[]", 1
+"dbscan", ".predict_frNN", 3, 0, 0, "double", 1
+"dbscan", ".predict_frNN", 4, 0, 0, "...", 1
+"dbscan", "prims", -1, 0, 0, "class<`matrix`>", 1
+"dbscan", "prims", 0, 0, 0, "double[]", 1
+"dbscan", "prims", 1, 0, 0, "integer", 1
+"dbscan", "reach_to_dendrogram", -1, 0, 0, "class<`dendrogram`>", 1
+"dbscan", "reach_to_dendrogram", 0, 0, 0, "class<`reachability`>", 1
+"dbscan", "reach_to_dendrogram", 1, 0, 0, "double[]", 1
+"dbscan", "simplifiedTree", -1, 0, 0, "class<`dendrogram`>", 1
+"dbscan", "simplifiedTree", 0, 0, 0, "list<list<double[]>>", 1
+"dbscan", "sNN", -1, 0, 0, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "sNN", 0, 0, 0, "class<`data.frame`>", 1
+"dbscan", "sNN", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
+"dbscan", "sNN", 0, 0, 2, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "sNN", 1, 0, 0, "any", 1
+"dbscan", "sNN", 2, 0, 0, "null", 1
+"dbscan", "sNN", 2, 0, 1, "double", 1
+"dbscan", "sNN", 3, 0, 0, "logical", 1
+"dbscan", "sNN", 4, 0, 0, "logical", 1
+"dbscan", "sNN", 5, 0, 0, "character", 1
+"dbscan", "sNN", 6, 0, 0, "double", 1
+"dbscan", "sNN", 7, 0, 0, "character", 1
+"dbscan", "sNN", 8, 0, 0, "double", 1
+"dbscan", "sNNclust", -1, 0, 0, "class<`general_clustering`>", 1
+"dbscan", "sNNclust", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"dbscan", "sNNclust", 1, 0, 0, "double", 1
+"dbscan", "sNNclust", 2, 0, 0, "double", 1
+"dbscan", "sNNclust", 3, 0, 0, "double", 1
+"dbscan", "sNNclust", 4, 0, 0, "logical", 1
+"dbscan", "sNNclust", 5, 0, 0, "...", 1
+"dbscan", "SNN_sim_int", -1, 0, 0, "class<`matrix`>", 1
+"dbscan", "SNN_sim_int", 0, 0, 0, "class<`matrix`>", 1
+"dbscan", "SNN_sim_int", 1, 0, 0, "logical", 1
+"dbscan", "sort.frNN", -1, 0, 0, "class<`NN`, `frNN`>", 1
+"dbscan", "sort.frNN", 0, 0, 0, "class<`NN`, `frNN`>", 1
+"dbscan", "sort.frNN", 1, 0, 0, "logical", 1
+"dbscan", "sort.frNN", 2, 0, 0, "...", 1
+"dbscan", "sort.kNN", -1, 0, 0, "(class<`NN`, `kNN`, `sNN`> | class<`NN`, `kNN`>)", 1
+"dbscan", "sort.kNN", 0, 0, 0, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "sort.kNN", 0, 0, 1, "class<`NN`, `kNN`>", 1
+"dbscan", "sort.kNN", 1, 0, 0, "logical", 1
+"dbscan", "sort.kNN", 2, 0, 0, "...", 1
+"dbscan", "sort.sNN", -1, 0, 0, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "sort.sNN", 0, 0, 0, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "sort.sNN", 1, 0, 0, "logical", 1
+"dbscan", "sort.sNN", 2, 0, 0, "...", 1
+"dbscan", "steepDown", -1, 0, 0, "logical", 1
+"dbscan", "steepDown", 0, 0, 0, "double", 1
+"dbscan", "steepDown", 1, 0, 0, "class<`optics`>", 1
+"dbscan", "steepDown", 2, 0, 0, "double", 1
+"dbscan", "steepUp", -1, 0, 0, "logical", 1
+"dbscan", "steepUp", 0, 0, 0, "double", 1
+"dbscan", "steepUp", 1, 0, 0, "class<`optics`>", 1
+"dbscan", "steepUp", 2, 0, 0, "any", 1
+"dbscan", "updateFilterSDASet", -1, 0, 0, "list<any>", 1
+"dbscan", "updateFilterSDASet", 0, 0, 0, "any", 1
+"dbscan", "updateFilterSDASet", 1, 0, 0, "list<any>", 1
+"dbscan", "updateFilterSDASet", 2, 0, 0, "any", 1
+"dbscan", "valid", -1, 0, 0, "logical", 1
+"dbscan", "valid", 0, 0, 0, "double", 1
+"dbscan", "valid", 1, 0, 0, "class<`optics`>", 1
+"dbscan", "validateConstraintList", -1, 0, 0, "list<double>", 1
+"dbscan", "validateConstraintList", 0, 0, 0, "list<double>", 1
+"dbscan", "validateConstraintList", 1, 0, 0, "integer", 1

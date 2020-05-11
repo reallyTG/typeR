@@ -1,9 +1,16 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"nnls", "filter", -1, 0, 0, "logical[]", 1
-"nnls", "filter", 0, 0, 0, "character[]", 1
-"nnls", "fun", -1, 0, 0, "struct<`name`:character, `path`:character, `dynamicLookup`:logical, `handle`:null, `info`:null>", 1
-"nnls", "fun", 0, 0, 0, "character", 1
-"nnls", "fun", 1, 0, 0, "character", 1
-"nnls", "nnls", -1, 0, 0, "struct<`x`:double[], `deviance`:double, `residuals`:^double[], `fitted`:^double[], `mode`:integer, `passive`:integer, `bound`:integer[], `nsetp`:integer>", 1
-"nnls", "nnls", 0, 0, 0, "^double[]", 1
+"nnls", "coef.nnls", -1, 0, 0, "double[]", 1
+"nnls", "coef.nnls", 0, 0, 0, "class<`nnls`>", 1
+"nnls", "coef.nnls", 0, 0, 1, "class<`nnnpls`>", 1
+"nnls", "coef.nnls", 1, 0, 0, "...", 1
+"nnls", "coef.nnnpls", -1, 0, 0, "double[]", 1
+"nnls", "coef.nnnpls", 0, 0, 0, "class<`nnls`>", 1
+"nnls", "coef.nnnpls", 0, 0, 1, "class<`nnnpls`>", 1
+"nnls", "coef.nnnpls", 1, 0, 0, "...", 1
+"nnls", "nnls", -1, 0, 0, "class<`nnls`>", 1
+"nnls", "nnls", 0, 0, 0, "class<`matrix`>", 1
 "nnls", "nnls", 1, 0, 0, "double[]", 1
+"nnls", "nnnpls", -1, 0, 0, "class<`nnnpls`>", 1
+"nnls", "nnnpls", 0, 0, 0, "class<`matrix`>", 1
+"nnls", "nnnpls", 1, 0, 0, "double[]", 1
+"nnls", "nnnpls", 2, 0, 0, "double[]", 1

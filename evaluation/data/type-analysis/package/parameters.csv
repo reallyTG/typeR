@@ -1,153 +1,86 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"parameters", ".add_prefix_and_remove_stars", -1, 0, 0, "character[]", 1
-"parameters", ".add_prefix_and_remove_stars", 0, 0, 0, "character[]", 1
+"parameters", ".add_prefix_and_remove_stars", -1, 0, 0, "character", 1
+"parameters", ".add_prefix_and_remove_stars", 0, 0, 0, "character", 1
 "parameters", ".add_prefix_and_remove_stars", 1, 0, 0, "logical", 1
-"parameters", ".add_prefix_and_remove_stars", 1, 0, 1, "symbol", 1
 "parameters", ".add_prefix_and_remove_stars", 2, 0, 0, "logical", 1
-"parameters", ".add_prefix_and_remove_stars", 3, 0, 0, "null", 1
-"parameters", ".add_prefix_and_remove_stars", 3, 0, 1, "character", 1
+"parameters", ".add_prefix_and_remove_stars", 3, 0, 0, "character", 1
 "parameters", ".add_prefix_and_remove_stars", 4, 0, 0, "character", 1
-"parameters", ".capitalize", -1, 0, 0, "character[]", 1
-"parameters", ".capitalize", 0, 0, 0, "character[]", 1
-"parameters", ".check_component", -1, 0, 0, "character", 1
-"parameters", ".check_component", 0, 0, 0, "struct<`coefficients`:struct<`count`:double[], `zero`:double[]>, `residuals`:double[], `fitted.values`:double[], `optim`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `method`:character, `control`:struct<`method`:character, `maxit`:double, `trace`:logical, `EM`:logical, `start`:null, `fnscale`:double, `hessian`:logical, `reltol`:double>, `start`:struct<`count`:double[], `zero`:double[]>, `weights`:double[], `offset`:struct<`count`:null, `zero`:null>, `n`:integer, `df.null`:double, `df.residual`:integer, `terms`:struct<`count`:language, `zero`:language, `full`:language>, `theta`:null, `SE.logtheta`:null, `loglik`:double, `vcov`:^double[], `dist`:character, `link`:character, `linkinv`:any => any, `converged`:logical, `call`:language, `formula`:language, `levels`:struct<`fem`:character[], `mar`:character[]>, `contrasts`:struct<`count`:struct<`fem`:character, `mar`:character>, `zero`:null>, `model`:struct<`art`:integer[], `fem`:integer[], `mar`:integer[], `kid5`:double[], `ment`:integer[], `phd`:double[]>, `y`:integer[]>", 1
-"parameters", ".check_component", 1, 0, 0, "character", 1
-"parameters", ".check_standardize_numeric", -1, 0, 0, "double[]", 1
-"parameters", ".check_standardize_numeric", 0, 0, 0, "double[]", 1
-"parameters", ".check_standardize_numeric", 1, 0, 0, "null", 1
-"parameters", ".check_standardize_numeric", 1, 0, 1, "character", 1
-"parameters", ".check_standardize_numeric", 1, 0, 2, "language", 1
-"parameters", ".check_standardize_numeric", 2, 0, 0, "logical", 1
-"parameters", ".check_standardize_numeric", 2, 0, 1, "symbol", 1
-"parameters", ".ci_profiled", -1, 0, 0, "struct<`Parameter`:character[], `CI`:double[], `CI_low`:double[], `CI_high`:double[]>", 1
-"parameters", ".ci_profiled", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `fitted.values`:double[], `effects`:double[], `R`:^double[], `rank`:integer, `qr`:struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[], `tol`:double>, `family`:struct<`family`:character, `link`:character, `linkfun`:any => any, `linkinv`:any => any, `variance`:any => any, `dev.resids`:any => any, `aic`:any => any, `mu.eta`:any => any, `initialize`:expression, `validmu`:any => any, `valideta`:any => any, `simulate`:any => any>, `linear.predictors`:double[], `deviance`:double, `aic`:double, `null.deviance`:double, `iter`:integer, `weights`:double[], `prior.weights`:double[], `df.residual`:integer, `df.null`:integer, `y`:double[], `converged`:logical, `boundary`:logical, `model`:struct<`binary`:double[], `Species`:integer[], `Sepal.Length`:double[]>, `call`:language, `formula`:language, `terms`:language, `data`:struct<`Sepal.Length`:double[], `Sepal.Width`:double[], `Petal.Length`:double[], `Petal.Width`:double[], `Species`:integer[], `binary`:double[]>, `offset`:null, `control`:struct<`epsilon`:double, `maxit`:double, `trace`:logical>, `method`:character, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>>", 1
-"parameters", ".ci_profiled", 0, 0, 1, "struct<`coefficients`:double[], `residuals`:double[], `fitted.values`:double[], `effects`:double[], `R`:^double[], `rank`:integer, `qr`:struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[], `tol`:double>, `family`:struct<`family`:character, `link`:character, `linkfun`:any => any, `linkinv`:any => any, `variance`:any => any, `dev.resids`:any => any, `aic`:any => any, `mu.eta`:any => any, `initialize`:expression, `validmu`:any => any, `valideta`:any => any, `simulate`:any => any>, `linear.predictors`:double[], `deviance`:double, `aic`:double, `null.deviance`:double, `iter`:integer, `weights`:double[], `prior.weights`:double[], `df.residual`:integer, `df.null`:integer, `y`:double[], `converged`:logical, `boundary`:logical, `model`:struct<`vs`:double[], `wt`:double[], `cyl`:double[]>, `call`:language, `formula`:language, `terms`:language, `data`:struct<`mpg`:double[], `cyl`:double[], `disp`:double[], `hp`:double[], `drat`:double[], `wt`:double[], `qsec`:double[], `vs`:double[], `am`:double[], `gear`:double[], `carb`:double[]>, `offset`:null, `control`:struct<`epsilon`:double, `maxit`:double, `trace`:logical>, `method`:character, `contrasts`:null, `xlevels`:tuple<>>", 1
-"parameters", ".ci_profiled", 1, 0, 0, "double", 1
-"parameters", ".ci_wald", -1, 0, 0, "struct<`Parameter`:character[], `CI`:double[], `CI_low`:double[], `CI_high`:double[]>", 1
-"parameters", ".ci_wald", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Species`:integer[], `Petal.Width`:double[]>>", 1
-"parameters", ".ci_wald", 0, 0, 1, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Species`:integer[], `Sepal.Width`:double[]>>", 1
-"parameters", ".ci_wald", 0, 0, 2, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`mpg`:double[], `wt`:double[], `cyl`:double[]>>", 1
-"parameters", ".ci_wald", 0, 0, 3, "struct<`coefficients`:struct<`count`:double[], `zero`:double[]>, `residuals`:double[], `fitted.values`:double[], `optim`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `method`:character, `control`:struct<`method`:character, `maxit`:double, `trace`:logical, `EM`:logical, `start`:null, `fnscale`:double, `hessian`:logical, `reltol`:double>, `start`:struct<`count`:double[], `zero`:double[]>, `weights`:double[], `offset`:struct<`count`:null, `zero`:null>, `n`:integer, `df.null`:double, `df.residual`:integer, `terms`:struct<`count`:language, `zero`:language, `full`:language>, `theta`:null, `SE.logtheta`:null, `loglik`:double, `vcov`:^double[], `dist`:character, `link`:character, `linkinv`:any => any, `converged`:logical, `call`:language, `formula`:language, `levels`:struct<`fem`:character[], `mar`:character[]>, `contrasts`:struct<`count`:struct<`fem`:character, `mar`:character>, `zero`:null>, `model`:struct<`art`:integer[], `fem`:integer[], `mar`:integer[], `kid5`:double[], `ment`:integer[], `phd`:double[]>, `y`:integer[]>", 1
-"parameters", ".ci_wald", 1, 0, 0, "double", 1
-"parameters", ".ci_wald", 2, 0, 0, "null", 1
-"parameters", ".ci_wald", 2, 0, 1, "double", 1
-"parameters", ".ci_wald", 3, 0, 0, "symbol", 1
-"parameters", ".ci_wald", 3, 0, 1, "character", 1
-"parameters", ".clean_confint", -1, 0, 0, "struct<`(Intercept)`:double[], `gear`:double[], `wt`:double[], `cyl`:double[], `hp`:double[]>", 1
-"parameters", ".clean_confint", 0, 0, 0, "struct<`(Intercept)`:double[], `gear`:double[], `wt`:double[], `cyl`:double[], `hp`:double[]>", 1
-"parameters", ".cohens_f", -1, 0, 0, "struct<`Parameter`:character[], `Cohens_f`:^double[]>", 1
-"parameters", ".cohens_f", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Sepal.Big`:character>, `xlevels`:struct<`Sepal.Big`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Sepal.Big`:character[]>>", 1
-"parameters", ".compact_list", -1, 0, 0, "struct<`count`:^double[], `zero`:^double[]>", 1
-"parameters", ".compact_list", 0, 0, 0, "struct<`count`:^double[], `zero`:^double[]>", 1
-"parameters", ".data_frame", -1, 0, 0, "struct<`Component`:character[], `Eigenvalues`:double[], `Variance`:double[], `Variance_Cumulative`:double[]>", 1
-"parameters", ".data_frame", 0, 0, 0, "character[]", 1
-"parameters", ".data_partition", -1, 0, 0, "struct<`training`:integer[], `test`:integer[]>", 1
-"parameters", ".data_partition", 0, 0, 0, "struct<`Sepal.Length`:double[], `Sepal.Width`:double[], `Petal.Length`:double[], `Petal.Width`:double[], `Species`:integer[], `Smell`:character[]>", 1
-"parameters", ".data_partition", 1, 0, 0, "double", 1
-"parameters", ".efa_to_cfa", -1, 0, 0, "character", 1
-"parameters", ".efa_to_cfa", 0, 0, 0, "struct<`Variable`:integer[], `F1`:^double[], `F2`:^double[], `F3`:^double[]>", 1
-"parameters", ".efa_to_cfa", 1, 0, 0, "null", 1
-"parameters", ".efa_to_cfa", 2, 0, 0, "null", 1
-"parameters", ".epsilon_squared", -1, 0, 0, "struct<`Parameter`:character[], `Epsilon_sq`:^double[]>", 1
-"parameters", ".epsilon_squared", 0, 0, 0, "struct<`Df`:integer[], `Sum Sq`:double[], `Mean Sq`:double[], `F value`:^double[], `Pr(>F)`:^double[]>", 1
-"parameters", ".epsilon_squared", 0, 0, 1, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Sepal.Big`:character>, `xlevels`:struct<`Sepal.Big`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Sepal.Big`:character[]>>", 1
-"parameters", ".equivalence_test_frequentist", -1, 0, 0, "struct<`Parameter`:character[], `CI`:double[], `CI_low`:double[], `CI_high`:double[], `ROPE_Percentage`:double[], `ROPE_Equivalence`:character[]>", 1
-"parameters", ".equivalence_test_frequentist", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`mpg`:double[], `gear`:double[], `wt`:double[], `cyl`:double[], `hp`:double[]>>", 1
-"parameters", ".equivalence_test_frequentist", 1, 0, 0, "character", 1
-"parameters", ".equivalence_test_frequentist", 2, 0, 0, "double", 1
-"parameters", ".equivalence_test_frequentist", 3, 0, 0, "symbol", 1
-"parameters", ".equivalence_test_frequentist", 4, 0, 0, "null", 1
-"parameters", ".eta_squared", -1, 0, 0, "struct<`Parameter`:character[], `Eta_Sq_partial`:^double[]>", 1
-"parameters", ".eta_squared", 0, 0, 0, "struct<`Df`:integer[], `Sum Sq`:double[], `Mean Sq`:double[], `F value`:^double[], `Pr(>F)`:^double[]>", 1
-"parameters", ".eta_squared", 0, 0, 1, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Sepal.Big`:character>, `xlevels`:struct<`Sepal.Big`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Sepal.Big`:character[]>>", 1
-"parameters", ".eta_squared", 1, 0, 0, "logical", 1
-"parameters", ".eta_squared", 2, 0, 0, "null", 1
-"parameters", ".eta_squared", 3, 0, 0, "symbol", 1
-"parameters", ".extract_cohens_f", -1, 0, 0, "struct<`Parameter`:character[], `Cohens_f`:^double[]>", 1
-"parameters", ".extract_cohens_f", 0, 0, 0, "struct<`Parameter`:character[], `Sum_Squares`:double[], `df`:double[], `Mean_Square`:double[], `F`:^double[], `p`:^double[]>", 1
-"parameters", ".extract_cohens_f", 1, 0, 0, "struct<`Mean_Square_residuals`:double, `Sum_Squares_residuals`:double, `Sum_Squares_total`:double, `n_terms`:double, `n`:double>", 1
-"parameters", ".extract_epsilon_squared", -1, 0, 0, "struct<`Parameter`:character[], `Epsilon_sq`:^double[]>", 1
-"parameters", ".extract_epsilon_squared", 0, 0, 0, "struct<`Parameter`:character[], `Sum_Squares`:double[], `df`:double[], `Mean_Square`:double[], `F`:^double[], `p`:^double[]>", 1
-"parameters", ".extract_epsilon_squared", 1, 0, 0, "struct<`Mean_Square_residuals`:double, `Sum_Squares_residuals`:double, `Sum_Squares_total`:double, `n_terms`:double, `n`:double>", 1
-"parameters", ".extract_eta_squared", -1, 0, 0, "struct<`Parameter`:character[], `Eta_Sq_partial`:^double[]>", 1
-"parameters", ".extract_eta_squared", 0, 0, 0, "struct<`Parameter`:character[], `Sum_Squares`:double[], `df`:double[], `Mean_Square`:double[], `F`:^double[], `p`:^double[]>", 1
-"parameters", ".extract_eta_squared", 1, 0, 0, "struct<`Mean_Square_residuals`:double, `Sum_Squares_residuals`:double, `Sum_Squares_total`:double, `n_terms`:double, `n`:double>", 1
-"parameters", ".extract_eta_squared", 2, 0, 0, "logical", 1
-"parameters", ".extract_omega_squared", -1, 0, 0, "struct<`Parameter`:character[], `Omega_Sq_partial`:^double[]>", 1
-"parameters", ".extract_omega_squared", 0, 0, 0, "struct<`Parameter`:character[], `Sum_Squares`:double[], `df`:double[], `Mean_Square`:double[], `F`:^double[], `p`:^double[]>", 1
-"parameters", ".extract_omega_squared", 1, 0, 0, "struct<`Mean_Square_residuals`:double, `Sum_Squares_residuals`:double, `Sum_Squares_total`:double, `n_terms`:double, `n`:double>", 1
-"parameters", ".extract_omega_squared", 2, 0, 0, "logical", 1
-"parameters", ".extract_parameters_anova", -1, 0, 0, "struct<`Group`:character[], `Parameter`:character[], `Sum_Squares`:double[], `df`:double[], `Mean_Square`:double[], `F`:^double[], `p`:^double[]>", 1
-"parameters", ".extract_parameters_anova", 0, 0, 0, "struct<`(Intercept)`:struct<`coefficients`:^double[], `residuals`:double, `effects`:double, `rank`:integer, `fitted.values`:double, `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `terms`:language>, `Species`:struct<`coefficients`:double, `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer, `qr`:struct<`qr`:^double[], `qraux`:double, `pivot`:integer, `tol`:double, `rank`:integer>, `df.residual`:integer, `terms`:language>, `Within`:struct<`coefficients`:double, `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer, `qr`:struct<`qr`:^double[], `qraux`:double, `pivot`:integer, `tol`:double, `rank`:integer>, `df.residual`:integer, `terms`:language>>", 1
-"parameters", ".extract_parameters_anova", 0, 0, 1, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Sepal.Big`:character>, `xlevels`:struct<`Sepal.Big`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Sepal.Big`:character[]>>", 1
-"parameters", ".extract_parameters_anova", 0, 0, 2, "struct<>", 1
-"parameters", ".extract_parameters_generic", -1, 0, 0, "struct<`Parameter`:character[], `Coefficient`:double[], `SE`:double[], `CI_low`:double[], `CI_high`:double[], `z`:double[], `p`:double[], `Component`:character[]>", 1
-"parameters", ".extract_parameters_generic", 0, 0, 0, "struct<`coefficients`:struct<`count`:double[], `zero`:double[]>, `residuals`:double[], `fitted.values`:double[], `optim`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `method`:character, `control`:struct<`method`:character, `maxit`:double, `trace`:logical, `EM`:logical, `start`:null, `fnscale`:double, `hessian`:logical, `reltol`:double>, `start`:struct<`count`:double[], `zero`:double[]>, `weights`:double[], `offset`:struct<`count`:null, `zero`:null>, `n`:integer, `df.null`:double, `df.residual`:integer, `terms`:struct<`count`:language, `zero`:language, `full`:language>, `theta`:null, `SE.logtheta`:null, `loglik`:double, `vcov`:^double[], `dist`:character, `link`:character, `linkinv`:any => any, `converged`:logical, `call`:language, `formula`:language, `levels`:struct<`fem`:character[], `mar`:character[]>, `contrasts`:struct<`count`:struct<`fem`:character, `mar`:character>, `zero`:null>, `model`:struct<`art`:integer[], `fem`:integer[], `mar`:integer[], `kid5`:double[], `ment`:integer[], `phd`:double[]>, `y`:integer[]>", 1
-"parameters", ".extract_parameters_generic", 1, 0, 0, "double", 1
-"parameters", ".extract_parameters_generic", 2, 0, 0, "character", 1
-"parameters", ".extract_parameters_generic", 3, 0, 0, "character[]", 1
-"parameters", ".extract_parameters_generic", 4, 0, 0, "null", 1
-"parameters", ".extract_parameters_glm", -1, 0, 0, "struct<`Parameter`:character[], `Coefficient`:double[], `SE`:double[], `CI_low`:double[], `CI_high`:double[], `t`:double[], `df_residual`:integer[], `p`:double[]>", 1
-"parameters", ".extract_parameters_glm", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Species`:integer[], `Petal.Width`:double[]>>", 1
-"parameters", ".extract_parameters_glm", 0, 0, 1, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Species`:integer[], `Sepal.Width`:double[]>>", 1
-"parameters", ".extract_parameters_glm", 0, 0, 2, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`mpg`:double[], `wt`:double[], `cyl`:double[]>>", 1
-"parameters", ".extract_parameters_glm", 0, 0, 3, "struct<`coefficients`:double[], `residuals`:double[], `fitted.values`:double[], `effects`:double[], `R`:^double[], `rank`:integer, `qr`:struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[], `tol`:double>, `family`:struct<`family`:character, `link`:character, `linkfun`:any => any, `linkinv`:any => any, `variance`:any => any, `dev.resids`:any => any, `aic`:any => any, `mu.eta`:any => any, `initialize`:expression, `validmu`:any => any, `valideta`:any => any, `simulate`:any => any>, `linear.predictors`:double[], `deviance`:double, `aic`:double, `null.deviance`:double, `iter`:integer, `weights`:double[], `prior.weights`:double[], `df.residual`:integer, `df.null`:integer, `y`:double[], `converged`:logical, `boundary`:logical, `model`:struct<`binary`:double[], `Species`:integer[], `Sepal.Length`:double[]>, `call`:language, `formula`:language, `terms`:language, `data`:struct<`Sepal.Length`:double[], `Sepal.Width`:double[], `Petal.Length`:double[], `Petal.Width`:double[], `Species`:integer[], `binary`:double[]>, `offset`:null, `control`:struct<`epsilon`:double, `maxit`:double, `trace`:logical>, `method`:character, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>>", 1
-"parameters", ".extract_parameters_glm", 0, 0, 4, "struct<`coefficients`:double[], `residuals`:double[], `fitted.values`:double[], `effects`:double[], `R`:^double[], `rank`:integer, `qr`:struct<`qr`:^double[], `rank`:integer, `qraux`:double[], `pivot`:integer[], `tol`:double>, `family`:struct<`family`:character, `link`:character, `linkfun`:any => any, `linkinv`:any => any, `variance`:any => any, `dev.resids`:any => any, `aic`:any => any, `mu.eta`:any => any, `initialize`:expression, `validmu`:any => any, `valideta`:any => any, `simulate`:any => any>, `linear.predictors`:double[], `deviance`:double, `aic`:double, `null.deviance`:double, `iter`:integer, `weights`:double[], `prior.weights`:double[], `df.residual`:integer, `df.null`:integer, `y`:double[], `converged`:logical, `boundary`:logical, `model`:struct<`vs`:double[], `wt`:double[], `cyl`:double[]>, `call`:language, `formula`:language, `terms`:language, `data`:struct<`mpg`:double[], `cyl`:double[], `disp`:double[], `hp`:double[], `drat`:double[], `wt`:double[], `qsec`:double[], `vs`:double[], `am`:double[], `gear`:double[], `carb`:double[]>, `offset`:null, `control`:struct<`epsilon`:double, `maxit`:double, `trace`:logical>, `method`:character, `contrasts`:null, `xlevels`:tuple<>>", 1
-"parameters", ".extract_parameters_glm", 1, 0, 0, "double", 1
-"parameters", ".extract_parameters_glm", 2, 0, 0, "logical", 1
-"parameters", ".extract_parameters_htest", -1, 0, 0, "struct<`Parameter`:integer, `Group`:integer, `Mean_Group1`:double, `Mean_Group2`:double, `Difference`:double, `t`:double, `df`:double, `p`:double, `CI_low`:double, `CI_high`:double, `Method`:integer>", 1
-"parameters", ".extract_parameters_htest", 0, 0, 0, "struct<`statistic`:double, `parameter`:double, `p.value`:double, `conf.int`:double[], `estimate`:double[], `null.value`:double, `alternative`:character, `method`:character, `data.name`:character>", 1
-"parameters", ".extract_parameters_lavaan", -1, 0, 0, "struct<`To`:integer[], `Operator`:integer[], `From`:integer[], `Coefficient`:double[], `SE`:double[], `CI_low`:double[], `CI_high`:double[], `p`:double[], `Type`:character[]>", 1
-"parameters", ".extract_parameters_lavaan", 0, 0, 0, "double", 1
-"parameters", ".extract_parameters_lavaan", 1, 0, 0, "logical", 1
-"parameters", ".extract_parameters_lavaan", 2, 0, 0, "null", 1
-"parameters", ".filter_component", -1, 0, 0, "struct<`Parameter`:character[], `p`:double[], `Component`:character[]>", 1
-"parameters", ".filter_component", 0, 0, 0, "struct<`Parameter`:character[], `p`:double[], `Component`:character[]>", 1
-"parameters", ".filter_component", 1, 0, 0, "character", 1
-"parameters", ".filter_loadings", -1, 0, 0, "struct<`Variable`:integer[], `PC1`:double[], `PC2`:^double[], `PC3`:^double[], `PC4`:^double[], `PC5`:^double[], `PC6`:^double[], `Complexity`:double[]>", 1
-"parameters", ".filter_loadings", 0, 0, 0, "struct<`Variable`:integer[], `PC1`:double[], `PC2`:double[], `PC3`:double[], `PC4`:double[], `PC5`:double[], `PC6`:double[], `Complexity`:double[]>", 1
-"parameters", ".filter_loadings", 1, 0, 0, "double", 1
-"parameters", ".filter_loadings", 1, 0, 1, "character", 1
-"parameters", ".filter_loadings", 2, 0, 0, "null", 1
-"parameters", ".filter_loadings", 2, 0, 1, "integer[]", 1
-"parameters", ".format_ci", -1, 0, 0, "character[]", 1
-"parameters", ".format_ci", 0, 0, 0, "^double[]", 1
-"parameters", ".format_ci", 1, 0, 0, "^double[]", 1
-"parameters", ".format_ci", 2, 0, 0, "double", 1
-"parameters", ".format_ci", 3, 0, 0, "logical", 1
-"parameters", ".format_ci", 4, 0, 0, "null", 1
-"parameters", ".format_ci", 4, 0, 1, "integer", 1
-"parameters", ".format_factor", -1, 0, 0, "character", 1
-"parameters", ".format_factor", 0, 0, 0, "character", 1
-"parameters", ".format_factor", 1, 0, 0, "character", 1
-"parameters", ".format_number", -1, 0, 0, "character", 1
-"parameters", ".format_number", 0, 0, 0, "double", 1
-"parameters", ".format_poly", -1, 0, 0, "character", 1
-"parameters", ".format_poly", 0, 0, 0, "language", 1
-"parameters", ".format_poly", 1, 0, 0, "character", 1
-"parameters", ".format_poly", 2, 0, 0, "language", 1
-"parameters", ".format_poly", 3, 0, 0, "character", 1
-"parameters", ".get_deviation", -1, 0, 0, "double", 1
-"parameters", ".get_deviation", 0, 0, 0, "struct<`binary`:double[], `Species`:integer[], `Sepal.Length`:double[]>", 1
-"parameters", ".get_deviation", 1, 0, 0, "character", 1
-"parameters", ".get_deviation", 2, 0, 0, "logical", 1
-"parameters", ".get_n_factors", -1, 0, 0, "double", 1
-"parameters", ".get_n_factors", 0, 0, 0, "struct<`mpg`:double[], `cyl`:double[], `disp`:double[], `hp`:double[], `drat`:double[], `wt`:double[], `qsec`:double[]>", 1
-"parameters", ".get_n_factors", 1, 0, 0, "character", 1
-"parameters", ".get_n_factors", 1, 0, 1, "double", 1
-"parameters", ".get_n_factors", 2, 0, 0, "character", 1
-"parameters", ".get_n_factors", 3, 0, 0, "symbol", 1
-"parameters", ".get_n_factors", 3, 0, 1, "character", 1
-"parameters", ".get_n_factors", 4, 0, 0, "null", 1
-"parameters", ".get_se_from_summary", -1, 0, 0, "double[]", 1
-"parameters", ".get_se_from_summary", 0, 0, 0, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>, `call`:language, `terms`:language, `model`:struct<`Petal.Length`:double[], `Sepal.Length`:double[], `Species`:integer[]>>", 1
-"parameters", ".get_se_from_summary", 0, 0, 1, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Species`:integer[], `Petal.Width`:double[]>>", 1
-"parameters", ".get_se_from_summary", 0, 0, 2, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `contrasts`:struct<`Species`:character>, `xlevels`:struct<`Species`:character[]>, `call`:language, `terms`:language, `model`:struct<`Sepal.Length`:double[], `Species`:integer[], `Sepal.Width`:double[]>>", 1
-"parameters", ".get_se_from_summary", 0, 0, 3, "struct<`coefficients`:double[], `residuals`:double[], `effects`:double[], `rank`:integer, `fitted.values`:double[], `assign`:integer[], `qr`:struct<`qr`:^double[], `qraux`:double[], `pivot`:integer[], `tol`:double, `rank`:integer>, `df.residual`:integer, `xlevels`:tuple<>, `call`:language, `terms`:language, `model`:struct<`mpg`:double[], `wt`:double[], `cyl`:double[]>>", 1
-"parameters", ".get_se_from_summary", 1, 0, 0, "null", 1
-"parameters", ".get_statistic.zeroinfl", -1, 0, 0, "struct<`Parameter`:character[], `Statistic`:double[], `Component`:character[]>", 1
-"parameters", ".get_statistic.zeroinfl", 0, 0, 0, "struct<`coefficients`:struct<`count`:double[], `zero`:double[]>, `residuals`:double[], `fitted.values`:double[], `optim`:struct<`par`:double[], `value`:double, `counts`:integer[], `convergence`:integer, `message`:null, `hessian`:^double[]>, `method`:character, `control`:struct<`method`:character, `maxit`:double, `trace`:logical, `EM`:logical, `start`:null, `fnscale`:double, `hessian`:logical, `reltol`:double>, `start`:struct<`count`:double[], `zero`:double[]>, `weights`:double[], `offset`:struct<`count`:null, `zero`:null>, `n`:integer, `df.null`:double, `df.residual`:integer, `terms`:struct<`count`:language, `zero`:language, `full`:language>, `theta`:null, `SE.logtheta`:null, `loglik`:double, `vcov`:^double[], `dist`:character, `link`:character, `linkinv`:any => any, `converged`:logical, `call`:language, `formula`:language, `levels`:struct<`fem`:character[], `mar`:character[]>, `contrasts`:struct<`count`:struct<`fem`:character, `mar`:character>, `zero`:null>, `model`:struct<`art`:integer[], `fem`:integer[], `mar`:integer[], `kid5`:double[], `ment`:integer[], `phd`:double[]>, `y`:integer[]>", 1
-"parameters", ".get_statistic.zeroinfl", 1, 0, 0, "character", 1
-"parameters", ".get_statistic.zeroinfl", 2, 0, 0, "null", 1
-"parameters", ".list_factors_numerics", -1, 0, 0, "struct<`numeric`:character[], `factor`:character[], `levels`:character[], `levels_parent`:character[]>", 1
-"parameters", ".list_factors_numerics", 0, 0, 0, "struct<`art`:integer[], `fem`:integer[], `mar`:integer[], `kid5`:double[], `ment`:integer[], `phd`:double[]>", 1
+"parameters", "bootstrap_model", -1, 0, 0, "class<`data.frame`>", 1
+"parameters", "bootstrap_model", 0, 0, 0, "class<`lm`>", 1
+"parameters", "bootstrap_model", 1, 0, 0, "double", 1
+"parameters", "bootstrap_model", 2, 0, 0, "logical", 1
+"parameters", "bootstrap_model", 3, 0, 0, "...", 1
+"parameters", "bootstrap_model.default", -1, 0, 0, "class<`data.frame`>", 1
+"parameters", "bootstrap_model.default", 0, 0, 0, "class<`lm`>", 1
+"parameters", "bootstrap_model.default", 1, 0, 0, "double", 1
+"parameters", "bootstrap_model.default", 2, 0, 0, "logical", 1
+"parameters", "bootstrap_model.default", 3, 0, 0, "...", 1
+"parameters", "bootstrap_parameters", -1, 0, 0, "class<`data.frame`>", 1
+"parameters", "bootstrap_parameters", 0, 0, 0, "class<`lm`>", 1
+"parameters", "bootstrap_parameters", 1, 0, 0, "double", 1
+"parameters", "bootstrap_parameters", 2, 0, 0, "character", 1
+"parameters", "bootstrap_parameters", 3, 0, 0, "double", 1
+"parameters", "bootstrap_parameters", 4, 0, 0, "character", 1
+"parameters", "bootstrap_parameters", 5, 0, 0, "character", 1
+"parameters", "bootstrap_parameters", 6, 0, 0, "...", 1
+"parameters", "check_clusterstructure", -1, 0, 0, "class<`check_clusterstructure`, `easystats_check`, `list`, `see_check_clusterstructure`>", 1
+"parameters", "check_clusterstructure", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", "check_clusterstructure", 1, 0, 0, "logical", 1
+"parameters", "check_clusterstructure", 2, 0, 0, "character", 1
+"parameters", "check_clusterstructure", 3, 0, 0, "...", 1
+"parameters", "check_factorstructure", -1, 0, 0, "class<`easystats_check`, `list`>", 1
+"parameters", "check_factorstructure", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", "check_factorstructure", 1, 0, 0, "...", 1
+"parameters", "check_kmo", -1, 0, 0, "class<`easystats_check`, `list`>", 1
+"parameters", "check_kmo", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", "check_kmo", 1, 0, 0, "...", 1
+"parameters", "check_sphericity", -1, 0, 0, "class<`easystats_check`, `list`>", 1
+"parameters", "check_sphericity", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", "check_sphericity", 1, 0, 0, "...", 1
+"parameters", ".clusterstructure_dm", -1, 0, 0, "class<`matrix`>", 1
+"parameters", ".clusterstructure_dm", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", ".clusterstructure_dm", 1, 0, 0, "character", 1
+"parameters", ".clusterstructure_dm", 2, 0, 0, "character", 1
+"parameters", ".clusterstructure_hopkins", -1, 0, 0, "double", 1
+"parameters", ".clusterstructure_hopkins", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", ".clusterstructure_hopkins", 1, 0, 0, "character", 1
+"parameters", ".data_frame", -1, 0, 0, "class<`data.frame`>", 1
+"parameters", ".data_frame", 0, 0, 0, "...", 1
+"parameters", "filter", -1, 0, 0, "logical[]", 1
+"parameters", "filter", 0, 0, 0, "character[]", 1
+"parameters", "format_p", -1, 0, 0, "character", 1
+"parameters", "format_p", 0, 0, 0, "double", 1
+"parameters", "format_p", 1, 0, 0, "logical", 1
+"parameters", "format_p", 2, 0, 0, "logical", 1
+"parameters", "format_p", 3, 0, 0, "character", 1
+"parameters", "format_p", 4, 0, 0, "character", 1
+"parameters", "format_p", 5, 0, 0, "double", 1
+"parameters", "format_p", 6, 0, 0, "...", 1
+"parameters", "FUN", -1, 0, 0, "(double | class<`data.frame`>)", 1
+"parameters", "FUN", 0, 0, 0, "double[]", 1
+"parameters", "FUN", 0, 0, 1, "class<`data.frame`>", 1
+"parameters", "FUN", 1, 0, 0, "...", 1
+"parameters", "plot.check_clusterstructure", -1, 0, 0, "list<integer[] | null>", 1
+"parameters", "plot.check_clusterstructure", 0, 0, 0, "class<`check_clusterstructure`, `easystats_check`, `list`, `see_check_clusterstructure`>", 1
+"parameters", "plot.check_clusterstructure", 1, 0, 0, "...", 1
+"parameters", "p_value", -1, 0, 0, "(double | class<`data.frame`>)", 1
+"parameters", "p_value", 0, 0, 0, "double[]", 1
+"parameters", "p_value", 0, 0, 1, "class<`data.frame`>", 1
+"parameters", "p_value", 1, 0, 0, "...", 1
+"parameters", "p_value.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"parameters", "p_value.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", "p_value.data.frame", 1, 0, 0, "...", 1
+"parameters", "p_value.numeric", -1, 0, 0, "double", 1
+"parameters", "p_value.numeric", 0, 0, 0, "double[]", 1
+"parameters", "p_value.numeric", 1, 0, 0, "...", 1
+"parameters", "statistic", -1, 0, 0, "double[]", 1
+"parameters", "statistic", 0, 0, 0, "class<`lm`>", 1
+"parameters", "statistic", 1, 0, 0, "class<`data.frame`>", 1
+"parameters", "statistic", 2, 0, 0, "integer[]", 1
+"parameters", ".summary_bootstrap", -1, 0, 0, "class<`data.frame`>", 1
+"parameters", ".summary_bootstrap", 0, 0, 0, "class<`data.frame`>", 1
+"parameters", ".summary_bootstrap", 1, 0, 0, "character", 1
+"parameters", ".summary_bootstrap", 2, 0, 0, "character", 1
+"parameters", ".summary_bootstrap", 3, 0, 0, "double", 1
+"parameters", ".summary_bootstrap", 4, 0, 0, "character", 1
+"parameters", ".summary_bootstrap", 5, 0, 0, "...", 1

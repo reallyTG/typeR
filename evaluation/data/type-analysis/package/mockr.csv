@@ -1,40 +1,69 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
 "mockr", "%||%", -1, 0, 0, "character[]", 1
 "mockr", "%||%", 0, 0, 0, "character[]", 1
-"mockr", "%||%", 1, 0, 0, "language", 1
+"mockr", "%||%", 1, 0, 0, "any", 1
 "mockr", "check_dots_env_", -1, 0, 0, "null", 1
-"mockr", "check_dots_env_", 0, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>, ``:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "check_dots_env_", 0, 0, 0, "class<`lazy_dots`>", 1
 "mockr", "check_dots_env_", 1, 0, 0, "environment", 1
 "mockr", "check_mock", -1, 0, 0, "null", 1
 "mockr", "check_mock", 0, 0, 0, "character", 1
 "mockr", "check_mock", 1, 0, 0, "environment", 1
 "mockr", "create_mock_env_", -1, 0, 0, "environment", 1
-"mockr", "create_mock_env_", 0, 0, 0, "null", 1
-"mockr", "create_mock_env_", 1, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "create_mock_env_", 0, 0, 0, "...", 1
+"mockr", "create_mock_env_", 1, 0, 0, "class<`lazy_dots`>", 1
 "mockr", "create_mock_env_", 2, 0, 0, "environment", 1
 "mockr", "create_mock_env_", 3, 0, 0, "environment", 1
 "mockr", "create_mock_env_with_old_funcs", -1, 0, 0, "environment", 1
-"mockr", "create_mock_env_with_old_funcs", 0, 0, 0, "struct<`some_func`:any => any>", 1
+"mockr", "create_mock_env_with_old_funcs", 0, 0, 0, "list<class<`function`>>", 1
 "mockr", "create_mock_env_with_old_funcs", 1, 0, 0, "environment", 1
 "mockr", "create_mock_env_with_old_funcs", 2, 0, 0, "environment", 1
 "mockr", "evaluate_with_mock_env", -1, 0, 0, "double", 1
-"mockr", "evaluate_with_mock_env", 0, 0, 0, "struct<``:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "evaluate_with_mock_env", 0, 0, 0, "class<`lazy_dots`>", 1
 "mockr", "evaluate_with_mock_env", 1, 0, 0, "environment", 1
 "mockr", "evaluate_with_mock_env", 2, 0, 0, "environment", 1
-"mockr", "extract_mock", -1, 0, 0, "struct<`name`:symbol, `new_value`:any => any>", 1
+"mockr", "extract_mock", -1, 0, 0, "class<`mock`>", 1
 "mockr", "extract_mock", 0, 0, 0, "character", 1
-"mockr", "extract_mock", 1, 0, 0, "struct<`expr`:language, `env`:environment>", 1
+"mockr", "extract_mock", 1, 0, 0, "class<`lazy`>", 1
 "mockr", "extract_mock", 2, 0, 0, "environment", 1
 "mockr", "extract_mock_name", -1, 0, 0, "character", 1
 "mockr", "extract_mock_name", 0, 0, 0, "character", 1
-"mockr", "extract_mocks", -1, 0, 0, "struct<`some_func`:struct<`name`:symbol, `new_value`:any => any>>", 1
-"mockr", "extract_mocks", 0, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "extract_mocks", -1, 0, 0, "list<class<`mock`>>", 1
+"mockr", "extract_mocks", 0, 0, 0, "class<`lazy_dots`>", 1
 "mockr", "extract_mocks", 1, 0, 0, "environment", 1
-"mockr", "extract_new_funcs_", -1, 0, 0, "struct<`some_func`:any => any>", 1
-"mockr", "extract_new_funcs_", 0, 0, 0, "struct<`some_func`:struct<`expr`:language, `env`:environment>>", 1
+"mockr", "extract_new_funcs_", -1, 0, 0, "list<class<`function`>>", 1
+"mockr", "extract_new_funcs_", 0, 0, 0, "class<`lazy_dots`>", 1
 "mockr", "extract_new_funcs_", 1, 0, 0, "environment", 1
 "mockr", "filter", -1, 0, 0, "logical[]", 1
 "mockr", "filter", 0, 0, 0, "character[]", 1
-"mockr", "FUN", -1, 0, 0, "struct<`name`:symbol, `new_value`:any => any>", 1
+"mockr", "FUN", -1, 0, 0, "class<`mock`>", 1
 "mockr", "FUN", 0, 0, 0, "character", 1
-"mockr", "FUN", -1, 1, 0, "any", 1
+"mockr", "FUN", -1, 1, 0, "class<`function`>", 1
+"mockr", "FUN", 0, 1, 0, "character", 1
+"mockr", "get_code_dots", -1, 0, 0, "class<`lazy_dots`>", 1
+"mockr", "get_code_dots", 0, 0, 0, "class<`lazy_dots`>", 1
+"mockr", "get_mock_dots", -1, 0, 0, "class<`lazy_dots`>", 1
+"mockr", "get_mock_dots", 0, 0, 0, "class<`lazy_dots`>", 1
+"mockr", "mock", -1, 0, 0, "class<`mock`>", 1
+"mockr", "mock", 0, 0, 0, "character", 1
+"mockr", "mock", 1, 0, 0, "any", 1
+"mockr", "mock", 2, 0, 0, "any", 1
+"mockr", "mock", 3, 0, 0, "class<`function`>", 1
+"mockr", "names2", -1, 0, 0, "character[]", 1
+"mockr", "names2", 0, 0, 0, "class<`lazy_dots`>", 1
+"mockr", "populate_env", -1, 0, 0, "list<class<`function`>>", 1
+"mockr", "populate_env", 0, 0, 0, "environment", 1
+"mockr", "populate_env", 1, 0, 0, "list<class<`function`>>", 1
+"mockr", "vlapply", -1, 0, 0, "logical[]", 1
+"mockr", "vlapply", 0, 0, 0, "list<class<`function`> | character[] | environment>", 1
+"mockr", "vlapply", 1, 0, 0, "class<`function`>", 1
+"mockr", "vlapply", 2, 0, 0, "...", 1
+"mockr", "vlapply", 3, 0, 0, "logical", 1
+"mockr", "with_mock", -1, 0, 0, "double", 1
+"mockr", "with_mock", 0, 0, 0, "...", 1
+"mockr", "with_mock", 1, 0, 0, "environment", 1
+"mockr", "with_mock", 2, 0, 0, "environment", 1
+"mockr", "with_mock_", -1, 0, 0, "double", 1
+"mockr", "with_mock_", 0, 0, 0, "...", 1
+"mockr", "with_mock_", 1, 0, 0, "class<`lazy_dots`>", 1
+"mockr", "with_mock_", 2, 0, 0, "environment", 1
+"mockr", "with_mock_", 3, 0, 0, "environment", 1

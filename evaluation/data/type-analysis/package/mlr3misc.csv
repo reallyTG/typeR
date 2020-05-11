@@ -1,16 +1,280 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"mlr3misc", "::", -1, 0, 0, "struct<`nr`:integer[], `resample_result`:tuple<environment, environment, environment, environment>, `task_id`:character[], `learner_id`:character[], `resampling_id`:character[], `iters`:integer[], `classif.ce`:double[], `method`:^character[], `xval`:^integer[]>", 1
-"mlr3misc", "::", 0, 0, 0, "struct<`nr`:integer[], `resample_result`:tuple<environment, environment, environment, environment>, `task_id`:character[], `learner_id`:character[], `resampling_id`:character[], `iters`:integer[], `classif.ce`:double[], `method`:^character[], `xval`:^integer[]>", 1
-"mlr3misc", "::", 1, 0, 0, "character", 1
-"mlr3misc", "::", 2, 0, 0, "null", 1
+"mlr3misc", "as_factor", -1, 0, 0, "class<`factor`>", 1
+"mlr3misc", "as_factor", 0, 0, 0, "class<`factor`>", 1
+"mlr3misc", "as_factor", 1, 0, 0, "character[]", 1
+"mlr3misc", "as_factor", 2, 0, 0, "logical", 1
+"mlr3misc", "as_short_string", -1, 0, 0, "character", 1
+"mlr3misc", "as_short_string", 0, 0, 0, "list<any>", 1
+"mlr3misc", "as_short_string", 1, 0, 0, "integer", 1
+"mlr3misc", "as_short_string", 2, 0, 0, "character", 1
+"mlr3misc", "check_packages_installed", -1, 0, 0, "any", 1
+"mlr3misc", "check_packages_installed", 0, 0, 0, "character[]", 1
+"mlr3misc", "check_packages_installed", 1, 0, 0, "logical", 1
+"mlr3misc", "check_packages_installed", 2, 0, 0, "character", 1
+"mlr3misc", "chunk", -1, 0, 0, "integer[]", 1
+"mlr3misc", "chunk", 0, 0, 0, "integer", 1
+"mlr3misc", "chunk", 1, 0, 0, "double", 1
+"mlr3misc", "chunk", 2, 0, 0, "null", 1
+"mlr3misc", "chunk", 3, 0, 0, "logical", 1
+"mlr3misc", "chunk_vector", -1, 0, 0, "list<integer[]>", 1
+"mlr3misc", "chunk_vector", 0, 0, 0, "integer[]", 1
+"mlr3misc", "chunk_vector", 1, 0, 0, "double", 1
+"mlr3misc", "chunk_vector", 2, 0, 0, "null", 1
+"mlr3misc", "chunk_vector", 3, 0, 0, "logical", 1
+"mlr3misc", "cite_bib", -1, 0, 0, "character", 1
+"mlr3misc", "cite_bib", 0, 0, 0, "character", 1
+"mlr3misc", "cite_bib", 1, 0, 0, "character", 1
+"mlr3misc", "compute_mode", -1, 0, 0, "double", 1
+"mlr3misc", "compute_mode", 0, 0, 0, "double[]", 1
+"mlr3misc", "compute_mode", 1, 0, 0, "character", 1
+"mlr3misc", "compute_mode", 2, 0, 0, "logical", 1
+"mlr3misc", "cross_join", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "cross_join", 0, 0, 0, "list<integer[] | character[]>", 1
+"mlr3misc", "cross_join", 1, 0, 0, "logical", 1
+"mlr3misc", "cross_join", 2, 0, 0, "logical", 1
+"mlr3misc", "dictionary_get", -1, 0, 0, "class<`Item`, `R6`>", 1
+"mlr3misc", "dictionary_get", 0, 0, 0, "class<`Dictionary`, `R6`>", 1
+"mlr3misc", "dictionary_get", 1, 0, 0, "character", 1
+"mlr3misc", "dictionary_get", 2, 0, 0, "...", 1
+"mlr3misc", "dictionary_initialize_item", -1, 0, 0, "class<`Item`, `R6`>", 1
+"mlr3misc", "dictionary_initialize_item", 0, 0, 0, "any", 1
+"mlr3misc", "dictionary_initialize_item", 1, 0, 0, "list<class<`R6ClassGenerator`> | character[] | list<any>>", 1
+"mlr3misc", "dictionary_initialize_item", 2, 0, 0, "list<any>", 1
+"mlr3misc", "dictionary_retrieve_item", -1, 0, 0, "list<class<`R6ClassGenerator`> | character[] | list<any>>", 1
+"mlr3misc", "dictionary_retrieve_item", 0, 0, 0, "class<`Dictionary`, `R6`>", 1
+"mlr3misc", "dictionary_retrieve_item", 1, 0, 0, "character", 1
+"mlr3misc", "dictionary_sugar_get", -1, 0, 0, "class<`Item`, `R6`>", 1
+"mlr3misc", "dictionary_sugar_get", 0, 0, 0, "class<`Dictionary`, `R6`>", 1
+"mlr3misc", "dictionary_sugar_get", 1, 0, 0, "character", 1
+"mlr3misc", "dictionary_sugar_get", 2, 0, 0, "...", 1
+"mlr3misc", "did_you_mean", -1, 0, 0, "character", 1
+"mlr3misc", "did_you_mean", 0, 0, 0, "character", 1
+"mlr3misc", "did_you_mean", 1, 0, 0, "character[]", 1
+"mlr3misc", "distinct_values", -1, 0, 0, "(^character[] | integer[])", 1
+"mlr3misc", "distinct_values", 0, 0, 0, "class<`factor`>", 1
+"mlr3misc", "distinct_values", 0, 0, 1, "integer[]", 1
+"mlr3misc", "distinct_values", 1, 0, 0, "logical", 1
+"mlr3misc", "distinct_values", 2, 0, 0, "logical", 1
+"mlr3misc", "distinct_values.default", -1, 0, 0, "integer[]", 1
+"mlr3misc", "distinct_values.default", 0, 0, 0, "integer[]", 1
+"mlr3misc", "distinct_values.default", 1, 0, 0, "logical", 1
+"mlr3misc", "distinct_values.default", 2, 0, 0, "logical", 1
+"mlr3misc", "distinct_values.factor", -1, 0, 0, "^character[]", 1
+"mlr3misc", "distinct_values.factor", 0, 0, 0, "class<`factor`>", 1
+"mlr3misc", "distinct_values.factor", 1, 0, 0, "logical", 1
+"mlr3misc", "distinct_values.factor", 2, 0, 0, "logical", 1
+"mlr3misc", "distinct_values.logical", -1, 0, 0, "logical[]", 1
+"mlr3misc", "distinct_values.logical", 0, 0, 0, "logical", 1
+"mlr3misc", "distinct_values.logical", 1, 0, 0, "logical", 1
+"mlr3misc", "distinct_values.logical", 2, 0, 0, "logical", 1
+"mlr3misc", "encapsulate", -1, 0, 0, "list<double | class<`data.frame`, `data.table`>>", 1
+"mlr3misc", "encapsulate", 0, 0, 0, "character", 1
+"mlr3misc", "encapsulate", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "encapsulate", 2, 0, 0, "list<double>", 1
+"mlr3misc", "encapsulate", 3, 0, 0, "list<any>", 1
+"mlr3misc", "encapsulate", 4, 0, 0, "character[]", 1
+"mlr3misc", "encapsulate", 5, 0, 0, "double", 1
+"mlr3misc", "enframe", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "enframe", 0, 0, 0, "integer[]", 1
+"mlr3misc", "enframe", 1, 0, 0, "character", 1
+"mlr3misc", "enframe", 2, 0, 0, "character", 1
+"mlr3misc", "extract_vars", -1, 0, 0, "list<character[]>", 1
+"mlr3misc", "extract_vars", 0, 0, 0, "class<`formula`>", 1
+"mlr3misc", "formulate", -1, 0, 0, "class<`formula`>", 1
+"mlr3misc", "formulate", 0, 0, 0, "character", 1
+"mlr3misc", "formulate", 0, 0, 1, "null", 1
+"mlr3misc", "formulate", 1, 0, 0, "character[]", 1
+"mlr3misc", "formulate", 2, 0, 0, "null", 1
+"mlr3misc", "get_constructor_formals", -1, 0, 0, "character[]", 1
+"mlr3misc", "get_constructor_formals", 0, 0, 0, "class<`R6ClassGenerator`>", 1
+"mlr3misc", "get_seed", -1, 0, 0, "integer[]", 1
+"mlr3misc", "has_element", -1, 0, 0, "logical", 1
+"mlr3misc", "has_element", 0, 0, 0, "list<double>", 1
+"mlr3misc", "has_element", 1, 0, 0, "double", 1
+"mlr3misc", "ids", -1, 0, 0, "character[]", 1
+"mlr3misc", "ids", 0, 0, 0, "list<list<character | double>>", 1
+"mlr3misc", "insert_named", -1, 0, 0, "list<any>", 1
+"mlr3misc", "insert_named", 0, 0, 0, "list<any>", 1
+"mlr3misc", "insert_named", 1, 0, 0, "list<any>", 1
+"mlr3misc", "insert_named.default", -1, 0, 0, "list<double>", 1
+"mlr3misc", "insert_named.default", 0, 0, 0, "list<double>", 1
+"mlr3misc", "insert_named.default", 1, 0, 0, "list<double>", 1
+"mlr3misc", "invoke", -1, 0, 0, "(class<`data.frame`, `data.table`> | double)", 1
+"mlr3misc", "invoke", 0, 0, 0, "any", 1
+"mlr3misc", "invoke", 1, 0, 0, "...", 1
+"mlr3misc", "invoke", 2, 0, 0, "list<integer[] | character[] | integer[] | double>", 1
+"mlr3misc", "invoke", 3, 0, 0, "list<any>", 1
+"mlr3misc", "invoke", 4, 0, 0, "null", 1
+"mlr3misc", "invoke", 4, 0, 1, "double", 1
+"mlr3misc", "keep_in_bounds", -1, 0, 0, "integer[]", 1
+"mlr3misc", "keep_in_bounds", 0, 0, 0, "integer[]", 1
+"mlr3misc", "keep_in_bounds", 1, 0, 0, "double", 1
+"mlr3misc", "keep_in_bounds", 2, 0, 0, "double", 1
+"mlr3misc", "load_dataset", -1, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "load_dataset", 0, 0, 0, "character", 1
+"mlr3misc", "load_dataset", 1, 0, 0, "character", 1
+"mlr3misc", "load_dataset", 2, 0, 0, "logical", 1
+"mlr3misc", "map", -1, 0, 0, "list<character[] | double[] | list<character>>", 1
+"mlr3misc", "map", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "map", 0, 0, 1, "list<character[] | class<`condition`, `message`, `simpleMessage`>>", 1
+"mlr3misc", "map", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "map", 2, 0, 0, "...", 1
+"mlr3misc", "map_chr", -1, 0, 0, "character[]", 1
+"mlr3misc", "map_chr", 0, 0, 0, "character[]", 1
+"mlr3misc", "map_chr", 0, 0, 1, "list<class<`formula`>>", 1
+"mlr3misc", "map_chr", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "map_chr", 2, 0, 0, "...", 1
+"mlr3misc", "map_dtr", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "map_dtr", 0, 0, 0, "list<class<`condition`, `message`, `simpleMessage`>>", 1
+"mlr3misc", "map_dtr", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "map_dtr", 2, 0, 0, "...", 1
+"mlr3misc", "map_dtr", 3, 0, 0, "logical", 1
+"mlr3misc", "map_dtr", 4, 0, 0, "null", 1
+"mlr3misc", "map_int", -1, 0, 0, "integer[]", 1
+"mlr3misc", "map_int", 0, 0, 0, "list<character[]>", 1
+"mlr3misc", "map_int", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "map_int", 2, 0, 0, "...", 1
+"mlr3misc", "map_lgl", -1, 0, 0, "logical[]", 1
+"mlr3misc", "map_lgl", 0, 0, 0, "character[]", 1
+"mlr3misc", "map_lgl", 0, 0, 1, "class<`data.frame`>", 1
+"mlr3misc", "map_lgl", 0, 0, 2, "list<double>", 1
+"mlr3misc", "map_lgl", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "map_lgl", 2, 0, 0, "...", 1
+"mlr3misc", "map_mold", -1, 0, 0, "(character[] | integer[])", 1
+"mlr3misc", "map_mold", 0, 0, 0, "character[]", 1
+"mlr3misc", "map_mold", 0, 0, 1, "class<`data.frame`>", 1
+"mlr3misc", "map_mold", 0, 0, 2, "list<class<`formula`> | character[] | double>", 1
+"mlr3misc", "map_mold", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "map_mold", 2, 0, 0, "null", 1
+"mlr3misc", "map_mold", 3, 0, 0, "...", 1
+"mlr3misc", "map_values", -1, 0, 0, "character[]", 1
+"mlr3misc", "map_values", 0, 0, 0, "character[]", 1
+"mlr3misc", "map_values", 1, 0, 0, "character[]", 1
+"mlr3misc", "map_values", 2, 0, 0, "character[]", 1
+"mlr3misc", "messagef", -1, 0, 0, "null", 1
+"mlr3misc", "messagef", 0, 0, 0, "character", 1
+"mlr3misc", "messagef", 1, 0, 0, "...", 1
+"mlr3misc", "messagef", 2, 0, 0, "double", 1
+"mlr3misc", "modify_at", -1, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_at", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_at", 1, 0, 0, "character", 1
+"mlr3misc", "modify_at", 1, 0, 1, "double", 1
+"mlr3misc", "modify_at", 2, 0, 0, "class<`function`>", 1
+"mlr3misc", "modify_at", 3, 0, 0, "...", 1
+"mlr3misc", "modify_at.default", -1, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_at.default", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_at.default", 1, 0, 0, "character", 1
+"mlr3misc", "modify_at.default", 1, 0, 1, "double", 1
+"mlr3misc", "modify_at.default", 2, 0, 0, "class<`function`>", 1
+"mlr3misc", "modify_at.default", 3, 0, 0, "...", 1
+"mlr3misc", "modify_if", -1, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_if", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_if", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "modify_if", 2, 0, 0, "class<`function`>", 1
+"mlr3misc", "modify_if", 3, 0, 0, "...", 1
+"mlr3misc", "modify_if.default", -1, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_if.default", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "modify_if.default", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "modify_if.default", 2, 0, 0, "class<`function`>", 1
+"mlr3misc", "modify_if.default", 3, 0, 0, "...", 1
+"mlr3misc", "named_list", -1, 0, 0, "list<double | null>", 1
+"mlr3misc", "named_list", 0, 0, 0, "character[]", 1
+"mlr3misc", "named_list", 1, 0, 0, "double", 1
+"mlr3misc", "named_list", 1, 0, 1, "null", 1
+"mlr3misc", "named_vector", -1, 0, 0, "^logical[]", 1
+"mlr3misc", "named_vector", 0, 0, 0, "character[]", 1
+"mlr3misc", "named_vector", 1, 0, 0, "null", 1
+"mlr3misc", "names2", -1, 0, 0, "^character[]", 1
+"mlr3misc", "names2", 0, 0, 0, "integer[]", 1
+"mlr3misc", "names2", 0, 0, 1, "character[]", 1
+"mlr3misc", "names2", 0, 0, 2, "list<any>", 1
+"mlr3misc", "names2", 1, 0, 0, "null", 1
+"mlr3misc", "names2", 1, 0, 1, "character", 1
 "mlr3misc", "%nin%", -1, 0, 0, "logical[]", 1
 "mlr3misc", "%nin%", 0, 0, 0, "character[]", 1
 "mlr3misc", "%nin%", 1, 0, 0, "null", 1
-"mlr3misc", "%nin%", 1, 0, 1, "character[]", 1
-"mlr3misc", "$", -1, 0, 0, "environment", 1
-"mlr3misc", "$", 0, 0, 0, "null", 1
-"mlr3misc", "$", 0, 0, 1, "character[]", 1
-"mlr3misc", "$", 1, 0, 0, "environment", 1
-"mlr3misc", "$", 1, 0, 1, "null", 1
-"mlr3misc", "$", 2, 0, 0, "null", 1
-"mlr3misc", "$", 3, 0, 0, "character[]", 1
+"mlr3misc", "%nin%", 1, 0, 1, "character", 1
+"mlr3misc", "parse_callr", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "parse_callr", 0, 0, 0, "character", 1
+"mlr3misc", "parse_evaluate", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "parse_evaluate", 0, 0, 0, "list<class<`source`> | class<`condition`, `message`, `simpleMessage`>>", 1
+"mlr3misc", "probe", -1, 0, 0, "logical[]", 1
+"mlr3misc", "probe", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "probe", 1, 0, 0, "class<`function`>", 1
+"mlr3misc", "probe", 2, 0, 0, "...", 1
+"mlr3misc", "rbindlist2", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "rbindlist2", 0, 0, 0, "list<list<double>>", 1
+"mlr3misc", "rcbind", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "rcbind", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "rcbind", 1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "remove_named", -1, 0, 0, "(class<`data.frame`, `data.table`> | list<double>)", 1
+"mlr3misc", "remove_named", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "remove_named", 0, 0, 1, "list<double>", 1
+"mlr3misc", "remove_named", 1, 0, 0, "character", 1
+"mlr3misc", "remove_named.data.table", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "remove_named.data.table", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "remove_named.data.table", 1, 0, 0, "character", 1
+"mlr3misc", "remove_named.default", -1, 0, 0, "list<double>", 1
+"mlr3misc", "remove_named.default", 0, 0, 0, "list<double>", 1
+"mlr3misc", "remove_named.default", 1, 0, 0, "character", 1
+"mlr3misc", "require_namespaces", -1, 0, 0, "any", 1
+"mlr3misc", "require_namespaces", 0, 0, 0, "character[]", 1
+"mlr3misc", "require_namespaces", 1, 0, 0, "character", 1
+"mlr3misc", "rowwise_table", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "rowwise_table", 0, 0, 0, "...", 1
+"mlr3misc", "rowwise_table", 1, 0, 0, "null", 1
+"mlr3misc", "seq_len0", -1, 0, 0, "integer[]", 1
+"mlr3misc", "seq_len0", 0, 0, 0, "double", 1
+"mlr3misc", "set_class", -1, 0, 0, "class<`foo1`, `foo2`>", 1
+"mlr3misc", "set_class", 0, 0, 0, "list<any>", 1
+"mlr3misc", "set_class", 1, 0, 0, "character[]", 1
+"mlr3misc", "set_names", -1, 0, 0, "(character[] | double[] | ^logical[] | list<class<`Item`, `R6`>>)", 1
+"mlr3misc", "set_names", 0, 0, 0, "character[]", 1
+"mlr3misc", "set_names", 0, 0, 1, "double[]", 1
+"mlr3misc", "set_names", 0, 0, 2, "^logical[]", 1
+"mlr3misc", "set_names", 0, 0, 3, "list<class<`Item`, `R6`>>", 1
+"mlr3misc", "set_names", 1, 0, 0, "character[]", 1
+"mlr3misc", "set_names", 1, 0, 1, "class<`function`>", 1
+"mlr3misc", "set_names", 2, 0, 0, "...", 1
+"mlr3misc", "shuffle", -1, 0, 0, "(double | integer[])", 1
+"mlr3misc", "shuffle", 0, 0, 0, "double", 1
+"mlr3misc", "shuffle", 0, 0, 1, "integer[]", 1
+"mlr3misc", "shuffle", 1, 0, 0, "integer", 1
+"mlr3misc", "shuffle", 2, 0, 0, "...", 1
+"mlr3misc", "str_collapse", -1, 0, 0, "character", 1
+"mlr3misc", "str_collapse", 0, 0, 0, "character[]", 1
+"mlr3misc", "str_collapse", 1, 0, 0, "character", 1
+"mlr3misc", "str_collapse", 2, 0, 0, "character", 1
+"mlr3misc", "str_collapse", 3, 0, 0, "double", 1
+"mlr3misc", "str_collapse", 4, 0, 0, "character", 1
+"mlr3misc", "str_indent", -1, 0, 0, "character[]", 1
+"mlr3misc", "str_indent", 0, 0, 0, "character", 1
+"mlr3misc", "str_indent", 1, 0, 0, "character", 1
+"mlr3misc", "str_indent", 2, 0, 0, "double", 1
+"mlr3misc", "str_indent", 3, 0, 0, "integer", 1
+"mlr3misc", "str_indent", 4, 0, 0, "...", 1
+"mlr3misc", "str_trunc", -1, 0, 0, "character", 1
+"mlr3misc", "str_trunc", 0, 0, 0, "character", 1
+"mlr3misc", "str_trunc", 1, 0, 0, "double", 1
+"mlr3misc", "str_trunc", 2, 0, 0, "character", 1
+"mlr3misc", "str_wrap", -1, 0, 0, "character", 1
+"mlr3misc", "str_wrap", 0, 0, 0, "character", 1
+"mlr3misc", "str_wrap", 1, 0, 0, "double", 1
+"mlr3misc", "topo_sort", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "topo_sort", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "transpose_list", -1, 0, 0, "list<list<double | class<`factor`> | double>>", 1
+"mlr3misc", "transpose_list", 0, 0, 0, "class<`data.frame`>", 1
+"mlr3misc", "transpose_list", 0, 0, 1, "list<list<double>>", 1
+"mlr3misc", "unnest", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "unnest", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
+"mlr3misc", "unnest", 1, 0, 0, "character", 1
+"mlr3misc", "unnest", 2, 0, 0, "null", 1
+"mlr3misc", "which_max", -1, 0, 0, "(integer[] | null)", 1
+"mlr3misc", "which_max", 0, 0, 0, "^double[]", 1
+"mlr3misc", "which_max", 0, 0, 1, "null", 1
+"mlr3misc", "which_max", 1, 0, 0, "character", 1
+"mlr3misc", "which_max", 2, 0, 0, "logical", 1
+"mlr3misc", "which_min", -1, 0, 0, "integer", 1
+"mlr3misc", "which_min", 0, 0, 0, "double[]", 1
+"mlr3misc", "which_min", 1, 0, 0, "character", 1
+"mlr3misc", "which_min", 2, 0, 0, "logical", 1

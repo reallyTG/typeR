@@ -1,6 +1,165 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"foreach", "filter", -1, 0, 0, "logical[]", 1
-"foreach", "filter", 0, 0, 0, "character[]", 1
-"foreach", "[[", -1, 0, 0, "null", 1
-"foreach", "[[", 0, 0, 0, "struct<`message`:character, `call`:null>", 1
-"foreach", "[[", 0, 0, 1, "struct<`message`:character, `call`:language>", 1
+"foreach", "%:%", -1, 0, 0, "(class<`filteredforeach`, `foreach`> | class<`foreach`, `xforeach`>)", 1
+"foreach", "%:%", 0, 0, 0, "class<`foreach`>", 1
+"foreach", "%:%", 1, 0, 0, "class<`foreachCondition`>", 1
+"foreach", "%:%", 1, 0, 1, "class<`foreach`>", 1
+"foreach", "accumulate", -1, 0, 0, "(logical | null)", 1
+"foreach", "accumulate", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "accumulate", 0, 0, 1, "class<`iforeach`, `iter`>", 1
+"foreach", "accumulate", 0, 0, 2, "class<`iter`, `ixforeach`>", 1
+"foreach", "accumulate", 1, 0, 0, "class<`data.frame`>", 1
+"foreach", "accumulate", 1, 0, 1, "class<`matrix`>", 1
+"foreach", "accumulate", 1, 0, 2, "class<`randomForest`>", 1
+"foreach", "accumulate", 1, 0, 3, "double[]", 1
+"foreach", "accumulate", 1, 0, 4, "list<double>", 1
+"foreach", "accumulate", 2, 0, 0, "double", 1
+"foreach", "accumulate", 3, 0, 0, "...", 1
+"foreach", "accumulate.ifilteredforeach", -1, 0, 0, "logical", 1
+"foreach", "accumulate.ifilteredforeach", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "accumulate.ifilteredforeach", 1, 0, 0, "double", 1
+"foreach", "accumulate.ifilteredforeach", 2, 0, 0, "double", 1
+"foreach", "accumulate.ifilteredforeach", 3, 0, 0, "...", 1
+"foreach", "accumulate.iforeach", -1, 0, 0, "logical", 1
+"foreach", "accumulate.iforeach", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "accumulate.iforeach", 1, 0, 0, "class<`data.frame`>", 1
+"foreach", "accumulate.iforeach", 1, 0, 1, "class<`matrix`>", 1
+"foreach", "accumulate.iforeach", 1, 0, 2, "class<`randomForest`>", 1
+"foreach", "accumulate.iforeach", 1, 0, 3, "double[]", 1
+"foreach", "accumulate.iforeach", 1, 0, 4, "list<double>", 1
+"foreach", "accumulate.iforeach", 2, 0, 0, "double", 1
+"foreach", "accumulate.iforeach", 3, 0, 0, "...", 1
+"foreach", "accumulate.ixforeach", -1, 0, 0, "null", 1
+"foreach", "accumulate.ixforeach", 0, 0, 0, "class<`iter`, `ixforeach`>", 1
+"foreach", "accumulate.ixforeach", 1, 0, 0, "class<`data.frame`>", 1
+"foreach", "accumulate.ixforeach", 1, 0, 1, "double", 1
+"foreach", "accumulate.ixforeach", 2, 0, 0, "double", 1
+"foreach", "accumulate.ixforeach", 3, 0, 0, "...", 1
+"foreach", "callCombine", -1, 0, 0, "null", 1
+"foreach", "callCombine", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "callCombine", 1, 0, 0, "any", 1
+"foreach", "complete", -1, 0, 0, "logical", 1
+"foreach", "complete", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "%do%", -1, 0, 0, "(class<`matrix`> | class<`randomForest`> | double[] | null | list<double>)", 1
+"foreach", "%do%", 0, 0, 0, "class<`foreach`>", 1
+"foreach", "%do%", 0, 0, 1, "class<`foreach`, `xforeach`>", 1
+"foreach", "%do%", 0, 0, 2, "class<`filteredforeach`, `foreach`>", 1
+"foreach", "%do%", 1, 0, 0, "any", 1
+"foreach", "%dopar%", -1, 0, 0, "(class<`data.frame`> | class<`matrix`> | class<`randomForest`> | integer[] | list<double>)", 1
+"foreach", "%dopar%", 0, 0, 0, "class<`foreach`>", 1
+"foreach", "%dopar%", 0, 0, 1, "class<`foreach`, `xforeach`>", 1
+"foreach", "%dopar%", 1, 0, 0, "any", 1
+"foreach", "foreach", -1, 0, 0, "class<`foreach`>", 1
+"foreach", "foreach", 0, 0, 0, "...", 1
+"foreach", "foreach", 1, 0, 0, "any", 1
+"foreach", "foreach", 2, 0, 0, "any", 1
+"foreach", "foreach", 3, 0, 0, "null", 1
+"foreach", "foreach", 4, 0, 0, "logical", 1
+"foreach", "foreach", 5, 0, 0, "logical", 1
+"foreach", "foreach", 6, 0, 0, "double", 1
+"foreach", "foreach", 7, 0, 0, "character[]", 1
+"foreach", "foreach", 8, 0, 0, "character", 1
+"foreach", "foreach", 8, 0, 1, "null", 1
+"foreach", "foreach", 9, 0, 0, "null", 1
+"foreach", "foreach", 10, 0, 0, "null", 1
+"foreach", "foreach", 11, 0, 0, "logical", 1
+"foreach", "getDoPar", -1, 0, 0, "list<class<`function`> | null>", 1
+"foreach", "getDoParName", -1, 0, 0, "null", 1
+"foreach", "getDoParRegistered", -1, 0, 0, "logical", 1
+"foreach", "getDoParVersion", -1, 0, 0, "null", 1
+"foreach", "getDoParWorkers", -1, 0, 0, "integer", 1
+"foreach", "getDoSeq", -1, 0, 0, "list<class<`function`> | null>", 1
+"foreach", "getDoSeqName", -1, 0, 0, "null", 1
+"foreach", "getDoSeqRegistered", -1, 0, 0, "logical", 1
+"foreach", "getDoSeqVersion", -1, 0, 0, "null", 1
+"foreach", "getDoSeqWorkers", -1, 0, 0, "integer", 1
+"foreach", "getErrorIndex", -1, 0, 0, "integer", 1
+"foreach", "getErrorIndex", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "getErrorIndex", 0, 0, 1, "class<`iforeach`, `iter`>", 1
+"foreach", "getErrorIndex", 0, 0, 2, "class<`iter`, `ixforeach`>", 1
+"foreach", "getErrorIndex", 1, 0, 0, "...", 1
+"foreach", "getErrorIndex.ifilteredforeach", -1, 0, 0, "integer", 1
+"foreach", "getErrorIndex.ifilteredforeach", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "getErrorIndex.ifilteredforeach", 1, 0, 0, "...", 1
+"foreach", "getErrorIndex.iforeach", -1, 0, 0, "integer", 1
+"foreach", "getErrorIndex.iforeach", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "getErrorIndex.iforeach", 0, 0, 1, "class<`iter`, `ixforeach`>", 1
+"foreach", "getErrorIndex.iforeach", 1, 0, 0, "...", 1
+"foreach", "getErrorIndex.ixforeach", -1, 0, 0, "integer", 1
+"foreach", "getErrorIndex.ixforeach", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "getErrorIndex.ixforeach", 0, 0, 1, "class<`iter`, `ixforeach`>", 1
+"foreach", "getErrorIndex.ixforeach", 1, 0, 0, "...", 1
+"foreach", "getErrorValue", -1, 0, 0, "null", 1
+"foreach", "getErrorValue", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "getErrorValue", 0, 0, 1, "class<`iforeach`, `iter`>", 1
+"foreach", "getErrorValue", 0, 0, 2, "class<`iter`, `ixforeach`>", 1
+"foreach", "getErrorValue", 1, 0, 0, "...", 1
+"foreach", "getErrorValue.ifilteredforeach", -1, 0, 0, "null", 1
+"foreach", "getErrorValue.ifilteredforeach", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "getErrorValue.ifilteredforeach", 1, 0, 0, "...", 1
+"foreach", "getErrorValue.iforeach", -1, 0, 0, "null", 1
+"foreach", "getErrorValue.iforeach", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "getErrorValue.iforeach", 0, 0, 1, "class<`iter`, `ixforeach`>", 1
+"foreach", "getErrorValue.iforeach", 1, 0, 0, "...", 1
+"foreach", "getErrorValue.ixforeach", -1, 0, 0, "null", 1
+"foreach", "getErrorValue.ixforeach", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "getErrorValue.ixforeach", 0, 0, 1, "class<`iter`, `ixforeach`>", 1
+"foreach", "getErrorValue.ixforeach", 1, 0, 0, "...", 1
+"foreach", "getResult", -1, 0, 0, "(class<`data.frame`> | class<`matrix`> | class<`randomForest`> | double[] | null | list<double>)", 1
+"foreach", "getResult", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "getResult", 0, 0, 1, "class<`iter`, `ixforeach`>", 1
+"foreach", "getResult", 0, 0, 2, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "getResult", 1, 0, 0, "...", 1
+"foreach", "getResult.ifilteredforeach", -1, 0, 0, "(double[] | null | class<`data.frame`> | class<`matrix`>)", 1
+"foreach", "getResult.ifilteredforeach", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "getResult.ifilteredforeach", 0, 0, 1, "class<`iter`, `ixforeach`>", 1
+"foreach", "getResult.ifilteredforeach", 1, 0, 0, "...", 1
+"foreach", "getResult.iforeach", -1, 0, 0, "(class<`data.frame`> | class<`matrix`> | class<`randomForest`> | double[] | null | list<double>)", 1
+"foreach", "getResult.iforeach", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "getResult.iforeach", 1, 0, 0, "...", 1
+"foreach", "getResult.ixforeach", -1, 0, 0, "(double[] | null | class<`data.frame`> | class<`matrix`>)", 1
+"foreach", "getResult.ixforeach", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "getResult.ixforeach", 0, 0, 1, "class<`iter`, `ixforeach`>", 1
+"foreach", "getResult.ixforeach", 1, 0, 0, "...", 1
+"foreach", "iter.filteredforeach", -1, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "iter.filteredforeach", 0, 0, 0, "class<`filteredforeach`, `foreach`>", 1
+"foreach", "iter.filteredforeach", 1, 0, 0, "...", 1
+"foreach", "iter.foreach", -1, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "iter.foreach", 0, 0, 0, "class<`foreach`>", 1
+"foreach", "iter.foreach", 1, 0, 0, "...", 1
+"foreach", "iter.foreach", 2, 0, 0, "list<any>", 1
+"foreach", "iter.xforeach", -1, 0, 0, "class<`iter`, `ixforeach`>", 1
+"foreach", "iter.xforeach", 0, 0, 0, "class<`foreach`, `xforeach`>", 1
+"foreach", "iter.xforeach", 1, 0, 0, "...", 1
+"foreach", "makeAccum", -1, 0, 0, "class<`function`>", 1
+"foreach", "makeAccum", 0, 0, 0, "any", 1
+"foreach", "makeFiltered", -1, 0, 0, "class<`filteredforeach`, `foreach`>", 1
+"foreach", "makeFiltered", 0, 0, 0, "class<`foreach`>", 1
+"foreach", "makeFiltered", 1, 0, 0, "class<`foreachCondition`>", 1
+"foreach", "makeMerged", -1, 0, 0, "class<`foreach`, `xforeach`>", 1
+"foreach", "makeMerged", 0, 0, 0, "class<`foreach`>", 1
+"foreach", "makeMerged", 1, 0, 0, "class<`foreach`>", 1
+"foreach", "nextElem.ifilteredforeach", -1, 0, 0, "any", 1
+"foreach", "nextElem.ifilteredforeach", 0, 0, 0, "class<`ifilteredforeach`, `iter`>", 1
+"foreach", "nextElem.ifilteredforeach", 1, 0, 0, "...", 1
+"foreach", "nextElem.ifilteredforeach", 2, 0, 0, "logical", 1
+"foreach", "nextElem.iforeach", -1, 0, 0, "any", 1
+"foreach", "nextElem.iforeach", 0, 0, 0, "class<`iforeach`, `iter`>", 1
+"foreach", "nextElem.iforeach", 1, 0, 0, "...", 1
+"foreach", "nextElem.iforeach", 2, 0, 0, "logical", 1
+"foreach", "nextElem.ixforeach", -1, 0, 0, "any", 1
+"foreach", "nextElem.ixforeach", 0, 0, 0, "class<`iter`, `ixforeach`>", 1
+"foreach", "nextElem.ixforeach", 1, 0, 0, "...", 1
+"foreach", "nextElem.ixforeach", 2, 0, 0, "logical", 1
+"foreach", "registerDoSEQ", -1, 0, 0, "class<`function`>", 1
+"foreach", "setDoPar", -1, 0, 0, "class<`function`>", 1
+"foreach", "setDoPar", 0, 0, 0, "class<`function`>", 1
+"foreach", "setDoPar", 1, 0, 0, "null", 1
+"foreach", "setDoPar", 2, 0, 0, "class<`function`>", 1
+"foreach", "setDoSeq", -1, 0, 0, "class<`function`>", 1
+"foreach", "setDoSeq", 0, 0, 0, "class<`function`>", 1
+"foreach", "setDoSeq", 1, 0, 0, "null", 1
+"foreach", "setDoSeq", 2, 0, 0, "class<`function`>", 1
+"foreach", "times", -1, 0, 0, "class<`foreach`>", 1
+"foreach", "times", 0, 0, 0, "double", 1
+"foreach", "when", -1, 0, 0, "class<`foreachCondition`>", 1
+"foreach", "when", 0, 0, 0, "any", 1

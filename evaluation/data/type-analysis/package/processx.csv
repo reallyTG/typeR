@@ -1,28 +1,149 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"processx", "filter", -1, 0, 0, "logical[]", 1
-"processx", "filter", 0, 0, 0, "character[]", 1
-"processx", "fun", -1, 0, 0, "null", 1
-"processx", "fun", 0, 0, 0, "symbol", 1
-"processx", "fun", 1, 0, 0, "symbol", 1
+"processx", "%||%", -1, 0, 0, "logical", 1
+"processx", "%||%", 0, 0, 0, "null", 1
+"processx", "%||%", 1, 0, 0, "logical", 1
+"processx", "assert_that", -1, 0, 0, "logical", 1
+"processx", "assert_that", 0, 0, 0, "...", 1
+"processx", "assert_that", 1, 0, 0, "environment", 1
+"processx", "assert_that", 2, 0, 0, "null", 1
+"processx", "check_result", -1, 0, 0, "logical", 1
+"processx", "check_result", 0, 0, 0, "logical", 1
+"processx", "default_pty_options", -1, 0, 0, "list<logical>", 1
+"processx", "format_unix_time", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"processx", "format_unix_time", 0, 0, 0, "double", 1
+"processx", "get_id", -1, 0, 0, "character", 1
+"processx", "get_private", -1, 0, 0, "environment", 1
+"processx", "get_private", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "is_connection_list", -1, 0, 0, "logical", 1
+"processx", "is_connection_list", 0, 0, 0, "list<any>", 1
+"processx", "is_flag", -1, 0, 0, "logical", 1
+"processx", "is_flag", 0, 0, 0, "logical", 1
+"processx", "is_integerish_scalar", -1, 0, 0, "logical", 1
+"processx", "is_integerish_scalar", 0, 0, 0, "double", 1
+"processx", "is_list_of_pollables", -1, 0, 0, "logical", 1
+"processx", "is_list_of_pollables", 0, 0, 0, "list<class<`R6`, `process`>>", 1
+"processx", "is_named", -1, 0, 0, "logical", 1
+"processx", "is_named", 0, 0, 0, "list<any>", 1
+"processx", "is_string", -1, 0, 0, "logical", 1
+"processx", "is_string", 0, 0, 0, "character", 1
+"processx", "is_string_or_null", -1, 0, 0, "logical", 1
+"processx", "is_string_or_null", 0, 0, 0, "character", 1
+"processx", "is_string_or_null", 0, 0, 1, "null", 1
+"processx", "is_time_interval", -1, 0, 0, "logical", 1
+"processx", "is_time_interval", 0, 0, 0, "double", 1
+"processx", "poll", -1, 0, 0, "list<character[]>", 1
+"processx", "poll", 0, 0, 0, "list<class<`R6`, `process`>>", 1
+"processx", "poll", 1, 0, 0, "double", 1
+"processx", "process_close_connections", -1, 0, 0, "null", 1
+"processx", "process_close_connections", 0, 0, 0, "any", 1
+"processx", "process_close_connections", 1, 0, 0, "environment", 1
+"processx", "process_get_error_connection", -1, 0, 0, "class<`processx_connection`>", 1
+"processx", "process_get_error_connection", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_get_error_connection", 1, 0, 0, "environment", 1
+"processx", "process_get_exit_status", -1, 0, 0, "integer", 1
+"processx", "process_get_exit_status", 0, 0, 0, "any", 1
+"processx", "process_get_exit_status", 1, 0, 0, "environment", 1
+"processx", "process_get_output_connection", -1, 0, 0, "class<`processx_connection`>", 1
+"processx", "process_get_output_connection", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_get_output_connection", 1, 0, 0, "environment", 1
+"processx", "process_get_short_name", -1, 0, 0, "character", 1
+"processx", "process_get_short_name", 0, 0, 0, "any", 1
+"processx", "process_get_short_name", 1, 0, 0, "environment", 1
+"processx", "process_get_start_time", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"processx", "process_get_start_time", 0, 0, 0, "any", 1
+"processx", "process_get_start_time", 1, 0, 0, "environment", 1
+"processx", "process_has_error_connection", -1, 0, 0, "logical", 1
+"processx", "process_has_error_connection", 0, 0, 0, "any", 1
+"processx", "process_has_error_connection", 1, 0, 0, "environment", 1
+"processx", "process_has_output_connection", -1, 0, 0, "logical", 1
+"processx", "process_has_output_connection", 0, 0, 0, "any", 1
+"processx", "process_has_output_connection", 1, 0, 0, "environment", 1
+"processx", "process_initialize", -1, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_initialize", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_initialize", 1, 0, 0, "environment", 1
+"processx", "process_initialize", 2, 0, 0, "character", 1
+"processx", "process_initialize", 3, 0, 0, "character[]", 1
+"processx", "process_initialize", 4, 0, 0, "null", 1
+"processx", "process_initialize", 5, 0, 0, "character", 1
+"processx", "process_initialize", 6, 0, 0, "character", 1
+"processx", "process_initialize", 7, 0, 0, "logical", 1
+"processx", "process_initialize", 8, 0, 0, "list<any>", 1
+"processx", "process_initialize", 9, 0, 0, "list<any>", 1
+"processx", "process_initialize", 10, 0, 0, "null", 1
+"processx", "process_initialize", 11, 0, 0, "null", 1
+"processx", "process_initialize", 12, 0, 0, "logical", 1
+"processx", "process_initialize", 13, 0, 0, "logical", 1
+"processx", "process_initialize", 14, 0, 0, "null", 1
+"processx", "process_initialize", 15, 0, 0, "logical", 1
+"processx", "process_initialize", 16, 0, 0, "logical", 1
+"processx", "process_initialize", 17, 0, 0, "logical", 1
+"processx", "process_initialize", 18, 0, 0, "logical", 1
+"processx", "process_initialize", 19, 0, 0, "character", 1
+"processx", "process_is_alive", -1, 0, 0, "logical", 1
+"processx", "process_is_alive", 0, 0, 0, "any", 1
+"processx", "process_is_alive", 1, 0, 0, "environment", 1
+"processx", "process_is_incompelete_error", -1, 0, 0, "logical", 1
+"processx", "process_is_incompelete_error", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_is_incompelete_error", 1, 0, 0, "environment", 1
+"processx", "process_is_incompelete_output", -1, 0, 0, "logical", 1
+"processx", "process_is_incompelete_output", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_is_incompelete_output", 1, 0, 0, "environment", 1
+"processx", "process_kill", -1, 0, 0, "logical", 1
+"processx", "process_kill", 0, 0, 0, "any", 1
+"processx", "process_kill", 1, 0, 0, "environment", 1
+"processx", "process_kill", 2, 0, 0, "double", 1
+"processx", "process_kill", 3, 0, 0, "logical", 1
+"processx", "process_poll_io", -1, 0, 0, "character[]", 1
+"processx", "process_poll_io", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_poll_io", 1, 0, 0, "any", 1
+"processx", "process_poll_io", 2, 0, 0, "double", 1
+"processx", "process_read_error", -1, 0, 0, "character", 1
+"processx", "process_read_error", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_read_error", 1, 0, 0, "environment", 1
+"processx", "process_read_error", 2, 0, 0, "double", 1
+"processx", "process_read_output", -1, 0, 0, "character", 1
+"processx", "process_read_output", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_read_output", 1, 0, 0, "environment", 1
+"processx", "process_read_output", 2, 0, 0, "double", 1
+"processx", "process_wait", -1, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_wait", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "process_wait", 1, 0, 0, "environment", 1
+"processx", "process_wait", 2, 0, 0, "double", 1
+"processx", "run", -1, 0, 0, "list<integer | character>", 1
+"processx", "run", 0, 0, 0, "character", 1
+"processx", "run", 1, 0, 0, "character[]", 1
+"processx", "run", 2, 0, 0, "logical", 1
+"processx", "run", 3, 0, 0, "null", 1
+"processx", "run", 4, 0, 0, "logical", 1
+"processx", "run", 5, 0, 0, "logical", 1
+"processx", "run", 6, 0, 0, "logical", 1
+"processx", "run", 7, 0, 0, "double", 1
+"processx", "run", 8, 0, 0, "null", 1
+"processx", "run", 9, 0, 0, "null", 1
+"processx", "run", 10, 0, 0, "null", 1
+"processx", "run", 11, 0, 0, "null", 1
+"processx", "run", 12, 0, 0, "logical", 1
+"processx", "run", 13, 0, 0, "null", 1
+"processx", "run", 14, 0, 0, "logical", 1
+"processx", "run", 15, 0, 0, "logical", 1
+"processx", "run", 16, 0, 0, "character", 1
+"processx", "run", 17, 0, 0, "logical", 1
+"processx", "run", 18, 0, 0, "...", 1
+"processx", "run_manage", -1, 0, 0, "list<integer | character>", 1
+"processx", "run_manage", 0, 0, 0, "class<`R6`, `process`>", 1
+"processx", "run_manage", 1, 0, 0, "double", 1
+"processx", "run_manage", 2, 0, 0, "logical", 1
+"processx", "run_manage", 3, 0, 0, "any", 1
+"processx", "run_manage", 4, 0, 0, "any", 1
+"processx", "run_manage", 5, 0, 0, "any", 1
+"processx", "run_manage", 6, 0, 0, "any", 1
+"processx", "run_manage", 7, 0, 0, "environment", 1
+"processx", "see_if", -1, 0, 0, "logical", 1
+"processx", "see_if", 0, 0, 0, "...", 1
+"processx", "see_if", 1, 0, 0, "environment", 1
+"processx", "see_if", 2, 0, 0, "any", 1
+"processx", "set_names", -1, 0, 0, "character[]", 1
+"processx", "set_names", 0, 0, 0, "character[]", 1
+"processx", "set_names", 1, 0, 0, "character[]", 1
 "processx", "supervisor_reset", -1, 0, 0, "null", 1
 "processx", "supervisor_running", -1, 0, 0, "logical", 1
-"processx", ".subset2", -1, 0, 0, "null", 1
-"processx", ".subset2", 0, 0, 0, "character", 1
-"processx", ".subset2", 1, 0, 0, "character[]", 1
-"processx", ".subset2", 2, 0, 0, "null", 1
-"processx", ".subset2", 3, 0, 0, "character", 1
-"processx", ".subset2", 4, 0, 0, "character", 1
-"processx", ".subset2", 5, 0, 0, "logical", 1
-"processx", ".subset2", 6, 0, 0, "tuple<>", 1
-"processx", ".subset2", 7, 0, 0, "tuple<>", 1
-"processx", ".subset2", 8, 0, 0, "null", 1
-"processx", ".subset2", 9, 0, 0, "null", 1
-"processx", ".subset2", 10, 0, 0, "logical", 1
-"processx", ".subset2", 11, 0, 0, "logical", 1
-"processx", ".subset2", 12, 0, 0, "null", 1
-"processx", ".subset2", 13, 0, 0, "logical", 1
-"processx", ".subset2", 14, 0, 0, "logical", 1
-"processx", ".subset2", 15, 0, 0, "logical", 1
-"processx", ".subset2", 16, 0, 0, "logical", 1
-"processx", ".subset2", 17, 0, 0, "character", 1
-"processx", ".subset2", 18, 0, 0, "null", 1

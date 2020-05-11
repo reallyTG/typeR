@@ -1,11 +1,10 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"readxl", "filter", -1, 0, 0, "logical[]", 1
-"readxl", "filter", 0, 0, 0, "character[]", 1
 "readxl", "check_bool", -1, 0, 0, "logical", 1
 "readxl", "check_bool", 0, 0, 0, "logical", 1
 "readxl", "check_bool", 1, 0, 0, "character", 1
 "readxl", "check_col_types", -1, 0, 0, "character[]", 1
 "readxl", "check_col_types", 0, 0, 0, "character[]", 1
+"readxl", "check_col_types", 0, 0, 1, "null", 1
 "readxl", "check_file", -1, 0, 0, "character", 1
 "readxl", "check_file", 0, 0, 0, "character", 1
 "readxl", "check_format", -1, 0, 0, "character", 1
@@ -23,5 +22,80 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readxl", "excel_sheets", 0, 0, 0, "character", 1
 "readxl", "format_from_ext", -1, 0, 0, "^character[]", 1
 "readxl", "format_from_ext", 0, 0, 0, "character[]", 1
-"readxl", "format_from_signature", -1, 0, 0, "null", 1
+"readxl", "format_from_signature", -1, 0, 0, "(character[] | null)", 1
 "readxl", "format_from_signature", 0, 0, 0, "character[]", 1
+"readxl", "is_integerish", -1, 0, 0, "logical", 1
+"readxl", "is_integerish", 0, 0, 0, "double", 1
+"readxl", "is_string", -1, 0, 0, "logical", 1
+"readxl", "is_string", 0, 0, 0, "character", 1
+"readxl", "read_excel", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readxl", "read_excel", 0, 0, 0, "character", 1
+"readxl", "read_excel", 1, 0, 0, "character", 1
+"readxl", "read_excel", 1, 0, 1, "double", 1
+"readxl", "read_excel", 1, 0, 2, "null", 1
+"readxl", "read_excel", 2, 0, 0, "null", 1
+"readxl", "read_excel", 2, 0, 1, "character", 1
+"readxl", "read_excel", 2, 0, 2, "class<`cell_limits`, `list`>", 1
+"readxl", "read_excel", 3, 0, 0, "logical", 1
+"readxl", "read_excel", 4, 0, 0, "character[]", 1
+"readxl", "read_excel", 4, 0, 1, "null", 1
+"readxl", "read_excel", 5, 0, 0, "character", 1
+"readxl", "read_excel", 6, 0, 0, "logical", 1
+"readxl", "read_excel", 7, 0, 0, "double", 1
+"readxl", "read_excel", 8, 0, 0, "double", 1
+"readxl", "read_excel", 9, 0, 0, "double", 1
+"readxl", "read_excel", 10, 0, 0, "logical", 1
+"readxl", "read_excel", 11, 0, 0, "character", 1
+"readxl", "read_excel", 11, 0, 1, "class<`formula`>", 1
+"readxl", "read_excel", 11, 0, 2, "class<`function`>", 1
+"readxl", "read_excel_", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readxl", "read_excel_", 0, 0, 0, "character", 1
+"readxl", "read_excel_", 1, 0, 0, "character", 1
+"readxl", "read_excel_", 1, 0, 1, "double", 1
+"readxl", "read_excel_", 1, 0, 2, "null", 1
+"readxl", "read_excel_", 2, 0, 0, "null", 1
+"readxl", "read_excel_", 2, 0, 1, "character", 1
+"readxl", "read_excel_", 2, 0, 2, "class<`cell_limits`, `list`>", 1
+"readxl", "read_excel_", 3, 0, 0, "logical", 1
+"readxl", "read_excel_", 4, 0, 0, "character[]", 1
+"readxl", "read_excel_", 4, 0, 1, "null", 1
+"readxl", "read_excel_", 5, 0, 0, "character", 1
+"readxl", "read_excel_", 6, 0, 0, "logical", 1
+"readxl", "read_excel_", 7, 0, 0, "any", 1
+"readxl", "read_excel_", 8, 0, 0, "any", 1
+"readxl", "read_excel_", 9, 0, 0, "double", 1
+"readxl", "read_excel_", 10, 0, 0, "logical", 1
+"readxl", "read_excel_", 11, 0, 0, "character", 1
+"readxl", "read_excel_", 11, 0, 1, "class<`formula`>", 1
+"readxl", "read_excel_", 11, 0, 2, "class<`function`>", 1
+"readxl", "read_excel_", 12, 0, 0, "character", 1
+"readxl", "readxl_example", -1, 0, 0, "character[]", 1
+"readxl", "readxl_example", 0, 0, 0, "null", 1
+"readxl", "readxl_example", 0, 0, 1, "character", 1
+"readxl", "readxl_progress", -1, 0, 0, "logical", 1
+"readxl", "set_readxl_names", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readxl", "set_readxl_names", 0, 0, 0, "list<any>", 1
+"readxl", "set_readxl_names", 1, 0, 0, "character", 1
+"readxl", "set_readxl_names", 1, 0, 1, "class<`function`>", 1
+"readxl", "set_readxl_names", 1, 0, 2, "class<`formula`>", 1
+"readxl", "sheets_fun", -1, 0, 0, "character[]", 1
+"readxl", "sheets_fun", 0, 0, 0, "character", 1
+"readxl", "standardise_limits", -1, 0, 0, "double[]", 1
+"readxl", "standardise_limits", 0, 0, 0, "character", 1
+"readxl", "standardise_limits", 0, 0, 1, "class<`cell_limits`, `list`>", 1
+"readxl", "standardise_limits", 0, 0, 2, "null", 1
+"readxl", "standardise_limits", 1, 0, 0, "any", 1
+"readxl", "standardise_limits", 2, 0, 0, "any", 1
+"readxl", "standardise_limits", 3, 0, 0, "any", 1
+"readxl", "standardise_sheet", -1, 0, 0, "double", 1
+"readxl", "standardise_sheet", 0, 0, 0, "double", 1
+"readxl", "standardise_sheet", 0, 0, 1, "null", 1
+"readxl", "standardise_sheet", 0, 0, 2, "character", 1
+"readxl", "standardise_sheet", 1, 0, 0, "null", 1
+"readxl", "standardise_sheet", 1, 0, 1, "character", 1
+"readxl", "standardise_sheet", 1, 0, 2, "class<`cell_limits`, `list`>", 1
+"readxl", "standardise_sheet", 2, 0, 0, "any", 1
+"readxl", "xls_sheets", -1, 0, 0, "character[]", 1
+"readxl", "xls_sheets", 0, 0, 0, "character", 1
+"readxl", "xlsx_sheets", -1, 0, 0, "character[]", 1
+"readxl", "xlsx_sheets", 0, 0, 0, "character", 1

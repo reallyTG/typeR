@@ -1,10 +1,1032 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"bayesplot", "_fseq", -1, 0, 0, "struct<`chain`:integer[], `parameter`:integer[]>", 1
-"bayesplot", "_fseq", 0, 0, 0, "struct<`parameter`:integer[], `value`:double[], `value_rank`:double[], `iteration`:integer[], `chain`:integer[], `n_chains`:integer[], `n_iterations`:integer[], `n_parameters`:integer[], `highlight`:logical[], `warmup`:logical[]>", 1
-"bayesplot", "_fseq", 0, 0, 1, "list<struct<`parameter`:integer>>", 1
-"bayesplot", "_fseq", 0, 0, 2, "list<struct<`Parameter`:integer, `Chain`:integer>>", 1
-"bayesplot", "_fseq", 0, 0, 3, "^double[]", 1
-"bayesplot", "_fseq", 0, 0, 4, "character[]", 1
-"bayesplot", "_fseq", 0, 0, 5, "struct<`height`:language, `scale`:language>", 1
-"bayesplot", "_fseq", 0, 0, 6, "struct<`x`:language, `y`:language>", 1
-"bayesplot", "_fseq", 0, 0, 7, "struct<`xend`:language, `yend`:language, `x`:language>", 1
+"bayesplot", "%||%", -1, 0, 0, "(^character[] | class<`formula`> | class<`function`> | double | expression)", 1
+"bayesplot", "%||%", 0, 0, 0, "^character[]", 1
+"bayesplot", "%||%", 0, 0, 1, "null", 1
+"bayesplot", "%||%", 0, 0, 2, "double", 1
+"bayesplot", "%||%", 1, 0, 0, "any", 1
+"bayesplot", "abline_01", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "abline_01", 0, 0, 0, "...", 1
+"bayesplot", "abline_01", 1, 0, 0, "logical", 1
+"bayesplot", "acf_data", -1, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "acf_data", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "acf_data", 1, 0, 0, "double", 1
+"bayesplot", "all_counts", -1, 0, 0, "logical", 1
+"bayesplot", "all_counts", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "all_counts", 0, 0, 1, "integer[]", 1
+"bayesplot", "all_counts", 1, 0, 0, "...", 1
+"bayesplot", "all_ggplot", -1, 0, 0, "logical", 1
+"bayesplot", "all_ggplot", 0, 0, 0, "list<class<`gg`, `ggplot`>>", 1
+"bayesplot", "all_whole_number", -1, 0, 0, "logical", 1
+"bayesplot", "all_whole_number", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "all_whole_number", 0, 0, 1, "integer[]", 1
+"bayesplot", "all_whole_number", 1, 0, 0, "...", 1
+"bayesplot", "apply_transformations", -1, 0, 0, "class<`array`>", 1
+"bayesplot", "apply_transformations", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "apply_transformations", 1, 0, 0, "list<character | character | class<`function`> | class<`function`>>", 1
+"bayesplot", "apply_transformations", 2, 0, 0, "...", 1
+"bayesplot", "apply_transformations.array", -1, 0, 0, "class<`array`>", 1
+"bayesplot", "apply_transformations.array", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "apply_transformations.array", 1, 0, 0, "list<character | character | class<`function`> | class<`function`>>", 1
+"bayesplot", "as_bayesplot_grid", -1, 0, 0, "class<`bayesplot_grid`, `gDesc`, `gTree`, `grob`, `gtable`>", 1
+"bayesplot", "as_bayesplot_grid", 0, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
+"bayesplot", "as_neff_ratio", -1, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "as_neff_ratio", 0, 0, 0, "double[]", 1
+"bayesplot", "as_rhat", -1, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "as_rhat", 0, 0, 0, "double[]", 1
+"bayesplot", "as_rhat", 0, 0, 1, "class<`numeric`, `rhat`>", 1
+"bayesplot", "auto_name", -1, 0, 0, "(class<`neff_ratio`, `numeric`> | class<`numeric`, `rhat`>)", 1
+"bayesplot", "auto_name", 0, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "auto_name", 0, 0, 1, "class<`numeric`, `rhat`>", 1
+"bayesplot", "available_mcmc", -1, 0, 0, "class<`bayesplot_function_list`, `character`>", 1
+"bayesplot", "available_mcmc", 0, 0, 0, "any", 1
+"bayesplot", "available_mcmc", 1, 0, 0, "logical", 1
+"bayesplot", "available_mcmc", 2, 0, 0, "logical", 1
+"bayesplot", "available_ppc", -1, 0, 0, "class<`bayesplot_function_list`, `character`>", 1
+"bayesplot", "available_ppc", 0, 0, 0, "any", 1
+"bayesplot", "available_ppc", 1, 0, 0, "logical", 1
+"bayesplot", "available_ppc", 2, 0, 0, "logical", 1
+"bayesplot", "bayesplot_grid", -1, 0, 0, "class<`bayesplot_grid`, `gDesc`, `gTree`, `grob`, `gtable`>", 1
+"bayesplot", "bayesplot_grid", 0, 0, 0, "...", 1
+"bayesplot", "bayesplot_grid", 1, 0, 0, "list<class<`gg`, `ggplot`>>", 1
+"bayesplot", "bayesplot_grid", 2, 0, 0, "null", 1
+"bayesplot", "bayesplot_grid", 3, 0, 0, "null", 1
+"bayesplot", "bayesplot_grid", 4, 0, 0, "list<double>", 1
+"bayesplot", "bayesplot_grid", 5, 0, 0, "character[]", 1
+"bayesplot", "bayesplot_grid", 6, 0, 0, "character[]", 1
+"bayesplot", "bayesplot_grid", 7, 0, 0, "logical", 1
+"bayesplot", "bayesplot_grid", 8, 0, 0, "logical", 1
+"bayesplot", "bayesplot_theme_get", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "bayesplot_theme_set", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "bayesplot_theme_set", 0, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "bayesplot_theme_update", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "bayesplot_theme_update", 0, 0, 0, "...", 1
+"bayesplot", "calc_intervals", -1, 0, 0, "double[]", 1
+"bayesplot", "calc_intervals", 0, 0, 0, "double[]", 1
+"bayesplot", "calc_intervals", 1, 0, 0, "double", 1
+"bayesplot", "calc_intervals", 2, 0, 0, "logical", 1
+"bayesplot", "calc_intervals", 3, 0, 0, "...", 1
+"bayesplot", "calc_v", -1, 0, 0, "double[]", 1
+"bayesplot", "calc_v", 0, 0, 0, "double[]", 1
+"bayesplot", "calc_v", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "calc_v", 1, 0, 0, "any", 1
+"bayesplot", "calc_v", 2, 0, 0, "any", 1
+"bayesplot", "calc_v", 3, 0, 0, "...", 1
+"bayesplot", "chain_colors", -1, 0, 0, "character[]", 1
+"bayesplot", "chain_colors", 0, 0, 0, "integer", 1
+"bayesplot", "check_ignored_arguments", -1, 0, 0, "null", 1
+"bayesplot", "check_ignored_arguments", 0, 0, 0, "...", 1
+"bayesplot", "check_ignored_arguments", 1, 0, 0, "any", 1
+"bayesplot", "check_interval_widths", -1, 0, 0, "double[]", 1
+"bayesplot", "check_interval_widths", 0, 0, 0, "double", 1
+"bayesplot", "check_interval_widths", 1, 0, 0, "double", 1
+"bayesplot", "color_scheme_get", -1, 0, 0, "(class<`bayesplot_scheme`, `list`> | list<character>)", 1
+"bayesplot", "color_scheme_get", 0, 0, 0, "character", 1
+"bayesplot", "color_scheme_get", 0, 0, 1, "null", 1
+"bayesplot", "color_scheme_get", 1, 0, 0, "null", 1
+"bayesplot", "color_scheme_get", 1, 0, 1, "double[]", 1
+"bayesplot", "color_scheme_set", -1, 0, 0, "list<character>", 1
+"bayesplot", "color_scheme_set", 0, 0, 0, "character[]", 1
+"bayesplot", "color_scheme_view", -1, 0, 0, "(class<`bayesplot_grid`, `gDesc`, `gTree`, `grob`, `gtable`> | class<`gg`, `ggplot`>)", 1
+"bayesplot", "color_scheme_view", 0, 0, 0, "character[]", 1
+"bayesplot", "color_scheme_view", 0, 0, 1, "null", 1
+"bayesplot", "compute_column_density", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"bayesplot", "compute_column_density", 0, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "compute_column_density", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "compute_column_density", 1, 0, 0, "any", 1
+"bayesplot", "compute_column_density", 2, 0, 0, "any", 1
+"bayesplot", "compute_column_density", 3, 0, 0, "...", 1
+"bayesplot", "compute_errors", -1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "compute_errors", 0, 0, 0, "integer[]", 1
+"bayesplot", "compute_errors", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "create_yrep_ids", -1, 0, 0, "character[]", 1
+"bayesplot", "create_yrep_ids", 0, 0, 0, "integer[]", 1
+"bayesplot", "diagnostic_colors", -1, 0, 0, "list<character[] | expression>", 1
+"bayesplot", "diagnostic_colors", 0, 0, 0, "character", 1
+"bayesplot", "diagnostic_colors", 1, 0, 0, "character", 1
+"bayesplot", "diagnostic_color_scale", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
+"bayesplot", "diagnostic_color_scale", 0, 0, 0, "character", 1
+"bayesplot", "diagnostic_color_scale", 1, 0, 0, "character", 1
+"bayesplot", "diagnostic_data_frame", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "diagnostic_data_frame", 0, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "diagnostic_data_frame", 0, 0, 1, "class<`numeric`, `rhat`>", 1
+"bayesplot", "diagnostic_factor", -1, 0, 0, "class<`factor`>", 1
+"bayesplot", "diagnostic_factor", 0, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "diagnostic_factor", 0, 0, 1, "class<`numeric`, `rhat`>", 1
+"bayesplot", "diagnostic_factor", 1, 0, 0, "any", 1
+"bayesplot", "diagnostic_factor", 2, 0, 0, "...", 1
+"bayesplot", "diagnostic_factor.neff_ratio", -1, 0, 0, "class<`factor`>", 1
+"bayesplot", "diagnostic_factor.neff_ratio", 0, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "diagnostic_factor.neff_ratio", 1, 0, 0, "double[]", 1
+"bayesplot", "diagnostic_factor.rhat", -1, 0, 0, "class<`factor`>", 1
+"bayesplot", "diagnostic_factor.rhat", 0, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "diagnostic_factor.rhat", 1, 0, 0, "double[]", 1
+"bayesplot", "diagnostic_points", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "diagnostic_points", 0, 0, 0, "double", 1
+"bayesplot", "diagnostic_points", 0, 0, 1, "null", 1
+"bayesplot", "dont_expand_axes", -1, 0, 0, "class<`Coord`, `CoordCartesian`, `gg`, `ggproto`>", 1
+"bayesplot", "dont_expand_x_axis", -1, 0, 0, "class<`Scale`, `ScaleContinuous`, `ScaleContinuousPosition`, `gg`, `ggproto`>", 1
+"bayesplot", "dont_expand_x_axis", 0, 0, 0, "double[]", 1
+"bayesplot", "dont_expand_y_axis", -1, 0, 0, "class<`Scale`, `ScaleContinuous`, `ScaleContinuousPosition`, `gg`, `ggproto`>", 1
+"bayesplot", "dont_expand_y_axis", 0, 0, 0, "double[]", 1
+"bayesplot", "drop_NAs_and_warn", -1, 0, 0, "(class<`neff_ratio`, `numeric`> | class<`numeric`, `rhat`>)", 1
+"bayesplot", "drop_NAs_and_warn", 0, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "drop_NAs_and_warn", 0, 0, 1, "class<`numeric`, `rhat`>", 1
+"bayesplot", ".example_group_data", -1, 0, 0, "class<`factor`>", 1
+"bayesplot", "example_group_data", -1, 0, 0, "class<`factor`>", 1
+"bayesplot", ".example_mcmc_draws", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"bayesplot", ".example_mcmc_draws", 0, 0, 0, "double", 1
+"bayesplot", ".example_mcmc_draws", 1, 0, 0, "double", 1
+"bayesplot", "example_mcmc_draws", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"bayesplot", "example_mcmc_draws", 0, 0, 0, "double", 1
+"bayesplot", "example_mcmc_draws", 1, 0, 0, "double", 1
+"bayesplot", ".example_x_data", -1, 0, 0, "double[]", 1
+"bayesplot", "example_x_data", -1, 0, 0, "double[]", 1
+"bayesplot", ".example_y_data", -1, 0, 0, "integer[]", 1
+"bayesplot", "example_y_data", -1, 0, 0, "integer[]", 1
+"bayesplot", ".example_yrep_draws", -1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "example_yrep_draws", -1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "facet_bg", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "facet_bg", 0, 0, 0, "logical", 1
+"bayesplot", "facet_bg", 1, 0, 0, "...", 1
+"bayesplot", "facet_text", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "facet_text", 0, 0, 0, "logical", 1
+"bayesplot", "facet_text", 1, 0, 0, "...", 1
+"bayesplot", "facet_wrap_parsed", -1, 0, 0, "class<`Facet`, `FacetWrap`, `gg`, `ggproto`>", 1
+"bayesplot", "facet_wrap_parsed", 0, 0, 0, "...", 1
+"bayesplot", "force_axes_in_facets", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "force_x_axis_in_facets", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "full_level_name", -1, 0, 0, "character[]", 1
+"bayesplot", "full_level_name", 0, 0, 0, "character[]", 1
+"bayesplot", "FUN", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "FUN", 0, 0, 0, "character", 1
+"bayesplot", "FUN", 0, 0, 1, "null", 1
+"bayesplot", "geom_ignore", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "geom_ignore", 0, 0, 0, "...", 1
+"bayesplot", "get_color", -1, 0, 0, "character[]", 1
+"bayesplot", "get_color", 0, 0, 0, "character[]", 1
+"bayesplot", "grid_lines", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "grid_lines", 0, 0, 0, "character", 1
+"bayesplot", "grid_lines", 1, 0, 0, "double", 1
+"bayesplot", "grid_lines_y", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "grid_lines_y", 0, 0, 0, "character", 1
+"bayesplot", "grid_lines_y", 1, 0, 0, "double", 1
+"bayesplot", "grouped_error_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "grouped_error_data", 0, 0, 0, "integer[]", 1
+"bayesplot", "grouped_error_data", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "grouped_error_data", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "has_multiple_chains", -1, 0, 0, "logical", 1
+"bayesplot", "has_multiple_chains", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "hline_0", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "hline_0", 0, 0, 0, "...", 1
+"bayesplot", "hline_0", 1, 0, 0, "logical", 1
+"bayesplot", "hline_at", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "hline_at", 0, 0, 0, "double[]", 1
+"bayesplot", "hline_at", 1, 0, 0, "any", 1
+"bayesplot", "hline_at", 2, 0, 0, "...", 1
+"bayesplot", "hline_at", 3, 0, 0, "logical", 1
+"bayesplot", "is_3d_array", -1, 0, 0, "logical", 1
+"bayesplot", "is_3d_array", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "is_3d_array", 0, 0, 1, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "is_chain_list", -1, 0, 0, "logical", 1
+"bayesplot", "is_chain_list", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "is_chain_list", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "is_df_with_chain", -1, 0, 0, "logical", 1
+"bayesplot", "is_df_with_chain", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "is_df_with_chain", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "is_hex_color", -1, 0, 0, "logical", 1
+"bayesplot", "is_hex_color", 0, 0, 0, "character", 1
+"bayesplot", "is_mcmc_array", -1, 0, 0, "logical", 1
+"bayesplot", "is_mcmc_array", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "is_vector_or_1Darray", -1, 0, 0, "logical", 1
+"bayesplot", "is_vector_or_1Darray", 0, 0, 0, "double[]", 1
+"bayesplot", "is_whole_number", -1, 0, 0, "(class<`matrix`> | logical[])", 1
+"bayesplot", "is_whole_number", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "is_whole_number", 0, 0, 1, "integer[]", 1
+"bayesplot", "is_whole_number", 1, 0, 0, "double", 1
+"bayesplot", "label_x", -1, 0, 0, "null", 1
+"bayesplot", "label_x", 0, 0, 0, "any", 1
+"bayesplot", "lbub", -1, 0, 0, "class<`function`>", 1
+"bayesplot", "lbub", 0, 0, 0, "double", 1
+"bayesplot", "lbub", 1, 0, 0, "logical", 1
+"bayesplot", "legend_move", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "legend_move", 0, 0, 0, "character", 1
+"bayesplot", "legend_move", 0, 0, 1, "double[]", 1
+"bayesplot", "legend_none", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "legend_text", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "legend_text", 0, 0, 0, "...", 1
+"bayesplot", ".list_module_functions", -1, 0, 0, "class<`bayesplot_function_list`, `character`>", 1
+"bayesplot", ".list_module_functions", 0, 0, 0, "character", 1
+"bayesplot", ".list_module_functions", 1, 0, 0, "any", 1
+"bayesplot", ".list_module_functions", 2, 0, 0, "any", 1
+"bayesplot", ".list_module_functions", 3, 0, 0, "logical", 1
+"bayesplot", ".mcmc_acf", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".mcmc_acf", 0, 0, 0, "class<`array`>", 1
+"bayesplot", ".mcmc_acf", 1, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_acf", 2, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_acf", 3, 0, 0, "list<any>", 1
+"bayesplot", ".mcmc_acf", 4, 0, 0, "double", 1
+"bayesplot", ".mcmc_acf", 5, 0, 0, "character", 1
+"bayesplot", ".mcmc_acf", 6, 0, 0, "null", 1
+"bayesplot", "mcmc_acf", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_acf", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_acf", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_acf", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_acf", 3, 0, 0, "...", 1
+"bayesplot", "mcmc_acf", 4, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_acf", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_acf", 6, 0, 0, "null", 1
+"bayesplot", "mcmc_acf_bar", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_acf_bar", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_acf_bar", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_acf_bar", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_acf_bar", 3, 0, 0, "...", 1
+"bayesplot", "mcmc_acf_bar", 4, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_acf_bar", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_areas", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_areas", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_areas", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_areas", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_areas", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_areas", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_areas", 5, 0, 0, "character[]", 1
+"bayesplot", "mcmc_areas", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_areas", 7, 0, 0, "double", 1
+"bayesplot", "mcmc_areas", 8, 0, 0, "character[]", 1
+"bayesplot", "mcmc_areas", 9, 0, 0, "double[]", 1
+"bayesplot", "mcmc_areas", 10, 0, 0, "null", 1
+"bayesplot", "mcmc_areas", 11, 0, 0, "null", 1
+"bayesplot", "mcmc_areas", 12, 0, 0, "null", 1
+"bayesplot", "mcmc_areas", 13, 0, 0, "null", 1
+"bayesplot", "mcmc_areas_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "mcmc_areas_data", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_areas_data", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_areas_data", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_areas_data", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_areas_data", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_areas_data", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_areas_data", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_areas_data", 7, 0, 0, "character[]", 1
+"bayesplot", "mcmc_areas_data", 8, 0, 0, "double[]", 1
+"bayesplot", "mcmc_areas_data", 9, 0, 0, "null", 1
+"bayesplot", "mcmc_areas_data", 10, 0, 0, "null", 1
+"bayesplot", "mcmc_areas_data", 11, 0, 0, "null", 1
+"bayesplot", "mcmc_areas_data", 12, 0, 0, "null", 1
+"bayesplot", ".mcmc_dens", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".mcmc_dens", 0, 0, 0, "class<`array`>", 1
+"bayesplot", ".mcmc_dens", 1, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_dens", 2, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_dens", 3, 0, 0, "list<any>", 1
+"bayesplot", ".mcmc_dens", 4, 0, 0, "any", 1
+"bayesplot", ".mcmc_dens", 5, 0, 0, "logical", 1
+"bayesplot", ".mcmc_dens", 6, 0, 0, "logical", 1
+"bayesplot", ".mcmc_dens", 7, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_dens", 8, 0, 0, "any", 1
+"bayesplot", ".mcmc_dens", 9, 0, 0, "logical", 1
+"bayesplot", ".mcmc_dens", 10, 0, 0, "...", 1
+"bayesplot", "mcmc_dens", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_dens", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_dens", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_dens", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_dens", 5, 0, 0, "any", 1
+"bayesplot", "mcmc_dens", 6, 0, 0, "logical", 1
+"bayesplot", "mcmc_dens_chains", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_dens_chains", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_dens_chains", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens_chains", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens_chains", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_dens_chains", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_dens_chains", 5, 0, 0, "logical", 1
+"bayesplot", "mcmc_dens_chains", 6, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_chains", 7, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_chains", 8, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_chains", 9, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_chains_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "mcmc_dens_chains_data", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_dens_chains_data", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens_chains_data", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens_chains_data", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_dens_chains_data", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_dens_chains_data", 5, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_chains_data", 6, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_chains_data", 7, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_chains_data", 8, 0, 0, "null", 1
+"bayesplot", "mcmc_dens_overlay", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_dens_overlay", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_dens_overlay", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens_overlay", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_dens_overlay", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_dens_overlay", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_dens_overlay", 5, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_dens_overlay", 6, 0, 0, "logical", 1
+"bayesplot", "mcmc_dens_overlay", 7, 0, 0, "logical", 1
+"bayesplot", ".mcmc_hist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".mcmc_hist", 0, 0, 0, "class<`array`>", 1
+"bayesplot", ".mcmc_hist", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", ".mcmc_hist", 1, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_hist", 2, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_hist", 3, 0, 0, "list<any>", 1
+"bayesplot", ".mcmc_hist", 4, 0, 0, "list<any>", 1
+"bayesplot", ".mcmc_hist", 5, 0, 0, "null", 1
+"bayesplot", ".mcmc_hist", 5, 0, 1, "double", 1
+"bayesplot", ".mcmc_hist", 6, 0, 0, "null", 1
+"bayesplot", ".mcmc_hist", 7, 0, 0, "logical", 1
+"bayesplot", ".mcmc_hist", 8, 0, 0, "logical", 1
+"bayesplot", ".mcmc_hist", 9, 0, 0, "...", 1
+"bayesplot", "mcmc_hist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_hist", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_hist", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "mcmc_hist", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_hist", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_hist", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_hist", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_hist", 5, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_hist", 6, 0, 0, "null", 1
+"bayesplot", "mcmc_hist", 6, 0, 1, "double", 1
+"bayesplot", "mcmc_hist", 7, 0, 0, "null", 1
+"bayesplot", "mcmc_hist", 8, 0, 0, "logical", 1
+"bayesplot", "mcmc_hist_by_chain", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_hist_by_chain", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_hist_by_chain", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_hist_by_chain", 2, 0, 0, "character", 1
+"bayesplot", "mcmc_hist_by_chain", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_hist_by_chain", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_hist_by_chain", 5, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_hist_by_chain", 6, 0, 0, "null", 1
+"bayesplot", "mcmc_hist_by_chain", 7, 0, 0, "logical", 1
+"bayesplot", "mcmc_intervals", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_intervals", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_intervals", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "mcmc_intervals", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_intervals", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_intervals", 3, 0, 0, "character", 1
+"bayesplot", "mcmc_intervals", 3, 0, 1, "list<any>", 1
+"bayesplot", "mcmc_intervals", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_intervals", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_intervals", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_intervals", 7, 0, 0, "character[]", 1
+"bayesplot", "mcmc_intervals", 8, 0, 0, "double[]", 1
+"bayesplot", "mcmc_intervals_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "mcmc_intervals_data", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_intervals_data", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "mcmc_intervals_data", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_intervals_data", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_intervals_data", 3, 0, 0, "character", 1
+"bayesplot", "mcmc_intervals_data", 3, 0, 1, "list<any>", 1
+"bayesplot", "mcmc_intervals_data", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_intervals_data", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_intervals_data", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_intervals_data", 7, 0, 0, "character[]", 1
+"bayesplot", "mcmc_intervals_data", 8, 0, 0, "double[]", 1
+"bayesplot", "mcmc_neff", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_neff", 0, 0, 0, "double[]", 1
+"bayesplot", "mcmc_neff", 1, 0, 0, "...", 1
+"bayesplot", "mcmc_neff", 2, 0, 0, "null", 1
+"bayesplot", "mcmc_neff_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "mcmc_neff_data", 0, 0, 0, "double[]", 1
+"bayesplot", "mcmc_neff_data", 1, 0, 0, "...", 1
+"bayesplot", "mcmc_neff_hist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_neff_hist", 0, 0, 0, "double[]", 1
+"bayesplot", "mcmc_neff_hist", 1, 0, 0, "...", 1
+"bayesplot", "mcmc_neff_hist", 2, 0, 0, "null", 1
+"bayesplot", "mcmc_neff_hist", 3, 0, 0, "null", 1
+"bayesplot", "mcmc_parcoord", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_parcoord", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_parcoord", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_parcoord", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_parcoord", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_parcoord", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_parcoord", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_parcoord", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_parcoord", 7, 0, 0, "null", 1
+"bayesplot", "mcmc_parcoord", 8, 0, 0, "class<`list`, `nuts_style`>", 1
+"bayesplot", "mcmc_parcoord_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "mcmc_parcoord_data", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_parcoord_data", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_parcoord_data", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_parcoord_data", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_parcoord_data", 4, 0, 0, "null", 1
+"bayesplot", "mcmc_rank_hist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_rank_hist", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_rank_hist", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_rank_hist", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_rank_hist", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_rank_hist", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_rank_hist", 5, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_rank_hist", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_rank_hist", 7, 0, 0, "logical", 1
+"bayesplot", "mcmc_rank_overlay", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_rank_overlay", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_rank_overlay", 1, 0, 0, "character", 1
+"bayesplot", "mcmc_rank_overlay", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_rank_overlay", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_rank_overlay", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_rank_overlay", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_rank_overlay", 6, 0, 0, "logical", 1
+"bayesplot", "mcmc_rhat", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_rhat", 0, 0, 0, "double[]", 1
+"bayesplot", "mcmc_rhat", 1, 0, 0, "...", 1
+"bayesplot", "mcmc_rhat", 2, 0, 0, "double", 1
+"bayesplot", "mcmc_rhat", 2, 0, 1, "null", 1
+"bayesplot", "mcmc_rhat_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "mcmc_rhat_data", 0, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "mcmc_rhat_data", 0, 0, 1, "double[]", 1
+"bayesplot", "mcmc_rhat_data", 1, 0, 0, "...", 1
+"bayesplot", "mcmc_rhat_hist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_rhat_hist", 0, 0, 0, "double[]", 1
+"bayesplot", "mcmc_rhat_hist", 1, 0, 0, "...", 1
+"bayesplot", "mcmc_rhat_hist", 2, 0, 0, "null", 1
+"bayesplot", "mcmc_rhat_hist", 3, 0, 0, "null", 1
+"bayesplot", ".mcmc_scatter", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".mcmc_scatter", 0, 0, 0, "class<`array`>", 1
+"bayesplot", ".mcmc_scatter", 1, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_scatter", 2, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_scatter", 3, 0, 0, "list<character>", 1
+"bayesplot", ".mcmc_scatter", 4, 0, 0, "logical", 1
+"bayesplot", ".mcmc_scatter", 5, 0, 0, "double", 1
+"bayesplot", ".mcmc_scatter", 6, 0, 0, "double", 1
+"bayesplot", ".mcmc_scatter", 7, 0, 0, "null", 1
+"bayesplot", ".mcmc_scatter", 8, 0, 0, "null", 1
+"bayesplot", ".mcmc_scatter", 9, 0, 0, "any", 1
+"bayesplot", "mcmc_scatter", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_scatter", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_scatter", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_scatter", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_scatter", 3, 0, 0, "list<character>", 1
+"bayesplot", "mcmc_scatter", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_scatter", 5, 0, 0, "double", 1
+"bayesplot", "mcmc_scatter", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_scatter", 7, 0, 0, "null", 1
+"bayesplot", "mcmc_scatter", 8, 0, 0, "any", 1
+"bayesplot", ".mcmc_trace", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".mcmc_trace", 0, 0, 0, "class<`array`>", 1
+"bayesplot", ".mcmc_trace", 1, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_trace", 2, 0, 0, "character[]", 1
+"bayesplot", ".mcmc_trace", 3, 0, 0, "list<any>", 1
+"bayesplot", ".mcmc_trace", 4, 0, 0, "double", 1
+"bayesplot", ".mcmc_trace", 5, 0, 0, "double[]", 1
+"bayesplot", ".mcmc_trace", 5, 0, 1, "null", 1
+"bayesplot", ".mcmc_trace", 6, 0, 0, "double", 1
+"bayesplot", ".mcmc_trace", 6, 0, 1, "null", 1
+"bayesplot", ".mcmc_trace", 7, 0, 0, "any", 1
+"bayesplot", ".mcmc_trace", 8, 0, 0, "null", 1
+"bayesplot", ".mcmc_trace", 9, 0, 0, "character", 1
+"bayesplot", ".mcmc_trace", 10, 0, 0, "double", 1
+"bayesplot", ".mcmc_trace", 11, 0, 0, "null", 1
+"bayesplot", ".mcmc_trace", 12, 0, 0, "any", 1
+"bayesplot", ".mcmc_trace", 13, 0, 0, "double", 1
+"bayesplot", ".mcmc_trace", 14, 0, 0, "...", 1
+"bayesplot", "mcmc_trace", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_trace", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_trace", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_trace", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_trace", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_trace", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_trace", 5, 0, 0, "any", 1
+"bayesplot", "mcmc_trace", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_trace", 7, 0, 0, "double", 1
+"bayesplot", "mcmc_trace", 8, 0, 0, "double[]", 1
+"bayesplot", "mcmc_trace", 8, 0, 1, "null", 1
+"bayesplot", "mcmc_trace", 9, 0, 0, "double", 1
+"bayesplot", "mcmc_trace", 9, 0, 1, "null", 1
+"bayesplot", "mcmc_trace", 10, 0, 0, "null", 1
+"bayesplot", "mcmc_trace", 11, 0, 0, "any", 1
+"bayesplot", "mcmc_trace", 12, 0, 0, "null", 1
+"bayesplot", "mcmc_trace_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "mcmc_trace_data", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_trace_data", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_trace_data", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_trace_data", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_trace_data", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_trace_data", 5, 0, 0, "null", 1
+"bayesplot", "mcmc_trace_data", 6, 0, 0, "double", 1
+"bayesplot", "mcmc_trace_data", 7, 0, 0, "double", 1
+"bayesplot", "mcmc_violin", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "mcmc_violin", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "mcmc_violin", 1, 0, 0, "character[]", 1
+"bayesplot", "mcmc_violin", 2, 0, 0, "character[]", 1
+"bayesplot", "mcmc_violin", 3, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_violin", 4, 0, 0, "...", 1
+"bayesplot", "mcmc_violin", 5, 0, 0, "list<any>", 1
+"bayesplot", "mcmc_violin", 6, 0, 0, "double[]", 1
+"bayesplot", "melt_and_stack", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "melt_and_stack", 0, 0, 0, "double[]", 1
+"bayesplot", "melt_and_stack", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "melt_mcmc", -1, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "melt_mcmc", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "melt_mcmc", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "melt_mcmc", 1, 0, 0, "...", 1
+"bayesplot", "melt_mcmc.matrix", -1, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "melt_mcmc.matrix", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "melt_mcmc.matrix", 1, 0, 0, "character[]", 1
+"bayesplot", "melt_mcmc.matrix", 2, 0, 0, "character", 1
+"bayesplot", "melt_mcmc.matrix", 3, 0, 0, "...", 1
+"bayesplot", "melt_mcmc.mcmc_array", -1, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "melt_mcmc.mcmc_array", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "melt_mcmc.mcmc_array", 1, 0, 0, "character[]", 1
+"bayesplot", "melt_mcmc.mcmc_array", 2, 0, 0, "character", 1
+"bayesplot", "melt_mcmc.mcmc_array", 3, 0, 0, "logical", 1
+"bayesplot", "melt_mcmc.mcmc_array", 4, 0, 0, "...", 1
+"bayesplot", "melt_yrep", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "melt_yrep", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "merge_chains", -1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "merge_chains", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "mixed_scheme", -1, 0, 0, "list<character>", 1
+"bayesplot", "mixed_scheme", 0, 0, 0, "character", 1
+"bayesplot", "mixed_scheme", 1, 0, 0, "character", 1
+"bayesplot", "modify_aes_", -1, 0, 0, "class<`uneval`>", 1
+"bayesplot", "modify_aes_", 0, 0, 0, "class<`uneval`>", 1
+"bayesplot", "modify_aes_", 1, 0, 0, "...", 1
+"bayesplot", "[.neff_ratio", -1, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "[.neff_ratio", 0, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "[.neff_ratio", 1, 0, 0, "integer[]", 1
+"bayesplot", "[.neff_ratio", 2, 0, 0, "any", 1
+"bayesplot", "[.neff_ratio", 3, 0, 0, "logical", 1
+"bayesplot", "[.neff_ratio", 4, 0, 0, "...", 1
+"bayesplot", "new_neff_ratio", -1, 0, 0, "class<`neff_ratio`, `numeric`>", 1
+"bayesplot", "new_neff_ratio", 0, 0, 0, "double[]", 1
+"bayesplot", "new_rhat", -1, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "new_rhat", 0, 0, 0, "double[]", 1
+"bayesplot", "new_rhat", 0, 0, 1, "class<`numeric`, `rhat`>", 1
+"bayesplot", "no_legend_spacing", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "num_chains", -1, 0, 0, "integer", 1
+"bayesplot", "num_chains", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "num_chains", 0, 0, 1, "class<`data.frame`>", 1
+"bayesplot", "num_chains", 1, 0, 0, "...", 1
+"bayesplot", "num_chains.data.frame", -1, 0, 0, "integer", 1
+"bayesplot", "num_chains.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "num_chains.data.frame", 1, 0, 0, "...", 1
+"bayesplot", "num_chains.mcmc_array", -1, 0, 0, "integer", 1
+"bayesplot", "num_chains.mcmc_array", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "num_chains.mcmc_array", 1, 0, 0, "...", 1
+"bayesplot", "num_iters", -1, 0, 0, "integer", 1
+"bayesplot", "num_iters", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "num_iters", 0, 0, 1, "class<`data.frame`>", 1
+"bayesplot", "num_iters", 1, 0, 0, "...", 1
+"bayesplot", "num_iters.data.frame", -1, 0, 0, "integer", 1
+"bayesplot", "num_iters.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "num_iters.data.frame", 1, 0, 0, "...", 1
+"bayesplot", "num_iters.mcmc_array", -1, 0, 0, "integer", 1
+"bayesplot", "num_iters.mcmc_array", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "num_iters.mcmc_array", 1, 0, 0, "...", 1
+"bayesplot", "num_params", -1, 0, 0, "integer", 1
+"bayesplot", "num_params", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "num_params", 0, 0, 1, "class<`data.frame`>", 1
+"bayesplot", "num_params", 1, 0, 0, "...", 1
+"bayesplot", "num_params.data.frame", -1, 0, 0, "integer", 1
+"bayesplot", "num_params.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"bayesplot", "num_params.data.frame", 1, 0, 0, "...", 1
+"bayesplot", "num_params.mcmc_array", -1, 0, 0, "integer", 1
+"bayesplot", "num_params.mcmc_array", 0, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "num_params.mcmc_array", 1, 0, 0, "...", 1
+"bayesplot", "overlay_function", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "overlay_function", 0, 0, 0, "...", 1
+"bayesplot", "panel_bg", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "panel_bg", 0, 0, 0, "logical", 1
+"bayesplot", "panel_bg", 1, 0, 0, "...", 1
+"bayesplot", "parameter_names", -1, 0, 0, "character[]", 1
+"bayesplot", "parameter_names", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "parameter_names", 0, 0, 1, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "parameter_names", 0, 0, 2, "class<`matrix`>", 1
+"bayesplot", "parameter_names.array", -1, 0, 0, "character[]", 1
+"bayesplot", "parameter_names.array", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "parameter_names.array", 0, 0, 1, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "parameter_names.matrix", -1, 0, 0, "character[]", 1
+"bayesplot", "parameter_names.matrix", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "parcoord_style_np", -1, 0, 0, "class<`list`, `nuts_style`>", 1
+"bayesplot", "parcoord_style_np", 0, 0, 0, "character", 1
+"bayesplot", "parcoord_style_np", 1, 0, 0, "double", 1
+"bayesplot", "parcoord_style_np", 2, 0, 0, "double", 1
+"bayesplot", "plot_bg", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "plot_bg", 0, 0, 0, "logical", 1
+"bayesplot", "plot_bg", 1, 0, 0, "...", 1
+"bayesplot", "plot_scheme", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "plot_scheme", 0, 0, 0, "character", 1
+"bayesplot", "plot_scheme", 0, 0, 1, "null", 1
+"bayesplot", ".ppc_bars", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".ppc_bars", 0, 0, 0, "class<`data.frame`>", 1
+"bayesplot", ".ppc_bars", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", ".ppc_bars", 2, 0, 0, "any", 1
+"bayesplot", ".ppc_bars", 3, 0, 0, "logical", 1
+"bayesplot", ".ppc_bars", 4, 0, 0, "double", 1
+"bayesplot", ".ppc_bars", 5, 0, 0, "double", 1
+"bayesplot", ".ppc_bars", 6, 0, 0, "double", 1
+"bayesplot", ".ppc_bars", 7, 0, 0, "logical", 1
+"bayesplot", "ppc_bars", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_bars", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_bars", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_bars", 2, 0, 0, "...", 1
+"bayesplot", "ppc_bars", 3, 0, 0, "double", 1
+"bayesplot", "ppc_bars", 4, 0, 0, "double", 1
+"bayesplot", "ppc_bars", 5, 0, 0, "double", 1
+"bayesplot", "ppc_bars", 6, 0, 0, "double", 1
+"bayesplot", "ppc_bars", 7, 0, 0, "logical", 1
+"bayesplot", "ppc_bars_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_bars_grouped", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_bars_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_bars_grouped", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_bars_grouped", 3, 0, 0, "...", 1
+"bayesplot", "ppc_bars_grouped", 4, 0, 0, "list<any>", 1
+"bayesplot", "ppc_bars_grouped", 5, 0, 0, "double", 1
+"bayesplot", "ppc_bars_grouped", 6, 0, 0, "double", 1
+"bayesplot", "ppc_bars_grouped", 7, 0, 0, "double", 1
+"bayesplot", "ppc_bars_grouped", 8, 0, 0, "double", 1
+"bayesplot", "ppc_bars_grouped", 9, 0, 0, "logical", 1
+"bayesplot", "ppc_bars_yrep_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "ppc_bars_yrep_data", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_bars_yrep_data", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_bars_yrep_data", 2, 0, 0, "double[]", 1
+"bayesplot", "ppc_bars_yrep_data", 3, 0, 0, "logical", 1
+"bayesplot", "ppc_bars_yrep_data", 4, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_bars_yrep_data", 4, 0, 1, "null", 1
+"bayesplot", "ppc_boxplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_boxplot", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_boxplot", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_boxplot", 2, 0, 0, "...", 1
+"bayesplot", "ppc_boxplot", 3, 0, 0, "logical", 1
+"bayesplot", "ppc_boxplot", 4, 0, 0, "double", 1
+"bayesplot", "ppc_boxplot", 5, 0, 0, "double", 1
+"bayesplot", "ppc_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "ppc_data", 0, 0, 0, "double[]", 1
+"bayesplot", "ppc_data", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_data", 2, 0, 0, "null", 1
+"bayesplot", "ppc_data", 2, 0, 1, "class<`factor`>", 1
+"bayesplot", "ppc_dens", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_dens", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_dens", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_dens", 2, 0, 0, "...", 1
+"bayesplot", "ppc_dens", 3, 0, 0, "logical", 1
+"bayesplot", "ppc_dens", 4, 0, 0, "double", 1
+"bayesplot", "ppc_dens", 5, 0, 0, "double", 1
+"bayesplot", "ppc_dens_overlay", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_dens_overlay", 0, 0, 0, "double[]", 1
+"bayesplot", "ppc_dens_overlay", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_dens_overlay", 2, 0, 0, "...", 1
+"bayesplot", "ppc_dens_overlay", 3, 0, 0, "double", 1
+"bayesplot", "ppc_dens_overlay", 4, 0, 0, "double", 1
+"bayesplot", "ppc_dens_overlay", 5, 0, 0, "logical", 1
+"bayesplot", "ppc_dens_overlay", 6, 0, 0, "character", 1
+"bayesplot", "ppc_dens_overlay", 7, 0, 0, "double", 1
+"bayesplot", "ppc_dens_overlay", 8, 0, 0, "character", 1
+"bayesplot", "ppc_dens_overlay", 9, 0, 0, "double", 1
+"bayesplot", "ppc_ecdf_overlay", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_ecdf_overlay", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_ecdf_overlay", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_ecdf_overlay", 2, 0, 0, "...", 1
+"bayesplot", "ppc_ecdf_overlay", 3, 0, 0, "logical", 1
+"bayesplot", "ppc_ecdf_overlay", 4, 0, 0, "logical", 1
+"bayesplot", "ppc_ecdf_overlay", 5, 0, 0, "double", 1
+"bayesplot", "ppc_ecdf_overlay", 6, 0, 0, "double", 1
+"bayesplot", "ppc_error_hist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_error_hist", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_error_hist", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_error_hist", 2, 0, 0, "...", 1
+"bayesplot", "ppc_error_hist", 3, 0, 0, "null", 1
+"bayesplot", "ppc_error_hist", 4, 0, 0, "null", 1
+"bayesplot", "ppc_error_hist", 5, 0, 0, "logical", 1
+"bayesplot", "ppc_error_hist_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_error_hist_grouped", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_error_hist_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_error_hist_grouped", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_error_hist_grouped", 3, 0, 0, "...", 1
+"bayesplot", "ppc_error_hist_grouped", 4, 0, 0, "null", 1
+"bayesplot", "ppc_error_hist_grouped", 5, 0, 0, "null", 1
+"bayesplot", "ppc_error_hist_grouped", 6, 0, 0, "logical", 1
+"bayesplot", "ppc_error_scatter", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_error_scatter", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_error_scatter", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_error_scatter", 2, 0, 0, "...", 1
+"bayesplot", "ppc_error_scatter", 3, 0, 0, "double", 1
+"bayesplot", "ppc_error_scatter", 4, 0, 0, "double", 1
+"bayesplot", "ppc_error_scatter_avg", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_error_scatter_avg", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_error_scatter_avg", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_error_scatter_avg", 2, 0, 0, "...", 1
+"bayesplot", "ppc_error_scatter_avg", 3, 0, 0, "double", 1
+"bayesplot", "ppc_error_scatter_avg", 4, 0, 0, "double", 1
+"bayesplot", "ppc_error_scatter_avg_vs_x", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_error_scatter_avg_vs_x", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_error_scatter_avg_vs_x", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_error_scatter_avg_vs_x", 2, 0, 0, "double[]", 1
+"bayesplot", "ppc_error_scatter_avg_vs_x", 3, 0, 0, "...", 1
+"bayesplot", "ppc_error_scatter_avg_vs_x", 4, 0, 0, "double", 1
+"bayesplot", "ppc_error_scatter_avg_vs_x", 5, 0, 0, "double", 1
+"bayesplot", "ppc_freqpoly", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_freqpoly", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_freqpoly", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_freqpoly", 2, 0, 0, "...", 1
+"bayesplot", "ppc_freqpoly", 3, 0, 0, "double", 1
+"bayesplot", "ppc_freqpoly", 4, 0, 0, "logical", 1
+"bayesplot", "ppc_freqpoly", 5, 0, 0, "double", 1
+"bayesplot", "ppc_freqpoly", 6, 0, 0, "double", 1
+"bayesplot", "ppc_freqpoly_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_freqpoly_grouped", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_freqpoly_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_freqpoly_grouped", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_freqpoly_grouped", 3, 0, 0, "...", 1
+"bayesplot", "ppc_freqpoly_grouped", 4, 0, 0, "null", 1
+"bayesplot", "ppc_freqpoly_grouped", 5, 0, 0, "logical", 1
+"bayesplot", "ppc_freqpoly_grouped", 6, 0, 0, "double", 1
+"bayesplot", "ppc_freqpoly_grouped", 7, 0, 0, "double", 1
+"bayesplot", ".ppcfun", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".ppcfun", 0, 0, 0, "double[]", 1
+"bayesplot", ".ppcfun", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", ".ppcfun", 2, 0, 0, "...", 1
+"bayesplot", ".ppcfun", 3, 0, 0, "double", 1
+"bayesplot", ".ppcfun", 4, 0, 0, "double", 1
+"bayesplot", ".ppcfun", 5, 0, 0, "logical", 1
+"bayesplot", ".ppcfun", 6, 0, 0, "character", 1
+"bayesplot", ".ppcfun", 7, 0, 0, "double", 1
+"bayesplot", ".ppcfun", 8, 0, 0, "character", 1
+"bayesplot", ".ppcfun", 9, 0, 0, "double", 1
+"bayesplot", "ppc_group_data", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"bayesplot", "ppc_group_data", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_group_data", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_group_data", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_group_data", 2, 0, 1, "double", 1
+"bayesplot", "ppc_group_data", 3, 0, 0, "null", 1
+"bayesplot", "ppc_group_data", 3, 0, 1, "class<`function`>", 1
+"bayesplot", "pp_check", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "pp_check", 0, 0, 0, "class<`foo`>", 1
+"bayesplot", "pp_check", 0, 0, 1, "integer[]", 1
+"bayesplot", "pp_check", 1, 0, 0, "...", 1
+"bayesplot", "pp_check.default", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "pp_check.default", 0, 0, 0, "integer[]", 1
+"bayesplot", "pp_check.default", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "pp_check.default", 2, 0, 0, "character", 1
+"bayesplot", "pp_check.default", 2, 0, 1, "class<`function`>", 1
+"bayesplot", "pp_check.default", 3, 0, 0, "...", 1
+"bayesplot", "ppc_hist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_hist", 0, 0, 0, "double[]", 1
+"bayesplot", "ppc_hist", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_hist", 2, 0, 0, "...", 1
+"bayesplot", "ppc_hist", 3, 0, 0, "double", 1
+"bayesplot", "ppc_hist", 3, 0, 1, "null", 1
+"bayesplot", "ppc_hist", 4, 0, 0, "null", 1
+"bayesplot", "ppc_hist", 5, 0, 0, "logical", 1
+"bayesplot", ".ppc_intervals", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".ppc_intervals", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", ".ppc_intervals", 1, 0, 0, "any", 1
+"bayesplot", ".ppc_intervals", 2, 0, 0, "double", 1
+"bayesplot", ".ppc_intervals", 3, 0, 0, "double", 1
+"bayesplot", ".ppc_intervals", 4, 0, 0, "double", 1
+"bayesplot", ".ppc_intervals", 5, 0, 0, "logical", 1
+"bayesplot", ".ppc_intervals", 6, 0, 0, "character", 1
+"bayesplot", ".ppc_intervals", 7, 0, 0, "null", 1
+"bayesplot", "ppc_intervals", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_intervals", 0, 0, 0, "double[]", 1
+"bayesplot", "ppc_intervals", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_intervals", 2, 0, 0, "double[]", 1
+"bayesplot", "ppc_intervals", 2, 0, 1, "null", 1
+"bayesplot", "ppc_intervals", 3, 0, 0, "...", 1
+"bayesplot", "ppc_intervals", 4, 0, 0, "double", 1
+"bayesplot", "ppc_intervals", 5, 0, 0, "double", 1
+"bayesplot", "ppc_intervals", 6, 0, 0, "double", 1
+"bayesplot", "ppc_intervals", 7, 0, 0, "double", 1
+"bayesplot", ".ppc_intervals_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", ".ppc_intervals_data", 0, 0, 0, "double[]", 1
+"bayesplot", ".ppc_intervals_data", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", ".ppc_intervals_data", 2, 0, 0, "double[]", 1
+"bayesplot", ".ppc_intervals_data", 2, 0, 1, "null", 1
+"bayesplot", ".ppc_intervals_data", 3, 0, 0, "null", 1
+"bayesplot", ".ppc_intervals_data", 3, 0, 1, "class<`factor`>", 1
+"bayesplot", ".ppc_intervals_data", 4, 0, 0, "double", 1
+"bayesplot", ".ppc_intervals_data", 5, 0, 0, "double", 1
+"bayesplot", "ppc_intervals_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", "ppc_intervals_data", 0, 0, 0, "double[]", 1
+"bayesplot", "ppc_intervals_data", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_intervals_data", 2, 0, 0, "double[]", 1
+"bayesplot", "ppc_intervals_data", 2, 0, 1, "null", 1
+"bayesplot", "ppc_intervals_data", 3, 0, 0, "null", 1
+"bayesplot", "ppc_intervals_data", 3, 0, 1, "class<`factor`>", 1
+"bayesplot", "ppc_intervals_data", 4, 0, 0, "...", 1
+"bayesplot", "ppc_intervals_data", 5, 0, 0, "double", 1
+"bayesplot", "ppc_intervals_data", 6, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_ribbon", 0, 0, 0, "double[]", 1
+"bayesplot", "ppc_ribbon", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_ribbon", 2, 0, 0, "integer[]", 1
+"bayesplot", "ppc_ribbon", 2, 0, 1, "null", 1
+"bayesplot", "ppc_ribbon", 3, 0, 0, "...", 1
+"bayesplot", "ppc_ribbon", 4, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon", 5, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon", 6, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon", 7, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_ribbon_grouped", 0, 0, 0, "double[]", 1
+"bayesplot", "ppc_ribbon_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_ribbon_grouped", 2, 0, 0, "integer[]", 1
+"bayesplot", "ppc_ribbon_grouped", 3, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_ribbon_grouped", 4, 0, 0, "...", 1
+"bayesplot", "ppc_ribbon_grouped", 5, 0, 0, "list<any>", 1
+"bayesplot", "ppc_ribbon_grouped", 6, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon_grouped", 7, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon_grouped", 8, 0, 0, "double", 1
+"bayesplot", "ppc_ribbon_grouped", 9, 0, 0, "double", 1
+"bayesplot", "ppc_rootogram", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_rootogram", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_rootogram", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_rootogram", 2, 0, 0, "character[]", 1
+"bayesplot", "ppc_rootogram", 3, 0, 0, "...", 1
+"bayesplot", "ppc_rootogram", 4, 0, 0, "double", 1
+"bayesplot", "ppc_rootogram", 5, 0, 0, "double", 1
+"bayesplot", ".ppc_scatter", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", ".ppc_scatter", 0, 0, 0, "class<`data.frame`>", 1
+"bayesplot", ".ppc_scatter", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"bayesplot", ".ppc_scatter", 1, 0, 0, "class<`uneval`>", 1
+"bayesplot", ".ppc_scatter", 2, 0, 0, "character", 1
+"bayesplot", ".ppc_scatter", 2, 0, 1, "expression", 1
+"bayesplot", ".ppc_scatter", 3, 0, 0, "expression", 1
+"bayesplot", ".ppc_scatter", 3, 0, 1, "character", 1
+"bayesplot", ".ppc_scatter", 4, 0, 0, "character[]", 1
+"bayesplot", ".ppc_scatter", 5, 0, 0, "double", 1
+"bayesplot", ".ppc_scatter", 6, 0, 0, "double", 1
+"bayesplot", ".ppc_scatter", 7, 0, 0, "logical", 1
+"bayesplot", "ppc_scatter", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_scatter", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_scatter", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_scatter", 2, 0, 0, "...", 1
+"bayesplot", "ppc_scatter", 3, 0, 0, "double", 1
+"bayesplot", "ppc_scatter", 4, 0, 0, "double", 1
+"bayesplot", "ppc_scatter_avg", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_scatter_avg", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_scatter_avg", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_scatter_avg", 2, 0, 0, "...", 1
+"bayesplot", "ppc_scatter_avg", 3, 0, 0, "double", 1
+"bayesplot", "ppc_scatter_avg", 4, 0, 0, "double", 1
+"bayesplot", "ppc_scatter_avg_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_scatter_avg_grouped", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_scatter_avg_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_scatter_avg_grouped", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_scatter_avg_grouped", 3, 0, 0, "...", 1
+"bayesplot", "ppc_scatter_avg_grouped", 4, 0, 0, "double", 1
+"bayesplot", "ppc_scatter_avg_grouped", 5, 0, 0, "double", 1
+"bayesplot", "ppc_stat", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_stat", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_stat", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_stat", 1, 0, 1, "class<`matrix`, `ppd`>", 1
+"bayesplot", "ppc_stat", 2, 0, 0, "character", 1
+"bayesplot", "ppc_stat", 2, 0, 1, "class<`function`>", 1
+"bayesplot", "ppc_stat", 3, 0, 0, "...", 1
+"bayesplot", "ppc_stat", 4, 0, 0, "double", 1
+"bayesplot", "ppc_stat", 4, 0, 1, "null", 1
+"bayesplot", "ppc_stat", 5, 0, 0, "null", 1
+"bayesplot", "ppc_stat", 6, 0, 0, "logical", 1
+"bayesplot", "ppc_stat_2d", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_stat_2d", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_stat_2d", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_stat_2d", 2, 0, 0, "character[]", 1
+"bayesplot", "ppc_stat_2d", 3, 0, 0, "...", 1
+"bayesplot", "ppc_stat_2d", 4, 0, 0, "double", 1
+"bayesplot", "ppc_stat_2d", 5, 0, 0, "double", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 3, 0, 0, "character", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 4, 0, 0, "...", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 5, 0, 0, "list<double>", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 6, 0, 0, "null", 1
+"bayesplot", "ppc_stat_freqpoly_grouped", 7, 0, 0, "logical", 1
+"bayesplot", "ppc_stat_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_stat_grouped", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_stat_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_stat_grouped", 1, 0, 1, "class<`matrix`, `ppd`>", 1
+"bayesplot", "ppc_stat_grouped", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_stat_grouped", 2, 0, 1, "integer[]", 1
+"bayesplot", "ppc_stat_grouped", 3, 0, 0, "character", 1
+"bayesplot", "ppc_stat_grouped", 4, 0, 0, "...", 1
+"bayesplot", "ppc_stat_grouped", 5, 0, 0, "list<any>", 1
+"bayesplot", "ppc_stat_grouped", 6, 0, 0, "null", 1
+"bayesplot", "ppc_stat_grouped", 7, 0, 0, "null", 1
+"bayesplot", "ppc_stat_grouped", 8, 0, 0, "logical", 1
+"bayesplot", "ppc_violin_grouped", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"bayesplot", "ppc_violin_grouped", 0, 0, 0, "integer[]", 1
+"bayesplot", "ppc_violin_grouped", 1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "ppc_violin_grouped", 2, 0, 0, "class<`factor`>", 1
+"bayesplot", "ppc_violin_grouped", 3, 0, 0, "...", 1
+"bayesplot", "ppc_violin_grouped", 4, 0, 0, "double[]", 1
+"bayesplot", "ppc_violin_grouped", 5, 0, 0, "double", 1
+"bayesplot", "ppc_violin_grouped", 6, 0, 0, "double", 1
+"bayesplot", "ppc_violin_grouped", 7, 0, 0, "character[]", 1
+"bayesplot", "ppc_violin_grouped", 8, 0, 0, "double", 1
+"bayesplot", "ppc_violin_grouped", 9, 0, 0, "double", 1
+"bayesplot", "ppc_violin_grouped", 10, 0, 0, "double", 1
+"bayesplot", "prepare_custom_colors", -1, 0, 0, "list<character>", 1
+"bayesplot", "prepare_custom_colors", 0, 0, 0, "character[]", 1
+"bayesplot", "prepare_mcmc_array", -1, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "prepare_mcmc_array", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "prepare_mcmc_array", 0, 0, 1, "class<`matrix`>", 1
+"bayesplot", "prepare_mcmc_array", 1, 0, 0, "character[]", 1
+"bayesplot", "prepare_mcmc_array", 2, 0, 0, "character[]", 1
+"bayesplot", "prepare_mcmc_array", 3, 0, 0, "character", 1
+"bayesplot", "prepare_mcmc_array", 3, 0, 1, "list<any>", 1
+"bayesplot", "reduce_legend_spacing", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "reduce_legend_spacing", 0, 0, 0, "double", 1
+"bayesplot", "rename_transformed_pars", -1, 0, 0, "character[]", 1
+"bayesplot", "rename_transformed_pars", 0, 0, 0, "character[]", 1
+"bayesplot", "rename_transformed_pars", 1, 0, 0, "list<any>", 1
+"bayesplot", "[.rhat", -1, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "[.rhat", 0, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "[.rhat", 1, 0, 0, "integer[]", 1
+"bayesplot", "[.rhat", 2, 0, 0, "any", 1
+"bayesplot", "[.rhat", 3, 0, 0, "logical", 1
+"bayesplot", "[.rhat", 4, 0, 0, "...", 1
+"bayesplot", "scale_color_diagnostic", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
+"bayesplot", "scale_color_diagnostic", 0, 0, 0, "character", 1
+"bayesplot", "scale_color_ppc_dist", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
+"bayesplot", "scale_color_ppc_dist", 0, 0, 0, "null", 1
+"bayesplot", "scale_color_ppc_dist", 1, 0, 0, "null", 1
+"bayesplot", "scale_color_ppc_dist", 2, 0, 0, "null", 1
+"bayesplot", "scale_fill_diagnostic", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
+"bayesplot", "scale_fill_diagnostic", 0, 0, 0, "character", 1
+"bayesplot", "scale_fill_ppc_dist", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
+"bayesplot", "scale_fill_ppc_dist", 0, 0, 0, "null", 1
+"bayesplot", "scale_fill_ppc_dist", 1, 0, 0, "^character[]", 1
+"bayesplot", "scale_fill_ppc_dist", 1, 0, 1, "null", 1
+"bayesplot", "scale_fill_ppc_dist", 2, 0, 0, "null", 1
+"bayesplot", "scheme_from_string", -1, 0, 0, "list<character>", 1
+"bayesplot", "scheme_from_string", 0, 0, 0, "character", 1
+"bayesplot", "scheme_level_names", -1, 0, 0, "character[]", 1
+"bayesplot", "select_parameters", -1, 0, 0, "character[]", 1
+"bayesplot", "select_parameters", 0, 0, 0, "character[]", 1
+"bayesplot", "select_parameters", 1, 0, 0, "character[]", 1
+"bayesplot", "select_parameters", 2, 0, 0, "character[]", 1
+"bayesplot", "set_hist_aes", -1, 0, 0, "class<`uneval`>", 1
+"bayesplot", "set_hist_aes", 0, 0, 0, "logical", 1
+"bayesplot", "set_hist_aes", 1, 0, 0, "...", 1
+"bayesplot", "set_mcmc_dimnames", -1, 0, 0, "class<`array`, `mcmc_array`>", 1
+"bayesplot", "set_mcmc_dimnames", 0, 0, 0, "class<`array`>", 1
+"bayesplot", "set_mcmc_dimnames", 1, 0, 0, "character[]", 1
+"bayesplot", "set_rhat_breaks", -1, 0, 0, "double[]", 1
+"bayesplot", "set_rhat_breaks", 0, 0, 0, "double[]", 1
+"bayesplot", "space_legend_keys", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "space_legend_keys", 0, 0, 0, "double", 1
+"bayesplot", "space_legend_keys", 1, 0, 0, "character", 1
+"bayesplot", "stat_legend_title", -1, 0, 0, "(class<`call`> | null)", 1
+"bayesplot", "stat_legend_title", 0, 0, 0, "character", 1
+"bayesplot", "stat_legend_title", 0, 0, 1, "class<`function`>", 1
+"bayesplot", "stat_legend_title", 1, 0, 0, "any", 1
+"bayesplot", "suggested_package", -1, 0, 0, "logical", 1
+"bayesplot", "suggested_package", 0, 0, 0, "character", 1
+"bayesplot", "suggested_package", 1, 0, 0, "null", 1
+"bayesplot", "theme_default", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "theme_default", 0, 0, 0, "double", 1
+"bayesplot", "theme_default", 1, 0, 0, "character", 1
+"bayesplot", "Ty_label", -1, 0, 0, "expression", 1
+"bayesplot", "Tyrep_label", -1, 0, 0, "expression", 1
+"bayesplot", "validate_group", -1, 0, 0, "class<`factor`>", 1
+"bayesplot", "validate_group", 0, 0, 0, "class<`factor`>", 1
+"bayesplot", "validate_group", 0, 0, 1, "integer[]", 1
+"bayesplot", "validate_group", 1, 0, 0, "double[]", 1
+"bayesplot", "validate_neff_ratio", -1, 0, 0, "double[]", 1
+"bayesplot", "validate_neff_ratio", 0, 0, 0, "double[]", 1
+"bayesplot", "validate_rhat", -1, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "validate_rhat", 0, 0, 0, "class<`numeric`, `rhat`>", 1
+"bayesplot", "validate_transformations", -1, 0, 0, "list<class<`function`>>", 1
+"bayesplot", "validate_transformations", 0, 0, 0, "list<character | character | class<`function`> | class<`function`>>", 1
+"bayesplot", "validate_transformations", 1, 0, 0, "character[]", 1
+"bayesplot", "validate_x", -1, 0, 0, "double[]", 1
+"bayesplot", "validate_x", 0, 0, 0, "double[]", 1
+"bayesplot", "validate_x", 0, 0, 1, "null", 1
+"bayesplot", "validate_x", 1, 0, 0, "double[]", 1
+"bayesplot", "validate_x", 2, 0, 0, "logical", 1
+"bayesplot", "validate_y", -1, 0, 0, "double[]", 1
+"bayesplot", "validate_y", 0, 0, 0, "double[]", 1
+"bayesplot", "validate_yrep", -1, 0, 0, "class<`matrix`>", 1
+"bayesplot", "validate_yrep", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "validate_yrep", 0, 0, 1, "class<`matrix`, `ppd`>", 1
+"bayesplot", "validate_yrep", 1, 0, 0, "double[]", 1
+"bayesplot", "vline_0", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "vline_0", 0, 0, 0, "...", 1
+"bayesplot", "vline_0", 1, 0, 0, "logical", 1
+"bayesplot", "vline_at", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
+"bayesplot", "vline_at", 0, 0, 0, "class<`matrix`>", 1
+"bayesplot", "vline_at", 0, 0, 1, "double[]", 1
+"bayesplot", "vline_at", 1, 0, 0, "any", 1
+"bayesplot", "vline_at", 2, 0, 0, "...", 1
+"bayesplot", "vline_at", 3, 0, 0, "logical", 1
+"bayesplot", "xaxis_text", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "xaxis_text", 0, 0, 0, "logical", 1
+"bayesplot", "xaxis_text", 1, 0, 0, "...", 1
+"bayesplot", "xaxis_ticks", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "xaxis_ticks", 0, 0, 0, "logical", 1
+"bayesplot", "xaxis_ticks", 1, 0, 0, "...", 1
+"bayesplot", "xaxis_title", -1, 0, 0, "(class<`gg`, `theme`> | class<`labels`>)", 1
+"bayesplot", "xaxis_title", 0, 0, 0, "logical", 1
+"bayesplot", "xaxis_title", 1, 0, 0, "...", 1
+"bayesplot", "yaxis_text", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "yaxis_text", 0, 0, 0, "logical", 1
+"bayesplot", "yaxis_text", 1, 0, 0, "...", 1
+"bayesplot", "yaxis_ticks", -1, 0, 0, "class<`gg`, `theme`>", 1
+"bayesplot", "yaxis_ticks", 0, 0, 0, "logical", 1
+"bayesplot", "yaxis_ticks", 1, 0, 0, "...", 1
+"bayesplot", "yaxis_title", -1, 0, 0, "(class<`gg`, `theme`> | class<`labels`>)", 1
+"bayesplot", "yaxis_title", 0, 0, 0, "logical", 1
+"bayesplot", "yaxis_title", 1, 0, 0, "...", 1
+"bayesplot", "y_label", -1, 0, 0, "expression", 1
+"bayesplot", "yrep_avg_label", -1, 0, 0, "expression", 1
+"bayesplot", "yrep_label", -1, 0, 0, "expression", 1
+"bayesplot", "zero_pad_int", -1, 0, 0, "character[]", 1
+"bayesplot", "zero_pad_int", 0, 0, 0, "integer[]", 1

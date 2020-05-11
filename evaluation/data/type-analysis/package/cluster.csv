@@ -1,16 +1,384 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"cluster", "filter", -1, 0, 0, "logical[]", 1
-"cluster", "filter", 0, 0, 0, "character[]", 1
-"cluster", ":::", -1, 0, 0, "logical", 1
-"cluster", "agnes", -1, 0, 0, "struct<`order`:integer[], `height`:double[], `ac`:double, `merge`:^integer[], `diss`:double[], `call`:language, `method`:character, `order.lab`:character[]>", 1
-"cluster", "agnes", 0, 0, 0, "struct<>", 1
-"cluster", "agnes", 0, 0, 1, "^double[]", 1
+"cluster", "agnes", -1, 0, 0, "any", 1
+"cluster", "agnes", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "agnes", 0, 0, 1, "class<`dissimilarity`, `dist`>", 1
+"cluster", "agnes", 0, 0, 2, "class<`dist`>", 1
 "cluster", "agnes", 1, 0, 0, "logical", 1
 "cluster", "agnes", 2, 0, 0, "character", 1
 "cluster", "agnes", 3, 0, 0, "logical", 1
 "cluster", "agnes", 4, 0, 0, "character", 1
-"cluster", "agnes", 5, 0, 0, "double[]", 1
-"cluster", "agnes", 5, 0, 1, "null", 1
+"cluster", "agnes", 5, 0, 0, "any", 1
 "cluster", "agnes", 6, 0, 0, "logical", 1
-"cluster", "agnes", 7, 0, 0, "logical", 1
+"cluster", "agnes", 7, 0, 0, "any", 1
 "cluster", "agnes", 8, 0, 0, "double", 1
+"cluster", "as.dendrogram.twins", -1, 0, 0, "class<`dendrogram`>", 1
+"cluster", "as.dendrogram.twins", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "as.dendrogram.twins", 0, 0, 1, "class<`diana`, `twins`>", 1
+"cluster", "as.dendrogram.twins", 1, 0, 0, "...", 1
+"cluster", "bannerplot", -1, 0, 0, "null", 1
+"cluster", "bannerplot", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "bannerplot", 0, 0, 1, "class<`diana`, `twins`>", 1
+"cluster", "bannerplot", 0, 0, 2, "list<integer[] | character[]>", 1
+"cluster", "bannerplot", 1, 0, 0, "double[]", 1
+"cluster", "bannerplot", 2, 0, 0, "logical", 1
+"cluster", "bannerplot", 3, 0, 0, "character", 1
+"cluster", "bannerplot", 4, 0, 0, "character", 1
+"cluster", "bannerplot", 4, 0, 1, "null", 1
+"cluster", "bannerplot", 5, 0, 0, "character", 1
+"cluster", "bannerplot", 6, 0, 0, "double", 1
+"cluster", "bannerplot", 7, 0, 0, "double[]", 1
+"cluster", "bannerplot", 8, 0, 0, "double", 1
+"cluster", "bannerplot", 9, 0, 0, "logical", 1
+"cluster", "bannerplot", 10, 0, 0, "logical", 1
+"cluster", "bannerplot", 11, 0, 0, "any", 1
+"cluster", "bannerplot", 12, 0, 0, "double", 1
+"cluster", "bannerplot", 13, 0, 0, "character[]", 1
+"cluster", "bannerplot", 13, 0, 1, "null", 1
+"cluster", "bannerplot", 14, 0, 0, "double", 1
+"cluster", "bannerplot", 15, 0, 0, "any", 1
+"cluster", "bannerplot", 16, 0, 0, "logical", 1
+"cluster", "bannerplot", 17, 0, 0, "any", 1
+"cluster", "bannerplot", 18, 0, 0, "any", 1
+"cluster", "bannerplot", 19, 0, 0, "...", 1
+"cluster", "clara", -1, 0, 0, "any", 1
+"cluster", "clara", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "clara", 0, 0, 1, "class<`matrix`>", 1
+"cluster", "clara", 1, 0, 0, "double", 1
+"cluster", "clara", 2, 0, 0, "character[]", 1
+"cluster", "clara", 3, 0, 0, "logical", 1
+"cluster", "clara", 4, 0, 0, "double", 1
+"cluster", "clara", 5, 0, 0, "double", 1
+"cluster", "clara", 6, 0, 0, "double", 1
+"cluster", "clara", 7, 0, 0, "logical", 1
+"cluster", "clara", 8, 0, 0, "logical", 1
+"cluster", "clara", 9, 0, 0, "logical", 1
+"cluster", "clara", 10, 0, 0, "logical", 1
+"cluster", "clara", 11, 0, 0, "logical", 1
+"cluster", "clusGap", -1, 0, 0, "class<`clusGap`>", 1
+"cluster", "clusGap", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "clusGap", 0, 0, 1, "class<`matrix`>", 1
+"cluster", "clusGap", 1, 0, 0, "class<`function`>", 1
+"cluster", "clusGap", 2, 0, 0, "double", 1
+"cluster", "clusGap", 3, 0, 0, "double", 1
+"cluster", "clusGap", 4, 0, 0, "double", 1
+"cluster", "clusGap", 5, 0, 0, "character[]", 1
+"cluster", "clusGap", 6, 0, 0, "logical", 1
+"cluster", "clusGap", 7, 0, 0, "...", 1
+"cluster", "clusplot", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"cluster", "clusplot", 0, 0, 0, "class<`clara`, `partition`>", 1
+"cluster", "clusplot", 0, 0, 1, "class<`data.frame`>", 1
+"cluster", "clusplot", 0, 0, 2, "class<`dissimilarity`, `dist`>", 1
+"cluster", "clusplot", 0, 0, 3, "class<`fanny`, `partition`>", 1
+"cluster", "clusplot", 0, 0, 4, "class<`pam`, `partition`>", 1
+"cluster", "clusplot", 1, 0, 0, "...", 1
+"cluster", "clusplot.default", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"cluster", "clusplot.default", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "clusplot.default", 0, 0, 1, "class<`dissimilarity`, `dist`>", 1
+"cluster", "clusplot.default", 0, 0, 2, "class<`dist`>", 1
+"cluster", "clusplot.default", 0, 0, 3, "class<`matrix`>", 1
+"cluster", "clusplot.default", 1, 0, 0, "integer[]", 1
+"cluster", "clusplot.default", 2, 0, 0, "logical", 1
+"cluster", "clusplot.default", 3, 0, 0, "list<class<`matrix`> | double | integer[] | class<`matrix`> | character[] | null | class<`matrix`> | double | character[]>", 1
+"cluster", "clusplot.default", 4, 0, 0, "logical", 1
+"cluster", "clusplot.default", 5, 0, 0, "double", 1
+"cluster", "clusplot.default", 6, 0, 0, "logical", 1
+"cluster", "clusplot.default", 7, 0, 0, "logical", 1
+"cluster", "clusplot.default", 8, 0, 0, "double", 1
+"cluster", "clusplot.default", 9, 0, 0, "logical", 1
+"cluster", "clusplot.default", 10, 0, 0, "character", 1
+"cluster", "clusplot.default", 10, 0, 1, "double[]", 1
+"cluster", "clusplot.default", 11, 0, 0, "any", 1
+"cluster", "clusplot.default", 12, 0, 0, "character", 1
+"cluster", "clusplot.default", 12, 0, 1, "double[]", 1
+"cluster", "clusplot.default", 13, 0, 0, "double", 1
+"cluster", "clusplot.default", 14, 0, 0, "any", 1
+"cluster", "clusplot.default", 15, 0, 0, "logical", 1
+"cluster", "clusplot.default", 16, 0, 0, "logical", 1
+"cluster", "clusplot.default", 17, 0, 0, "null", 1
+"cluster", "clusplot.default", 17, 0, 1, "double[]", 1
+"cluster", "clusplot.default", 18, 0, 0, "null", 1
+"cluster", "clusplot.default", 18, 0, 1, "double[]", 1
+"cluster", "clusplot.default", 19, 0, 0, "character", 1
+"cluster", "clusplot.partition", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"cluster", "clusplot.partition", 0, 0, 0, "class<`clara`, `partition`>", 1
+"cluster", "clusplot.partition", 0, 0, 1, "class<`fanny`, `partition`>", 1
+"cluster", "clusplot.partition", 0, 0, 2, "class<`pam`, `partition`>", 1
+"cluster", "clusplot.partition", 1, 0, 0, "null", 1
+"cluster", "clusplot.partition", 2, 0, 0, "null", 1
+"cluster", "clusplot.partition", 3, 0, 0, "...", 1
+"cluster", "coef.hclust", -1, 0, 0, "double", 1
+"cluster", "coef.hclust", 0, 0, 0, "class<`hclust`>", 1
+"cluster", "coef.hclust", 1, 0, 0, "...", 1
+"cluster", "coefHier", -1, 0, 0, "double", 1
+"cluster", "coefHier", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "coef.twins", -1, 0, 0, "double", 1
+"cluster", "coef.twins", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "coef.twins", 1, 0, 0, "...", 1
+"cluster", "daisy", -1, 0, 0, "class<`dissimilarity`, `dist`>", 1
+"cluster", "daisy", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "daisy", 0, 0, 1, "class<`matrix`>", 1
+"cluster", "daisy", 1, 0, 0, "any", 1
+"cluster", "daisy", 2, 0, 0, "logical", 1
+"cluster", "daisy", 3, 0, 0, "list<any>", 1
+"cluster", "daisy", 4, 0, 0, "double[]", 1
+"cluster", "daisy", 5, 0, 0, "logical", 1
+"cluster", "daisy", 6, 0, 0, "any", 1
+"cluster", "daisy", 7, 0, 0, "any", 1
+"cluster", "daisy", 8, 0, 0, "logical", 1
+"cluster", "diana", -1, 0, 0, "class<`diana`, `twins`>", 1
+"cluster", "diana", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "diana", 0, 0, 1, "class<`dissimilarity`, `dist`>", 1
+"cluster", "diana", 0, 0, 2, "class<`dist`>", 1
+"cluster", "diana", 0, 0, 3, "class<`matrix`>", 1
+"cluster", "diana", 1, 0, 0, "logical", 1
+"cluster", "diana", 2, 0, 0, "character", 1
+"cluster", "diana", 3, 0, 0, "logical", 1
+"cluster", "diana", 4, 0, 0, "logical", 1
+"cluster", "diana", 5, 0, 0, "logical", 1
+"cluster", "diana", 6, 0, 0, "logical", 1
+"cluster", "diana", 7, 0, 0, "double", 1
+"cluster", "ellipsoidhull", -1, 0, 0, "class<`ellipsoid`>", 1
+"cluster", "ellipsoidhull", 0, 0, 0, "class<`matrix`>", 1
+"cluster", "ellipsoidhull", 1, 0, 0, "double", 1
+"cluster", "ellipsoidhull", 2, 0, 0, "double", 1
+"cluster", "ellipsoidhull", 3, 0, 0, "logical", 1
+"cluster", "ellipsoidhull", 4, 0, 0, "logical", 1
+"cluster", "ellipsoidhull", 5, 0, 0, "logical", 1
+"cluster", "ellipsoidPoints", -1, 0, 0, "class<`matrix`>", 1
+"cluster", "ellipsoidPoints", 0, 0, 0, "class<`matrix`>", 1
+"cluster", "ellipsoidPoints", 1, 0, 0, "double", 1
+"cluster", "ellipsoidPoints", 2, 0, 0, "double[]", 1
+"cluster", "ellipsoidPoints", 3, 0, 0, "double", 1
+"cluster", "fanny", -1, 0, 0, "class<`fanny`, `partition`>", 1
+"cluster", "fanny", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "fanny", 0, 0, 1, "class<`matrix`>", 1
+"cluster", "fanny", 1, 0, 0, "double", 1
+"cluster", "fanny", 2, 0, 0, "logical", 1
+"cluster", "fanny", 3, 0, 0, "double", 1
+"cluster", "fanny", 4, 0, 0, "character[]", 1
+"cluster", "fanny", 5, 0, 0, "logical", 1
+"cluster", "fanny", 6, 0, 0, "null", 1
+"cluster", "fanny", 6, 0, 1, "class<`matrix`>", 1
+"cluster", "fanny", 7, 0, 0, "logical", 1
+"cluster", "fanny", 8, 0, 0, "logical", 1
+"cluster", "fanny", 9, 0, 0, "logical", 1
+"cluster", "fanny", 10, 0, 0, "double", 1
+"cluster", "fanny", 11, 0, 0, "double", 1
+"cluster", "fanny", 12, 0, 0, "double", 1
+"cluster", "lower.to.upper.tri.inds", -1, 0, 0, "integer[]", 1
+"cluster", "lower.to.upper.tri.inds", 0, 0, 0, "double", 1
+"cluster", "maxSE", -1, 0, 0, "integer", 1
+"cluster", "maxSE", 0, 0, 0, "double[]", 1
+"cluster", "maxSE", 1, 0, 0, "double[]", 1
+"cluster", "maxSE", 2, 0, 0, "character", 1
+"cluster", "maxSE", 3, 0, 0, "double", 1
+"cluster", "mkCheckX", -1, 0, 0, "list<class<`matrix`> | double | character[] | class<`matrix`> | double | integer[]>", 1
+"cluster", "mkCheckX", 0, 0, 0, "class<`dissimilarity`, `dist`>", 1
+"cluster", "mkCheckX", 0, 0, 1, "class<`dist`>", 1
+"cluster", "mkCheckX", 0, 0, 2, "class<`matrix`>", 1
+"cluster", "mkCheckX", 1, 0, 0, "logical", 1
+"cluster", "mona", -1, 0, 0, "any", 1
+"cluster", "mona", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "mona", 0, 0, 1, "class<`matrix`>", 1
+"cluster", "mona", 1, 0, 0, "double", 1
+"cluster", "pam", -1, 0, 0, "(class<`pam`, `partition`> | integer[])", 1
+"cluster", "pam", 0, 0, 0, "class<`data.frame`>", 1
+"cluster", "pam", 0, 0, 1, "class<`dissimilarity`, `dist`>", 1
+"cluster", "pam", 0, 0, 2, "class<`dist`>", 1
+"cluster", "pam", 0, 0, 3, "class<`matrix`>", 1
+"cluster", "pam", 0, 0, 4, "double[]", 1
+"cluster", "pam", 1, 0, 0, "double", 1
+"cluster", "pam", 2, 0, 0, "logical", 1
+"cluster", "pam", 3, 0, 0, "any", 1
+"cluster", "pam", 4, 0, 0, "null", 1
+"cluster", "pam", 4, 0, 1, "double[]", 1
+"cluster", "pam", 5, 0, 0, "logical", 1
+"cluster", "pam", 6, 0, 0, "logical", 1
+"cluster", "pam", 7, 0, 0, "logical", 1
+"cluster", "pam", 8, 0, 0, "logical", 1
+"cluster", "pam", 9, 0, 0, "any", 1
+"cluster", "pam", 10, 0, 0, "double", 1
+"cluster", "pam", 11, 0, 0, "double", 1
+"cluster", "plot.agnes", -1, 0, 0, "null", 1
+"cluster", "plot.agnes", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "plot.agnes", 1, 0, 0, "logical", 1
+"cluster", "plot.agnes", 2, 0, 0, "double", 1
+"cluster", "plot.agnes", 2, 0, 1, "null", 1
+"cluster", "plot.agnes", 3, 0, 0, "null", 1
+"cluster", "plot.agnes", 4, 0, 0, "character", 1
+"cluster", "plot.agnes", 5, 0, 0, "double", 1
+"cluster", "plot.agnes", 6, 0, 0, "double", 1
+"cluster", "plot.agnes", 7, 0, 0, "double", 1
+"cluster", "plot.agnes", 8, 0, 0, "logical", 1
+"cluster", "plot.agnes", 9, 0, 0, "...", 1
+"cluster", "plot.clusGap", -1, 0, 0, "null", 1
+"cluster", "plot.clusGap", 0, 0, 0, "class<`clusGap`>", 1
+"cluster", "plot.clusGap", 1, 0, 0, "character", 1
+"cluster", "plot.clusGap", 2, 0, 0, "character", 1
+"cluster", "plot.clusGap", 3, 0, 0, "expression", 1
+"cluster", "plot.clusGap", 4, 0, 0, "character", 1
+"cluster", "plot.clusGap", 4, 0, 1, "null", 1
+"cluster", "plot.clusGap", 5, 0, 0, "logical", 1
+"cluster", "plot.clusGap", 6, 0, 0, "list<character | double>", 1
+"cluster", "plot.clusGap", 7, 0, 0, "...", 1
+"cluster", "plot.diana", -1, 0, 0, "null", 1
+"cluster", "plot.diana", 0, 0, 0, "class<`diana`, `twins`>", 1
+"cluster", "plot.diana", 1, 0, 0, "logical", 1
+"cluster", "plot.diana", 2, 0, 0, "double", 1
+"cluster", "plot.diana", 2, 0, 1, "null", 1
+"cluster", "plot.diana", 3, 0, 0, "null", 1
+"cluster", "plot.diana", 4, 0, 0, "character", 1
+"cluster", "plot.diana", 5, 0, 0, "double", 1
+"cluster", "plot.diana", 6, 0, 0, "double", 1
+"cluster", "plot.diana", 7, 0, 0, "double", 1
+"cluster", "plot.diana", 8, 0, 0, "logical", 1
+"cluster", "plot.diana", 9, 0, 0, "...", 1
+"cluster", "plot.mona", -1, 0, 0, "null", 1
+"cluster", "plot.mona", 0, 0, 0, "class<`mona`>", 1
+"cluster", "plot.mona", 1, 0, 0, "character", 1
+"cluster", "plot.mona", 2, 0, 0, "null", 1
+"cluster", "plot.mona", 3, 0, 0, "character", 1
+"cluster", "plot.mona", 4, 0, 0, "double[]", 1
+"cluster", "plot.mona", 5, 0, 0, "logical", 1
+"cluster", "plot.mona", 6, 0, 0, "double", 1
+"cluster", "plot.mona", 7, 0, 0, "double", 1
+"cluster", "plot.mona", 8, 0, 0, "double", 1
+"cluster", "plot.mona", 9, 0, 0, "...", 1
+"cluster", "plot.partition", -1, 0, 0, "null", 1
+"cluster", "plot.partition", 0, 0, 0, "class<`clara`, `partition`>", 1
+"cluster", "plot.partition", 0, 0, 1, "class<`fanny`, `partition`>", 1
+"cluster", "plot.partition", 0, 0, 2, "class<`pam`, `partition`>", 1
+"cluster", "plot.partition", 1, 0, 0, "logical", 1
+"cluster", "plot.partition", 2, 0, 0, "null", 1
+"cluster", "plot.partition", 2, 0, 1, "double", 1
+"cluster", "plot.partition", 3, 0, 0, "double", 1
+"cluster", "plot.partition", 4, 0, 0, "double", 1
+"cluster", "plot.partition", 5, 0, 0, "any", 1
+"cluster", "plot.partition", 6, 0, 0, "null", 1
+"cluster", "plot.partition", 6, 0, 1, "class<`dist`>", 1
+"cluster", "plot.partition", 7, 0, 0, "logical", 1
+"cluster", "plot.partition", 8, 0, 0, "double", 1
+"cluster", "plot.partition", 9, 0, 0, "logical", 1
+"cluster", "plot.partition", 10, 0, 0, "logical", 1
+"cluster", "plot.partition", 11, 0, 0, "double", 1
+"cluster", "plot.partition", 12, 0, 0, "logical", 1
+"cluster", "plot.partition", 13, 0, 0, "logical", 1
+"cluster", "plot.partition", 14, 0, 0, "null", 1
+"cluster", "plot.partition", 15, 0, 0, "null", 1
+"cluster", "plot.partition", 16, 0, 0, "null", 1
+"cluster", "plot.partition", 17, 0, 0, "...", 1
+"cluster", "plot.silhouette", -1, 0, 0, "null", 1
+"cluster", "plot.silhouette", 0, 0, 0, "class<`silhouette`>", 1
+"cluster", "plot.silhouette", 1, 0, 0, "double", 1
+"cluster", "plot.silhouette", 2, 0, 0, "any", 1
+"cluster", "plot.silhouette", 3, 0, 0, "null", 1
+"cluster", "plot.silhouette", 3, 0, 1, "character", 1
+"cluster", "plot.silhouette", 4, 0, 0, "null", 1
+"cluster", "plot.silhouette", 5, 0, 0, "expression", 1
+"cluster", "plot.silhouette", 6, 0, 0, "character[]", 1
+"cluster", "plot.silhouette", 6, 0, 1, "double[]", 1
+"cluster", "plot.silhouette", 7, 0, 0, "logical", 1
+"cluster", "plot.silhouette", 8, 0, 0, "double", 1
+"cluster", "plot.silhouette", 9, 0, 0, "any", 1
+"cluster", "plot.silhouette", 10, 0, 0, "logical", 1
+"cluster", "plot.silhouette", 11, 0, 0, "logical", 1
+"cluster", "plot.silhouette", 12, 0, 0, "...", 1
+"cluster", "pltree", -1, 0, 0, "null", 1
+"cluster", "pltree", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "pltree", 0, 0, 1, "class<`diana`, `twins`>", 1
+"cluster", "pltree", 1, 0, 0, "...", 1
+"cluster", "pltree.twins", -1, 0, 0, "null", 1
+"cluster", "pltree.twins", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "pltree.twins", 0, 0, 1, "class<`diana`, `twins`>", 1
+"cluster", "pltree.twins", 1, 0, 0, "character", 1
+"cluster", "pltree.twins", 2, 0, 0, "character[]", 1
+"cluster", "pltree.twins", 2, 0, 1, "null", 1
+"cluster", "pltree.twins", 3, 0, 0, "character", 1
+"cluster", "pltree.twins", 4, 0, 0, "...", 1
+"cluster", "predict.ellipsoid", -1, 0, 0, "class<`matrix`>", 1
+"cluster", "predict.ellipsoid", 0, 0, 0, "class<`ellipsoid`>", 1
+"cluster", "predict.ellipsoid", 1, 0, 0, "double", 1
+"cluster", "predict.ellipsoid", 2, 0, 0, "...", 1
+"cluster", "print.agnes", -1, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "print.agnes", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "print.agnes", 1, 0, 0, "...", 1
+"cluster", "print.diana", -1, 0, 0, "class<`diana`, `twins`>", 1
+"cluster", "print.diana", 0, 0, 0, "class<`diana`, `twins`>", 1
+"cluster", "print.diana", 1, 0, 0, "...", 1
+"cluster", "print.dissimilarity", -1, 0, 0, "class<`dissimilarity`, `dist`>", 1
+"cluster", "print.dissimilarity", 0, 0, 0, "class<`dissimilarity`, `dist`>", 1
+"cluster", "print.dissimilarity", 1, 0, 0, "null", 1
+"cluster", "print.dissimilarity", 2, 0, 0, "null", 1
+"cluster", "print.dissimilarity", 3, 0, 0, "any", 1
+"cluster", "print.dissimilarity", 4, 0, 0, "character", 1
+"cluster", "print.dissimilarity", 5, 0, 0, "logical", 1
+"cluster", "print.dissimilarity", 6, 0, 0, "...", 1
+"cluster", "print.ellipsoid", -1, 0, 0, "class<`ellipsoid`>", 1
+"cluster", "print.ellipsoid", 0, 0, 0, "class<`ellipsoid`>", 1
+"cluster", "print.ellipsoid", 1, 0, 0, "double", 1
+"cluster", "print.ellipsoid", 2, 0, 0, "...", 1
+"cluster", "print.mona", -1, 0, 0, "class<`mona`>", 1
+"cluster", "print.mona", 0, 0, 0, "class<`mona`>", 1
+"cluster", "print.mona", 1, 0, 0, "...", 1
+"cluster", "print.summary.silhouette", -1, 0, 0, "class<`summary.silhouette`>", 1
+"cluster", "print.summary.silhouette", 0, 0, 0, "class<`summary.silhouette`>", 1
+"cluster", "print.summary.silhouette", 1, 0, 0, "...", 1
+"cluster", "silhouette", -1, 0, 0, "class<`silhouette`>", 1
+"cluster", "silhouette", 0, 0, 0, "double[]", 1
+"cluster", "silhouette", 0, 0, 1, "class<`clara`, `partition`>", 1
+"cluster", "silhouette", 0, 0, 2, "class<`fanny`, `partition`>", 1
+"cluster", "silhouette", 0, 0, 3, "class<`pam`, `partition`>", 1
+"cluster", "silhouette", 1, 0, 0, "...", 1
+"cluster", "silhouette.clara", -1, 0, 0, "class<`silhouette`>", 1
+"cluster", "silhouette.clara", 0, 0, 0, "class<`clara`, `partition`>", 1
+"cluster", "silhouette.clara", 1, 0, 0, "logical", 1
+"cluster", "silhouette.clara", 2, 0, 0, "...", 1
+"cluster", "silhouette.default", -1, 0, 0, "class<`silhouette`>", 1
+"cluster", "silhouette.default", 0, 0, 0, "double[]", 1
+"cluster", "silhouette.default", 1, 0, 0, "class<`dist`>", 1
+"cluster", "silhouette.default", 1, 0, 1, "class<`dissimilarity`, `dist`>", 1
+"cluster", "silhouette.default", 2, 0, 0, "any", 1
+"cluster", "silhouette.default", 3, 0, 0, "...", 1
+"cluster", "silhouette.partition", -1, 0, 0, "class<`silhouette`>", 1
+"cluster", "silhouette.partition", 0, 0, 0, "class<`clara`, `partition`>", 1
+"cluster", "silhouette.partition", 0, 0, 1, "class<`fanny`, `partition`>", 1
+"cluster", "silhouette.partition", 0, 0, 2, "class<`pam`, `partition`>", 1
+"cluster", "silhouette.partition", 1, 0, 0, "...", 1
+"cluster", "sizeDiss", -1, 0, 0, "(double | null)", 1
+"cluster", "sizeDiss", 0, 0, 0, "class<`dist`>", 1
+"cluster", "sizeDiss", 0, 0, 1, "integer[]", 1
+"cluster", "sortSilhouette", -1, 0, 0, "class<`silhouette`>", 1
+"cluster", "sortSilhouette", 0, 0, 0, "class<`silhouette`>", 1
+"cluster", "sortSilhouette", 1, 0, 0, "...", 1
+"cluster", "summary.agnes", -1, 0, 0, "class<`summary.agnes`>", 1
+"cluster", "summary.agnes", 0, 0, 0, "class<`agnes`, `twins`>", 1
+"cluster", "summary.agnes", 1, 0, 0, "...", 1
+"cluster", "summary.clara", -1, 0, 0, "class<`summary.clara`>", 1
+"cluster", "summary.clara", 0, 0, 0, "class<`clara`, `partition`>", 1
+"cluster", "summary.clara", 1, 0, 0, "...", 1
+"cluster", "summary.diana", -1, 0, 0, "class<`summary.diana`>", 1
+"cluster", "summary.diana", 0, 0, 0, "class<`diana`, `twins`>", 1
+"cluster", "summary.diana", 1, 0, 0, "...", 1
+"cluster", "summary.dissimilarity", -1, 0, 0, "class<`summary.dissimilarity`>", 1
+"cluster", "summary.dissimilarity", 0, 0, 0, "class<`dissimilarity`, `dist`>", 1
+"cluster", "summary.dissimilarity", 1, 0, 0, "double", 1
+"cluster", "summary.dissimilarity", 2, 0, 0, "...", 1
+"cluster", "summary.fanny", -1, 0, 0, "class<`summary.fanny`>", 1
+"cluster", "summary.fanny", 0, 0, 0, "class<`fanny`, `partition`>", 1
+"cluster", "summary.fanny", 1, 0, 0, "...", 1
+"cluster", "summary.pam", -1, 0, 0, "class<`summary.pam`>", 1
+"cluster", "summary.pam", 0, 0, 0, "class<`pam`, `partition`>", 1
+"cluster", "summary.pam", 1, 0, 0, "...", 1
+"cluster", "summary.silhouette", -1, 0, 0, "class<`summary.silhouette`>", 1
+"cluster", "summary.silhouette", 0, 0, 0, "class<`silhouette`>", 1
+"cluster", "summary.silhouette", 1, 0, 0, "class<`function`>", 1
+"cluster", "summary.silhouette", 2, 0, 0, "...", 1
+"cluster", "upper.to.lower.tri.inds", -1, 0, 0, "integer[]", 1
+"cluster", "upper.to.lower.tri.inds", 0, 0, 0, "double", 1
+"cluster", "volume", -1, 0, 0, "double", 1
+"cluster", "volume", 0, 0, 0, "class<`ellipsoid`>", 1
+"cluster", "volume", 1, 0, 0, "...", 1
+"cluster", "volume.ellipsoid", -1, 0, 0, "double", 1
+"cluster", "volume.ellipsoid", 0, 0, 0, "class<`ellipsoid`>", 1
+"cluster", "volume.ellipsoid", 1, 0, 0, "logical", 1
+"cluster", "volume.ellipsoid", 2, 0, 0, "...", 1

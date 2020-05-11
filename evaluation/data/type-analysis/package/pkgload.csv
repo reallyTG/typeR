@@ -1,43 +1,146 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
 "pkgload", "all_named", -1, 0, 0, "logical", 1
 "pkgload", "all_named", 0, 0, 0, "pairlist", 1
+"pkgload", "compact", -1, 0, 0, "list<any>", 1
+"pkgload", "compact", 0, 0, 0, "list<any>", 1
 "pkgload", "comp_lang", -1, 0, 0, "logical", 1
 "pkgload", "comp_lang", 0, 0, 0, "character", 1
-"pkgload", "comp_lang", 0, 0, 1, "language", 1
-"pkgload", "comp_lang", 0, 0, 2, "pairlist", 1
-"pkgload", "comp_lang", 1, 0, 0, "language", 1
-"pkgload", "comp_lang", 2, 0, 0, "double", 1
-"pkgload", "comp_lang", 2, 0, 1, "integer[]", 1
-"pkgload", "compact", -1, 0, 0, "tuple<>", 1
-"pkgload", "compact", 0, 0, 0, "tuple<null>", 1
-"pkgload", "compact", 0, 0, 1, "list<null>", 1
-"pkgload", "compact", 0, 0, 2, "struct<``:null, `_R_NS_LOAD_`:null>", 1
-"pkgload", "compact", 0, 0, 3, "struct<``:null, ``:null, ``:null, ``:null, `sep`:null>", 1
-"pkgload", "compact", 0, 0, 4, "struct<``:null, ``:null, ``:null, ``:null, `USE.NAMES`:null>", 1
-"pkgload", "compact", 0, 0, 5, "struct<``:null, ``:null, ``:null, ``:null, `value`:null>", 1
-"pkgload", "compact", 0, 0, 6, "struct<``:null, ``:null, ``:null, ``:null, `where`:null>", 1
-"pkgload", "compact", 0, 0, 7, "struct<``:null, ``:null, ``:null, `envir`:null>", 1
-"pkgload", "compact", 0, 0, 8, "struct<``:null, ``:null, ``:null, `fixed`:null>", 1
-"pkgload", "compact", 0, 0, 9, "struct<``:null, ``:null, ``:null, `from`:null>", 1
-"pkgload", "compact", 0, 0, 10, "struct<``:null, ``:null, ``:null, `keep.source`:null>", 1
-"pkgload", "compact", 0, 0, 11, "struct<``:null, ``:null, ``:null, `mustExist`:null>", 1
-"pkgload", "compact", 0, 0, 12, "struct<``:null, ``:null, ``:null, `quiet`:null>", 1
-"pkgload", "compact", 0, 0, 13, "struct<``:null, ``:null, ``:null, `unlist`:null, `withRegistrationInfo`:null>", 1
-"pkgload", "compact", 0, 0, 14, "struct<``:null, ``:null, ``:null, `versionCheck`:null>", 1
-"pkgload", "compact", 0, 0, 15, "struct<``:null, ``:null, `add`:null>", 1
-"pkgload", "compact", 0, 0, 16, "struct<``:null, ``:null, `addNames`:null>", 1
-"pkgload", "compact", 0, 0, 17, "struct<``:null, ``:null, `base.OK`:null>", 1
-"pkgload", "compact", 0, 0, 18, "struct<``:null, ``:null, `class`:null>", 1
-"pkgload", "compact", 0, 0, 19, "struct<``:null, ``:null, `collapse`:null>", 1
-"pkgload", "compact", 0, 0, 20, "struct<``:null, ``:null, `domain`:null>", 1
-"pkgload", "compact", 0, 0, 21, "struct<``:null, ``:null, `error`:null>", 1
-"pkgload", "compact", 0, 0, 22, "struct<``:null, ``:null, `pattern`:null, `all.names`:null>", 1
-"pkgload", "compact", 0, 0, 23, "struct<``:null, ``:null, `showWarnings`:null>", 1
-"pkgload", "compact", 0, 0, 24, "struct<``:null, ``:null, `title`:null>", 1
-"pkgload", "compact", 0, 0, 25, "struct<``:null, ``:null, `version`:null, `lib`:null>", 1
-"pkgload", "compact", 0, 0, 26, "struct<``:null, `base`:null>", 1
-"pkgload", "compact", 0, 0, 27, "struct<``:null, `encoding`:null>", 1
-"pkgload", "compact", 0, 0, 28, "struct<``:null, `libname`:null, `pkgname`:null>", 1
-"pkgload", "compact", 0, 0, 29, "struct<``:null, `message`:null, `package`:null, `package.lib`:null, `call`:null>", 1
-"pkgload", "compact", 0, 0, 30, "struct<``:null, `name`:null, `version`:null>", 1
-"pkgload", "compact", 0, 0, 31, "list<null | language>", 1
+"pkgload", "comp_lang", 0, 0, 1, "class<`<-`>", 1
+"pkgload", "comp_lang", 0, 0, 2, "class<`{`>", 1
+"pkgload", "comp_lang", 0, 0, 3, "class<`call`>", 1
+"pkgload", "comp_lang", 0, 0, 4, "class<`for`>", 1
+"pkgload", "comp_lang", 0, 0, 5, "class<`if`>", 1
+"pkgload", "comp_lang", 0, 0, 6, "class<`name`>", 1
+"pkgload", "comp_lang", 0, 0, 7, "null", 1
+"pkgload", "comp_lang", 0, 0, 8, "pairlist", 1
+"pkgload", "comp_lang", 0, 0, 9, "class<`(`>", 1
+"pkgload", "comp_lang", 0, 0, 10, "double", 1
+"pkgload", "comp_lang", 1, 0, 0, "class<`call`>", 1
+"pkgload", "comp_lang", 1, 0, 1, "class<`<-`>", 1
+"pkgload", "comp_lang", 1, 0, 2, "class<`for`>", 1
+"pkgload", "comp_lang", 1, 0, 3, "class<`if`>", 1
+"pkgload", "comp_lang", 2, 0, 0, "any", 1
+"pkgload", "dir.exists", -1, 0, 0, "logical[]", 1
+"pkgload", "dir.exists", 0, 0, 0, "character[]", 1
+"pkgload", "extract_lang", -1, 0, 0, "(class<`<-`> | class<`for`> | class<`if`> | null)", 1
+"pkgload", "extract_lang", 0, 0, 0, "class<`{`>", 1
+"pkgload", "extract_lang", 0, 0, 1, "class<`<-`>", 1
+"pkgload", "extract_lang", 0, 0, 2, "class<`if`>", 1
+"pkgload", "extract_lang", 0, 0, 3, "class<`for`>", 1
+"pkgload", "extract_lang", 0, 0, 4, "character", 1
+"pkgload", "extract_lang", 0, 0, 5, "class<`(`>", 1
+"pkgload", "extract_lang", 0, 0, 6, "class<`call`>", 1
+"pkgload", "extract_lang", 0, 0, 7, "class<`name`>", 1
+"pkgload", "extract_lang", 0, 0, 8, "double", 1
+"pkgload", "extract_lang", 0, 0, 9, "null", 1
+"pkgload", "extract_lang", 0, 0, 10, "pairlist", 1
+"pkgload", "extract_lang", 1, 0, 0, "class<`function`>", 1
+"pkgload", "extract_lang", 2, 0, 0, "...", 1
+"pkgload", "f", -1, 0, 0, "logical", 1
+"pkgload", "f", 0, 0, 0, "character", 1
+"pkgload", "f", 0, 0, 1, "class<`<-`>", 1
+"pkgload", "f", 0, 0, 2, "class<`{`>", 1
+"pkgload", "f", 0, 0, 3, "class<`call`>", 1
+"pkgload", "f", 0, 0, 4, "class<`for`>", 1
+"pkgload", "f", 0, 0, 5, "class<`if`>", 1
+"pkgload", "f", 0, 0, 6, "class<`name`>", 1
+"pkgload", "f", 0, 0, 7, "null", 1
+"pkgload", "f", 0, 0, 8, "pairlist", 1
+"pkgload", "f", 0, 0, 9, "class<`(`>", 1
+"pkgload", "f", 0, 0, 10, "double", 1
+"pkgload", "f", 1, 0, 0, "class<`call`>", 1
+"pkgload", "f", 1, 0, 1, "class<`<-`>", 1
+"pkgload", "f", 1, 0, 2, "class<`for`>", 1
+"pkgload", "f", 1, 0, 3, "class<`if`>", 1
+"pkgload", "f", 2, 0, 0, "any", 1
+"pkgload", "f", -1, 1, 0, "(character | class<`<-`> | class<`(`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`> | double | null | pairlist)", 1
+"pkgload", "f", 0, 1, 0, "character", 1
+"pkgload", "f", 0, 1, 1, "class<`<-`>", 1
+"pkgload", "f", 0, 1, 2, "class<`(`>", 1
+"pkgload", "f", 0, 1, 3, "class<`{`>", 1
+"pkgload", "f", 0, 1, 4, "class<`call`>", 1
+"pkgload", "f", 0, 1, 5, "class<`for`>", 1
+"pkgload", "f", 0, 1, 6, "class<`if`>", 1
+"pkgload", "f", 0, 1, 7, "class<`name`>", 1
+"pkgload", "f", 0, 1, 8, "double", 1
+"pkgload", "f", 0, 1, 9, "null", 1
+"pkgload", "f", 0, 1, 10, "pairlist", 1
+"pkgload", "f", 1, 1, 0, "character", 1
+"pkgload", "f", -1, 2, 0, "(character | class<`<-`> | class<`{`> | class<`call`> | class<`name`> | integer | null | pairlist)", 1
+"pkgload", "f", 0, 2, 0, "character", 1
+"pkgload", "f", 0, 2, 1, "class<`<-`>", 1
+"pkgload", "f", 0, 2, 2, "class<`{`>", 1
+"pkgload", "f", 0, 2, 3, "class<`call`>", 1
+"pkgload", "f", 0, 2, 4, "class<`name`>", 1
+"pkgload", "f", 0, 2, 5, "integer", 1
+"pkgload", "f", 0, 2, 6, "null", 1
+"pkgload", "f", 0, 2, 7, "pairlist", 1
+"pkgload", "f", -1, 3, 0, "(character | class<`<-`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`>)", 1
+"pkgload", "f", 0, 3, 0, "character", 1
+"pkgload", "f", 0, 3, 1, "class<`<-`>", 1
+"pkgload", "f", 0, 3, 2, "class<`{`>", 1
+"pkgload", "f", 0, 3, 3, "class<`call`>", 1
+"pkgload", "f", 0, 3, 4, "class<`for`>", 1
+"pkgload", "f", 0, 3, 5, "class<`if`>", 1
+"pkgload", "f", 0, 3, 6, "class<`name`>", 1
+"pkgload", "FUN", -1, 0, 0, "(class<`<-`> | class<`for`> | class<`if`> | null)", 1
+"pkgload", "FUN", 0, 0, 0, "class<`{`>", 1
+"pkgload", "FUN", 0, 0, 1, "class<`<-`>", 1
+"pkgload", "FUN", 0, 0, 2, "class<`if`>", 1
+"pkgload", "FUN", 0, 0, 3, "class<`for`>", 1
+"pkgload", "FUN", 0, 0, 4, "character", 1
+"pkgload", "FUN", 0, 0, 5, "class<`(`>", 1
+"pkgload", "FUN", 0, 0, 6, "class<`call`>", 1
+"pkgload", "FUN", 0, 0, 7, "class<`name`>", 1
+"pkgload", "FUN", 0, 0, 8, "double", 1
+"pkgload", "FUN", 0, 0, 9, "null", 1
+"pkgload", "FUN", 0, 0, 10, "pairlist", 1
+"pkgload", "FUN", 1, 0, 0, "class<`function`>", 1
+"pkgload", "FUN", 2, 0, 0, "...", 1
+"pkgload", "FUN", -1, 1, 0, "(character | class<`<-`> | class<`(`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`> | double | null | pairlist)", 1
+"pkgload", "FUN", 0, 1, 0, "character", 1
+"pkgload", "FUN", 0, 1, 1, "class<`<-`>", 1
+"pkgload", "FUN", 0, 1, 2, "class<`(`>", 1
+"pkgload", "FUN", 0, 1, 3, "class<`{`>", 1
+"pkgload", "FUN", 0, 1, 4, "class<`call`>", 1
+"pkgload", "FUN", 0, 1, 5, "class<`for`>", 1
+"pkgload", "FUN", 0, 1, 6, "class<`if`>", 1
+"pkgload", "FUN", 0, 1, 7, "class<`name`>", 1
+"pkgload", "FUN", 0, 1, 8, "double", 1
+"pkgload", "FUN", 0, 1, 9, "null", 1
+"pkgload", "FUN", 0, 1, 10, "pairlist", 1
+"pkgload", "FUN", 1, 1, 0, "class<`function`>", 1
+"pkgload", "FUN", 2, 1, 0, "...", 1
+"pkgload", "has_tests", -1, 0, 0, "logical", 1
+"pkgload", "inst", -1, 0, 0, "character", 1
+"pkgload", "inst", 0, 0, 0, "character", 1
+"pkgload", "is_installed", -1, 0, 0, "logical", 1
+"pkgload", "is_installed", 0, 0, 0, "character", 1
+"pkgload", "is_installed", 1, 0, 0, "double", 1
+"pkgload", "load_namespace_for1", -1, 0, 0, "class<`for`>", 1
+"pkgload", "load_namespace_for2", -1, 0, 0, "class<`for`>", 1
+"pkgload", "load_namespace_for3", -1, 0, 0, "class<`for`>", 1
+"pkgload", "make_function", -1, 0, 0, "class<`function`>", 1
+"pkgload", "make_function", 0, 0, 0, "list<class<`name`>>", 1
+"pkgload", "make_function", 1, 0, 0, "class<`{`>", 1
+"pkgload", "make_function", 2, 0, 0, "environment", 1
+"pkgload", "modify_lang", -1, 0, 0, "(character | class<`<-`> | class<`(`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`> | double | null | pairlist)", 1
+"pkgload", "modify_lang", 0, 0, 0, "character", 1
+"pkgload", "modify_lang", 0, 0, 1, "class<`<-`>", 1
+"pkgload", "modify_lang", 0, 0, 2, "class<`(`>", 1
+"pkgload", "modify_lang", 0, 0, 3, "class<`{`>", 1
+"pkgload", "modify_lang", 0, 0, 4, "class<`call`>", 1
+"pkgload", "modify_lang", 0, 0, 5, "class<`for`>", 1
+"pkgload", "modify_lang", 0, 0, 6, "class<`if`>", 1
+"pkgload", "modify_lang", 0, 0, 7, "class<`name`>", 1
+"pkgload", "modify_lang", 0, 0, 8, "double", 1
+"pkgload", "modify_lang", 0, 0, 9, "null", 1
+"pkgload", "modify_lang", 0, 0, 10, "pairlist", 1
+"pkgload", "modify_lang", 1, 0, 0, "class<`function`>", 1
+"pkgload", "modify_lang", 2, 0, 0, "...", 1
+"pkgload", "parse_deps", -1, 0, 0, "class<`data.frame`>", 1
+"pkgload", "parse_deps", 0, 0, 0, "character", 1
+"pkgload", "pkgtest", -1, 0, 0, "character", 1
+"pkgload", "pkgtest", 0, 0, 0, "character", 1
+"pkgload", "wrap_inner_loop", -1, 0, 0, "class<`for`>", 1
+"pkgload", "wrap_inner_loop", 0, 0, 0, "class<`for`>", 1

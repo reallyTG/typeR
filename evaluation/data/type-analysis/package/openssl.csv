@@ -1,5 +1,562 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
 "openssl", ":::", -1, 0, 0, "raw[]", 1
-"openssl", ":::", 0, 0, 0, "raw[]", 1
-"openssl", ":::", 1, 0, 0, "raw[]", 1
+"openssl", ":::", 0, 0, 0, "class<`bignum`>", 1
+"openssl", ":::", 0, 0, 1, "raw[]", 1
+"openssl", ":::", 1, 0, 0, "class<`bignum`>", 1
+"openssl", ":::", 1, 0, 1, "raw[]", 1
 "openssl", ":::", 2, 0, 0, "character", 1
+"openssl", ":::", -1, 1, 0, "character", 1
+"openssl", ":::", 0, 1, 0, "class<`pubkey`>", 1
+"openssl", ":::", 0, 1, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", ":::", 0, 1, 2, "class<`NA`, `pubkey`>", 1
+"openssl", ":::", 0, 1, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", ":::", 0, 1, 4, "class<`pubkey`, `x25519`>", 1
+"openssl", ":::", 0, 1, 5, "raw[]", 1
+"openssl", "aes_any", -1, 0, 0, "raw[]", 1
+"openssl", "aes_any", 0, 0, 0, "raw[]", 1
+"openssl", "aes_any", 1, 0, 0, "class<`hash`, `sha256`>", 1
+"openssl", "aes_any", 1, 0, 1, "raw[]", 1
+"openssl", "aes_any", 2, 0, 0, "raw[]", 1
+"openssl", "aes_any", 3, 0, 0, "logical", 1
+"openssl", "aes_any", 4, 0, 0, "character", 1
+"openssl", "aes_cbc_decrypt", -1, 0, 0, "raw[]", 1
+"openssl", "aes_cbc_decrypt", 0, 0, 0, "raw[]", 1
+"openssl", "aes_cbc_decrypt", 1, 0, 0, "class<`hash`, `sha256`>", 1
+"openssl", "aes_cbc_decrypt", 1, 0, 1, "raw[]", 1
+"openssl", "aes_cbc_decrypt", 2, 0, 0, "raw[]", 1
+"openssl", "aes_cbc_encrypt", -1, 0, 0, "raw[]", 1
+"openssl", "aes_cbc_encrypt", 0, 0, 0, "character", 1
+"openssl", "aes_cbc_encrypt", 0, 0, 1, "raw[]", 1
+"openssl", "aes_cbc_encrypt", 1, 0, 0, "raw[]", 1
+"openssl", "aes_cbc_encrypt", 1, 0, 1, "class<`hash`, `sha256`>", 1
+"openssl", "aes_cbc_encrypt", 2, 0, 0, "raw[]", 1
+"openssl", "aes_decrypt", -1, 0, 0, "raw[]", 1
+"openssl", "aes_decrypt", 0, 0, 0, "raw[]", 1
+"openssl", "aes_decrypt", 1, 0, 0, "class<`hash`, `sha256`>", 1
+"openssl", "aes_decrypt", 1, 0, 1, "raw[]", 1
+"openssl", "aes_decrypt", 2, 0, 0, "raw[]", 1
+"openssl", "aes_decrypt", 3, 0, 0, "character", 1
+"openssl", "aes_encrypt", -1, 0, 0, "raw[]", 1
+"openssl", "aes_encrypt", 0, 0, 0, "character", 1
+"openssl", "aes_encrypt", 0, 0, 1, "raw[]", 1
+"openssl", "aes_encrypt", 1, 0, 0, "raw[]", 1
+"openssl", "aes_encrypt", 1, 0, 1, "class<`hash`, `sha256`>", 1
+"openssl", "aes_encrypt", 2, 0, 0, "raw[]", 1
+"openssl", "aes_encrypt", 3, 0, 0, "character", 1
+"openssl", "as.character.bignum", -1, 0, 0, "character", 1
+"openssl", "as.character.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "as.character.bignum", 1, 0, 0, "logical", 1
+"openssl", "as.character.bignum", 2, 0, 0, "...", 1
+"openssl", "as.character.hash", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `sha1`>)", 1
+"openssl", "as.character.hash", 0, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "as.character.hash", 0, 0, 1, "class<`hash`, `sha1`>", 1
+"openssl", "as.character.hash", 1, 0, 0, "character", 1
+"openssl", "as.character.hash", 2, 0, 0, "...", 1
+"openssl", "as.list.cert", -1, 0, 0, "list<any>", 1
+"openssl", "as.list.cert", 0, 0, 0, "class<`cert`>", 1
+"openssl", "as.list.cert", 1, 0, 0, "...", 1
+"openssl", "as.list.cert", 2, 0, 0, "null", 1
+"openssl", "as.list.key", -1, 0, 0, "list<any>", 1
+"openssl", "as.list.key", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "as.list.key", 0, 0, 1, "class<`ed25519`, `key`>", 1
+"openssl", "as.list.key", 0, 0, 2, "class<`key`, `rsa`>", 1
+"openssl", "as.list.key", 0, 0, 3, "class<`key`, `x25519`>", 1
+"openssl", "as.list.key", 1, 0, 0, "...", 1
+"openssl", "as.list.pubkey", -1, 0, 0, "list<any>", 1
+"openssl", "as.list.pubkey", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "as.list.pubkey", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
+"openssl", "as.list.pubkey", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "as.list.pubkey", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", "as.list.pubkey", 1, 0, 0, "...", 1
+"openssl", "base64_decode", -1, 0, 0, "raw[]", 1
+"openssl", "base64_decode", 0, 0, 0, "character", 1
+"openssl", "base64_encode", -1, 0, 0, "character", 1
+"openssl", "base64_encode", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "base64_encode", 0, 0, 1, "raw[]", 1
+"openssl", "base64_encode", 1, 0, 0, "logical", 1
+"openssl", "bignum", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum", 0, 0, 0, "character", 1
+"openssl", "bignum", 0, 0, 1, "integer", 1
+"openssl", "bignum", 0, 0, 2, "raw[]", 1
+"openssl", "bignum", 0, 0, 3, "class<`bignum`>", 1
+"openssl", "bignum", 1, 0, 0, "logical", 1
+"openssl", "^.bignum", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "^.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "^.bignum", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "<.bignum", -1, 0, 0, "logical", 1
+"openssl", "<.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "<.bignum", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "==.bignum", -1, 0, 0, "logical", 1
+"openssl", "==.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "==.bignum", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "*.bignum", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "*.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "*.bignum", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "%/%.bignum", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "%/%.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "%/%.bignum", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "%%.bignum", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "%%.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "%%.bignum", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "+.bignum", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "+.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "+.bignum", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum_mod", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum_mod", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum_mod", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum_mod_exp", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum_mod_exp", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum_mod_exp", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "bignum_mod_exp", 2, 0, 0, "class<`bignum`>", 1
+"openssl", "bn", -1, 0, 0, "class<`bignum`>", 1
+"openssl", "bn", 0, 0, 0, "character", 1
+"openssl", "bn", 0, 0, 1, "integer", 1
+"openssl", "bn", 0, 0, 2, "raw[]", 1
+"openssl", "bn", 0, 0, 3, "class<`bignum`>", 1
+"openssl", "bn", 1, 0, 0, "logical", 1
+"openssl", "ca_bundle", -1, 0, 0, "list<class<`cert`>>", 1
+"openssl", "cert_info", -1, 0, 0, "list<any>", 1
+"openssl", "cert_info", 0, 0, 0, "class<`cert`>", 1
+"openssl", "cert_info", 1, 0, 0, "null", 1
+"openssl", "cert_pubkey", -1, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "cert_pubkey", 0, 0, 0, "class<`cert`>", 1
+"openssl", "cert_verify", -1, 0, 0, "logical", 1
+"openssl", "cert_verify", 0, 0, 0, "list<class<`cert`>>", 1
+"openssl", "cert_verify", 1, 0, 0, "list<class<`cert`>>", 1
+"openssl", "cert_verify_cert", -1, 0, 0, "logical", 1
+"openssl", "cert_verify_cert", 0, 0, 0, "class<`cert`>", 1
+"openssl", "cert_verify_cert", 1, 0, 0, "list<class<`cert`>>", 1
+"openssl", "cert_verify_cert", 2, 0, 0, "list<class<`cert`>>", 1
+"openssl", "connectionhash", -1, 0, 0, "raw[]", 1
+"openssl", "connectionhash", 0, 0, 0, "class<`connection`, `file`>", 1
+"openssl", "connectionhash", 1, 0, 0, "character", 1
+"openssl", "connectionhmac", -1, 0, 0, "raw[]", 1
+"openssl", "connectionhmac", 0, 0, 0, "class<`connection`, `file`>", 1
+"openssl", "connectionhmac", 1, 0, 0, "character", 1
+"openssl", "connectionhmac", 2, 0, 0, "raw[]", 1
+"openssl", "data_sign", -1, 0, 0, "raw[]", 1
+"openssl", "data_sign", 0, 0, 0, "raw[]", 1
+"openssl", "data_sign", 1, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "data_verify", -1, 0, 0, "logical", 1
+"openssl", "data_verify", 0, 0, 0, "raw[]", 1
+"openssl", "data_verify", 1, 0, 0, "raw[]", 1
+"openssl", "data_verify", 2, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "decompose", -1, 0, 0, "(raw[] | list<character | class<`bignum`> | class<`bignum`>>)", 1
+"openssl", "decompose", 0, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "decompose", 0, 0, 1, "class<`ed25519`, `pubkey`>", 1
+"openssl", "decompose", 0, 0, 2, "class<`key`, `x25519`>", 1
+"openssl", "decompose", 0, 0, 3, "class<`pubkey`, `x25519`>", 1
+"openssl", "decompose", 0, 0, 4, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "decompose", 0, 0, 5, "class<`ecdsa`, `key`>", 1
+"openssl", "decompose", 0, 0, 6, "class<`pubkey`, `rsa`>", 1
+"openssl", "decompose", 0, 0, 7, "class<`key`, `rsa`>", 1
+"openssl", "decompose", 0, 0, 8, "class<`dsa`, `pubkey`>", 1
+"openssl", "decompose", 1, 0, 0, "...", 1
+"openssl", "decompose.key", -1, 0, 0, "(raw[] | list<character | class<`bignum`> | class<`bignum`>>)", 1
+"openssl", "decompose.key", 0, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "decompose.key", 0, 0, 1, "class<`key`, `x25519`>", 1
+"openssl", "decompose.key", 0, 0, 2, "class<`ecdsa`, `key`>", 1
+"openssl", "decompose.key", 0, 0, 3, "class<`key`, `rsa`>", 1
+"openssl", "decompose.key", 1, 0, 0, "...", 1
+"openssl", "decompose.pubkey", -1, 0, 0, "(raw[] | list<character | class<`bignum`> | class<`bignum`>>)", 1
+"openssl", "decompose.pubkey", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "decompose.pubkey", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
+"openssl", "decompose.pubkey", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "decompose.pubkey", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", "decompose.pubkey", 0, 0, 4, "class<`dsa`, `pubkey`>", 1
+"openssl", "decompose.pubkey", 1, 0, 0, "...", 1
+"openssl", "decrypt_envelope", -1, 0, 0, "raw[]", 1
+"openssl", "decrypt_envelope", 0, 0, 0, "raw[]", 1
+"openssl", "decrypt_envelope", 1, 0, 0, "raw[]", 1
+"openssl", "decrypt_envelope", 2, 0, 0, "raw[]", 1
+"openssl", "decrypt_envelope", 3, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "decrypt_envelope", 4, 0, 0, "any", 1
+"openssl", "default_key", -1, 0, 0, "character", 1
+"openssl", "der_export", -1, 0, 0, "raw[]", 1
+"openssl", "der_export", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "der_export", 1, 0, 0, "...", 1
+"openssl", "der_export.pubkey", -1, 0, 0, "raw[]", 1
+"openssl", "der_export.pubkey", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "der_export.pubkey", 1, 0, 0, "...", 1
+"openssl", "derive_pubkey", -1, 0, 0, "(class<`dsa`, `pubkey`> | class<`ecdsa`, `pubkey`> | class<`ed25519`, `pubkey`> | class<`NA`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`>)", 1
+"openssl", "derive_pubkey", 0, 0, 0, "class<`dsa`, `key`>", 1
+"openssl", "derive_pubkey", 0, 0, 1, "class<`ecdsa`, `key`>", 1
+"openssl", "derive_pubkey", 0, 0, 2, "class<`ed25519`, `key`>", 1
+"openssl", "derive_pubkey", 0, 0, 3, "raw[]", 1
+"openssl", "derive_pubkey", 0, 0, 4, "class<`key`, `rsa`>", 1
+"openssl", "derive_pubkey", 0, 0, 5, "class<`key`, `x25519`>", 1
+"openssl", "download_ssl_cert", -1, 0, 0, "list<class<`cert`>>", 1
+"openssl", "download_ssl_cert", 0, 0, 0, "character", 1
+"openssl", "download_ssl_cert", 1, 0, 0, "double", 1
+"openssl", "download_ssl_cert", 2, 0, 0, "logical", 1
+"openssl", "dsa_keygen", -1, 0, 0, "class<`dsa`, `key`>", 1
+"openssl", "dsa_keygen", 0, 0, 0, "double", 1
+"openssl", "ec_dh", -1, 0, 0, "raw[]", 1
+"openssl", "ec_dh", 0, 0, 0, "class<`key`, `x25519`>", 1
+"openssl", "ec_dh", 1, 0, 0, "class<`pubkey`, `x25519`>", 1
+"openssl", "ec_dh", 2, 0, 0, "any", 1
+"openssl", "ecdsa_build", -1, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "ecdsa_build", 0, 0, 0, "list<raw[]>", 1
+"openssl", "ecdsa_parse", -1, 0, 0, "list<class<`bignum`>>", 1
+"openssl", "ecdsa_parse", 0, 0, 0, "raw[]", 1
+"openssl", "ecdsa_pubkey_build", -1, 0, 0, "raw[]", 1
+"openssl", "ecdsa_pubkey_build", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "ecdsa_pubkey_build", 0, 0, 1, "raw[]", 1
+"openssl", "ecdsa_pubkey_build", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "ecdsa_pubkey_build", 1, 0, 1, "raw[]", 1
+"openssl", "ecdsa_pubkey_build", 2, 0, 0, "character", 1
+"openssl", "ecdsa_write", -1, 0, 0, "raw[]", 1
+"openssl", "ecdsa_write", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "ecdsa_write", 1, 0, 0, "class<`bignum`>", 1
+"openssl", "ec_keygen", -1, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "ec_keygen", 0, 0, 0, "character[]", 1
+"openssl", "ed25519_keygen", -1, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "ed25519_sign", -1, 0, 0, "raw[]", 1
+"openssl", "ed25519_sign", 0, 0, 0, "raw[]", 1
+"openssl", "ed25519_sign", 1, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "ed25519_verify", -1, 0, 0, "logical", 1
+"openssl", "ed25519_verify", 0, 0, 0, "raw[]", 1
+"openssl", "ed25519_verify", 1, 0, 0, "raw[]", 1
+"openssl", "ed25519_verify", 2, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "encrypt_envelope", -1, 0, 0, "list<raw[]>", 1
+"openssl", "encrypt_envelope", 0, 0, 0, "raw[]", 1
+"openssl", "encrypt_envelope", 1, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "fingerprint", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `sha1`> | class<`hash`, `sha256`>)", 1
+"openssl", "fingerprint", 0, 0, 0, "class<`dsa`, `key`>", 1
+"openssl", "fingerprint", 0, 0, 1, "class<`dsa`, `pubkey`>", 1
+"openssl", "fingerprint", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "fingerprint", 0, 0, 3, "class<`key`, `rsa`>", 1
+"openssl", "fingerprint", 0, 0, 4, "class<`pubkey`, `rsa`>", 1
+"openssl", "fingerprint", 1, 0, 0, "any", 1
+"openssl", "fingerprint.key", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "fingerprint.key", 0, 0, 0, "class<`dsa`, `key`>", 1
+"openssl", "fingerprint.key", 0, 0, 1, "class<`key`, `rsa`>", 1
+"openssl", "fingerprint.key", 1, 0, 0, "class<`function`>", 1
+"openssl", "fingerprint.pubkey", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `sha1`> | class<`hash`, `sha256`>)", 1
+"openssl", "fingerprint.pubkey", 0, 0, 0, "class<`dsa`, `pubkey`>", 1
+"openssl", "fingerprint.pubkey", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "fingerprint.pubkey", 0, 0, 2, "class<`pubkey`, `rsa`>", 1
+"openssl", "fingerprint.pubkey", 1, 0, 0, "class<`function`>", 1
+"openssl", "fpdata", -1, 0, 0, "list<raw[]>", 1
+"openssl", "fpdata", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "fpdata", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
+"openssl", "fpdata", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "fpdata", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", "fpdata", 0, 0, 4, "class<`dsa`, `pubkey`>", 1
+"openssl", "fpdata", 1, 0, 0, "...", 1
+"openssl", "fpdata.dsa", -1, 0, 0, "list<raw[]>", 1
+"openssl", "fpdata.dsa", 0, 0, 0, "class<`dsa`, `pubkey`>", 1
+"openssl", "fpdata.ecdsa", -1, 0, 0, "list<raw[]>", 1
+"openssl", "fpdata.ecdsa", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "fpdata.ed25519", -1, 0, 0, "list<raw[]>", 1
+"openssl", "fpdata.ed25519", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "fpdata.rsa", -1, 0, 0, "list<raw[]>", 1
+"openssl", "fpdata.rsa", 0, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "fpdata.x25519", -1, 0, 0, "list<raw[]>", 1
+"openssl", "fpdata.x25519", 0, 0, 0, "class<`pubkey`, `x25519`>", 1
+"openssl", "hashfun", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `hmac`, `md5`>)", 1
+"openssl", "hashfun", 0, 0, 0, "raw[]", 1
+"openssl", "hashfun", 0, 0, 1, "class<`connection`, `file`>", 1
+"openssl", "hashfun", 0, 0, 2, "character[]", 1
+"openssl", "hashfun", 0, 0, 3, "class<`cert`>", 1
+"openssl", "hashfun", 1, 0, 0, "null", 1
+"openssl", "hashfun", 1, 0, 1, "character", 1
+"openssl", "hash_sign", -1, 0, 0, "raw[]", 1
+"openssl", "hash_sign", 0, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "hash_sign", 0, 0, 1, "class<`hash`, `sha1`>", 1
+"openssl", "hash_sign", 0, 0, 2, "class<`hash`, `sha256`>", 1
+"openssl", "hash_sign", 1, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "hash_sign", 1, 0, 1, "class<`ecdsa`, `key`>", 1
+"openssl", "hash_verify", -1, 0, 0, "logical", 1
+"openssl", "hash_verify", 0, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "hash_verify", 0, 0, 1, "class<`hash`, `sha1`>", 1
+"openssl", "hash_verify", 0, 0, 2, "class<`hash`, `sha256`>", 1
+"openssl", "hash_verify", 1, 0, 0, "raw[]", 1
+"openssl", "hash_verify", 2, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "hash_verify", 2, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "hmac_feed", -1, 0, 0, "logical", 1
+"openssl", "hmac_feed", 0, 0, 0, "class<`md`>", 1
+"openssl", "hmac_feed", 1, 0, 0, "raw[]", 1
+"openssl", "hmac_final", -1, 0, 0, "raw[]", 1
+"openssl", "hmac_final", 0, 0, 0, "class<`md`>", 1
+"openssl", "hmac_init", -1, 0, 0, "class<`md`>", 1
+"openssl", "hmac_init", 0, 0, 0, "character", 1
+"openssl", "hmac_init", 1, 0, 0, "raw[]", 1
+"openssl", "is_positive_integer", -1, 0, 0, "logical", 1
+"openssl", "is_positive_integer", 0, 0, 0, "integer", 1
+"openssl", "is_pubkey_str", -1, 0, 0, "logical", 1
+"openssl", "is_pubkey_str", 0, 0, 0, "character", 1
+"openssl", "is_pubkey_str", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "is_pubkey_str", 0, 0, 2, "class<`ed25519`, `pubkey`>", 1
+"openssl", "is_pubkey_str", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", "is_pubkey_str", 0, 0, 4, "class<`pubkey`, `x25519`>", 1
+"openssl", "is_pubkey_str", 0, 0, 5, "raw[]", 1
+"openssl", "is_windows", -1, 0, 0, "logical", 1
+"openssl", "$.key", -1, 0, 0, "(class<`ecdsa`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`> | list<class<`bignum`>>)", 1
+"openssl", "$.key", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "$.key", 0, 0, 1, "class<`key`, `rsa`>", 1
+"openssl", "$.key", 0, 0, 2, "class<`key`, `x25519`>", 1
+"openssl", "$.key", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", "$.key", 1, 0, 0, "character", 1
+"openssl", "md5", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `hmac`, `md5`>)", 1
+"openssl", "md5", 0, 0, 0, "raw[]", 1
+"openssl", "md5", 0, 0, 1, "class<`connection`, `file`>", 1
+"openssl", "md5", 0, 0, 2, "character[]", 1
+"openssl", "md5", 0, 0, 3, "class<`cert`>", 1
+"openssl", "md5", 1, 0, 0, "null", 1
+"openssl", "md5", 1, 0, 1, "character", 1
+"openssl", "md_feed", -1, 0, 0, "logical", 1
+"openssl", "md_feed", 0, 0, 0, "class<`md`>", 1
+"openssl", "md_feed", 1, 0, 0, "raw[]", 1
+"openssl", "md_final", -1, 0, 0, "raw[]", 1
+"openssl", "md_final", 0, 0, 0, "class<`md`>", 1
+"openssl", "md_init", -1, 0, 0, "class<`md`>", 1
+"openssl", "md_init", 0, 0, 0, "character", 1
+"openssl", "my_key", -1, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "my_pubkey", -1, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "normalize_home", -1, 0, 0, "character", 1
+"openssl", "normalize_home", 0, 0, 0, "character", 1
+"openssl", "openssl_config", -1, 0, 0, "list<character | logical>", 1
+"openssl", "parse_der_key", -1, 0, 0, "raw[]", 1
+"openssl", "parse_der_key", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "parse_der_key", 0, 0, 1, "class<`ed25519`, `key`>", 1
+"openssl", "parse_der_key", 0, 0, 2, "class<`key`, `rsa`>", 1
+"openssl", "parse_der_key", 0, 0, 3, "class<`key`, `x25519`>", 1
+"openssl", "parse_der_pubkey", -1, 0, 0, "raw[]", 1
+"openssl", "parse_der_pubkey", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "parse_der_pubkey", 0, 0, 1, "class<`ed25519`, `pubkey`>", 1
+"openssl", "parse_der_pubkey", 0, 0, 2, "class<`pubkey`, `rsa`>", 1
+"openssl", "parse_der_pubkey", 0, 0, 3, "class<`pubkey`, `x25519`>", 1
+"openssl", "parse_der_pubkey", 0, 0, 4, "raw[]", 1
+"openssl", "parse_hash", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "parse_hash", 0, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "parse_openssh", -1, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "parse_openssh", 0, 0, 0, "raw[]", 1
+"openssl", "parse_pem", -1, 0, 0, "list<list<character | raw[]>>", 1
+"openssl", "parse_pem", 0, 0, 0, "raw[]", 1
+"openssl", "parse_pem_cert", -1, 0, 0, "raw[]", 1
+"openssl", "parse_pem_cert", 0, 0, 0, "raw[]", 1
+"openssl", "parse_pem_cert", 1, 0, 0, "any", 1
+"openssl", "parse_pem_key", -1, 0, 0, "raw[]", 1
+"openssl", "parse_pem_key", 0, 0, 0, "raw[]", 1
+"openssl", "parse_pem_key", 1, 0, 0, "character", 1
+"openssl", "parse_pem_key", 1, 0, 1, "class<`function`>", 1
+"openssl", "path_or_raw", -1, 0, 0, "(class<`hash`, `md5`> | raw[])", 1
+"openssl", "path_or_raw", 0, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "path_or_raw", 0, 0, 1, "character", 1
+"openssl", "path_or_raw", 0, 0, 2, "raw[]", 1
+"openssl", "pem_export", -1, 0, 0, "character", 1
+"openssl", "pem_export", 0, 0, 0, "class<`cert`>", 1
+"openssl", "pem_export", 0, 0, 1, "class<`ecdsa`, `key`>", 1
+"openssl", "pem_export", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "pem_export", 0, 0, 3, "class<`key`, `rsa`>", 1
+"openssl", "pem_export", 0, 0, 4, "class<`pubkey`, `rsa`>", 1
+"openssl", "pem_export", 1, 0, 0, "...", 1
+"openssl", "pem_export.cert", -1, 0, 0, "character", 1
+"openssl", "pem_export.cert", 0, 0, 0, "class<`cert`>", 1
+"openssl", "pem_export.cert", 1, 0, 0, "...", 1
+"openssl", "pem_export.key", -1, 0, 0, "character", 1
+"openssl", "pem_export.key", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "pem_export.key", 0, 0, 1, "class<`key`, `rsa`>", 1
+"openssl", "pem_export.key", 1, 0, 0, "character", 1
+"openssl", "pem_export.key", 1, 0, 1, "null", 1
+"openssl", "pem_export.key", 2, 0, 0, "...", 1
+"openssl", "pem_export.pubkey", -1, 0, 0, "character", 1
+"openssl", "pem_export.pubkey", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "pem_export.pubkey", 0, 0, 1, "class<`pubkey`, `rsa`>", 1
+"openssl", "pem_export.pubkey", 1, 0, 0, "...", 1
+"openssl", "pem_names", -1, 0, 0, "character", 1
+"openssl", "pem_names", 0, 0, 0, "raw[]", 1
+"openssl", "print.bignum", -1, 0, 0, "null", 1
+"openssl", "print.bignum", 0, 0, 0, "class<`bignum`>", 1
+"openssl", "print.bignum", 1, 0, 0, "logical", 1
+"openssl", "print.bignum", 2, 0, 0, "...", 1
+"openssl", "print.cert", -1, 0, 0, "null", 1
+"openssl", "print.cert", 0, 0, 0, "class<`cert`>", 1
+"openssl", "print.cert", 1, 0, 0, "...", 1
+"openssl", "print.key", -1, 0, 0, "null", 1
+"openssl", "print.key", 0, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "print.key", 1, 0, 0, "...", 1
+"openssl", "print.pubkey", -1, 0, 0, "null", 1
+"openssl", "print.pubkey", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "print.pubkey", 0, 0, 1, "class<`pubkey`, `rsa`>", 1
+"openssl", "print.pubkey", 1, 0, 0, "...", 1
+"openssl", "priv_decompose.ecdsa", -1, 0, 0, "list<character | class<`bignum`>>", 1
+"openssl", "priv_decompose.ecdsa", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "priv_decompose.ed25519", -1, 0, 0, "raw[]", 1
+"openssl", "priv_decompose.ed25519", 0, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "priv_decompose.ed25519", 0, 0, 1, "class<`key`, `x25519`>", 1
+"openssl", "priv_decompose.rsa", -1, 0, 0, "list<class<`bignum`>>", 1
+"openssl", "priv_decompose.rsa", 0, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "priv_decompose.x25519", -1, 0, 0, "raw[]", 1
+"openssl", "priv_decompose.x25519", 0, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "priv_decompose.x25519", 0, 0, 1, "class<`key`, `x25519`>", 1
+"openssl", "$.pubkey", -1, 0, 0, "(class<`ecdsa`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`> | list<class<`bignum`>>)", 1
+"openssl", "$.pubkey", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "$.pubkey", 0, 0, 1, "class<`key`, `rsa`>", 1
+"openssl", "$.pubkey", 0, 0, 2, "class<`key`, `x25519`>", 1
+"openssl", "$.pubkey", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", "$.pubkey", 1, 0, 0, "character", 1
+"openssl", "pubkey_bitsize", -1, 0, 0, "integer", 1
+"openssl", "pubkey_bitsize", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "pubkey_bitsize", 0, 0, 1, "class<`ed25519`, `pubkey`>", 1
+"openssl", "pubkey_bitsize", 0, 0, 2, "class<`pubkey`, `rsa`>", 1
+"openssl", "pubkey_bitsize", 0, 0, 3, "class<`pubkey`, `x25519`>", 1
+"openssl", "pubkey_decompose.dsa", -1, 0, 0, "list<class<`bignum`>>", 1
+"openssl", "pubkey_decompose.dsa", 0, 0, 0, "class<`dsa`, `pubkey`>", 1
+"openssl", "pubkey_decompose.ecdsa", -1, 0, 0, "list<character | class<`bignum`>>", 1
+"openssl", "pubkey_decompose.ecdsa", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "pubkey_decompose.ed25519", -1, 0, 0, "raw[]", 1
+"openssl", "pubkey_decompose.ed25519", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "pubkey_decompose.ed25519", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
+"openssl", "pubkey_decompose.rsa", -1, 0, 0, "list<class<`bignum`>>", 1
+"openssl", "pubkey_decompose.rsa", 0, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "pubkey_decompose.x25519", -1, 0, 0, "raw[]", 1
+"openssl", "pubkey_decompose.x25519", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "pubkey_decompose.x25519", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
+"openssl", "pubkey_type", -1, 0, 0, "character", 1
+"openssl", "pubkey_type", 0, 0, 0, "class<`pubkey`>", 1
+"openssl", "pubkey_type", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "pubkey_type", 0, 0, 2, "class<`NA`, `pubkey`>", 1
+"openssl", "pubkey_type", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
+"openssl", "pubkey_type", 0, 0, 4, "class<`pubkey`, `x25519`>", 1
+"openssl", "pubkey_type", 0, 0, 5, "raw[]", 1
+"openssl", "rand_bytes", -1, 0, 0, "raw[]", 1
+"openssl", "rand_bytes", 0, 0, 0, "double", 1
+"openssl", "rand_num", -1, 0, 0, "double[]", 1
+"openssl", "rand_num", 0, 0, 0, "double", 1
+"openssl", "rawhash", -1, 0, 0, "raw[]", 1
+"openssl", "rawhash", 0, 0, 0, "class<`cert`>", 1
+"openssl", "rawhash", 0, 0, 1, "raw[]", 1
+"openssl", "rawhash", 1, 0, 0, "character", 1
+"openssl", "rawhash", 2, 0, 0, "null", 1
+"openssl", "rawstringhash", -1, 0, 0, "(class<`hash`, `hmac`, `md5`> | class<`hash`, `hmac`, `sha1`> | class<`hash`, `hmac`, `sha256`> | class<`hash`, `md5`> | class<`hash`, `sha1`> | class<`hash`, `sha256`>)", 1
+"openssl", "rawstringhash", 0, 0, 0, "class<`connection`, `file`>", 1
+"openssl", "rawstringhash", 0, 0, 1, "character[]", 1
+"openssl", "rawstringhash", 0, 0, 2, "class<`cert`>", 1
+"openssl", "rawstringhash", 0, 0, 3, "raw[]", 1
+"openssl", "rawstringhash", 1, 0, 0, "character", 1
+"openssl", "rawstringhash", 2, 0, 0, "character", 1
+"openssl", "rawstringhash", 2, 0, 1, "null", 1
+"openssl", "read_cert_bundle", -1, 0, 0, "list<class<`cert`>>", 1
+"openssl", "read_cert_bundle", 0, 0, 0, "character", 1
+"openssl", "read_con_buf", -1, 0, 0, "(null | raw[])", 1
+"openssl", "read_con_buf", 0, 0, 0, "class<`connection`, `rawConnection`>", 1
+"openssl", "read_ed25519_key", -1, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "read_ed25519_key", 0, 0, 0, "raw[]", 1
+"openssl", "read_ed25519_pubkey", -1, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "read_ed25519_pubkey", 0, 0, 0, "raw[]", 1
+"openssl", "read_input", -1, 0, 0, "(class<`ecdsa`, `key`> | class<`ecdsa`, `pubkey`> | class<`ed25519`, `key`> | class<`ed25519`, `pubkey`> | class<`key`, `rsa`> | class<`key`, `x25519`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`> | raw[])", 1
+"openssl", "read_input", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "read_input", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "read_input", 0, 0, 2, "class<`ed25519`, `key`>", 1
+"openssl", "read_input", 0, 0, 3, "class<`ed25519`, `pubkey`>", 1
+"openssl", "read_input", 0, 0, 4, "class<`key`, `rsa`>", 1
+"openssl", "read_input", 0, 0, 5, "class<`key`, `x25519`>", 1
+"openssl", "read_input", 0, 0, 6, "class<`pubkey`, `rsa`>", 1
+"openssl", "read_input", 0, 0, 7, "class<`pubkey`, `x25519`>", 1
+"openssl", "read_input", 0, 0, 8, "character", 1
+"openssl", "read_input", 0, 0, 9, "class<`connection`, `textConnection`>", 1
+"openssl", "read_input", 0, 0, 10, "raw[]", 1
+"openssl", "read_key", -1, 0, 0, "(class<`ecdsa`, `key`> | class<`ed25519`, `key`> | class<`key`, `rsa`> | class<`key`, `x25519`>)", 1
+"openssl", "read_key", 0, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "read_key", 0, 0, 1, "class<`ed25519`, `key`>", 1
+"openssl", "read_key", 0, 0, 2, "character", 1
+"openssl", "read_key", 0, 0, 3, "class<`key`, `rsa`>", 1
+"openssl", "read_key", 0, 0, 4, "class<`key`, `x25519`>", 1
+"openssl", "read_key", 1, 0, 0, "any", 1
+"openssl", "read_key", 2, 0, 0, "logical", 1
+"openssl", "read_pubkey", -1, 0, 0, "(class<`ecdsa`, `pubkey`> | class<`ed25519`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`>)", 1
+"openssl", "read_pubkey", 0, 0, 0, "character", 1
+"openssl", "read_pubkey", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "read_pubkey", 0, 0, 2, "raw[]", 1
+"openssl", "read_pubkey", 0, 0, 3, "class<`ed25519`, `pubkey`>", 1
+"openssl", "read_pubkey", 0, 0, 4, "class<`pubkey`, `rsa`>", 1
+"openssl", "read_pubkey", 0, 0, 5, "class<`pubkey`, `x25519`>", 1
+"openssl", "read_pubkey", 1, 0, 0, "logical", 1
+"openssl", "read_raw_key_ed25519", -1, 0, 0, "raw[]", 1
+"openssl", "read_raw_key_ed25519", 0, 0, 0, "raw[]", 1
+"openssl", "read_raw_pubkey_ed25519", -1, 0, 0, "raw[]", 1
+"openssl", "read_raw_pubkey_ed25519", 0, 0, 0, "raw[]", 1
+"openssl", "rsa_decrypt", -1, 0, 0, "raw[]", 1
+"openssl", "rsa_decrypt", 0, 0, 0, "raw[]", 1
+"openssl", "rsa_decrypt", 1, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "rsa_decrypt", 2, 0, 0, "any", 1
+"openssl", "rsa_encrypt", -1, 0, 0, "raw[]", 1
+"openssl", "rsa_encrypt", 0, 0, 0, "raw[]", 1
+"openssl", "rsa_encrypt", 1, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "rsa_keygen", -1, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "rsa_keygen", 0, 0, 0, "double", 1
+"openssl", "sha1", -1, 0, 0, "(class<`hash`, `hmac`, `sha1`> | class<`hash`, `sha1`>)", 1
+"openssl", "sha1", 0, 0, 0, "character", 1
+"openssl", "sha1", 0, 0, 1, "class<`cert`>", 1
+"openssl", "sha1", 1, 0, 0, "character", 1
+"openssl", "sha1", 1, 0, 1, "null", 1
+"openssl", "sha256", -1, 0, 0, "(class<`hash`, `hmac`, `sha256`> | class<`hash`, `sha256`>)", 1
+"openssl", "sha256", 0, 0, 0, "character[]", 1
+"openssl", "sha256", 0, 0, 1, "raw[]", 1
+"openssl", "sha256", 1, 0, 0, "character", 1
+"openssl", "sha256", 1, 0, 1, "null", 1
+"openssl", "signature_create", -1, 0, 0, "raw[]", 1
+"openssl", "signature_create", 0, 0, 0, "character", 1
+"openssl", "signature_create", 0, 0, 1, "class<`hash`, `md5`>", 1
+"openssl", "signature_create", 0, 0, 2, "raw[]", 1
+"openssl", "signature_create", 1, 0, 0, "class<`function`>", 1
+"openssl", "signature_create", 1, 0, 1, "null", 1
+"openssl", "signature_create", 2, 0, 0, "class<`key`, `rsa`>", 1
+"openssl", "signature_create", 2, 0, 1, "class<`ecdsa`, `key`>", 1
+"openssl", "signature_create", 3, 0, 0, "any", 1
+"openssl", "signature_verify", -1, 0, 0, "logical", 1
+"openssl", "signature_verify", 0, 0, 0, "character", 1
+"openssl", "signature_verify", 0, 0, 1, "class<`hash`, `md5`>", 1
+"openssl", "signature_verify", 0, 0, 2, "raw[]", 1
+"openssl", "signature_verify", 1, 0, 0, "raw[]", 1
+"openssl", "signature_verify", 2, 0, 0, "class<`function`>", 1
+"openssl", "signature_verify", 2, 0, 1, "null", 1
+"openssl", "signature_verify", 3, 0, 0, "class<`pubkey`, `rsa`>", 1
+"openssl", "signature_verify", 3, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "split_pem", -1, 0, 0, "character[]", 1
+"openssl", "split_pem", 0, 0, 0, "raw[]", 1
+"openssl", "ssh_build_pubkey", -1, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "ssh_build_pubkey", 0, 0, 0, "raw[]", 1
+"openssl", "ssh_parse_data", -1, 0, 0, "list<raw[]>", 1
+"openssl", "ssh_parse_data", 0, 0, 0, "raw[]", 1
+"openssl", "ssh_pubkey_from_string", -1, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "ssh_pubkey_from_string", 0, 0, 0, "character", 1
+"openssl", "stopifnot", -1, 0, 0, "null", 1
+"openssl", "stopifnot", 0, 0, 0, "...", 1
+"openssl", "stringhash", -1, 0, 0, "character[]", 1
+"openssl", "stringhash", 0, 0, 0, "character[]", 1
+"openssl", "stringhash", 1, 0, 0, "character", 1
+"openssl", "stringhash", 2, 0, 0, "null", 1
+"openssl", "stringhash", 2, 0, 1, "raw[]", 1
+"openssl", "validate_openssh", -1, 0, 0, "logical", 1
+"openssl", "validate_openssh", 0, 0, 0, "character", 1
+"openssl", "write_der", -1, 0, 0, "raw[]", 1
+"openssl", "write_der", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "write_der", 1, 0, 0, "null", 1
+"openssl", "write_pem", -1, 0, 0, "character", 1
+"openssl", "write_pem", 0, 0, 0, "class<`cert`>", 1
+"openssl", "write_pem", 0, 0, 1, "class<`ecdsa`, `key`>", 1
+"openssl", "write_pem", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "write_pem", 0, 0, 3, "class<`key`, `rsa`>", 1
+"openssl", "write_pem", 0, 0, 4, "class<`pubkey`, `rsa`>", 1
+"openssl", "write_pem", 1, 0, 0, "null", 1
+"openssl", "write_pem", 1, 0, 1, "character", 1
+"openssl", "write_pem", 2, 0, 0, "null", 1
+"openssl", "write_pem", 2, 0, 1, "character", 1
+"openssl", "write_raw_key", -1, 0, 0, "raw[]", 1
+"openssl", "write_raw_key", 0, 0, 0, "class<`ed25519`, `key`>", 1
+"openssl", "write_raw_key", 0, 0, 1, "class<`key`, `x25519`>", 1
+"openssl", "write_raw_pubkey", -1, 0, 0, "raw[]", 1
+"openssl", "write_raw_pubkey", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
+"openssl", "write_raw_pubkey", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
+"openssl", "write_ssh", -1, 0, 0, "character", 1
+"openssl", "write_ssh", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "write_ssh", 0, 0, 1, "class<`pubkey`, `rsa`>", 1
+"openssl", "write_ssh", 1, 0, 0, "null", 1
+"openssl", "write_ssh", 1, 0, 1, "character", 1
+"openssl", "x25519_diffie_hellman", -1, 0, 0, "raw[]", 1
+"openssl", "x25519_diffie_hellman", 0, 0, 0, "class<`key`, `x25519`>", 1
+"openssl", "x25519_diffie_hellman", 1, 0, 0, "class<`pubkey`, `x25519`>", 1
+"openssl", "x25519_keygen", -1, 0, 0, "class<`key`, `x25519`>", 1

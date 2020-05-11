@@ -1,29 +1,169 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"reshape2", "::", -1, 0, 0, "struct<`country`:integer[], `2003`:integer[], `2004`:integer[], `2005`:integer[], `2006`:integer[], `2007`:integer[], `2008`:integer[], `2009`:integer[], `2010`:integer[], `2011`:integer[], `2012`:integer[], `2013`:integer[]>", 1
-"reshape2", "::", 0, 0, 0, "struct<`country`:integer[], `year`:integer[], `refugees`:integer[]>", 1
-"reshape2", "::", 1, 0, 0, "language", 1
-"reshape2", "::", 2, 0, 0, "null", 1
-"reshape2", "::", 3, 0, 0, "null", 1
-"reshape2", "::", 4, 0, 0, "null", 1
-"reshape2", "::", 5, 0, 0, "null", 1
-"reshape2", "::", 6, 0, 0, "null", 1
-"reshape2", "::", 7, 0, 0, "logical", 1
-"reshape2", "::", 8, 0, 0, "character", 1
+"reshape2", "%||%", -1, 0, 0, "(^character[] | integer[])", 1
+"reshape2", "%||%", 0, 0, 0, "^character[]", 1
+"reshape2", "%||%", 0, 0, 1, "null", 1
+"reshape2", "%||%", 1, 0, 0, "any", 1
+"reshape2", "acast", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"reshape2", "acast", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "acast", 1, 0, 0, "class<`formula`>", 1
+"reshape2", "acast", 2, 0, 0, "null", 1
+"reshape2", "acast", 2, 0, 1, "class<`function`>", 1
+"reshape2", "acast", 3, 0, 0, "...", 1
+"reshape2", "acast", 4, 0, 0, "null", 1
+"reshape2", "acast", 4, 0, 1, "character", 1
+"reshape2", "acast", 4, 0, 2, "logical", 1
+"reshape2", "acast", 5, 0, 0, "null", 1
+"reshape2", "acast", 5, 0, 1, "class<`quoted`>", 1
+"reshape2", "acast", 6, 0, 0, "null", 1
+"reshape2", "acast", 6, 0, 1, "double", 1
+"reshape2", "acast", 7, 0, 0, "logical", 1
+"reshape2", "acast", 8, 0, 0, "character", 1
+"reshape2", "add_margins", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "add_margins", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "add_margins", 1, 0, 0, "list<character[]>", 1
+"reshape2", "add_margins", 2, 0, 0, "character[]", 1
+"reshape2", "add_margins", 2, 0, 1, "logical", 1
 "reshape2", "all_identical", -1, 0, 0, "logical", 1
 "reshape2", "all_identical", 0, 0, 0, "list<null>", 1
-"reshape2", "all_identical", 0, 0, 1, "tuple<null, null, null>", 1
 "reshape2", "array_names", -1, 0, 0, "character[]", 1
-"reshape2", "array_names", 0, 0, 0, "struct<`year`:integer[]>", 1
-"reshape2", "cast", -1, 0, 0, "struct<`data`:^integer[], `labels`:tuple<struct<`country`:integer[]>, struct<`year`:integer[]>>>", 1
-"reshape2", "cast", 0, 0, 0, "struct<`country`:integer[], `year`:integer[], `refugees`:integer[]>", 1
-"reshape2", "cast", 1, 0, 0, "tuple<tuple<symbol>, tuple<symbol>>", 1
+"reshape2", "array_names", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "cast", -1, 0, 0, "list<class<`array`> | list<class<`data.frame`>> | class<`matrix`> | list<class<`data.frame`>>>", 1
+"reshape2", "cast", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "cast", 1, 0, 0, "list<class<`quoted`>>", 1
 "reshape2", "cast", 2, 0, 0, "null", 1
-"reshape2", "cast", 2, 0, 1, "any => any", 1
-"reshape2", "cast", 3, 0, 0, "null", 1
+"reshape2", "cast", 2, 0, 1, "class<`function`>", 1
+"reshape2", "cast", 3, 0, 0, "...", 1
 "reshape2", "cast", 4, 0, 0, "null", 1
-"reshape2", "cast", 4, 0, 1, "tuple<language>", 1
+"reshape2", "cast", 4, 0, 1, "class<`quoted`>", 1
 "reshape2", "cast", 5, 0, 0, "null", 1
 "reshape2", "cast", 5, 0, 1, "double", 1
 "reshape2", "cast", 6, 0, 0, "logical", 1
 "reshape2", "cast", 7, 0, 0, "character", 1
-"reshape2", "cast", 8, 0, 0, "null", 1
+"reshape2", "cast", 8, 0, 0, "any", 1
+"reshape2", "colsplit", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "colsplit", 0, 0, 0, "character[]", 1
+"reshape2", "colsplit", 1, 0, 0, "character", 1
+"reshape2", "colsplit", 2, 0, 0, "character[]", 1
+"reshape2", "dcast", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "dcast", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "dcast", 1, 0, 0, "class<`formula`>", 1
+"reshape2", "dcast", 2, 0, 0, "class<`function`>", 1
+"reshape2", "dcast", 2, 0, 1, "null", 1
+"reshape2", "dcast", 3, 0, 0, "...", 1
+"reshape2", "dcast", 4, 0, 0, "character[]", 1
+"reshape2", "dcast", 4, 0, 1, "logical", 1
+"reshape2", "dcast", 4, 0, 2, "null", 1
+"reshape2", "dcast", 5, 0, 0, "null", 1
+"reshape2", "dcast", 5, 0, 1, "class<`quoted`>", 1
+"reshape2", "dcast", 6, 0, 0, "null", 1
+"reshape2", "dcast", 7, 0, 0, "logical", 1
+"reshape2", "dcast", 8, 0, 0, "character", 1
+"reshape2", "FUN", -1, 0, 0, "character[]", 1
+"reshape2", "FUN", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "FUN", -1, 1, 0, "class<`data.frame`>", 1
+"reshape2", "FUN", 0, 1, 0, "class<`array`>", 1
+"reshape2", "FUN", 0, 1, 1, "class<`matrix`>", 1
+"reshape2", "FUN", 0, 1, 2, "double", 1
+"reshape2", "FUN", 0, 1, 3, "integer[]", 1
+"reshape2", "FUN", 0, 1, 4, "null", 1
+"reshape2", "FUN", 0, 1, 5, "class<`data.frame`>", 1
+"reshape2", "FUN", 0, 1, 6, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape2", "FUN", 0, 1, 7, "list<any>", 1
+"reshape2", "FUN", 1, 1, 0, "...", 1
+"reshape2", "FUN", 2, 1, 0, "logical", 1
+"reshape2", "FUN", 3, 1, 0, "character", 1
+"reshape2", "guess_value", -1, 0, 0, "character", 1
+"reshape2", "guess_value", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "is.string", -1, 0, 0, "logical", 1
+"reshape2", "is.string", 0, 0, 0, "character", 1
+"reshape2", "margins", -1, 0, 0, "list<null | character[]>", 1
+"reshape2", "margins", 0, 0, 0, "list<character[]>", 1
+"reshape2", "margins", 1, 0, 0, "character[]", 1
+"reshape2", "margins", 1, 0, 1, "logical", 1
+"reshape2", "melt", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt", 0, 0, 0, "class<`array`>", 1
+"reshape2", "melt", 0, 0, 1, "class<`matrix`>", 1
+"reshape2", "melt", 0, 0, 2, "double", 1
+"reshape2", "melt", 0, 0, 3, "integer[]", 1
+"reshape2", "melt", 0, 0, 4, "null", 1
+"reshape2", "melt", 0, 0, 5, "class<`data.frame`>", 1
+"reshape2", "melt", 0, 0, 6, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape2", "melt", 0, 0, 7, "list<any>", 1
+"reshape2", "melt", 1, 0, 0, "...", 1
+"reshape2", "melt", 2, 0, 0, "logical", 1
+"reshape2", "melt", 3, 0, 0, "character", 1
+"reshape2", "melt.array", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt.array", 0, 0, 0, "class<`array`>", 1
+"reshape2", "melt.array", 0, 0, 1, "class<`matrix`>", 1
+"reshape2", "melt.array", 1, 0, 0, "character[]", 1
+"reshape2", "melt.array", 1, 0, 1, "null", 1
+"reshape2", "melt.array", 2, 0, 0, "...", 1
+"reshape2", "melt.array", 3, 0, 0, "logical", 1
+"reshape2", "melt.array", 4, 0, 0, "logical", 1
+"reshape2", "melt.array", 5, 0, 0, "character", 1
+"reshape2", "melt_check", -1, 0, 0, "list<character[]>", 1
+"reshape2", "melt_check", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt_check", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape2", "melt_check", 1, 0, 0, "any", 1
+"reshape2", "melt_check", 2, 0, 0, "any", 1
+"reshape2", "melt_check", 3, 0, 0, "character", 1
+"reshape2", "melt_check", 4, 0, 0, "character", 1
+"reshape2", "melt_dataframe", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt_dataframe", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt_dataframe", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape2", "melt_dataframe", 1, 0, 0, "integer[]", 1
+"reshape2", "melt_dataframe", 2, 0, 0, "integer[]", 1
+"reshape2", "melt_dataframe", 3, 0, 0, "character", 1
+"reshape2", "melt_dataframe", 4, 0, 0, "character", 1
+"reshape2", "melt_dataframe", 5, 0, 0, "null", 1
+"reshape2", "melt_dataframe", 6, 0, 0, "logical", 1
+"reshape2", "melt_dataframe", 7, 0, 0, "logical", 1
+"reshape2", "melt.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt.data.frame", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape2", "melt.data.frame", 1, 0, 0, "any", 1
+"reshape2", "melt.data.frame", 2, 0, 0, "any", 1
+"reshape2", "melt.data.frame", 3, 0, 0, "character", 1
+"reshape2", "melt.data.frame", 4, 0, 0, "...", 1
+"reshape2", "melt.data.frame", 5, 0, 0, "logical", 1
+"reshape2", "melt.data.frame", 6, 0, 0, "character", 1
+"reshape2", "melt.data.frame", 7, 0, 0, "logical", 1
+"reshape2", "melt.default", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt.default", 0, 0, 0, "double", 1
+"reshape2", "melt.default", 0, 0, 1, "integer[]", 1
+"reshape2", "melt.default", 0, 0, 2, "null", 1
+"reshape2", "melt.default", 1, 0, 0, "...", 1
+"reshape2", "melt.default", 2, 0, 0, "logical", 1
+"reshape2", "melt.default", 3, 0, 0, "character", 1
+"reshape2", "melt.list", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt.list", 0, 0, 0, "list<any>", 1
+"reshape2", "melt.list", 1, 0, 0, "...", 1
+"reshape2", "melt.list", 2, 0, 0, "double", 1
+"reshape2", "melt.matrix", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "melt.matrix", 0, 0, 0, "class<`array`>", 1
+"reshape2", "melt.matrix", 0, 0, 1, "class<`matrix`>", 1
+"reshape2", "melt.matrix", 1, 0, 0, "character[]", 1
+"reshape2", "melt.matrix", 1, 0, 1, "null", 1
+"reshape2", "melt.matrix", 2, 0, 0, "...", 1
+"reshape2", "melt.matrix", 3, 0, 0, "logical", 1
+"reshape2", "melt.matrix", 4, 0, 0, "logical", 1
+"reshape2", "melt.matrix", 5, 0, 0, "character", 1
+"reshape2", "normalize_melt_arguments", -1, 0, 0, "list<null | logical>", 1
+"reshape2", "normalize_melt_arguments", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "normalize_melt_arguments", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape2", "normalize_melt_arguments", 1, 0, 0, "integer[]", 1
+"reshape2", "normalize_melt_arguments", 2, 0, 0, "logical", 1
+"reshape2", "parse_formula", -1, 0, 0, "list<class<`quoted`>>", 1
+"reshape2", "parse_formula", 0, 0, 0, "class<`formula`>", 1
+"reshape2", "parse_formula", 0, 0, 1, "list<class<`quoted`>>", 1
+"reshape2", "parse_formula", 1, 0, 0, "any", 1
+"reshape2", "parse_formula", 2, 0, 0, "any", 1
+"reshape2", "recast", -1, 0, 0, "class<`data.frame`>", 1
+"reshape2", "recast", 0, 0, 0, "class<`data.frame`>", 1
+"reshape2", "recast", 1, 0, 0, "class<`formula`>", 1
+"reshape2", "recast", 2, 0, 0, "...", 1
+"reshape2", "recast", 3, 0, 0, "integer[]", 1
+"reshape2", "recast", 4, 0, 0, "any", 1
+"reshape2", "upto", -1, 0, 0, "character[]", 1
+"reshape2", "upto", 0, 0, 0, "character", 1
+"reshape2", "upto", 1, 0, 0, "character[]", 1

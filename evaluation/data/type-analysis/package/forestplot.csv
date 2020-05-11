@@ -1,45 +1,226 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"forestplot", "drawBox", -1, 0, 0, "struct<`path`:null, `name`:character, `n`:integer>", 1
-"forestplot", "drawBox", 0, 0, 0, "struct<`x`:double, `y`:double, `width`:double, `height`:double, `justification`:character, `gp`:tuple<>, `clip`:logical, `xscale`:double[], `yscale`:double[], `angle`:double, `layout`:null, `layout.pos.row`:integer[], `layout.pos.col`:integer[], `valid.just`:double[], `valid.pos.row`:integer[], `valid.pos.col`:integer[], `name`:character>", 1
-"forestplot", "drawBox", 1, 0, 0, "integer", 1
-"forestplot", "drawBox", 2, 0, 0, "struct<`box`:character[], `lines`:character[], `summary`:character[], `zero`:character, `text`:character, `axes`:character, `hrz_lines`:character>", 1
-"forestplot", "drawBox", 3, 0, 0, "tuple<struct<`label`:character, `x`:double, `y`:double, `just`:character, `hjust`:null, `vjust`:null, `rot`:double, `check.overlap`:logical, `name`:character, `gp`:struct<`fontface`:character, `cex`:double, `font`:integer>, `vp`:null>, struct<`label`:character, `x`:double, `y`:double, `just`:character, `hjust`:null, `vjust`:null, `rot`:double, `check.overlap`:logical, `name`:character, `gp`:struct<`fontface`:character, `cex`:double, `font`:integer>, `vp`:null>>", 1
-"forestplot", "filter", -1, 0, 0, "logical[]", 1
-"forestplot", "filter", 0, 0, 0, "character[]", 1
-"forestplot", "forestplot.default", -1, 0, 0, "struct<`path`:character, `name`:character, `n`:integer>", 1
-"forestplot", "forestplot.default", 0, 0, 0, "^character[]", 1
-"forestplot", "forestplot.default", 0, 0, 1, "tuple<tuple<character, character, character, expression>, tuple<character, language, language, language>>", 1
-"forestplot", "forestplot.default", 0, 0, 2, "tuple<tuple<character, expression>>", 1
-"forestplot", "forestplot.default", 1, 0, 0, "struct<`coef`:^double[], `low`:^double[], `high`:^double[]>", 1
-"forestplot", "forestplot.default", 1, 0, 1, "^double[]", 1
-"forestplot", "forestplot.default", 2, 0, 0, "null", 1
-"forestplot", "forestplot.default", 2, 0, 1, "^double[]", 1
-"forestplot", "forestplot.default", 3, 0, 0, "null", 1
-"forestplot", "forestplot.default", 3, 0, 1, "^double[]", 1
-"forestplot", "forestplot.default", 4, 0, 0, "null", 1
-"forestplot", "forestplot.default", 5, 0, 0, "null", 1
-"forestplot", "forestplot.default", 5, 0, 1, "logical[]", 1
-"forestplot", "forestplot.default", 5, 0, 2, "character", 1
-"forestplot", "forestplot.default", 5, 0, 3, "integer", 1
-"forestplot", "forestplot.default", 5, 0, 4, "tuple<>", 1
-"forestplot", "forestplot.default", 6, 0, 0, "null", 1
-"forestplot", "forestplot.default", 6, 0, 1, "integer", 1
-"forestplot", "forestplot.default", 6, 0, 2, "pairlist", 1
-"forestplot", "forestplot.default", 6, 0, 3, "character", 1
-"forestplot", "forestplot.default", 7, 0, 0, "null", 1
+"forestplot", "forestplot", -1, 0, 0, "class<`path`, `vpPath`>", 1
+"forestplot", "forestplot", 0, 0, 0, "...", 1
+"forestplot", "forestplot.default", -1, 0, 0, "class<`path`, `vpPath`>", 1
+"forestplot", "forestplot.default", 0, 0, 0, "character[]", 1
+"forestplot", "forestplot.default", 0, 0, 1, "class<`matrix`>", 1
+"forestplot", "forestplot.default", 0, 0, 2, "integer[]", 1
+"forestplot", "forestplot.default", 0, 0, 3, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "forestplot.default", 1, 0, 0, "class<`matrix`>", 1
+"forestplot", "forestplot.default", 1, 0, 1, "class<`data.frame`>", 1
+"forestplot", "forestplot.default", 1, 0, 2, "^double[]", 1
+"forestplot", "forestplot.default", 2, 0, 0, "any", 1
+"forestplot", "forestplot.default", 3, 0, 0, "any", 1
+"forestplot", "forestplot.default", 4, 0, 0, "any", 1
+"forestplot", "forestplot.default", 5, 0, 0, "logical[]", 1
+"forestplot", "forestplot.default", 6, 0, 0, "character", 1
+"forestplot", "forestplot.default", 6, 0, 1, "double", 1
+"forestplot", "forestplot.default", 7, 0, 0, "any", 1
 "forestplot", "forestplot.default", 8, 0, 0, "double[]", 1
 "forestplot", "forestplot.default", 9, 0, 0, "character", 1
 "forestplot", "forestplot.default", 10, 0, 0, "double[]", 1
 "forestplot", "forestplot.default", 11, 0, 0, "character", 1
-"forestplot", "forestplot.default", 12, 0, 0, "null", 1
+"forestplot", "forestplot.default", 12, 0, 0, "any", 1
 "forestplot", "forestplot.default", 13, 0, 0, "character", 1
-"forestplot", "forestplot.default", 14, 0, 0, "null", 1
-"forestplot", "forestplot.default", 15, 0, 0, "struct<`box`:character[], `lines`:character[], `summary`:character[], `zero`:character, `text`:character, `axes`:character, `hrz_lines`:character>", 1
-"forestplot", "forestplot.default", 16, 0, 0, "struct<`label`:struct<`fontface`:character, `cex`:double>, `summary`:struct<`fontface`:character, `cex`:double>, `title`:struct<`fontface`:character, `cex`:double, `just`:character>, `xlab`:struct<`fontface`:character, `cex`:double>, `ticks`:struct<`fontface`:character, `cex`:double>, `legend`:struct<`fontface`:character, `cex`:double>, `legend.title`:struct<`fontface`:character, `cex`:double>>", 1
+"forestplot", "forestplot.default", 13, 0, 1, "class<`unit`>", 1
+"forestplot", "forestplot.default", 14, 0, 0, "any", 1
+"forestplot", "forestplot.default", 15, 0, 0, "class<`fpColors`, `list`>", 1
+"forestplot", "forestplot.default", 16, 0, 0, "class<`fpTxtGp`, `list`>", 1
 "forestplot", "forestplot.default", 17, 0, 0, "logical", 1
-"forestplot", "forestplot.default", 18, 0, 0, "null", 1
-"forestplot", "FUN", -1, 0, 0, "null", 1
-"forestplot", "FUN", 0, 0, 0, "tuple<character, character, character, expression>", 1
-"forestplot", "FUN", 0, 0, 1, "tuple<character, expression>", 1
-"forestplot", "FUN", 0, 0, 2, "tuple<character, language, language, language>", 1
-"forestplot", "FUN", 0, 0, 3, "integer", 1
+"forestplot", "forestplot.default", 18, 0, 0, "any", 1
+"forestplot", "forestplot.default", 19, 0, 0, "double", 1
+"forestplot", "fpColors", -1, 0, 0, "class<`fpColors`, `list`>", 1
+"forestplot", "fpColors", 0, 0, 0, "any", 1
+"forestplot", "fpColors", 1, 0, 0, "character[]", 1
+"forestplot", "fpColors", 2, 0, 0, "character[]", 1
+"forestplot", "fpColors", 3, 0, 0, "character[]", 1
+"forestplot", "fpColors", 4, 0, 0, "character", 1
+"forestplot", "fpColors", 5, 0, 0, "character", 1
+"forestplot", "fpColors", 6, 0, 0, "character", 1
+"forestplot", "fpColors", 7, 0, 0, "character", 1
+"forestplot", "fpDrawPointCI", -1, 0, 0, "class<`gDesc`, `grob`, `points`>", 1
+"forestplot", "fpDrawPointCI", 0, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 1, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 2, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 3, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 4, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 5, 0, 0, "character", 1
+"forestplot", "fpDrawPointCI", 6, 0, 0, "character", 1
+"forestplot", "fpDrawPointCI", 7, 0, 0, "any", 1
+"forestplot", "fpDrawPointCI", 8, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 9, 0, 0, "any", 1
+"forestplot", "fpDrawPointCI", 10, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 11, 0, 0, "double", 1
+"forestplot", "fpDrawPointCI", 12, 0, 0, "...", 1
+"forestplot", "fpLegend", -1, 0, 0, "list<any>", 1
+"forestplot", "fpLegend", 0, 0, 0, "character", 1
+"forestplot", "fpLegend", 0, 0, 1, "list<character | character | double | double>", 1
+"forestplot", "fpLegend", 1, 0, 0, "null", 1
+"forestplot", "fpLegend", 1, 0, 1, "class<`gpar`>", 1
+"forestplot", "fpLegend", 2, 0, 0, "class<`unit`>", 1
+"forestplot", "fpLegend", 3, 0, 0, "class<`unit`>", 1
+"forestplot", "fpLegend", 4, 0, 0, "character", 1
+"forestplot", "fpLegend", 4, 0, 1, "null", 1
+"forestplot", "fpTxtGp", -1, 0, 0, "class<`fpTxtGp`, `list`>", 1
+"forestplot", "fpTxtGp", 0, 0, 0, "any", 1
+"forestplot", "fpTxtGp", 1, 0, 0, "any", 1
+"forestplot", "fpTxtGp", 2, 0, 0, "any", 1
+"forestplot", "fpTxtGp", 3, 0, 0, "any", 1
+"forestplot", "fpTxtGp", 4, 0, 0, "any", 1
+"forestplot", "fpTxtGp", 5, 0, 0, "any", 1
+"forestplot", "fpTxtGp", 6, 0, 0, "any", 1
+"forestplot", "fpTxtGp", 7, 0, 0, "double", 1
+"forestplot", "getTicks", -1, 0, 0, "double[]", 1
+"forestplot", "getTicks", 0, 0, 0, "double[]", 1
+"forestplot", "getTicks", 1, 0, 0, "double[]", 1
+"forestplot", "getTicks", 2, 0, 0, "double[]", 1
+"forestplot", "getTicks", 3, 0, 0, "logical", 1
+"forestplot", "getTicks", 4, 0, 0, "any", 1
+"forestplot", "heightDetails.xaxis", -1, 0, 0, "class<`unit`, `unit.arithmetic`>", 1
+"forestplot", "heightDetails.xaxis", 0, 0, 0, "class<`axis`, `gDesc`, `gTree`, `grob`, `xaxis`>", 1
+"forestplot", "prFpConvertMultidimArray", -1, 0, 0, "list<^double[]>", 1
+"forestplot", "prFpConvertMultidimArray", 0, 0, 0, "class<`data.frame`>", 1
+"forestplot", "prFpConvertMultidimArray", 0, 0, 1, "class<`matrix`>", 1
+"forestplot", "prFpDrawLegend", -1, 0, 0, "(class<`path`, `vpPath`> | null)", 1
+"forestplot", "prFpDrawLegend", 0, 0, 0, "class<`Legend`, `list`>", 1
+"forestplot", "prFpDrawLegend", 1, 0, 0, "class<`fpColors`, `list`>", 1
+"forestplot", "prFpDrawLegend", 2, 0, 0, "class<`unit`>", 1
+"forestplot", "prFpDrawLegend", 3, 0, 0, "character", 1
+"forestplot", "prFpDrawLegend", 3, 0, 1, "list<double | character[] | class<`unit`> | class<`unit`, `unit.arithmetic`> | character[]>", 1
+"forestplot", "prFpDrawLegend", 4, 0, 0, "class<`gpar`>", 1
+"forestplot", "prFpDrawLegend", 4, 0, 1, "null", 1
+"forestplot", "prFpDrawLegend", 5, 0, 0, "any", 1
+"forestplot", "prFpDrawLegend", 6, 0, 0, "any", 1
+"forestplot", "prFpDrawLegend", 7, 0, 0, "list<class<`function`>>", 1
+"forestplot", "prFpDrawLegend", 8, 0, 0, "...", 1
+"forestplot", "prFpDrawLine", -1, 0, 0, "(class<`gDesc`, `grob`, `lines`> | null)", 1
+"forestplot", "prFpDrawLine", 0, 0, 0, "double", 1
+"forestplot", "prFpDrawLine", 1, 0, 0, "double", 1
+"forestplot", "prFpDrawLine", 2, 0, 0, "any", 1
+"forestplot", "prFpDrawLine", 3, 0, 0, "any", 1
+"forestplot", "prFpDrawLine", 4, 0, 0, "any", 1
+"forestplot", "prFpDrawLine", 5, 0, 0, "any", 1
+"forestplot", "prFpDrawLine", 6, 0, 0, "any", 1
+"forestplot", "prFpDrawLine", 7, 0, 0, "any", 1
+"forestplot", "prFpDrawLines", -1, 0, 0, "null", 1
+"forestplot", "prFpDrawLines", 0, 0, 0, "list<null | class<`gpar`, `list`> | null>", 1
+"forestplot", "prFpDrawLines", 1, 0, 0, "integer", 1
+"forestplot", "prFpDrawLines", 2, 0, 0, "any", 1
+"forestplot", "prFpDrawLines", 3, 0, 0, "any", 1
+"forestplot", "prFpFetchRowLabel", -1, 0, 0, "(character | class<`call`> | expression | integer)", 1
+"forestplot", "prFpFetchRowLabel", 0, 0, 0, "character", 1
+"forestplot", "prFpFetchRowLabel", 1, 0, 0, "class<`matrix`>", 1
+"forestplot", "prFpFetchRowLabel", 1, 0, 1, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "prFpFetchRowLabel", 2, 0, 0, "integer", 1
+"forestplot", "prFpFetchRowLabel", 3, 0, 0, "integer", 1
+"forestplot", "prFpFindWidestGrob", -1, 0, 0, "class<`unit`>", 1
+"forestplot", "prFpFindWidestGrob", 0, 0, 0, "list<class<`gDesc`, `grob`, `text`> | null | class<`gDesc`, `grob`, `text`>>", 1
+"forestplot", "prFpFindWidestGrob", 1, 0, 0, "character", 1
+"forestplot", "prFpGetConfintFnList", -1, 0, 0, "list<class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prFpGetConfintFnList", 0, 0, 0, "class<`function`>", 1
+"forestplot", "prFpGetConfintFnList", 0, 0, 1, "character[]", 1
+"forestplot", "prFpGetConfintFnList", 0, 0, 2, "list<character | class<`function`> | class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prFpGetConfintFnList", 1, 0, 0, "integer", 1
+"forestplot", "prFpGetConfintFnList", 2, 0, 0, "integer", 1
+"forestplot", "prFpGetConfintFnList", 3, 0, 0, "any", 1
+"forestplot", "prFpGetConfintFnList", 4, 0, 0, "any", 1
+"forestplot", "prFpGetConfintFnList", 5, 0, 0, "any", 1
+"forestplot", "prFpGetGraphTicksAndClips", -1, 0, 0, "list<any>", 1
+"forestplot", "prFpGetGraphTicksAndClips", 0, 0, 0, "any", 1
+"forestplot", "prFpGetGraphTicksAndClips", 1, 0, 0, "any", 1
+"forestplot", "prFpGetGraphTicksAndClips", 2, 0, 0, "double[]", 1
+"forestplot", "prFpGetGraphTicksAndClips", 3, 0, 0, "logical", 1
+"forestplot", "prFpGetGraphTicksAndClips", 4, 0, 0, "character", 1
+"forestplot", "prFpGetGraphTicksAndClips", 5, 0, 0, "any", 1
+"forestplot", "prFpGetGraphTicksAndClips", 6, 0, 0, "class<`fpColors`, `list`>", 1
+"forestplot", "prFpGetGraphTicksAndClips", 7, 0, 0, "class<`fpTxtGp`, `list`>", 1
+"forestplot", "prFpGetGraphTicksAndClips", 8, 0, 0, "double[]", 1
+"forestplot", "prFpGetGraphTicksAndClips", 9, 0, 0, "double[]", 1
+"forestplot", "prFpGetGraphTicksAndClips", 10, 0, 0, "double[]", 1
+"forestplot", "prFpGetGraphTicksAndClips", 11, 0, 0, "class<`matrix`>", 1
+"forestplot", "prFpGetGraphTicksAndClips", 11, 0, 1, "^double[]", 1
+"forestplot", "prFpGetGraphTicksAndClips", 12, 0, 0, "double", 1
+"forestplot", "prFpGetLabels", -1, 0, 0, "list<list<class<`gDesc`, `grob`, `text`> | null | class<`gDesc`, `grob`, `text`>>>", 1
+"forestplot", "prFpGetLabels", 0, 0, 0, "character", 1
+"forestplot", "prFpGetLabels", 1, 0, 0, "class<`matrix`>", 1
+"forestplot", "prFpGetLabels", 1, 0, 1, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "prFpGetLabels", 2, 0, 0, "character[]", 1
+"forestplot", "prFpGetLabels", 3, 0, 0, "double", 1
+"forestplot", "prFpGetLabels", 4, 0, 0, "integer", 1
+"forestplot", "prFpGetLabels", 5, 0, 0, "logical[]", 1
+"forestplot", "prFpGetLabels", 6, 0, 0, "class<`fpTxtGp`, `list`>", 1
+"forestplot", "prFpGetLabels", 7, 0, 0, "class<`fpColors`, `list`>", 1
+"forestplot", "prFpGetLayoutVP", -1, 0, 0, "class<`viewport`>", 1
+"forestplot", "prFpGetLayoutVP", 0, 0, 0, "character", 1
+"forestplot", "prFpGetLayoutVP", 0, 0, 1, "class<`unit`>", 1
+"forestplot", "prFpGetLayoutVP", 1, 0, 0, "any", 1
+"forestplot", "prFpGetLayoutVP", 2, 0, 0, "any", 1
+"forestplot", "prFpGetLayoutVP", 3, 0, 0, "class<`layout`>", 1
+"forestplot", "prFpGetLayoutVP", 3, 0, 1, "null", 1
+"forestplot", "prFpGetLegendBoxPosition", -1, 0, 0, "list<class<`unit`> | class<`unit`, `unit.arithmetic`> | character[] | double | character[]>", 1
+"forestplot", "prFpGetLegendBoxPosition", 0, 0, 0, "list<character | character | double | double>", 1
+"forestplot", "prFpGetLegendGrobs", -1, 0, 0, "class<`Legend`, `list`>", 1
+"forestplot", "prFpGetLegendGrobs", 0, 0, 0, "character[]", 1
+"forestplot", "prFpGetLegendGrobs", 1, 0, 0, "class<`fpTxtGp`, `list`>", 1
+"forestplot", "prFpGetLegendGrobs", 2, 0, 0, "null", 1
+"forestplot", "prFpGetLegendGrobs", 2, 0, 1, "character", 1
+"forestplot", "prFpGetLines", -1, 0, 0, "list<null | class<`gpar`, `list`> | null>", 1
+"forestplot", "prFpGetLines", 0, 0, 0, "any", 1
+"forestplot", "prFpGetLines", 1, 0, 0, "logical[]", 1
+"forestplot", "prFpGetLines", 2, 0, 0, "any", 1
+"forestplot", "prFpGetLines", 3, 0, 0, "any", 1
+"forestplot", "prFpPrepareLegendMarker", -1, 0, 0, "list<class<`function`>>", 1
+"forestplot", "prFpPrepareLegendMarker", 0, 0, 0, "any", 1
+"forestplot", "prFpPrepareLegendMarker", 1, 0, 0, "integer", 1
+"forestplot", "prFpPrepareLegendMarker", 2, 0, 0, "any", 1
+"forestplot", "prFpPrepareLegendMarker", 3, 0, 0, "character[]", 1
+"forestplot", "prFpPrepareLegendMarker", 3, 0, 1, "class<`function`>", 1
+"forestplot", "prFpPrepareLegendMarker", 3, 0, 2, "list<class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prFpPrintLabels", -1, 0, 0, "null", 1
+"forestplot", "prFpPrintLabels", 0, 0, 0, "list<list<class<`gDesc`, `grob`, `text`> | null | class<`gDesc`, `grob`, `text`>>>", 1
+"forestplot", "prFpPrintLabels", 1, 0, 0, "double", 1
+"forestplot", "prFpPrintLabels", 2, 0, 0, "integer", 1
+"forestplot", "prFpPrintLabels", 3, 0, 0, "double", 1
+"forestplot", "prFpPrintXaxis", -1, 0, 0, "class<`path`, `vpPath`>", 1
+"forestplot", "prFpPrintXaxis", 0, 0, 0, "list<any>", 1
+"forestplot", "prFpPrintXaxis", 1, 0, 0, "class<`fpColors`, `list`>", 1
+"forestplot", "prFpPrintXaxis", 2, 0, 0, "any", 1
+"forestplot", "prFpValidateLabelList", -1, 0, 0, "logical", 1
+"forestplot", "prFpValidateLabelList", 0, 0, 0, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "prFpXrange", -1, 0, 0, "double[]", 1
+"forestplot", "prFpXrange", 0, 0, 0, "^double[]", 1
+"forestplot", "prFpXrange", 1, 0, 0, "^double[]", 1
+"forestplot", "prFpXrange", 2, 0, 0, "double[]", 1
+"forestplot", "prFpXrange", 3, 0, 0, "double[]", 1
+"forestplot", "prFpXrange", 4, 0, 0, "any", 1
+"forestplot", "prFpXrange", 5, 0, 0, "logical", 1
+"forestplot", "prGetTextGrobCex", -1, 0, 0, "double", 1
+"forestplot", "prGetTextGrobCex", 0, 0, 0, "class<`gDesc`, `grob`, `text`>", 1
+"forestplot", "prGparMerge", -1, 0, 0, "(class<`gpar`, `list`> | list<character | double>)", 1
+"forestplot", "prGparMerge", 0, 0, 0, "class<`gpar`>", 1
+"forestplot", "prGparMerge", 0, 0, 1, "list<character | double>", 1
+"forestplot", "prGparMerge", 1, 0, 0, "class<`gpar`>", 1
+"forestplot", "prGparMerge", 1, 0, 1, "list<character | double | double>", 1
+"forestplot", "prGridPlotTitle", -1, 0, 0, "null", 1
+"forestplot", "prGridPlotTitle", 0, 0, 0, "character", 1
+"forestplot", "prGridPlotTitle", 1, 0, 0, "list<character | double>", 1
+"forestplot", "prGridPlotTitle", 2, 0, 0, "any", 1
+"forestplot", "prListRep", -1, 0, 0, "list<list<character | double | list<character | double>>>", 1
+"forestplot", "prListRep", 0, 0, 0, "list<character | double | list<character | double | list<character | double>>>", 1
+"forestplot", "prListRep", 1, 0, 0, "double", 1
+"forestplot", "prPopulateList", -1, 0, 0, "list<any>", 1
+"forestplot", "prPopulateList", 0, 0, 0, "class<`function`>", 1
+"forestplot", "prPopulateList", 0, 0, 1, "character[]", 1
+"forestplot", "prPopulateList", 0, 0, 2, "double[]", 1
+"forestplot", "prPopulateList", 0, 0, 3, "list<character | class<`function`> | class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prPopulateList", 1, 0, 0, "integer", 1
+"forestplot", "prPopulateList", 2, 0, 0, "integer", 1
+"forestplot", "prPopulateList", 3, 0, 0, "any", 1
+"forestplot", "prPopulateList", 4, 0, 0, "any", 1
+"forestplot", "prPopulateList", 5, 0, 0, "any", 1
+"forestplot", "prPushMarginViewport", -1, 0, 0, "null", 1
+"forestplot", "prPushMarginViewport", 0, 0, 0, "class<`unit`>", 1
+"forestplot", "prPushMarginViewport", 1, 0, 0, "class<`unit`>", 1
+"forestplot", "prPushMarginViewport", 2, 0, 0, "class<`unit`>", 1
+"forestplot", "prPushMarginViewport", 3, 0, 0, "class<`unit`>", 1
+"forestplot", "prPushMarginViewport", 4, 0, 0, "character", 1

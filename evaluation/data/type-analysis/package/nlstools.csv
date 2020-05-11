@@ -1,15 +1,14 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"nlstools", "asCI", -1, 0, 0, "^double[]", 1
-"nlstools", "asCI", 0, 0, 0, "struct<`m`:struct<`resid`:any => any, `fitted`:any => any, `formula`:any => any, `deviance`:any => any, `lhs`:any => any, `gradient`:any => any, `conv`:any => any, `incr`:any => any, `setVarying`:any => any, `setPars`:any => any, `getPars`:any => any, `getAllPars`:any => any, `getEnv`:any => any, `trace`:any => any, `Rmat`:any => any, `predict`:any => any>, `convInfo`:struct<`isConv`:logical, `finIter`:integer, `finTol`:double, `stopCode`:integer, `stopMessage`:character>, `data`:symbol, `call`:language, `dataClasses`:character, `control`:struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>>", 1
+"nlstools", "asCI", -1, 0, 0, "class<`matrix`>", 1
+"nlstools", "asCI", 0, 0, 0, "class<`nls`>", 1
 "nlstools", "asCI", 1, 0, 0, "character[]", 1
 "nlstools", "asCI", 2, 0, 0, "double", 1
-"nlstools", "confint2", -1, 0, 0, "^double[]", 1
-"nlstools", "confint2", 0, 0, 0, "struct<`m`:struct<`resid`:any => any, `fitted`:any => any, `formula`:any => any, `deviance`:any => any, `lhs`:any => any, `gradient`:any => any, `conv`:any => any, `incr`:any => any, `setVarying`:any => any, `setPars`:any => any, `getPars`:any => any, `getAllPars`:any => any, `getEnv`:any => any, `trace`:any => any, `Rmat`:any => any, `predict`:any => any>, `convInfo`:struct<`isConv`:logical, `finIter`:integer, `finTol`:double, `stopCode`:integer, `stopMessage`:character>, `data`:symbol, `call`:language, `dataClasses`:character, `control`:struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>>", 1
-"nlstools", "confint2", 1, 0, 0, "character", 1
-"nlstools", "confint2", 1, 0, 1, "null", 1
+"nlstools", "confint2", -1, 0, 0, "class<`matrix`>", 1
+"nlstools", "confint2", 0, 0, 0, "class<`nls`>", 1
+"nlstools", "confint2", 1, 0, 0, "any", 1
 "nlstools", "confint2", 2, 0, 0, "double", 1
 "nlstools", "confint2", 3, 0, 0, "character[]", 1
-"nlstools", "confint2", 4, 0, 0, "null", 1
+"nlstools", "confint2", 4, 0, 0, "...", 1
 "nlstools", "filter", -1, 0, 0, "logical[]", 1
 "nlstools", "filter", 0, 0, 0, "character[]", 1
 "nlstools", "fmodele", -1, 0, 0, "double[]", 1
@@ -20,33 +19,34 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlstools", "format.perc", -1, 0, 0, "character[]", 1
 "nlstools", "format.perc", 0, 0, 0, "double[]", 1
 "nlstools", "format.perc", 1, 0, 0, "double", 1
+"nlstools", "formula2function", -1, 0, 0, "class<`function`>", 1
+"nlstools", "formula2function", 0, 0, 0, "class<`call`>", 1
 "nlstools", "fun", -1, 0, 0, "null", 1
-"nlstools", "fun", 0, 0, 0, "symbol", 1
-"nlstools", "fun", 1, 0, 0, "symbol", 1
-"nlstools", "FUN", -1, 0, 0, "double[]", 1
-"nlstools", "FUN", 0, 0, 0, "struct<`coef`:double[], `rse`:double>", 1
-"nlstools", "FUN", 0, 0, 1, "double[]", 1
+"nlstools", "fun", 0, 0, 0, "any", 1
+"nlstools", "fun", 1, 0, 0, "any", 1
+"nlstools", "FUN", -1, 0, 0, "double", 1
+"nlstools", "FUN", 0, 0, 0, "list<double[]>", 1
+"nlstools", "FUN", -1, 1, 0, "list<double[]>", 1
+"nlstools", "FUN", 0, 1, 0, "integer", 1
+"nlstools", "FUN", -1, 2, 0, "double[]", 1
+"nlstools", "FUN", 0, 2, 0, "list<double[]>", 1
+"nlstools", "FUN", -1, 3, 0, "double[]", 1
+"nlstools", "FUN", 0, 3, 0, "double[]", 1
+"nlstools", "FUN", -1, 4, 0, "double", 1
+"nlstools", "FUN", 0, 4, 0, "double[]", 1
+"nlstools", "nlsBoot", -1, 0, 0, "class<`nlsBoot`>", 1
+"nlstools", "nlsBoot", 0, 0, 0, "class<`nls`>", 1
+"nlstools", "nlsBoot", 1, 0, 0, "double", 1
+"nlstools", "nlsConfRegions", -1, 0, 0, "class<`nlsConfRegions`>", 1
+"nlstools", "nlsConfRegions", 0, 0, 0, "class<`nls`>", 1
+"nlstools", "nlsConfRegions", 1, 0, 0, "double", 1
+"nlstools", "nlsConfRegions", 2, 0, 0, "double", 1
+"nlstools", "nlsResiduals", -1, 0, 0, "class<`nlsResiduals`>", 1
+"nlstools", "nlsResiduals", 0, 0, 0, "class<`nls`>", 1
 "nlstools", "overview", -1, 0, 0, "null", 1
-"nlstools", "overview", 0, 0, 0, "struct<`m`:struct<`resid`:any => any, `fitted`:any => any, `formula`:any => any, `deviance`:any => any, `lhs`:any => any, `gradient`:any => any, `conv`:any => any, `incr`:any => any, `setVarying`:any => any, `setPars`:any => any, `getPars`:any => any, `getAllPars`:any => any, `getEnv`:any => any, `trace`:any => any, `Rmat`:any => any, `predict`:any => any>, `convInfo`:struct<`isConv`:logical, `finIter`:integer, `finTol`:double, `stopCode`:integer, `stopMessage`:character>, `data`:symbol, `call`:language, `dataClasses`:character[], `control`:struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>>", 1
-"nlstools", "plot.nlsBoot", -1, 0, 0, "struct<`xlog`:logical, `ylog`:logical, `adj`:double, `ann`:logical, `ask`:logical, `bg`:character, `bty`:character, `cex`:double, `cex.axis`:double, `cex.lab`:double, `cex.main`:double, `cex.sub`:double, `col`:character, `col.axis`:character, `col.lab`:character, `col.main`:character, `col.sub`:character, `crt`:double, `err`:integer, `family`:character, `fg`:character, `fig`:double[], `fin`:double[], `font`:integer, `font.axis`:integer, `font.lab`:integer, `font.main`:integer, `font.sub`:integer, `lab`:integer[], `las`:integer, `lend`:character, `lheight`:double, `ljoin`:character, `lmitre`:double, `lty`:character, `lwd`:double, `mai`:double[], `mar`:double[], `mex`:double, `mfcol`:integer[], `mfg`:integer[], `mfrow`:integer[], `mgp`:double[], `mkh`:double, `new`:logical, `oma`:double[], `omd`:double[], `omi`:double[], `pch`:integer, `pin`:double[], `plt`:double[], `ps`:integer, `pty`:character, `smo`:double, `srt`:double, `tck`:null, `tcl`:double, `usr`:double[], `xaxp`:double[], `xaxs`:character, `xaxt`:character, `xpd`:logical, `yaxp`:double[], `yaxs`:character, `yaxt`:character, `ylbias`:double>", 1
-"nlstools", "plot.nlsBoot", 0, 0, 0, "struct<`coefboot`:^double[], `rse`:double[], `bootCI`:^double[], `estiboot`:^double[]>", 1
-"nlstools", "plot.nlsBoot", 1, 0, 0, "character[]", 1
-"nlstools", "plot.nlsBoot", 2, 0, 0, "language", 1
-"nlstools", "plot.nlsBoot", 2, 0, 1, "double[]", 1
-"nlstools", "plot.nlsBoot", 3, 0, 0, "logical", 1
-"nlstools", "plot.nlsBoot", 4, 0, 0, "null", 1
-"nlstools", "plot.nlsConfRegions", -1, 0, 0, "struct<`xlog`:logical, `ylog`:logical, `adj`:double, `ann`:logical, `ask`:logical, `bg`:character, `bty`:character, `cex`:double, `cex.axis`:double, `cex.lab`:double, `cex.main`:double, `cex.sub`:double, `col`:character, `col.axis`:character, `col.lab`:character, `col.main`:character, `col.sub`:character, `crt`:double, `err`:integer, `family`:character, `fg`:character, `fig`:double[], `fin`:double[], `font`:integer, `font.axis`:integer, `font.lab`:integer, `font.main`:integer, `font.sub`:integer, `lab`:integer[], `las`:integer, `lend`:character, `lheight`:double, `ljoin`:character, `lmitre`:double, `lty`:character, `lwd`:double, `mai`:double[], `mar`:double[], `mex`:double, `mfcol`:integer[], `mfg`:integer[], `mfrow`:integer[], `mgp`:double[], `mkh`:double, `new`:logical, `oma`:double[], `omd`:double[], `omi`:double[], `pch`:integer, `pin`:double[], `plt`:double[], `ps`:integer, `pty`:character, `smo`:double, `srt`:double, `tck`:null, `tcl`:double, `usr`:double[], `xaxp`:double[], `xaxs`:character, `xaxt`:character, `xpd`:logical, `yaxp`:double[], `yaxs`:character, `yaxt`:character, `ylbias`:double>", 1
-"nlstools", "plot.nlsConfRegions", 0, 0, 0, "struct<`cr`:^double[], `rss`:double[], `rss95`:double, `bounds`:^double[]>", 1
-"nlstools", "plot.nlsConfRegions", 1, 0, 0, "logical", 1
-"nlstools", "plot.nlsConfRegions", 2, 0, 0, "logical", 1
-"nlstools", "plot.nlsConfRegions", 3, 0, 0, "null", 1
-"nlstools", "plot.nlsResiduals", -1, 0, 0, "null", 1
-"nlstools", "plot.nlsResiduals", 0, 0, 0, "struct<`resi1`:^double[], `resi2`:^double[], `resi3`:^double[], `resi4`:^double[], `std95`:double>", 1
-"nlstools", "plot.nlsResiduals", 1, 0, 0, "double", 1
-"nlstools", "plot.nlsResiduals", 2, 0, 0, "null", 1
+"nlstools", "overview", 0, 0, 0, "class<`nls`>", 1
 "nlstools", "plotfit", -1, 0, 0, "null", 1
-"nlstools", "plotfit", 0, 0, 0, "struct<`m`:struct<`resid`:any => any, `fitted`:any => any, `formula`:any => any, `deviance`:any => any, `lhs`:any => any, `gradient`:any => any, `conv`:any => any, `incr`:any => any, `setVarying`:any => any, `setPars`:any => any, `getPars`:any => any, `getAllPars`:any => any, `getEnv`:any => any, `trace`:any => any, `Rmat`:any => any, `predict`:any => any>, `convInfo`:struct<`isConv`:logical, `finIter`:integer, `finTol`:double, `stopCode`:integer, `stopMessage`:character>, `data`:symbol, `call`:language, `dataClasses`:character[], `control`:struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>>", 1
-"nlstools", "plotfit", 0, 0, 1, "struct<`m`:struct<`resid`:any => any, `fitted`:any => any, `formula`:any => any, `deviance`:any => any, `lhs`:any => any, `gradient`:any => any, `conv`:any => any, `incr`:any => any, `setVarying`:any => any, `setPars`:any => any, `getPars`:any => any, `getAllPars`:any => any, `getEnv`:any => any, `trace`:any => any, `Rmat`:any => any, `predict`:any => any>, `convInfo`:struct<`isConv`:logical, `finIter`:integer, `finTol`:double, `stopCode`:integer, `stopMessage`:character>, `data`:symbol, `call`:language, `dataClasses`:character, `control`:struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>>", 1
+"nlstools", "plotfit", 0, 0, 0, "class<`nls`>", 1
 "nlstools", "plotfit", 1, 0, 0, "logical", 1
 "nlstools", "plotfit", 2, 0, 0, "double", 1
 "nlstools", "plotfit", 3, 0, 0, "null", 1
@@ -57,7 +57,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlstools", "plotfit", 8, 0, 0, "double", 1
 "nlstools", "plotfit", 9, 0, 0, "character", 1
 "nlstools", "plotfit", 10, 0, 0, "character", 1
-"nlstools", "plotfit", 11, 0, 0, "null", 1
+"nlstools", "plotfit", 11, 0, 0, "...", 1
+"nlstools", "plot.nlsBoot", -1, 0, 0, "list<character | double[] | null>", 1
+"nlstools", "plot.nlsBoot", 0, 0, 0, "class<`nlsBoot`>", 1
+"nlstools", "plot.nlsBoot", 1, 0, 0, "character[]", 1
+"nlstools", "plot.nlsBoot", 2, 0, 0, "any", 1
+"nlstools", "plot.nlsBoot", 3, 0, 0, "logical", 1
+"nlstools", "plot.nlsBoot", 4, 0, 0, "...", 1
+"nlstools", "plot.nlsConfRegions", -1, 0, 0, "list<character | double[] | null>", 1
+"nlstools", "plot.nlsConfRegions", 0, 0, 0, "class<`nlsConfRegions`>", 1
+"nlstools", "plot.nlsConfRegions", 1, 0, 0, "logical", 1
+"nlstools", "plot.nlsConfRegions", 2, 0, 0, "logical", 1
+"nlstools", "plot.nlsConfRegions", 3, 0, 0, "...", 1
+"nlstools", "plot.nlsResiduals", -1, 0, 0, "null", 1
+"nlstools", "plot.nlsResiduals", 0, 0, 0, "class<`nlsResiduals`>", 1
+"nlstools", "plot.nlsResiduals", 1, 0, 0, "double", 1
+"nlstools", "plot.nlsResiduals", 2, 0, 0, "...", 1
 "nlstools", "summary.nlsBoot", -1, 0, 0, "null", 1
-"nlstools", "summary.nlsBoot", 0, 0, 0, "struct<`coefboot`:^double[], `rse`:double[], `bootCI`:^double[], `estiboot`:^double[]>", 1
-"nlstools", "summary.nlsBoot", 1, 0, 0, "null", 1
+"nlstools", "summary.nlsBoot", 0, 0, 0, "class<`nlsBoot`>", 1
+"nlstools", "summary.nlsBoot", 1, 0, 0, "...", 1

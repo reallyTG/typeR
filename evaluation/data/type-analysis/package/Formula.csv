@@ -1,7 +1,95 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"Formula", "filter", -1, 0, 0, "logical[]", 1
-"Formula", "filter", 0, 0, 0, "character[]", 1
-"Formula", "Formula", -1, 0, 0, "language", 1
-"Formula", "Formula", 0, 0, 0, "language", 1
-"Formula", "FUN", -1, 0, 0, "struct<`lhs`:tuple<language>, `rhs`:tuple<language>>", 1
-"Formula", "FUN", 0, 0, 0, "language", 1
+"Formula", "as.Formula", -1, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "as.Formula", 0, 0, 0, "class<`formula`>", 1
+"Formula", "as.Formula", 1, 0, 0, "...", 1
+"Formula", "as.Formula.formula", -1, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "as.Formula.formula", 0, 0, 0, "class<`formula`>", 1
+"Formula", "as.Formula.formula", 1, 0, 0, "...", 1
+"Formula", "as.Formula.formula", 2, 0, 0, "any", 1
+"Formula", "c_formula", -1, 0, 0, "(class<`call`> | class<`formula`>)", 1
+"Formula", "c_formula", 0, 0, 0, "class<`call`>", 1
+"Formula", "c_formula", 0, 0, 1, "class<`name`>", 1
+"Formula", "c_formula", 0, 0, 2, "null", 1
+"Formula", "c_formula", 1, 0, 0, "class<`call`>", 1
+"Formula", "c_formula", 1, 0, 1, "class<`name`>", 1
+"Formula", "c_formula", 1, 0, 2, "double", 1
+"Formula", "c_formula", 2, 0, 0, "character", 1
+"Formula", "Formula", -1, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "Formula", 0, 0, 0, "class<`formula`>", 1
+"Formula", "formula.Formula", -1, 0, 0, "class<`formula`>", 1
+"Formula", "formula.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "formula.Formula", 1, 0, 0, "double", 1
+"Formula", "formula.Formula", 1, 0, 1, "logical[]", 1
+"Formula", "formula.Formula", 1, 0, 2, "null", 1
+"Formula", "formula.Formula", 2, 0, 0, "double", 1
+"Formula", "formula.Formula", 2, 0, 1, "integer[]", 1
+"Formula", "formula.Formula", 2, 0, 2, "null", 1
+"Formula", "formula.Formula", 3, 0, 0, "logical[]", 1
+"Formula", "formula.Formula", 4, 0, 0, "logical", 1
+"Formula", "formula.Formula", 5, 0, 0, "logical", 1
+"Formula", "formula.Formula", 6, 0, 0, "...", 1
+"Formula", "FUN", -1, 0, 0, "list<null | list<class<`call`>> | null | list<class<`name`>> | list<any>>", 1
+"Formula", "FUN", 0, 0, 0, "class<`formula`>", 1
+"Formula", "has_dot", -1, 0, 0, "logical", 1
+"Formula", "has_dot", 0, 0, 0, "class<`formula`>", 1
+"Formula", "has_dot", 0, 0, 1, "class<`Formula`, `formula`>", 1
+"Formula", "length.Formula", -1, 0, 0, "integer[]", 1
+"Formula", "length.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "model.frame.Formula", -1, 0, 0, "class<`data.frame`>", 1
+"Formula", "model.frame.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "model.frame.Formula", 1, 0, 0, "class<`data.frame`>", 1
+"Formula", "model.frame.Formula", 2, 0, 0, "...", 1
+"Formula", "model.frame.Formula", 3, 0, 0, "null", 1
+"Formula", "model.frame.Formula", 4, 0, 0, "null", 1
+"Formula", "model.frame.Formula", 5, 0, 0, "character", 1
+"Formula", "model.matrix.Formula", -1, 0, 0, "class<`matrix`>", 1
+"Formula", "model.matrix.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "model.matrix.Formula", 1, 0, 0, "class<`data.frame`>", 1
+"Formula", "model.matrix.Formula", 2, 0, 0, "...", 1
+"Formula", "model.matrix.Formula", 3, 0, 0, "null", 1
+"Formula", "model.matrix.Formula", 3, 0, 1, "double", 1
+"Formula", "model.matrix.Formula", 4, 0, 0, "double", 1
+"Formula", "model.matrix.Formula", 5, 0, 0, "character", 1
+"Formula", "model.part", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"Formula", "model.part", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "model.part", 1, 0, 0, "...", 1
+"Formula", "model.part.Formula", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"Formula", "model.part.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "model.part.Formula", 1, 0, 0, "class<`data.frame`>", 1
+"Formula", "model.part.Formula", 2, 0, 0, "double", 1
+"Formula", "model.part.Formula", 3, 0, 0, "double", 1
+"Formula", "model.part.Formula", 4, 0, 0, "logical", 1
+"Formula", "model.part.Formula", 5, 0, 0, "logical", 1
+"Formula", "model.part.Formula", 6, 0, 0, "null", 1
+"Formula", "model.part.Formula", 7, 0, 0, "...", 1
+"Formula", "paste_formula", -1, 0, 0, "class<`formula`>", 1
+"Formula", "paste_formula", 0, 0, 0, "class<`call`>", 1
+"Formula", "paste_formula", 0, 0, 1, "null", 1
+"Formula", "paste_formula", 0, 0, 2, "list<any>", 1
+"Formula", "paste_formula", 1, 0, 0, "class<`call`>", 1
+"Formula", "paste_formula", 1, 0, 1, "class<`name`>", 1
+"Formula", "paste_formula", 1, 0, 2, "list<any>", 1
+"Formula", "paste_formula", 2, 0, 0, "character", 1
+"Formula", "paste_formula", 3, 0, 0, "character", 1
+"Formula", "simplify_to_formula", -1, 0, 0, "class<`formula`>", 1
+"Formula", "simplify_to_formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "simplify_to_formula", 1, 0, 0, "double", 1
+"Formula", "simplify_to_formula", 1, 0, 1, "logical[]", 1
+"Formula", "simplify_to_formula", 1, 0, 2, "null", 1
+"Formula", "simplify_to_formula", 2, 0, 0, "double", 1
+"Formula", "simplify_to_formula", 2, 0, 1, "null", 1
+"Formula", "split_formula", -1, 0, 0, "list<null | list<class<`call`>> | null | list<class<`name`>> | list<any>>", 1
+"Formula", "split_formula", 0, 0, 0, "class<`formula`>", 1
+"Formula", "terms.Formula", -1, 0, 0, "any", 1
+"Formula", "terms.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "terms.Formula", 1, 0, 0, "...", 1
+"Formula", "terms.Formula", 2, 0, 0, "double", 1
+"Formula", "terms.Formula", 2, 0, 1, "logical[]", 1
+"Formula", "terms.Formula", 2, 0, 2, "null", 1
+"Formula", "terms.Formula", 3, 0, 0, "double", 1
+"Formula", "terms.Formula", 3, 0, 1, "null", 1
+"Formula", "terms.Formula", 4, 0, 0, "any", 1
+"Formula", "update.Formula", -1, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "update.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
+"Formula", "update.Formula", 1, 0, 0, "class<`formula`>", 1
+"Formula", "update.Formula", 2, 0, 0, "...", 1

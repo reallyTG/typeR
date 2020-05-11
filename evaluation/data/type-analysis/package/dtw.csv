@@ -1,70 +1,148 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dtw", "dtwPlot", -1, 0, 0, "null", 1
-"dtw", "dtwPlot", 0, 0, 0, "struct<`costMatrix`:^double[], `directionMatrix`:^integer[], `stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[], `localCostMatrix`:^double[], `query`:^double[], `reference`:^double[]>", 1
+"dtw", ":::", -1, 0, 0, "list<class<`matrix`> | class<`stepPattern`>>", 1
+"dtw", ":::", 0, 0, 0, "class<`matrix`>", 1
+"dtw", ":::", 0, 0, 1, "class<`crossdist`>", 1
+"dtw", ":::", 1, 0, 0, "class<`stepPattern`>", 1
+"dtw", ":::", 2, 0, 0, "class<`function`>", 1
+"dtw", ":::", 3, 0, 0, "logical", 1
+"dtw", ":::", 4, 0, 0, "null", 1
+"dtw", ":::", 4, 0, 1, "class<`matrix`>", 1
+"dtw", ":::", 5, 0, 0, "...", 1
+"dtw", "backtrack", -1, 0, 0, "list<double[]>", 1
+"dtw", "backtrack", 0, 0, 0, "list<any>", 1
+"dtw", ".canonicalizeWindowFunction", -1, 0, 0, "class<`function`>", 1
+"dtw", ".canonicalizeWindowFunction", 0, 0, 0, "character", 1
+"dtw", ".canonicalizeWindowFunction", 0, 0, 1, "class<`function`>", 1
+"dtw", "countPaths", -1, 0, 0, "double", 1
+"dtw", "countPaths", 0, 0, 0, "class<`dtw`>", 1
+"dtw", "countPaths", 1, 0, 0, "logical", 1
+"dtw", "dtw", -1, 0, 0, "class<`dtw`>", 1
+"dtw", "dtw", 0, 0, 0, "class<`crossdist`>", 1
+"dtw", "dtw", 0, 0, 1, "class<`matrix`>", 1
+"dtw", "dtw", 0, 0, 2, "class<`ts`>", 1
+"dtw", "dtw", 0, 0, 3, "double[]", 1
+"dtw", "dtw", 1, 0, 0, "null", 1
+"dtw", "dtw", 1, 0, 1, "class<`matrix`>", 1
+"dtw", "dtw", 1, 0, 2, "class<`ts`>", 1
+"dtw", "dtw", 1, 0, 3, "double[]", 1
+"dtw", "dtw", 2, 0, 0, "character", 1
+"dtw", "dtw", 3, 0, 0, "class<`stepPattern`>", 1
+"dtw", "dtw", 4, 0, 0, "character", 1
+"dtw", "dtw", 4, 0, 1, "class<`function`>", 1
+"dtw", "dtw", 5, 0, 0, "logical", 1
+"dtw", "dtw", 6, 0, 0, "logical", 1
+"dtw", "dtw", 7, 0, 0, "logical", 1
+"dtw", "dtw", 8, 0, 0, "logical", 1
+"dtw", "dtw", 9, 0, 0, "...", 1
+"dtw", "dtwPlot", -1, 0, 0, "(null | list<character | double[] | null>)", 1
+"dtw", "dtwPlot", 0, 0, 0, "class<`dtw`>", 1
 "dtw", "dtwPlot", 1, 0, 0, "character", 1
-"dtw", "dtwPlot", 2, 0, 0, "character", 1
+"dtw", "dtwPlot", 2, 0, 0, "...", 1
 "dtw", "dtwPlotAlignment", -1, 0, 0, "null", 1
-"dtw", "dtwPlotAlignment", 0, 0, 0, "struct<`costMatrix`:^double[], `directionMatrix`:^integer[], `stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[], `localCostMatrix`:^double[], `query`:^double[], `reference`:^double[]>", 1
-"dtw", "dtwPlotAlignment", 0, 0, 1, "struct<`stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[]>", 1
+"dtw", "dtwPlotAlignment", 0, 0, 0, "class<`dtw`>", 1
 "dtw", "dtwPlotAlignment", 1, 0, 0, "character", 1
 "dtw", "dtwPlotAlignment", 2, 0, 0, "character", 1
 "dtw", "dtwPlotAlignment", 3, 0, 0, "character", 1
-"dtw", "dtwPlotAlignment", 4, 0, 0, "character", 1
-"dtw", "dtwPlotAlignment", 4, 0, 1, "null", 1
+"dtw", "dtwPlotAlignment", 4, 0, 0, "...", 1
 "dtw", "dtwPlotDensity", -1, 0, 0, "null", 1
-"dtw", "dtwPlotDensity", 0, 0, 0, "struct<`costMatrix`:^double[], `directionMatrix`:^integer[], `stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[], `localCostMatrix`:^double[], `query`:^double[], `reference`:^double[]>", 1
+"dtw", "dtwPlotDensity", 0, 0, 0, "class<`dtw`>", 1
 "dtw", "dtwPlotDensity", 1, 0, 0, "logical", 1
 "dtw", "dtwPlotDensity", 2, 0, 0, "character", 1
 "dtw", "dtwPlotDensity", 3, 0, 0, "character", 1
-"dtw", "dtwPlotDensity", 4, 0, 0, "character", 1
-"dtw", "dtwPlotDensity", 4, 0, 1, "null", 1
-"dtw", "dtwPlotThreeWay", -1, 0, 0, "struct<`xlog`:logical, `ylog`:logical, `adj`:double, `ann`:logical, `ask`:logical, `bg`:character, `bty`:character, `cex`:double, `cex.axis`:double, `cex.lab`:double, `cex.main`:double, `cex.sub`:double, `col`:character, `col.axis`:character, `col.lab`:character, `col.main`:character, `col.sub`:character, `crt`:double, `err`:integer, `family`:character, `fg`:character, `fig`:double[], `fin`:double[], `font`:integer, `font.axis`:integer, `font.lab`:integer, `font.main`:integer, `font.sub`:integer, `lab`:integer[], `las`:integer, `lend`:character, `lheight`:double, `ljoin`:character, `lmitre`:double, `lty`:character, `lwd`:double, `mai`:double[], `mar`:double[], `mex`:double, `mfcol`:integer[], `mfg`:integer[], `mfrow`:integer[], `mgp`:double[], `mkh`:double, `new`:logical, `oma`:double[], `omd`:double[], `omi`:double[], `pch`:integer, `pin`:double[], `plt`:double[], `ps`:integer, `pty`:character, `smo`:double, `srt`:double, `tck`:null, `tcl`:double, `usr`:double[], `xaxp`:double[], `xaxs`:character, `xaxt`:character, `xpd`:logical, `yaxp`:double[], `yaxs`:character, `yaxt`:character, `ylbias`:double>", 1
-"dtw", "dtwPlotThreeWay", 0, 0, 0, "struct<`costMatrix`:^double[], `directionMatrix`:^integer[], `stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[], `localCostMatrix`:^double[], `query`:^double[], `reference`:^double[]>", 1
+"dtw", "dtwPlotDensity", 4, 0, 0, "...", 1
+"dtw", "dtwPlotThreeWay", -1, 0, 0, "list<character | double[] | null>", 1
+"dtw", "dtwPlotThreeWay", 0, 0, 0, "class<`dtw`>", 1
 "dtw", "dtwPlotThreeWay", 1, 0, 0, "null", 1
 "dtw", "dtwPlotThreeWay", 2, 0, 0, "null", 1
 "dtw", "dtwPlotThreeWay", 3, 0, 0, "character", 1
 "dtw", "dtwPlotThreeWay", 4, 0, 0, "character", 1
-"dtw", "dtwPlotThreeWay", 5, 0, 0, "null", 1
-"dtw", "dtwPlotThreeWay", 5, 0, 1, "integer[]", 1
+"dtw", "dtwPlotThreeWay", 5, 0, 0, "integer[]", 1
+"dtw", "dtwPlotThreeWay", 5, 0, 1, "null", 1
 "dtw", "dtwPlotThreeWay", 6, 0, 0, "double", 1
 "dtw", "dtwPlotThreeWay", 7, 0, 0, "double", 1
 "dtw", "dtwPlotThreeWay", 8, 0, 0, "double", 1
 "dtw", "dtwPlotThreeWay", 9, 0, 0, "character", 1
 "dtw", "dtwPlotThreeWay", 10, 0, 0, "character", 1
 "dtw", "dtwPlotThreeWay", 11, 0, 0, "character", 1
-"dtw", "dtwPlotThreeWay", 12, 0, 0, "null", 1
-"dtw", "dtwPlotTwoWay", -1, 0, 0, "struct<`xlog`:logical, `ylog`:logical, `adj`:double, `ann`:logical, `ask`:logical, `bg`:character, `bty`:character, `cex`:double, `cex.axis`:double, `cex.lab`:double, `cex.main`:double, `cex.sub`:double, `col`:character, `col.axis`:character, `col.lab`:character, `col.main`:character, `col.sub`:character, `crt`:double, `err`:integer, `family`:character, `fg`:character, `fig`:double[], `fin`:double[], `font`:integer, `font.axis`:integer, `font.lab`:integer, `font.main`:integer, `font.sub`:integer, `lab`:integer[], `las`:integer, `lend`:character, `lheight`:double, `ljoin`:character, `lmitre`:double, `lty`:character, `lwd`:double, `mai`:double[], `mar`:double[], `mex`:double, `mfcol`:integer[], `mfg`:integer[], `mfrow`:integer[], `mgp`:double[], `mkh`:double, `new`:logical, `oma`:double[], `omd`:double[], `omi`:double[], `pch`:integer, `pin`:double[], `plt`:double[], `ps`:integer, `pty`:character, `smo`:double, `srt`:double, `tck`:null, `tcl`:double, `usr`:double[], `xaxp`:double[], `xaxs`:character, `xaxt`:character, `xpd`:logical, `yaxp`:double[], `yaxs`:character, `yaxt`:character, `ylbias`:double>", 1
-"dtw", "dtwPlotTwoWay", 0, 0, 0, "struct<`costMatrix`:^double[], `directionMatrix`:^integer[], `stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[], `localCostMatrix`:^double[], `query`:^double[], `reference`:^double[]>", 1
+"dtw", "dtwPlotThreeWay", 12, 0, 0, "...", 1
+"dtw", "dtwPlotTwoWay", -1, 0, 0, "list<character | double[] | null>", 1
+"dtw", "dtwPlotTwoWay", 0, 0, 0, "class<`dtw`>", 1
 "dtw", "dtwPlotTwoWay", 1, 0, 0, "null", 1
 "dtw", "dtwPlotTwoWay", 2, 0, 0, "null", 1
 "dtw", "dtwPlotTwoWay", 3, 0, 0, "double", 1
 "dtw", "dtwPlotTwoWay", 4, 0, 0, "character", 1
 "dtw", "dtwPlotTwoWay", 5, 0, 0, "double", 1
-"dtw", "dtwPlotTwoWay", 6, 0, 0, "null", 1
-"dtw", "dtwPlotTwoWay", 6, 0, 1, "double", 1
-"dtw", "dtwPlotTwoWay", 6, 0, 2, "integer[]", 1
+"dtw", "dtwPlotTwoWay", 6, 0, 0, "double", 1
+"dtw", "dtwPlotTwoWay", 6, 0, 1, "integer[]", 1
+"dtw", "dtwPlotTwoWay", 6, 0, 2, "null", 1
 "dtw", "dtwPlotTwoWay", 7, 0, 0, "character", 1
 "dtw", "dtwPlotTwoWay", 8, 0, 0, "double", 1
 "dtw", "dtwPlotTwoWay", 9, 0, 0, "character", 1
 "dtw", "dtwPlotTwoWay", 10, 0, 0, "character", 1
-"dtw", "dtwPlotTwoWay", 11, 0, 0, "null", 1
-"dtw", "dtwPlotTwoWay", 11, 0, 1, "double", 1
-"dtw", "dtwPlotTwoWay", 11, 0, 2, "character", 1
+"dtw", "dtwPlotTwoWay", 11, 0, 0, "...", 1
 "dtw", "dtwWindow.plot", -1, 0, 0, "null", 1
-"dtw", "dtwWindow.plot", 0, 0, 0, "any => any", 1
+"dtw", "dtwWindow.plot", 0, 0, 0, "class<`function`>", 1
 "dtw", "dtwWindow.plot", 1, 0, 0, "double", 1
 "dtw", "dtwWindow.plot", 2, 0, 0, "double", 1
-"dtw", "dtwWindow.plot", 3, 0, 0, "double", 1
-"dtw", "dtwWindow.plot", 3, 0, 1, "character", 1
-"dtw", "filter", -1, 0, 0, "logical[]", 1
-"dtw", "filter", 0, 0, 0, "character[]", 1
-"dtw", "fun", -1, 0, 0, "character", 1
-"dtw", "fun", 0, 0, 0, "symbol", 1
-"dtw", "fun", 1, 0, 0, "symbol", 1
-"dtw", "plot.dtw", -1, 0, 0, "null", 1
-"dtw", "plot.dtw", 0, 0, 0, "struct<`costMatrix`:^double[], `directionMatrix`:^integer[], `stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[], `localCostMatrix`:^double[], `query`:^double[], `reference`:^double[]>", 1
-"dtw", "plot.dtw", 0, 0, 1, "struct<`stepPattern`:^double[], `N`:integer, `M`:integer, `call`:language, `openEnd`:logical, `openBegin`:logical, `windowFunction`:any => any, `jmin`:integer, `distance`:double, `normalizedDistance`:double, `index1`:double[], `index2`:double[], `index1s`:double[], `index2s`:double[], `stepsTaken`:integer[]>", 1
+"dtw", "dtwWindow.plot", 3, 0, 0, "...", 1
+"dtw", ".extractpattern", -1, 0, 0, "class<`matrix`>", 1
+"dtw", ".extractpattern", 0, 0, 0, "class<`matrix`>", 1
+"dtw", ".extractpattern", 0, 0, 1, "class<`stepPattern`>", 1
+"dtw", ".extractpattern", 1, 0, 0, "integer", 1
+"dtw", "globalCostMatrix", -1, 0, 0, "list<class<`matrix`> | class<`stepPattern`>>", 1
+"dtw", "globalCostMatrix", 0, 0, 0, "class<`matrix`>", 1
+"dtw", "globalCostMatrix", 0, 0, 1, "class<`crossdist`>", 1
+"dtw", "globalCostMatrix", 1, 0, 0, "class<`stepPattern`>", 1
+"dtw", "globalCostMatrix", 2, 0, 0, "class<`function`>", 1
+"dtw", "globalCostMatrix", 3, 0, 0, "logical", 1
+"dtw", "globalCostMatrix", 4, 0, 0, "null", 1
+"dtw", "globalCostMatrix", 4, 0, 1, "class<`matrix`>", 1
+"dtw", "globalCostMatrix", 5, 0, 0, "...", 1
+"dtw", "is.dtw", -1, 0, 0, "logical", 1
+"dtw", "is.dtw", 0, 0, 0, "class<`dtw`>", 1
+"dtw", "is.stepPattern", -1, 0, 0, "logical", 1
+"dtw", "is.stepPattern", 0, 0, 0, "class<`stepPattern`>", 1
+"dtw", ".mkDirDeltas", -1, 0, 0, "class<`matrix`>", 1
+"dtw", ".mkDirDeltas", 0, 0, 0, "class<`stepPattern`>", 1
+"dtw", "mvmStepPattern", -1, 0, 0, "class<`stepPattern`>", 1
+"dtw", "mvmStepPattern", 0, 0, 0, "double", 1
+"dtw", ".Pend", -1, 0, 0, "list<double[] | character>", 1
+"dtw", ".Pend", 0, 0, 0, "list<double[] | character>", 1
+"dtw", ".Pend", 1, 0, 0, "any", 1
+"dtw", ".Pend", 2, 0, 0, "any", 1
+"dtw", "plot.dtw", -1, 0, 0, "(null | list<character | double[] | null>)", 1
+"dtw", "plot.dtw", 0, 0, 0, "class<`dtw`>", 1
 "dtw", "plot.dtw", 1, 0, 0, "character", 1
-"dtw", "plot.dtw", 2, 0, 0, "character", 1
-"dtw", "plot.dtw", 2, 0, 1, "null", 1
-"dtw", "plot.dtw", 2, 0, 2, "double", 1
+"dtw", "plot.dtw", 2, 0, 0, "...", 1
+"dtw", "plot.stepPattern", -1, 0, 0, "null", 1
+"dtw", "plot.stepPattern", 0, 0, 0, "class<`stepPattern`>", 1
+"dtw", "plot.stepPattern", 1, 0, 0, "...", 1
+"dtw", ".Pnew", -1, 0, 0, "list<double | character>", 1
+"dtw", ".Pnew", 0, 0, 0, "double", 1
+"dtw", ".Pnew", 1, 0, 0, "character", 1
+"dtw", ".Pnew", 2, 0, 0, "logical", 1
+"dtw", "print.stepPattern", -1, 0, 0, "null", 1
+"dtw", "print.stepPattern", 0, 0, 0, "class<`stepPattern`>", 1
+"dtw", "print.stepPattern", 1, 0, 0, "...", 1
+"dtw", ".Pstep", -1, 0, 0, "list<double[] | character>", 1
+"dtw", ".Pstep", 0, 0, 0, "list<double[] | character | double | character>", 1
+"dtw", ".Pstep", 1, 0, 0, "double", 1
+"dtw", ".Pstep", 2, 0, 0, "double", 1
+"dtw", ".PtoMx", -1, 0, 0, "class<`matrix`>", 1
+"dtw", ".PtoMx", 0, 0, 0, "list<double[] | character>", 1
+"dtw", "rabinerJuangStepPattern", -1, 0, 0, "class<`stepPattern`>", 1
+"dtw", "rabinerJuangStepPattern", 0, 0, 0, "double", 1
+"dtw", "rabinerJuangStepPattern", 1, 0, 0, "character", 1
+"dtw", "rabinerJuangStepPattern", 2, 0, 0, "logical", 1
+"dtw", ".RJtypeIV", -1, 0, 0, "class<`matrix`>", 1
+"dtw", ".RJtypeIV", 0, 0, 0, "character", 1
+"dtw", ".RJtypeIV", 1, 0, 0, "logical", 1
+"dtw", "stepPattern", -1, 0, 0, "class<`stepPattern`>", 1
+"dtw", "stepPattern", 0, 0, 0, "double[]", 1
+"dtw", "stepPattern", 0, 0, 1, "class<`matrix`>", 1
+"dtw", "stepPattern", 1, 0, 0, "null", 1
+"dtw", "warp", -1, 0, 0, "double[]", 1
+"dtw", "warp", 0, 0, 0, "class<`dtw`>", 1
+"dtw", "warp", 1, 0, 0, "logical", 1
+"dtw", "warpArea", -1, 0, 0, "double", 1
+"dtw", "warpArea", 0, 0, 0, "class<`dtw`>", 1

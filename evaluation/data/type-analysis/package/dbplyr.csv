@@ -1,8 +1,1249 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dbplyr", "_fseq", -1, 0, 0, "struct<`src`:struct<`con`:null, `disco`:environment>, `ops`:struct<`x`:character, `vars`:character[]>>", 1
-"dbplyr", "_fseq", 0, 0, 0, "struct<`src`:struct<`con`:null, `disco`:environment>, `ops`:struct<`x`:character, `vars`:character[]>>", 1
-"dbplyr", "::", -1, 0, 0, "struct<`con`:null, `disco`:environment>", 1
-"dbplyr", "::", 0, 0, 0, "language", 1
-"dbplyr", "::", 0, 0, 1, "character", 1
+"dbplyr", "::", -1, 0, 0, "(class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`> | class<`src`, `src_Microsoft SQL Server`, `src_dbi`, `src_sql`> | class<`src`, `src_PostgreSQLConnection`, `src_dbi`, `src_sql`> | class<`src`, `src_TestConnection`, `src_dbi`, `src_sql`>)", 1
+"dbplyr", "::", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "::", 0, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "::", 0, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "::", 0, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "::", 0, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
 "dbplyr", "::", 1, 0, 0, "logical", 1
-"dbplyr", "::", 1, 0, 1, "character", 1
+"dbplyr", "::", -1, 1, 0, "class<`character`, `sql`>", 1
+"dbplyr", "::", 0, 1, 0, "...", 1
+"dbplyr", "add_op_order", -1, 0, 0, "(class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>)", 1
+"dbplyr", "add_op_order", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "add_op_order", 0, 0, 1, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "add_op_order", 1, 0, 0, "null", 1
+"dbplyr", "add_op_order", 1, 0, 1, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "add_op_semi_join", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "add_op_semi_join", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "add_op_semi_join", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "add_op_semi_join", 2, 0, 0, "logical", 1
+"dbplyr", "add_op_semi_join", 3, 0, 0, "null", 1
+"dbplyr", "add_op_semi_join", 4, 0, 0, "null", 1
+"dbplyr", "add_op_semi_join", 5, 0, 0, "logical", 1
+"dbplyr", "add_op_semi_join", 6, 0, 0, "logical", 1
+"dbplyr", "add_op_semi_join", 7, 0, 0, "...", 1
+"dbplyr", "add_op_single", -1, 0, 0, "(class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`> | class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>)", 1
+"dbplyr", "add_op_single", 0, 0, 0, "character", 1
+"dbplyr", "add_op_single", 1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "add_op_single", 1, 0, 1, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "add_op_single", 1, 0, 2, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "add_op_single", 2, 0, 0, "list<any>", 1
+"dbplyr", "add_op_single", 3, 0, 0, "list<any>", 1
+"dbplyr", "all_calls", -1, 0, 0, "(character[] | null)", 1
+"dbplyr", "all_calls", 0, 0, 0, "class<`call`>", 1
+"dbplyr", "all_calls", 0, 0, 1, "class<`formula`, `quosure`>", 1
+"dbplyr", "all_calls", 0, 0, 2, "class<`if`>", 1
+"dbplyr", "all_calls", 0, 0, 3, "class<`name`>", 1
+"dbplyr", "all_calls", 0, 0, 4, "class<`(`>", 1
+"dbplyr", "all_calls", 0, 0, 5, "character", 1
+"dbplyr", "all_calls", 0, 0, 6, "double", 1
+"dbplyr", "all_calls", 0, 0, 7, "null", 1
+"dbplyr", "all_names", -1, 0, 0, "(character[] | null)", 1
+"dbplyr", "all_names", 0, 0, 0, "class<`call`>", 1
+"dbplyr", "all_names", 0, 0, 1, "class<`formula`, `quosure`>", 1
+"dbplyr", "all_names", 0, 0, 2, "class<`if`>", 1
+"dbplyr", "all_names", 0, 0, 3, "class<`name`>", 1
+"dbplyr", "all_names", 0, 0, 4, "class<`(`>", 1
+"dbplyr", "all_names", 0, 0, 5, "character", 1
+"dbplyr", "all_names", 0, 0, 6, "double", 1
+"dbplyr", "all_names", 0, 0, 7, "null", 1
+"dbplyr", "arrange.tbl_lazy", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "arrange.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "arrange.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "arrange.tbl_lazy", 2, 0, 0, "logical", 1
+"dbplyr", "as.sql", -1, 0, 0, "(class<`character`, `ident`> | class<`character`, `ident`, `ident_q`> | class<`character`, `sql`>)", 1
+"dbplyr", "as.sql", 0, 0, 0, "character[]", 1
+"dbplyr", "as.sql", 0, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "as.sql", 0, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "as.sql.character", -1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "as.sql.character", 0, 0, 0, "character[]", 1
+"dbplyr", "as.sql.ident", -1, 0, 0, "(class<`character`, `ident`, `ident_q`> | class<`character`, `sql`>)", 1
+"dbplyr", "as.sql.ident", 0, 0, 0, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "as.sql.ident", 0, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "as.sql.sql", -1, 0, 0, "(class<`character`, `ident`, `ident_q`> | class<`character`, `sql`>)", 1
+"dbplyr", "as.sql.sql", 0, 0, 0, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "as.sql.sql", 0, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "auto_copy.tbl_sql", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "auto_copy.tbl_sql", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "auto_copy.tbl_sql", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "auto_copy.tbl_sql", 2, 0, 0, "logical", 1
+"dbplyr", "auto_copy.tbl_sql", 3, 0, 0, "...", 1
+"dbplyr", "build_sql", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "build_sql", 0, 0, 0, "...", 1
+"dbplyr", "build_sql", 1, 0, 0, "any", 1
+"dbplyr", "build_sql", 2, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "build_sql", 2, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "build_sql", 2, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "build_sql", 2, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "build_sql", 2, 0, 4, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "build_sql", 2, 0, 5, "class<`SQLiteConnection`>", 1
+"dbplyr", "cache", -1, 0, 0, "environment", 1
+"dbplyr", "cache_computation", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "cache_computation", 0, 0, 0, "character", 1
+"dbplyr", "cache_computation", 1, 0, 0, "any", 1
+"dbplyr", "carry_over", -1, 0, 0, "list<class<`name`> | class<`formula`, `quosure`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "carry_over", 0, 0, 0, "character[]", 1
+"dbplyr", "carry_over", 1, 0, 0, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "cat_line", -1, 0, 0, "null", 1
+"dbplyr", "cat_line", 0, 0, 0, "...", 1
+"dbplyr", "c_character", -1, 0, 0, "character[]", 1
+"dbplyr", "c_character", 0, 0, 0, "...", 1
+"dbplyr", "ceply", -1, 0, 0, "environment", 1
+"dbplyr", "ceply", 0, 0, 0, "character[]", 1
+"dbplyr", "ceply", 0, 0, 1, "null", 1
+"dbplyr", "ceply", 0, 0, 2, "list<any>", 1
+"dbplyr", "ceply", 1, 0, 0, "any", 1
+"dbplyr", "ceply", 2, 0, 0, "...", 1
+"dbplyr", "ceply", 3, 0, 0, "environment", 1
+"dbplyr", "check_na_rm", -1, 0, 0, "logical", 1
+"dbplyr", "check_na_rm", 0, 0, 0, "any", 1
+"dbplyr", "check_na_rm", 1, 0, 0, "any", 1
+"dbplyr", "check_na_rm", 2, 0, 0, "logical", 1
+"dbplyr", "check_summarise_vars", -1, 0, 0, "null", 1
+"dbplyr", "check_summarise_vars", 0, 0, 0, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "collect.tbl_sql", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "collect.tbl_sql", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "collect.tbl_sql", 1, 0, 0, "...", 1
+"dbplyr", "collect.tbl_sql", 2, 0, 0, "double", 1
+"dbplyr", "collect.tbl_sql", 3, 0, 0, "logical", 1
+"dbplyr", "compute.tbl_sql", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "compute.tbl_sql", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "compute.tbl_sql", 1, 0, 0, "character", 1
+"dbplyr", "compute.tbl_sql", 2, 0, 0, "logical", 1
+"dbplyr", "compute.tbl_sql", 3, 0, 0, "null", 1
+"dbplyr", "compute.tbl_sql", 4, 0, 0, "null", 1
+"dbplyr", "compute.tbl_sql", 5, 0, 0, "logical", 1
+"dbplyr", "compute.tbl_sql", 6, 0, 0, "...", 1
+"dbplyr", "copy_env", -1, 0, 0, "environment", 1
+"dbplyr", "copy_env", 0, 0, 0, "environment", 1
+"dbplyr", "copy_env", 1, 0, 0, "null", 1
+"dbplyr", "copy_env", 2, 0, 0, "environment", 1
+"dbplyr", "copy_lahman", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "copy_lahman", 0, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "copy_lahman", 1, 0, 0, "...", 1
+"dbplyr", "copy_to.src_sql", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "copy_to.src_sql", 0, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "copy_to.src_sql", 1, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "copy_to.src_sql", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "copy_to.src_sql", 1, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "copy_to.src_sql", 2, 0, 0, "character", 1
+"dbplyr", "copy_to.src_sql", 2, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "copy_to.src_sql", 3, 0, 0, "logical", 1
+"dbplyr", "copy_to.src_sql", 4, 0, 0, "null", 1
+"dbplyr", "copy_to.src_sql", 5, 0, 0, "logical", 1
+"dbplyr", "copy_to.src_sql", 6, 0, 0, "null", 1
+"dbplyr", "copy_to.src_sql", 7, 0, 0, "null", 1
+"dbplyr", "copy_to.src_sql", 7, 0, 1, "list<any>", 1
+"dbplyr", "copy_to.src_sql", 8, 0, 0, "logical", 1
+"dbplyr", "copy_to.src_sql", 9, 0, 0, "...", 1
+"dbplyr", "c.sql", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "c.sql", 0, 0, 0, "...", 1
+"dbplyr", "c.sql", 1, 0, 0, "logical", 1
+"dbplyr", "c.sql", 2, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "c.sql", 2, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_analyze.DBIConnection", -1, 0, 0, "integer", 1
+"dbplyr", "db_analyze.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_analyze.DBIConnection", 1, 0, 0, "character", 1
+"dbplyr", "db_analyze.DBIConnection", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "db_analyze.DBIConnection", 2, 0, 0, "...", 1
+"dbplyr", "db_begin.DBIConnection", -1, 0, 0, "logical", 1
+"dbplyr", "db_begin.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_begin.DBIConnection", 1, 0, 0, "...", 1
+"dbplyr", "db_collect", -1, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "db_collect", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_collect", 1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "db_collect", 2, 0, 0, "double", 1
+"dbplyr", "db_collect", 3, 0, 0, "logical", 1
+"dbplyr", "db_collect", 4, 0, 0, "...", 1
+"dbplyr", "db_collect.DBIConnection", -1, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "db_collect.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_collect.DBIConnection", 1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "db_collect.DBIConnection", 2, 0, 0, "double", 1
+"dbplyr", "db_collect.DBIConnection", 3, 0, 0, "logical", 1
+"dbplyr", "db_collect.DBIConnection", 4, 0, 0, "...", 1
+"dbplyr", "db_commit.DBIConnection", -1, 0, 0, "logical", 1
+"dbplyr", "db_commit.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_commit.DBIConnection", 1, 0, 0, "...", 1
+"dbplyr", "db_compute", -1, 0, 0, "character", 1
+"dbplyr", "db_compute", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_compute", 1, 0, 0, "character", 1
+"dbplyr", "db_compute", 2, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "db_compute", 3, 0, 0, "logical", 1
+"dbplyr", "db_compute", 4, 0, 0, "null", 1
+"dbplyr", "db_compute", 5, 0, 0, "null", 1
+"dbplyr", "db_compute", 6, 0, 0, "logical", 1
+"dbplyr", "db_compute", 7, 0, 0, "...", 1
+"dbplyr", "db_compute.DBIConnection", -1, 0, 0, "character", 1
+"dbplyr", "db_compute.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_compute.DBIConnection", 1, 0, 0, "character", 1
+"dbplyr", "db_compute.DBIConnection", 2, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "db_compute.DBIConnection", 3, 0, 0, "logical", 1
+"dbplyr", "db_compute.DBIConnection", 4, 0, 0, "null", 1
+"dbplyr", "db_compute.DBIConnection", 5, 0, 0, "null", 1
+"dbplyr", "db_compute.DBIConnection", 6, 0, 0, "logical", 1
+"dbplyr", "db_compute.DBIConnection", 7, 0, 0, "...", 1
+"dbplyr", "db_copy_to", -1, 0, 0, "(character | class<`character`, `ident`, `ident_q`>)", 1
+"dbplyr", "db_copy_to", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_copy_to", 1, 0, 0, "character", 1
+"dbplyr", "db_copy_to", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "db_copy_to", 2, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "db_copy_to", 3, 0, 0, "logical", 1
+"dbplyr", "db_copy_to", 4, 0, 0, "null", 1
+"dbplyr", "db_copy_to", 5, 0, 0, "logical", 1
+"dbplyr", "db_copy_to", 6, 0, 0, "null", 1
+"dbplyr", "db_copy_to", 7, 0, 0, "null", 1
+"dbplyr", "db_copy_to", 7, 0, 1, "list<any>", 1
+"dbplyr", "db_copy_to", 8, 0, 0, "logical", 1
+"dbplyr", "db_copy_to", 9, 0, 0, "...", 1
+"dbplyr", "db_copy_to.DBIConnection", -1, 0, 0, "(character | class<`character`, `ident`, `ident_q`>)", 1
+"dbplyr", "db_copy_to.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_copy_to.DBIConnection", 1, 0, 0, "character", 1
+"dbplyr", "db_copy_to.DBIConnection", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "db_copy_to.DBIConnection", 2, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "db_copy_to.DBIConnection", 3, 0, 0, "logical", 1
+"dbplyr", "db_copy_to.DBIConnection", 4, 0, 0, "null", 1
+"dbplyr", "db_copy_to.DBIConnection", 5, 0, 0, "logical", 1
+"dbplyr", "db_copy_to.DBIConnection", 6, 0, 0, "null", 1
+"dbplyr", "db_copy_to.DBIConnection", 7, 0, 0, "null", 1
+"dbplyr", "db_copy_to.DBIConnection", 7, 0, 1, "list<any>", 1
+"dbplyr", "db_copy_to.DBIConnection", 8, 0, 0, "logical", 1
+"dbplyr", "db_copy_to.DBIConnection", 9, 0, 0, "...", 1
+"dbplyr", "db_create_index.DBIConnection", -1, 0, 0, "integer", 1
+"dbplyr", "db_create_index.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_create_index.DBIConnection", 1, 0, 0, "character", 1
+"dbplyr", "db_create_index.DBIConnection", 2, 0, 0, "character[]", 1
+"dbplyr", "db_create_index.DBIConnection", 3, 0, 0, "null", 1
+"dbplyr", "db_create_index.DBIConnection", 4, 0, 0, "logical", 1
+"dbplyr", "db_create_index.DBIConnection", 5, 0, 0, "...", 1
+"dbplyr", "db_create_indexes.DBIConnection", -1, 0, 0, "null", 1
+"dbplyr", "db_create_indexes.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_create_indexes.DBIConnection", 1, 0, 0, "any", 1
+"dbplyr", "db_create_indexes.DBIConnection", 2, 0, 0, "null", 1
+"dbplyr", "db_create_indexes.DBIConnection", 2, 0, 1, "list<any>", 1
+"dbplyr", "db_create_indexes.DBIConnection", 3, 0, 0, "logical", 1
+"dbplyr", "db_create_indexes.DBIConnection", 4, 0, 0, "...", 1
+"dbplyr", "db_data_type.DBIConnection", -1, 0, 0, "character[]", 1
+"dbplyr", "db_data_type.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_data_type.DBIConnection", 1, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "db_disconnector", -1, 0, 0, "environment", 1
+"dbplyr", "db_disconnector", 0, 0, 0, "any", 1
+"dbplyr", "db_disconnector", 1, 0, 0, "any", 1
+"dbplyr", "db_has_table.DBIConnection", -1, 0, 0, "logical", 1
+"dbplyr", "db_has_table.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_has_table.DBIConnection", 1, 0, 0, "character", 1
+"dbplyr", "dbi_quote", -1, 0, 0, "class<`SQL`>", 1
+"dbplyr", "dbi_quote", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "dbi_quote", 0, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "dbi_quote", 1, 0, 0, "any", 1
+"dbplyr", "dbi_quote.ident", -1, 0, 0, "class<`SQL`>", 1
+"dbplyr", "dbi_quote.ident", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "dbi_quote.ident", 1, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "dbi_quote.ident_q", -1, 0, 0, "class<`SQL`>", 1
+"dbplyr", "dbi_quote.ident_q", 0, 0, 0, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "dbi_quote.ident_q", 1, 0, 0, "any", 1
+"dbplyr", "db_list_tables.DBIConnection", -1, 0, 0, "character[]", 1
+"dbplyr", "db_list_tables.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_location", -1, 0, 0, "character", 1
+"dbplyr", "db_location", 0, 0, 0, "null", 1
+"dbplyr", "db_location", 1, 0, 0, "character", 1
+"dbplyr", "db_query_fields.DBIConnection", -1, 0, 0, "character[]", 1
+"dbplyr", "db_query_fields.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_query_fields.DBIConnection", 1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "db_query_fields.DBIConnection", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "db_query_fields.DBIConnection", 1, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "db_query_fields.DBIConnection", 2, 0, 0, "...", 1
+"dbplyr", "db_save_query.DBIConnection", -1, 0, 0, "character", 1
+"dbplyr", "db_save_query.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_save_query.DBIConnection", 1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "db_save_query.DBIConnection", 2, 0, 0, "character", 1
+"dbplyr", "db_save_query.DBIConnection", 3, 0, 0, "logical", 1
+"dbplyr", "db_save_query.DBIConnection", 4, 0, 0, "...", 1
+"dbplyr", "db_sql_render", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "db_sql_render", 0, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "db_sql_render", 0, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "db_sql_render", 0, 0, 2, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "db_sql_render", 0, 0, 3, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_sql_render", 1, 0, 0, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "db_sql_render", 1, 0, 1, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "db_sql_render", 1, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "db_sql_render", 1, 0, 3, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "db_sql_render", 1, 0, 4, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "db_sql_render", 2, 0, 0, "...", 1
+"dbplyr", "db_sql_render.DBIConnection", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 0, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 0, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 0, 0, 2, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 0, 0, 3, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 1, 0, 0, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 1, 0, 1, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 1, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 1, 0, 3, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 1, 0, 4, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "db_sql_render.DBIConnection", 2, 0, 0, "...", 1
+"dbplyr", "db_write_table.DBIConnection", -1, 0, 0, "(character | class<`character`, `ident`, `ident_q`>)", 1
+"dbplyr", "db_write_table.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "db_write_table.DBIConnection", 1, 0, 0, "character", 1
+"dbplyr", "db_write_table.DBIConnection", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "db_write_table.DBIConnection", 2, 0, 0, "character[]", 1
+"dbplyr", "db_write_table.DBIConnection", 3, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "db_write_table.DBIConnection", 4, 0, 0, "logical", 1
+"dbplyr", "db_write_table.DBIConnection", 5, 0, 0, "...", 1
+"dbplyr", "dim.tbl_lazy", -1, 0, 0, "^integer[]", 1
+"dbplyr", "dim.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "escape", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape", 0, 0, 0, "character[]", 1
+"dbplyr", "escape", 0, 0, 1, "class<`character`, `ident`>", 1
+"dbplyr", "escape", 0, 0, 2, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "escape", 0, 0, 3, "class<`character`, `sql`>", 1
+"dbplyr", "escape", 0, 0, 4, "double[]", 1
+"dbplyr", "escape", 0, 0, 5, "null", 1
+"dbplyr", "escape", 0, 0, 6, "list<any>", 1
+"dbplyr", "escape", 1, 0, 0, "null", 1
+"dbplyr", "escape", 1, 0, 1, "logical", 1
+"dbplyr", "escape", 2, 0, 0, "character", 1
+"dbplyr", "escape", 2, 0, 1, "null", 1
+"dbplyr", "escape", 3, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape", 3, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "escape", 3, 0, 2, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "escape", 3, 0, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "escape", 3, 0, 4, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "escape", 3, 0, 5, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape", 3, 0, 6, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "escape_ansi", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape_ansi", 0, 0, 0, "character", 1
+"dbplyr", "escape_ansi", 0, 0, 1, "class<`character`, `ident`>", 1
+"dbplyr", "escape_ansi", 0, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "escape_ansi", 0, 0, 3, "double[]", 1
+"dbplyr", "escape_ansi", 1, 0, 0, "null", 1
+"dbplyr", "escape_ansi", 2, 0, 0, "character", 1
+"dbplyr", "escape.character", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.character", 0, 0, 0, "character[]", 1
+"dbplyr", "escape.character", 1, 0, 0, "null", 1
+"dbplyr", "escape.character", 2, 0, 0, "character", 1
+"dbplyr", "escape.character", 3, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.character", 3, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "escape.double", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.double", 0, 0, 0, "double[]", 1
+"dbplyr", "escape.double", 1, 0, 0, "null", 1
+"dbplyr", "escape.double", 2, 0, 0, "character", 1
+"dbplyr", "escape.double", 3, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.double", 3, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "escape.ident", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.ident", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "escape.ident", 1, 0, 0, "logical", 1
+"dbplyr", "escape.ident", 1, 0, 1, "null", 1
+"dbplyr", "escape.ident", 2, 0, 0, "character", 1
+"dbplyr", "escape.ident", 2, 0, 1, "null", 1
+"dbplyr", "escape.ident", 3, 0, 0, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.ident", 3, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "escape.ident", 3, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "escape.ident", 3, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "escape.ident", 3, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.ident", 3, 0, 5, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "escape.ident", 3, 0, 6, "class<`SQLiteConnection`>", 1
+"dbplyr", "escape.ident_q", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.ident_q", 0, 0, 0, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "escape.ident_q", 1, 0, 0, "logical", 1
+"dbplyr", "escape.ident_q", 2, 0, 0, "character", 1
+"dbplyr", "escape.ident_q", 3, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "escape.integer", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.integer", 0, 0, 0, "integer[]", 1
+"dbplyr", "escape.integer", 1, 0, 0, "null", 1
+"dbplyr", "escape.integer", 2, 0, 0, "character", 1
+"dbplyr", "escape.integer", 3, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.integer", 3, 0, 1, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.integer", 3, 0, 2, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "escape.integer", 3, 0, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "escape.integer", 3, 0, 4, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "escape.list", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.list", 0, 0, 0, "list<any>", 1
+"dbplyr", "escape.list", 1, 0, 0, "logical", 1
+"dbplyr", "escape.list", 2, 0, 0, "character", 1
+"dbplyr", "escape.list", 3, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "escape.list", 3, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "escape.list", 3, 0, 2, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "escape.list", 3, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "escape.list", 3, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.list", 3, 0, 5, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "escape.logical", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.logical", 0, 0, 0, "null", 1
+"dbplyr", "escape.logical", 1, 0, 0, "null", 1
+"dbplyr", "escape.logical", 2, 0, 0, "character", 1
+"dbplyr", "escape.logical", 3, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.sql", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.sql", 0, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "escape.sql", 1, 0, 0, "logical", 1
+"dbplyr", "escape.sql", 1, 0, 1, "null", 1
+"dbplyr", "escape.sql", 2, 0, 0, "null", 1
+"dbplyr", "escape.sql", 2, 0, 1, "character", 1
+"dbplyr", "escape.sql", 3, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "escape.sql", 3, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "escape.sql", 3, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "escape.sql", 3, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "escape.sql", 3, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.sql", 3, 0, 5, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "escape.sql", 3, 0, 6, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "f", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "f", 0, 0, 0, "null", 1
+"dbplyr", "filter.tbl_lazy", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "filter.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "filter.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "filter.tbl_lazy", 2, 0, 0, "logical", 1
+"dbplyr", "find_fun", -1, 0, 0, "character", 1
+"dbplyr", "find_fun", 0, 0, 0, "class<`function`>", 1
+"dbplyr", "FUN", -1, 0, 0, "(character[] | null)", 1
+"dbplyr", "FUN", 0, 0, 0, "class<`call`>", 1
+"dbplyr", "FUN", 0, 0, 1, "class<`formula`, `quosure`>", 1
+"dbplyr", "FUN", 0, 0, 2, "class<`if`>", 1
+"dbplyr", "FUN", 0, 0, 3, "class<`name`>", 1
+"dbplyr", "FUN", 0, 0, 4, "class<`(`>", 1
+"dbplyr", "FUN", 0, 0, 5, "character", 1
+"dbplyr", "FUN", 0, 0, 6, "double", 1
+"dbplyr", "FUN", 0, 0, 7, "null", 1
+"dbplyr", "FUN", -1, 1, 0, "(character[] | null)", 1
+"dbplyr", "FUN", 0, 1, 0, "class<`call`>", 1
+"dbplyr", "FUN", 0, 1, 1, "class<`formula`, `quosure`>", 1
+"dbplyr", "FUN", 0, 1, 2, "class<`if`>", 1
+"dbplyr", "FUN", 0, 1, 3, "class<`name`>", 1
+"dbplyr", "FUN", 0, 1, 4, "class<`(`>", 1
+"dbplyr", "FUN", 0, 1, 5, "character", 1
+"dbplyr", "FUN", 0, 1, 6, "double", 1
+"dbplyr", "FUN", 0, 1, 7, "null", 1
+"dbplyr", "FUN", -1, 2, 0, "class<`character`, `sql`>", 1
+"dbplyr", "FUN", 0, 2, 0, "character[]", 1
+"dbplyr", "FUN", 0, 2, 1, "class<`character`, `ident`>", 1
+"dbplyr", "FUN", 0, 2, 2, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "FUN", 0, 2, 3, "class<`character`, `sql`>", 1
+"dbplyr", "FUN", 0, 2, 4, "double[]", 1
+"dbplyr", "FUN", 0, 2, 5, "null", 1
+"dbplyr", "FUN", 0, 2, 6, "list<any>", 1
+"dbplyr", "FUN", 1, 2, 0, "null", 1
+"dbplyr", "FUN", 1, 2, 1, "logical", 1
+"dbplyr", "FUN", 2, 2, 0, "character", 1
+"dbplyr", "FUN", 2, 2, 1, "null", 1
+"dbplyr", "FUN", 3, 2, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "FUN", 3, 2, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "FUN", 3, 2, 2, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "FUN", 3, 2, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "FUN", 3, 2, 4, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "FUN", 3, 2, 5, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "FUN", 3, 2, 6, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "FUN", -1, 3, 0, "(character[] | class<`(`> | class<`call`> | class<`name`> | double)", 1
+"dbplyr", "FUN", 0, 3, 0, "class<`name`>", 1
+"dbplyr", "FUN", 0, 3, 1, "character", 1
+"dbplyr", "FUN", 0, 3, 2, "class<`(`>", 1
+"dbplyr", "FUN", 0, 3, 3, "class<`call`>", 1
+"dbplyr", "FUN", 0, 3, 4, "double", 1
+"dbplyr", "FUN", 1, 3, 0, "any", 1
+"dbplyr", "FUN", 2, 3, 0, "any", 1
+"dbplyr", "FUN", -1, 4, 0, "character", 1
+"dbplyr", "FUN", 0, 4, 0, "character[]", 1
+"dbplyr", "FUN", 0, 4, 1, "class<`(`>", 1
+"dbplyr", "FUN", 0, 4, 2, "class<`call`>", 1
+"dbplyr", "FUN", 0, 4, 3, "class<`character`, `ident`>", 1
+"dbplyr", "FUN", 0, 4, 4, "class<`character`, `sql`>", 1
+"dbplyr", "FUN", 0, 4, 5, "class<`name`>", 1
+"dbplyr", "FUN", 0, 4, 6, "double", 1
+"dbplyr", "FUN", 1, 4, 0, "any", 1
+"dbplyr", "FUN", -1, 5, 0, "class<`character`, `ident`>", 1
+"dbplyr", "FUN", 0, 5, 0, "...", 1
+"dbplyr", "fun_name", -1, 0, 0, "character", 1
+"dbplyr", "fun_name", 0, 0, 0, "class<`function`>", 1
+"dbplyr", "group_by_drop_default.tbl_lazy", -1, 0, 0, "logical", 1
+"dbplyr", "group_by_drop_default.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "group_by.tbl_lazy", -1, 0, 0, "(class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>)", 1
+"dbplyr", "group_by.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "group_by.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "group_by.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "group_by.tbl_lazy", 2, 0, 0, "logical", 1
+"dbplyr", "group_by.tbl_lazy", 3, 0, 0, "logical", 1
+"dbplyr", "group_vars.tbl_lazy", -1, 0, 0, "character[]", 1
+"dbplyr", "group_vars.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "has_lahman", -1, 0, 0, "logical", 1
+"dbplyr", "has_lahman", 0, 0, 0, "character", 1
+"dbplyr", "has_lahman", 1, 0, 0, "...", 1
+"dbplyr", "head.tbl_lazy", -1, 0, 0, "(class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`> | class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>)", 1
+"dbplyr", "head.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "head.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "head.tbl_lazy", 1, 0, 0, "double", 1
+"dbplyr", "head.tbl_lazy", 2, 0, 0, "...", 1
+"dbplyr", "ident", -1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "ident", 0, 0, 0, "...", 1
+"dbplyr", "ident_q", -1, 0, 0, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "ident_q", 0, 0, 0, "...", 1
+"dbplyr", "in_schema", -1, 0, 0, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "in_schema", 0, 0, 0, "character", 1
+"dbplyr", "in_schema", 1, 0, 0, "character", 1
+"dbplyr", "is.ident", -1, 0, 0, "logical", 1
+"dbplyr", "is.ident", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "is.ident", 0, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "is.ident", 0, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "is_infix_base", -1, 0, 0, "logical", 1
+"dbplyr", "is_infix_base", 0, 0, 0, "character", 1
+"dbplyr", "is_infix_user", -1, 0, 0, "logical", 1
+"dbplyr", "is_infix_user", 0, 0, 0, "character", 1
+"dbplyr", "is.sql", -1, 0, 0, "logical", 1
+"dbplyr", "is.sql", 0, 0, 0, "character[]", 1
+"dbplyr", "is.sql", 0, 0, 1, "class<`character`, `ident`>", 1
+"dbplyr", "is.sql", 0, 0, 2, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "is.sql", 0, 0, 3, "class<`character`, `sql`>", 1
+"dbplyr", "is.sql_variant", -1, 0, 0, "logical", 1
+"dbplyr", "is.sql_variant", 0, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "is_tidy_pronoun", -1, 0, 0, "logical", 1
+"dbplyr", "is_tidy_pronoun", 0, 0, 0, "class<`(`>", 1
+"dbplyr", "is_tidy_pronoun", 0, 0, 1, "class<`call`>", 1
+"dbplyr", "is.wholenumber", -1, 0, 0, "logical[]", 1
+"dbplyr", "is.wholenumber", 0, 0, 0, "double[]", 1
+"dbplyr", "is_writeable", -1, 0, 0, "logical", 1
+"dbplyr", "is_writeable", 0, 0, 0, "character", 1
+"dbplyr", "lahman", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "lahman", 0, 0, 0, "character", 1
+"dbplyr", "lahman", 1, 0, 0, "...", 1
+"dbplyr", "lahman_sqlite", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "lahman_sqlite", 0, 0, 0, "null", 1
+"dbplyr", "lahman_tables", -1, 0, 0, "character[]", 1
+"dbplyr", "lazy_frame", -1, 0, 0, "(class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`> | class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`> | class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>)", 1
+"dbplyr", "lazy_frame", 0, 0, 0, "...", 1
+"dbplyr", "lazy_frame", 1, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "lazy_frame", 1, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "lazy_frame", 1, 0, 2, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "lazy_frame", 2, 0, 0, "null", 1
+"dbplyr", "memdb_frame", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "memdb_frame", 0, 0, 0, "...", 1
+"dbplyr", "memdb_frame", 1, 0, 0, "character", 1
+"dbplyr", "mutate.tbl_lazy", -1, 0, 0, "(class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>)", 1
+"dbplyr", "mutate.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "mutate.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "mutate.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "mutate.tbl_lazy", 2, 0, 0, "any", 1
+"dbplyr", "names.sql_variant", -1, 0, 0, "character[]", 1
+"dbplyr", "names.sql_variant", 0, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "names_to_as", -1, 0, 0, "character[]", 1
+"dbplyr", "names_to_as", 0, 0, 0, "character[]", 1
+"dbplyr", "names_to_as", 0, 0, 1, "class<`character`, `ident`>", 1
+"dbplyr", "names_to_as", 0, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "names_to_as", 0, 0, 3, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "names_to_as", 0, 0, 4, "class<`SQL`>", 1
+"dbplyr", "names_to_as", 0, 0, 5, "list<class<`character`, `sql`>>", 1
+"dbplyr", "names_to_as", 1, 0, 0, "any", 1
+"dbplyr", "names_to_as", 2, 0, 0, "any", 1
+"dbplyr", "nest_vars", -1, 0, 0, "(class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>)", 1
+"dbplyr", "nest_vars", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "nest_vars", 0, 0, 1, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "nest_vars", 1, 0, 0, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "nest_vars", 2, 0, 0, "character[]", 1
+"dbplyr", "new_op_select", -1, 0, 0, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "new_op_select", 0, 0, 0, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "new_op_select", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "new_op_select", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "new_op_select", 0, 0, 3, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "new_op_select", 1, 0, 0, "list<class<`name`> | class<`name`> | class<`formula`, `quosure`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "op_base", -1, 0, 0, "(class<`op`, `op_base`, `op_base_local`> | class<`op`, `op_base`, `op_base_remote`>)", 1
+"dbplyr", "op_base", 0, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "op_base", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "op_base", 0, 0, 2, "class<`character`, `ident`>", 1
+"dbplyr", "op_base", 0, 0, 3, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "op_base", 0, 0, 4, "class<`character`, `sql`>", 1
+"dbplyr", "op_base", 1, 0, 0, "character[]", 1
+"dbplyr", "op_base", 2, 0, 0, "character", 1
+"dbplyr", "op_base_local", -1, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_base_local", 0, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "op_base_local", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "op_base_remote", -1, 0, 0, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_base_remote", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "op_base_remote", 0, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "op_base_remote", 0, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "op_base_remote", 1, 0, 0, "character[]", 1
+"dbplyr", "op_double", -1, 0, 0, "class<`op`, `op_double`, `op_semi_join`>", 1
+"dbplyr", "op_double", 0, 0, 0, "character", 1
+"dbplyr", "op_double", 1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_double", 2, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_double", 3, 0, 0, "list<logical | list<character>>", 1
+"dbplyr", "op_frame", -1, 0, 0, "(double[] | null)", 1
+"dbplyr", "op_frame", 0, 0, 0, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_frame", 0, 0, 1, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_frame", 0, 0, 2, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_frame", 0, 0, 3, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_frame", 0, 0, 4, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_frame", 0, 0, 5, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_frame.op_base", -1, 0, 0, "null", 1
+"dbplyr", "op_frame.op_base", 0, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_frame.op_base", 0, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_frame.op_frame", -1, 0, 0, "double[]", 1
+"dbplyr", "op_frame.op_frame", 0, 0, 0, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_frame.op_single", -1, 0, 0, "(double[] | null)", 1
+"dbplyr", "op_frame.op_single", 0, 0, 0, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_frame.op_single", 0, 0, 1, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_frame.op_single", 0, 0, 2, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_grps", -1, 0, 0, "character[]", 1
+"dbplyr", "op_grps", 0, 0, 0, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "op_grps", 0, 0, 1, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_grps", 0, 0, 2, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_grps", 0, 0, 3, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_grps", 0, 0, 4, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "op_grps", 0, 0, 5, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_grps", 0, 0, 6, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_grps", 0, 0, 7, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "op_grps", 0, 0, 8, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_grps", 0, 0, 9, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "op_grps", 0, 0, 10, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_grps.op_base", -1, 0, 0, "character[]", 1
+"dbplyr", "op_grps.op_base", 0, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_grps.op_base", 0, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_grps.op_group_by", -1, 0, 0, "character[]", 1
+"dbplyr", "op_grps.op_group_by", 0, 0, 0, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "op_grps.op_select", -1, 0, 0, "character[]", 1
+"dbplyr", "op_grps.op_select", 0, 0, 0, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_grps.op_single", -1, 0, 0, "character[]", 1
+"dbplyr", "op_grps.op_single", 0, 0, 0, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "op_grps.op_single", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_grps.op_single", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_grps.op_single", 0, 0, 3, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_grps.op_summarise", -1, 0, 0, "character[]", 1
+"dbplyr", "op_grps.op_summarise", 0, 0, 0, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "op_grps.tbl_lazy", -1, 0, 0, "character[]", 1
+"dbplyr", "op_grps.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_grps.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "op_select", -1, 0, 0, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_select", 0, 0, 0, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_select", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_select", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_select", 0, 0, 3, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_select", 1, 0, 0, "list<class<`name`> | class<`formula`, `quosure`> | class<`name`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "op_single", -1, 0, 0, "(class<`op`, `op_arrange`, `op_single`> | class<`op`, `op_filter`, `op_single`> | class<`op`, `op_frame`, `op_single`> | class<`op`, `op_group_by`, `op_single`> | class<`op`, `op_head`, `op_single`> | class<`op`, `op_order`, `op_single`> | class<`op`, `op_select`, `op_single`> | class<`op`, `op_single`, `op_summarise`>)", 1
+"dbplyr", "op_single", 0, 0, 0, "character", 1
+"dbplyr", "op_single", 1, 0, 0, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_single", 1, 0, 1, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "op_single", 1, 0, 2, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "op_single", 1, 0, 3, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "op_single", 1, 0, 4, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_single", 1, 0, 5, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_single", 1, 0, 6, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_single", 1, 0, 7, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_single", 1, 0, 8, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_single", 2, 0, 0, "list<any>", 1
+"dbplyr", "op_single", 3, 0, 0, "list<any>", 1
+"dbplyr", "op_sort", -1, 0, 0, "(null | list<class<`formula`, `quosure`>>)", 1
+"dbplyr", "op_sort", 0, 0, 0, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_sort", 0, 0, 1, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_sort", 0, 0, 2, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_sort", 0, 0, 3, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_sort", 0, 0, 4, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_sort", 0, 0, 5, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_sort", 0, 0, 6, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "op_sort", 0, 0, 7, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_sort.op_base", -1, 0, 0, "null", 1
+"dbplyr", "op_sort.op_base", 0, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_sort.op_base", 0, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_sort.op_order", -1, 0, 0, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "op_sort.op_order", 0, 0, 0, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_sort.op_single", -1, 0, 0, "(null | list<class<`formula`, `quosure`>>)", 1
+"dbplyr", "op_sort.op_single", 0, 0, 0, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_sort.op_single", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_sort.op_single", 0, 0, 2, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_sort.op_single", 0, 0, 3, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "op_sort.tbl_lazy", -1, 0, 0, "null", 1
+"dbplyr", "op_sort.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_vars", -1, 0, 0, "character[]", 1
+"dbplyr", "op_vars", 0, 0, 0, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "op_vars", 0, 0, 1, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_vars", 0, 0, 2, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_vars", 0, 0, 3, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_vars", 0, 0, 4, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_vars", 0, 0, 5, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "op_vars", 0, 0, 6, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_vars", 0, 0, 7, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_vars", 0, 0, 8, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "op_vars", 0, 0, 9, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_vars", 0, 0, 10, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "op_vars", 0, 0, 11, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "op_vars.op_base", -1, 0, 0, "character[]", 1
+"dbplyr", "op_vars.op_base", 0, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "op_vars.op_base", 0, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "op_vars.op_select", -1, 0, 0, "character[]", 1
+"dbplyr", "op_vars.op_select", 0, 0, 0, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "op_vars.op_single", -1, 0, 0, "character[]", 1
+"dbplyr", "op_vars.op_single", 0, 0, 0, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "op_vars.op_single", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "op_vars.op_single", 0, 0, 2, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "op_vars.op_single", 0, 0, 3, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "op_vars.op_single", 0, 0, 4, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "op_vars.op_summarise", -1, 0, 0, "character[]", 1
+"dbplyr", "op_vars.op_summarise", 0, 0, 0, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "op_vars.tbl_lazy", -1, 0, 0, "character[]", 1
+"dbplyr", "op_vars.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "op_vars.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "op_vars.tbl_lazy", 0, 0, 2, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "partial_eval", -1, 0, 0, "(character[] | class<`(`> | class<`call`> | class<`name`> | double)", 1
+"dbplyr", "partial_eval", 0, 0, 0, "class<`name`>", 1
+"dbplyr", "partial_eval", 0, 0, 1, "character", 1
+"dbplyr", "partial_eval", 0, 0, 2, "class<`(`>", 1
+"dbplyr", "partial_eval", 0, 0, 3, "class<`call`>", 1
+"dbplyr", "partial_eval", 0, 0, 4, "double", 1
+"dbplyr", "partial_eval", 1, 0, 0, "any", 1
+"dbplyr", "partial_eval", 2, 0, 0, "any", 1
+"dbplyr", "partial_eval_call", -1, 0, 0, "(class<`(`> | class<`call`> | class<`name`> | double)", 1
+"dbplyr", "partial_eval_call", 0, 0, 0, "class<`(`>", 1
+"dbplyr", "partial_eval_call", 0, 0, 1, "class<`call`>", 1
+"dbplyr", "partial_eval_call", 1, 0, 0, "any", 1
+"dbplyr", "partial_eval_call", 2, 0, 0, "any", 1
+"dbplyr", "partial_eval_dots", -1, 0, 0, "list<any>", 1
+"dbplyr", "partial_eval_dots", 0, 0, 0, "class<`list`, `quosures`>", 1
+"dbplyr", "partial_eval_dots", 1, 0, 0, "any", 1
+"dbplyr", "partial_eval_sym", -1, 0, 0, "(character[] | class<`name`> | double)", 1
+"dbplyr", "partial_eval_sym", 0, 0, 0, "class<`name`>", 1
+"dbplyr", "partial_eval_sym", 1, 0, 0, "character[]", 1
+"dbplyr", "partial_eval_sym", 2, 0, 0, "any", 1
+"dbplyr", "register_s3_method", -1, 0, 0, "null", 1
+"dbplyr", "register_s3_method", 0, 0, 0, "character", 1
+"dbplyr", "register_s3_method", 1, 0, 0, "character", 1
+"dbplyr", "register_s3_method", 2, 0, 0, "character", 1
+"dbplyr", "register_s3_method", 3, 0, 0, "null", 1
+"dbplyr", "remote_con", -1, 0, 0, "(class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`> | class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`> | class<`DBIConnection`, `SQLiteConnection`, `TestConnection`> | class<`SQLiteConnection`>)", 1
+"dbplyr", "remote_con", 0, 0, 0, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "remote_con", 0, 0, 1, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "remote_con", 0, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "remote_con", 0, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "remote_name", -1, 0, 0, "(class<`character`, `ident`> | null)", 1
+"dbplyr", "remote_name", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "remote_query", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "remote_query", 0, 0, 0, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "remote_query", 0, 0, 1, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "remote_query", 0, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "remote_query", 0, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "remote_src", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "remote_src", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "replace_expr", -1, 0, 0, "character", 1
+"dbplyr", "replace_expr", 0, 0, 0, "character[]", 1
+"dbplyr", "replace_expr", 0, 0, 1, "class<`(`>", 1
+"dbplyr", "replace_expr", 0, 0, 2, "class<`call`>", 1
+"dbplyr", "replace_expr", 0, 0, 3, "class<`character`, `ident`>", 1
+"dbplyr", "replace_expr", 0, 0, 4, "class<`character`, `sql`>", 1
+"dbplyr", "replace_expr", 0, 0, 5, "class<`name`>", 1
+"dbplyr", "replace_expr", 0, 0, 6, "double", 1
+"dbplyr", "replace_expr", 1, 0, 0, "any", 1
+"dbplyr", "res_warn_incomplete", -1, 0, 0, "null", 1
+"dbplyr", "res_warn_incomplete", 0, 0, 0, "class<`SQLiteResult`>", 1
+"dbplyr", "res_warn_incomplete", 1, 0, 0, "character", 1
+"dbplyr", "rows", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "rows", 0, 0, 0, "double", 1
+"dbplyr", "rows", 1, 0, 0, "double", 1
+"dbplyr", "same_src.src_sql", -1, 0, 0, "logical", 1
+"dbplyr", "same_src.src_sql", 0, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "same_src.src_sql", 1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "same_src.tbl_sql", -1, 0, 0, "logical", 1
+"dbplyr", "same_src.tbl_sql", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "same_src.tbl_sql", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "select_query", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "select_query", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "select_query", 0, 0, 1, "class<`query`, `select_query`>", 1
+"dbplyr", "select_query", 1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "select_query", 2, 0, 0, "character[]", 1
+"dbplyr", "select_query", 2, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "select_query", 3, 0, 0, "character[]", 1
+"dbplyr", "select_query", 3, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "select_query", 4, 0, 0, "character[]", 1
+"dbplyr", "select_query", 5, 0, 0, "character[]", 1
+"dbplyr", "select_query", 5, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "select_query", 6, 0, 0, "double", 1
+"dbplyr", "select_query", 6, 0, 1, "null", 1
+"dbplyr", "select_query", 7, 0, 0, "logical", 1
+"dbplyr", "select_query_clauses", -1, 0, 0, "class<`factor`, `ordered`>", 1
+"dbplyr", "select_query_clauses", 0, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "select.tbl_lazy", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "select.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "select.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "semi_join.tbl_lazy", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "semi_join.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "semi_join.tbl_lazy", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "semi_join.tbl_lazy", 2, 0, 0, "null", 1
+"dbplyr", "semi_join.tbl_lazy", 3, 0, 0, "logical", 1
+"dbplyr", "semi_join.tbl_lazy", 4, 0, 0, "logical", 1
+"dbplyr", "semi_join.tbl_lazy", 5, 0, 0, "...", 1
+"dbplyr", "semi_join.tbl_lazy", 6, 0, 0, "null", 1
+"dbplyr", "set_current_con", -1, 0, 0, "(class<`ACCESS`, `DBIConnection`, `TestConnection`> | class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`> | class<`DBIConnection`, `SQLiteConnection`, `TestConnection`> | class<`DBIConnection`, `TestConnection`> | class<`DBIConnection`, `TestCon`, `TestConnection`> | class<`SQLiteConnection`> | null)", 1
+"dbplyr", "set_current_con", 0, 0, 0, "null", 1
+"dbplyr", "set_current_con", 0, 0, 1, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "set_current_con", 0, 0, 2, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "set_current_con", 0, 0, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "set_current_con", 0, 0, 4, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "set_current_con", 0, 0, 5, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "set_current_con", 0, 0, 6, "class<`SQLiteConnection`>", 1
+"dbplyr", "set_current_context", -1, 0, 0, "(character | list<character>)", 1
+"dbplyr", "set_current_context", 0, 0, 0, "character", 1
+"dbplyr", "set_current_context", 0, 0, 1, "list<character>", 1
+"dbplyr", "set_win_current_frame", -1, 0, 0, "(double[] | null)", 1
+"dbplyr", "set_win_current_frame", 0, 0, 0, "null", 1
+"dbplyr", "set_win_current_frame", 0, 0, 1, "double[]", 1
+"dbplyr", "set_win_current_group", -1, 0, 0, "(character[] | null)", 1
+"dbplyr", "set_win_current_group", 0, 0, 0, "null", 1
+"dbplyr", "set_win_current_group", 0, 0, 1, "character[]", 1
+"dbplyr", "set_win_current_order", -1, 0, 0, "(character | class<`character`, `sql`> | null)", 1
+"dbplyr", "set_win_current_order", 0, 0, 0, "null", 1
+"dbplyr", "set_win_current_order", 0, 0, 1, "character", 1
+"dbplyr", "set_win_current_order", 0, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "show_query.tbl_lazy", -1, 0, 0, "(class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`> | class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>)", 1
+"dbplyr", "show_query.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "show_query.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "show_query.tbl_lazy", 0, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "show_query.tbl_lazy", 0, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "show_query.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "simulate_access", -1, 0, 0, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "simulate_dbi", -1, 0, 0, "(class<`ACCESS`, `DBIConnection`, `TestConnection`> | class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`> | class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`> | class<`DBIConnection`, `SQLiteConnection`, `TestConnection`> | class<`DBIConnection`, `TestConnection`> | class<`DBIConnection`, `TestCon`, `TestConnection`>)", 1
+"dbplyr", "simulate_dbi", 0, 0, 0, "character[]", 1
+"dbplyr", "simulate_mssql", -1, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "simulate_postgres", -1, 0, 0, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "simulate_sqlite", -1, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql", 0, 0, 0, "...", 1
+"dbplyr", "sql", -1, 1, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql", 0, 1, 0, "...", 1
+"dbplyr", "sql_aggregate", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_aggregate", 0, 0, 0, "character", 1
+"dbplyr", "sql_aggregate", 1, 0, 0, "character", 1
+"dbplyr", "sql_aggregate_2", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_aggregate_2", 0, 0, 0, "character", 1
+"dbplyr", "sql_build", -1, 0, 0, "(class<`character`, `ident`> | class<`query`, `select_query`>)", 1
+"dbplyr", "sql_build", 0, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "sql_build", 0, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "sql_build", 0, 0, 2, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "sql_build", 0, 0, 3, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "sql_build", 0, 0, 4, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "sql_build", 0, 0, 5, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "sql_build", 0, 0, 6, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "sql_build", 0, 0, 7, "class<`op`, `op_head`, `op_single`>", 1
+"dbplyr", "sql_build", 0, 0, 8, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "sql_build", 0, 0, 9, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "sql_build", 0, 0, 10, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "sql_build", 1, 0, 0, "any", 1
+"dbplyr", "sql_build", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_arrange", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_build.op_arrange", 0, 0, 0, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "sql_build.op_arrange", 1, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_build.op_arrange", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_base_local", -1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_build.op_base_local", 0, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
+"dbplyr", "sql_build.op_base_local", 1, 0, 0, "any", 1
+"dbplyr", "sql_build.op_base_local", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_base_remote", -1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_build.op_base_remote", 0, 0, 0, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "sql_build.op_base_remote", 1, 0, 0, "any", 1
+"dbplyr", "sql_build.op_base_remote", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_filter", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_build.op_filter", 0, 0, 0, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "sql_build.op_filter", 1, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_build.op_filter", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_frame", -1, 0, 0, "(class<`character`, `ident`> | class<`query`, `select_query`>)", 1
+"dbplyr", "sql_build.op_frame", 0, 0, 0, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "sql_build.op_frame", 0, 0, 1, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "sql_build.op_frame", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "sql_build.op_frame", 1, 0, 0, "any", 1
+"dbplyr", "sql_build.op_frame", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_group_by", -1, 0, 0, "(class<`character`, `ident`> | class<`query`, `select_query`>)", 1
+"dbplyr", "sql_build.op_group_by", 0, 0, 0, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "sql_build.op_group_by", 0, 0, 1, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "sql_build.op_group_by", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "sql_build.op_group_by", 1, 0, 0, "any", 1
+"dbplyr", "sql_build.op_group_by", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_head", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_build.op_head", 0, 0, 0, "class<`op`, `op_head`, `op_single`>", 1
+"dbplyr", "sql_build.op_head", 1, 0, 0, "any", 1
+"dbplyr", "sql_build.op_head", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_order", -1, 0, 0, "(class<`character`, `ident`> | class<`query`, `select_query`>)", 1
+"dbplyr", "sql_build.op_order", 0, 0, 0, "class<`op`, `op_frame`, `op_single`>", 1
+"dbplyr", "sql_build.op_order", 0, 0, 1, "class<`op`, `op_group_by`, `op_single`>", 1
+"dbplyr", "sql_build.op_order", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
+"dbplyr", "sql_build.op_order", 1, 0, 0, "any", 1
+"dbplyr", "sql_build.op_order", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_select", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_build.op_select", 0, 0, 0, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "sql_build.op_select", 1, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_build.op_select", 1, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_build.op_select", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.op_summarise", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_build.op_summarise", 0, 0, 0, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "sql_build.op_summarise", 1, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_build.op_summarise", 1, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_build.op_summarise", 2, 0, 0, "...", 1
+"dbplyr", "sql_build.tbl_lazy", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_build.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "sql_build.tbl_lazy", 1, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_build.tbl_lazy", 2, 0, 0, "...", 1
+"dbplyr", "sql_call2", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_call2", 0, 0, 0, "character", 1
+"dbplyr", "sql_call2", 1, 0, 0, "...", 1
+"dbplyr", "sql_call2", 2, 0, 0, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_call2", 2, 0, 1, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_call2", 2, 0, 2, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_cast", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_cast", 0, 0, 0, "character", 1
+"dbplyr", "sql_clause_from", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_from", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_clause_from", 0, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "sql_clause_from", 0, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_from", 1, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_clause_from", 1, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_clause_from", 1, 0, 2, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_clause_from", 1, 0, 3, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_clause_generic", -1, 0, 0, "(class<`character`, `sql`> | null)", 1
+"dbplyr", "sql_clause_generic", 0, 0, 0, "character", 1
+"dbplyr", "sql_clause_generic", 1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_clause_generic", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "sql_clause_generic", 1, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_generic", 1, 0, 3, "character[]", 1
+"dbplyr", "sql_clause_generic", 1, 0, 4, "null", 1
+"dbplyr", "sql_clause_generic", 2, 0, 0, "any", 1
+"dbplyr", "sql_clause_group_by", -1, 0, 0, "(class<`character`, `sql`> | null)", 1
+"dbplyr", "sql_clause_group_by", 0, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_group_by", 0, 0, 1, "character[]", 1
+"dbplyr", "sql_clause_group_by", 0, 0, 2, "null", 1
+"dbplyr", "sql_clause_group_by", 1, 0, 0, "any", 1
+"dbplyr", "sql_clause_having", -1, 0, 0, "null", 1
+"dbplyr", "sql_clause_having", 0, 0, 0, "character[]", 1
+"dbplyr", "sql_clause_having", 0, 0, 1, "null", 1
+"dbplyr", "sql_clause_having", 1, 0, 0, "any", 1
+"dbplyr", "sql_clause_limit", -1, 0, 0, "(class<`character`, `sql`> | null)", 1
+"dbplyr", "sql_clause_limit", 0, 0, 0, "double", 1
+"dbplyr", "sql_clause_limit", 0, 0, 1, "null", 1
+"dbplyr", "sql_clause_limit", 1, 0, 0, "any", 1
+"dbplyr", "sql_clause_order_by", -1, 0, 0, "(class<`character`, `sql`> | null)", 1
+"dbplyr", "sql_clause_order_by", 0, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_order_by", 0, 0, 1, "character[]", 1
+"dbplyr", "sql_clause_order_by", 0, 0, 2, "null", 1
+"dbplyr", "sql_clause_order_by", 1, 0, 0, "any", 1
+"dbplyr", "sql_clause_select", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_select", 0, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_select", 1, 0, 0, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_clause_select", 1, 0, 1, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_clause_select", 1, 0, 2, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_clause_select", 2, 0, 0, "logical", 1
+"dbplyr", "sql_clause_where", -1, 0, 0, "(class<`character`, `sql`> | null)", 1
+"dbplyr", "sql_clause_where", 0, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_clause_where", 0, 0, 1, "character[]", 1
+"dbplyr", "sql_clause_where", 0, 0, 2, "null", 1
+"dbplyr", "sql_clause_where", 1, 0, 0, "any", 1
+"dbplyr", "sql_cot", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_current_con", -1, 0, 0, "(class<`ACCESS`, `DBIConnection`, `TestConnection`> | class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`> | class<`DBIConnection`, `SQLiteConnection`, `TestConnection`> | class<`DBIConnection`, `TestConnection`> | class<`DBIConnection`, `TestCon`, `TestConnection`> | class<`SQLiteConnection`>)", 1
+"dbplyr", "sql_data_mask", -1, 0, 0, "environment", 1
+"dbplyr", "sql_data_mask", 0, 0, 0, "class<`call`>", 1
+"dbplyr", "sql_data_mask", 0, 0, 1, "class<`formula`, `quosure`>", 1
+"dbplyr", "sql_data_mask", 0, 0, 2, "class<`name`>", 1
+"dbplyr", "sql_data_mask", 1, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "sql_data_mask", 2, 0, 0, "any", 1
+"dbplyr", "sql_data_mask", 3, 0, 0, "logical", 1
+"dbplyr", "sql_data_mask", 4, 0, 0, "logical", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", -1, 0, 0, "(character[] | class<`character`, `ident`>)", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 0, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 0, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 0, 0, 2, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 0, 0, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 0, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 0, 0, 5, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 0, 0, 6, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 1, 0, 0, "character[]", 1
+"dbplyr", "sql_escape_ident.SQLiteConnection", 1, 0, 1, "class<`character`, `ident`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", -1, 0, 0, "(character[] | class<`character`, `ident`>)", 1
+"dbplyr", "sql_escape_ident.TestConnection", 0, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", 0, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", 0, 0, 2, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", 0, 0, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", 0, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", 0, 0, 5, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", 0, 0, 6, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_ident.TestConnection", 1, 0, 0, "character[]", 1
+"dbplyr", "sql_escape_ident.TestConnection", 1, 0, 1, "class<`character`, `ident`>", 1
+"dbplyr", "sql_escape_logical", -1, 0, 0, "character", 1
+"dbplyr", "sql_escape_logical", 0, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_logical", 1, 0, 0, "null", 1
+"dbplyr", "sql_escape_logical.DBIConnection", -1, 0, 0, "character", 1
+"dbplyr", "sql_escape_logical.DBIConnection", 0, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_logical.DBIConnection", 1, 0, 0, "null", 1
+"dbplyr", "sql_escape_string.DBIConnection", -1, 0, 0, "class<`SQL`>", 1
+"dbplyr", "sql_escape_string.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_escape_string.DBIConnection", 1, 0, 0, "character", 1
+"dbplyr", "sql_escape_string.TestConnection", -1, 0, 0, "character[]", 1
+"dbplyr", "sql_escape_string.TestConnection", 0, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_escape_string.TestConnection", 1, 0, 0, "character[]", 1
+"dbplyr", "sql_expr", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_expr", 0, 0, 0, "any", 1
+"dbplyr", "sql_expr", 1, 0, 0, "any", 1
+"dbplyr", "sql_infix", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_infix", 0, 0, 0, "character", 1
+"dbplyr", "sql_infix", 1, 0, 0, "logical", 1
+"dbplyr", "sqlite_version", -1, 0, 0, "class<`numeric_version`>", 1
+"dbplyr", "sql_log", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_not_supported", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_not_supported", 0, 0, 0, "character", 1
+"dbplyr", "sql_optimise", -1, 0, 0, "(class<`character`, `ident`> | class<`query`, `select_query`>)", 1
+"dbplyr", "sql_optimise", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_optimise", 0, 0, 1, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_optimise", 1, 0, 0, "any", 1
+"dbplyr", "sql_optimise", 2, 0, 0, "...", 1
+"dbplyr", "sql_optimise.ident", -1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_optimise.ident", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_optimise.ident", 1, 0, 0, "any", 1
+"dbplyr", "sql_optimise.ident", 2, 0, 0, "...", 1
+"dbplyr", "sql_optimise.select_query", -1, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_optimise.select_query", 0, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_optimise.select_query", 1, 0, 0, "any", 1
+"dbplyr", "sql_optimise.select_query", 2, 0, 0, "...", 1
+"dbplyr", "sql_paste", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_paste", 0, 0, 0, "character", 1
+"dbplyr", "sql_paste", 1, 0, 0, "character", 1
+"dbplyr", "sql_paste_infix", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_paste_infix", 0, 0, 0, "character", 1
+"dbplyr", "sql_paste_infix", 1, 0, 0, "character", 1
+"dbplyr", "sql_paste_infix", 2, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_prefix", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "sql_prefix", 0, 0, 0, "character", 1
+"dbplyr", "sql_prefix", 1, 0, 0, "null", 1
+"dbplyr", "sql_quote", -1, 0, 0, "(character[] | class<`character`, `ident`>)", 1
+"dbplyr", "sql_quote", 0, 0, 0, "^character[]", 1
+"dbplyr", "sql_quote", 0, 0, 1, "class<`character`, `ident`>", 1
+"dbplyr", "sql_quote", 1, 0, 0, "character", 1
+"dbplyr", "sql_render", -1, 0, 0, "(class<`character`, `ident`> | class<`character`, `sql`>)", 1
+"dbplyr", "sql_render", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_render", 0, 0, 1, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "sql_render", 0, 0, 2, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "sql_render", 0, 0, 3, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "sql_render", 0, 0, 4, "class<`op`, `op_head`, `op_single`>", 1
+"dbplyr", "sql_render", 0, 0, 5, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "sql_render", 0, 0, 6, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "sql_render", 0, 0, 7, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_render", 0, 0, 8, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "sql_render", 0, 0, 9, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "sql_render", 0, 0, 10, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "sql_render", 0, 0, 11, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "sql_render", 1, 0, 0, "any", 1
+"dbplyr", "sql_render", 2, 0, 0, "...", 1
+"dbplyr", "sql_render", 3, 0, 0, "any", 1
+"dbplyr", "sql_render.ident", -1, 0, 0, "(class<`character`, `ident`> | class<`character`, `sql`>)", 1
+"dbplyr", "sql_render.ident", 0, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_render.ident", 1, 0, 0, "any", 1
+"dbplyr", "sql_render.ident", 2, 0, 0, "...", 1
+"dbplyr", "sql_render.ident", 3, 0, 0, "logical", 1
+"dbplyr", "sql_render.op", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_render.op", 0, 0, 0, "class<`op`, `op_arrange`, `op_single`>", 1
+"dbplyr", "sql_render.op", 0, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
+"dbplyr", "sql_render.op", 0, 0, 2, "class<`op`, `op_filter`, `op_single`>", 1
+"dbplyr", "sql_render.op", 0, 0, 3, "class<`op`, `op_head`, `op_single`>", 1
+"dbplyr", "sql_render.op", 0, 0, 4, "class<`op`, `op_select`, `op_single`>", 1
+"dbplyr", "sql_render.op", 0, 0, 5, "class<`op`, `op_single`, `op_summarise`>", 1
+"dbplyr", "sql_render.op", 1, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_render.op", 1, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_render.op", 1, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_render.op", 1, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_render.op", 2, 0, 0, "...", 1
+"dbplyr", "sql_render.op", 3, 0, 0, "any", 1
+"dbplyr", "sql_render.select_query", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_render.select_query", 0, 0, 0, "class<`query`, `select_query`>", 1
+"dbplyr", "sql_render.select_query", 1, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_render.select_query", 1, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_render.select_query", 1, 0, 2, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_render.select_query", 1, 0, 3, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_render.select_query", 2, 0, 0, "...", 1
+"dbplyr", "sql_render.select_query", 3, 0, 0, "any", 1
+"dbplyr", "sql_render.tbl_lazy", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_render.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`>", 1
+"dbplyr", "sql_render.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`>", 1
+"dbplyr", "sql_render.tbl_lazy", 0, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "sql_render.tbl_lazy", 0, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "sql_render.tbl_lazy", 1, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_render.tbl_lazy", 1, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_render.tbl_lazy", 1, 0, 2, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_render.tbl_lazy", 1, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_render.tbl_lazy", 2, 0, 0, "...", 1
+"dbplyr", "sql_render.tbl_lazy", 3, 0, 0, "logical", 1
+"dbplyr", "sql_select.DBIConnection", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.DBIConnection", 0, 0, 0, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_select.DBIConnection", 0, 0, 1, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_select.DBIConnection", 0, 0, 2, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_select.DBIConnection", 1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.DBIConnection", 2, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_select.DBIConnection", 2, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "sql_select.DBIConnection", 2, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.DBIConnection", 3, 0, 0, "character[]", 1
+"dbplyr", "sql_select.DBIConnection", 3, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.DBIConnection", 3, 0, 2, "null", 1
+"dbplyr", "sql_select.DBIConnection", 4, 0, 0, "character[]", 1
+"dbplyr", "sql_select.DBIConnection", 4, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.DBIConnection", 4, 0, 2, "null", 1
+"dbplyr", "sql_select.DBIConnection", 5, 0, 0, "character[]", 1
+"dbplyr", "sql_select.DBIConnection", 5, 0, 1, "null", 1
+"dbplyr", "sql_select.DBIConnection", 6, 0, 0, "character[]", 1
+"dbplyr", "sql_select.DBIConnection", 6, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.DBIConnection", 6, 0, 2, "null", 1
+"dbplyr", "sql_select.DBIConnection", 7, 0, 0, "double", 1
+"dbplyr", "sql_select.DBIConnection", 7, 0, 1, "null", 1
+"dbplyr", "sql_select.DBIConnection", 8, 0, 0, "logical", 1
+"dbplyr", "sql_select.DBIConnection", 9, 0, 0, "...", 1
+"dbplyr", "sql_select.Microsoft SQL Server", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 0, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 2, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 3, 0, 0, "character[]", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 4, 0, 0, "character[]", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 5, 0, 0, "character[]", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 6, 0, 0, "character[]", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 7, 0, 0, "double", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 8, 0, 0, "logical", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 9, 0, 0, "...", 1
+"dbplyr", "sql_select.Microsoft SQL Server", 10, 0, 0, "any", 1
+"dbplyr", "sql_subquery.DBIConnection", -1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_subquery.DBIConnection", 0, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_subquery.DBIConnection", 0, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_subquery.DBIConnection", 1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_subquery.DBIConnection", 2, 0, 0, "null", 1
+"dbplyr", "sql_subquery.DBIConnection", 3, 0, 0, "...", 1
+"dbplyr", "sql_subquery.SQLiteConnection", -1, 0, 0, "(class<`character`, `ident`> | class<`character`, `ident`, `ident_q`> | class<`character`, `sql`>)", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 0, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 0, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 1, 0, 0, "class<`character`, `ident`>", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 1, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 2, 0, 0, "null", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 2, 0, 1, "character", 1
+"dbplyr", "sql_subquery.SQLiteConnection", 3, 0, 0, "...", 1
+"dbplyr", "sql_switch", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_switch", 0, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_switch", 1, 0, 0, "...", 1
+"dbplyr", "sql_translate_env.ACCESS", -1, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "sql_translate_env.ACCESS", 0, 0, 0, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_translate_env.DBIConnection", -1, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "sql_translate_env.DBIConnection", 0, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_translate_env.PostgreSQLConnection", -1, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "sql_translate_env.PostgreSQLConnection", 0, 0, 0, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_translate_env.SQLiteConnection", -1, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "sql_translate_env.SQLiteConnection", 0, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_translate_env.SQLiteConnection", 0, 0, 1, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_translator", -1, 0, 0, "environment", 1
+"dbplyr", "sql_translator", 0, 0, 0, "...", 1
+"dbplyr", "sql_translator", 1, 0, 0, "list<any>", 1
+"dbplyr", "sql_translator", 2, 0, 0, "environment", 1
+"dbplyr", "sql_variant", -1, 0, 0, "class<`sql_variant`>", 1
+"dbplyr", "sql_variant", 0, 0, 0, "environment", 1
+"dbplyr", "sql_variant", 1, 0, 0, "environment", 1
+"dbplyr", "sql_variant", 2, 0, 0, "environment", 1
+"dbplyr", "sql_vector", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "sql_vector", 0, 0, 0, "character[]", 1
+"dbplyr", "sql_vector", 0, 0, 1, "class<`character`, `sql`>", 1
+"dbplyr", "sql_vector", 0, 0, 2, "class<`SQL`>", 1
+"dbplyr", "sql_vector", 0, 0, 3, "list<any>", 1
+"dbplyr", "sql_vector", 1, 0, 0, "any", 1
+"dbplyr", "sql_vector", 2, 0, 0, "null", 1
+"dbplyr", "sql_vector", 2, 0, 1, "character", 1
+"dbplyr", "sql_vector", 3, 0, 0, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "sql_vector", 3, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "sql_vector", 3, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "sql_vector", 3, 0, 3, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "sql_vector", 3, 0, 4, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "sql_vector", 3, 0, 5, "class<`SQLiteConnection`>", 1
+"dbplyr", "sql_vector", 3, 0, 6, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "src_dbi", -1, 0, 0, "(class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`> | class<`src`, `src_Microsoft SQL Server`, `src_dbi`, `src_sql`> | class<`src`, `src_PostgreSQLConnection`, `src_dbi`, `src_sql`> | class<`src`, `src_TestConnection`, `src_dbi`, `src_sql`>)", 1
+"dbplyr", "src_dbi", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "src_dbi", 0, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "src_dbi", 0, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "src_dbi", 0, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "src_dbi", 0, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "src_dbi", 1, 0, 0, "logical", 1
+"dbplyr", "src_memdb", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "src_tbls.src_sql", -1, 0, 0, "character[]", 1
+"dbplyr", "src_tbls.src_sql", 0, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "src_tbls.src_sql", 1, 0, 0, "...", 1
+"dbplyr", "succeeds", -1, 0, 0, "logical", 1
+"dbplyr", "succeeds", 0, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "succeeds", 1, 0, 0, "logical", 1
+"dbplyr", "summarise.tbl_lazy", -1, 0, 0, "(class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>)", 1
+"dbplyr", "summarise.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "summarise.tbl_lazy", 0, 0, 1, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`>", 1
+"dbplyr", "summarise.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "tail.tbl_sql", -1, 0, 0, "any", 1
+"dbplyr", "tail.tbl_sql", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "tail.tbl_sql", 1, 0, 0, "integer", 1
+"dbplyr", "tail.tbl_sql", 2, 0, 0, "...", 1
+"dbplyr", "tbl_lazy", -1, 0, 0, "(class<`tbl`, `tbl_Microsoft SQL Server`, `tbl_lazy`> | class<`tbl`, `tbl_PostgreSQLConnection`, `tbl_lazy`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_lazy`> | class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>)", 1
+"dbplyr", "tbl_lazy", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dbplyr", "tbl_lazy", 0, 0, 1, "class<`data.frame`>", 1
+"dbplyr", "tbl_lazy", 1, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
+"dbplyr", "tbl_lazy", 1, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "tbl_lazy", 1, 0, 2, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "tbl_lazy", 1, 0, 3, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "tbl_lazy", 2, 0, 0, "null", 1
+"dbplyr", "tbl_memdb", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "tbl_memdb", 0, 0, 0, "class<`data.frame`>", 1
+"dbplyr", "tbl_memdb", 1, 0, 0, "character", 1
+"dbplyr", "tbl_sql", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "tbl_sql", 0, 0, 0, "character[]", 1
+"dbplyr", "tbl_sql", 1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "tbl_sql", 2, 0, 0, "character", 1
+"dbplyr", "tbl_sql", 2, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "tbl_sql", 2, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "tbl_sql", 3, 0, 0, "...", 1
+"dbplyr", "tbl_sql", 4, 0, 0, "null", 1
+"dbplyr", "tbl.src_dbi", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "tbl.src_dbi", 0, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
+"dbplyr", "tbl.src_dbi", 1, 0, 0, "character", 1
+"dbplyr", "tbl.src_dbi", 1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "tbl.src_dbi", 1, 0, 2, "class<`character`, `sql`>", 1
+"dbplyr", "tbl.src_dbi", 2, 0, 0, "...", 1
+"dbplyr", "tbl_vars.tbl_lazy", -1, 0, 0, "character[]", 1
+"dbplyr", "tbl_vars.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "translate_sql", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "translate_sql", 0, 0, 0, "...", 1
+"dbplyr", "translate_sql", 1, 0, 0, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
+"dbplyr", "translate_sql", 1, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
+"dbplyr", "translate_sql", 1, 0, 2, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
+"dbplyr", "translate_sql", 1, 0, 3, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "translate_sql", 1, 0, 4, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
+"dbplyr", "translate_sql", 2, 0, 0, "any", 1
+"dbplyr", "translate_sql", 3, 0, 0, "null", 1
+"dbplyr", "translate_sql", 3, 0, 1, "character", 1
+"dbplyr", "translate_sql", 4, 0, 0, "null", 1
+"dbplyr", "translate_sql", 4, 0, 1, "character", 1
+"dbplyr", "translate_sql", 5, 0, 0, "null", 1
+"dbplyr", "translate_sql", 6, 0, 0, "logical", 1
+"dbplyr", "translate_sql_", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "translate_sql_", 0, 0, 0, "class<`list`, `quosures`>", 1
+"dbplyr", "translate_sql_", 0, 0, 1, "null", 1
+"dbplyr", "translate_sql_", 0, 0, 2, "list<any>", 1
+"dbplyr", "translate_sql_", 1, 0, 0, "any", 1
+"dbplyr", "translate_sql_", 2, 0, 0, "any", 1
+"dbplyr", "translate_sql_", 3, 0, 0, "any", 1
+"dbplyr", "translate_sql_", 4, 0, 0, "any", 1
+"dbplyr", "translate_sql_", 5, 0, 0, "logical", 1
+"dbplyr", "translate_sql_", 6, 0, 0, "any", 1
+"dbplyr", "transmute.tbl_lazy", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "transmute.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
+"dbplyr", "transmute.tbl_lazy", 1, 0, 0, "...", 1
+"dbplyr", "unique_name", -1, 0, 0, "character", 1
+"dbplyr", "unique_table_name", -1, 0, 0, "character", 1
+"dbplyr", "uses_window_fun", -1, 0, 0, "logical", 1
+"dbplyr", "uses_window_fun", 0, 0, 0, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "uses_window_fun", 1, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "win_aggregate", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "win_aggregate", 0, 0, 0, "character", 1
+"dbplyr", "win_aggregate_2", -1, 0, 0, "class<`function`>", 1
+"dbplyr", "win_aggregate_2", 0, 0, 0, "character", 1
+"dbplyr", "win_current_frame", -1, 0, 0, "(double[] | null)", 1
+"dbplyr", "win_current_group", -1, 0, 0, "(character[] | null)", 1
+"dbplyr", "win_current_order", -1, 0, 0, "(character | class<`character`, `sql`> | null)", 1
+"dbplyr", "window_frame", -1, 0, 0, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "window_frame", 0, 0, 0, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "window_frame", 1, 0, 0, "double", 1
+"dbplyr", "window_frame", 2, 0, 0, "double", 1
+"dbplyr", "window_order", -1, 0, 0, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "window_order", 0, 0, 0, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
+"dbplyr", "window_order", 1, 0, 0, "...", 1
+"dbplyr", "win_over", -1, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "win_over", 0, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "win_over", 1, 0, 0, "character[]", 1
+"dbplyr", "win_over", 1, 0, 1, "null", 1
+"dbplyr", "win_over", 2, 0, 0, "class<`character`, `sql`>", 1
+"dbplyr", "win_over", 2, 0, 1, "null", 1
+"dbplyr", "win_over", 2, 0, 2, "character[]", 1
+"dbplyr", "win_over", 3, 0, 0, "double[]", 1
+"dbplyr", "win_over", 3, 0, 1, "null", 1
+"dbplyr", "win_over", 4, 0, 0, "class<`DBIConnection`, `TestConnection`>", 1
+"dbplyr", "with_transaction", -1, 0, 0, "logical", 1
+"dbplyr", "with_transaction", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"dbplyr", "with_transaction", 1, 0, 0, "integer", 1

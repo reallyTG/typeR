@@ -1,18 +1,311 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"statnet.common", "filter", -1, 0, 0, "logical[]", 1
-"statnet.common", "filter", 0, 0, 0, "character[]", 1
-"statnet.common", "-.rle", -1, 0, 0, "struct<`lengths`:integer[], `values`:double[]>", 1
-"statnet.common", "-.rle", 0, 0, 0, "struct<`lengths`:integer[], `values`:double[]>", 1
-"statnet.common", "-.rle", 1, 0, 0, "null", 1
-"statnet.common", "-.rle", 1, 0, 1, "struct<`lengths`:integer[], `values`:double[]>", 1
-"statnet.common", "!.rle", -1, 0, 0, "struct<`lengths`:integer[], `values`:logical[]>", 1
-"statnet.common", "!.rle", 0, 0, 0, "struct<`lengths`:integer[], `values`:logical[]>", 1
-"statnet.common", "!=.rle", -1, 0, 0, "struct<`lengths`:integer[], `values`:logical[]>", 1
-"statnet.common", "!=.rle", 0, 0, 0, "struct<`lengths`:integer[], `values`:double[]>", 1
-"statnet.common", "!=.rle", 1, 0, 0, "struct<`lengths`:integer[], `values`:double[]>", 1
+"statnet.common", "all_identical", -1, 0, 0, "logical", 1
+"statnet.common", "all_identical", 0, 0, 0, "integer[]", 1
+"statnet.common", "all_identical", 0, 0, 1, "list<character>", 1
+"statnet.common", "all.rle", -1, 0, 0, "logical", 1
+"statnet.common", "all.rle", 0, 0, 0, "...", 1
+"statnet.common", "all.rle", 1, 0, 0, "logical", 1
+"statnet.common", "any.rle", -1, 0, 0, "logical", 1
+"statnet.common", "any.rle", 0, 0, 0, "...", 1
+"statnet.common", "any.rle", 1, 0, 0, "logical", 1
+"statnet.common", "append_rhs.formula", -1, 0, 0, "class<`formula`>", 1
+"statnet.common", "append_rhs.formula", 0, 0, 0, "class<`formula`>", 1
+"statnet.common", "append_rhs.formula", 1, 0, 0, "class<`formula`>", 1
+"statnet.common", "append_rhs.formula", 1, 0, 1, "list<class<`name`>>", 1
+"statnet.common", "append_rhs.formula", 2, 0, 0, "logical", 1
+"statnet.common", "as.linwmatrix", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.linwmatrix", 0, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.linwmatrix", 0, 0, 1, "class<`matrix`>", 1
+"statnet.common", "as.linwmatrix", 1, 0, 0, "...", 1
+"statnet.common", "as.linwmatrix.logwmatrix", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.linwmatrix.logwmatrix", 0, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.linwmatrix.logwmatrix", 1, 0, 0, "...", 1
+"statnet.common", "as.linwmatrix.matrix", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.linwmatrix.matrix", 0, 0, 0, "class<`matrix`>", 1
+"statnet.common", "as.linwmatrix.matrix", 1, 0, 0, "null", 1
+"statnet.common", "as.linwmatrix.matrix", 2, 0, 0, "...", 1
+"statnet.common", "as.logwmatrix", -1, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.logwmatrix", 0, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.logwmatrix", 0, 0, 1, "class<`matrix`>", 1
+"statnet.common", "as.logwmatrix", 1, 0, 0, "...", 1
+"statnet.common", "as.logwmatrix.linwmatrix", -1, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.logwmatrix.linwmatrix", 0, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.logwmatrix.linwmatrix", 1, 0, 0, "...", 1
+"statnet.common", "as.logwmatrix.matrix", -1, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "as.logwmatrix.matrix", 0, 0, 0, "class<`matrix`>", 1
+"statnet.common", "as.logwmatrix.matrix", 1, 0, 0, "null", 1
+"statnet.common", "as.logwmatrix.matrix", 2, 0, 0, "...", 1
+"statnet.common", "as.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "as.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "as.rle.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "as.rle.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "binop.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "binop.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "binop.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "binop.rle", 2, 0, 0, "class<`function`>", 1
 "statnet.common", ".check_lengths", -1, 0, 0, "null", 1
-"statnet.common", ".check_lengths", 0, 0, 0, "struct<`lengths`:integer[], `values`:double[]>", 1
-"statnet.common", ".check_lengths", 1, 0, 0, "struct<`lengths`:integer[], `values`:double[]>", 1
-"statnet.common", ".Deprecate_method", -1, 0, 0, "null", 1
+"statnet.common", ".check_lengths", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", ".check_lengths", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "colMeans.mcmc.list", -1, 0, 0, "double[]", 1
+"statnet.common", "colMeans.mcmc.list", 0, 0, 0, "class<`mcmc.list`>", 1
+"statnet.common", "colMeans.mcmc.list", 1, 0, 0, "...", 1
+"statnet.common", "compact.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "compact.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "compress.data.frame", -1, 0, 0, "list<class<`data.frame`> | double[] | character[]>", 1
+"statnet.common", "compress.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"statnet.common", "compress_rows", -1, 0, 0, "(class<`linwmatrix`, `matrix`, `wmatrix`> | class<`logwmatrix`, `matrix`, `wmatrix`>)", 1
+"statnet.common", "compress_rows", 0, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "compress_rows", 0, 0, 1, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "compress_rows", 1, 0, 0, "...", 1
+"statnet.common", "compress_rows.linwmatrix", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "compress_rows.linwmatrix", 0, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "compress_rows.linwmatrix", 1, 0, 0, "...", 1
+"statnet.common", "compress_rows.logwmatrix", -1, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "compress_rows.logwmatrix", 0, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "compress_rows.logwmatrix", 1, 0, 0, "...", 1
+"statnet.common", "control.remap", -1, 0, 0, "class<`control.list`, `list`, `test`>", 1
+"statnet.common", "control.remap", 0, 0, 0, "class<`control.list`, `list`, `test`>", 1
+"statnet.common", "control.remap", 1, 0, 0, "character", 1
+"statnet.common", "control.remap", 2, 0, 0, "character", 1
+"statnet.common", "c.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "c.rle", 0, 0, 0, "...", 1
+"statnet.common", "decompress.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"statnet.common", "decompress.data.frame", 0, 0, 0, "list<class<`data.frame`> | double[] | character[]>", 1
+"statnet.common", ".Deprecate_method", -1, 0, 0, "(character | null)", 1
 "statnet.common", ".Deprecate_method", 0, 0, 0, "character", 1
 "statnet.common", ".Deprecate_method", 1, 0, 0, "character", 1
+"statnet.common", ".Deprecate_once", -1, 0, 0, "(character | null)", 1
+"statnet.common", ".Deprecate_once", 0, 0, 0, "...", 1
+"statnet.common", "despace", -1, 0, 0, "character", 1
+"statnet.common", "despace", 0, 0, 0, "character", 1
+"statnet.common", "ERRVL", -1, 0, 0, "double", 1
+"statnet.common", "ERRVL", 0, 0, 0, "...", 1
+"statnet.common", "eval_lhs.formula", -1, 0, 0, "double", 1
+"statnet.common", "eval_lhs.formula", 0, 0, 0, "class<`formula`>", 1
+"statnet.common", "EVL", -1, 0, 0, "double", 1
+"statnet.common", "EVL", 0, 0, 0, "...", 1
+"statnet.common", "filter_rhs.formula", -1, 0, 0, "class<`formula`>", 1
+"statnet.common", "filter_rhs.formula", 0, 0, 0, "class<`formula`>", 1
+"statnet.common", "filter_rhs.formula", 1, 0, 0, "class<`function`>", 1
+"statnet.common", "filter_rhs.formula", 2, 0, 0, "...", 1
+"statnet.common", "forkTimeout", -1, 0, 0, "(logical | null)", 1
+"statnet.common", "forkTimeout", 0, 0, 0, "any", 1
+"statnet.common", "forkTimeout", 1, 0, 0, "double", 1
+"statnet.common", "forkTimeout", 2, 0, 0, "any", 1
+"statnet.common", "forkTimeout", 3, 0, 0, "null", 1
+"statnet.common", "FUN", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "FUN", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "is.na.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "is.na.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "lapply.mcmc.list", -1, 0, 0, "class<`mcmc.list`>", 1
+"statnet.common", "lapply.mcmc.list", 0, 0, 0, "class<`mcmc.list`>", 1
+"statnet.common", "lapply.mcmc.list", 1, 0, 0, "class<`function`>", 1
+"statnet.common", "lapply.mcmc.list", 2, 0, 0, "...", 1
+"statnet.common", "length.rle", -1, 0, 0, "double", 1
+"statnet.common", "length.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "list_rhs.formula", -1, 0, 0, "list<class<`name`>>", 1
+"statnet.common", "list_rhs.formula", 0, 0, 0, "class<`formula`>", 1
+"statnet.common", "log_mean_exp", -1, 0, 0, "double", 1
+"statnet.common", "log_mean_exp", 0, 0, 0, "double[]", 1
+"statnet.common", "log_mean_exp", 1, 0, 0, "logical", 1
+"statnet.common", "log_sum_exp", -1, 0, 0, "double", 1
+"statnet.common", "log_sum_exp", 0, 0, 0, "double[]", 1
+"statnet.common", "log_sum_exp", 1, 0, 0, "logical", 1
+"statnet.common", "lweighted.mean", -1, 0, 0, "double[]", 1
+"statnet.common", "lweighted.mean", 0, 0, 0, "class<`matrix`>", 1
+"statnet.common", "lweighted.mean", 0, 0, 1, "double[]", 1
+"statnet.common", "lweighted.mean", 1, 0, 0, "double[]", 1
+"statnet.common", "lweighted.var", -1, 0, 0, "(class<`matrix`> | double)", 1
+"statnet.common", "lweighted.var", 0, 0, 0, "class<`matrix`>", 1
+"statnet.common", "lweighted.var", 0, 0, 1, "double[]", 1
+"statnet.common", "lweighted.var", 1, 0, 0, "double[]", 1
+"statnet.common", "mean.rle", -1, 0, 0, "double", 1
+"statnet.common", "mean.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "mean.rle", 1, 0, 0, "logical", 1
+"statnet.common", "mean.rle", 2, 0, 0, "...", 1
+"statnet.common", "message_print", -1, 0, 0, "null", 1
+"statnet.common", "message_print", 0, 0, 0, "...", 1
+"statnet.common", "message_print", 1, 0, 0, "null", 1
+"statnet.common", "NVL", -1, 0, 0, "(class<`name`> | double[] | null)", 1
+"statnet.common", "NVL", 0, 0, 0, "...", 1
+"statnet.common", "NVL<-", -1, 0, 0, "double", 1
+"statnet.common", "NVL<-", 0, 0, 0, "double", 1
+"statnet.common", "NVL<-", 0, 0, 1, "null", 1
+"statnet.common", "NVL<-", 1, 0, 0, "double", 1
+"statnet.common", "NVL2", -1, 0, 0, "character", 1
+"statnet.common", "NVL2", 0, 0, 0, "double", 1
+"statnet.common", "NVL2", 0, 0, 1, "null", 1
+"statnet.common", "NVL2", 1, 0, 0, "character", 1
+"statnet.common", "NVL2", 2, 0, 0, "character", 1
+"statnet.common", "NVL3", -1, 0, 0, "(character | double)", 1
+"statnet.common", "NVL3", 0, 0, 0, "null", 1
+"statnet.common", "NVL3", 0, 0, 1, "double", 1
+"statnet.common", "NVL3", 1, 0, 0, "any", 1
+"statnet.common", "NVL3", 2, 0, 0, "character", 1
+"statnet.common", "once", -1, 0, 0, "class<`function`>", 1
+"statnet.common", "once", 0, 0, 0, "any", 1
+"statnet.common", "once", 1, 0, 0, "double", 1
+"statnet.common", "once", 2, 0, 0, "double", 1
+"statnet.common", "order", -1, 0, 0, "integer[]", 1
+"statnet.common", "order", 0, 0, 0, "...", 1
+"statnet.common", "order", 1, 0, 0, "logical", 1
+"statnet.common", "order", 2, 0, 0, "logical", 1
+"statnet.common", "order.data.frame", -1, 0, 0, "integer[]", 1
+"statnet.common", "order.data.frame", 0, 0, 0, "...", 1
+"statnet.common", "order.data.frame", 1, 0, 0, "logical", 1
+"statnet.common", "order.data.frame", 2, 0, 0, "logical", 1
+"statnet.common", "order.default", -1, 0, 0, "integer[]", 1
+"statnet.common", "order.default", 0, 0, 0, "...", 1
+"statnet.common", "order.default", 1, 0, 0, "logical", 1
+"statnet.common", "order.default", 2, 0, 0, "logical", 1
+"statnet.common", "order.matrix", -1, 0, 0, "integer[]", 1
+"statnet.common", "order.matrix", 0, 0, 0, "...", 1
+"statnet.common", "order.matrix", 1, 0, 0, "logical", 1
+"statnet.common", "order.matrix", 2, 0, 0, "logical", 1
+"statnet.common", "paste.and", -1, 0, 0, "character", 1
+"statnet.common", "paste.and", 0, 0, 0, "double", 1
+"statnet.common", "paste.and", 0, 0, 1, "integer[]", 1
+"statnet.common", "paste.and", 0, 0, 2, "null", 1
+"statnet.common", "paste.and", 1, 0, 0, "character", 1
+"statnet.common", "paste.and", 2, 0, 0, "character", 1
+"statnet.common", "paste.and", 3, 0, 0, "character", 1
+"statnet.common", "persistEval", -1, 0, 0, "double", 1
+"statnet.common", "persistEval", 0, 0, 0, "class<`{`>", 1
+"statnet.common", "persistEval", 0, 0, 1, "class<`if`>", 1
+"statnet.common", "persistEval", 1, 0, 0, "double", 1
+"statnet.common", "persistEval", 2, 0, 0, "class<`{`>", 1
+"statnet.common", "persistEval", 2, 0, 1, "class<`call`>", 1
+"statnet.common", "persistEval", 3, 0, 0, "environment", 1
+"statnet.common", "persistEval", 4, 0, 0, "environment", 1
+"statnet.common", "persistEval", 5, 0, 0, "logical", 1
+"statnet.common", "persistEvalQ", -1, 0, 0, "double", 1
+"statnet.common", "persistEvalQ", 0, 0, 0, "any", 1
+"statnet.common", "persistEvalQ", 1, 0, 0, "double", 1
+"statnet.common", "persistEvalQ", 2, 0, 0, "any", 1
+"statnet.common", "persistEvalQ", 3, 0, 0, "environment", 1
+"statnet.common", "persistEvalQ", 4, 0, 0, "environment", 1
+"statnet.common", "persistEvalQ", 5, 0, 0, "logical", 1
+"statnet.common", ".recurse_summation", -1, 0, 0, "list<class<`name`>>", 1
+"statnet.common", ".recurse_summation", 0, 0, 0, "class<`call`>", 1
+"statnet.common", ".recurse_summation", 0, 0, 1, "class<`name`>", 1
+"statnet.common", ".recurse_summation", 1, 0, 0, "double", 1
+"statnet.common", "rep.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "rep.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "rep.rle", 1, 0, 0, "...", 1
+"statnet.common", "rep.rle", 2, 0, 0, "character", 1
+"statnet.common", "rep.rle", 3, 0, 0, "logical", 1
+"statnet.common", "^.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "^.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "^.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "<=.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "<=.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "<=.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "<.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "<.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "<.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "==.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "==.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "==.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", ">=.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", ">=.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", ">=.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", ">.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", ">.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", ">.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "|.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "|.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "|.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "-.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "-.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "-.rle", 1, 0, 0, "any", 1
+"statnet.common", "!=.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "!=.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "!=.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "!.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "!.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "/.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "/.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "/.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "*.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "*.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "*.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "&.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "&.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "&.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "%/%.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "%/%.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "%/%.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "%%.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "%%.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "%%.rle", 1, 0, 0, "class<`rle`>", 1
+"statnet.common", "+.rle", -1, 0, 0, "class<`rle`>", 1
+"statnet.common", "+.rle", 0, 0, 0, "class<`rle`>", 1
+"statnet.common", "+.rle", 1, 0, 0, "any", 1
+"statnet.common", "rowweights", -1, 0, 0, "double[]", 1
+"statnet.common", "rowweights", 0, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "rowweights", 1, 0, 0, "...", 1
+"statnet.common", "rowweights<-", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "rowweights<-", 0, 0, 0, "class<`matrix`>", 1
+"statnet.common", "rowweights<-", 1, 0, 0, "...", 1
+"statnet.common", "rowweights<-", 2, 0, 0, "double[]", 1
+"statnet.common", "rowweights.logwmatrix", -1, 0, 0, "double[]", 1
+"statnet.common", "rowweights.logwmatrix", 0, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "rowweights.logwmatrix", 1, 0, 0, "...", 1
+"statnet.common", "rowweights<-.matrix", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "rowweights<-.matrix", 0, 0, 0, "class<`matrix`>", 1
+"statnet.common", "rowweights<-.matrix", 1, 0, 0, "...", 1
+"statnet.common", "rowweights<-.matrix", 2, 0, 0, "double[]", 1
+"statnet.common", ".run_mul", -1, 0, 0, "integer[]", 1
+"statnet.common", ".run_mul", 0, 0, 0, "integer", 1
+"statnet.common", ".run_mul", 1, 0, 0, "integer", 1
+"statnet.common", "set.control.class", -1, 0, 0, "class<`control.list`, `list`, `test`>", 1
+"statnet.common", "set.control.class", 0, 0, 0, "character", 1
+"statnet.common", "set.control.class", 1, 0, 0, "list<double>", 1
+"statnet.common", "sort.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"statnet.common", "sort.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"statnet.common", "sort.data.frame", 1, 0, 0, "logical", 1
+"statnet.common", "sort.data.frame", 2, 0, 0, "...", 1
+"statnet.common", "sum.rle", -1, 0, 0, "double", 1
+"statnet.common", "sum.rle", 0, 0, 0, "...", 1
+"statnet.common", "sum.rle", 1, 0, 0, "logical", 1
+"statnet.common", "sweep_cols.matrix", -1, 0, 0, "class<`matrix`>", 1
+"statnet.common", "sweep_cols.matrix", 0, 0, 0, "class<`matrix`>", 1
+"statnet.common", "sweep_cols.matrix", 1, 0, 0, "double[]", 1
+"statnet.common", "sweep_cols.matrix", 2, 0, 0, "logical", 1
+"statnet.common", "sweep.mcmc.list", -1, 0, 0, "class<`mcmc.list`>", 1
+"statnet.common", "sweep.mcmc.list", 0, 0, 0, "class<`mcmc.list`>", 1
+"statnet.common", "sweep.mcmc.list", 1, 0, 0, "integer[]", 1
+"statnet.common", "sweep.mcmc.list", 2, 0, 0, "character", 1
+"statnet.common", "sweep.mcmc.list", 3, 0, 0, "logical", 1
+"statnet.common", "sweep.mcmc.list", 4, 0, 0, "...", 1
+"statnet.common", "ult", -1, 0, 0, "(character | class<`call`> | integer)", 1
+"statnet.common", "ult", 0, 0, 0, "character[]", 1
+"statnet.common", "ult", 0, 0, 1, "class<`formula`>", 1
+"statnet.common", "ult", 0, 0, 2, "integer[]", 1
+"statnet.common", "ult", 1, 0, 0, "double", 1
+"statnet.common", "ult<-", -1, 0, 0, "(class<`formula`> | double[])", 1
+"statnet.common", "ult<-", 0, 0, 0, "class<`formula`>", 1
+"statnet.common", "ult<-", 0, 0, 1, "double[]", 1
+"statnet.common", "ult<-", 1, 0, 0, "double", 1
+"statnet.common", "ult<-", 2, 0, 0, "class<`call`>", 1
+"statnet.common", "ult<-", 2, 0, 1, "double", 1
+"statnet.common", "unwhich", -1, 0, 0, "logical[]", 1
+"statnet.common", "unwhich", 0, 0, 0, "integer[]", 1
+"statnet.common", "unwhich", 1, 0, 0, "double", 1
+"statnet.common", "vector.namesmatch", -1, 0, 0, "list<double>", 1
+"statnet.common", "vector.namesmatch", 0, 0, 0, "list<double>", 1
+"statnet.common", "vector.namesmatch", 1, 0, 0, "character[]", 1
+"statnet.common", "vector.namesmatch", 2, 0, 0, "null", 1
+"statnet.common", "[<-.wmatrix", -1, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "[<-.wmatrix", 0, 0, 0, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "[<-.wmatrix", 1, 0, 0, "double", 1
+"statnet.common", "[<-.wmatrix", 2, 0, 0, "any", 1
+"statnet.common", "[<-.wmatrix", 3, 0, 0, "...", 1
+"statnet.common", "[<-.wmatrix", 4, 0, 0, "integer[]", 1
+"statnet.common", "[.wmatrix", -1, 0, 0, "(class<`linwmatrix`, `matrix`, `wmatrix`> | class<`logwmatrix`, `matrix`, `wmatrix`>)", 1
+"statnet.common", "[.wmatrix", 0, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "[.wmatrix", 0, 0, 1, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "[.wmatrix", 1, 0, 0, "any", 1
+"statnet.common", "[.wmatrix", 2, 0, 0, "any", 1
+"statnet.common", "[.wmatrix", 3, 0, 0, "...", 1
+"statnet.common", "[.wmatrix", 4, 0, 0, "logical", 1

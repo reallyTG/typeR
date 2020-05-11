@@ -1,16 +1,27 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"prettycode", "::", -1, 0, 0, "character[]", 1
-"prettycode", "::", 0, 0, 0, "character[]", 1
-"prettycode", "::", 1, 0, 0, "struct<`reserved`:any => any, `number`:any => any, `null`:any => any, `operator`:any => any, `call`:any => any, `string`:any => any, `comment`:any => any>", 1
-"prettycode", "default_style", -1, 0, 0, "struct<`reserved`:any => any, `number`:any => any, `null`:any => any, `operator`:any => any, `call`:any => any, `string`:any => any, `comment`:any => any>", 1
+"prettycode", "apply_color", -1, 0, 0, "character", 1
+"prettycode", "apply_color", 0, 0, 0, "character", 1
+"prettycode", "apply_color", 1, 0, 0, "double", 1
+"prettycode", "apply_color", 2, 0, 0, "list<class<`crayon`>>", 1
+"prettycode", "bracket_tokens", -1, 0, 0, "character[]", 1
+"prettycode", "close_brackets", -1, 0, 0, "character[]", 1
+"prettycode", "color_brackets", -1, 0, 0, "character[]", 1
+"prettycode", "color_brackets", 0, 0, 0, "character[]", 1
+"prettycode", "color_brackets", 1, 0, 0, "list<class<`crayon`>>", 1
+"prettycode", "default_style", -1, 0, 0, "list<class<`crayon`> | list<class<`crayon`>>>", 1
+"prettycode", "default_style_term", -1, 0, 0, "list<class<`crayon`> | list<class<`crayon`>>>", 1
 "prettycode", "do_subst", -1, 0, 0, "character[]", 1
 "prettycode", "do_subst", 0, 0, 0, "character[]", 1
-"prettycode", "do_subst", 1, 0, 0, "struct<`line1`:integer[], `col1`:integer[], `line2`:integer[], `col2`:integer[], `id`:integer[], `parent`:integer[], `token`:character[], `terminal`:logical[], `text`:character[]>", 1
+"prettycode", "do_subst", 1, 0, 0, "class<`data.frame`>", 1
 "prettycode", "do_subst", 2, 0, 0, "character[]", 1
 "prettycode", "filter", -1, 0, 0, "logical[]", 1
 "prettycode", "filter", 0, 0, 0, "character[]", 1
 "prettycode", "FUN", -1, 0, 0, "character", 1
 "prettycode", "FUN", 0, 0, 0, "integer", 1
+"prettycode", "highlight", -1, 0, 0, "character[]", 1
+"prettycode", "highlight", 0, 0, 0, "character[]", 1
+"prettycode", "highlight", 1, 0, 0, "list<class<`crayon`> | list<class<`crayon`>>>", 1
+"prettycode", "open_brackets", -1, 0, 0, "character[]", 1
 "prettycode", "operator_tokens", -1, 0, 0, "character[]", 1
 "prettycode", "replace_in_place", -1, 0, 0, "character", 1
 "prettycode", "replace_in_place", 0, 0, 0, "character", 1
@@ -18,9 +29,3 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "prettycode", "replace_in_place", 2, 0, 0, "integer[]", 1
 "prettycode", "replace_in_place", 3, 0, 0, "character[]", 1
 "prettycode", "reserved_words", -1, 0, 0, "character[]", 1
-"prettycode", "fun", -1, 0, 0, "environment", 1
-"prettycode", "fun", 0, 0, 0, "symbol", 1
-"prettycode", "fun", 1, 0, 0, "symbol", 1
-"prettycode", "highlight", -1, 0, 0, "character[]", 1
-"prettycode", "highlight", 0, 0, 0, "character[]", 1
-"prettycode", "highlight", 1, 0, 0, "struct<`reserved`:any => any, `number`:any => any, `null`:any => any, `operator`:any => any, `call`:any => any, `string`:any => any, `comment`:any => any>", 1

@@ -1,4 +1,551 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"plyr", "as.quoted.character", -1, 0, 0, "tuple<symbol>", 1
+"plyr", ".", -1, 0, 0, "class<`quoted`>", 1
+"plyr", ".", 0, 0, 0, "...", 1
+"plyr", ".", 1, 0, 0, "environment", 1
+"plyr", "aaply", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "aaply", 0, 0, 0, "class<`array`>", 1
+"plyr", "aaply", 0, 0, 1, "class<`data.frame`>", 1
+"plyr", "aaply", 1, 0, 0, "double[]", 1
+"plyr", "aaply", 2, 0, 0, "class<`function`>", 1
+"plyr", "aaply", 3, 0, 0, "...", 1
+"plyr", "aaply", 4, 0, 0, "logical", 1
+"plyr", "aaply", 5, 0, 0, "character", 1
+"plyr", "aaply", 6, 0, 0, "logical", 1
+"plyr", "aaply", 7, 0, 0, "logical", 1
+"plyr", "aaply", 8, 0, 0, "logical", 1
+"plyr", "aaply", 9, 0, 0, "any", 1
+"plyr", "adply", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "adply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "adply", 1, 0, 0, "double", 1
+"plyr", "adply", 2, 0, 0, "class<`function`>", 1
+"plyr", "adply", 3, 0, 0, "...", 1
+"plyr", "adply", 4, 0, 0, "logical", 1
+"plyr", "adply", 5, 0, 0, "character", 1
+"plyr", "adply", 6, 0, 0, "logical", 1
+"plyr", "adply", 7, 0, 0, "logical", 1
+"plyr", "adply", 8, 0, 0, "any", 1
+"plyr", "adply", 9, 0, 0, "null", 1
+"plyr", "allocate_column", -1, 0, 0, "list<class<`function`>>", 1
+"plyr", "allocate_column", 0, 0, 0, "character[]", 1
+"plyr", "allocate_column", 0, 0, 1, "double[]", 1
+"plyr", "allocate_column", 0, 0, 2, "^integer[]", 1
+"plyr", "allocate_column", 1, 0, 0, "integer", 1
+"plyr", "allocate_column", 2, 0, 0, "any", 1
+"plyr", "allocate_column", 3, 0, 0, "any", 1
+"plyr", "alply", -1, 0, 0, "list<class<`lm`> | class<`table`> | double[]>", 1
+"plyr", "alply", 0, 0, 0, "class<`array`>", 1
+"plyr", "alply", 0, 0, 1, "class<`data.frame`>", 1
+"plyr", "alply", 1, 0, 0, "integer[]", 1
+"plyr", "alply", 1, 0, 1, "double", 1
+"plyr", "alply", 2, 0, 0, "class<`function`>", 1
+"plyr", "alply", 3, 0, 0, "...", 1
+"plyr", "alply", 4, 0, 0, "logical", 1
+"plyr", "alply", 5, 0, 0, "character", 1
+"plyr", "alply", 6, 0, 0, "logical", 1
+"plyr", "alply", 7, 0, 0, "logical", 1
+"plyr", "alply", 8, 0, 0, "any", 1
+"plyr", "alply", 9, 0, 0, "logical", 1
+"plyr", "amv_dim", -1, 0, 0, "integer[]", 1
+"plyr", "amv_dim", 0, 0, 0, "class<`array`>", 1
+"plyr", "amv_dim", 0, 0, 1, "class<`data.frame`>", 1
+"plyr", "amv_dim", 0, 0, 2, "class<`matrix`>", 1
+"plyr", "amv_dim", 0, 0, 3, "character", 1
+"plyr", "amv_dim", 0, 0, 4, "double[]", 1
+"plyr", "amv_dimnames", -1, 0, 0, "list<character[] | integer[] | character[] | integer[]>", 1
+"plyr", "amv_dimnames", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "amv_dimnames", 0, 0, 1, "double[]", 1
+"plyr", "amv_dimnames", 0, 0, 2, "class<`matrix`>", 1
+"plyr", "amv_dimnames", 0, 0, 3, "character", 1
+"plyr", "amv_dimnames", 0, 0, 4, "class<`array`>", 1
+"plyr", "arrange", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "arrange", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "arrange", 1, 0, 0, "...", 1
+"plyr", "as.data.frame.function", -1, 0, 0, "class<`function`>", 1
+"plyr", "as.data.frame.function", 0, 0, 0, "class<`function`>", 1
+"plyr", "as.data.frame.function", 1, 0, 0, "any", 1
+"plyr", "as.data.frame.function", 2, 0, 0, "any", 1
+"plyr", "as.data.frame.function", 3, 0, 0, "...", 1
+"plyr", "as.list.indexed", -1, 0, 0, "class<`list`, `split`>", 1
+"plyr", "as.list.indexed", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "as.list.indexed", 1, 0, 0, "...", 1
+"plyr", "as.quoted", -1, 0, 0, "class<`quoted`>", 1
+"plyr", "as.quoted", 0, 0, 0, "character[]", 1
+"plyr", "as.quoted", 0, 0, 1, "class<`formula`>", 1
+"plyr", "as.quoted", 0, 0, 2, "class<`quoted`>", 1
+"plyr", "as.quoted", 1, 0, 0, "any", 1
+"plyr", "as.quoted.character", -1, 0, 0, "class<`quoted`>", 1
 "plyr", "as.quoted.character", 0, 0, 0, "character[]", 1
 "plyr", "as.quoted.character", 1, 0, 0, "environment", 1
+"plyr", "as.quoted.formula", -1, 0, 0, "class<`quoted`>", 1
+"plyr", "as.quoted.formula", 0, 0, 0, "class<`formula`>", 1
+"plyr", "as.quoted.formula", 1, 0, 0, "environment", 1
+"plyr", "as.quoted.quoted", -1, 0, 0, "class<`quoted`>", 1
+"plyr", "as.quoted.quoted", 0, 0, 0, "class<`quoted`>", 1
+"plyr", "as.quoted.quoted", 1, 0, 0, "any", 1
+"plyr", "catcolwise", -1, 0, 0, "class<`function`>", 1
+"plyr", "catcolwise", 0, 0, 0, "any", 1
+"plyr", "catcolwise", 1, 0, 0, "...", 1
+"plyr", "cat_line", -1, 0, 0, "null", 1
+"plyr", "cat_line", 0, 0, 0, "...", 1
+"plyr", "colwise", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "colwise", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "colwise", 1, 0, 0, "...", 1
+"plyr", "colwise", -1, 1, 0, "class<`function`>", 1
+"plyr", "colwise", 0, 1, 0, "any", 1
+"plyr", "colwise", 1, 1, 0, "character[]", 1
+"plyr", "colwise", 1, 1, 1, "class<`formula`>", 1
+"plyr", "colwise", 1, 1, 2, "class<`function`>", 1
+"plyr", "colwise", 1, 1, 3, "class<`quoted`>", 1
+"plyr", "colwise", 2, 1, 0, "...", 1
+"plyr", "compact", -1, 0, 0, "list<class<`data.frame`>>", 1
+"plyr", "compact", 0, 0, 0, "list<class<`data.frame`>>", 1
+"plyr", "count", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "count", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "count", 1, 0, 0, "character[]", 1
+"plyr", "count", 2, 0, 0, "null", 1
+"plyr", "count", 2, 0, 1, "character", 1
+"plyr", "create_progress_bar", -1, 0, 0, "list<class<`function`>>", 1
+"plyr", "create_progress_bar", 0, 0, 0, "character", 1
+"plyr", "create_progress_bar", 0, 0, 1, "list<class<`function`>>", 1
+"plyr", "create_progress_bar", 1, 0, 0, "...", 1
+"plyr", "daply", -1, 0, 0, "(class<`matrix`> | integer[])", 1
+"plyr", "daply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "daply", 1, 0, 0, "class<`quoted`>", 1
+"plyr", "daply", 2, 0, 0, "class<`function`>", 1
+"plyr", "daply", 3, 0, 0, "...", 1
+"plyr", "daply", 4, 0, 0, "character", 1
+"plyr", "daply", 5, 0, 0, "logical", 1
+"plyr", "daply", 6, 0, 0, "logical", 1
+"plyr", "daply", 7, 0, 0, "logical", 1
+"plyr", "daply", 8, 0, 0, "logical", 1
+"plyr", "daply", 9, 0, 0, "null", 1
+"plyr", "ddply", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "ddply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "ddply", 1, 0, 0, "class<`quoted`>", 1
+"plyr", "ddply", 1, 0, 1, "character", 1
+"plyr", "ddply", 1, 0, 2, "class<`formula`>", 1
+"plyr", "ddply", 2, 0, 0, "class<`function`>", 1
+"plyr", "ddply", 2, 0, 1, "character[]", 1
+"plyr", "ddply", 3, 0, 0, "...", 1
+"plyr", "ddply", 4, 0, 0, "character", 1
+"plyr", "ddply", 5, 0, 0, "logical", 1
+"plyr", "ddply", 6, 0, 0, "logical", 1
+"plyr", "ddply", 7, 0, 0, "logical", 1
+"plyr", "ddply", 8, 0, 0, "null", 1
+"plyr", "desc", -1, 0, 0, "double[]", 1
+"plyr", "desc", 0, 0, 0, "class<`Date`>", 1
+"plyr", "desc", 0, 0, 1, "double[]", 1
+"plyr", "desc", 0, 0, 2, "class<`factor`>", 1
+"plyr", "dim.idf", -1, 0, 0, "integer[]", 1
+"plyr", "dim.idf", 0, 0, 0, "class<`environment`, `idf`>", 1
+"plyr", "dims", -1, 0, 0, "integer", 1
+"plyr", "dims", 0, 0, 0, "class<`array`>", 1
+"plyr", "dims", 0, 0, 1, "class<`data.frame`>", 1
+"plyr", "dims", 0, 0, 2, "class<`matrix`>", 1
+"plyr", "dims", 0, 0, 3, "character", 1
+"plyr", "dims", 0, 0, 4, "double[]", 1
+"plyr", "dlply", -1, 0, 0, "(class<`list`, `split`> | list<class<`data.frame`> | class<`lm`> | integer>)", 1
+"plyr", "dlply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "dlply", 0, 0, 1, "class<`environment`, `idf`>", 1
+"plyr", "dlply", 1, 0, 0, "character[]", 1
+"plyr", "dlply", 1, 0, 1, "class<`quoted`>", 1
+"plyr", "dlply", 2, 0, 0, "null", 1
+"plyr", "dlply", 2, 0, 1, "class<`function`>", 1
+"plyr", "dlply", 3, 0, 0, "...", 1
+"plyr", "dlply", 4, 0, 0, "character", 1
+"plyr", "dlply", 5, 0, 0, "logical", 1
+"plyr", "dlply", 6, 0, 0, "logical", 1
+"plyr", "dlply", 7, 0, 0, "logical", 1
+"plyr", "dlply", 8, 0, 0, "null", 1
+"plyr", "each", -1, 0, 0, "double[]", 1
+"plyr", "each", 0, 0, 0, "double[]", 1
+"plyr", "each", 1, 0, 0, "...", 1
+"plyr", "each", -1, 1, 0, "class<`function`>", 1
+"plyr", "each", 0, 1, 0, "...", 1
+"plyr", "empty", -1, 0, 0, "logical", 1
+"plyr", "empty", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "eval.quoted", -1, 0, 0, "list<any>", 1
+"plyr", "eval.quoted", 0, 0, 0, "class<`quoted`>", 1
+"plyr", "eval.quoted", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", "eval.quoted", 1, 0, 1, "class<`environment`, `idf`>", 1
+"plyr", "eval.quoted", 2, 0, 0, "null", 1
+"plyr", "eval.quoted", 3, 0, 0, "logical", 1
+"plyr", "extract_rows", -1, 0, 0, "(class<`data.frame`> | class<`environment`, `idf`>)", 1
+"plyr", "extract_rows", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "extract_rows", 0, 0, 1, "class<`environment`, `idf`>", 1
+"plyr", "extract_rows", 1, 0, 0, "integer[]", 1
+"plyr", "f", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "f", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "f", 1, 0, 0, "...", 1
+"plyr", "f", -1, 1, 0, "double[]", 1
+"plyr", "f", 0, 1, 0, "double[]", 1
+"plyr", "f", 1, 1, 0, "...", 1
+"plyr", "failwith", -1, 0, 0, "class<`function`>", 1
+"plyr", "failwith", 0, 0, 0, "null", 1
+"plyr", "failwith", 1, 0, 0, "class<`function`>", 1
+"plyr", "failwith", 2, 0, 0, "logical", 1
+"plyr", ".fun", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", ".fun", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", ".fun", 1, 0, 0, "...", 1
+"plyr", ".fun", -1, 1, 0, "(class<`data.frame`> | double[])", 1
+"plyr", ".fun", 0, 1, 0, "class<`data.frame`>", 1
+"plyr", ".fun", 1, 1, 0, "...", 1
+"plyr", ".fun", -1, 2, 0, "class<`data.frame`>", 1
+"plyr", ".fun", 0, 2, 0, "class<`data.frame`>", 1
+"plyr", ".fun", 1, 2, 0, "...", 1
+"plyr", "FUN", -1, 0, 0, "integer[]", 1
+"plyr", "FUN", 0, 0, 0, "class<`array`>", 1
+"plyr", "FUN", 0, 0, 1, "class<`data.frame`>", 1
+"plyr", "FUN", 0, 0, 2, "class<`matrix`>", 1
+"plyr", "FUN", 0, 0, 3, "character", 1
+"plyr", "FUN", 0, 0, 4, "double[]", 1
+"plyr", "FUN", -1, 1, 0, "integer", 1
+"plyr", "FUN", 0, 1, 0, "class<`array`>", 1
+"plyr", "FUN", 0, 1, 1, "class<`data.frame`>", 1
+"plyr", "FUN", 0, 1, 2, "class<`matrix`>", 1
+"plyr", "FUN", 0, 1, 3, "character", 1
+"plyr", "FUN", 0, 1, 4, "double[]", 1
+"plyr", "FUN", -1, 2, 0, "integer[]", 1
+"plyr", "FUN", 0, 2, 0, "character[]", 1
+"plyr", "FUN", 0, 2, 1, "class<`factor`>", 1
+"plyr", "FUN", 0, 2, 2, "^double[]", 1
+"plyr", "FUN", 1, 2, 0, "any", 1
+"plyr", "id", -1, 0, 0, "integer[]", 1
+"plyr", "id", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "id", 0, 0, 1, "list<class<`factor`> | ^double[] | character[]>", 1
+"plyr", "id", 1, 0, 0, "any", 1
+"plyr", "idata.frame", -1, 0, 0, "class<`environment`, `idf`>", 1
+"plyr", "idata.frame", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "[.idf", -1, 0, 0, "class<`environment`, `idf`>", 1
+"plyr", "[.idf", 0, 0, 0, "class<`environment`, `idf`>", 1
+"plyr", "[.idf", 1, 0, 0, "integer[]", 1
+"plyr", "[.idf", 2, 0, 0, "any", 1
+"plyr", "[.idf", 3, 0, 0, "logical", 1
+"plyr", "id_var", -1, 0, 0, "integer[]", 1
+"plyr", "id_var", 0, 0, 0, "character[]", 1
+"plyr", "id_var", 0, 0, 1, "class<`factor`>", 1
+"plyr", "id_var", 0, 0, 2, "^double[]", 1
+"plyr", "id_var", 1, 0, 0, "any", 1
+"plyr", "[[.indexed_array", -1, 0, 0, "(class<`data.frame`> | class<`matrix`> | double[])", 1
+"plyr", "[[.indexed_array", 0, 0, 0, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
+"plyr", "[[.indexed_array", 1, 0, 0, "integer", 1
+"plyr", "indexed_array", -1, 0, 0, "class<`indexed`, `indexed_array`>", 1
+"plyr", "indexed_array", 0, 0, 0, "environment", 1
+"plyr", "indexed_array", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", "[[.indexed_df", -1, 0, 0, "(class<`data.frame`> | class<`environment`, `idf`>)", 1
+"plyr", "[[.indexed_df", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "[[.indexed_df", 1, 0, 0, "integer", 1
+"plyr", "indexed_df", -1, 0, 0, "class<`indexed`, `indexed_df`>", 1
+"plyr", "indexed_df", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "indexed_df", 0, 0, 1, "class<`environment`, `idf`>", 1
+"plyr", "indexed_df", 1, 0, 0, "list<integer[]>", 1
+"plyr", "indexed_df", 2, 0, 0, "character[]", 1
+"plyr", "is.discrete", -1, 0, 0, "logical", 1
+"plyr", "is.discrete", 0, 0, 0, "character[]", 1
+"plyr", "is.discrete", 0, 0, 1, "class<`factor`>", 1
+"plyr", "is.discrete", 0, 0, 2, "integer[]", 1
+"plyr", "is.quoted", -1, 0, 0, "logical", 1
+"plyr", "is.quoted", 0, 0, 0, "class<`quoted`>", 1
+"plyr", "join", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "join", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "join", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", "join", 2, 0, 0, "character", 1
+"plyr", "join", 2, 0, 1, "null", 1
+"plyr", "join", 3, 0, 0, "character", 1
+"plyr", "join", 4, 0, 0, "character", 1
+"plyr", ".join_all", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", ".join_all", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", ".join_all", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", ".join_all", 2, 0, 0, "character", 1
+"plyr", ".join_all", 3, 0, 0, "character", 1
+"plyr", "join_all", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "join_all", 0, 0, 0, "list<class<`data.frame`>>", 1
+"plyr", "join_all", 1, 0, 0, "character", 1
+"plyr", "join_all", 1, 0, 1, "null", 1
+"plyr", "join_all", 2, 0, 0, "character", 1
+"plyr", "join_all", 3, 0, 0, "character", 1
+"plyr", "join_ids", -1, 0, 0, "list<integer[]>", 1
+"plyr", "join_ids", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "join_ids", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", "join_ids", 2, 0, 0, "character", 1
+"plyr", "join_ids", 3, 0, 0, "logical", 1
+"plyr", "join.keys", -1, 0, 0, "list<integer[]>", 1
+"plyr", "join.keys", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "join.keys", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", "join.keys", 2, 0, 0, "character", 1
+"plyr", "laply", -1, 0, 0, "(character[] | class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "laply", 0, 0, 0, "class<`call`>", 1
+"plyr", "laply", 0, 0, 1, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
+"plyr", "laply", 0, 0, 2, "integer[]", 1
+"plyr", "laply", 0, 0, 3, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "laply", 0, 0, 4, "character[]", 1
+"plyr", "laply", 0, 0, 5, "class<`data.frame`>", 1
+"plyr", "laply", 0, 0, 6, "list<class<`lm`> | character | class<`function`>>", 1
+"plyr", "laply", 1, 0, 0, "class<`function`>", 1
+"plyr", "laply", 2, 0, 0, "...", 1
+"plyr", "laply", 3, 0, 0, "character", 1
+"plyr", "laply", 4, 0, 0, "logical", 1
+"plyr", "laply", 5, 0, 0, "logical", 1
+"plyr", "laply", 6, 0, 0, "logical", 1
+"plyr", "laply", 7, 0, 0, "any", 1
+"plyr", "ldply", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "ldply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "ldply", 0, 0, 1, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
+"plyr", "ldply", 0, 0, 2, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "ldply", 0, 0, 3, "list<class<`lm`>>", 1
+"plyr", "ldply", 1, 0, 0, "class<`function`>", 1
+"plyr", "ldply", 1, 0, 1, "character[]", 1
+"plyr", "ldply", 2, 0, 0, "...", 1
+"plyr", "ldply", 3, 0, 0, "character", 1
+"plyr", "ldply", 4, 0, 0, "logical", 1
+"plyr", "ldply", 5, 0, 0, "logical", 1
+"plyr", "ldply", 6, 0, 0, "any", 1
+"plyr", "ldply", 7, 0, 0, "null", 1
+"plyr", "length.indexed", -1, 0, 0, "integer", 1
+"plyr", "length.indexed", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "length.indexed_array", -1, 0, 0, "integer", 1
+"plyr", "length.indexed_array", 0, 0, 0, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
+"plyr", "list_to_array", -1, 0, 0, "(character[] | class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "list_to_array", 0, 0, 0, "list<any>", 1
+"plyr", "list_to_array", 1, 0, 0, "null", 1
+"plyr", "list_to_array", 1, 0, 1, "class<`data.frame`>", 1
+"plyr", "list_to_array", 2, 0, 0, "logical", 1
+"plyr", "list_to_dataframe", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "list_to_dataframe", 0, 0, 0, "list<class<`data.frame`> | double[]>", 1
+"plyr", "list_to_dataframe", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", "list_to_dataframe", 1, 0, 1, "null", 1
+"plyr", "list_to_dataframe", 2, 0, 0, "character", 1
+"plyr", "list_to_dataframe", 2, 0, 1, "null", 1
+"plyr", "list_to_dataframe", 3, 0, 0, "any", 1
+"plyr", "list_to_vector", -1, 0, 0, "double[]", 1
+"plyr", "list_to_vector", 0, 0, 0, "list<double>", 1
+"plyr", "llply", -1, 0, 0, "(class<`list`, `split`> | list<any>)", 1
+"plyr", "llply", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "llply", 0, 0, 1, "integer[]", 1
+"plyr", "llply", 0, 0, 2, "character[]", 1
+"plyr", "llply", 0, 0, 3, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
+"plyr", "llply", 0, 0, 4, "class<`data.frame`>", 1
+"plyr", "llply", 0, 0, 5, "list<any>", 1
+"plyr", "llply", 1, 0, 0, "null", 1
+"plyr", "llply", 1, 0, 1, "class<`function`>", 1
+"plyr", "llply", 1, 0, 2, "character[]", 1
+"plyr", "llply", 2, 0, 0, "...", 1
+"plyr", "llply", 3, 0, 0, "any", 1
+"plyr", "llply", 4, 0, 0, "any", 1
+"plyr", "llply", 5, 0, 0, "any", 1
+"plyr", "llply", 6, 0, 0, "any", 1
+"plyr", "loop_apply", -1, 0, 0, "list<any>", 1
+"plyr", "loop_apply", 0, 0, 0, "integer", 1
+"plyr", "loop_apply", 1, 0, 0, "class<`function`>", 1
+"plyr", "loop_apply", 2, 0, 0, "environment", 1
+"plyr", "l_ply", -1, 0, 0, "null", 1
+"plyr", "l_ply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "l_ply", 0, 0, 1, "integer[]", 1
+"plyr", "l_ply", 0, 0, 2, "list<double[]>", 1
+"plyr", "l_ply", 1, 0, 0, "class<`function`>", 1
+"plyr", "l_ply", 2, 0, 0, "...", 1
+"plyr", "l_ply", 3, 0, 0, "character", 1
+"plyr", "l_ply", 3, 0, 1, "list<class<`function`>>", 1
+"plyr", "l_ply", 4, 0, 0, "logical", 1
+"plyr", "l_ply", 5, 0, 0, "logical", 1
+"plyr", "l_ply", 6, 0, 0, "logical", 1
+"plyr", "l_ply", 7, 0, 0, "null", 1
+"plyr", "make_assignment_call", -1, 0, 0, "class<`call`>", 1
+"plyr", "make_assignment_call", 0, 0, 0, "integer", 1
+"plyr", "make_names", -1, 0, 0, "character[]", 1
+"plyr", "make_names", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "make_names", 0, 0, 1, "double[]", 1
+"plyr", "make_names", 0, 0, 2, "list<any>", 1
+"plyr", "make_names", 1, 0, 0, "character", 1
+"plyr", "maply", -1, 0, 0, "class<`array`>", 1
+"plyr", "maply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "maply", 0, 0, 1, "class<`matrix`>", 1
+"plyr", "maply", 1, 0, 0, "class<`function`>", 1
+"plyr", "maply", 2, 0, 0, "...", 1
+"plyr", "maply", 3, 0, 0, "logical", 1
+"plyr", "maply", 4, 0, 0, "character", 1
+"plyr", "maply", 5, 0, 0, "logical", 1
+"plyr", "maply", 6, 0, 0, "logical", 1
+"plyr", "maply", 7, 0, 0, "logical", 1
+"plyr", "maply", 8, 0, 0, "null", 1
+"plyr", "mapvalues", -1, 0, 0, "(character[] | class<`factor`> | double[])", 1
+"plyr", "mapvalues", 0, 0, 0, "character[]", 1
+"plyr", "mapvalues", 0, 0, 1, "class<`factor`>", 1
+"plyr", "mapvalues", 0, 0, 2, "double[]", 1
+"plyr", "mapvalues", 1, 0, 0, "character[]", 1
+"plyr", "mapvalues", 1, 0, 1, "double[]", 1
+"plyr", "mapvalues", 2, 0, 0, "character[]", 1
+"plyr", "mapvalues", 2, 0, 1, "double[]", 1
+"plyr", "mapvalues", 3, 0, 0, "logical", 1
+"plyr", "match_df", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "match_df", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "match_df", 1, 0, 0, "class<`data.frame`>", 1
+"plyr", "match_df", 2, 0, 0, "character", 1
+"plyr", "match.fun", -1, 0, 0, "list<class<`function`>>", 1
+"plyr", "match.fun", 0, 0, 0, "double", 1
+"plyr", "match.fun", 1, 0, 0, "...", 1
+"plyr", ".matrix_to_df", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", ".matrix_to_df", 0, 0, 0, "class<`matrix`>", 1
+"plyr", "mdply", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "mdply", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "mdply", 0, 0, 1, "class<`matrix`>", 1
+"plyr", "mdply", 1, 0, 0, "class<`function`>", 1
+"plyr", "mdply", 2, 0, 0, "...", 1
+"plyr", "mdply", 3, 0, 0, "logical", 1
+"plyr", "mdply", 4, 0, 0, "character", 1
+"plyr", "mdply", 5, 0, 0, "logical", 1
+"plyr", "mdply", 6, 0, 0, "logical", 1
+"plyr", "mdply", 7, 0, 0, "null", 1
+"plyr", "mlply", -1, 0, 0, "list<double[]>", 1
+"plyr", "mlply", 0, 0, 0, "class<`matrix`>", 1
+"plyr", "mlply", 1, 0, 0, "class<`function`>", 1
+"plyr", "mlply", 2, 0, 0, "...", 1
+"plyr", "mlply", 3, 0, 0, "logical", 1
+"plyr", "mlply", 4, 0, 0, "character", 1
+"plyr", "mlply", 5, 0, 0, "logical", 1
+"plyr", "mlply", 6, 0, 0, "logical", 1
+"plyr", "mlply", 7, 0, 0, "null", 1
+"plyr", "mutate", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "mutate", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "mutate", 1, 0, 0, "...", 1
+"plyr", "name_rows", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "name_rows", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "names.indexed", -1, 0, 0, "character[]", 1
+"plyr", "names.indexed", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "names.indexed_array", -1, 0, 0, "character[]", 1
+"plyr", "names.indexed_array", 0, 0, 0, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
+"plyr", "names.quoted", -1, 0, 0, "character[]", 1
+"plyr", "names.quoted", 0, 0, 0, "class<`quoted`>", 1
+"plyr", "ninteraction", -1, 0, 0, "integer[]", 1
+"plyr", "ninteraction", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "ninteraction", 0, 0, 1, "list<class<`factor`> | ^double[] | character[]>", 1
+"plyr", "ninteraction", 1, 0, 0, "any", 1
+"plyr", "nlevels", -1, 0, 0, "double", 1
+"plyr", "nlevels", 0, 0, 0, "integer[]", 1
+"plyr", "numcolwise", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "numcolwise", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "numcolwise", 1, 0, 0, "...", 1
+"plyr", "numcolwise", -1, 1, 0, "class<`function`>", 1
+"plyr", "numcolwise", 0, 1, 0, "any", 1
+"plyr", "numcolwise", 1, 1, 0, "...", 1
+"plyr", "output_template", -1, 0, 0, "list<list<class<`function`>>>", 1
+"plyr", "output_template", 0, 0, 0, "list<class<`data.frame`>>", 1
+"plyr", "output_template", 1, 0, 0, "integer", 1
+"plyr", "progress_text", -1, 0, 0, "list<class<`function`>>", 1
+"plyr", "progress_text", 0, 0, 0, "double", 1
+"plyr", "progress_text", 1, 0, 0, "...", 1
+"plyr", "quickdf", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "quickdf", 0, 0, 0, "list<any>", 1
+"plyr", "raply", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "raply", 0, 0, 0, "double", 1
+"plyr", "raply", 1, 0, 0, "any", 1
+"plyr", "raply", 2, 0, 0, "character", 1
+"plyr", "raply", 3, 0, 0, "logical", 1
+"plyr", "rbind.fill", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "rbind.fill", 0, 0, 0, "...", 1
+"plyr", "rbind.fill.matrix", -1, 0, 0, "class<`matrix`>", 1
+"plyr", "rbind.fill.matrix", 0, 0, 0, "...", 1
+"plyr", "rdply", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "rdply", 0, 0, 0, "double", 1
+"plyr", "rdply", 1, 0, 0, "any", 1
+"plyr", "rdply", 2, 0, 0, "character", 1
+"plyr", "rdply", 3, 0, 0, "null", 1
+"plyr", "reduce_dim", -1, 0, 0, "(character[] | class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "reduce_dim", 0, 0, 0, "class<`matrix`>", 1
+"plyr", "reduce_dim", 0, 0, 1, "class<`array`>", 1
+"plyr", "rename", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"plyr", "rename", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "rename", 0, 0, 1, "double[]", 1
+"plyr", "rename", 1, 0, 0, "character", 1
+"plyr", "rename", 2, 0, 0, "logical", 1
+"plyr", "rename", 3, 0, 0, "logical", 1
+"plyr", "revalue", -1, 0, 0, "(character[] | class<`factor`>)", 1
+"plyr", "revalue", 0, 0, 0, "character[]", 1
+"plyr", "revalue", 0, 0, 1, "class<`factor`>", 1
+"plyr", "revalue", 1, 0, 0, "character[]", 1
+"plyr", "revalue", 2, 0, 0, "logical", 1
+"plyr", "rlply", -1, 0, 0, "list<class<`lm`>>", 1
+"plyr", "rlply", 0, 0, 0, "double", 1
+"plyr", "rlply", 1, 0, 0, "any", 1
+"plyr", "rlply", 2, 0, 0, "character", 1
+"plyr", ".rlply_worker", -1, 0, 0, "(null | list<any>)", 1
+"plyr", ".rlply_worker", 0, 0, 0, "double", 1
+"plyr", ".rlply_worker", 1, 0, 0, "character", 1
+"plyr", ".rlply_worker", 2, 0, 0, "class<`function`>", 1
+"plyr", ".rlply_worker", 3, 0, 0, "logical", 1
+"plyr", ".rlply_worker", 4, 0, 0, "logical", 1
+"plyr", "round_any", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | double[])", 1
+"plyr", "round_any", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"plyr", "round_any", 0, 0, 1, "double[]", 1
+"plyr", "round_any", 1, 0, 0, "double", 1
+"plyr", "round_any", 2, 0, 0, "any", 1
+"plyr", "round_any.numeric", -1, 0, 0, "double[]", 1
+"plyr", "round_any.numeric", 0, 0, 0, "double[]", 1
+"plyr", "round_any.numeric", 1, 0, 0, "double", 1
+"plyr", "round_any.numeric", 2, 0, 0, "class<`function`>", 1
+"plyr", "round_any.POSIXct", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"plyr", "round_any.POSIXct", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"plyr", "round_any.POSIXct", 1, 0, 0, "double", 1
+"plyr", "round_any.POSIXct", 2, 0, 0, "class<`function`>", 1
+"plyr", "r_ply", -1, 0, 0, "null", 1
+"plyr", "r_ply", 0, 0, 0, "double", 1
+"plyr", "r_ply", 1, 0, 0, "any", 1
+"plyr", "r_ply", 2, 0, 0, "character", 1
+"plyr", "r_ply", 3, 0, 0, "logical", 1
+"plyr", "show_time", -1, 0, 0, "character", 1
+"plyr", "show_time", 0, 0, 0, "double", 1
+"plyr", "splat", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"plyr", "splat", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "splat", 1, 0, 0, "...", 1
+"plyr", "splat", -1, 1, 0, "class<`function`>", 1
+"plyr", "splat", 0, 1, 0, "any", 1
+"plyr", "split_indices", -1, 0, 0, "list<integer[]>", 1
+"plyr", "split_indices", 0, 0, 0, "integer[]", 1
+"plyr", "split_indices", 1, 0, 0, "double", 1
+"plyr", "split_labels", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "split_labels", 0, 0, 0, "list<class<`factor`> | ^double[] | character[]>", 1
+"plyr", "split_labels", 1, 0, 0, "logical", 1
+"plyr", "split_labels", 2, 0, 0, "any", 1
+"plyr", "splitter_a", -1, 0, 0, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
+"plyr", "splitter_a", 0, 0, 0, "class<`array`>", 1
+"plyr", "splitter_a", 0, 0, 1, "class<`data.frame`>", 1
+"plyr", "splitter_a", 1, 0, 0, "double[]", 1
+"plyr", "splitter_a", 2, 0, 0, "any", 1
+"plyr", "splitter_a", 3, 0, 0, "null", 1
+"plyr", "splitter_d", -1, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
+"plyr", "splitter_d", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "splitter_d", 0, 0, 1, "class<`environment`, `idf`>", 1
+"plyr", "splitter_d", 1, 0, 0, "class<`quoted`>", 1
+"plyr", "splitter_d", 2, 0, 0, "logical", 1
+"plyr", "strip_splits", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "strip_splits", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "str_rep", -1, 0, 0, "character", 1
+"plyr", "str_rep", 0, 0, 0, "character", 1
+"plyr", "str_rep", 1, 0, 0, "double", 1
+"plyr", "summarise", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "summarise", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "summarise", 1, 0, 0, "...", 1
+"plyr", "take", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"plyr", "take", 0, 0, 0, "class<`array`>", 1
+"plyr", "take", 1, 0, 0, "double", 1
+"plyr", "take", 2, 0, 0, "double", 1
+"plyr", "take", 3, 0, 0, "logical", 1
+"plyr", "try_default", -1, 0, 0, "(double | null)", 1
+"plyr", "try_default", 0, 0, 0, "any", 1
+"plyr", "try_default", 1, 0, 0, "null", 1
+"plyr", "try_default", 2, 0, 0, "logical", 1
+"plyr", "txtTimerBar", -1, 0, 0, "class<`txtProgressBar`>", 1
+"plyr", "txtTimerBar", 0, 0, 0, "integer", 1
+"plyr", "unrowname", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "unrowname", 0, 0, 0, "class<`data.frame`>", 1
+"plyr", "vaggregate", -1, 0, 0, "(class<`matrix`> | double[] | ^integer[])", 1
+"plyr", "vaggregate", 0, 0, 0, "double[]", 1
+"plyr", "vaggregate", 1, 0, 0, "class<`factor`>", 1
+"plyr", "vaggregate", 1, 0, 1, "integer[]", 1
+"plyr", "vaggregate", 2, 0, 0, "class<`function`>", 1
+"plyr", "vaggregate", 3, 0, 0, "...", 1
+"plyr", "vaggregate", 4, 0, 0, "^double[]", 1
+"plyr", "vaggregate", 4, 0, 1, "null", 1
+"plyr", "vaggregate", 5, 0, 0, "double", 1
+"plyr", ".wrapped_expr_to_fun", -1, 0, 0, "list<any>", 1
+"plyr", ".wrapped_expr_to_fun", 0, 0, 0, "class<`function`>", 1

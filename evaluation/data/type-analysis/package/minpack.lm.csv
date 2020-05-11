@@ -1,22 +1,56 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"minpack.lm", "filter", -1, 0, 0, "logical[]", 1
-"minpack.lm", "filter", 0, 0, 0, "character[]", 1
-"minpack.lm", "nls.lm", -1, 0, 0, "struct<`par`:double[], `hessian`:^double[], `fvec`:double[], `info`:integer, `message`:character, `diag`:tuple<double, double>, `niter`:integer, `rsstrace`:double[], `deviance`:double>", 1
+"minpack.lm", "coef.nls.lm", -1, 0, 0, "double[]", 1
+"minpack.lm", "coef.nls.lm", 0, 0, 0, "class<`nls.lm`>", 1
+"minpack.lm", "coef.nls.lm", 1, 0, 0, "...", 1
+"minpack.lm", "deviance.nls.lm", -1, 0, 0, "double", 1
+"minpack.lm", "deviance.nls.lm", 0, 0, 0, "class<`nls.lm`>", 1
+"minpack.lm", "deviance.nls.lm", 1, 0, 0, "...", 1
+"minpack.lm", "nls.lm", -1, 0, 0, "class<`nls.lm`>", 1
 "minpack.lm", "nls.lm", 0, 0, 0, "double[]", 1
-"minpack.lm", "nls.lm", 0, 0, 1, "struct<`a`:double, `b`:double>", 1
-"minpack.lm", "nls.lm", 0, 0, 2, "struct<`Asym`:double, `xmid`:double, `scal`:double>", 1
-"minpack.lm", "nls.lm", 0, 0, 3, "struct<`Vm`:double, `K`:double>", 1
+"minpack.lm", "nls.lm", 0, 0, 1, "list<double>", 1
 "minpack.lm", "nls.lm", 1, 0, 0, "null", 1
-"minpack.lm", "nls.lm", 1, 0, 1, "symbol", 1
-"minpack.lm", "nls.lm", 1, 0, 2, "any => any", 1
 "minpack.lm", "nls.lm", 2, 0, 0, "null", 1
-"minpack.lm", "nls.lm", 2, 0, 1, "symbol", 1
-"minpack.lm", "nls.lm", 2, 0, 2, "any => any", 1
-"minpack.lm", "nls.lm", 3, 0, 0, "any => any", 1
+"minpack.lm", "nls.lm", 3, 0, 0, "class<`function`>", 1
 "minpack.lm", "nls.lm", 4, 0, 0, "null", 1
-"minpack.lm", "nls.lm", 4, 0, 1, "any => any", 1
-"minpack.lm", "nls.lm", 5, 0, 0, "struct<`ftol`:double, `ptol`:double, `gtol`:double, `diag`:tuple<>, `epsfcn`:double, `factor`:double, `maxfev`:integer[], `maxiter`:double, `nprint`:double>", 1
-"minpack.lm", "nls.lm", 5, 0, 1, "struct<`maxiter`:double, `tol`:double, `minFactor`:double, `printEval`:logical, `warnOnly`:logical>", 1
-"minpack.lm", "nls.lm", 6, 0, 0, "null", 1
-"minpack.lm", "nls.lm", 6, 0, 1, "any => any", 1
-"minpack.lm", "nls.lm", 6, 0, 2, "double[]", 1
+"minpack.lm", "nls.lm", 4, 0, 1, "class<`function`>", 1
+"minpack.lm", "nls.lm", 5, 0, 0, "list<double | integer[] | list<any> | double>", 1
+"minpack.lm", "nls.lm", 6, 0, 0, "...", 1
+"minpack.lm", "nlsLM", -1, 0, 0, "any", 1
+"minpack.lm", "nlsLM", 0, 0, 0, "class<`formula`>", 1
+"minpack.lm", "nlsLM", 1, 0, 0, "class<`data.frame`>", 1
+"minpack.lm", "nlsLM", 1, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"minpack.lm", "nlsLM", 1, 0, 2, "environment", 1
+"minpack.lm", "nlsLM", 2, 0, 0, "any", 1
+"minpack.lm", "nlsLM", 3, 0, 0, "null", 1
+"minpack.lm", "nlsLM", 4, 0, 0, "character", 1
+"minpack.lm", "nlsLM", 5, 0, 0, "any", 1
+"minpack.lm", "nlsLM", 6, 0, 0, "null", 1
+"minpack.lm", "nlsLM", 7, 0, 0, "null", 1
+"minpack.lm", "nlsLM", 8, 0, 0, "logical", 1
+"minpack.lm", "nlsLM", 9, 0, 0, "any", 1
+"minpack.lm", "nlsLM", 10, 0, 0, "any", 1
+"minpack.lm", "nlsLM", 11, 0, 0, "any", 1
+"minpack.lm", "nlsLM", 12, 0, 0, "logical", 1
+"minpack.lm", "nlsLM", 13, 0, 0, "...", 1
+"minpack.lm", "nls.lm.control", -1, 0, 0, "list<double | integer[] | list<any>>", 1
+"minpack.lm", "nls.lm.control", 0, 0, 0, "double", 1
+"minpack.lm", "nls.lm.control", 1, 0, 0, "double", 1
+"minpack.lm", "nls.lm.control", 2, 0, 0, "double", 1
+"minpack.lm", "nls.lm.control", 3, 0, 0, "list<any>", 1
+"minpack.lm", "nls.lm.control", 4, 0, 0, "double", 1
+"minpack.lm", "nls.lm.control", 5, 0, 0, "double", 1
+"minpack.lm", "nls.lm.control", 6, 0, 0, "integer[]", 1
+"minpack.lm", "nls.lm.control", 7, 0, 0, "double", 1
+"minpack.lm", "nls.lm.control", 8, 0, 0, "double", 1
+"minpack.lm", "nlsModel", -1, 0, 0, "class<`nlsModel`>", 1
+"minpack.lm", "nlsModel", 0, 0, 0, "class<`formula`>", 1
+"minpack.lm", "nlsModel", 1, 0, 0, "list<double[]>", 1
+"minpack.lm", "nlsModel", 2, 0, 0, "double[]", 1
+"minpack.lm", "nlsModel", 2, 0, 1, "list<double>", 1
+"minpack.lm", "nlsModel", 3, 0, 0, "double[]", 1
+"minpack.lm", "nlsModel", 4, 0, 0, "null", 1
+"minpack.lm", "summary.nls.lm", -1, 0, 0, "class<`summary.nls.lm`>", 1
+"minpack.lm", "summary.nls.lm", 0, 0, 0, "class<`nls.lm`>", 1
+"minpack.lm", "summary.nls.lm", 1, 0, 0, "...", 1
+"minpack.lm", "wfct", -1, 0, 0, "any", 1
+"minpack.lm", "wfct", 0, 0, 0, "any", 1

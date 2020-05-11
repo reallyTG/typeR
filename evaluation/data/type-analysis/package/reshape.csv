@@ -1,9 +1,183 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"reshape", "filter", -1, 0, 0, "logical[]", 1
-"reshape", "filter", 0, 0, 0, "character[]", 1
-"reshape", "FUN", -1, 0, 0, "null", 1
-"reshape", "FUN", 0, 0, 0, "null", 1
-"reshape", "FUN", 0, 0, 1, "character[]", 1
-"reshape", "FUN", 0, 0, 2, "double[]", 1
-"reshape", "FUN", 0, 0, 3, "struct<>", 1
-"reshape", "FUN", 1, 0, 0, "null", 1
+"reshape", "add.all.combinations", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "add.all.combinations", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "add.all.combinations", 1, 0, 0, "list<any>", 1
+"reshape", "add.all.combinations", 2, 0, 0, "null", 1
+"reshape", "add.all.combinations", 2, 0, 1, "^double[]", 1
+"reshape", "all.vars.character", -1, 0, 0, "list<any>", 1
+"reshape", "all.vars.character", 0, 0, 0, "character", 1
+"reshape", "all.vars.character", 1, 0, 0, "character", 1
+"reshape", "as.data.frame.cast_matrix", -1, 0, 0, "class<`cast_df`, `data.frame`>", 1
+"reshape", "as.data.frame.cast_matrix", 0, 0, 0, "class<`cast_matrix`, `matrix`>", 1
+"reshape", "as.data.frame.cast_matrix", 1, 0, 0, "any", 1
+"reshape", "as.data.frame.cast_matrix", 2, 0, 0, "any", 1
+"reshape", "as.data.frame.cast_matrix", 3, 0, 0, "...", 1
+"reshape", "cast", -1, 0, 0, "(class<`array`> | class<`cast_df`, `data.frame`>)", 1
+"reshape", "cast", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "cast", 1, 0, 0, "class<`formula`>", 1
+"reshape", "cast", 1, 0, 1, "character", 1
+"reshape", "cast", 2, 0, 0, "class<`function`>", 1
+"reshape", "cast", 2, 0, 1, "null", 1
+"reshape", "cast", 2, 0, 2, "list<class<`function`>>", 1
+"reshape", "cast", 3, 0, 0, "...", 1
+"reshape", "cast", 4, 0, 0, "logical", 1
+"reshape", "cast", 4, 0, 1, "character[]", 1
+"reshape", "cast", 5, 0, 0, "any", 1
+"reshape", "cast", 6, 0, 0, "logical", 1
+"reshape", "cast", 7, 0, 0, "null", 1
+"reshape", "cast", 7, 0, 1, "double", 1
+"reshape", "cast", 8, 0, 0, "logical", 1
+"reshape", "cast", 9, 0, 0, "character", 1
+"reshape", "cast_matrix", -1, 0, 0, "class<`cast_matrix`, `matrix`>", 1
+"reshape", "cast_matrix", 0, 0, 0, "class<`matrix`>", 1
+"reshape", "cast_matrix", 1, 0, 0, "list<class<`data.frame`>>", 1
+"reshape", "cast_parse_formula", -1, 0, 0, "list<any>", 1
+"reshape", "cast_parse_formula", 0, 0, 0, "character", 1
+"reshape", "cast_parse_formula", 1, 0, 0, "character[]", 1
+"reshape", "check_formula", -1, 0, 0, "null", 1
+"reshape", "check_formula", 0, 0, 0, "character", 1
+"reshape", "check_formula", 1, 0, 0, "character[]", 1
+"reshape", "combine_factor", -1, 0, 0, "class<`factor`>", 1
+"reshape", "combine_factor", 0, 0, 0, "class<`factor`>", 1
+"reshape", "combine_factor", 1, 0, 0, "double[]", 1
+"reshape", "combine_factor", 2, 0, 0, "character", 1
+"reshape", "compute.margins", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "compute.margins", 0, 0, 0, "any", 1
+"reshape", "compute.margins", 1, 0, 0, "null", 1
+"reshape", "compute.margins", 1, 0, 1, "list<character | double[] | character[] | double[]>", 1
+"reshape", "compute.margins", 2, 0, 0, "any", 1
+"reshape", "compute.margins", 3, 0, 0, "any", 1
+"reshape", "compute.margins", 4, 0, 0, "...", 1
+"reshape", "compute.margins", 5, 0, 0, "any", 1
+"reshape", "condense", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "condense", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "condense", 1, 0, 0, "character[]", 1
+"reshape", "condense", 1, 0, 1, "double[]", 1
+"reshape", "condense", 2, 0, 0, "class<`function`>", 1
+"reshape", "condense", 3, 0, 0, "...", 1
+"reshape", "dim_names", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "dim_names", 0, 0, 0, "any", 1
+"reshape", "dim_names", 1, 0, 0, "null", 1
+"reshape", "dim_names", 1, 0, 1, "character[]", 1
+"reshape", "expand", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "expand", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "expand.grid.df", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "expand.grid.df", 0, 0, 0, "...", 1
+"reshape", "expand.grid.df", 1, 0, 0, "logical", 1
+"reshape", "FUN", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "FUN", 0, 0, 0, "class<`array`>", 1
+"reshape", "FUN", 0, 0, 1, "class<`matrix`>", 1
+"reshape", "FUN", 0, 0, 2, "double", 1
+"reshape", "FUN", 0, 0, 3, "integer[]", 1
+"reshape", "FUN", 0, 0, 4, "class<`data.frame`>", 1
+"reshape", "FUN", 0, 0, 5, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape", "FUN", 0, 0, 6, "list<any>", 1
+"reshape", "FUN", 1, 0, 0, "...", 1
+"reshape", "funstofun", -1, 0, 0, "class<`function`>", 1
+"reshape", "funstofun", 0, 0, 0, "...", 1
+"reshape", "funstofun", -1, 1, 0, "double[]", 1
+"reshape", "funstofun", 0, 1, 0, "double[]", 1
+"reshape", "funstofun", 1, 1, 0, "...", 1
+"reshape", "guess_value", -1, 0, 0, "character", 1
+"reshape", "guess_value", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "margin.vars", -1, 0, 0, "(null | list<character | double[] | character[] | double[]>)", 1
+"reshape", "margin.vars", 0, 0, 0, "list<character[] | character[] | null | character | null>", 1
+"reshape", "margin.vars", 1, 0, 0, "any", 1
+"reshape", "melt", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt", 0, 0, 0, "class<`array`>", 1
+"reshape", "melt", 0, 0, 1, "class<`matrix`>", 1
+"reshape", "melt", 0, 0, 2, "double", 1
+"reshape", "melt", 0, 0, 3, "integer[]", 1
+"reshape", "melt", 0, 0, 4, "class<`data.frame`>", 1
+"reshape", "melt", 0, 0, 5, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape", "melt", 0, 0, 6, "list<any>", 1
+"reshape", "melt", 1, 0, 0, "...", 1
+"reshape", "melt.array", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt.array", 0, 0, 0, "class<`array`>", 1
+"reshape", "melt.array", 0, 0, 1, "class<`matrix`>", 1
+"reshape", "melt.array", 1, 0, 0, "character[]", 1
+"reshape", "melt.array", 1, 0, 1, "null", 1
+"reshape", "melt.array", 2, 0, 0, "...", 1
+"reshape", "melt_check", -1, 0, 0, "list<character[]>", 1
+"reshape", "melt_check", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt_check", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape", "melt_check", 1, 0, 0, "any", 1
+"reshape", "melt_check", 2, 0, 0, "any", 1
+"reshape", "melt.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt.data.frame", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape", "melt.data.frame", 1, 0, 0, "any", 1
+"reshape", "melt.data.frame", 2, 0, 0, "any", 1
+"reshape", "melt.data.frame", 3, 0, 0, "character", 1
+"reshape", "melt.data.frame", 4, 0, 0, "logical", 1
+"reshape", "melt.data.frame", 5, 0, 0, "logical", 1
+"reshape", "melt.data.frame", 6, 0, 0, "...", 1
+"reshape", "melt.default", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt.default", 0, 0, 0, "double", 1
+"reshape", "melt.default", 0, 0, 1, "integer[]", 1
+"reshape", "melt.default", 1, 0, 0, "...", 1
+"reshape", "melt.list", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt.list", 0, 0, 0, "list<any>", 1
+"reshape", "melt.list", 1, 0, 0, "...", 1
+"reshape", "melt.list", 2, 0, 0, "double", 1
+"reshape", "melt.matrix", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "melt.matrix", 0, 0, 0, "class<`array`>", 1
+"reshape", "melt.matrix", 0, 0, 1, "class<`matrix`>", 1
+"reshape", "melt.matrix", 1, 0, 0, "character[]", 1
+"reshape", "melt.matrix", 1, 0, 1, "null", 1
+"reshape", "melt.matrix", 2, 0, 0, "...", 1
+"reshape", "nested.by", -1, 0, 0, "class<`array`>", 1
+"reshape", "nested.by", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "nested.by", 1, 0, 0, "class<`data.frame`>", 1
+"reshape", "nested.by", 1, 0, 1, "list<class<`factor`>>", 1
+"reshape", "nested.by", 2, 0, 0, "class<`function`>", 1
+"reshape", "nested.by", 3, 0, 0, "...", 1
+"reshape", "nulldefault", -1, 0, 0, "(character[] | integer[])", 1
+"reshape", "nulldefault", 0, 0, 0, "character[]", 1
+"reshape", "nulldefault", 0, 0, 1, "null", 1
+"reshape", "nulldefault", 1, 0, 0, "any", 1
+"reshape", "rcolnames", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "rcolnames", 0, 0, 0, "class<`cast_matrix`, `matrix`>", 1
+"reshape", "rdimnames", -1, 0, 0, "list<class<`data.frame`>>", 1
+"reshape", "rdimnames", 0, 0, 0, "class<`cast_matrix`, `matrix`>", 1
+"reshape", "rdimnames<-", -1, 0, 0, "class<`matrix`>", 1
+"reshape", "rdimnames<-", 0, 0, 0, "class<`matrix`>", 1
+"reshape", "rdimnames<-", 1, 0, 0, "list<class<`data.frame`>>", 1
+"reshape", "recast", -1, 0, 0, "class<`cast_df`, `data.frame`>", 1
+"reshape", "recast", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "recast", 1, 0, 0, "class<`formula`>", 1
+"reshape", "recast", 2, 0, 0, "...", 1
+"reshape", "recast", 3, 0, 0, "integer[]", 1
+"reshape", "recast", 4, 0, 0, "any", 1
+"reshape", "rename", -1, 0, 0, "(class<`data.frame`> | list<double>)", 1
+"reshape", "rename", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "rename", 0, 0, 1, "list<double>", 1
+"reshape", "rename", 1, 0, 0, "character[]", 1
+"reshape", "reshape1", -1, 0, 0, "(class<`array`> | class<`cast_df`, `data.frame`>)", 1
+"reshape", "reshape1", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "reshape1", 1, 0, 0, "list<character[] | character[] | null | character | null>", 1
+"reshape", "reshape1", 2, 0, 0, "class<`function`>", 1
+"reshape", "reshape1", 2, 0, 1, "null", 1
+"reshape", "reshape1", 3, 0, 0, "any", 1
+"reshape", "reshape1", 4, 0, 0, "logical", 1
+"reshape", "reshape1", 5, 0, 0, "null", 1
+"reshape", "reshape1", 5, 0, 1, "double", 1
+"reshape", "reshape1", 6, 0, 0, "logical", 1
+"reshape", "reshape1", 7, 0, 0, "...", 1
+"reshape", "round_any", -1, 0, 0, "double", 1
+"reshape", "round_any", 0, 0, 0, "double", 1
+"reshape", "round_any", 1, 0, 0, "double", 1
+"reshape", "round_any", 2, 0, 0, "class<`function`>", 1
+"reshape", "rrownames", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "rrownames", 0, 0, 0, "class<`cast_matrix`, `matrix`>", 1
+"reshape", "sort_df", -1, 0, 0, "class<`data.frame`>", 1
+"reshape", "sort_df", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "sort_df", 1, 0, 0, "character[]", 1
+"reshape", "sparseby", -1, 0, 0, "class<`matrix`>", 1
+"reshape", "sparseby", 0, 0, 0, "class<`data.frame`>", 1
+"reshape", "sparseby", 0, 0, 1, "class<`matrix`>", 1
+"reshape", "sparseby", 1, 0, 0, "double[]", 1
+"reshape", "sparseby", 1, 0, 1, "list<double[]>", 1
+"reshape", "sparseby", 2, 0, 0, "class<`function`>", 1
+"reshape", "sparseby", 3, 0, 0, "...", 1
+"reshape", "sparseby", 4, 0, 0, "logical", 1

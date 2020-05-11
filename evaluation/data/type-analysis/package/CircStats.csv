@@ -1,7 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
 "CircStats", "A1inv", -1, 0, 0, "double", 1
 "CircStats", "A1inv", 0, 0, 0, "double", 1
-"CircStats", "circ.cor", -1, 0, 0, "struct<`r`:double, `test.stat`:double, `p.value`:double>", 1
+"CircStats", "circ.cor", -1, 0, 0, "class<`data.frame`>", 1
 "CircStats", "circ.cor", 0, 0, 0, "double[]", 1
 "CircStats", "circ.cor", 1, 0, 0, "double[]", 1
 "CircStats", "circ.cor", 2, 0, 0, "logical", 1
@@ -16,15 +16,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CircStats", "circ.plot", 5, 0, 0, "double", 1
 "CircStats", "circ.plot", 6, 0, 0, "double", 1
 "CircStats", "circ.plot", 7, 0, 0, "double", 1
-"CircStats", "circ.range", -1, 0, 0, "struct<`range`:double, `p.value`:double>", 1
+"CircStats", "circ.range", -1, 0, 0, "class<`data.frame`>", 1
 "CircStats", "circ.range", 0, 0, 0, "double[]", 1
 "CircStats", "circ.range", 1, 0, 0, "logical", 1
-"CircStats", "circ.reg", -1, 0, 0, "struct<`rho`:^double[], `fitted`:double[], `x`:^double[], `residuals`:double[], `coef`:^double[], `pvalues`:^double[], `A.k`:double, `kappa`:double, `message`:character>", 1
+"CircStats", "circ.reg", -1, 0, 0, "list<class<`matrix`> | double[] | character>", 1
 "CircStats", "circ.reg", 0, 0, 0, "double[]", 1
 "CircStats", "circ.reg", 1, 0, 0, "double[]", 1
 "CircStats", "circ.reg", 2, 0, 0, "double", 1
 "CircStats", "circ.reg", 3, 0, 0, "double", 1
-"CircStats", "circ.summary", -1, 0, 0, "struct<`n`:integer, `mean.dir`:double, `rho`:double>", 1
+"CircStats", "circ.summary", -1, 0, 0, "class<`data.frame`>", 1
 "CircStats", "circ.summary", 0, 0, 0, "double[]", 1
 "CircStats", "dwrpnorm", -1, 0, 0, "double", 1
 "CircStats", "dwrpnorm", 0, 0, 0, "double", 1
@@ -38,13 +38,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CircStats", "est.kappa", 1, 0, 0, "logical", 1
 "CircStats", "est.rho", -1, 0, 0, "double", 1
 "CircStats", "est.rho", 0, 0, 0, "double[]", 1
-"CircStats", "filter", -1, 0, 0, "logical[]", 1
-"CircStats", "filter", 0, 0, 0, "character[]", 1
-"CircStats", "FUN", -1, 0, 0, "double", 1
-"CircStats", "FUN", 0, 0, 0, "double", 1
-"CircStats", "FUN", 1, 0, 0, "double", 1
-"CircStats", "FUN", 2, 0, 0, "double", 1
-"CircStats", "FUN", 3, 0, 0, "double", 1
 "CircStats", "kuiper", -1, 0, 0, "null", 1
 "CircStats", "kuiper", 0, 0, 0, "double[]", 1
 "CircStats", "kuiper", 1, 0, 0, "double", 1
@@ -53,9 +46,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CircStats", "nCk", 1, 0, 0, "integer[]", 1
 "CircStats", "plotedf", -1, 0, 0, "null", 1
 "CircStats", "plotedf", 0, 0, 0, "double[]", 1
-"CircStats", "plotedf", 1, 0, 0, "character", 1
-"CircStats", "plotedf", 1, 0, 1, "logical", 1
-"CircStats", "pp.plot", -1, 0, 0, "struct<`mu`:double, `kappa`:double>", 1
+"CircStats", "plotedf", 1, 0, 0, "...", 1
+"CircStats", "pp.plot", -1, 0, 0, "class<`data.frame`>", 1
 "CircStats", "pp.plot", 0, 0, 0, "double[]", 1
 "CircStats", "pp.plot", 1, 0, 0, "logical", 1
 "CircStats", "pvm", -1, 0, 0, "double", 1
@@ -63,13 +55,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CircStats", "pvm", 1, 0, 0, "double", 1
 "CircStats", "pvm", 2, 0, 0, "double", 1
 "CircStats", "pvm", 3, 0, 0, "double", 1
-"CircStats", "pvm.mu0", -1, 0, 0, "double", 1
-"CircStats", "pvm.mu0", 0, 0, 0, "double", 1
-"CircStats", "pvm.mu0", 1, 0, 0, "double", 1
-"CircStats", "pvm.mu0", 2, 0, 0, "double", 1
-"CircStats", "r.test", -1, 0, 0, "struct<`r.bar`:double, `p.value`:double>", 1
-"CircStats", "r.test", 0, 0, 0, "double[]", 1
-"CircStats", "r.test", 1, 0, 0, "logical", 1
 "CircStats", "rose.diag", -1, 0, 0, "null", 1
 "CircStats", "rose.diag", 0, 0, 0, "double[]", 1
 "CircStats", "rose.diag", 1, 0, 0, "double", 1
@@ -80,6 +65,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CircStats", "rose.diag", 6, 0, 0, "double", 1
 "CircStats", "rose.diag", 7, 0, 0, "double", 1
 "CircStats", "rose.diag", 8, 0, 0, "double", 1
+"CircStats", "rstable", -1, 0, 0, "double[]", 1
+"CircStats", "rstable", 0, 0, 0, "double", 1
+"CircStats", "rstable", 1, 0, 0, "double", 1
+"CircStats", "rstable", 2, 0, 0, "double", 1
+"CircStats", "rstable", 3, 0, 0, "double", 1
+"CircStats", "r.test", -1, 0, 0, "list<double>", 1
+"CircStats", "r.test", 0, 0, 0, "double[]", 1
+"CircStats", "r.test", 1, 0, 0, "logical", 1
 "CircStats", "rvm", -1, 0, 0, "double[]", 1
 "CircStats", "rvm", 0, 0, 0, "double", 1
 "CircStats", "rvm", 1, 0, 0, "double", 1
@@ -88,20 +81,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CircStats", "rwrpcauchy", 0, 0, 0, "double", 1
 "CircStats", "rwrpcauchy", 1, 0, 0, "double", 1
 "CircStats", "rwrpcauchy", 2, 0, 0, "double", 1
-"CircStats", "statistic", -1, 0, 0, "double", 1
-"CircStats", "statistic", 0, 0, 0, "double[]", 1
-"CircStats", "statistic", 1, 0, 0, "integer[]", 1
-"CircStats", "statistic", 2, 0, 0, "logical", 1
-"CircStats", "term", -1, 0, 0, "double", 1
-"CircStats", "term", 0, 0, 0, "double", 1
-"CircStats", "term", 1, 0, 0, "double", 1
-"CircStats", "term", 2, 0, 0, "double", 1
-"CircStats", "term", 3, 0, 0, "double", 1
-"CircStats", "v0.test", -1, 0, 0, "struct<`r0.bar`:double, `p.value`:double>", 1
+"CircStats", "v0.test", -1, 0, 0, "list<double>", 1
 "CircStats", "v0.test", 0, 0, 0, "double[]", 1
 "CircStats", "v0.test", 1, 0, 0, "double", 1
 "CircStats", "v0.test", 2, 0, 0, "logical", 1
-"CircStats", "vm.bootstrap.ci", -1, 0, 0, "struct<`mu.ci`:double[], `kappa.ci`:double[], `mu.reps`:double[], `kappa.reps`:double[]>", 1
+"CircStats", "vm.bootstrap.ci", -1, 0, 0, "list<double[]>", 1
 "CircStats", "vm.bootstrap.ci", 0, 0, 0, "double[]", 1
 "CircStats", "vm.bootstrap.ci", 1, 0, 0, "logical", 1
 "CircStats", "vm.bootstrap.ci", 2, 0, 0, "double", 1
@@ -116,12 +100,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CircStats", "watson.two", 1, 0, 0, "double[]", 1
 "CircStats", "watson.two", 2, 0, 0, "double", 1
 "CircStats", "watson.two", 3, 0, 0, "logical", 1
-"CircStats", "wrpcauchy.ml", -1, 0, 0, "struct<`mu`:double, `rho`:double>", 1
+"CircStats", "wrpcauchy.ml", -1, 0, 0, "class<`data.frame`>", 1
 "CircStats", "wrpcauchy.ml", 0, 0, 0, "double[]", 1
 "CircStats", "wrpcauchy.ml", 1, 0, 0, "double", 1
 "CircStats", "wrpcauchy.ml", 2, 0, 0, "double", 1
 "CircStats", "wrpcauchy.ml", 3, 0, 0, "double", 1
-"CircStats", "dvm", -1, 0, 0, "double[]", 1
-"CircStats", "dvm", 0, 0, 0, "double[]", 1
-"CircStats", "dvm", 1, 0, 0, "double", 1
-"CircStats", "dvm", 2, 0, 0, "double", 1

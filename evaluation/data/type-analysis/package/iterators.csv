@@ -1,9 +1,166 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"iterators", "filter", -1, 0, 0, "logical[]", 1
-"iterators", "filter", 0, 0, 0, "character[]", 1
-"iterators", "iter.iter", -1, 0, 0, "environment", 1
-"iterators", "iter.iter", 0, 0, 0, "environment", 1
-"iterators", "iter.iter", 0, 0, 1, "struct<`nextElem`:any => any>", 1
-"iterators", "iter.iter", 0, 0, 2, "struct<`state`:environment, `by`:character, `length`:integer, `checkFunc`:any => any, `recycle`:logical, `chunksize`:integer>", 1
-"iterators", "iter.iter", 0, 0, 3, "struct<`state`:environment, `length`:integer, `checkFunc`:any => any, `recycle`:logical>", 1
-"iterators", "iter.iter", 1, 0, 0, "null", 1
+"iterators", "as.list.iter", -1, 0, 0, "list<class<`matrix`> | double | integer[]>", 1
+"iterators", "as.list.iter", 0, 0, 0, "class<`iter`, `matrixiter`>", 1
+"iterators", "as.list.iter", 0, 0, 1, "class<`abstractiter`, `iter`>", 1
+"iterators", "as.list.iter", 0, 0, 2, "class<`abstractiter`, `iforever`, `iter`>", 1
+"iterators", "as.list.iter", 0, 0, 3, "class<`abstractiter`, `irep`, `iter`>", 1
+"iterators", "as.list.iter", 0, 0, 4, "class<`abstractiter`, `ilimit`, `iter`>", 1
+"iterators", "as.list.iter", 0, 0, 5, "class<`abstractiter`, `irecycle`, `iter`>", 1
+"iterators", "as.list.iter", 0, 0, 6, "class<`abstractiter`, `iter`, `ivector`>", 1
+"iterators", "as.list.iter", 0, 0, 7, "class<`containeriter`, `iter`>", 1
+"iterators", "as.list.iter", 1, 0, 0, "double", 1
+"iterators", "as.list.iter", 2, 0, 0, "...", 1
+"iterators", "FUN", -1, 0, 0, "any", 1
+"iterators", "FUN", 0, 0, 0, "class<`dataframeiter`, `iter`>", 1
+"iterators", "FUN", 0, 0, 1, "class<`containeriter`, `iter`>", 1
+"iterators", "FUN", 0, 0, 2, "class<`abstractiter`, `iter`>", 1
+"iterators", "FUN", 0, 0, 3, "class<`abstractiter`, `iforever`, `iter`>", 1
+"iterators", "FUN", 0, 0, 4, "class<`abstractiter`, `ihasNext`, `iter`>", 1
+"iterators", "FUN", 0, 0, 5, "class<`abstractiter`, `ilimit`, `iter`>", 1
+"iterators", "FUN", 0, 0, 6, "class<`iter`, `matrixiter`>", 1
+"iterators", "FUN", 0, 0, 7, "class<`abstractiter`, `irep`, `iter`>", 1
+"iterators", "FUN", 0, 0, 8, "class<`funiter`, `iter`>", 1
+"iterators", "FUN", 0, 0, 9, "class<`abstractiter`, `iter`, `ivector`>", 1
+"iterators", "FUN", 0, 0, 10, "class<`abstractiter`, `irecycle`, `iter`>", 1
+"iterators", "FUN", 0, 0, 11, "class<`iforeach`, `iter`>", 1
+"iterators", "FUN", 1, 0, 0, "...", 1
+"iterators", "getIterVal", -1, 0, 0, "any", 1
+"iterators", "getIterVal", 0, 0, 0, "class<`containeriter`, `iter`>", 1
+"iterators", "getIterVal", 0, 0, 1, "class<`dataframeiter`, `iter`>", 1
+"iterators", "getIterVal", 0, 0, 2, "class<`iter`, `matrixiter`>", 1
+"iterators", "getIterVal", 1, 0, 0, "any", 1
+"iterators", "getIterVal", 2, 0, 0, "...", 1
+"iterators", "getIterVal.containeriter", -1, 0, 0, "any", 1
+"iterators", "getIterVal.containeriter", 0, 0, 0, "class<`containeriter`, `iter`>", 1
+"iterators", "getIterVal.containeriter", 1, 0, 0, "integer", 1
+"iterators", "getIterVal.containeriter", 2, 0, 0, "...", 1
+"iterators", "getIterVal.dataframeiter", -1, 0, 0, "any", 1
+"iterators", "getIterVal.dataframeiter", 0, 0, 0, "class<`dataframeiter`, `iter`>", 1
+"iterators", "getIterVal.dataframeiter", 1, 0, 0, "integer", 1
+"iterators", "getIterVal.dataframeiter", 2, 0, 0, "logical", 1
+"iterators", "getIterVal.dataframeiter", 3, 0, 0, "...", 1
+"iterators", "getIterVal.matrixiter", -1, 0, 0, "any", 1
+"iterators", "getIterVal.matrixiter", 0, 0, 0, "class<`iter`, `matrixiter`>", 1
+"iterators", "getIterVal.matrixiter", 1, 0, 0, "integer", 1
+"iterators", "getIterVal.matrixiter", 2, 0, 0, "...", 1
+"iterators", "iapply", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "iapply", 0, 0, 0, "class<`array`>", 1
+"iterators", "iapply", 0, 0, 1, "class<`matrix`>", 1
+"iterators", "iapply", 1, 0, 0, "double[]", 1
+"iterators", "icount", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "icount", 0, 0, 0, "double", 1
+"iterators", "icountn", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "icountn", 0, 0, 0, "double[]", 1
+"iterators", "idiv", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "idiv", 0, 0, 0, "double", 1
+"iterators", "idiv", 1, 0, 0, "...", 1
+"iterators", "idiv", 2, 0, 0, "any", 1
+"iterators", "idiv", 3, 0, 0, "any", 1
+"iterators", "ireadLines", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "ireadLines", 0, 0, 0, "character", 1
+"iterators", "ireadLines", 1, 0, 0, "double", 1
+"iterators", "ireadLines", 2, 0, 0, "...", 1
+"iterators", "irnorm", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "irnorm", 0, 0, 0, "...", 1
+"iterators", "irnorm", 1, 0, 0, "any", 1
+"iterators", "irunif", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "irunif", 0, 0, 0, "...", 1
+"iterators", "irunif", 1, 0, 0, "any", 1
+"iterators", "isplit", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "isplit", 0, 0, 0, "double[]", 1
+"iterators", "isplit", 1, 0, 0, "class<`factor`>", 1
+"iterators", "isplit", 1, 0, 1, "list<class<`factor`>>", 1
+"iterators", "isplit", 2, 0, 0, "logical", 1
+"iterators", "isplit", 3, 0, 0, "...", 1
+"iterators", "isplit.default", -1, 0, 0, "class<`abstractiter`, `iter`>", 1
+"iterators", "isplit.default", 0, 0, 0, "double[]", 1
+"iterators", "isplit.default", 1, 0, 0, "class<`factor`>", 1
+"iterators", "isplit.default", 1, 0, 1, "list<class<`factor`>>", 1
+"iterators", "isplit.default", 2, 0, 0, "logical", 1
+"iterators", "isplit.default", 3, 0, 0, "...", 1
+"iterators", "iter", -1, 0, 0, "(class<`abstractiter`, `iforever`, `iter`> | class<`abstractiter`, `irecycle`, `iter`> | class<`abstractiter`, `iter`> | class<`containeriter`, `iter`> | class<`dataframeiter`, `iter`> | class<`funiter`, `iter`> | class<`iforeach`, `iter`> | class<`iter`, `matrixiter`>)", 1
+"iterators", "iter", 0, 0, 0, "class<`abstractiter`, `iforever`, `iter`>", 1
+"iterators", "iter", 0, 0, 1, "class<`abstractiter`, `irecycle`, `iter`>", 1
+"iterators", "iter", 0, 0, 2, "class<`abstractiter`, `iter`>", 1
+"iterators", "iter", 0, 0, 3, "character[]", 1
+"iterators", "iter", 0, 0, 4, "class<`containeriter`, `iter`>", 1
+"iterators", "iter", 0, 0, 5, "double[]", 1
+"iterators", "iter", 0, 0, 6, "class<`data.frame`>", 1
+"iterators", "iter", 0, 0, 7, "class<`dataframeiter`, `iter`>", 1
+"iterators", "iter", 0, 0, 8, "class<`function`>", 1
+"iterators", "iter", 0, 0, 9, "class<`foreach`>", 1
+"iterators", "iter", 0, 0, 10, "class<`matrix`>", 1
+"iterators", "iter", 0, 0, 11, "list<integer[]>", 1
+"iterators", "iter", 1, 0, 0, "...", 1
+"iterators", "iter.data.frame", -1, 0, 0, "class<`dataframeiter`, `iter`>", 1
+"iterators", "iter.data.frame", 0, 0, 0, "class<`data.frame`>", 1
+"iterators", "iter.data.frame", 1, 0, 0, "character[]", 1
+"iterators", "iter.data.frame", 2, 0, 0, "class<`function`>", 1
+"iterators", "iter.data.frame", 3, 0, 0, "logical", 1
+"iterators", "iter.data.frame", 4, 0, 0, "...", 1
+"iterators", "iter.default", -1, 0, 0, "class<`containeriter`, `iter`>", 1
+"iterators", "iter.default", 0, 0, 0, "character[]", 1
+"iterators", "iter.default", 0, 0, 1, "double[]", 1
+"iterators", "iter.default", 0, 0, 2, "list<integer[]>", 1
+"iterators", "iter.default", 1, 0, 0, "class<`function`>", 1
+"iterators", "iter.default", 2, 0, 0, "logical", 1
+"iterators", "iter.default", 3, 0, 0, "...", 1
+"iterators", "iter.function", -1, 0, 0, "class<`funiter`, `iter`>", 1
+"iterators", "iter.function", 0, 0, 0, "class<`function`>", 1
+"iterators", "iter.function", 1, 0, 0, "class<`function`>", 1
+"iterators", "iter.function", 2, 0, 0, "logical", 1
+"iterators", "iter.function", 3, 0, 0, "...", 1
+"iterators", "iter.iter", -1, 0, 0, "(class<`abstractiter`, `iforever`, `iter`> | class<`abstractiter`, `irecycle`, `iter`> | class<`abstractiter`, `iter`> | class<`containeriter`, `iter`> | class<`dataframeiter`, `iter`>)", 1
+"iterators", "iter.iter", 0, 0, 0, "class<`abstractiter`, `iforever`, `iter`>", 1
+"iterators", "iter.iter", 0, 0, 1, "class<`abstractiter`, `irecycle`, `iter`>", 1
+"iterators", "iter.iter", 0, 0, 2, "class<`abstractiter`, `iter`>", 1
+"iterators", "iter.iter", 0, 0, 3, "class<`containeriter`, `iter`>", 1
+"iterators", "iter.iter", 0, 0, 4, "class<`dataframeiter`, `iter`>", 1
+"iterators", "iter.iter", 1, 0, 0, "...", 1
+"iterators", "iter.matrix", -1, 0, 0, "class<`iter`, `matrixiter`>", 1
+"iterators", "iter.matrix", 0, 0, 0, "class<`matrix`>", 1
+"iterators", "iter.matrix", 1, 0, 0, "character", 1
+"iterators", "iter.matrix", 2, 0, 0, "integer", 1
+"iterators", "iter.matrix", 3, 0, 0, "class<`function`>", 1
+"iterators", "iter.matrix", 4, 0, 0, "logical", 1
+"iterators", "iter.matrix", 5, 0, 0, "...", 1
+"iterators", "iwhich", -1, 0, 0, "integer[]", 1
+"iterators", "iwhich", 0, 0, 0, "list<integer[]>", 1
+"iterators", "iwhich", 1, 0, 0, "integer[]", 1
+"iterators", "makeIwrapper", -1, 0, 0, "class<`function`>", 1
+"iterators", "makeIwrapper", 0, 0, 0, "character", 1
+"iterators", "nextElem", -1, 0, 0, "any", 1
+"iterators", "nextElem", 0, 0, 0, "class<`dataframeiter`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 1, "class<`containeriter`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 2, "class<`abstractiter`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 3, "class<`abstractiter`, `iforever`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 4, "class<`abstractiter`, `ihasNext`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 5, "class<`abstractiter`, `ilimit`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 6, "class<`iter`, `matrixiter`>", 1
+"iterators", "nextElem", 0, 0, 7, "class<`abstractiter`, `irep`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 8, "class<`funiter`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 9, "class<`abstractiter`, `iter`, `ivector`>", 1
+"iterators", "nextElem", 0, 0, 10, "class<`abstractiter`, `irecycle`, `iter`>", 1
+"iterators", "nextElem", 0, 0, 11, "class<`iforeach`, `iter`>", 1
+"iterators", "nextElem", 1, 0, 0, "...", 1
+"iterators", "nextElem.abstractiter", -1, 0, 0, "any", 1
+"iterators", "nextElem.abstractiter", 0, 0, 0, "class<`abstractiter`, `iforever`, `iter`>", 1
+"iterators", "nextElem.abstractiter", 0, 0, 1, "class<`abstractiter`, `ihasNext`, `iter`>", 1
+"iterators", "nextElem.abstractiter", 0, 0, 2, "class<`abstractiter`, `ilimit`, `iter`>", 1
+"iterators", "nextElem.abstractiter", 0, 0, 3, "class<`abstractiter`, `iter`>", 1
+"iterators", "nextElem.abstractiter", 0, 0, 4, "class<`abstractiter`, `irep`, `iter`>", 1
+"iterators", "nextElem.abstractiter", 0, 0, 5, "class<`abstractiter`, `iter`, `ivector`>", 1
+"iterators", "nextElem.abstractiter", 0, 0, 6, "class<`abstractiter`, `irecycle`, `iter`>", 1
+"iterators", "nextElem.abstractiter", 1, 0, 0, "...", 1
+"iterators", "nextElem.containeriter", -1, 0, 0, "any", 1
+"iterators", "nextElem.containeriter", 0, 0, 0, "class<`containeriter`, `iter`>", 1
+"iterators", "nextElem.containeriter", 1, 0, 0, "...", 1
+"iterators", "nextElem.dataframeiter", -1, 0, 0, "any", 1
+"iterators", "nextElem.dataframeiter", 0, 0, 0, "class<`dataframeiter`, `iter`>", 1
+"iterators", "nextElem.dataframeiter", 1, 0, 0, "...", 1
+"iterators", "nextElem.funiter", -1, 0, 0, "any", 1
+"iterators", "nextElem.funiter", 0, 0, 0, "class<`funiter`, `iter`>", 1
+"iterators", "nextElem.funiter", 1, 0, 0, "...", 1
+"iterators", "nextElem.matrixiter", -1, 0, 0, "any", 1
+"iterators", "nextElem.matrixiter", 0, 0, 0, "class<`iter`, `matrixiter`>", 1
+"iterators", "nextElem.matrixiter", 1, 0, 0, "...", 1

@@ -1,26 +1,147 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
+"registry", "$", -1, 0, 0, "any", 1
+"registry", "$", 0, 0, 0, "...", 1
+"registry", "as.data.frame.registry", -1, 0, 0, "class<`data.frame`>", 1
+"registry", "as.data.frame.registry", 0, 0, 0, "class<`Addressbook`, `registry`>", 1
+"registry", "as.data.frame.registry", 0, 0, 1, "class<`registry`>", 1
+"registry", "as.data.frame.registry", 1, 0, 0, "...", 1
+"registry", ".check_for_unknown_fields", -1, 0, 0, "any", 1
+"registry", ".check_for_unknown_fields", 0, 0, 0, "character[]", 1
+"registry", ".check_for_unknown_fields", 0, 0, 1, "null", 1
+"registry", ".check_value", -1, 0, 0, "any", 1
+"registry", ".check_value", 0, 0, 0, "any", 1
+"registry", ".check_value", 1, 0, 0, "any", 1
+"registry", ".check_value", 2, 0, 0, "double", 1
+"registry", ".check_value", 2, 0, 1, "character[]", 1
+"registry", ".check_value", 2, 0, 2, "null", 1
+"registry", "f", -1, 0, 0, "any", 1
+"registry", "f", 0, 0, 0, "character", 1
+"registry", "f", 1, 0, 0, "character", 1
+"registry", "f", 1, 0, 1, "logical", 1
+"registry", "f", 1, 0, 2, "null", 1
+"registry", "f", 2, 0, 0, "null", 1
+"registry", "f", 2, 0, 1, "character[]", 1
+"registry", "f", 3, 0, 0, "double", 1
+"registry", "f", 3, 0, 1, "character", 1
+"registry", "f", 3, 0, 2, "null", 1
+"registry", "f", 4, 0, 0, "null", 1
+"registry", "f", 4, 0, 1, "logical", 1
+"registry", "f", 5, 0, 0, "logical", 1
+"registry", "f", 6, 0, 0, "logical", 1
+"registry", "f", 7, 0, 0, "null", 1
+"registry", "f", 7, 0, 1, "class<`function`>", 1
+"registry", "f", 8, 0, 0, "class<`function`>", 1
+"registry", "f", 9, 0, 0, "...", 1
+"registry", "f", -1, 1, 0, "class<`registry_field`>", 1
+"registry", "f", 0, 1, 0, "character", 1
+"registry", "f", -1, 2, 0, "(class<`Address`, `registry_entry`> | class<`registry_entry`> | class<`registry_entry`, `simple.list`> | null)", 1
+"registry", "f", 0, 2, 0, "...", 1
+"registry", "f", -1, 3, 0, "any", 1
+"registry", "f", 0, 3, 0, "...", 1
+"registry", "f", -1, 4, 0, "list<class<`Address`, `registry_entry`>>", 1
+"registry", "f", 0, 4, 0, "character", 1
+"registry", "f", 1, 4, 0, "...", 1
+"registry", "f", -1, 5, 0, "(null | list<class<`Address`, `registry_entry`> | class<`registry_entry`> | class<`registry_entry`, `simple.list`>>)", 1
+"registry", "f", 0, 5, 0, "...", 1
+"registry", "f", -1, 6, 0, "list<class<`registry_field`>>", 1
+"registry", "f", -1, 7, 0, "logical[]", 1
+"registry", "f", -1, 8, 0, "any", 1
+"registry", "f", 0, 8, 0, "...", 1
+"registry", "f", -1, 9, 0, "character[]", 1
+"registry", "f", -1, 10, 0, "any", 1
+"registry", "f", 0, 10, 0, "...", 1
+"registry", "f", -1, 11, 0, "logical", 1
+"registry", "f", 0, 11, 0, "logical", 1
+"registry", "f", 1, 11, 0, "logical", 1
+"registry", "f", 2, 11, 0, "logical", 1
+"registry", "f", 3, 11, 0, "logical", 1
+"registry", "f", -1, 12, 0, "integer", 1
+"registry", ".field_exists", -1, 0, 0, "logical[]", 1
+"registry", ".field_exists", 0, 0, 0, "character[]", 1
+"registry", ".field_exists", 0, 0, 1, "null", 1
 "registry", "filter", -1, 0, 0, "logical[]", 1
 "registry", "filter", 0, 0, 0, "character[]", 1
-"registry", ".check_for_unknown_fields", -1, 0, 0, "null", 1
-"registry", ".check_for_unknown_fields", 0, 0, 0, "null", 1
-"registry", ".check_for_unknown_fields", 0, 0, 1, "character[]", 1
-"registry", ".check_value", -1, 0, 0, "null", 1
-"registry", ".check_value", 0, 0, 0, "character", 1
-"registry", ".check_value", 0, 0, 1, "symbol", 1
-"registry", ".check_value", 1, 0, 0, "struct<`type`:character, `alternatives`:character[], `default`:character, `is_mandatory`:logical, `is_modifiable`:logical, `is_key`:logical, `validity_FUN`:null, `index_FUN`:any => any, `index_FUN_args`:tuple<>>", 1
-"registry", ".check_value", 1, 0, 1, "struct<`type`:character, `alternatives`:character[], `default`:null, `is_mandatory`:logical, `is_modifiable`:logical, `is_key`:logical, `validity_FUN`:null, `index_FUN`:any => any, `index_FUN_args`:tuple<>>", 1
-"registry", ".check_value", 1, 0, 2, "struct<`type`:null, `alternatives`:null, `default`:double, `is_mandatory`:logical, `is_modifiable`:logical, `is_key`:logical, `validity_FUN`:null, `index_FUN`:any => any, `index_FUN_args`:tuple<>>", 1
-"registry", ".check_value", 1, 0, 3, "symbol", 1
-"registry", ".check_value", 1, 0, 4, "struct<`type`:character, `alternatives`:null, `default`:null, `is_mandatory`:logical, `is_modifiable`:logical, `is_key`:logical, `validity_FUN`:any => any, `index_FUN`:any => any, `index_FUN_args`:tuple<>>", 1
-"registry", ".check_value", 1, 0, 5, "struct<`type`:character, `alternatives`:null, `default`:null, `is_mandatory`:logical, `is_modifiable`:logical, `is_key`:logical, `validity_FUN`:null, `index_FUN`:any => any, `index_FUN_args`:tuple<>>", 1
-"registry", ".check_value", 1, 0, 6, "struct<`type`:null, `alternatives`:null, `default`:null, `is_mandatory`:logical, `is_modifiable`:logical, `is_key`:logical, `validity_FUN`:null, `index_FUN`:any => any, `index_FUN_args`:tuple<>>", 1
-"registry", ".check_value", 2, 0, 0, "null", 1
-"registry", ".check_value", 2, 0, 1, "double", 1
-"registry", ".check_value", 2, 0, 2, "character[]", 1
-"registry", ".field_exists", -1, 0, 0, "logical[]", 1
-"registry", ".field_exists", 0, 0, 0, "null", 1
-"registry", ".field_exists", 0, 0, 1, "character[]", 1
-"registry", ".FUNCall", -1, 0, 0, "any => any", 1
-"registry", ".FUNCall", 0, 0, 0, "symbol", 1
-"registry", ".get_entries", -1, 0, 0, "null", 1
-"registry", ".get_entries", 0, 0, 0, "character", 1
+"registry", "FUN", -1, 0, 0, "(character | double | null)", 1
+"registry", "FUN", 0, 0, 0, "class<`registry_field`>", 1
+"registry", "FUN", -1, 1, 0, "class<`data.frame`>", 1
+"registry", "FUN", 0, 1, 0, "class<`Address`, `registry_entry`>", 1
+"registry", "FUN", 0, 1, 1, "class<`registry_entry`, `simple.list`>", 1
+"registry", "FUN", -1, 2, 0, "logical", 1
+"registry", "FUN", 0, 2, 0, "character[]", 1
+"registry", "FUN", 0, 2, 1, "integer", 1
+"registry", "FUN", 0, 2, 2, "null", 1
+"registry", "FUN", -1, 3, 0, "logical", 1
+"registry", "FUN", 0, 3, 0, "class<`registry_field`>", 1
+"registry", "FUN", -1, 4, 0, "logical", 1
+"registry", "FUN", 0, 4, 0, "class<`Address`, `registry_entry`>", 1
+"registry", "FUN", -1, 5, 0, "logical", 1
+"registry", "FUN", 0, 5, 0, "class<`registry_field`>", 1
+"registry", "FUN", -1, 6, 0, "(character | double | null)", 1
+"registry", "FUN", 0, 6, 0, "character[]", 1
+"registry", "FUN", 0, 6, 1, "double", 1
+"registry", "FUN", 0, 6, 2, "null", 1
+"registry", "FUN", -1, 7, 0, "logical[]", 1
+"registry", "FUN", 0, 7, 0, "class<`registry_entry`>", 1
+"registry", "FUN", 0, 7, 1, "class<`registry_entry`, `simple.list`>", 1
+"registry", "FUN", 0, 7, 2, "class<`Address`, `registry_entry`>", 1
+"registry", ".FUNCall", -1, 0, 0, "class<`function`>", 1
+"registry", ".FUNCall", 0, 0, 0, "any", 1
+"registry", ".get_entries", -1, 0, 0, "(null | list<class<`Address`, `registry_entry`> | class<`registry_entry`> | class<`registry_entry`, `simple.list`>>)", 1
+"registry", ".get_entries", 0, 0, 0, "...", 1
+"registry", ".get_entry_indices", -1, 0, 0, "any", 1
+"registry", ".get_entry_indices", 0, 0, 0, "list<any>", 1
+"registry", ".get_entry_indices", 1, 0, 0, "any", 1
+"registry", ".get_entry_indices", 2, 0, 0, "any", 1
+"registry", ".get_entry_indices", 3, 0, 0, "null", 1
+"registry", ".get_field", -1, 0, 0, "class<`registry_field`>", 1
+"registry", ".get_field", 0, 0, 0, "character", 1
+"registry", ".get_field_defaults", -1, 0, 0, "list<null | null | character | null | double>", 1
+"registry", ".get_field_names", -1, 0, 0, "(character[] | null)", 1
+"registry", ".get_index_fields", -1, 0, 0, "character[]", 1
+"registry", ".get_mandatory_fields", -1, 0, 0, "character[]", 1
+"registry", ".labels", -1, 0, 0, "(class<`Address`, `registry_entry`> | class<`registry_entry`, `simple.list`>)", 1
+"registry", ".labels", 0, 0, 0, "class<`Address`, `registry_entry`>", 1
+"registry", ".labels", 0, 0, 1, "class<`registry_entry`, `simple.list`>", 1
+"registry", "length.registry", -1, 0, 0, "integer", 1
+"registry", "length.registry", 0, 0, 0, "class<`Addressbook`, `registry`>", 1
+"registry", ".make_entry", -1, 0, 0, "(class<`Address`, `registry_entry`> | class<`registry_entry`> | class<`registry_entry`, `simple.list`>)", 1
+"registry", ".make_entry", 0, 0, 0, "list<any>", 1
+"registry", ".make_field", -1, 0, 0, "class<`registry_field`>", 1
+"registry", ".make_field", 0, 0, 0, "character", 1
+"registry", ".make_field", 0, 0, 1, "null", 1
+"registry", ".make_field", 1, 0, 0, "character[]", 1
+"registry", ".make_field", 1, 0, 1, "null", 1
+"registry", ".make_field", 2, 0, 0, "character", 1
+"registry", ".make_field", 2, 0, 1, "null", 1
+"registry", ".make_field", 2, 0, 2, "double", 1
+"registry", ".make_field", 3, 0, 0, "logical", 1
+"registry", ".make_field", 4, 0, 0, "logical", 1
+"registry", ".make_field", 5, 0, 0, "logical", 1
+"registry", ".make_field", 6, 0, 0, "null", 1
+"registry", ".make_field", 6, 0, 1, "class<`function`>", 1
+"registry", ".make_field", 7, 0, 0, "class<`function`>", 1
+"registry", ".make_field", 8, 0, 0, "list<any>", 1
+"registry", "print.registry", -1, 0, 0, "class<`registry`>", 1
+"registry", "print.registry", 0, 0, 0, "class<`registry`>", 1
+"registry", "print.registry", 1, 0, 0, "...", 1
+"registry", "print.registry_field", -1, 0, 0, "class<`registry_field`>", 1
+"registry", "print.registry_field", 0, 0, 0, "class<`registry_field`>", 1
+"registry", "print.registry_field", 1, 0, 0, "...", 1
+"registry", "registry", -1, 0, 0, "(class<`Addressbook`, `registry`> | class<`registry`>)", 1
+"registry", "registry", 0, 0, 0, "character", 1
+"registry", "registry", 0, 0, 1, "null", 1
+"registry", "registry", 1, 0, 0, "character", 1
+"registry", "registry", 1, 0, 1, "null", 1
+"registry", "registry", 2, 0, 0, "any", 1
+"registry", "registry", 3, 0, 0, "logical", 1
+"registry", "[.registry", -1, 0, 0, "list<class<`registry_entry`>>", 1
+"registry", "[.registry", 0, 0, 0, "class<`registry`>", 1
+"registry", "[.registry", 1, 0, 0, "...", 1
+"registry", "[[.registry", -1, 0, 0, "(class<`Address`, `registry_entry`> | class<`registry_entry`> | class<`registry_entry`, `simple.list`> | null)", 1
+"registry", "[[.registry", 0, 0, 0, "class<`Addressbook`, `registry`>", 1
+"registry", "[[.registry", 0, 0, 1, "class<`registry`>", 1
+"registry", "[[.registry", 1, 0, 0, "...", 1
+"registry", "summary.registry", -1, 0, 0, "class<`data.frame`>", 1
+"registry", "summary.registry", 0, 0, 0, "class<`Addressbook`, `registry`>", 1
+"registry", "summary.registry", 0, 0, 1, "class<`registry`>", 1
+"registry", "summary.registry", 1, 0, 0, "...", 1

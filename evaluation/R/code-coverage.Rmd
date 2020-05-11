@@ -30,7 +30,9 @@ create_tags(path(TAGS_DIR, "code-coverage.tex"), prefix="", default=TRUE)
 
 ## Corpus coverage by reverse dependencies
 
+## Code coverage
+
 ```{r}
-revdeps_coverage <- read_csv(PACKAGE_REVDEPS_COVERAGE)
+coverage <- read_csv("/var/lib/R/run-prl2/package-coverage/parallel-results.csv")
 ```
 

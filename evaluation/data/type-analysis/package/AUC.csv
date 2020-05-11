@@ -1,20 +1,39 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"AUC", ".confusionMatrix", -1, 0, 0, "struct<`cutoffs`:double[], `tp`:double[], `fp`:double[], `tn`:double[], `fn`:double[], `n.pos`:integer, `n.neg`:integer, `n.pos.pred`:double[], `n.neg.pred`:double[]>", 1
+"AUC", "accuracy", -1, 0, 0, "class<`AUC`, `accuracy`>", 1
+"AUC", "accuracy", 0, 0, 0, "double[]", 1
+"AUC", "accuracy", 1, 0, 0, "class<`factor`>", 1
+"AUC", "accuracy", 2, 0, 0, "logical", 1
+"AUC", "auc", -1, 0, 0, "double", 1
+"AUC", "auc", 0, 0, 0, "class<`AUC`, `accuracy`>", 1
+"AUC", "auc", 0, 0, 1, "class<`AUC`, `roc`>", 1
+"AUC", "auc", 0, 0, 2, "class<`AUC`, `sensitivity`>", 1
+"AUC", "auc", 0, 0, 3, "class<`AUC`, `specificity`>", 1
+"AUC", "auc", 1, 0, 0, "double", 1
+"AUC", "auc", 2, 0, 0, "double", 1
+"AUC", ".confusionMatrix", -1, 0, 0, "list<double[]>", 1
 "AUC", ".confusionMatrix", 0, 0, 0, "double[]", 1
-"AUC", ".confusionMatrix", 1, 0, 0, "integer[]", 1
+"AUC", ".confusionMatrix", 1, 0, 0, "class<`factor`>", 1
 "AUC", ".confusionMatrix", 2, 0, 0, "logical", 1
 "AUC", ".confusionMatrix", 3, 0, 0, "character", 1
-"AUC", "filter", -1, 0, 0, "logical[]", 1
-"AUC", "filter", 0, 0, 0, "character[]", 1
-"AUC", "fun", -1, 0, 0, "null", 1
-"AUC", "fun", 0, 0, 0, "symbol", 1
-"AUC", "fun", 1, 0, 0, "character", 1
 "AUC", "plot.AUC", -1, 0, 0, "null", 1
-"AUC", "plot.AUC", 0, 0, 0, "struct<`cutoffs`:double[], `fpr`:double[], `tpr`:double[]>", 1
-"AUC", "plot.AUC", 0, 0, 1, "struct<`cutoffs`:double[], `measure`:double[]>", 1
+"AUC", "plot.AUC", 0, 0, 0, "class<`AUC`, `accuracy`>", 1
+"AUC", "plot.AUC", 0, 0, 1, "class<`AUC`, `roc`>", 1
+"AUC", "plot.AUC", 0, 0, 2, "class<`AUC`, `sensitivity`>", 1
+"AUC", "plot.AUC", 0, 0, 3, "class<`AUC`, `specificity`>", 1
 "AUC", "plot.AUC", 1, 0, 0, "null", 1
-"AUC", "plot.AUC", 2, 0, 0, "null", 1
+"AUC", "plot.AUC", 2, 0, 0, "...", 1
 "AUC", "plot.AUC", 3, 0, 0, "character", 1
 "AUC", "plot.AUC", 4, 0, 0, "logical", 1
 "AUC", "plot.AUC", 5, 0, 0, "double", 1
 "AUC", "plot.AUC", 6, 0, 0, "double", 1
+"AUC", "roc", -1, 0, 0, "class<`AUC`, `roc`>", 1
+"AUC", "roc", 0, 0, 0, "double[]", 1
+"AUC", "roc", 1, 0, 0, "class<`factor`>", 1
+"AUC", "sensitivity", -1, 0, 0, "class<`AUC`, `sensitivity`>", 1
+"AUC", "sensitivity", 0, 0, 0, "double[]", 1
+"AUC", "sensitivity", 1, 0, 0, "class<`factor`>", 1
+"AUC", "sensitivity", 2, 0, 0, "logical", 1
+"AUC", "specificity", -1, 0, 0, "class<`AUC`, `specificity`>", 1
+"AUC", "specificity", 0, 0, 0, "double[]", 1
+"AUC", "specificity", 1, 0, 0, "class<`factor`>", 1
+"AUC", "specificity", 2, 0, 0, "logical", 1

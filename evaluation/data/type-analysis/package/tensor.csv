@@ -1,8 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"tensor", "filter", -1, 0, 0, "logical[]", 1
-"tensor", "filter", 0, 0, 0, "character[]", 1
-"tensor", "tensor", -1, 0, 0, "^double[]", 1
-"tensor", "tensor", 0, 0, 0, "^double[]", 1
-"tensor", "tensor", 1, 0, 0, "^integer[]", 1
+"tensor", "tensor", -1, 0, 0, "(class<`array`> | class<`matrix`> | double)", 1
+"tensor", "tensor", 0, 0, 0, "class<`array`>", 1
+"tensor", "tensor", 0, 0, 1, "class<`matrix`>", 1
+"tensor", "tensor", 1, 0, 0, "class<`matrix`>", 1
 "tensor", "tensor", 2, 0, 0, "double[]", 1
 "tensor", "tensor", 3, 0, 0, "double[]", 1

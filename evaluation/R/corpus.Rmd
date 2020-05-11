@@ -73,7 +73,28 @@ pkgs_loadable <-
 
 ### Package metadata
 
-Next we pull in some package metadata.
+Next we pull in some package metadata:
+
+```{r}
+pkgs_metadata <-
+  read_csv(
+    PACKAGE_METADATA,
+    col_types=cols(
+      package = col_character(),
+      package_name = col_character(),
+      version = col_character(),
+      title = col_character(),
+      size = col_double()
+    )
+  ) %>% select(
+    package,
+    version,
+    title,
+    size
+  )
+```
+
+and size:
 
 ```{r load package sloc}
 pkgs_sloc_raw <- 
@@ -285,6 +306,7 @@ pkgs <-
   pkgs_cran %>%
   left_join(mutate(pkgs_installed, installed=TRUE), by="package") %>% mutate(installed=replace_na(installed, FALSE)) %>%
   left_join(transmute(pkgs_loadable, package, loadable=TRUE), by="package") %>% mutate(loadable=replace_na(loadable, FALSE)) %>%
+  left_join(pkgs_metadata, by="package") %>%
   left_join(pkgs_sloc, by="package") %>%
   left_join(pkgs_runnable_code, by="package") %>%
   left_join(pkgs_coverage, by="package") %>%
@@ -298,14 +320,9 @@ pkgs <-
 ### Output
 
 ```{r}
-write_csv(pkgs, ALL_PACKAGES_DETAILS)
-write_lines(pkgs$package, ALL_PACKAGES_FILE)
-```
-
-```{r}
-corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package")
-write_csv(corpus_revdeps, CORPUS_REVDEPS)
-write_lines(unique(corpus_revdeps$revdep), CORPUS_REVDEPS_UNIQUE)
+write_csv(pkgs, CRAN_PACKAGES_DETAILS)
+write_lines(pkgs$package, CRAN_PACKAGES_FILE)
+write_csv(pkgs_revdeps_raw, CRAN_REVDEPS)
 ```
 
 ### Sanity checks

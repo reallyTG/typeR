@@ -40,11 +40,14 @@ create_tags(path(TAGS_DIR, "corpus.tex"), prefix="", default=TRUE)
 
 ```{r}
 pkgs <- read_csv(
-  ALL_PACKAGES_DETAILS,
+  CRAN_PACKAGES_DETAILS,
   col_types=cols(
     package = col_character(),
     installed = col_logical(),
     loadable = col_logical(),
+    version = col_character(),
+    title = col_character(),
+    size = col_double(),
     package_native_code = col_double(),
     package_r_code = col_double(),
     package_code = col_double(),
@@ -223,6 +226,21 @@ corpus <-
 
 write_lines(corpus$package, CORPUS_FILE)
 write_csv(corpus, CORPUS_DETAILS)
+```
+
+### Reverse dependencies
+
+```{r}
+pkgs_revdeps_raw <- read_csv(
+  CRAN_REVDEPS, 
+  col_types=cols(
+    package = col_character(),
+    revdep = col_character()
+  )
+)
+corpus_revdeps <- pkgs_revdeps_raw %>% semi_join(corpus, by="package")
+write_csv(pkgs_revdeps_raw, CORPUS_REVDEPS)
+write_lines(unique(corpus_revdeps$revdep), CORPUS_REVDEPS_UNIQUE)
 ```
 
 ### Sanity check

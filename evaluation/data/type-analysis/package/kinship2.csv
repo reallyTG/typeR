@@ -1,15 +1,220 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"kinship2", ":::", -1, 0, 0, "^double[]", 1
-"kinship2", ":::", 0, 0, 0, "struct<`id`:integer[], `findex`:integer[], `mindex`:integer[], `sex`:integer[], `relation`:struct<`indx1`:integer, `indx2`:integer, `code`:integer>>", 1
+"kinship2", ":::", -1, 0, 0, "class<`matrix`>", 1
+"kinship2", ":::", 0, 0, 0, "class<`pedigree`>", 1
 "kinship2", ":::", 1, 0, 0, "character", 1
-"kinship2", ":::", 2, 0, 0, "null", 1
-"kinship2", "[.pedigree", -1, 0, 0, "struct<`id`:character[], `findex`:integer[], `mindex`:integer[], `sex`:integer[], `affected`:^integer[]>", 1
-"kinship2", "[.pedigree", 0, 0, 0, "struct<`id`:character[], `findex`:integer[], `mindex`:integer[], `sex`:integer[], `affected`:^integer[]>", 1
-"kinship2", "[.pedigree", 0, 0, 1, "struct<`id`:integer[], `findex`:integer[], `mindex`:integer[], `sex`:integer[], `affected`:^double[], `relation`:struct<`indx1`:integer, `indx2`:integer, `code`:integer>>", 1
-"kinship2", "[.pedigree", 0, 0, 2, "struct<`id`:integer[], `findex`:integer[], `mindex`:integer[], `sex`:integer[], `affected`:^double[], `status`:double[], `relation`:struct<`indx1`:integer[], `indx2`:integer[], `code`:integer[]>>", 1
-"kinship2", "[.pedigree", 0, 0, 3, "struct<`famid`:double[], `id`:integer[], `findex`:integer[], `mindex`:integer[], `sex`:integer[], `affected`:^double[]>", 1
-"kinship2", "[.pedigree", 0, 0, 4, "struct<`id`:integer[], `findex`:integer[], `mindex`:integer[], `sex`:integer[], `affected`:^integer[]>", 1
-"kinship2", "[.pedigree", 1, 0, 0, "integer[]", 1
-"kinship2", "[.pedigree", 1, 0, 1, "double", 1
-"kinship2", "[.pedigree", 1, 0, 2, "character[]", 1
-"kinship2", "[.pedigree", 2, 0, 0, "symbol", 1
+"kinship2", ":::", 2, 0, 0, "...", 1
+"kinship2", "alignped1", -1, 0, 0, "list<double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"kinship2", "alignped1", 0, 0, 0, "double", 1
+"kinship2", "alignped1", 1, 0, 0, "any", 1
+"kinship2", "alignped1", 2, 0, 0, "any", 1
+"kinship2", "alignped1", 3, 0, 0, "double[]", 1
+"kinship2", "alignped1", 4, 0, 0, "any", 1
+"kinship2", "alignped1", 5, 0, 0, "any", 1
+"kinship2", "alignped1", 6, 0, 0, "class<`matrix`>", 1
+"kinship2", "alignped2", -1, 0, 0, "list<double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"kinship2", "alignped2", 0, 0, 0, "integer[]", 1
+"kinship2", "alignped2", 1, 0, 0, "any", 1
+"kinship2", "alignped2", 2, 0, 0, "any", 1
+"kinship2", "alignped2", 3, 0, 0, "double[]", 1
+"kinship2", "alignped2", 4, 0, 0, "double[]", 1
+"kinship2", "alignped2", 5, 0, 0, "any", 1
+"kinship2", "alignped2", 6, 0, 0, "class<`matrix`>", 1
+"kinship2", "alignped3", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"kinship2", "alignped3", 0, 0, 0, "list<double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"kinship2", "alignped3", 1, 0, 0, "list<double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"kinship2", "alignped3", 2, 0, 0, "logical", 1
+"kinship2", "alignped3", 3, 0, 0, "double", 1
+"kinship2", "alignped4", -1, 0, 0, "class<`matrix`>", 1
+"kinship2", "alignped4", 0, 0, 0, "list<double[] | class<`matrix`>>", 1
+"kinship2", "alignped4", 1, 0, 0, "class<`matrix`>", 1
+"kinship2", "alignped4", 2, 0, 0, "any", 1
+"kinship2", "alignped4", 3, 0, 0, "double", 1
+"kinship2", "alignped4", 4, 0, 0, "double[]", 1
+"kinship2", "align.pedigree", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"kinship2", "align.pedigree", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "align.pedigree", 1, 0, 0, "logical", 1
+"kinship2", "align.pedigree", 2, 0, 0, "double", 1
+"kinship2", "align.pedigree", 3, 0, 0, "double[]", 1
+"kinship2", "align.pedigree", 4, 0, 0, "null", 1
+"kinship2", "align.pedigree", 4, 0, 1, "list<double[] | class<`matrix`> | double[] | null | integer[] | null>", 1
+"kinship2", "as.data.frame.pedigree", -1, 0, 0, "class<`data.frame`>", 1
+"kinship2", "as.data.frame.pedigree", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "as.data.frame.pedigree", 1, 0, 0, "...", 1
+"kinship2", "autohint", -1, 0, 0, "list<double[] | class<`matrix`> | integer[] | null>", 1
+"kinship2", "autohint", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "autohint", 1, 0, 0, "any", 1
+"kinship2", "autohint", 2, 0, 0, "logical", 1
+"kinship2", "autohint", 3, 0, 0, "logical", 1
+"kinship2", "bitSize", -1, 0, 0, "list<double>", 1
+"kinship2", "bitSize", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "check.hint", -1, 0, 0, "list<double[] | class<`matrix`> | double[] | null | integer[] | null>", 1
+"kinship2", "check.hint", 0, 0, 0, "list<double[] | class<`matrix`> | double[] | null | integer[] | null>", 1
+"kinship2", "check.hint", 1, 0, 0, "class<`factor`>", 1
+"kinship2", "excludeStrayMarryin", -1, 0, 0, "class<`data.frame`>", 1
+"kinship2", "excludeStrayMarryin", 0, 0, 0, "character[]", 1
+"kinship2", "excludeStrayMarryin", 0, 0, 1, "integer[]", 1
+"kinship2", "excludeStrayMarryin", 1, 0, 0, "double[]", 1
+"kinship2", "excludeStrayMarryin", 2, 0, 0, "double[]", 1
+"kinship2", "excludeUnavailFounders", -1, 0, 0, "list<any>", 1
+"kinship2", "excludeUnavailFounders", 0, 0, 0, "character[]", 1
+"kinship2", "excludeUnavailFounders", 0, 0, 1, "integer[]", 1
+"kinship2", "excludeUnavailFounders", 1, 0, 0, "integer[]", 1
+"kinship2", "excludeUnavailFounders", 2, 0, 0, "integer[]", 1
+"kinship2", "excludeUnavailFounders", 3, 0, 0, "any", 1
+"kinship2", "familycheck", -1, 0, 0, "any", 1
+"kinship2", "familycheck", 0, 0, 0, "double[]", 1
+"kinship2", "familycheck", 1, 0, 0, "integer[]", 1
+"kinship2", "familycheck", 2, 0, 0, "double[]", 1
+"kinship2", "familycheck", 3, 0, 0, "integer[]", 1
+"kinship2", "familycheck", 4, 0, 0, "any", 1
+"kinship2", "findAvailAffected", -1, 0, 0, "list<any>", 1
+"kinship2", "findAvailAffected", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "findAvailAffected", 1, 0, 0, "integer[]", 1
+"kinship2", "findAvailAffected", 2, 0, 0, "null", 1
+"kinship2", "findAvailAffected", 2, 0, 1, "double", 1
+"kinship2", "findAvailNonInform", -1, 0, 0, "(character[] | integer[])", 1
+"kinship2", "findAvailNonInform", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "findAvailNonInform", 1, 0, 0, "double[]", 1
+"kinship2", "findUnavailable", -1, 0, 0, "(character[] | integer[])", 1
+"kinship2", "findUnavailable", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "findUnavailable", 1, 0, 0, "double[]", 1
+"kinship2", "fixParents", -1, 0, 0, "class<`data.frame`>", 1
+"kinship2", "fixParents", 0, 0, 0, "class<`factor`>", 1
+"kinship2", "fixParents", 0, 0, 1, "integer[]", 1
+"kinship2", "fixParents", 1, 0, 0, "class<`factor`>", 1
+"kinship2", "fixParents", 1, 0, 1, "double[]", 1
+"kinship2", "fixParents", 2, 0, 0, "class<`factor`>", 1
+"kinship2", "fixParents", 2, 0, 1, "double[]", 1
+"kinship2", "fixParents", 3, 0, 0, "class<`factor`>", 1
+"kinship2", "fixParents", 3, 0, 1, "double[]", 1
+"kinship2", "fixParents", 4, 0, 0, "character", 1
+"kinship2", "fixParents", 4, 0, 1, "double", 1
+"kinship2", "is.founder", -1, 0, 0, "logical[]", 1
+"kinship2", "is.founder", 0, 0, 0, "double[]", 1
+"kinship2", "is.founder", 1, 0, 0, "double[]", 1
+"kinship2", "is.parent", -1, 0, 0, "logical[]", 1
+"kinship2", "is.parent", 0, 0, 0, "character[]", 1
+"kinship2", "is.parent", 0, 0, 1, "integer[]", 1
+"kinship2", "is.parent", 1, 0, 0, "double[]", 1
+"kinship2", "is.parent", 2, 0, 0, "double[]", 1
+"kinship2", "kindepth", -1, 0, 0, "any", 1
+"kinship2", "kindepth", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "kindepth", 0, 0, 1, "integer[]", 1
+"kinship2", "kindepth", 1, 0, 0, "any", 1
+"kinship2", "kindepth", 2, 0, 0, "any", 1
+"kinship2", "kindepth", 3, 0, 0, "logical", 1
+"kinship2", "kinship", -1, 0, 0, "(class<`dsCMatrix`> | class<`matrix`>)", 1
+"kinship2", "kinship", 0, 0, 0, "class<`pedigreeList`>", 1
+"kinship2", "kinship", 0, 0, 1, "class<`pedigree`>", 1
+"kinship2", "kinship", 1, 0, 0, "...", 1
+"kinship2", "kinship.pedigree", -1, 0, 0, "class<`matrix`>", 1
+"kinship2", "kinship.pedigree", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "kinship.pedigree", 1, 0, 0, "character", 1
+"kinship2", "kinship.pedigree", 2, 0, 0, "...", 1
+"kinship2", "kinship.pedigreeList", -1, 0, 0, "class<`dsCMatrix`>", 1
+"kinship2", "kinship.pedigreeList", 0, 0, 0, "class<`pedigreeList`>", 1
+"kinship2", "kinship.pedigreeList", 1, 0, 0, "character", 1
+"kinship2", "kinship.pedigreeList", 2, 0, 0, "...", 1
+"kinship2", "legendPlot", -1, 0, 0, "list<logical>", 1
+"kinship2", "legendPlot", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "legendPlot", 1, 0, 0, "integer[]", 1
+"kinship2", "legendPlot", 2, 0, 0, "class<`matrix`>", 1
+"kinship2", "legendPlot", 3, 0, 0, "character[]", 1
+"kinship2", "legendPlot", 3, 0, 1, "null", 1
+"kinship2", "legendPlot", 4, 0, 0, "double[]", 1
+"kinship2", "legendPlot", 5, 0, 0, "character[]", 1
+"kinship2", "legendPlot", 5, 0, 1, "null", 1
+"kinship2", "legendPlot", 6, 0, 0, "double", 1
+"kinship2", "legendPlot", 7, 0, 0, "...", 1
+"kinship2", "makefamid", -1, 0, 0, "any", 1
+"kinship2", "makefamid", 0, 0, 0, "integer[]", 1
+"kinship2", "makefamid", 1, 0, 0, "double[]", 1
+"kinship2", "makefamid", 2, 0, 0, "double[]", 1
+"kinship2", "pedigree", -1, 0, 0, "(class<`pedigree`> | class<`pedigreeList`>)", 1
+"kinship2", "pedigree", 0, 0, 0, "character[]", 1
+"kinship2", "pedigree", 0, 0, 1, "class<`factor`>", 1
+"kinship2", "pedigree", 0, 0, 2, "double[]", 1
+"kinship2", "pedigree", 1, 0, 0, "character[]", 1
+"kinship2", "pedigree", 1, 0, 1, "class<`factor`>", 1
+"kinship2", "pedigree", 1, 0, 2, "^double[]", 1
+"kinship2", "pedigree", 2, 0, 0, "character[]", 1
+"kinship2", "pedigree", 2, 0, 1, "class<`factor`>", 1
+"kinship2", "pedigree", 2, 0, 2, "^double[]", 1
+"kinship2", "pedigree", 3, 0, 0, "class<`factor`>", 1
+"kinship2", "pedigree", 3, 0, 1, "double[]", 1
+"kinship2", "pedigree", 3, 0, 2, "^character[]", 1
+"kinship2", "pedigree", 4, 0, 0, "any", 1
+"kinship2", "pedigree", 5, 0, 0, "any", 1
+"kinship2", "pedigree", 6, 0, 0, "any", 1
+"kinship2", "pedigree", 7, 0, 0, "any", 1
+"kinship2", "pedigree", 8, 0, 0, "any", 1
+"kinship2", "[.pedigree", -1, 0, 0, "class<`pedigree`>", 1
+"kinship2", "[.pedigree", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "[.pedigree", 1, 0, 0, "...", 1
+"kinship2", "[.pedigree", 2, 0, 0, "any", 1
+"kinship2", "pedigree.legend", -1, 0, 0, "null", 1
+"kinship2", "pedigree.legend", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "pedigree.legend", 1, 0, 0, "character[]", 1
+"kinship2", "pedigree.legend", 2, 0, 0, "double", 1
+"kinship2", "pedigree.legend", 3, 0, 0, "double", 1
+"kinship2", "pedigree.legend", 3, 0, 1, "null", 1
+"kinship2", "pedigree.legend", 4, 0, 0, "character", 1
+"kinship2", "pedigree.legend", 5, 0, 0, "logical", 1
+"kinship2", "pedigree.legend", 6, 0, 0, "double[]", 1
+"kinship2", "pedigree.legend", 7, 0, 0, "double[]", 1
+"kinship2", "pedigree.legend", 8, 0, 0, "...", 1
+"kinship2", "[.pedigreeList", -1, 0, 0, "class<`pedigree`>", 1
+"kinship2", "[.pedigreeList", 0, 0, 0, "class<`pedigreeList`>", 1
+"kinship2", "[.pedigreeList", 1, 0, 0, "...", 1
+"kinship2", "[.pedigreeList", 2, 0, 0, "any", 1
+"kinship2", "pedigree.shrink", -1, 0, 0, "class<`pedigree.shrink`>", 1
+"kinship2", "pedigree.shrink", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "pedigree.shrink", 1, 0, 0, "double[]", 1
+"kinship2", "pedigree.shrink", 2, 0, 0, "null", 1
+"kinship2", "pedigree.shrink", 3, 0, 0, "null", 1
+"kinship2", "pedigree.shrink", 4, 0, 0, "double", 1
+"kinship2", "pedigree.trim", -1, 0, 0, "class<`pedigree`>", 1
+"kinship2", "pedigree.trim", 0, 0, 0, "character[]", 1
+"kinship2", "pedigree.trim", 0, 0, 1, "double[]", 1
+"kinship2", "pedigree.trim", 1, 0, 0, "class<`pedigree`>", 1
+"kinship2", "pedigree.unrelated", -1, 0, 0, "character[]", 1
+"kinship2", "pedigree.unrelated", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "pedigree.unrelated", 1, 0, 0, "integer[]", 1
+"kinship2", "plot.pedigree", -1, 0, 0, "list<double[] | class<`call`> | list<double[] | class<`matrix`>> | ^double[] | class<`call`> | list<double[] | class<`matrix`>>>", 1
+"kinship2", "plot.pedigree", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "plot.pedigree", 1, 0, 0, "character[]", 1
+"kinship2", "plot.pedigree", 1, 0, 1, "integer[]", 1
+"kinship2", "plot.pedigree", 2, 0, 0, "double[]", 1
+"kinship2", "plot.pedigree", 2, 0, 1, "null", 1
+"kinship2", "plot.pedigree", 3, 0, 0, "class<`matrix`>", 1
+"kinship2", "plot.pedigree", 3, 0, 1, "^integer[]", 1
+"kinship2", "plot.pedigree", 3, 0, 2, "null", 1
+"kinship2", "plot.pedigree", 4, 0, 0, "double", 1
+"kinship2", "plot.pedigree", 5, 0, 0, "double[]", 1
+"kinship2", "plot.pedigree", 5, 0, 1, "character[]", 1
+"kinship2", "plot.pedigree", 6, 0, 0, "double", 1
+"kinship2", "plot.pedigree", 7, 0, 0, "double", 1
+"kinship2", "plot.pedigree", 8, 0, 0, "logical", 1
+"kinship2", "plot.pedigree", 9, 0, 0, "double[]", 1
+"kinship2", "plot.pedigree", 10, 0, 0, "double", 1
+"kinship2", "plot.pedigree", 11, 0, 0, "any", 1
+"kinship2", "plot.pedigree", 12, 0, 0, "double[]", 1
+"kinship2", "plot.pedigree", 13, 0, 0, "any", 1
+"kinship2", "plot.pedigree", 14, 0, 0, "logical", 1
+"kinship2", "plot.pedigree", 15, 0, 0, "any", 1
+"kinship2", "plot.pedigree", 16, 0, 0, "double", 1
+"kinship2", "plot.pedigree", 17, 0, 0, "...", 1
+"kinship2", "printBanner", -1, 0, 0, "null", 1
+"kinship2", "printBanner", 0, 0, 0, "character", 1
+"kinship2", "printBanner", 1, 0, 0, "double", 1
+"kinship2", "printBanner", 2, 0, 0, "double", 1
+"kinship2", "printBanner", 3, 0, 0, "character", 1
+"kinship2", "print.pedigree", -1, 0, 0, "null", 1
+"kinship2", "print.pedigree", 0, 0, 0, "class<`pedigree`>", 1
+"kinship2", "print.pedigree", 1, 0, 0, "...", 1
+"kinship2", "print.pedigreeList", -1, 0, 0, "null", 1
+"kinship2", "print.pedigreeList", 0, 0, 0, "class<`pedigreeList`>", 1
+"kinship2", "print.pedigreeList", 1, 0, 0, "...", 1
+"kinship2", "print.pedigree.shrink", -1, 0, 0, "null", 1
+"kinship2", "print.pedigree.shrink", 0, 0, 0, "class<`pedigree.shrink`>", 1
+"kinship2", "print.pedigree.shrink", 1, 0, 0, "...", 1

@@ -1,8 +1,385 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"ffbase", "[.ff", -1, 0, 0, "null", 1
-"ffbase", "[.ff", 0, 0, 0, "tuple<>", 1
-"ffbase", "[.ff", 1, 0, 0, "null", 1
-"ffbase", "[.ff", 1, 0, 1, "^integer[]", 1
-"ffbase", "[.ff", 1, 0, 2, "double", 1
-"ffbase", "[.ff", 1, 0, 3, "tuple<>", 1
+"ffbase", "addfforder", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "addfforder", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "addfforder", 1, 0, 0, "logical", 1
+"ffbase", "addfforder", 2, 0, 0, "...", 1
+"ffbase", "any.ff", -1, 0, 0, "logical", 1
+"ffbase", "any.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "any.ff", 1, 0, 0, "...", 1
+"ffbase", "any.ff", 2, 0, 0, "logical", 1
+"ffbase", "any.ff", 3, 0, 0, "null", 1
+"ffbase", "as.character.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "as.character.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "as.character.ff", 1, 0, 0, "...", 1
+"ffbase", "as.ffdf.ffdf", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "as.ffdf.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "as.ffdf.ffdf", 1, 0, 0, "...", 1
+"ffbase", "as.ffdf.list", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "as.ffdf.list", 0, 0, 0, "list<class<`ff`, `ff_vector`>>", 1
+"ffbase", "binned_sum", -1, 0, 0, "class<`matrix`>", 1
+"ffbase", "binned_sum", 0, 0, 0, "double[]", 1
+"ffbase", "binned_sum", 1, 0, 0, "class<`factor`>", 1
+"ffbase", "binned_sum", 1, 0, 1, "integer[]", 1
+"ffbase", "binned_sum", 2, 0, 0, "any", 1
+"ffbase", "binned_sum", 3, 0, 0, "...", 1
+"ffbase", "binned_sum.default", -1, 0, 0, "class<`matrix`>", 1
+"ffbase", "binned_sum.default", 0, 0, 0, "double[]", 1
+"ffbase", "binned_sum.default", 1, 0, 0, "class<`factor`>", 1
+"ffbase", "binned_sum.default", 1, 0, 1, "integer[]", 1
+"ffbase", "binned_sum.default", 2, 0, 0, "any", 1
+"ffbase", "binned_sum.default", 3, 0, 0, "...", 1
+"ffbase", "binned_tabulate.ff", -1, 0, 0, "class<`matrix`>", 1
+"ffbase", "binned_tabulate.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "binned_tabulate.ff", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "binned_tabulate.ff", 2, 0, 0, "any", 1
+"ffbase", "binned_tabulate.ff", 3, 0, 0, "double", 1
+"ffbase", "binned_tabulate.ff", 4, 0, 0, "...", 1
+"ffbase", "bySum", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"ffbase", "bySum", 0, 0, 0, "double[]", 1
+"ffbase", "bySum", 1, 0, 0, "class<`factor`>", 1
+"ffbase", "bySum", 1, 0, 1, "class<`data.frame`>", 1
+"ffbase", "bySum", 2, 0, 0, "logical", 1
+"ffbase", "bySum", 3, 0, 0, "null", 1
+"ffbase", "bySum", 4, 0, 0, "...", 1
+"ffbase", "c.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "c.ff", 0, 0, 0, "...", 1
+"ffbase", "checkRange", -1, 0, 0, "class<`ri`>", 1
+"ffbase", "checkRange", 0, 0, 0, "null", 1
+"ffbase", "checkRange", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "chunkexpr", -1, 0, 0, "expression", 1
+"ffbase", "chunkexpr", 0, 0, 0, "class<`call`>", 1
+"ffbase", "chunkexpr", 0, 0, 1, "expression", 1
+"ffbase", "chunkexpr", 1, 0, 0, "character[]", 1
+"ffbase", "chunkexpr", 2, 0, 0, "character", 1
+"ffbase", "chunkexpr", 3, 0, 0, "character", 1
+"ffbase", "coerce_to_allowNA", -1, 0, 0, "list<character[]>", 1
+"ffbase", "coerce_to_allowNA", 0, 0, 0, "character[]", 1
+"ffbase", "coerce_to_highest_vmode", -1, 0, 0, "(class<`ffdf`> | class<`ff`, `ff_vector`>)", 1
+"ffbase", "coerce_to_highest_vmode", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "coerce_to_highest_vmode", 0, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "coerce_to_highest_vmode", 1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "coerce_to_highest_vmode", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "coerce_to_highest_vmode", 1, 0, 2, "integer[]", 1
+"ffbase", "coerce_to_highest_vmode", 2, 0, 0, "logical", 1
+"ffbase", "cummax.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cummax.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cummax.ff", 1, 0, 0, "...", 1
+"ffbase", "cummin.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cummin.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cummin.ff", 1, 0, 0, "...", 1
+"ffbase", "cumprod.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cumprod.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cumprod.ff", 1, 0, 0, "...", 1
+"ffbase", "cumsum.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cumsum.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cumsum.ff", 1, 0, 0, "...", 1
+"ffbase", "cut.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cut.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "cut.ff", 1, 0, 0, "double", 1
+"ffbase", "cut.ff", 2, 0, 0, "...", 1
+"ffbase", "duplicated.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "duplicated.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "duplicated.ff", 1, 0, 0, "logical", 1
+"ffbase", "duplicated.ff", 2, 0, 0, "logical", 1
+"ffbase", "duplicated.ff", 3, 0, 0, "logical", 1
+"ffbase", "duplicated.ff", 4, 0, 0, "...", 1
+"ffbase", "duplicated.ffdf", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "duplicated.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "duplicated.ffdf", 1, 0, 0, "logical", 1
+"ffbase", "duplicated.ffdf", 2, 0, 0, "logical", 1
+"ffbase", "duplicated.ffdf", 3, 0, 0, "logical", 1
+"ffbase", "duplicated.ffdf", 4, 0, 0, "...", 1
+"ffbase", "expand.ffgrid", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "expand.ffgrid", 0, 0, 0, "...", 1
+"ffbase", "expand.ffgrid", 1, 0, 0, "logical", 1
+"ffbase", "expand.ffgrid", 2, 0, 0, "logical", 1
+"ffbase", "[<-.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[<-.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[<-.ff", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[<-.ff", 1, 0, 1, "class<`ri`>", 1
+"ffbase", "[<-.ff", 1, 0, 2, "class<`which`>", 1
+"ffbase", "[<-.ff", 1, 0, 3, "double", 1
+"ffbase", "[<-.ff", 1, 0, 4, "integer[]", 1
+"ffbase", "[<-.ff", 2, 0, 0, "logical", 1
+"ffbase", "[<-.ff", 3, 0, 0, "logical", 1
+"ffbase", "[<-.ff", 4, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[<-.ff", 4, 0, 1, "^character[]", 1
+"ffbase", "[<-.ff", 4, 0, 2, "class<`factor`>", 1
+"ffbase", "[<-.ff", 4, 0, 3, "double[]", 1
+"ffbase", "[<-.ff", 4, 0, 4, "^integer[]", 1
+"ffbase", "[<-.ff", 4, 0, 5, "null", 1
+"ffbase", "[.ff", -1, 0, 0, "(class<`Date`> | class<`factor`> | class<`ff`, `ff_vector`> | class<`POSIXct`, `POSIXt`> | ^double[] | null)", 1
+"ffbase", "[.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[.ff", 1, 0, 0, "any", 1
 "ffbase", "[.ff", 2, 0, 0, "logical", 1
+"ffbase", "%ff:%", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "%ff:%", 0, 0, 0, "integer", 1
+"ffbase", "%ff:%", 1, 0, 0, "integer", 1
+"ffbase", "ffappend", -1, 0, 0, "(class<`ff`, `ff_vector`> | null)", 1
+"ffbase", "ffappend", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffappend", 0, 0, 1, "null", 1
+"ffbase", "ffappend", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffappend", 1, 0, 1, "class<`Date`>", 1
+"ffbase", "ffappend", 1, 0, 2, "class<`factor`>", 1
+"ffbase", "ffappend", 1, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"ffbase", "ffappend", 1, 0, 4, "double[]", 1
+"ffbase", "ffappend", 1, 0, 5, "^integer[]", 1
+"ffbase", "ffappend", 1, 0, 6, "null", 1
+"ffbase", "ffappend", 2, 0, 0, "logical", 1
+"ffbase", "ffappend", 3, 0, 0, "...", 1
+"ffbase", "ffbaseffdfindexget", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffbaseffdfindexget", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffbaseffdfindexget", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffbaseffdfindexget", 2, 0, 0, "null", 1
+"ffbase", "ffbaseffdfindexget", 3, 0, 0, "...", 1
+"ffbase", "[<-.ffdf", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "[<-.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "[<-.ffdf", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[<-.ffdf", 1, 0, 1, "class<`hi`>", 1
+"ffbase", "[<-.ffdf", 2, 0, 0, "any", 1
+"ffbase", "[<-.ffdf", 3, 0, 0, "class<`ffdf`>", 1
+"ffbase", "[.ffdf", -1, 0, 0, "(class<`data.frame`> | class<`ffdf`> | class<`ff`, `ff_vector`> | double[])", 1
+"ffbase", "[.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "[.ffdf", 1, 0, 0, "any", 1
+"ffbase", "[.ffdf", 2, 0, 0, "any", 1
+"ffbase", "[.ffdf", 3, 0, 0, "logical", 1
+"ffbase", "ffdfappend", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfappend", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfappend", 0, 0, 1, "null", 1
+"ffbase", "ffdfappend", 1, 0, 0, "class<`data.frame`>", 1
+"ffbase", "ffdfappend", 1, 0, 1, "class<`ffdf`>", 1
+"ffbase", "ffdfappend", 2, 0, 0, "logical", 1
+"ffbase", "ffdfappend", 3, 0, 0, "logical", 1
+"ffbase", "ffdfappend", 4, 0, 0, "...", 1
+"ffbase", "ffdfdply", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfdply", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfdply", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffdfdply", 2, 0, 0, "class<`function`>", 1
+"ffbase", "ffdfdply", 3, 0, 0, "double", 1
+"ffbase", "ffdfdply", 4, 0, 0, "integer", 1
+"ffbase", "ffdfdply", 5, 0, 0, "logical", 1
+"ffbase", "ffdfdply", 6, 0, 0, "...", 1
+"ffbase", "ffdfget_columnwise", -1, 0, 0, "class<`data.frame`>", 1
+"ffbase", "ffdfget_columnwise", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfget_columnwise", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffdfmatch", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffdfmatch", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfmatch", 1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfmatch", 2, 0, 0, "integer", 1
+"ffbase", "ffdfmatch", 2, 0, 1, "null", 1
+"ffbase", "ffdfmatch", 3, 0, 0, "null", 1
+"ffbase", "ffdfmatch", 4, 0, 0, "logical", 1
+"ffbase", "ffdfmatch", 5, 0, 0, "...", 1
+"ffbase", "ffdfrbind.fill", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfrbind.fill", 0, 0, 0, "...", 1
+"ffbase", "ffdfrbind.fill", 1, 0, 0, "logical", 1
+"ffbase", "ffdfwith", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffdfwith", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffdfwith", 1, 0, 0, "any", 1
+"ffbase", "ffdfwith", 2, 0, 0, "...", 1
+"ffbase", "ffifelse", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffifelse", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffifelse", 1, 0, 0, "class<`Date`>", 1
+"ffbase", "ffifelse", 1, 0, 1, "class<`factor`>", 1
+"ffbase", "ffifelse", 1, 0, 2, "logical", 1
+"ffbase", "ffifelse", 2, 0, 0, "class<`factor`>", 1
+"ffbase", "ffifelse", 2, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffifelse", 2, 0, 2, "null", 1
+"ffbase", "ffmatch", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffmatch", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffmatch", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffmatch", 2, 0, 0, "integer", 1
+"ffbase", "ffmatch", 2, 0, 1, "null", 1
+"ffbase", "ffmatch", 3, 0, 0, "null", 1
+"ffbase", "ffmatch", 4, 0, 0, "logical", 1
+"ffbase", "ffmatch", 5, 0, 0, "...", 1
+"ffbase", "ffordered", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffordered", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffrandom", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffrandom", 0, 0, 0, "double", 1
+"ffbase", "ffrandom", 1, 0, 0, "class<`function`>", 1
+"ffbase", "ffrandom", 2, 0, 0, "...", 1
+"ffbase", "ffrandom", 3, 0, 0, "null", 1
+"ffbase", "ffrep.int", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffrep.int", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffrep.int", 0, 0, 1, "integer", 1
+"ffbase", "ffrep.int", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffrep.int", 1, 0, 1, "double", 1
+"ffbase", "ffseq", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffseq", 0, 0, 0, "double", 1
+"ffbase", "ffseq", 1, 0, 0, "double", 1
+"ffbase", "ffseq", 2, 0, 0, "any", 1
+"ffbase", "ffseq", 3, 0, 0, "double", 1
+"ffbase", "ffseq", 3, 0, 1, "null", 1
+"ffbase", "ffseq", 4, 0, 0, "null", 1
+"ffbase", "ffseq", 4, 0, 1, "double", 1
+"ffbase", "ffseq", 5, 0, 0, "...", 1
+"ffbase", "ffseq_len", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffseq_len", 0, 0, 0, "double", 1
+"ffbase", "<.ff_vector", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "<.ff_vector", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "<.ff_vector", 0, 0, 1, "double", 1
+"ffbase", "<.ff_vector", 1, 0, 0, "double", 1
+"ffbase", "<.ff_vector", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", ">.ff_vector", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", ">.ff_vector", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", ">.ff_vector", 0, 0, 1, "double", 1
+"ffbase", ">.ff_vector", 1, 0, 0, "double", 1
+"ffbase", ">.ff_vector", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "*.ff_vector", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "*.ff_vector", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "*.ff_vector", 1, 0, 0, "double", 1
+"ffbase", "+.ff_vector", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "+.ff_vector", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "+.ff_vector", 0, 0, 1, "double", 1
+"ffbase", "+.ff_vector", 1, 0, 0, "double", 1
+"ffbase", "+.ff_vector", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffwhich", -1, 0, 0, "(class<`ff`, `ff_vector`> | null)", 1
+"ffbase", "ffwhich", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffwhich", 0, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffwhich", 1, 0, 0, "any", 1
+"ffbase", "ffwhich", 2, 0, 0, "...", 1
+"ffbase", "ffwhich.ffdf", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffwhich.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ffwhich.ffdf", 1, 0, 0, "any", 1
+"ffbase", "ffwhich.ffdf", 2, 0, 0, "...", 1
+"ffbase", "ffwhich.ffdf", 3, 0, 0, "environment", 1
+"ffbase", "ffwhich.ff_vector", -1, 0, 0, "(class<`ff`, `ff_vector`> | null)", 1
+"ffbase", "ffwhich.ff_vector", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffwhich.ff_vector", 1, 0, 0, "any", 1
+"ffbase", "ffwhich.ff_vector", 2, 0, 0, "...", 1
+"ffbase", "ffwhich.ff_vector", 3, 0, 0, "environment", 1
+"ffbase", "grouprunningcumsum", -1, 0, 0, "integer[]", 1
+"ffbase", "grouprunningcumsum", 0, 0, 0, "integer[]", 1
+"ffbase", "grouprunningcumsum", 1, 0, 0, "double", 1
+"ffbase", "grouprunningcumsumindex", -1, 0, 0, "list<integer[]>", 1
+"ffbase", "grouprunningcumsumindex", 0, 0, 0, "double[]", 1
+"ffbase", "grouprunningcumsumindex", 1, 0, 0, "double", 1
+"ffbase", "grouprunningcumsumindex", 2, 0, 0, "double", 1
+"ffbase", "ikey", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ikey", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "ikey", 1, 0, 0, "...", 1
+"ffbase", "%in%", -1, 0, 0, "(class<`ff`, `ff_vector`> | logical[])", 1
+"ffbase", "%in%", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "%in%", 0, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "%in%", 0, 0, 2, "character[]", 1
+"ffbase", "%in%", 0, 0, 3, "class<`factor`>", 1
+"ffbase", "%in%", 0, 0, 4, "integer[]", 1
+"ffbase", "%in%", 1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "%in%", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "%in%", 1, 0, 2, "character[]", 1
+"ffbase", "%in%", 1, 0, 3, "class<`factor`>", 1
+"ffbase", "%in%", 1, 0, 4, "double[]", 1
+"ffbase", "is.na<-.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "is.na<-.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "is.na<-.ff", 1, 0, 0, "...", 1
+"ffbase", "is.na<-.ff", 2, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "is.na<-.ff", 2, 0, 1, "double", 1
+"ffbase", "is.na<-.ff", 2, 0, 2, "integer[]", 1
+"ffbase", "is.na.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "is.na.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "is.na.ff", 1, 0, 0, "...", 1
+"ffbase", "load.ffdf", -1, 0, 0, "environment", 1
+"ffbase", "load.ffdf", 0, 0, 0, "character", 1
+"ffbase", "load.ffdf", 1, 0, 0, "environment", 1
+"ffbase", "max.ff", -1, 0, 0, "(double | null)", 1
+"ffbase", "max.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "max.ff", 1, 0, 0, "...", 1
+"ffbase", "max.ff", 2, 0, 0, "logical", 1
+"ffbase", "max.ff", 3, 0, 0, "null", 1
+"ffbase", "mean.ff", -1, 0, 0, "double", 1
+"ffbase", "mean.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "mean.ff", 1, 0, 0, "double", 1
+"ffbase", "mean.ff", 2, 0, 0, "...", 1
+"ffbase", "mean.ff", 3, 0, 0, "null", 1
+"ffbase", "merge.ffdf", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "merge.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "merge.ffdf", 1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "merge.ffdf", 2, 0, 0, "any", 1
+"ffbase", "merge.ffdf", 3, 0, 0, "character", 1
+"ffbase", "merge.ffdf", 4, 0, 0, "character", 1
+"ffbase", "merge.ffdf", 5, 0, 0, "logical", 1
+"ffbase", "merge.ffdf", 6, 0, 0, "logical", 1
+"ffbase", "merge.ffdf", 7, 0, 0, "logical", 1
+"ffbase", "merge.ffdf", 8, 0, 0, "logical", 1
+"ffbase", "merge.ffdf", 9, 0, 0, "any", 1
+"ffbase", "merge.ffdf", 10, 0, 0, "null", 1
+"ffbase", "merge.ffdf", 11, 0, 0, "logical", 1
+"ffbase", "merge.ffdf", 12, 0, 0, "...", 1
+"ffbase", "min.ff", -1, 0, 0, "(integer | null)", 1
+"ffbase", "min.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "min.ff", 1, 0, 0, "...", 1
+"ffbase", "min.ff", 2, 0, 0, "logical", 1
+"ffbase", "min.ff", 3, 0, 0, "null", 1
+"ffbase", "move.ffdf", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "move.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "move.ffdf", 1, 0, 0, "character", 1
+"ffbase", "move.ffdf", 2, 0, 0, "character", 1
+"ffbase", "move.ffdf", 3, 0, 0, "logical", 1
+"ffbase", "opsff_arith", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "opsff_arith", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "opsff_arith", 0, 0, 1, "double", 1
+"ffbase", "opsff_arith", 1, 0, 0, "double", 1
+"ffbase", "opsff_arith", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "opsff_arith", 2, 0, 0, "character", 1
+"ffbase", "opsff_compare_logic", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "opsff_compare_logic", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "opsff_compare_logic", 0, 0, 1, "double", 1
+"ffbase", "opsff_compare_logic", 1, 0, 0, "double", 1
+"ffbase", "opsff_compare_logic", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
+"ffbase", "opsff_compare_logic", 2, 0, 0, "character", 1
+"ffbase", "pack.ffdf", -1, 0, 0, "integer", 1
+"ffbase", "pack.ffdf", 0, 0, 0, "character", 1
+"ffbase", "pack.ffdf", 1, 0, 0, "...", 1
+"ffbase", "range.ff", -1, 0, 0, "^integer[]", 1
+"ffbase", "range.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "range.ff", 1, 0, 0, "...", 1
+"ffbase", "range.ff", 2, 0, 0, "logical", 1
+"ffbase", "range.ff", 3, 0, 0, "null", 1
+"ffbase", "save.ffdf", -1, 0, 0, "null", 1
+"ffbase", "save.ffdf", 0, 0, 0, "...", 1
+"ffbase", "save.ffdf", 1, 0, 0, "character", 1
+"ffbase", "save.ffdf", 2, 0, 0, "logical", 1
+"ffbase", "save.ffdf", 3, 0, 0, "logical", 1
+"ffbase", "save.ffdf", 4, 0, 0, "logical", 1
+"ffbase", "sum.ff", -1, 0, 0, "integer", 1
+"ffbase", "sum.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "sum.ff", 1, 0, 0, "...", 1
+"ffbase", "sum.ff", 2, 0, 0, "logical", 1
+"ffbase", "sum.ff", 3, 0, 0, "null", 1
+"ffbase", "table", -1, 0, 0, "class<`table`>", 1
+"ffbase", "table", 0, 0, 0, "...", 1
+"ffbase", "table", 1, 0, 0, "any", 1
+"ffbase", "table", 2, 0, 0, "any", 1
+"ffbase", "table", 3, 0, 0, "any", 1
+"ffbase", "table", 4, 0, 0, "double", 1
+"ffbase", "tabulate.ff", -1, 0, 0, "integer[]", 1
+"ffbase", "tabulate.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "tabulate.ff", 1, 0, 0, "double", 1
+"ffbase", "transform.ffdf", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "transform.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "transform.ffdf", 1, 0, 0, "...", 1
+"ffbase", "unique.ff", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "unique.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "unique.ff", 1, 0, 0, "logical", 1
+"ffbase", "unique.ff", 2, 0, 0, "logical", 1
+"ffbase", "unique.ff", 3, 0, 0, "logical", 1
+"ffbase", "unique.ff", 4, 0, 0, "...", 1
+"ffbase", "unique.ffdf", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "unique.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "unique.ffdf", 1, 0, 0, "logical", 1
+"ffbase", "unique.ffdf", 2, 0, 0, "logical", 1
+"ffbase", "unique.ffdf", 3, 0, 0, "logical", 1
+"ffbase", "unique.ffdf", 4, 0, 0, "...", 1
+"ffbase", "unpack.ffdf", -1, 0, 0, "environment", 1
+"ffbase", "unpack.ffdf", 0, 0, 0, "character", 1
+"ffbase", "unpack.ffdf", 1, 0, 0, "null", 1
+"ffbase", "unpack.ffdf", 2, 0, 0, "environment", 1
+"ffbase", "with.ffdf", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "with.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "with.ffdf", 1, 0, 0, "any", 1
+"ffbase", "with.ffdf", 2, 0, 0, "...", 1
+"ffbase", "within.ffdf", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "within.ffdf", 0, 0, 0, "class<`ffdf`>", 1
+"ffbase", "within.ffdf", 1, 0, 0, "any", 1
+"ffbase", "within.ffdf", 2, 0, 0, "...", 1

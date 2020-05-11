@@ -1,10 +1,622 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"pillar", "assign_crayon_styles", -1, 0, 0, "any => any", 1
+"pillar", "align", -1, 0, 0, "character[]", 1
+"pillar", "align", 0, 0, 0, "character[]", 1
+"pillar", "align", 0, 0, 1, "class<`pillar_ornament`>", 1
+"pillar", "align", 1, 0, 0, "double", 1
+"pillar", "align", 1, 0, 1, "null", 1
+"pillar", "align", 2, 0, 0, "character[]", 1
+"pillar", "all_pillars_fit", -1, 0, 0, "logical", 1
+"pillar", "all_pillars_fit", 0, 0, 0, "class<`data.frame`>", 1
+"pillar", "assemble_decimal", -1, 0, 0, "character[]", 1
+"pillar", "assemble_decimal", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "assign_crayon_styles", -1, 0, 0, "class<`function`>", 1
+"pillar", "big_mark", -1, 0, 0, "character[]", 1
+"pillar", "big_mark", 0, 0, 0, "integer[]", 1
+"pillar", "big_mark", 1, 0, 0, "...", 1
+"pillar", "bind_rows", -1, 0, 0, "class<`data.frame`>", 1
+"pillar", "bind_rows", 0, 0, 0, "list<class<`data.frame`>>", 1
+"pillar", "cat_line", -1, 0, 0, "null", 1
+"pillar", "cat_line", 0, 0, 0, "...", 1
+"pillar", "check_sigfig", -1, 0, 0, "integer", 1
+"pillar", "check_sigfig", 0, 0, 0, "double", 1
+"pillar", "colonnade", -1, 0, 0, "class<`pillar_colonnade`>", 1
+"pillar", "colonnade", 0, 0, 0, "class<`data.frame`>", 1
+"pillar", "colonnade", 0, 0, 1, "list<character | integer[] | character[] | integer[]>", 1
+"pillar", "colonnade", 1, 0, 0, "logical", 1
+"pillar", "colonnade", 2, 0, 0, "null", 1
+"pillar", "colonnade", 2, 0, 1, "double", 1
+"pillar", "colonnade", 3, 0, 0, "...", 1
+"pillar", "colonnade_compute_tiered_col_widths", -1, 0, 0, "class<`data.frame`>", 1
+"pillar", "colonnade_compute_tiered_col_widths", 0, 0, 0, "list<class<`pillar_capital`> | class<`pillar`>>", 1
+"pillar", "colonnade_compute_tiered_col_widths", 1, 0, 0, "double", 1
+"pillar", "colonnade_compute_tiered_col_widths_df", -1, 0, 0, "class<`data.frame`>", 1
+"pillar", "colonnade_compute_tiered_col_widths_df", 0, 0, 0, "class<`data.frame`>", 1
+"pillar", "colonnade_compute_tiered_col_widths_df", 1, 0, 0, "double", 1
+"pillar", "colonnade_compute_tiered_col_widths_df", 2, 0, 0, "any", 1
+"pillar", "colonnade_distribute_space", -1, 0, 0, "integer", 1
+"pillar", "colonnade_distribute_space", 0, 0, 0, "double", 1
+"pillar", "colonnade_distribute_space", 1, 0, 0, "null", 1
+"pillar", "colonnade_distribute_space", 2, 0, 0, "any", 1
+"pillar", "colonnade_distribute_space_df", -1, 0, 0, "class<`data.frame`>", 1
+"pillar", "colonnade_distribute_space_df", 0, 0, 0, "class<`data.frame`>", 1
+"pillar", "colonnade_distribute_space_df", 1, 0, 0, "double", 1
+"pillar", "colonnade_get_width", -1, 0, 0, "class<`data.frame`>", 1
+"pillar", "colonnade_get_width", 0, 0, 0, "class<`pillar_colonnade`>", 1
+"pillar", "colonnade_get_width", 1, 0, 0, "double", 1
+"pillar", "colonnade_get_width", 2, 0, 0, "integer", 1
 "pillar", "compat_lengths", -1, 0, 0, "null", 1
-"pillar", "filter", -1, 0, 0, "logical[]", 1
-"pillar", "filter", 0, 0, 0, "character[]", 1
-"pillar", "fun", -1, 0, 0, "null", 1
-"pillar", "fun", 0, 0, 0, "symbol", 1
-"pillar", "fun", 0, 0, 1, "double[]", 1
-"pillar", "fun", 0, 0, 2, "^character[]", 1
-"pillar", "fun", 1, 0, 0, "symbol", 1
+"pillar", "compute_exp", -1, 0, 0, "^integer[]", 1
+"pillar", "compute_exp", 0, 0, 0, "^double[]", 1
+"pillar", "compute_exp", 1, 0, 0, "integer", 1
+"pillar", "compute_rhs_digits", -1, 0, 0, "double[]", 1
+"pillar", "compute_rhs_digits", 0, 0, 0, "^double[]", 1
+"pillar", "compute_rhs_digits", 1, 0, 0, "integer", 1
+"pillar", "crayon_grey_0.6", -1, 0, 0, "character[]", 1
+"pillar", "crayon_grey_0.6", 0, 0, 0, "...", 1
+"pillar", "crayon_grey_0.8", -1, 0, 0, "character[]", 1
+"pillar", "crayon_grey_0.8", 0, 0, 0, "...", 1
+"pillar", "crayon_italic", -1, 0, 0, "character[]", 1
+"pillar", "crayon_italic", 0, 0, 0, "...", 1
+"pillar", "crayon_red", -1, 0, 0, "character[]", 1
+"pillar", "crayon_red", 0, 0, 0, "...", 1
+"pillar", "crayon_underline", -1, 0, 0, "character[]", 1
+"pillar", "crayon_underline", 0, 0, 0, "...", 1
+"pillar", "diff_to_trunc", -1, 0, 0, "^double[]", 1
+"pillar", "diff_to_trunc", 0, 0, 0, "^double[]", 1
+"pillar", "dim2", -1, 0, 0, "integer[]", 1
+"pillar", "dim2", 0, 0, 0, "class<`matrix`>", 1
+"pillar", "dim2", 0, 0, 1, "class<`table`>", 1
+"pillar", "dim2", 0, 0, 2, "class<`Date`>", 1
+"pillar", "dim2", 0, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "dim2", 0, 0, 4, "integer[]", 1
+"pillar", "dim_desc", -1, 0, 0, "character", 1
+"pillar", "dim_desc", 0, 0, 0, "class<`Date`>", 1
+"pillar", "dim_desc", 0, 0, 1, "class<`matrix`>", 1
+"pillar", "dim_desc", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "dim_desc", 0, 0, 3, "class<`table`>", 1
+"pillar", "dim_desc", 0, 0, 4, "integer[]", 1
+"pillar", "distribute_pillars", -1, 0, 0, "class<`data.frame`>", 1
+"pillar", "distribute_pillars", 0, 0, 0, "double", 1
+"pillar", "distribute_pillars", 1, 0, 0, "double", 1
+"pillar", "expect_known_display", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "expect_known_display", 0, 0, 0, "any", 1
+"pillar", "expect_known_display", 1, 0, 0, "character", 1
+"pillar", "expect_known_display", 2, 0, 0, "...", 1
+"pillar", "expect_known_display", 3, 0, 0, "integer", 1
+"pillar", "expect_known_display", 4, 0, 0, "logical", 1
+"pillar", "extra_cols", -1, 0, 0, "character", 1
+"pillar", "extra_cols", 0, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
+"pillar", "extra_cols", 1, 0, 0, "...", 1
+"pillar", "extra_cols.pillar_squeezed_colonnade", -1, 0, 0, "character", 1
+"pillar", "extra_cols.pillar_squeezed_colonnade", 0, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
+"pillar", "extra_cols.pillar_squeezed_colonnade", 1, 0, 0, "...", 1
+"pillar", "extra_cols.pillar_squeezed_colonnade", 2, 0, 0, "double", 1
+"pillar", "flatten_colonnade", -1, 0, 0, "list<any>", 1
+"pillar", "flatten_colonnade", 0, 0, 0, "class<`data.frame`>", 1
+"pillar", "flatten_colonnade", 0, 0, 1, "list<character | integer[] | character[] | integer[]>", 1
+"pillar", "format_dec", -1, 0, 0, "character[]", 1
+"pillar", "format_dec", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "format_decimal", -1, 0, 0, "list<character[] | double[] | ^integer[] | character | double | null | character[] | ^double[]>", 1
+"pillar", "format_decimal", 0, 0, 0, "^double[]", 1
+"pillar", "format_decimal", 1, 0, 0, "double", 1
+"pillar", "format_decimal", 2, 0, 0, "...", 1
+"pillar", "format_exp", -1, 0, 0, "character[]", 1
+"pillar", "format_exp", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "format_full_pillar_title", -1, 0, 0, "character", 1
+"pillar", "format_full_pillar_title", 0, 0, 0, "character", 1
+"pillar", "format_full_pillar_type", -1, 0, 0, "character", 1
+"pillar", "format_full_pillar_type", 0, 0, 0, "integer[]", 1
+"pillar", "format_lhs", -1, 0, 0, "character[]", 1
+"pillar", "format_lhs", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "format_mantissa", -1, 0, 0, "character[]", 1
+"pillar", "format_mantissa", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "format_neg", -1, 0, 0, "character[]", 1
+"pillar", "format_neg", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "format.pillar", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "format.pillar", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "format.pillar", 1, 0, 0, "null", 1
+"pillar", "format.pillar", 2, 0, 0, "...", 1
+"pillar", "format.pillar_capital", -1, 0, 0, "character[]", 1
+"pillar", "format.pillar_capital", 0, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "format.pillar_capital", 1, 0, 0, "any", 1
+"pillar", "format.pillar_capital", 2, 0, 0, "...", 1
+"pillar", "format.pillar_colonnade", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "format.pillar_colonnade", 0, 0, 0, "class<`pillar_colonnade`>", 1
+"pillar", "format.pillar_colonnade", 1, 0, 0, "...", 1
+"pillar", "format.pillar_rif_shaft", -1, 0, 0, "class<`pillar_ornament`>", 1
+"pillar", "format.pillar_rif_shaft", 0, 0, 0, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
+"pillar", "format.pillar_rif_shaft", 1, 0, 0, "integer", 1
+"pillar", "format.pillar_rif_shaft", 2, 0, 0, "...", 1
+"pillar", "format.pillar_rif_title", -1, 0, 0, "character[]", 1
+"pillar", "format.pillar_rif_title", 0, 0, 0, "class<`pillar_rif_title`>", 1
+"pillar", "format.pillar_rif_title", 1, 0, 0, "any", 1
+"pillar", "format.pillar_rif_title", 2, 0, 0, "...", 1
+"pillar", "format.pillar_rif_type", -1, 0, 0, "character", 1
+"pillar", "format.pillar_rif_type", 0, 0, 0, "class<`pillar_rif_type`>", 1
+"pillar", "format.pillar_rif_type", 1, 0, 0, "any", 1
+"pillar", "format.pillar_rif_type", 2, 0, 0, "...", 1
+"pillar", "format.pillar_shaft_decimal", -1, 0, 0, "class<`pillar_ornament`>", 1
+"pillar", "format.pillar_shaft_decimal", 0, 0, 0, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "format.pillar_shaft_decimal", 1, 0, 0, "integer", 1
+"pillar", "format.pillar_shaft_decimal", 2, 0, 0, "...", 1
+"pillar", "format.pillar_shaft_simple", -1, 0, 0, "class<`pillar_ornament`>", 1
+"pillar", "format.pillar_shaft_simple", 0, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "format.pillar_shaft_simple", 1, 0, 0, "double", 1
+"pillar", "format.pillar_shaft_simple", 2, 0, 0, "...", 1
+"pillar", "format.pillar_squeezed_colonnade", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "format.pillar_squeezed_colonnade", 0, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
+"pillar", "format.pillar_squeezed_colonnade", 1, 0, 0, "...", 1
+"pillar", "format.pillar_title", -1, 0, 0, "character[]", 1
+"pillar", "format.pillar_title", 0, 0, 0, "class<`pillar_title`>", 1
+"pillar", "format.pillar_title", 1, 0, 0, "any", 1
+"pillar", "format.pillar_title", 2, 0, 0, "...", 1
+"pillar", "format.pillar_type", -1, 0, 0, "character", 1
+"pillar", "format.pillar_type", 0, 0, 0, "class<`pillar_type`>", 1
+"pillar", "format.pillar_type", 1, 0, 0, "double", 1
+"pillar", "format.pillar_type", 1, 0, 1, "null", 1
+"pillar", "format.pillar_type", 2, 0, 0, "...", 1
+"pillar", "format_rhs", -1, 0, 0, "character[]", 1
+"pillar", "format_rhs", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "format_scientific", -1, 0, 0, "list<character[] | double[] | character | double | character[] | ^double[]>", 1
+"pillar", "format_scientific", 0, 0, 0, "^double[]", 1
+"pillar", "format_scientific", 1, 0, 0, "double", 1
+"pillar", "format_title", -1, 0, 0, "character[]", 1
+"pillar", "format_title", 0, 0, 0, "character[]", 1
+"pillar", "format_title", 1, 0, 0, "double", 1
+"pillar", "format_type_sum", -1, 0, 0, "character", 1
+"pillar", "format_type_sum", 0, 0, 0, "character", 1
+"pillar", "format_type_sum", 0, 0, 1, "class<`type_sum_accel`>", 1
+"pillar", "format_type_sum", 0, 0, 2, "double", 1
+"pillar", "format_type_sum", 1, 0, 0, "double", 1
+"pillar", "format_type_sum", 1, 0, 1, "null", 1
+"pillar", "format_type_sum", 2, 0, 0, "...", 1
+"pillar", "format_type_sum.default", -1, 0, 0, "character", 1
+"pillar", "format_type_sum.default", 0, 0, 0, "character", 1
+"pillar", "format_type_sum.default", 0, 0, 1, "double", 1
+"pillar", "format_type_sum.default", 1, 0, 0, "double", 1
+"pillar", "format_type_sum.default", 1, 0, 1, "null", 1
+"pillar", "format_type_sum.default", 2, 0, 0, "...", 1
+"pillar", "FUN", -1, 0, 0, "integer[]", 1
+"pillar", "FUN", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "FUN", 0, 0, 1, "class<`pillar_capital`>", 1
+"pillar", "FUN", -1, 1, 0, "integer[]", 1
+"pillar", "FUN", 0, 1, 0, "class<`pillar`>", 1
+"pillar", "FUN", 0, 1, 1, "class<`pillar_capital`>", 1
+"pillar", "FUN", 0, 1, 2, "list<list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
+"pillar", "FUN", -1, 2, 0, "(class<`pillar_shaft`, `pillar_shaft_simple`> | class<`pillar_shaft`, `pillar_shaft_decimal`>)", 1
+"pillar", "FUN", 0, 2, 0, "^double[]", 1
+"pillar", "FUN", 0, 2, 1, "class<`Date`>", 1
+"pillar", "FUN", 0, 2, 2, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "FUN", 0, 2, 3, "null", 1
+"pillar", "FUN", 0, 2, 4, "^character[]", 1
+"pillar", "FUN", 0, 2, 5, "class<`accel`>", 1
+"pillar", "FUN", 0, 2, 6, "class<`factor`>", 1
+"pillar", "FUN", 0, 2, 7, "class<`pillar_vertical`>", 1
+"pillar", "FUN", 1, 2, 0, "...", 1
+"pillar", "FUN", -1, 3, 0, "integer", 1
+"pillar", "FUN", 0, 3, 0, "class<`pillar_capital`>", 1
+"pillar", "FUN", 0, 3, 1, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "FUN", 0, 3, 2, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "FUN", 0, 3, 3, "class<`pillar_title`>", 1
+"pillar", "FUN", 0, 3, 4, "class<`pillar_type`>", 1
+"pillar", "FUN", 0, 3, 5, "class<`pillar_rif_title`>", 1
+"pillar", "FUN", 0, 3, 6, "class<`pillar_rif_type`>", 1
+"pillar", "FUN", 0, 3, 7, "list<any>", 1
+"pillar", "FUN", -1, 4, 0, "(integer | null)", 1
+"pillar", "FUN", 0, 4, 0, "class<`pillar_capital`>", 1
+"pillar", "FUN", 0, 4, 1, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
+"pillar", "FUN", 0, 4, 2, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "FUN", 0, 4, 3, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "FUN", 0, 4, 4, "class<`pillar_title`>", 1
+"pillar", "FUN", 0, 4, 5, "class<`pillar_type`>", 1
+"pillar", "FUN", 0, 4, 6, "class<`pillar_colonnade`>", 1
+"pillar", "FUN", 0, 4, 7, "class<`pillar_rif_title`>", 1
+"pillar", "FUN", 0, 4, 8, "class<`pillar_rif_type`>", 1
+"pillar", "FUN", 0, 4, 9, "class<`pillar`>", 1
+"pillar", "FUN", 0, 4, 10, "list<any>", 1
+"pillar", "get_decimal_width", -1, 0, 0, "double", 1
+"pillar", "get_decimal_width", 0, 0, 0, "list<any>", 1
+"pillar", "get_ellipsis", -1, 0, 0, "character", 1
+"pillar", "get_extent", -1, 0, 0, "integer[]", 1
+"pillar", "get_extent", 0, 0, 0, "character[]", 1
+"pillar", "get_extent", 0, 0, 1, "class<`pillar_ornament`>", 1
+"pillar", "get_extent", 0, 0, 2, "class<`pillar_vertical`>", 1
+"pillar", "get_max_extent", -1, 0, 0, "integer", 1
+"pillar", "get_max_extent", 0, 0, 0, "character[]", 1
+"pillar", "get_max_extent", 0, 0, 1, "class<`pillar_vertical`>", 1
+"pillar", "get_min_title_width", -1, 0, 0, "integer", 1
+"pillar", "get_min_title_width", 0, 0, 0, "integer", 1
+"pillar", "get_min_width", -1, 0, 0, "integer", 1
+"pillar", "get_min_width", 0, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "get_min_width", 0, 0, 1, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "get_min_width", 0, 0, 2, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "get_min_width", 0, 0, 3, "class<`pillar_title`>", 1
+"pillar", "get_min_width", 0, 0, 4, "class<`pillar_type`>", 1
+"pillar", "get_min_width", 0, 0, 5, "class<`pillar_rif_title`>", 1
+"pillar", "get_min_width", 0, 0, 6, "class<`pillar_rif_type`>", 1
+"pillar", "get_min_width", 0, 0, 7, "list<any>", 1
+"pillar", "get_min_widths", -1, 0, 0, "integer[]", 1
+"pillar", "get_min_widths", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "get_min_widths", 0, 0, 1, "class<`pillar_capital`>", 1
+"pillar", "get_min_widths", 0, 0, 2, "list<list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
+"pillar", "get_pillar_type", -1, 0, 0, "(character | class<`type_sum_accel`>)", 1
+"pillar", "get_pillar_type", 0, 0, 0, "^character[]", 1
+"pillar", "get_pillar_type", 0, 0, 1, "class<`Date`>", 1
+"pillar", "get_pillar_type", 0, 0, 2, "class<`factor`>", 1
+"pillar", "get_pillar_type", 0, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "get_pillar_type", 0, 0, 4, "^double[]", 1
+"pillar", "get_pillar_type", 0, 0, 5, "class<`accel`>", 1
+"pillar", "get_rowid_from_colonnade", -1, 0, 0, "class<`pillar`>", 1
+"pillar", "get_rowid_from_colonnade", 0, 0, 0, "class<`pillar_colonnade`>", 1
+"pillar", "get_tier_widths", -1, 0, 0, "double", 1
+"pillar", "get_tier_widths", 0, 0, 0, "double", 1
+"pillar", "get_tier_widths", 1, 0, 0, "any", 1
+"pillar", "get_tier_widths", 2, 0, 0, "integer", 1
+"pillar", "get_tier_widths", 3, 0, 0, "integer", 1
+"pillar", "get_width", -1, 0, 0, "(integer | null)", 1
+"pillar", "get_width", 0, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "get_width", 0, 0, 1, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
+"pillar", "get_width", 0, 0, 2, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "get_width", 0, 0, 3, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "get_width", 0, 0, 4, "class<`pillar_title`>", 1
+"pillar", "get_width", 0, 0, 5, "class<`pillar_type`>", 1
+"pillar", "get_width", 0, 0, 6, "class<`pillar_colonnade`>", 1
+"pillar", "get_width", 0, 0, 7, "class<`pillar_rif_title`>", 1
+"pillar", "get_width", 0, 0, 8, "class<`pillar_rif_type`>", 1
+"pillar", "get_width", 0, 0, 9, "class<`pillar`>", 1
+"pillar", "get_width", 0, 0, 10, "list<any>", 1
+"pillar", "get_widths", -1, 0, 0, "integer[]", 1
+"pillar", "get_widths", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "get_widths", 0, 0, 1, "class<`pillar_capital`>", 1
+"pillar", "has_color", -1, 0, 0, "logical", 1
+"pillar", "has_color", 0, 0, 0, "logical", 1
+"pillar", "is_ambiguous_string", -1, 0, 0, "logical[]", 1
+"pillar", "is_ambiguous_string", 0, 0, 0, "^character[]", 1
+"pillar", "is_syntactic", -1, 0, 0, "logical[]", 1
+"pillar", "is_syntactic", 0, 0, 0, "null", 1
+"pillar", "is_syntactic", 0, 0, 1, "character", 1
+"pillar", "is_vector_s3", -1, 0, 0, "logical", 1
+"pillar", "is_vector_s3", 0, 0, 0, "class<`Date`>", 1
+"pillar", "is_vector_s3", 0, 0, 1, "class<`function`>", 1
+"pillar", "is_vector_s3", 0, 0, 2, "class<`matrix`>", 1
+"pillar", "is_vector_s3", 0, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "is_vector_s3", 0, 0, 4, "integer[]", 1
+"pillar", "is_vector_s3.Date", -1, 0, 0, "logical", 1
+"pillar", "is_vector_s3.Date", 0, 0, 0, "class<`Date`>", 1
+"pillar", "is_vector_s3.Date", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "is_vector_s3.default", -1, 0, 0, "logical", 1
+"pillar", "is_vector_s3.default", 0, 0, 0, "class<`function`>", 1
+"pillar", "is_vector_s3.default", 0, 0, 1, "class<`matrix`>", 1
+"pillar", "is_vector_s3.default", 0, 0, 2, "integer[]", 1
+"pillar", "is_vector_s3.POSIXct", -1, 0, 0, "logical", 1
+"pillar", "is_vector_s3.POSIXct", 0, 0, 0, "class<`Date`>", 1
+"pillar", "is_vector_s3.POSIXct", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "make_style_fast", -1, 0, 0, "class<`function`>", 1
+"pillar", "make_style_fast", 0, 0, 0, "...", 1
+"pillar", "make_style_fast_16", -1, 0, 0, "class<`function`>", 1
+"pillar", "make_style_fast_16", 0, 0, 0, "...", 1
+"pillar", "map", -1, 0, 0, "list<any>", 1
+"pillar", "map", 0, 0, 0, "double[]", 1
+"pillar", "map", 0, 0, 1, "class<`pillar_squeezed_colonnade`>", 1
+"pillar", "map", 0, 0, 2, "list<any>", 1
+"pillar", "map", 1, 0, 0, "class<`function`>", 1
+"pillar", "map", 2, 0, 0, "...", 1
+"pillar", "map2", -1, 0, 0, "list<any>", 1
+"pillar", "map2", 0, 0, 0, "double[]", 1
+"pillar", "map2", 0, 0, 1, "class<`data.frame`>", 1
+"pillar", "map2", 0, 0, 2, "list<any>", 1
+"pillar", "map2", 1, 0, 0, "double[]", 1
+"pillar", "map2", 1, 0, 1, "character[]", 1
+"pillar", "map2", 1, 0, 2, "list<any>", 1
+"pillar", "map2", 2, 0, 0, "class<`function`>", 1
+"pillar", "map2", 3, 0, 0, "...", 1
+"pillar", "map2_chr", -1, 0, 0, "character", 1
+"pillar", "map2_chr", 0, 0, 0, "list<integer[]>", 1
+"pillar", "map2_chr", 1, 0, 0, "character", 1
+"pillar", "map2_chr", 2, 0, 0, "class<`function`>", 1
+"pillar", "map2_chr", 3, 0, 0, "...", 1
+"pillar", "map_chr", -1, 0, 0, "character[]", 1
+"pillar", "map_chr", 0, 0, 0, "list<character[]>", 1
+"pillar", "map_chr", 1, 0, 0, "class<`function`>", 1
+"pillar", "map_chr", 2, 0, 0, "...", 1
+"pillar", "map_chr_named", -1, 0, 0, "character", 1
+"pillar", "map_chr_named", 0, 0, 0, "list<integer[]>", 1
+"pillar", "map_chr_named", 1, 0, 0, "class<`function`>", 1
+"pillar", "map_int", -1, 0, 0, "integer[]", 1
+"pillar", "map_int", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "map_int", 0, 0, 1, "class<`pillar_capital`>", 1
+"pillar", "map_int", 0, 0, 2, "list<integer[] | list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
+"pillar", "map_int", 1, 0, 0, "class<`function`>", 1
+"pillar", "map_int", 2, 0, 0, "...", 1
+"pillar", "map_mold", -1, 0, 0, "(character[] | integer[])", 1
+"pillar", "map_mold", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "map_mold", 0, 0, 1, "class<`pillar_capital`>", 1
+"pillar", "map_mold", 0, 0, 2, "list<character[] | integer[] | list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
+"pillar", "map_mold", 1, 0, 0, "class<`function`>", 1
+"pillar", "map_mold", 2, 0, 0, "character", 1
+"pillar", "map_mold", 2, 0, 1, "integer", 1
+"pillar", "map_mold", 3, 0, 0, "...", 1
+"pillar", "map_named", -1, 0, 0, "list<class<`pillar_capital`>>", 1
+"pillar", "map_named", 0, 0, 0, "list<character | integer[]>", 1
+"pillar", "map_named", 1, 0, 0, "class<`function`>", 1
+"pillar", "mult_sign", -1, 0, 0, "character", 1
+"pillar", "new_colonnade_sqeezed", -1, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
+"pillar", "new_colonnade_sqeezed", 0, 0, 0, "list<list<list<character[]>>>", 1
+"pillar", "new_colonnade_sqeezed", 1, 0, 0, "class<`pillar_colonnade`>", 1
+"pillar", "new_colonnade_sqeezed", 2, 0, 0, "integer[]", 1
+"pillar", "new_ornament", -1, 0, 0, "class<`pillar_ornament`>", 1
+"pillar", "new_ornament", 0, 0, 0, "character[]", 1
+"pillar", "new_ornament", 1, 0, 0, "null", 1
+"pillar", "new_ornament", 1, 0, 1, "double", 1
+"pillar", "new_ornament", 2, 0, 0, "character", 1
+"pillar", "new_pillar", -1, 0, 0, "class<`pillar`>", 1
+"pillar", "new_pillar", 0, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "new_pillar", 1, 0, 0, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
+"pillar", "new_pillar", 1, 0, 1, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "new_pillar", 1, 0, 2, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "new_pillar", 2, 0, 0, "null", 1
+"pillar", "new_pillar", 2, 0, 1, "double", 1
+"pillar", "new_pillar_capital", -1, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "new_pillar_capital", 0, 0, 0, "class<`pillar_rif_title`>", 1
+"pillar", "new_pillar_capital", 0, 0, 1, "class<`pillar_title`>", 1
+"pillar", "new_pillar_capital", 1, 0, 0, "class<`pillar_rif_type`>", 1
+"pillar", "new_pillar_capital", 1, 0, 1, "class<`pillar_type`>", 1
+"pillar", "new_pillar_shaft", -1, 0, 0, "(class<`pillar_rif_shaft`, `pillar_shaft`> | class<`pillar_shaft`, `pillar_shaft_decimal`> | class<`pillar_shaft`, `pillar_shaft_simple`>)", 1
+"pillar", "new_pillar_shaft", 0, 0, 0, "list<any>", 1
+"pillar", "new_pillar_shaft", 1, 0, 0, "...", 1
+"pillar", "new_pillar_shaft", 2, 0, 0, "double", 1
+"pillar", "new_pillar_shaft", 3, 0, 0, "integer", 1
+"pillar", "new_pillar_shaft", 3, 0, 1, "null", 1
+"pillar", "new_pillar_shaft", 4, 0, 0, "character", 1
+"pillar", "new_pillar_shaft", 5, 0, 0, "null", 1
+"pillar", "new_pillar_shaft_simple", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "new_pillar_shaft_simple", 0, 0, 0, "^character[]", 1
+"pillar", "new_pillar_shaft_simple", 0, 0, 1, "null", 1
+"pillar", "new_pillar_shaft_simple", 0, 0, 2, "class<`pillar_vertical`>", 1
+"pillar", "new_pillar_shaft_simple", 1, 0, 0, "...", 1
+"pillar", "new_pillar_shaft_simple", 2, 0, 0, "double", 1
+"pillar", "new_pillar_shaft_simple", 3, 0, 0, "character", 1
+"pillar", "new_pillar_shaft_simple", 4, 0, 0, "null", 1
+"pillar", "new_pillar_shaft_simple", 4, 0, 1, "integer", 1
+"pillar", "new_pillar_shaft_simple", 5, 0, 0, "null", 1
+"pillar", "new_pillar_shaft_simple", 5, 0, 1, "character", 1
+"pillar", "new_pillar_shaft_simple", 6, 0, 0, "double", 1
+"pillar", "new_pillar_title", -1, 0, 0, "class<`pillar_title`>", 1
+"pillar", "new_pillar_title", 0, 0, 0, "character[]", 1
+"pillar", "new_pillar_title", 0, 0, 1, "null", 1
+"pillar", "new_pillar_title", 1, 0, 0, "...", 1
+"pillar", "new_pillar_type", -1, 0, 0, "class<`pillar_type`>", 1
+"pillar", "new_pillar_type", 0, 0, 0, "^character[]", 1
+"pillar", "new_pillar_type", 0, 0, 1, "class<`accel`>", 1
+"pillar", "new_pillar_type", 0, 0, 2, "class<`Date`>", 1
+"pillar", "new_pillar_type", 0, 0, 3, "class<`factor`>", 1
+"pillar", "new_pillar_type", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "new_pillar_type", 0, 0, 5, "^double[]", 1
+"pillar", "new_pillar_type", 1, 0, 0, "...", 1
+"pillar", "new_vertical", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "new_vertical", 0, 0, 0, "^character[]", 1
+"pillar", "new_vertical", 1, 0, 0, "...", 1
+"pillar", "new_vertical", 2, 0, 0, "null", 1
+"pillar", "obj_sum", -1, 0, 0, "character", 1
+"pillar", "obj_sum", 0, 0, 0, "class<`Date`>", 1
+"pillar", "obj_sum", 0, 0, 1, "class<`function`>", 1
+"pillar", "obj_sum", 0, 0, 2, "class<`matrix`>", 1
+"pillar", "obj_sum", 0, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "obj_sum", 0, 0, 4, "integer[]", 1
+"pillar", "obj_sum.default", -1, 0, 0, "character", 1
+"pillar", "obj_sum.default", 0, 0, 0, "class<`Date`>", 1
+"pillar", "obj_sum.default", 0, 0, 1, "class<`function`>", 1
+"pillar", "obj_sum.default", 0, 0, 2, "class<`matrix`>", 1
+"pillar", "obj_sum.default", 0, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "obj_sum.default", 0, 0, 4, "integer[]", 1
+"pillar", "pillar", -1, 0, 0, "class<`pillar`>", 1
+"pillar", "pillar", 0, 0, 0, "^character[]", 1
+"pillar", "pillar", 0, 0, 1, "class<`accel`>", 1
+"pillar", "pillar", 0, 0, 2, "class<`Date`>", 1
+"pillar", "pillar", 0, 0, 3, "class<`factor`>", 1
+"pillar", "pillar", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "pillar", 0, 0, 5, "^double[]", 1
+"pillar", "pillar", 1, 0, 0, "null", 1
+"pillar", "pillar", 1, 0, 1, "character", 1
+"pillar", "pillar", 2, 0, 0, "null", 1
+"pillar", "pillar", 2, 0, 1, "double", 1
+"pillar", "pillar", 3, 0, 0, "...", 1
+"pillar", "pillar_capital", -1, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "pillar_capital", 0, 0, 0, "^character[]", 1
+"pillar", "pillar_capital", 0, 0, 1, "class<`accel`>", 1
+"pillar", "pillar_capital", 0, 0, 2, "class<`Date`>", 1
+"pillar", "pillar_capital", 0, 0, 3, "class<`factor`>", 1
+"pillar", "pillar_capital", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "pillar_capital", 0, 0, 5, "^double[]", 1
+"pillar", "pillar_capital", 1, 0, 0, "null", 1
+"pillar", "pillar_capital", 1, 0, 1, "character", 1
+"pillar", "pillar_capital", 2, 0, 0, "...", 1
+"pillar", "pillar_format_parts", -1, 0, 0, "list<character[]>", 1
+"pillar", "pillar_format_parts", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "pillar_format_parts", 1, 0, 0, "double", 1
+"pillar", "pillar_format_parts", 2, 0, 0, "...", 1
+"pillar", "pillar_get_width", -1, 0, 0, "integer", 1
+"pillar", "pillar_get_width", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "pillar_get_width", 1, 0, 0, "null", 1
+"pillar", "pillar_na", -1, 0, 0, "character", 1
+"pillar", "pillar_na", 0, 0, 0, "logical", 1
+"pillar", "pillar_shaft", -1, 0, 0, "(class<`pillar_shaft`, `pillar_shaft_simple`> | class<`pillar_shaft`, `pillar_shaft_decimal`>)", 1
+"pillar", "pillar_shaft", 0, 0, 0, "^double[]", 1
+"pillar", "pillar_shaft", 0, 0, 1, "class<`Date`>", 1
+"pillar", "pillar_shaft", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "pillar_shaft", 0, 0, 3, "null", 1
+"pillar", "pillar_shaft", 0, 0, 4, "^character[]", 1
+"pillar", "pillar_shaft", 0, 0, 5, "class<`accel`>", 1
+"pillar", "pillar_shaft", 0, 0, 6, "class<`factor`>", 1
+"pillar", "pillar_shaft", 0, 0, 7, "class<`pillar_vertical`>", 1
+"pillar", "pillar_shaft", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.character", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "pillar_shaft.character", 0, 0, 0, "^character[]", 1
+"pillar", "pillar_shaft.character", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.character", 2, 0, 0, "integer", 1
+"pillar", "pillar_shaft.Date", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "pillar_shaft.Date", 0, 0, 0, "class<`Date`>", 1
+"pillar", "pillar_shaft.Date", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.default", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "pillar_shaft.default", 0, 0, 0, "class<`accel`>", 1
+"pillar", "pillar_shaft.default", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.factor", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "pillar_shaft.factor", 0, 0, 0, "class<`factor`>", 1
+"pillar", "pillar_shaft.factor", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.logical", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "pillar_shaft.logical", 0, 0, 0, "^logical[]", 1
+"pillar", "pillar_shaft.logical", 0, 0, 1, "null", 1
+"pillar", "pillar_shaft.logical", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.numeric", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "pillar_shaft.numeric", 0, 0, 0, "^double[]", 1
+"pillar", "pillar_shaft.numeric", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.numeric", 2, 0, 0, "double", 1
+"pillar", "pillar_shaft.pillar_vertical", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "pillar_shaft.pillar_vertical", 0, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "pillar_shaft.pillar_vertical", 1, 0, 0, "...", 1
+"pillar", "pillar_shaft.pillar_vertical", 2, 0, 0, "integer", 1
+"pillar", "pillar_shaft.pillar_vertical", 3, 0, 0, "double", 1
+"pillar", "pillar_shaft.POSIXt", -1, 0, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "pillar_shaft.POSIXt", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "pillar_shaft.POSIXt", 1, 0, 0, "...", 1
+"pillar", "print.pillar", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "print.pillar", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "print.pillar", 0, 0, 1, "class<`pillar_colonnade`>", 1
+"pillar", "print.pillar", 1, 0, 0, "...", 1
+"pillar", "print.pillar_colonnade", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "print.pillar_colonnade", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "print.pillar_colonnade", 0, 0, 1, "class<`pillar_colonnade`>", 1
+"pillar", "print.pillar_colonnade", 1, 0, 0, "...", 1
+"pillar", "print.pillar_vertical", -1, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "print.pillar_vertical", 0, 0, 0, "class<`pillar_vertical`>", 1
+"pillar", "print.pillar_vertical", 1, 0, 0, "...", 1
+"pillar", "register_s3_method", -1, 0, 0, "null", 1
+"pillar", "register_s3_method", 0, 0, 0, "character", 1
+"pillar", "register_s3_method", 1, 0, 0, "character", 1
+"pillar", "register_s3_method", 2, 0, 0, "character", 1
+"pillar", "register_s3_method", 3, 0, 0, "null", 1
+"pillar", "rif_capital", -1, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "rif_capital", 0, 0, 0, "logical", 1
+"pillar", "rif_capital", 1, 0, 0, "logical", 1
+"pillar", "rif_capital", 2, 0, 0, "...", 1
+"pillar", "rif_shaft", -1, 0, 0, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
+"pillar", "rif_shaft", 0, 0, 0, "integer", 1
+"pillar", "rif_shaft", 1, 0, 0, "...", 1
+"pillar", "rif_title", -1, 0, 0, "class<`pillar_rif_title`>", 1
+"pillar", "rif_title", 0, 0, 0, "logical", 1
+"pillar", "rif_title", 1, 0, 0, "...", 1
+"pillar", "rif_type", -1, 0, 0, "class<`pillar_rif_type`>", 1
+"pillar", "rif_type", 0, 0, 0, "logical", 1
+"pillar", "rif_type", 1, 0, 0, "...", 1
+"pillar", "rowidformat", -1, 0, 0, "class<`pillar`>", 1
+"pillar", "rowidformat", 0, 0, 0, "integer", 1
+"pillar", "rowidformat", 1, 0, 0, "logical", 1
+"pillar", "rowidformat", 2, 0, 0, "logical", 1
+"pillar", "rowidformat", 3, 0, 0, "...", 1
+"pillar", "safe_signif", -1, 0, 0, "^double[]", 1
+"pillar", "safe_signif", 0, 0, 0, "^double[]", 1
+"pillar", "safe_signif", 1, 0, 0, "double[]", 1
+"pillar", "set_min_width", -1, 0, 0, "(class<`pillar_capital`> | class<`pillar_rif_shaft`, `pillar_shaft`> | class<`pillar_shaft`, `pillar_shaft_decimal`> | class<`pillar_shaft`, `pillar_shaft_simple`> | class<`pillar_title`> | class<`pillar_type`>)", 1
+"pillar", "set_min_width", 0, 0, 0, "class<`pillar_capital`>", 1
+"pillar", "set_min_width", 0, 0, 1, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
+"pillar", "set_min_width", 0, 0, 2, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "set_min_width", 0, 0, 3, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "set_min_width", 0, 0, 4, "class<`pillar_title`>", 1
+"pillar", "set_min_width", 0, 0, 5, "class<`pillar_type`>", 1
+"pillar", "set_min_width", 1, 0, 0, "integer", 1
+"pillar", "set_min_width", 1, 0, 1, "null", 1
+"pillar", "set_width", -1, 0, 0, "(class<`pillar`> | class<`pillar_capital`> | class<`pillar_colonnade`> | class<`pillar_ornament`> | class<`pillar_rif_shaft`, `pillar_shaft`> | class<`pillar_rif_title`> | class<`pillar_rif_type`> | class<`pillar_shaft`, `pillar_shaft_decimal`> | class<`pillar_shaft`, `pillar_shaft_simple`> | class<`pillar_title`> | class<`pillar_type`> | list<any>)", 1
+"pillar", "set_width", 0, 0, 0, "class<`pillar`>", 1
+"pillar", "set_width", 0, 0, 1, "class<`pillar_capital`>", 1
+"pillar", "set_width", 0, 0, 2, "class<`pillar_colonnade`>", 1
+"pillar", "set_width", 0, 0, 3, "class<`pillar_ornament`>", 1
+"pillar", "set_width", 0, 0, 4, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
+"pillar", "set_width", 0, 0, 5, "class<`pillar_rif_title`>", 1
+"pillar", "set_width", 0, 0, 6, "class<`pillar_rif_type`>", 1
+"pillar", "set_width", 0, 0, 7, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
+"pillar", "set_width", 0, 0, 8, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
+"pillar", "set_width", 0, 0, 9, "class<`pillar_title`>", 1
+"pillar", "set_width", 0, 0, 10, "class<`pillar_type`>", 1
+"pillar", "set_width", 0, 0, 11, "list<any>", 1
+"pillar", "set_width", 1, 0, 0, "null", 1
+"pillar", "set_width", 1, 0, 1, "double", 1
+"pillar", "size_sum", -1, 0, 0, "character", 1
+"pillar", "size_sum", 0, 0, 0, "class<`Date`>", 1
+"pillar", "size_sum", 0, 0, 1, "class<`function`>", 1
+"pillar", "size_sum", 0, 0, 2, "class<`matrix`>", 1
+"pillar", "size_sum", 0, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "size_sum", 0, 0, 4, "integer[]", 1
+"pillar", "spaces_around", -1, 0, 0, "character", 1
+"pillar", "spaces_around", 0, 0, 0, "character", 1
+"pillar", "split_decimal", -1, 0, 0, "list<any>", 1
+"pillar", "split_decimal", 0, 0, 0, "^double[]", 1
+"pillar", "split_decimal", 1, 0, 0, "double", 1
+"pillar", "split_decimal", 2, 0, 0, "logical", 1
+"pillar", "squeeze", -1, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
+"pillar", "squeeze", 0, 0, 0, "class<`pillar_colonnade`>", 1
+"pillar", "squeeze", 1, 0, 0, "double", 1
+"pillar", "squeeze", 1, 0, 1, "null", 1
+"pillar", "squeeze", 2, 0, 0, "...", 1
+"pillar", "str_trunc", -1, 0, 0, "character[]", 1
+"pillar", "str_trunc", 0, 0, 0, "character[]", 1
+"pillar", "str_trunc", 1, 0, 0, "double", 1
+"pillar", "style_bold", -1, 0, 0, "character[]", 1
+"pillar", "style_bold", 0, 0, 0, "character[]", 1
+"pillar", "style_hint", -1, 0, 0, "character[]", 1
+"pillar", "style_hint", 0, 0, 0, "double[]", 1
+"pillar", "style_hint", 0, 0, 1, "^character[]", 1
+"pillar", "style_hint", 0, 0, 2, "class<`type_sum_accel`>", 1
+"pillar", "style_na", -1, 0, 0, "character", 1
+"pillar", "style_na", 0, 0, 0, "character", 1
+"pillar", "style_neg", -1, 0, 0, "character[]", 1
+"pillar", "style_neg", 0, 0, 0, "double[]", 1
+"pillar", "style_neg", 0, 0, 1, "^character[]", 1
+"pillar", "style_neg", 0, 0, 2, "class<`type_sum_accel`>", 1
+"pillar", "style_num", -1, 0, 0, "character[]", 1
+"pillar", "style_num", 0, 0, 0, "character[]", 1
+"pillar", "style_num", 1, 0, 0, "logical[]", 1
+"pillar", "style_num", 2, 0, 0, "logical[]", 1
+"pillar", "style_rowid", -1, 0, 0, "character[]", 1
+"pillar", "style_rowid", 0, 0, 0, "character[]", 1
+"pillar", "style_star", -1, 0, 0, "character[]", 1
+"pillar", "style_star", 0, 0, 0, "character[]", 1
+"pillar", "style_subtle", -1, 0, 0, "character[]", 1
+"pillar", "style_subtle", 0, 0, 0, "double[]", 1
+"pillar", "style_subtle", 0, 0, 1, "^character[]", 1
+"pillar", "style_subtle", 0, 0, 2, "class<`type_sum_accel`>", 1
+"pillar", "style_subtle_num", -1, 0, 0, "character[]", 1
+"pillar", "style_subtle_num", 0, 0, 0, "character[]", 1
+"pillar", "style_subtle_num", 0, 0, 1, "double[]", 1
+"pillar", "style_subtle_num", 1, 0, 0, "logical[]", 1
+"pillar", "style_title", -1, 0, 0, "character[]", 1
+"pillar", "style_title", 0, 0, 0, "character[]", 1
+"pillar", "style_type", -1, 0, 0, "character", 1
+"pillar", "style_type", 0, 0, 0, "character", 1
+"pillar", "supernum", -1, 0, 0, "character[]", 1
+"pillar", "supernum", 0, 0, 0, "^integer[]", 1
+"pillar", "tick", -1, 0, 0, "logical[]", 1
+"pillar", "tick", 0, 0, 0, "character[]", 1
+"pillar", "tick", 0, 0, 1, "null", 1
+"pillar", "tick_if_needed", -1, 0, 0, "(character | null)", 1
+"pillar", "tick_if_needed", 0, 0, 0, "character", 1
+"pillar", "tick_if_needed", 0, 0, 1, "null", 1
+"pillar", "type_sum", -1, 0, 0, "(character | class<`type_sum_accel`>)", 1
+"pillar", "type_sum", 0, 0, 0, "^character[]", 1
+"pillar", "type_sum", 0, 0, 1, "class<`Date`>", 1
+"pillar", "type_sum", 0, 0, 2, "class<`factor`>", 1
+"pillar", "type_sum", 0, 0, 3, "class<`function`>", 1
+"pillar", "type_sum", 0, 0, 4, "class<`matrix`>", 1
+"pillar", "type_sum", 0, 0, 5, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "type_sum", 0, 0, 6, "^double[]", 1
+"pillar", "type_sum", 0, 0, 7, "class<`accel`>", 1
+"pillar", "type_sum.default", -1, 0, 0, "character", 1
+"pillar", "type_sum.default", 0, 0, 0, "^character[]", 1
+"pillar", "type_sum.default", 0, 0, 1, "class<`Date`>", 1
+"pillar", "type_sum.default", 0, 0, 2, "class<`function`>", 1
+"pillar", "type_sum.default", 0, 0, 3, "class<`matrix`>", 1
+"pillar", "type_sum.default", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"pillar", "type_sum.default", 0, 0, 5, "^double[]", 1
+"pillar", "type_sum.factor", -1, 0, 0, "character", 1
+"pillar", "type_sum.factor", 0, 0, 0, "class<`factor`>", 1
+"pillar", "vec_is", -1, 0, 0, "logical", 1
+"pillar", "vec_is", 0, 0, 0, "...", 1

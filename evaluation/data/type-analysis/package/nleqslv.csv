@@ -1,51 +1,31 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"nleqslv", "catmsg", -1, 0, 0, "null", 1
-"nleqslv", "catmsg", 0, 0, 0, "character", 1
-"nleqslv", "catmsg", 1, 0, 0, "character", 1
-"nleqslv", "catmsg", 2, 0, 0, "character", 1
-"nleqslv", "f", -1, 0, 0, "any => any", 1
-"nleqslv", "f", 0, 0, 0, "symbol", 1
-"nleqslv", "filter", -1, 0, 0, "logical[]", 1
-"nleqslv", "filter", 0, 0, 0, "character[]", 1
-"nleqslv", "makeerrlist", -1, 0, 0, "struct<`Method`:character, `Global`:character, `termcd`:null, `Fcnt`:null, `Jcnt`:null, `Iter`:null, `Message`:character, `Fnorm`:null>", 1
-"nleqslv", "makeerrlist", 0, 0, 0, "character", 1
-"nleqslv", "makeerrlist", 1, 0, 0, "character", 1
-"nleqslv", "makeerrlist", 2, 0, 0, "null", 1
-"nleqslv", "makereslist", -1, 0, 0, "struct<`Method`:character, `Global`:character, `termcd`:integer, `Fcnt`:integer, `Jcnt`:integer, `Iter`:integer, `Message`:character, `Fnorm`:double>", 1
-"nleqslv", "makereslist", 0, 0, 0, "character", 1
-"nleqslv", "makereslist", 1, 0, 0, "character", 1
-"nleqslv", "makereslist", 2, 0, 0, "struct<`x`:double[], `fvec`:double[], `termcd`:integer, `message`:character, `scalex`:double[], `nfcnt`:integer, `njcnt`:integer, `iter`:integer>", 1
-"nleqslv", "makereslist", 3, 0, 0, "null", 1
-"nleqslv", "nleqslv", -1, 0, 0, "struct<`x`:double[], `fvec`:double[], `termcd`:integer, `message`:character, `scalex`:double[], `nfcnt`:integer, `njcnt`:integer, `iter`:integer>", 1
-"nleqslv", "nleqslv", 0, 0, 0, "double[]", 1
-"nleqslv", "nleqslv", 1, 0, 0, "any => any", 1
+"nleqslv", "nleqslv", -1, 0, 0, "any", 1
+"nleqslv", "nleqslv", 0, 0, 0, "class<`function`>", 1
+"nleqslv", "nleqslv", 0, 0, 1, "double[]", 1
+"nleqslv", "nleqslv", 1, 0, 0, "any", 1
 "nleqslv", "nleqslv", 2, 0, 0, "null", 1
-"nleqslv", "nleqslv", 2, 0, 1, "any => any", 1
-"nleqslv", "nleqslv", 3, 0, 0, "null", 1
-"nleqslv", "nleqslv", 3, 0, 1, "double", 1
+"nleqslv", "nleqslv", 2, 0, 1, "class<`function`>", 1
+"nleqslv", "nleqslv", 3, 0, 0, "...", 1
 "nleqslv", "nleqslv", 4, 0, 0, "character[]", 1
 "nleqslv", "nleqslv", 5, 0, 0, "character[]", 1
 "nleqslv", "nleqslv", 6, 0, 0, "character[]", 1
 "nleqslv", "nleqslv", 7, 0, 0, "logical", 1
-"nleqslv", "nleqslv", 8, 0, 0, "tuple<>", 1
-"nleqslv", "nleqslv", 8, 0, 1, "struct<`btol`:double>", 1
-"nleqslv", "nleqslv", 8, 0, 2, "struct<`trace`:double>", 1
-"nleqslv", "nleqslv", 8, 0, 3, "struct<`dsub`:double, `dsuper`:double>", 1
-"nleqslv", "print.test.nleqslv", -1, 0, 0, "struct<`out`:struct<`Method`:character[], `Global`:character[], `termcd`:integer[], `Fcnt`:integer[], `Jcnt`:integer[], `Iter`:integer[], `Message`:character[], `Fnorm`:double[]>, `call`:language>", 1
-"nleqslv", "print.test.nleqslv", 0, 0, 0, "struct<`out`:struct<`Method`:character[], `Global`:character[], `termcd`:integer[], `Fcnt`:integer[], `Jcnt`:integer[], `Iter`:integer[], `Message`:character[], `Fnorm`:double[]>, `call`:language>", 1
+"nleqslv", "nleqslv", 8, 0, 0, "list<any>", 1
+"nleqslv", "print.test.nleqslv", -1, 0, 0, "class<`test.nleqslv`>", 1
+"nleqslv", "print.test.nleqslv", 0, 0, 0, "class<`test.nleqslv`>", 1
 "nleqslv", "print.test.nleqslv", 1, 0, 0, "double", 1
 "nleqslv", "print.test.nleqslv", 2, 0, 0, "integer", 1
-"nleqslv", "print.test.nleqslv", 3, 0, 0, "null", 1
-"nleqslv", "searchZeros", -1, 0, 0, "struct<`x`:^double[], `xfnorm`:double[], `fnorm`:double[], `idxcvg`:integer[], `idxxtol`:integer[], `idxnocvg`:integer[], `idxfatal`:integer[], `xstart`:^double[], `cvgstart`:^double[]>", 1
-"nleqslv", "searchZeros", 0, 0, 0, "^double[]", 1
-"nleqslv", "searchZeros", 1, 0, 0, "any => any", 1
+"nleqslv", "print.test.nleqslv", 3, 0, 0, "...", 1
+"nleqslv", "searchZeros", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"nleqslv", "searchZeros", 0, 0, 0, "class<`matrix`>", 1
+"nleqslv", "searchZeros", 1, 0, 0, "class<`function`>", 1
 "nleqslv", "searchZeros", 2, 0, 0, "integer", 1
-"nleqslv", "searchZeros", 3, 0, 0, "character", 1
-"nleqslv", "testnslv", -1, 0, 0, "struct<`out`:struct<`Method`:character[], `Global`:character[], `termcd`:^integer[], `Fcnt`:^integer[], `Jcnt`:^integer[], `Iter`:^integer[], `Message`:character[], `Fnorm`:^double[]>, `call`:language>", 1
+"nleqslv", "searchZeros", 3, 0, 0, "...", 1
+"nleqslv", "testnslv", -1, 0, 0, "class<`test.nleqslv`>", 1
 "nleqslv", "testnslv", 0, 0, 0, "double[]", 1
-"nleqslv", "testnslv", 1, 0, 0, "any => any", 1
+"nleqslv", "testnslv", 1, 0, 0, "class<`function`>", 1
 "nleqslv", "testnslv", 2, 0, 0, "null", 1
-"nleqslv", "testnslv", 3, 0, 0, "null", 1
+"nleqslv", "testnslv", 3, 0, 0, "...", 1
 "nleqslv", "testnslv", 4, 0, 0, "character[]", 1
 "nleqslv", "testnslv", 5, 0, 0, "character[]", 1
 "nleqslv", "testnslv", 6, 0, 0, "integer", 1

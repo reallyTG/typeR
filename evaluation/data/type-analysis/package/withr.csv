@@ -1,15 +1,119 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"withr", "filter", -1, 0, 0, "logical[]", 1
-"withr", "filter", 0, 0, 0, "character[]", 1
-"withr", "get_seed", -1, 0, 0, "integer[]", 1
-"withr", "get_valid_seed", -1, 0, 0, "integer[]", 1
-"withr", "add_handler", -1, 0, 0, "struct<`expr`:language, `envir`:environment>", 1
+"withr", "add_handler", -1, 0, 0, "list<class<`call`> | environment>", 1
 "withr", "add_handler", 0, 0, 0, "environment", 1
-"withr", "add_handler", 1, 0, 0, "struct<`expr`:language, `envir`:environment>", 1
+"withr", "add_handler", 1, 0, 0, "list<class<`call`> | environment>", 1
 "withr", "add_handler", 2, 0, 0, "logical", 1
-"withr", "defer", -1, 0, 0, "struct<`expr`:language, `envir`:environment>", 1
-"withr", "defer", 0, 0, 0, "language", 1
+"withr", "defer", -1, 0, 0, "list<class<`call`> | environment>", 1
+"withr", "defer", 0, 0, 0, "any", 1
 "withr", "defer", 1, 0, 0, "environment", 1
 "withr", "defer", 2, 0, 0, "character[]", 1
-"withr", "get_handlers", -1, 0, 0, "tuple<>", 1
+"withr", "defer_parent", -1, 0, 0, "list<class<`call`> | environment>", 1
+"withr", "defer_parent", 0, 0, 0, "any", 1
+"withr", "defer_parent", 1, 0, 0, "character[]", 1
+"withr", "get_handlers", -1, 0, 0, "(null | list<list<class<`call`> | environment>>)", 1
 "withr", "get_handlers", 0, 0, 0, "environment", 1
+"withr", "get_seed", -1, 0, 0, "(integer[] | null)", 1
+"withr", "is.named", -1, 0, 0, "logical", 1
+"withr", "is.named", 0, 0, 0, "character", 1
+"withr", "is.named", 0, 0, 1, "double", 1
+"withr", "is.named", 0, 0, 2, "null", 1
+"withr", "is.named", 0, 0, 3, "list<class<`connection`, `file`> | class<`SQLiteConnection`>>", 1
+"withr", "local_connection", -1, 0, 0, "class<`connection`, `file`>", 1
+"withr", "local_connection", 0, 0, 0, "class<`connection`, `file`>", 1
+"withr", "local_connection", 1, 0, 0, "environment", 1
+"withr", "local_db_connection", -1, 0, 0, "class<`SQLiteConnection`>", 1
+"withr", "local_db_connection", 0, 0, 0, "class<`SQLiteConnection`>", 1
+"withr", "local_db_connection", 1, 0, 0, "environment", 1
+"withr", "make_call", -1, 0, 0, "class<`call`>", 1
+"withr", "make_call", 0, 0, 0, "...", 1
+"withr", "names2", -1, 0, 0, "character", 1
+"withr", "names2", 0, 0, 0, "character", 1
+"withr", "names2", 0, 0, 1, "list<null>", 1
+"withr", "pdf_dev", -1, 0, 0, "integer", 1
+"withr", "pdf_dev", 0, 0, 0, "character", 1
+"withr", "pdf_dev", 1, 0, 0, "double", 1
+"withr", "pdf_dev", 2, 0, 0, "double", 1
+"withr", "pdf_dev", 3, 0, 0, "any", 1
+"withr", "pdf_dev", 4, 0, 0, "any", 1
+"withr", "pdf_dev", 5, 0, 0, "any", 1
+"withr", "pdf_dev", 6, 0, 0, "any", 1
+"withr", "pdf_dev", 7, 0, 0, "any", 1
+"withr", "pdf_dev", 8, 0, 0, "any", 1
+"withr", "pdf_dev", 9, 0, 0, "any", 1
+"withr", "pdf_dev", 10, 0, 0, "any", 1
+"withr", "pdf_dev", 11, 0, 0, "any", 1
+"withr", "pdf_dev", 12, 0, 0, "any", 1
+"withr", "pdf_dev", 13, 0, 0, "any", 1
+"withr", "pdf_dev", 14, 0, 0, "any", 1
+"withr", "pdf_dev", 15, 0, 0, "any", 1
+"withr", "pdf_dev", 16, 0, 0, "any", 1
+"withr", "pdf_dev", 17, 0, 0, "any", 1
+"withr", "pdf_dev", 18, 0, 0, "any", 1
+"withr", "png_dev", -1, 0, 0, "integer", 1
+"withr", "png_dev", 0, 0, 0, "character", 1
+"withr", "png_dev", 1, 0, 0, "...", 1
+"withr", "set_envvar", -1, 0, 0, "(character | null)", 1
+"withr", "set_envvar", 0, 0, 0, "character", 1
+"withr", "set_envvar", 0, 0, 1, "double", 1
+"withr", "set_envvar", 0, 0, 2, "null", 1
+"withr", "set_envvar", 1, 0, 0, "character", 1
+"withr", "set_handlers", -1, 0, 0, "null", 1
+"withr", "set_handlers", 0, 0, 0, "environment", 1
+"withr", "set_handlers", 1, 0, 0, "list<list<class<`call`> | environment>>", 1
+"withr", "vlapply", -1, 0, 0, "logical", 1
+"withr", "vlapply", 0, 0, 0, "list<class<`SQLiteConnection`>>", 1
+"withr", "vlapply", 1, 0, 0, "class<`function`>", 1
+"withr", "vlapply", 2, 0, 0, "...", 1
+"withr", "vlapply", 3, 0, 0, "logical", 1
+"withr", "with_", -1, 0, 0, "class<`function`>", 1
+"withr", "with_", 0, 0, 0, "class<`function`>", 1
+"withr", "with_", 1, 0, 0, "any", 1
+"withr", "with_", 2, 0, 0, "environment", 1
+"withr", "with_", 3, 0, 0, "logical", 1
+"withr", "with_connection", -1, 0, 0, "null", 1
+"withr", "with_connection", 0, 0, 0, "list<class<`connection`, `file`>>", 1
+"withr", "with_connection", 1, 0, 0, "any", 1
+"withr", "with_db_connection", -1, 0, 0, "logical", 1
+"withr", "with_db_connection", 0, 0, 0, "list<class<`SQLiteConnection`>>", 1
+"withr", "with_db_connection", 1, 0, 0, "logical", 1
+"withr", "with_dir", -1, 0, 0, "character", 1
+"withr", "with_dir", 0, 0, 0, "character", 1
+"withr", "with_dir", 1, 0, 0, "character", 1
+"withr", "with_envvar", -1, 0, 0, "character", 1
+"withr", "with_envvar", 0, 0, 0, "double", 1
+"withr", "with_envvar", 1, 0, 0, "character", 1
+"withr", "with_envvar", 2, 0, 0, "character", 1
+"withr", "with_file", -1, 0, 0, "(character | list<null>)", 1
+"withr", "with_file", 0, 0, 0, "character", 1
+"withr", "with_file", 0, 0, 1, "list<null>", 1
+"withr", "with_file", 1, 0, 0, "character", 1
+"withr", "with_pdf", -1, 0, 0, "null", 1
+"withr", "with_pdf", 0, 0, 0, "character", 1
+"withr", "with_pdf", 1, 0, 0, "null", 1
+"withr", "with_pdf", 2, 0, 0, "double", 1
+"withr", "with_pdf", 3, 0, 0, "double", 1
+"withr", "with_pdf", 4, 0, 0, "any", 1
+"withr", "with_pdf", 5, 0, 0, "any", 1
+"withr", "with_pdf", 6, 0, 0, "any", 1
+"withr", "with_pdf", 7, 0, 0, "any", 1
+"withr", "with_pdf", 8, 0, 0, "any", 1
+"withr", "with_pdf", 9, 0, 0, "any", 1
+"withr", "with_pdf", 10, 0, 0, "any", 1
+"withr", "with_pdf", 11, 0, 0, "any", 1
+"withr", "with_pdf", 12, 0, 0, "any", 1
+"withr", "with_pdf", 13, 0, 0, "any", 1
+"withr", "with_pdf", 14, 0, 0, "any", 1
+"withr", "with_pdf", 15, 0, 0, "any", 1
+"withr", "with_pdf", 16, 0, 0, "any", 1
+"withr", "with_pdf", 17, 0, 0, "any", 1
+"withr", "with_pdf", 18, 0, 0, "any", 1
+"withr", "with_pdf", 19, 0, 0, "any", 1
+"withr", "with_png", -1, 0, 0, "null", 1
+"withr", "with_png", 0, 0, 0, "character", 1
+"withr", "with_png", 1, 0, 0, "null", 1
+"withr", "with_png", 2, 0, 0, "...", 1
+"withr", "with_preserve_seed", -1, 0, 0, "double[]", 1
+"withr", "with_preserve_seed", 0, 0, 0, "double[]", 1
+"withr", "with_seed", -1, 0, 0, "double[]", 1
+"withr", "with_seed", 0, 0, 0, "integer", 1
+"withr", "with_seed", 1, 0, 0, "double[]", 1
