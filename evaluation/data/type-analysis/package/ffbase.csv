@@ -34,7 +34,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "binned_tabulate.ff", 2, 0, 0, "any", 1
 "ffbase", "binned_tabulate.ff", 3, 0, 0, "double", 1
 "ffbase", "binned_tabulate.ff", 4, 0, 0, "...", 1
-"ffbase", "bySum", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"ffbase", "bySum", -1, 0, 0, "class<`array`>", 1
+"ffbase", "bySum", -1, 0, 1, "class<`matrix`>", 1
 "ffbase", "bySum", 0, 0, 0, "double[]", 1
 "ffbase", "bySum", 1, 0, 0, "class<`factor`>", 1
 "ffbase", "bySum", 1, 0, 1, "class<`data.frame`>", 1
@@ -54,7 +55,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "chunkexpr", 3, 0, 0, "character", 1
 "ffbase", "coerce_to_allowNA", -1, 0, 0, "list<character[]>", 1
 "ffbase", "coerce_to_allowNA", 0, 0, 0, "character[]", 1
-"ffbase", "coerce_to_highest_vmode", -1, 0, 0, "(class<`ffdf`> | class<`ff`, `ff_vector`>)", 1
+"ffbase", "coerce_to_highest_vmode", -1, 0, 0, "class<`ffdf`>", 1
+"ffbase", "coerce_to_highest_vmode", -1, 0, 1, "class<`ff`, `ff_vector`>", 1
 "ffbase", "coerce_to_highest_vmode", 0, 0, 0, "class<`ffdf`>", 1
 "ffbase", "coerce_to_highest_vmode", 0, 0, 1, "class<`ff`, `ff_vector`>", 1
 "ffbase", "coerce_to_highest_vmode", 1, 0, 0, "class<`ffdf`>", 1
@@ -108,14 +110,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "[<-.ff", 4, 0, 3, "double[]", 1
 "ffbase", "[<-.ff", 4, 0, 4, "^integer[]", 1
 "ffbase", "[<-.ff", 4, 0, 5, "null", 1
-"ffbase", "[.ff", -1, 0, 0, "(class<`Date`> | class<`factor`> | class<`ff`, `ff_vector`> | class<`POSIXct`, `POSIXt`> | ^double[] | null)", 1
+"ffbase", "[.ff", -1, 0, 0, "class<`Date`>", 1
+"ffbase", "[.ff", -1, 0, 1, "class<`factor`>", 1
+"ffbase", "[.ff", -1, 0, 2, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[.ff", -1, 0, 3, "class<`POSIXct`, `POSIXt`>", 1
+"ffbase", "[.ff", -1, 0, 4, "^double[]", 1
+"ffbase", "[.ff", -1, 0, 5, "null", 1
 "ffbase", "[.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
 "ffbase", "[.ff", 1, 0, 0, "any", 1
 "ffbase", "[.ff", 2, 0, 0, "logical", 1
 "ffbase", "%ff:%", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
 "ffbase", "%ff:%", 0, 0, 0, "integer", 1
 "ffbase", "%ff:%", 1, 0, 0, "integer", 1
-"ffbase", "ffappend", -1, 0, 0, "(class<`ff`, `ff_vector`> | null)", 1
+"ffbase", "ffappend", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffappend", -1, 0, 1, "null", 1
 "ffbase", "ffappend", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
 "ffbase", "ffappend", 0, 0, 1, "null", 1
 "ffbase", "ffappend", 1, 0, 0, "class<`ff`, `ff_vector`>", 1
@@ -138,7 +146,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "[<-.ffdf", 1, 0, 1, "class<`hi`>", 1
 "ffbase", "[<-.ffdf", 2, 0, 0, "any", 1
 "ffbase", "[<-.ffdf", 3, 0, 0, "class<`ffdf`>", 1
-"ffbase", "[.ffdf", -1, 0, 0, "(class<`data.frame`> | class<`ffdf`> | class<`ff`, `ff_vector`> | double[])", 1
+"ffbase", "[.ffdf", -1, 0, 0, "class<`data.frame`>", 1
+"ffbase", "[.ffdf", -1, 0, 1, "class<`ffdf`>", 1
+"ffbase", "[.ffdf", -1, 0, 2, "class<`ff`, `ff_vector`>", 1
+"ffbase", "[.ffdf", -1, 0, 3, "double[]", 1
 "ffbase", "[.ffdf", 0, 0, 0, "class<`ffdf`>", 1
 "ffbase", "[.ffdf", 1, 0, 0, "any", 1
 "ffbase", "[.ffdf", 2, 0, 0, "any", 1
@@ -234,7 +245,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "+.ff_vector", 0, 0, 1, "double", 1
 "ffbase", "+.ff_vector", 1, 0, 0, "double", 1
 "ffbase", "+.ff_vector", 1, 0, 1, "class<`ff`, `ff_vector`>", 1
-"ffbase", "ffwhich", -1, 0, 0, "(class<`ff`, `ff_vector`> | null)", 1
+"ffbase", "ffwhich", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffwhich", -1, 0, 1, "null", 1
 "ffbase", "ffwhich", 0, 0, 0, "class<`ffdf`>", 1
 "ffbase", "ffwhich", 0, 0, 1, "class<`ff`, `ff_vector`>", 1
 "ffbase", "ffwhich", 1, 0, 0, "any", 1
@@ -244,7 +256,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "ffwhich.ffdf", 1, 0, 0, "any", 1
 "ffbase", "ffwhich.ffdf", 2, 0, 0, "...", 1
 "ffbase", "ffwhich.ffdf", 3, 0, 0, "environment", 1
-"ffbase", "ffwhich.ff_vector", -1, 0, 0, "(class<`ff`, `ff_vector`> | null)", 1
+"ffbase", "ffwhich.ff_vector", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "ffwhich.ff_vector", -1, 0, 1, "null", 1
 "ffbase", "ffwhich.ff_vector", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
 "ffbase", "ffwhich.ff_vector", 1, 0, 0, "any", 1
 "ffbase", "ffwhich.ff_vector", 2, 0, 0, "...", 1
@@ -259,7 +272,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "ikey", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
 "ffbase", "ikey", 0, 0, 0, "class<`ffdf`>", 1
 "ffbase", "ikey", 1, 0, 0, "...", 1
-"ffbase", "%in%", -1, 0, 0, "(class<`ff`, `ff_vector`> | logical[])", 1
+"ffbase", "%in%", -1, 0, 0, "class<`ff`, `ff_vector`>", 1
+"ffbase", "%in%", -1, 0, 1, "logical[]", 1
 "ffbase", "%in%", 0, 0, 0, "class<`ffdf`>", 1
 "ffbase", "%in%", 0, 0, 1, "class<`ff`, `ff_vector`>", 1
 "ffbase", "%in%", 0, 0, 2, "character[]", 1
@@ -282,7 +296,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "load.ffdf", -1, 0, 0, "environment", 1
 "ffbase", "load.ffdf", 0, 0, 0, "character", 1
 "ffbase", "load.ffdf", 1, 0, 0, "environment", 1
-"ffbase", "max.ff", -1, 0, 0, "(double | null)", 1
+"ffbase", "max.ff", -1, 0, 0, "double", 1
+"ffbase", "max.ff", -1, 0, 1, "null", 1
 "ffbase", "max.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
 "ffbase", "max.ff", 1, 0, 0, "...", 1
 "ffbase", "max.ff", 2, 0, 0, "logical", 1
@@ -306,7 +321,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ffbase", "merge.ffdf", 10, 0, 0, "null", 1
 "ffbase", "merge.ffdf", 11, 0, 0, "logical", 1
 "ffbase", "merge.ffdf", 12, 0, 0, "...", 1
-"ffbase", "min.ff", -1, 0, 0, "(integer | null)", 1
+"ffbase", "min.ff", -1, 0, 0, "integer", 1
+"ffbase", "min.ff", -1, 0, 1, "null", 1
 "ffbase", "min.ff", 0, 0, 0, "class<`ff`, `ff_vector`>", 1
 "ffbase", "min.ff", 1, 0, 0, "...", 1
 "ffbase", "min.ff", 2, 0, 0, "logical", 1

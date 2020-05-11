@@ -110,7 +110,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "seriesNames", 0, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "seriesNames", 0, 0, 2, "class<`ts`>", 1
 "tframe", "seriesNames", 0, 0, 3, "double[]", 1
-"tframe", "seriesNames<-", -1, 0, 0, "(class<`matrix`> | class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "seriesNames<-", -1, 0, 0, "class<`matrix`>", 1
+"tframe", "seriesNames<-", -1, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "seriesNames<-", -1, 0, 2, "class<`ts`>", 1
 "tframe", "seriesNames<-", 0, 0, 0, "class<`matrix`>", 1
 "tframe", "seriesNames<-", 0, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "seriesNames<-", 0, 0, 2, "class<`ts`>", 1
@@ -125,30 +127,35 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "seriesNames.default", 0, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "seriesNames.default", 0, 0, 2, "class<`ts`>", 1
 "tframe", "seriesNames.default", 0, 0, 3, "double[]", 1
-"tframe", "seriesNames<-.ts", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "seriesNames<-.ts", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "seriesNames<-.ts", -1, 0, 1, "class<`ts`>", 1
 "tframe", "seriesNames<-.ts", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "seriesNames<-.ts", 0, 0, 1, "class<`ts`>", 1
 "tframe", "seriesNames<-.ts", 1, 0, 0, "character[]", 1
-"tframe", "splice", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "splice", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "splice", -1, 0, 1, "class<`ts`>", 1
 "tframe", "splice", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "splice", 0, 0, 1, "class<`ts`>", 1
 "tframe", "splice", 1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "splice", 1, 0, 1, "class<`ts`>", 1
 "tframe", "splice", 2, 0, 0, "...", 1
-"tframe", "splice.default", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "splice.default", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "splice.default", -1, 0, 1, "class<`ts`>", 1
 "tframe", "splice.default", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "splice.default", 0, 0, 1, "class<`ts`>", 1
 "tframe", "splice.default", 1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "splice.default", 1, 0, 1, "class<`ts`>", 1
 "tframe", "splice.default", 2, 0, 0, "...", 1
-"tframe", "tbind", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tbind", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tbind", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tbind", 0, 0, 0, "class<`ts`>", 1
 "tframe", "tbind", 0, 0, 1, "double[]", 1
 "tframe", "tbind", 1, 0, 0, "...", 1
 "tframe", "tbind", 2, 0, 0, "logical", 1
 "tframe", "tbind", 3, 0, 0, "logical", 1
 "tframe", "tbind", 4, 0, 0, "logical", 1
-"tframe", "tbind.default", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tbind.default", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tbind.default", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tbind.default", 0, 0, 0, "double[]", 1
 "tframe", "tbind.default", 1, 0, 0, "...", 1
 "tframe", "tbind.default", 2, 0, 0, "logical", 1
@@ -194,13 +201,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "testEqualtframes.default", -1, 0, 0, "logical", 1
 "tframe", "testEqualtframes.default", 0, 0, 0, "null", 1
 "tframe", "testEqualtframes.default", 1, 0, 0, "null", 1
-"tframe", "tfend", -1, 0, 0, "(double[] | null)", 1
+"tframe", "tfend", -1, 0, 0, "double[]", 1
+"tframe", "tfend", -1, 0, 1, "null", 1
 "tframe", "tfend", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfend", 0, 0, 1, "class<`tframe`, `tstframe`>", 1
 "tframe", "tfend", 0, 0, 2, "class<`ts`>", 1
 "tframe", "tfend", 0, 0, 3, "double[]", 1
 "tframe", "tfend", 0, 0, 4, "null", 1
-"tframe", "tfend.default", -1, 0, 0, "(double[] | null)", 1
+"tframe", "tfend.default", -1, 0, 0, "double[]", 1
+"tframe", "tfend.default", -1, 0, 1, "null", 1
 "tframe", "tfend.default", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfend.default", 0, 0, 1, "class<`ts`>", 1
 "tframe", "tfend.default", 0, 0, 2, "double[]", 1
@@ -225,13 +234,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tffrequency.default", 0, 0, 1, "class<`tframe`, `tstframe`>", 1
 "tframe", "tffrequency.default", 0, 0, 2, "class<`ts`>", 1
 "tframe", "tffrequency.default", 0, 0, 3, "double[]", 1
-"tframe", "tfL", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`tframe`, `tstframe`> | class<`ts`>)", 1
+"tframe", "tfL", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfL", -1, 0, 1, "class<`tframe`, `tstframe`>", 1
+"tframe", "tfL", -1, 0, 2, "class<`ts`>", 1
 "tframe", "tfL", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfL", 0, 0, 1, "class<`tframe`, `tstframe`>", 1
 "tframe", "tfL", 0, 0, 2, "class<`ts`>", 1
 "tframe", "tfL", 0, 0, 3, "integer[]", 1
 "tframe", "tfL", 1, 0, 0, "double", 1
-"tframe", "tfL.default", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tfL.default", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfL.default", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tfL.default", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfL.default", 0, 0, 1, "class<`ts`>", 1
 "tframe", "tfL.default", 0, 0, 2, "integer[]", 1
@@ -245,11 +257,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tfprint.default", -1, 0, 0, "class<`ts`>", 1
 "tframe", "tfprint.default", 0, 0, 0, "class<`ts`>", 1
 "tframe", "tfprint.default", 1, 0, 0, "...", 1
-"tframe", "tframe", -1, 0, 0, "(class<`tframe`, `tstframe`> | null)", 1
+"tframe", "tframe", -1, 0, 0, "class<`tframe`, `tstframe`>", 1
+"tframe", "tframe", -1, 0, 1, "null", 1
 "tframe", "tframe", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tframe", 0, 0, 1, "class<`ts`>", 1
 "tframe", "tframe", 0, 0, 2, "class<`matrix`>", 1
-"tframe", "tframe<-", -1, 0, 0, "(class<`matrix`> | class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tframe<-", -1, 0, 0, "class<`matrix`>", 1
+"tframe", "tframe<-", -1, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tframe<-", -1, 0, 2, "class<`ts`>", 1
 "tframe", "tframe<-", 0, 0, 0, "class<`matrix`>", 1
 "tframe", "tframe<-", 0, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tframe<-", 0, 0, 2, "class<`ts`>", 1
@@ -258,7 +273,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tframe<-", 1, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tframe<-", 1, 0, 2, "class<`tframe`, `tstframe`>", 1
 "tframe", "tframe<-", 1, 0, 3, "list<double[]>", 1
-"tframe", "tframed", -1, 0, 0, "(class<`matrix`> | class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tframed", -1, 0, 0, "class<`matrix`>", 1
+"tframe", "tframed", -1, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tframed", -1, 0, 2, "class<`ts`>", 1
 "tframe", "tframed", 0, 0, 0, "class<`matrix`>", 1
 "tframe", "tframed", 0, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tframed", 0, 0, 2, "class<`ts`>", 1
@@ -269,7 +286,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tframed", 1, 0, 3, "list<double[]>", 1
 "tframe", "tframed", 2, 0, 0, "null", 1
 "tframe", "tframed", 3, 0, 0, "...", 1
-"tframe", "tframed.default", -1, 0, 0, "(class<`matrix`> | class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tframed.default", -1, 0, 0, "class<`matrix`>", 1
+"tframe", "tframed.default", -1, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tframed.default", -1, 0, 2, "class<`ts`>", 1
 "tframe", "tframed.default", 0, 0, 0, "class<`matrix`>", 1
 "tframe", "tframed.default", 0, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tframed.default", 0, 0, 2, "class<`ts`>", 1
@@ -288,7 +307,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tframe.ts", -1, 0, 0, "class<`tframe`, `tstframe`>", 1
 "tframe", "tframe.ts", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tframe.ts", 0, 0, 1, "class<`ts`>", 1
-"tframe", "tfSet", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tfSet", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfSet", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tfSet", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfSet", 0, 0, 1, "class<`tframe`, `tstframe`>", 1
 "tframe", "tfSet", 0, 0, 2, "list<double[]>", 1
@@ -299,12 +319,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tfSet.default", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfSet.default", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfSet.default", 1, 0, 0, "class<`matrix`>", 1
-"tframe", "tfSet.list", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tfSet.list", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfSet.list", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tfSet.list", 0, 0, 0, "list<double[]>", 1
 "tframe", "tfSet.list", 1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfSet.list", 1, 0, 1, "class<`matrix`>", 1
 "tframe", "tfSet.list", 1, 0, 2, "class<`ts`>", 1
-"tframe", "tfSet.tstframe", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tfSet.tstframe", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfSet.tstframe", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tfSet.tstframe", 0, 0, 0, "class<`tframe`, `tstframe`>", 1
 "tframe", "tfSet.tstframe", 0, 0, 1, "list<double[]>", 1
 "tframe", "tfSet.tstframe", 1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
@@ -329,14 +351,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tftime", 0, 0, 0, "class<`tframe`, `tstframe`>", 1
 "tframe", "tftime.default", -1, 0, 0, "class<`ts`>", 1
 "tframe", "tftime.default", 0, 0, 0, "class<`tframe`, `tstframe`>", 1
-"tframe", "tfTruncate", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`tframe`, `tstframe`> | class<`ts`>)", 1
+"tframe", "tfTruncate", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfTruncate", -1, 0, 1, "class<`tframe`, `tstframe`>", 1
+"tframe", "tfTruncate", -1, 0, 2, "class<`ts`>", 1
 "tframe", "tfTruncate", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfTruncate", 0, 0, 1, "class<`tframe`, `tstframe`>", 1
 "tframe", "tfTruncate", 0, 0, 2, "class<`ts`>", 1
 "tframe", "tfTruncate", 1, 0, 0, "double", 1
 "tframe", "tfTruncate", 2, 0, 0, "double", 1
 "tframe", "tfTruncate", 2, 0, 1, "null", 1
-"tframe", "tfTruncate.default", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tfTruncate.default", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfTruncate.default", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tfTruncate.default", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfTruncate.default", 0, 0, 1, "class<`ts`>", 1
 "tframe", "tfTruncate.default", 1, 0, 0, "double", 1
@@ -351,7 +376,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tfUnSet", 0, 0, 0, "class<`matrix`>", 1
 "tframe", "tfUnSet.default", -1, 0, 0, "class<`matrix`>", 1
 "tframe", "tfUnSet.default", 0, 0, 0, "class<`matrix`>", 1
-"tframe", "tfwindow", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tfwindow", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfwindow", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tfwindow", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfwindow", 0, 0, 1, "class<`ts`>", 1
 "tframe", "tfwindow", 1, 0, 0, "null", 1
@@ -359,7 +385,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tframe", "tfwindow", 2, 0, 0, "any", 1
 "tframe", "tfwindow", 3, 0, 0, "any", 1
 "tframe", "tfwindow", 4, 0, 0, "logical", 1
-"tframe", "tfwindow.ts", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"tframe", "tfwindow.ts", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tframe", "tfwindow.ts", -1, 0, 1, "class<`ts`>", 1
 "tframe", "tfwindow.ts", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tframe", "tfwindow.ts", 0, 0, 1, "class<`ts`>", 1
 "tframe", "tfwindow.ts", 1, 0, 0, "null", 1

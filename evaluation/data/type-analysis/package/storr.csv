@@ -42,7 +42,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "assert_logical", -1, 0, 0, "null", 1
 "storr", "assert_logical", 0, 0, 0, "logical", 1
 "storr", "assert_logical", 1, 0, 0, "any", 1
-"storr", "assert_probably_storr_driver", -1, 0, 0, "(class<`R6`, `driver_environment`> | class<`R6`, `driver_rds`>)", 1
+"storr", "assert_probably_storr_driver", -1, 0, 0, "class<`R6`, `driver_environment`>", 1
+"storr", "assert_probably_storr_driver", -1, 0, 1, "class<`R6`, `driver_rds`>", 1
 "storr", "assert_probably_storr_driver", 0, 0, 0, "class<`R6`, `driver_environment`>", 1
 "storr", "assert_probably_storr_driver", 0, 0, 1, "class<`R6`, `driver_rds`>", 1
 "storr", "assert_probably_storr_driver", 1, 0, 0, "any", 1
@@ -87,7 +88,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "decode64", 1, 0, 0, "character", 1
 "storr", "decode64", 2, 0, 0, "character", 1
 "storr", "decode64", 3, 0, 0, "any", 1
-"storr", "dir_create", -1, 0, 0, "(logical | null)", 1
+"storr", "dir_create", -1, 0, 0, "logical", 1
+"storr", "dir_create", -1, 0, 1, "null", 1
 "storr", "dir_create", 0, 0, 0, "character", 1
 "storr", "dquote", -1, 0, 0, "character", 1
 "storr", "dquote", 0, 0, 0, "character", 1
@@ -122,7 +124,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "driver_rds", 2, 0, 1, "null", 1
 "storr", "driver_rds", 3, 0, 0, "null", 1
 "storr", "driver_rds", 4, 0, 0, "null", 1
-"storr", "driver_rds_config", -1, 0, 0, "(character | logical)", 1
+"storr", "driver_rds_config", -1, 0, 0, "character", 1
+"storr", "driver_rds_config", -1, 0, 1, "logical", 1
 "storr", "driver_rds_config", 0, 0, 0, "character", 1
 "storr", "driver_rds_config", 1, 0, 0, "character", 1
 "storr", "driver_rds_config", 2, 0, 0, "null", 1
@@ -287,9 +290,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "try_write_serialized_rds", 2, 0, 0, "logical", 1
 "storr", "try_write_serialized_rds", 3, 0, 0, "character", 1
 "storr", "try_write_serialized_rds", 4, 0, 0, "double", 1
-"storr", "unserialize_safe", -1, 0, 0, "(double[] | list<character>)", 1
+"storr", "unserialize_safe", -1, 0, 0, "double[]", 1
+"storr", "unserialize_safe", -1, 0, 1, "list<character>", 1
 "storr", "unserialize_safe", 0, 0, 0, "raw[]", 1
-"storr", "vcapply", -1, 0, 0, "(^character[] | null)", 1
+"storr", "vcapply", -1, 0, 0, "^character[]", 1
+"storr", "vcapply", -1, 0, 1, "null", 1
 "storr", "vcapply", 0, 0, 0, "integer[]", 1
 "storr", "vcapply", 0, 0, 1, "character[]", 1
 "storr", "vcapply", 0, 0, 2, "list<any>", 1

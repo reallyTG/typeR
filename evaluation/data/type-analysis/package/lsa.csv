@@ -6,7 +6,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lsa", "associate", 3, 0, 0, "double", 1
 "lsa", "as.textmatrix", -1, 0, 0, "class<`textmatrix`>", 1
 "lsa", "as.textmatrix", 0, 0, 0, "class<`LSAspace`>", 1
-"lsa", "cosine", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"lsa", "cosine", -1, 0, 0, "class<`matrix`>", 1
+"lsa", "cosine", -1, 0, 1, "double[]", 1
 "lsa", "cosine", 0, 0, 0, "double[]", 1
 "lsa", "cosine", 0, 0, 1, "class<`matrix`>", 1
 "lsa", "cosine", 1, 0, 0, "double[]", 1
@@ -32,7 +33,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lsa", "getSubjectId", -1, 0, 0, "integer", 1
 "lsa", "getSubjectId", 0, 0, 0, "class<`textmatrix`>", 1
 "lsa", "getSubjectId", 1, 0, 0, "character", 1
-"lsa", "getTriple", -1, 0, 0, "(character[] | null | list<character[]>)", 1
+"lsa", "getTriple", -1, 0, 0, "character[]", 1
+"lsa", "getTriple", -1, 0, 1, "null", 1
+"lsa", "getTriple", -1, 0, 2, "list<character[]>", 1
 "lsa", "getTriple", 0, 0, 0, "class<`textmatrix`>", 1
 "lsa", "getTriple", 1, 0, 0, "character", 1
 "lsa", "getTriple", 2, 0, 0, "any", 1
@@ -45,7 +48,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lsa", "lw_bintf", -1, 0, 0, "class<`matrix`>", 1
 "lsa", "lw_bintf", 0, 0, 0, "class<`matrix`>", 1
 "lsa", "lw_bintf", 0, 0, 1, "class<`textmatrix`>", 1
-"lsa", "lw_logtf", -1, 0, 0, "(class<`matrix`> | class<`textmatrix`>)", 1
+"lsa", "lw_logtf", -1, 0, 0, "class<`matrix`>", 1
+"lsa", "lw_logtf", -1, 0, 1, "class<`textmatrix`>", 1
 "lsa", "lw_logtf", 0, 0, 0, "class<`matrix`>", 1
 "lsa", "lw_logtf", 0, 0, 1, "class<`textmatrix`>", 1
 "lsa", "print.textmatrix", -1, 0, 0, "class<`textmatrix`>", 1

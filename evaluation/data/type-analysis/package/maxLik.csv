@@ -32,7 +32,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "bread.maxLik", -1, 0, 0, "class<`matrix`>", 1
 "maxLik", "bread.maxLik", 0, 0, 0, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "bread.maxLik", 1, 0, 0, "...", 1
-"maxLik", "callWithoutArgs", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"maxLik", "callWithoutArgs", -1, 0, 0, "class<`matrix`>", 1
+"maxLik", "callWithoutArgs", -1, 0, 1, "double[]", 1
 "maxLik", "callWithoutArgs", 0, 0, 0, "any", 1
 "maxLik", "callWithoutArgs", 1, 0, 0, "character", 1
 "maxLik", "callWithoutArgs", 2, 0, 0, "character[]", 1
@@ -92,7 +93,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "estfun.maxLik", 0, 0, 0, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "estfun.maxLik", 0, 0, 1, "class<`maxLik`, `maxim`>", 1
 "maxLik", "estfun.maxLik", 1, 0, 0, "...", 1
-"maxLik", "f", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"maxLik", "f", -1, 0, 0, "double[]", 1
+"maxLik", "f", -1, 0, 1, "class<`matrix`>", 1
 "maxLik", "f", 0, 0, 0, "double[]", 1
 "maxLik", "f", 1, 0, 0, "class<`function`>", 1
 "maxLik", "f", 2, 0, 0, "class<`function`>", 1
@@ -111,7 +113,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "f", 2, 1, 0, "double", 1
 "maxLik", "f", 3, 1, 0, "double[]", 1
 "maxLik", "f", 4, 1, 0, "...", 1
-"maxLik", "f", -1, 2, 0, "(class<`matrix`> | double[])", 1
+"maxLik", "f", -1, 2, 0, "class<`matrix`>", 1
+"maxLik", "f", -1, 2, 1, "double[]", 1
 "maxLik", "f", 0, 2, 0, "double[]", 1
 "maxLik", "f", 1, 2, 0, "class<`function`>", 1
 "maxLik", "f", 2, 2, 0, "any", 1
@@ -128,7 +131,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "fn", 2, 0, 0, "double", 1
 "maxLik", "fn", 3, 0, 0, "double[]", 1
 "maxLik", "fn", 4, 0, 0, "...", 1
-"maxLik", "fn", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"maxLik", "fn", -1, 1, 0, "class<`matrix`>", 1
+"maxLik", "fn", -1, 1, 1, "double[]", 1
 "maxLik", "fn", 0, 1, 0, "double[]", 1
 "maxLik", "fn", 1, 1, 0, "class<`function`>", 1
 "maxLik", "fn", 2, 1, 0, "any", 1
@@ -151,7 +155,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "fnSubset", 2, 0, 0, "double", 1
 "maxLik", "fnSubset", 3, 0, 0, "double[]", 1
 "maxLik", "fnSubset", 4, 0, 0, "...", 1
-"maxLik", "gr", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"maxLik", "gr", -1, 0, 0, "double[]", 1
+"maxLik", "gr", -1, 0, 1, "class<`matrix`>", 1
 "maxLik", "gr", 0, 0, 0, "double[]", 1
 "maxLik", "gr", 1, 0, 0, "class<`function`>", 1
 "maxLik", "gr", 2, 0, 0, "class<`function`>", 1
@@ -174,15 +179,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "gradient.maxim", 0, 0, 1, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "gradient.maxim", 0, 0, 2, "class<`maxLik`, `maxim`>", 1
 "maxLik", "gradient.maxim", 1, 0, 0, "...", 1
-"maxLik", "hessian", -1, 0, 0, "(class<`matrix`> | null)", 1
+"maxLik", "hessian", -1, 0, 0, "class<`matrix`>", 1
+"maxLik", "hessian", -1, 0, 1, "null", 1
 "maxLik", "hessian", 0, 0, 0, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "hessian", 0, 0, 1, "class<`maxLik`, `maxim`>", 1
 "maxLik", "hessian", 1, 0, 0, "...", 1
-"maxLik", "hessian.default", -1, 0, 0, "(class<`matrix`> | null)", 1
+"maxLik", "hessian.default", -1, 0, 0, "class<`matrix`>", 1
+"maxLik", "hessian.default", -1, 0, 1, "null", 1
 "maxLik", "hessian.default", 0, 0, 0, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "hessian.default", 0, 0, 1, "class<`maxLik`, `maxim`>", 1
 "maxLik", "hessian.default", 1, 0, 0, "...", 1
-"maxLik", "logLikFunc", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"maxLik", "logLikFunc", -1, 0, 0, "class<`matrix`>", 1
+"maxLik", "logLikFunc", -1, 0, 1, "double[]", 1
 "maxLik", "logLikFunc", 0, 0, 0, "double[]", 1
 "maxLik", "logLikFunc", 1, 0, 0, "class<`function`>", 1
 "maxLik", "logLikFunc", 2, 0, 0, "any", 1
@@ -193,7 +201,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "logLikFunc", 5, 0, 1, "logical[]", 1
 "maxLik", "logLikFunc", 6, 0, 0, "logical", 1
 "maxLik", "logLikFunc", 7, 0, 0, "...", 1
-"maxLik", "logLikGrad", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"maxLik", "logLikGrad", -1, 0, 0, "double[]", 1
+"maxLik", "logLikGrad", -1, 0, 1, "class<`matrix`>", 1
 "maxLik", "logLikGrad", 0, 0, 0, "double[]", 1
 "maxLik", "logLikGrad", 1, 0, 0, "class<`function`>", 1
 "maxLik", "logLikGrad", 2, 0, 0, "class<`function`>", 1
@@ -486,7 +495,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "returnMessage.maxim", -1, 0, 0, "character", 1
 "maxLik", "returnMessage.maxim", 0, 0, 0, "class<`list`, `maxim`>", 1
 "maxLik", "returnMessage.maxim", 1, 0, 0, "...", 1
-"maxLik", "stdEr.maxLik", -1, 0, 0, "(double[] | null)", 1
+"maxLik", "stdEr.maxLik", -1, 0, 0, "double[]", 1
+"maxLik", "stdEr.maxLik", -1, 0, 1, "null", 1
 "maxLik", "stdEr.maxLik", 0, 0, 0, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "stdEr.maxLik", 0, 0, 1, "class<`maxLik`, `maxim`>", 1
 "maxLik", "stdEr.maxLik", 1, 0, 0, "any", 1
@@ -521,7 +531,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "sumt", 11, 0, 0, "double", 1
 "maxLik", "sumt", 12, 0, 0, "double", 1
 "maxLik", "sumt", 13, 0, 0, "...", 1
-"maxLik", "vcov.maxLik", -1, 0, 0, "(class<`matrix`> | null)", 1
+"maxLik", "vcov.maxLik", -1, 0, 0, "class<`matrix`>", 1
+"maxLik", "vcov.maxLik", -1, 0, 1, "null", 1
 "maxLik", "vcov.maxLik", 0, 0, 0, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "vcov.maxLik", 0, 0, 1, "class<`maxLik`, `maxim`>", 1
 "maxLik", "vcov.maxLik", 1, 0, 0, "any", 1

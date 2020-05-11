@@ -10,11 +10,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rcdd", "addHin", 2, 0, 0, "class<`matrix`>", 1
 "rcdd", "allfaces", -1, 0, 0, "list<list<integer[] | character[] | double[]>>", 1
 "rcdd", "allfaces", 0, 0, 0, "class<`matrix`>", 1
-"rcdd", "d2q", -1, 0, 0, "(character[] | class<`bar`, `baz`, `foo`> | class<`matrix`>)", 1
+"rcdd", "d2q", -1, 0, 0, "character[]", 1
+"rcdd", "d2q", -1, 0, 1, "class<`bar`, `baz`, `foo`>", 1
+"rcdd", "d2q", -1, 0, 2, "class<`matrix`>", 1
 "rcdd", "d2q", 0, 0, 0, "double[]", 1
 "rcdd", "d2q", 0, 0, 1, "class<`bar`, `baz`, `foo`>", 1
 "rcdd", "d2q", 0, 0, 2, "class<`matrix`>", 1
-"rcdd", "FUN", -1, 0, 0, "(class<`matrix`> | character[])", 1
+"rcdd", "FUN", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "FUN", -1, 0, 1, "character[]", 1
 "rcdd", "FUN", 0, 0, 0, "class<`matrix`>", 1
 "rcdd", "FUN", 0, 0, 1, "character[]", 1
 "rcdd", "FUN", 0, 0, 2, "integer[]", 1
@@ -44,15 +47,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rcdd", "makeV", 1, 0, 0, "any", 1
 "rcdd", "makeV", 2, 0, 0, "any", 1
 "rcdd", "makeV", 3, 0, 0, "null", 1
-"rcdd", "q2d", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"rcdd", "q2d", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "q2d", -1, 0, 1, "double[]", 1
 "rcdd", "q2d", 0, 0, 0, "class<`matrix`>", 1
 "rcdd", "q2d", 0, 0, 1, "character[]", 1
-"rcdd", "q2q", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "q2q", -1, 0, 0, "character[]", 1
+"rcdd", "q2q", -1, 0, 1, "class<`matrix`>", 1
 "rcdd", "q2q", 0, 0, 0, "character[]", 1
 "rcdd", "q2q", 0, 0, 1, "class<`matrix`>", 1
 "rcdd", "qabs", -1, 0, 0, "class<`matrix`>", 1
 "rcdd", "qabs", 0, 0, 0, "class<`matrix`>", 1
-"rcdd", "qdq", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "qdq", -1, 0, 0, "character[]", 1
+"rcdd", "qdq", -1, 0, 1, "class<`matrix`>", 1
 "rcdd", "qdq", 0, 0, 0, "character[]", 1
 "rcdd", "qdq", 0, 0, 1, "class<`matrix`>", 1
 "rcdd", "qdq", 1, 0, 0, "character[]", 1
@@ -67,14 +73,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rcdd", "qmax", 0, 0, 0, "character[]", 1
 "rcdd", "qmin", -1, 0, 0, "character", 1
 "rcdd", "qmin", 0, 0, 0, "character[]", 1
-"rcdd", "qmq", -1, 0, 0, "(class<`matrix`> | character[])", 1
+"rcdd", "qmq", -1, 0, 0, "class<`matrix`>", 1
+"rcdd", "qmq", -1, 0, 1, "character[]", 1
 "rcdd", "qmq", 0, 0, 0, "class<`matrix`>", 1
 "rcdd", "qmq", 0, 0, 1, "character[]", 1
 "rcdd", "qmq", 0, 0, 2, "integer[]", 1
 "rcdd", "qmq", 1, 0, 0, "class<`matrix`>", 1
 "rcdd", "qmq", 1, 0, 1, "character[]", 1
 "rcdd", "qmq", 1, 0, 2, "double", 1
-"rcdd", "qneg", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "qneg", -1, 0, 0, "character[]", 1
+"rcdd", "qneg", -1, 0, 1, "class<`matrix`>", 1
 "rcdd", "qneg", 0, 0, 0, "character[]", 1
 "rcdd", "qneg", 0, 0, 1, "integer[]", 1
 "rcdd", "qneg", 0, 0, 2, "class<`matrix`>", 1
@@ -90,7 +98,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rcdd", "qsign", 0, 0, 1, "integer[]", 1
 "rcdd", "qsum", -1, 0, 0, "character", 1
 "rcdd", "qsum", 0, 0, 0, "character[]", 1
-"rcdd", "qxq", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "qxq", -1, 0, 0, "character[]", 1
+"rcdd", "qxq", -1, 0, 1, "class<`matrix`>", 1
 "rcdd", "qxq", 0, 0, 0, "character[]", 1
 "rcdd", "qxq", 0, 0, 1, "class<`matrix`>", 1
 "rcdd", "qxq", 1, 0, 0, "character[]", 1
@@ -110,7 +119,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rcdd", "validcdd", -1, 0, 0, "logical", 1
 "rcdd", "validcdd", 0, 0, 0, "class<`matrix`>", 1
 "rcdd", "validcdd", 1, 0, 0, "character[]", 1
-"rcdd", "z2q", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rcdd", "z2q", -1, 0, 0, "character[]", 1
+"rcdd", "z2q", -1, 0, 1, "class<`matrix`>", 1
 "rcdd", "z2q", 0, 0, 0, "character[]", 1
 "rcdd", "z2q", 0, 0, 1, "integer[]", 1
 "rcdd", "z2q", 0, 0, 2, "double", 1

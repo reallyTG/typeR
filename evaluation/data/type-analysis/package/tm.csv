@@ -20,7 +20,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "Boost_tokenizer", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "Boost_Tokenizer", -1, 0, 0, "character[]", 1
 "tm", "Boost_Tokenizer", 0, 0, 0, "character", 1
-"tm", "close.SimpleSource", -1, 0, 0, "(class<`DirSource`, `SimpleSource`, `Source`> | class<`SimpleSource`, `Source`, `URISource`> | class<`SimpleSource`, `Source`, `VectorSource`> | class<`SimpleSource`, `Source`, `XMLSource`>)", 1
+"tm", "close.SimpleSource", -1, 0, 0, "class<`DirSource`, `SimpleSource`, `Source`>", 1
+"tm", "close.SimpleSource", -1, 0, 1, "class<`SimpleSource`, `Source`, `URISource`>", 1
+"tm", "close.SimpleSource", -1, 0, 2, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
+"tm", "close.SimpleSource", -1, 0, 3, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
 "tm", "close.SimpleSource", 0, 0, 0, "class<`DirSource`, `SimpleSource`, `Source`>", 1
 "tm", "close.SimpleSource", 0, 0, 1, "class<`SimpleSource`, `Source`, `URISource`>", 1
 "tm", "close.SimpleSource", 0, 0, 2, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
@@ -32,11 +35,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "content<-.PlainTextDocument", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "content<-.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "content<-.PlainTextDocument", 1, 0, 0, "character", 1
-"tm", "content.PlainTextDocument", -1, 0, 0, "(character[] | class<`xml_document`, `xml_node`>)", 1
+"tm", "content.PlainTextDocument", -1, 0, 0, "character[]", 1
+"tm", "content.PlainTextDocument", -1, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "tm", "content.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "content.PlainTextDocument", 0, 0, 1, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "content.PlainTextDocument", 0, 0, 2, "class<`TextDocument`, `XMLTextDocument`>", 1
-"tm", "content.SimpleCorpus", -1, 0, 0, "(character[] | class<`xml_document`, `xml_node`>)", 1
+"tm", "content.SimpleCorpus", -1, 0, 0, "character[]", 1
+"tm", "content.SimpleCorpus", -1, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "tm", "content.SimpleCorpus", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "content.SimpleCorpus", 0, 0, 1, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "content.SimpleCorpus", 0, 0, 2, "class<`TextDocument`, `XMLTextDocument`>", 1
@@ -50,11 +55,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "content<-.XMLTextDocument", -1, 0, 0, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "content<-.XMLTextDocument", 0, 0, 0, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "content<-.XMLTextDocument", 1, 0, 0, "class<`xml_document`, `xml_node`>", 1
-"tm", "content.XMLTextDocument", -1, 0, 0, "(character[] | class<`xml_document`, `xml_node`>)", 1
+"tm", "content.XMLTextDocument", -1, 0, 0, "character[]", 1
+"tm", "content.XMLTextDocument", -1, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "tm", "content.XMLTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "content.XMLTextDocument", 0, 0, 1, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "content.XMLTextDocument", 0, 0, 2, "class<`TextDocument`, `XMLTextDocument`>", 1
-"tm", "Corpus", -1, 0, 0, "(class<`Corpus`, `SimpleCorpus`> | class<`Corpus`, `VCorpus`>)", 1
+"tm", "Corpus", -1, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
+"tm", "Corpus", -1, 0, 1, "class<`Corpus`, `VCorpus`>", 1
 "tm", "Corpus", 0, 0, 0, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
 "tm", "Corpus", 0, 0, 1, "class<`SimpleSource`, `Source`, `ZipSource`>", 1
 "tm", "Corpus", 1, 0, 0, "list<class<`function`> | character>", 1
@@ -90,7 +97,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "DocumentTermMatrix", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "DocumentTermMatrix", 0, 0, 0, "class<`Corpus`, `VCorpus`>", 1
 "tm", "DocumentTermMatrix", 1, 0, 0, "list<any>", 1
-"tm", "[.DocumentTermMatrix", -1, 0, 0, "(class<`DocumentTermMatrix`, `simple_triplet_matrix`> | class<`TermDocumentMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "[.DocumentTermMatrix", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
+"tm", "[.DocumentTermMatrix", -1, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "[.DocumentTermMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "[.DocumentTermMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "[.DocumentTermMatrix", 1, 0, 0, "any", 1
@@ -137,7 +145,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "findFreqTerms", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "findFreqTerms", 1, 0, 0, "double", 1
 "tm", "findFreqTerms", 2, 0, 0, "double", 1
-"tm", "findMostFreqTerms", -1, 0, 0, "(integer[] | list<double[]>)", 1
+"tm", "findMostFreqTerms", -1, 0, 0, "integer[]", 1
+"tm", "findMostFreqTerms", -1, 0, 1, "list<double[]>", 1
 "tm", "findMostFreqTerms", 0, 0, 0, "class<`integer`, `term_frequency`>", 1
 "tm", "findMostFreqTerms", 0, 0, 1, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "findMostFreqTerms", 1, 0, 0, "integer", 1
@@ -188,7 +197,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "Heaps_plot", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "Heaps_plot", 1, 0, 0, "character", 1
 "tm", "Heaps_plot", 2, 0, 0, "...", 1
-"tm", "inspect", -1, 0, 0, "(class<`Corpus`, `SimpleCorpus`> | class<`Corpus`, `VCorpus`> | class<`matrix`> | class<`PlainTextDocument`, `TextDocument`>)", 1
+"tm", "inspect", -1, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
+"tm", "inspect", -1, 0, 1, "class<`Corpus`, `VCorpus`>", 1
+"tm", "inspect", -1, 0, 2, "class<`matrix`>", 1
+"tm", "inspect", -1, 0, 3, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "inspect", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "inspect", 0, 0, 1, "class<`Corpus`, `VCorpus`>", 1
 "tm", "inspect", 0, 0, 2, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
@@ -197,7 +209,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "inspect.DocumentTermMatrix", -1, 0, 0, "class<`matrix`>", 1
 "tm", "inspect.DocumentTermMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "inspect.DocumentTermMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
-"tm", "inspect.SimpleCorpus", -1, 0, 0, "(class<`Corpus`, `SimpleCorpus`> | class<`Corpus`, `VCorpus`>)", 1
+"tm", "inspect.SimpleCorpus", -1, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
+"tm", "inspect.SimpleCorpus", -1, 0, 1, "class<`Corpus`, `VCorpus`>", 1
 "tm", "inspect.SimpleCorpus", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "inspect.SimpleCorpus", 0, 0, 1, "class<`Corpus`, `VCorpus`>", 1
 "tm", "inspect.TermDocumentMatrix", -1, 0, 0, "class<`matrix`>", 1
@@ -205,7 +218,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "inspect.TermDocumentMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "inspect.TextDocument", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "inspect.TextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "inspect.VCorpus", -1, 0, 0, "(class<`Corpus`, `SimpleCorpus`> | class<`Corpus`, `VCorpus`>)", 1
+"tm", "inspect.VCorpus", -1, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
+"tm", "inspect.VCorpus", -1, 0, 1, "class<`Corpus`, `VCorpus`>", 1
 "tm", "inspect.VCorpus", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "inspect.VCorpus", 0, 0, 1, "class<`Corpus`, `VCorpus`>", 1
 "tm", "length.SimpleCorpus", -1, 0, 0, "integer", 1
@@ -220,7 +234,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "length.VCorpus", -1, 0, 0, "integer", 1
 "tm", "length.VCorpus", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "length.VCorpus", 0, 0, 1, "class<`Corpus`, `VCorpus`>", 1
-"tm", "map_IETF_Snowball", -1, 0, 0, "(character | null)", 1
+"tm", "map_IETF_Snowball", -1, 0, 0, "character", 1
+"tm", "map_IETF_Snowball", -1, 0, 1, "null", 1
 "tm", "map_IETF_Snowball", 0, 0, 0, "character", 1
 "tm", ".map_name_index", -1, 0, 0, "double", 1
 "tm", ".map_name_index", 0, 0, 0, "any", 1
@@ -231,7 +246,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "materialize", 1, 0, 0, "double", 1
 "tm", "MC_tokenizer", -1, 0, 0, "character[]", 1
 "tm", "MC_tokenizer", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "meta<-.PlainTextDocument", -1, 0, 0, "(class<`PlainTextDocument`, `TextDocument`> | class<`TextDocument`, `XMLTextDocument`>)", 1
+"tm", "meta<-.PlainTextDocument", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
+"tm", "meta<-.PlainTextDocument", -1, 0, 1, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "meta<-.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "meta<-.PlainTextDocument", 0, 0, 1, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "meta<-.PlainTextDocument", 1, 0, 0, "character", 1
@@ -239,13 +255,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "meta<-.PlainTextDocument", 3, 0, 0, "character[]", 1
 "tm", "meta<-.PlainTextDocument", 3, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
 "tm", "meta<-.PlainTextDocument", 3, 0, 2, "null", 1
-"tm", "meta.PlainTextDocument", -1, 0, 0, "(character[] | class<`POSIXlt`, `POSIXt`> | class<`TextDocumentMeta`> | null)", 1
+"tm", "meta.PlainTextDocument", -1, 0, 0, "character[]", 1
+"tm", "meta.PlainTextDocument", -1, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
+"tm", "meta.PlainTextDocument", -1, 0, 2, "class<`TextDocumentMeta`>", 1
+"tm", "meta.PlainTextDocument", -1, 0, 3, "null", 1
 "tm", "meta.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "meta.PlainTextDocument", 0, 0, 1, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "meta.PlainTextDocument", 1, 0, 0, "character", 1
 "tm", "meta.PlainTextDocument", 1, 0, 1, "null", 1
 "tm", "meta.PlainTextDocument", 2, 0, 0, "...", 1
-"tm", "meta.SimpleCorpus", -1, 0, 0, "(character[] | class<`CorpusMeta`> | class<`data.frame`>)", 1
+"tm", "meta.SimpleCorpus", -1, 0, 0, "character[]", 1
+"tm", "meta.SimpleCorpus", -1, 0, 1, "class<`CorpusMeta`>", 1
+"tm", "meta.SimpleCorpus", -1, 0, 2, "class<`data.frame`>", 1
 "tm", "meta.SimpleCorpus", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "meta.SimpleCorpus", 1, 0, 0, "character", 1
 "tm", "meta.SimpleCorpus", 1, 0, 1, "null", 1
@@ -258,13 +279,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "meta<-.VCorpus", 3, 0, 0, "...", 1
 "tm", "meta<-.VCorpus", 4, 0, 0, "character[]", 1
 "tm", "meta<-.VCorpus", 4, 0, 1, "integer[]", 1
-"tm", "meta.VCorpus", -1, 0, 0, "(class<`CorpusMeta`> | class<`data.frame`> | list<character>)", 1
+"tm", "meta.VCorpus", -1, 0, 0, "class<`CorpusMeta`>", 1
+"tm", "meta.VCorpus", -1, 0, 1, "class<`data.frame`>", 1
+"tm", "meta.VCorpus", -1, 0, 2, "list<character>", 1
 "tm", "meta.VCorpus", 0, 0, 0, "class<`Corpus`, `VCorpus`>", 1
 "tm", "meta.VCorpus", 1, 0, 0, "null", 1
 "tm", "meta.VCorpus", 1, 0, 1, "character", 1
 "tm", "meta.VCorpus", 2, 0, 0, "any", 1
 "tm", "meta.VCorpus", 3, 0, 0, "...", 1
-"tm", "meta<-.XMLTextDocument", -1, 0, 0, "(class<`PlainTextDocument`, `TextDocument`> | class<`TextDocument`, `XMLTextDocument`>)", 1
+"tm", "meta<-.XMLTextDocument", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
+"tm", "meta<-.XMLTextDocument", -1, 0, 1, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "meta<-.XMLTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "meta<-.XMLTextDocument", 0, 0, 1, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "meta<-.XMLTextDocument", 1, 0, 0, "character", 1
@@ -272,7 +296,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "meta<-.XMLTextDocument", 3, 0, 0, "character[]", 1
 "tm", "meta<-.XMLTextDocument", 3, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
 "tm", "meta<-.XMLTextDocument", 3, 0, 2, "null", 1
-"tm", "meta.XMLTextDocument", -1, 0, 0, "(character[] | class<`POSIXlt`, `POSIXt`> | class<`TextDocumentMeta`> | null)", 1
+"tm", "meta.XMLTextDocument", -1, 0, 0, "character[]", 1
+"tm", "meta.XMLTextDocument", -1, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
+"tm", "meta.XMLTextDocument", -1, 0, 2, "class<`TextDocumentMeta`>", 1
+"tm", "meta.XMLTextDocument", -1, 0, 3, "null", 1
 "tm", "meta.XMLTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "meta.XMLTextDocument", 0, 0, 1, "class<`TextDocument`, `XMLTextDocument`>", 1
 "tm", "meta.XMLTextDocument", 1, 0, 0, "character", 1
@@ -286,7 +313,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "nTerms", 0, 0, 0, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "nTerms.TermDocumentMatrix", -1, 0, 0, "integer", 1
 "tm", "nTerms.TermDocumentMatrix", 0, 0, 0, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
-"tm", "open.SimpleSource", -1, 0, 0, "(class<`DirSource`, `SimpleSource`, `Source`> | class<`SimpleSource`, `Source`, `URISource`> | class<`SimpleSource`, `Source`, `VectorSource`> | class<`SimpleSource`, `Source`, `XMLSource`>)", 1
+"tm", "open.SimpleSource", -1, 0, 0, "class<`DirSource`, `SimpleSource`, `Source`>", 1
+"tm", "open.SimpleSource", -1, 0, 1, "class<`SimpleSource`, `Source`, `URISource`>", 1
+"tm", "open.SimpleSource", -1, 0, 2, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
+"tm", "open.SimpleSource", -1, 0, 3, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
 "tm", "open.SimpleSource", 0, 0, 0, "class<`DirSource`, `SimpleSource`, `Source`>", 1
 "tm", "open.SimpleSource", 0, 0, 1, "class<`SimpleSource`, `Source`, `URISource`>", 1
 "tm", "open.SimpleSource", 0, 0, 2, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
@@ -330,11 +360,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "prepareReader", 0, 0, 0, "list<character | class<`function`> | character | class<`function`>>", 1
 "tm", "prepareReader", 1, 0, 0, "any", 1
 "tm", "prepareReader", 2, 0, 0, "...", 1
-"tm", "print.DocumentTermMatrix", -1, 0, 0, "(class<`DocumentTermMatrix`, `simple_triplet_matrix`> | class<`TermDocumentMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "print.DocumentTermMatrix", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
+"tm", "print.DocumentTermMatrix", -1, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "print.DocumentTermMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "print.DocumentTermMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "print.DocumentTermMatrix", 1, 0, 0, "...", 1
-"tm", "print.TermDocumentMatrix", -1, 0, 0, "(class<`DocumentTermMatrix`, `simple_triplet_matrix`> | class<`TermDocumentMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "print.TermDocumentMatrix", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
+"tm", "print.TermDocumentMatrix", -1, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "print.TermDocumentMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "print.TermDocumentMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "print.TermDocumentMatrix", 1, 0, 0, "...", 1
@@ -343,7 +375,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "read_all_bytes", -1, 0, 0, "raw[]", 1
 "tm", "read_all_bytes", 0, 0, 0, "character", 1
 "tm", "read_all_bytes", 1, 0, 0, "any", 1
-"tm", "readContent", -1, 0, 0, "(character[] | null | raw[])", 1
+"tm", "readContent", -1, 0, 0, "character[]", 1
+"tm", "readContent", -1, 0, 1, "null", 1
+"tm", "readContent", -1, 0, 2, "raw[]", 1
 "tm", "readContent", 0, 0, 0, "any", 1
 "tm", "readContent", 1, 0, 0, "any", 1
 "tm", "readContent", 2, 0, 0, "character", 1
@@ -407,7 +441,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "removePunctuation.PlainTextDocument", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "removePunctuation.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "removePunctuation.PlainTextDocument", 1, 0, 0, "...", 1
-"tm", "removeSparseTerms", -1, 0, 0, "(class<`DocumentTermMatrix`, `simple_triplet_matrix`> | class<`TermDocumentMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "removeSparseTerms", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
+"tm", "removeSparseTerms", -1, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "removeSparseTerms", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "removeSparseTerms", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "removeSparseTerms", 1, 0, 0, "double", 1
@@ -417,7 +452,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "removeWords.PlainTextDocument", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "removeWords.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "removeWords.PlainTextDocument", 1, 0, 0, "...", 1
-"tm", "sample.TermDocumentMatrix", -1, 0, 0, "(class<`DocumentTermMatrix`, `simple_triplet_matrix`> | class<`TermDocumentMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "sample.TermDocumentMatrix", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
+"tm", "sample.TermDocumentMatrix", -1, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "sample.TermDocumentMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "sample.TermDocumentMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "sample.TermDocumentMatrix", 1, 0, 0, "double", 1
@@ -432,7 +468,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "[[.SimpleCorpus", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "[[.SimpleCorpus", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "[[.SimpleCorpus", 1, 0, 0, "double", 1
-"tm", "SimpleSource", -1, 0, 0, "(class<`DataframeSource`, `SimpleSource`, `Source`> | class<`DirSource`, `SimpleSource`, `Source`> | class<`SimpleSource`, `Source`, `URISource`> | class<`SimpleSource`, `Source`, `VectorSource`> | class<`SimpleSource`, `Source`, `XMLSource`> | class<`SimpleSource`, `Source`, `ZipSource`>)", 1
+"tm", "SimpleSource", -1, 0, 0, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
+"tm", "SimpleSource", -1, 0, 1, "class<`DirSource`, `SimpleSource`, `Source`>", 1
+"tm", "SimpleSource", -1, 0, 2, "class<`SimpleSource`, `Source`, `URISource`>", 1
+"tm", "SimpleSource", -1, 0, 3, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
+"tm", "SimpleSource", -1, 0, 4, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
+"tm", "SimpleSource", -1, 0, 5, "class<`SimpleSource`, `Source`, `ZipSource`>", 1
 "tm", "SimpleSource", 0, 0, 0, "character", 1
 "tm", "SimpleSource", 1, 0, 0, "double", 1
 "tm", "SimpleSource", 2, 0, 0, "double", 1
@@ -456,11 +497,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "stemDocument.PlainTextDocument", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "stemDocument.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "stemDocument.PlainTextDocument", 1, 0, 0, "character", 1
-"tm", "stepNext", -1, 0, 0, "(class<`DataframeSource`, `SimpleSource`, `Source`> | class<`SimpleSource`, `Source`, `VectorSource`> | class<`SimpleSource`, `Source`, `XMLSource`>)", 1
+"tm", "stepNext", -1, 0, 0, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
+"tm", "stepNext", -1, 0, 1, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
+"tm", "stepNext", -1, 0, 2, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
 "tm", "stepNext", 0, 0, 0, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
 "tm", "stepNext", 0, 0, 1, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
 "tm", "stepNext", 0, 0, 2, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
-"tm", "stepNext.SimpleSource", -1, 0, 0, "(class<`DataframeSource`, `SimpleSource`, `Source`> | class<`SimpleSource`, `Source`, `VectorSource`> | class<`SimpleSource`, `Source`, `XMLSource`>)", 1
+"tm", "stepNext.SimpleSource", -1, 0, 0, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
+"tm", "stepNext.SimpleSource", -1, 0, 1, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
+"tm", "stepNext.SimpleSource", -1, 0, 2, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
 "tm", "stepNext.SimpleSource", 0, 0, 0, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
 "tm", "stepNext.SimpleSource", 0, 0, 1, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
 "tm", "stepNext.SimpleSource", 0, 0, 2, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
@@ -483,7 +528,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "tdm", 6, 0, 0, "integer", 1
 "tm", "tdm", 7, 0, 0, "integer", 1
 "tm", "tdm", 8, 0, 0, "integer", 1
-"tm", "t.DocumentTermMatrix", -1, 0, 0, "(class<`TermDocumentMatrix`, `simple_triplet_matrix`> | class<`DocumentTermMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "t.DocumentTermMatrix", -1, 0, 0, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
+"tm", "t.DocumentTermMatrix", -1, 0, 1, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "t.DocumentTermMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "t.DocumentTermMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "TermDocumentMatrix", -1, 0, 0, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
@@ -495,7 +541,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", ".TermDocumentMatrix", 1, 0, 0, "character[]", 1
 "tm", ".TermDocumentMatrix", 1, 0, 1, "class<`function`>", 1
 "tm", ".TermDocumentMatrix", 1, 0, 2, "null", 1
-"tm", "[.TermDocumentMatrix", -1, 0, 0, "(class<`DocumentTermMatrix`, `simple_triplet_matrix`> | class<`TermDocumentMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "[.TermDocumentMatrix", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
+"tm", "[.TermDocumentMatrix", -1, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "[.TermDocumentMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "[.TermDocumentMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "[.TermDocumentMatrix", 1, 0, 0, "any", 1
@@ -582,7 +629,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "tm_term_score.term_frequency", 0, 0, 0, "class<`integer`, `term_frequency`>", 1
 "tm", "tm_term_score.term_frequency", 1, 0, 0, "character[]", 1
 "tm", "tm_term_score.term_frequency", 2, 0, 0, "class<`function`>", 1
-"tm", "t.TermDocumentMatrix", -1, 0, 0, "(class<`TermDocumentMatrix`, `simple_triplet_matrix`> | class<`DocumentTermMatrix`, `simple_triplet_matrix`>)", 1
+"tm", "t.TermDocumentMatrix", -1, 0, 0, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
+"tm", "t.TermDocumentMatrix", -1, 0, 1, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "t.TermDocumentMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "t.TermDocumentMatrix", 0, 0, 1, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "URISource", -1, 0, 0, "class<`SimpleSource`, `Source`, `URISource`>", 1
@@ -628,7 +676,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "words.PlainTextDocument", 0, 0, 0, "character", 1
 "tm", "words.PlainTextDocument", 0, 0, 1, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "words.PlainTextDocument", 1, 0, 0, "...", 1
-"tm", ".xml_content", -1, 0, 0, "(character[] | class<`POSIXlt`, `POSIXt`>)", 1
+"tm", ".xml_content", -1, 0, 0, "character[]", 1
+"tm", ".xml_content", -1, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
 "tm", ".xml_content", 0, 0, 0, "any", 1
 "tm", ".xml_content", 1, 0, 0, "list<character | character | class<`function`>>", 1
 "tm", "XMLSource", -1, 0, 0, "class<`SimpleSource`, `Source`, `XMLSource`>", 1

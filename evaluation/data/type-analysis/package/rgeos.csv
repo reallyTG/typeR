@@ -50,12 +50,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gBinarySTRtreeQuery", 1, 0, 0, "class<`SpatialPoints`>", 1
 "rgeos", "gBinarySTRtreeQuery", 1, 0, 1, "class<`SpatialLines`>", 1
 "rgeos", "gBinarySTRtreeQuery", 1, 0, 2, "class<`SpatialPolygons`>", 1
-"rgeos", "gBoundary", -1, 0, 0, "(class<`SpatialLines`> | class<`SpatialPoints`>)", 1
+"rgeos", "gBoundary", -1, 0, 0, "class<`SpatialLines`>", 1
+"rgeos", "gBoundary", -1, 0, 1, "class<`SpatialPoints`>", 1
 "rgeos", "gBoundary", 0, 0, 0, "class<`SpatialPolygons`>", 1
 "rgeos", "gBoundary", 0, 0, 1, "class<`SpatialLines`>", 1
 "rgeos", "gBoundary", 1, 0, 0, "logical", 1
 "rgeos", "gBoundary", 2, 0, 0, "null", 1
-"rgeos", "gBuffer", -1, 0, 0, "(class<`SpatialPolygons`> | class<`SpatialPolygonsDataFrame`>)", 1
+"rgeos", "gBuffer", -1, 0, 0, "class<`SpatialPolygons`>", 1
+"rgeos", "gBuffer", -1, 0, 1, "class<`SpatialPolygonsDataFrame`>", 1
 "rgeos", "gBuffer", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gBuffer", 0, 0, 1, "class<`SpatialPolygons`>", 1
 "rgeos", "gBuffer", 0, 0, 2, "class<`SpatialPolygonsDataFrame`>", 1
@@ -71,7 +73,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gCentroid", 0, 0, 0, "class<`SpatialPolygons`>", 1
 "rgeos", "gCentroid", 1, 0, 0, "logical", 1
 "rgeos", "gCentroid", 2, 0, 0, "null", 1
-"rgeos", "gContains", -1, 0, 0, "(class<`matrix`> | logical)", 1
+"rgeos", "gContains", -1, 0, 0, "class<`matrix`>", 1
+"rgeos", "gContains", -1, 0, 1, "logical", 1
 "rgeos", "gContains", 0, 0, 0, "class<`SpatialPolygons`>", 1
 "rgeos", "gContains", 0, 0, 1, "class<`SpatialLines`>", 1
 "rgeos", "gContains", 1, 0, 0, "class<`SpatialPolygons`>", 1
@@ -119,7 +122,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gCrosses", 2, 0, 0, "logical", 1
 "rgeos", "gCrosses", 3, 0, 0, "logical", 1
 "rgeos", "gCrosses", 4, 0, 0, "logical", 1
-"rgeos", "gDelaunayTriangulation", -1, 0, 0, "(class<`SpatialLines`> | class<`SpatialPolygons`>)", 1
+"rgeos", "gDelaunayTriangulation", -1, 0, 0, "class<`SpatialLines`>", 1
+"rgeos", "gDelaunayTriangulation", -1, 0, 1, "class<`SpatialPolygons`>", 1
 "rgeos", "gDelaunayTriangulation", 0, 0, 0, "class<`SpatialPointsDataFrame`>", 1
 "rgeos", "gDelaunayTriangulation", 1, 0, 0, "double", 1
 "rgeos", "gDelaunayTriangulation", 2, 0, 0, "logical", 1
@@ -140,7 +144,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gDisjoint", 2, 0, 0, "logical", 1
 "rgeos", "gDisjoint", 3, 0, 0, "logical", 1
 "rgeos", "gDisjoint", 4, 0, 0, "logical", 1
-"rgeos", "gDistance", -1, 0, 0, "(class<`matrix`> | double)", 1
+"rgeos", "gDistance", -1, 0, 0, "class<`matrix`>", 1
+"rgeos", "gDistance", -1, 0, 1, "double", 1
 "rgeos", "gDistance", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gDistance", 0, 0, 1, "class<`SpatialPoints`>", 1
 "rgeos", "gDistance", 0, 0, 2, "class<`SpatialPolygons`>", 1
@@ -151,7 +156,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gDistance", 2, 0, 0, "logical", 1
 "rgeos", "gDistance", 3, 0, 0, "logical", 1
 "rgeos", "gDistance", 4, 0, 0, "null", 1
-"rgeos", "gEnvelope", -1, 0, 0, "(class<`SpatialPoints`> | class<`SpatialPolygons`>)", 1
+"rgeos", "gEnvelope", -1, 0, 0, "class<`SpatialPoints`>", 1
+"rgeos", "gEnvelope", -1, 0, 1, "class<`SpatialPolygons`>", 1
 "rgeos", "gEnvelope", 0, 0, 0, "class<`SpatialPoints`>", 1
 "rgeos", "gEnvelope", 0, 0, 1, "class<`SpatialLines`>", 1
 "rgeos", "gEnvelope", 0, 0, 2, "class<`SpatialPolygons`>", 1
@@ -208,7 +214,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gIntersection", 6, 0, 0, "logical", 1
 "rgeos", "gIntersection", 7, 0, 0, "null", 1
 "rgeos", "gIntersection", 7, 0, 1, "integer", 1
-"rgeos", "gIntersects", -1, 0, 0, "(class<`matrix`> | logical)", 1
+"rgeos", "gIntersects", -1, 0, 0, "class<`matrix`>", 1
+"rgeos", "gIntersects", -1, 0, 1, "logical", 1
 "rgeos", "gIntersects", 0, 0, 0, "class<`SpatialPoints`>", 1
 "rgeos", "gIntersects", 0, 0, 1, "class<`SpatialPolygons`>", 1
 "rgeos", "gIntersects", 0, 0, 2, "class<`SpatialLines`>", 1
@@ -232,7 +239,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gIsSimple", 0, 0, 1, "class<`SpatialPoints`>", 1
 "rgeos", "gIsSimple", 0, 0, 2, "class<`SpatialPolygons`>", 1
 "rgeos", "gIsSimple", 1, 0, 0, "logical", 1
-"rgeos", "gIsValid", -1, 0, 0, "(character | logical[])", 1
+"rgeos", "gIsValid", -1, 0, 0, "character", 1
+"rgeos", "gIsValid", -1, 0, 1, "logical[]", 1
 "rgeos", "gIsValid", 0, 0, 0, "class<`SpatialPolygons`>", 1
 "rgeos", "gIsValid", 0, 0, 1, "class<`SpatialRings`>", 1
 "rgeos", "gIsValid", 1, 0, 0, "logical", 1
@@ -246,7 +254,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gLineMerge", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gLineMerge", 1, 0, 0, "logical", 1
 "rgeos", "gLineMerge", 2, 0, 0, "null", 1
-"rgeos", "gNearestPoints", -1, 0, 0, "(class<`SpatialPoints`> | null)", 1
+"rgeos", "gNearestPoints", -1, 0, 0, "class<`SpatialPoints`>", 1
+"rgeos", "gNearestPoints", -1, 0, 1, "null", 1
 "rgeos", "gNearestPoints", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gNearestPoints", 0, 0, 1, "class<`SpatialPoints`>", 1
 "rgeos", "gNearestPoints", 0, 0, 2, "class<`SpatialPointsDataFrame`>", 1
@@ -271,7 +280,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gPointOnSurface", 0, 0, 2, "class<`SpatialPolygons`>", 1
 "rgeos", "gPointOnSurface", 1, 0, 0, "logical", 1
 "rgeos", "gPointOnSurface", 2, 0, 0, "null", 1
-"rgeos", "gPolygonize", -1, 0, 0, "(class<`SpatialLines`> | class<`SpatialPolygons`> | null)", 1
+"rgeos", "gPolygonize", -1, 0, 0, "class<`SpatialLines`>", 1
+"rgeos", "gPolygonize", -1, 0, 1, "class<`SpatialPolygons`>", 1
+"rgeos", "gPolygonize", -1, 0, 2, "null", 1
 "rgeos", "gPolygonize", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gPolygonize", 0, 0, 1, "list<class<`SpatialLines`>>", 1
 "rgeos", "gPolygonize", 1, 0, 0, "logical", 1
@@ -287,7 +298,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gRelate", 2, 0, 0, "null", 1
 "rgeos", "gRelate", 3, 0, 0, "logical", 1
 "rgeos", "gRelate", 4, 0, 0, "logical", 1
-"rgeos", "gSimplify", -1, 0, 0, "(class<`SpatialLines`> | class<`SpatialPolygons`>)", 1
+"rgeos", "gSimplify", -1, 0, 0, "class<`SpatialLines`>", 1
+"rgeos", "gSimplify", -1, 0, 1, "class<`SpatialPolygons`>", 1
 "rgeos", "gSimplify", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gSimplify", 0, 0, 1, "class<`SpatialPolygons`>", 1
 "rgeos", "gSimplify", 1, 0, 0, "double", 1
@@ -304,7 +316,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gTopoDim", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gTopoDim", 0, 0, 1, "class<`SpatialLinesDataFrame`>", 1
 "rgeos", "gTopoDim", 0, 0, 2, "class<`SpatialPolygons`>", 1
-"rgeos", "gTouches", -1, 0, 0, "(class<`matrix`> | logical)", 1
+"rgeos", "gTouches", -1, 0, 0, "class<`matrix`>", 1
+"rgeos", "gTouches", -1, 0, 1, "logical", 1
 "rgeos", "gTouches", 0, 0, 0, "class<`SpatialPointsDataFrame`>", 1
 "rgeos", "gTouches", 0, 0, 1, "class<`SpatialLines`>", 1
 "rgeos", "gTouches", 0, 0, 2, "class<`SpatialPolygons`>", 1
@@ -392,14 +405,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "polygonsLabel", 5, 0, 0, "double", 1
 "rgeos", "polygonsLabel", 6, 0, 0, "logical", 1
 "rgeos", "polygonsLabel", 7, 0, 0, "...", 1
-"rgeos", "read.polyfile", -1, 0, 0, "(class<`gpc.poly`> | class<`gpc.poly.nohole`>)", 1
+"rgeos", "read.polyfile", -1, 0, 0, "class<`gpc.poly`>", 1
+"rgeos", "read.polyfile", -1, 0, 1, "class<`gpc.poly.nohole`>", 1
 "rgeos", "read.polyfile", 0, 0, 0, "character", 1
 "rgeos", "read.polyfile", 1, 0, 0, "logical", 1
 "rgeos", "readWKT", -1, 0, 0, "any", 1
 "rgeos", "readWKT", 0, 0, 0, "character", 1
 "rgeos", "readWKT", 1, 0, 0, "null", 1
 "rgeos", "readWKT", 2, 0, 0, "null", 1
-"rgeos", "RGEOSBinPredFunc", -1, 0, 0, "(character | class<`matrix`> | logical)", 1
+"rgeos", "RGEOSBinPredFunc", -1, 0, 0, "character", 1
+"rgeos", "RGEOSBinPredFunc", -1, 0, 1, "class<`matrix`>", 1
+"rgeos", "RGEOSBinPredFunc", -1, 0, 2, "logical", 1
 "rgeos", "RGEOSBinPredFunc", 0, 0, 0, "class<`SpatialPolygons`>", 1
 "rgeos", "RGEOSBinPredFunc", 0, 0, 1, "class<`SpatialPoints`>", 1
 "rgeos", "RGEOSBinPredFunc", 0, 0, 2, "class<`SpatialPointsDataFrame`>", 1
@@ -422,7 +438,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "RGEOSBinTopoFunc", 4, 0, 0, "logical", 1
 "rgeos", "RGEOSBinTopoFunc", 5, 0, 0, "logical", 1
 "rgeos", "RGEOSBinTopoFunc", 6, 0, 0, "character", 1
-"rgeos", "RGEOSDistanceFunc", -1, 0, 0, "(class<`matrix`> | double)", 1
+"rgeos", "RGEOSDistanceFunc", -1, 0, 0, "class<`matrix`>", 1
+"rgeos", "RGEOSDistanceFunc", -1, 0, 1, "double", 1
 "rgeos", "RGEOSDistanceFunc", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "RGEOSDistanceFunc", 0, 0, 1, "class<`SpatialPoints`>", 1
 "rgeos", "RGEOSDistanceFunc", 0, 0, 2, "class<`SpatialPolygons`>", 1
@@ -476,7 +493,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "TopologyFunc", 1, 0, 0, "null", 1
 "rgeos", "TopologyFunc", 2, 0, 0, "logical", 1
 "rgeos", "TopologyFunc", 3, 0, 0, "character", 1
-"rgeos", "translate", -1, 0, 0, "(class<`SpatialLines`> | class<`SpatialPoints`> | class<`SpatialPolygons`> | class<`SpatialRings`>)", 1
+"rgeos", "translate", -1, 0, 0, "class<`SpatialLines`>", 1
+"rgeos", "translate", -1, 0, 1, "class<`SpatialPoints`>", 1
+"rgeos", "translate", -1, 0, 2, "class<`SpatialPolygons`>", 1
+"rgeos", "translate", -1, 0, 3, "class<`SpatialRings`>", 1
 "rgeos", "translate", 0, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "translate", 0, 0, 1, "class<`SpatialPoints`>", 1
 "rgeos", "translate", 0, 0, 2, "class<`SpatialPolygons`>", 1

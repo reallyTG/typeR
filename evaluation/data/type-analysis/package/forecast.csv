@@ -152,7 +152,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "autoplot.forecast", 4, 0, 0, "character", 1
 "forecast", "autoplot.forecast", 5, 0, 0, "double", 1
 "forecast", "autoplot.forecast", 6, 0, 0, "...", 1
-"forecast", "autoplot.mforecast", -1, 0, 0, "(class<`gg`, `ggplot`> | null)", 1
+"forecast", "autoplot.mforecast", -1, 0, 0, "class<`gg`, `ggplot`>", 1
+"forecast", "autoplot.mforecast", -1, 0, 1, "null", 1
 "forecast", "autoplot.mforecast", 0, 0, 0, "class<`mforecast`>", 1
 "forecast", "autoplot.mforecast", 1, 0, 0, "logical", 1
 "forecast", "autoplot.mforecast", 2, 0, 0, "logical", 1
@@ -278,7 +279,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "croston", 1, 0, 0, "double", 1
 "forecast", "croston", 2, 0, 0, "double", 1
 "forecast", "croston", 3, 0, 0, "integer[]", 1
-"forecast", "croston2", -1, 0, 0, "(class<`ts`> | list<class<`ts`> | list<class<`forecast`>>>)", 1
+"forecast", "croston2", -1, 0, 0, "class<`ts`>", 1
+"forecast", "croston2", -1, 0, 1, "list<class<`ts`> | list<class<`forecast`>>>", 1
 "forecast", "croston2", 0, 0, 0, "integer[]", 1
 "forecast", "croston2", 1, 0, 0, "double", 1
 "forecast", "croston2", 2, 0, 0, "any", 1
@@ -399,7 +401,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "fitted.tslm", -1, 0, 0, "class<`ts`>", 1
 "forecast", "fitted.tslm", 0, 0, 0, "class<`lm`, `tslm`>", 1
 "forecast", "fitted.tslm", 1, 0, 0, "...", 1
-"forecast", "forecast", -1, 0, 0, "(class<`forecast`> | class<`mforecast`>)", 1
+"forecast", "forecast", -1, 0, 0, "class<`forecast`>", 1
+"forecast", "forecast", -1, 0, 1, "class<`mforecast`>", 1
 "forecast", "forecast", 0, 0, 0, "class<`ar`>", 1
 "forecast", "forecast", 0, 0, 1, "class<`ARFIMA`, `fracdiff`>", 1
 "forecast", "forecast", 0, 0, 2, "class<`ARIMA`, `Arima`, `forecast_ARIMA`>", 1
@@ -612,7 +615,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "geom_forecast", 8, 0, 0, "logical", 1
 "forecast", "geom_forecast", 9, 0, 0, "null", 1
 "forecast", "geom_forecast", 10, 0, 0, "...", 1
-"forecast", "getResponse", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`> | double[] | null)", 1
+"forecast", "getResponse", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"forecast", "getResponse", -1, 0, 1, "class<`ts`>", 1
+"forecast", "getResponse", -1, 0, 2, "double[]", 1
+"forecast", "getResponse", -1, 0, 3, "null", 1
 "forecast", "getResponse", 0, 0, 0, "class<`lm`>", 1
 "forecast", "getResponse", 0, 0, 1, "class<`mforecast`>", 1
 "forecast", "getResponse", 0, 0, 2, "class<`lm`, `tslm`>", 1
@@ -632,7 +638,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "getResponse.Arima", 0, 0, 0, "class<`ar`>", 1
 "forecast", "getResponse.Arima", 0, 0, 1, "class<`ARIMA`, `Arima`, `forecast_ARIMA`>", 1
 "forecast", "getResponse.Arima", 1, 0, 0, "...", 1
-"forecast", "getResponse.default", -1, 0, 0, "(class<`ts`> | double[] | null)", 1
+"forecast", "getResponse.default", -1, 0, 0, "class<`ts`>", 1
+"forecast", "getResponse.default", -1, 0, 1, "double[]", 1
+"forecast", "getResponse.default", -1, 0, 2, "null", 1
 "forecast", "getResponse.default", 0, 0, 0, "class<`ets`>", 1
 "forecast", "getResponse.default", 0, 0, 1, "class<`forecast`>", 1
 "forecast", "getResponse.default", 0, 0, 2, "class<`forecast`, `splineforecast`>", 1
@@ -642,7 +650,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "getResponse.fracdiff", -1, 0, 0, "class<`ts`>", 1
 "forecast", "getResponse.fracdiff", 0, 0, 0, "class<`ARFIMA`, `fracdiff`>", 1
 "forecast", "getResponse.fracdiff", 1, 0, 0, "...", 1
-"forecast", "getResponse.lm", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`> | double[])", 1
+"forecast", "getResponse.lm", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"forecast", "getResponse.lm", -1, 0, 1, "class<`ts`>", 1
+"forecast", "getResponse.lm", -1, 0, 2, "double[]", 1
 "forecast", "getResponse.lm", 0, 0, 0, "class<`lm`>", 1
 "forecast", "getResponse.lm", 0, 0, 1, "class<`lm`, `tslm`>", 1
 "forecast", "getResponse.lm", 1, 0, 0, "...", 1
@@ -803,7 +813,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "initstate", 0, 0, 0, "class<`ts`>", 1
 "forecast", "initstate", 1, 0, 0, "character", 1
 "forecast", "initstate", 2, 0, 0, "character", 1
-"forecast", "InvBoxCox", -1, 0, 0, "(class<`array`> | class<`matrix`> | class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"forecast", "InvBoxCox", -1, 0, 0, "class<`array`>", 1
+"forecast", "InvBoxCox", -1, 0, 1, "class<`matrix`>", 1
+"forecast", "InvBoxCox", -1, 0, 2, "class<`matrix`, `mts`, `ts`>", 1
+"forecast", "InvBoxCox", -1, 0, 3, "class<`ts`>", 1
 "forecast", "InvBoxCox", 0, 0, 0, "class<`array`>", 1
 "forecast", "InvBoxCox", 0, 0, 1, "class<`matrix`>", 1
 "forecast", "InvBoxCox", 0, 0, 2, "class<`matrix`, `mts`, `ts`>", 1
@@ -871,7 +884,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "modeldf.ets", 1, 0, 0, "...", 1
 "forecast", "monthdays", -1, 0, 0, "class<`ts`>", 1
 "forecast", "monthdays", 0, 0, 0, "class<`ts`>", 1
-"forecast", "mstl", -1, 0, 0, "(class<`mstl`, `msts`, `mts`, `ts`> | class<`mstl`, `mts`, `ts`>)", 1
+"forecast", "mstl", -1, 0, 0, "class<`mstl`, `msts`, `mts`, `ts`>", 1
+"forecast", "mstl", -1, 0, 1, "class<`mstl`, `mts`, `ts`>", 1
 "forecast", "mstl", 0, 0, 0, "class<`msts`, `ts`>", 1
 "forecast", "mstl", 0, 0, 1, "class<`ts`>", 1
 "forecast", "mstl", 1, 0, 0, "null", 1
@@ -879,7 +893,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "mstl", 2, 0, 0, "double", 1
 "forecast", "mstl", 3, 0, 0, "double", 1
 "forecast", "mstl", 4, 0, 0, "...", 1
-"forecast", "msts", -1, 0, 0, "(class<`msts`, `ts`> | class<`ts`>)", 1
+"forecast", "msts", -1, 0, 0, "class<`msts`, `ts`>", 1
+"forecast", "msts", -1, 0, 1, "class<`ts`>", 1
 "forecast", "msts", 0, 0, 0, "class<`msts`, `ts`>", 1
 "forecast", "msts", 0, 0, 1, "class<`ts`>", 1
 "forecast", "msts", 1, 0, 0, "double[]", 1
@@ -903,7 +918,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "myarima", 8, 0, 1, "null", 1
 "forecast", "myarima", 9, 0, 0, "null", 1
 "forecast", "myarima", 10, 0, 0, "...", 1
-"forecast", "na.ends", -1, 0, 0, "(class<`ts`> | double[])", 1
+"forecast", "na.ends", -1, 0, 0, "class<`ts`>", 1
+"forecast", "na.ends", -1, 0, 1, "double[]", 1
 "forecast", "na.ends", 0, 0, 0, "class<`ts`>", 1
 "forecast", "na.ends", 0, 0, 1, "double[]", 1
 "forecast", "na.interp", -1, 0, 0, "class<`ts`>", 1
@@ -965,7 +981,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "oldmodel_avnnet", 1, 0, 0, "double[]", 1
 "forecast", "oldmodel_avnnet", 2, 0, 0, "double", 1
 "forecast", "oldmodel_avnnet", 3, 0, 0, "class<`nnetar`>", 1
-"forecast", "overwrite_s3_generic", -1, 0, 0, "(class<`function`> | null)", 1
+"forecast", "overwrite_s3_generic", -1, 0, 0, "class<`function`>", 1
+"forecast", "overwrite_s3_generic", -1, 0, 1, "null", 1
 "forecast", "overwrite_s3_generic", 0, 0, 0, "character", 1
 "forecast", "overwrite_s3_generic", 1, 0, 0, "character", 1
 "forecast", "Pacf", -1, 0, 0, "class<`acf`>", 1
@@ -1311,7 +1328,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forecast", "tsdisplay", 9, 0, 0, "double", 1
 "forecast", "tsdisplay", 10, 0, 0, "double", 1
 "forecast", "tsdisplay", 11, 0, 0, "...", 1
-"forecast", "tslm", -1, 0, 0, "(class<`lm`, `mlm`, `tslm`> | class<`lm`, `tslm`>)", 1
+"forecast", "tslm", -1, 0, 0, "class<`lm`, `mlm`, `tslm`>", 1
+"forecast", "tslm", -1, 0, 1, "class<`lm`, `tslm`>", 1
 "forecast", "tslm", 0, 0, 0, "class<`formula`>", 1
 "forecast", "tslm", 1, 0, 0, "any", 1
 "forecast", "tslm", 2, 0, 0, "any", 1

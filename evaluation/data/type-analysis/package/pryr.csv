@@ -61,7 +61,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "[.envlist", 0, 0, 0, "class<`envlist`>", 1
 "pryr", "[.envlist", 1, 0, 0, "double", 1
 "pryr", "[.envlist", 1, 0, 1, "integer[]", 1
-"pryr", "extract", -1, 0, 0, "(character[] | null)", 1
+"pryr", "extract", -1, 0, 0, "character[]", 1
+"pryr", "extract", -1, 0, 1, "null", 1
 "pryr", "extract", 0, 0, 0, "any", 1
 "pryr", "extract", -1, 1, 0, "character[]", 1
 "pryr", "extract", 0, 1, 0, "class<`function`>", 1
@@ -76,7 +77,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "find_funs", 1, 0, 0, "class<`function`>", 1
 "pryr", "find_funs", 2, 0, 0, "character", 1
 "pryr", "find_funs", 3, 0, 0, "...", 1
-"pryr", "find_generic", -1, 0, 0, "(character[] | null)", 1
+"pryr", "find_generic", -1, 0, 0, "character[]", 1
+"pryr", "find_generic", -1, 0, 1, "null", 1
 "pryr", "find_generic", 0, 0, 0, "character", 1
 "pryr", "find_generic", 1, 0, 0, "any", 1
 "pryr", "find_uses", -1, 0, 0, "list<character[]>", 1
@@ -85,7 +87,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "find_uses", 2, 0, 0, "logical", 1
 "pryr", "ftype", -1, 0, 0, "character[]", 1
 "pryr", "ftype", 0, 0, 0, "class<`function`>", 1
-"pryr", "FUN", -1, 0, 0, "(character[] | null)", 1
+"pryr", "FUN", -1, 0, 0, "character[]", 1
+"pryr", "FUN", -1, 0, 1, "null", 1
 "pryr", "FUN", 0, 0, 0, "any", 1
 "pryr", "FUN", -1, 1, 0, "character", 1
 "pryr", "FUN", 0, 1, 0, "class<`{`>", 1
@@ -98,7 +101,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "FUN", 1, 1, 0, "double", 1
 "pryr", "FUN", 2, 1, 0, "double", 1
 "pryr", "FUN", 3, 1, 0, "character", 1
-"pryr", "FUN", -1, 2, 0, "(class<`<-`> | class<`call`> | class<`function`> | class<`name`> | double | expression | pairlist | list<any>)", 1
+"pryr", "FUN", -1, 2, 0, "class<`<-`>", 1
+"pryr", "FUN", -1, 2, 1, "class<`call`>", 1
+"pryr", "FUN", -1, 2, 2, "class<`function`>", 1
+"pryr", "FUN", -1, 2, 3, "class<`name`>", 1
+"pryr", "FUN", -1, 2, 4, "double", 1
+"pryr", "FUN", -1, 2, 5, "expression", 1
+"pryr", "FUN", -1, 2, 6, "pairlist", 1
+"pryr", "FUN", -1, 2, 7, "list<any>", 1
 "pryr", "FUN", 0, 2, 0, "class<`<-`>", 1
 "pryr", "FUN", 0, 2, 1, "class<`call`>", 1
 "pryr", "FUN", 0, 2, 2, "class<`function`>", 1
@@ -111,7 +121,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "FUN", 2, 2, 0, "...", 1
 "pryr", "fun_body", -1, 0, 0, "character[]", 1
 "pryr", "fun_body", 0, 0, 0, "class<`function`>", 1
-"pryr", "fun_calls", -1, 0, 0, "(character[] | null)", 1
+"pryr", "fun_calls", -1, 0, 0, "character[]", 1
+"pryr", "fun_calls", -1, 0, 1, "null", 1
 "pryr", "fun_calls", 0, 0, 0, "any", 1
 "pryr", "hex_repr", -1, 0, 0, "character", 1
 "pryr", "hex_repr", 0, 0, 0, "character", 1
@@ -149,7 +160,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "make_function", 1, 0, 0, "class<`call`>", 1
 "pryr", "make_function", 1, 0, 1, "class<`{`>", 1
 "pryr", "make_function", 2, 0, 0, "environment", 1
-"pryr", "matched_calls", -1, 0, 0, "(character[] | null)", 1
+"pryr", "matched_calls", -1, 0, 0, "character[]", 1
+"pryr", "matched_calls", -1, 0, 1, "null", 1
 "pryr", "matched_calls", 0, 0, 0, "class<`function`>", 1
 "pryr", "matched_calls", 0, 0, 1, "class<`selfStart`>", 1
 "pryr", "matched_calls", 0, 0, 2, "character[]", 1
@@ -161,13 +173,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "mem_change", -1, 0, 0, "class<`bytes`>", 1
 "pryr", "mem_change", 0, 0, 0, "any", 1
 "pryr", "mem_used", -1, 0, 0, "class<`bytes`>", 1
-"pryr", "method_from_call", -1, 0, 0, "(class<`function`> | class<`MethodDefinition`>)", 1
+"pryr", "method_from_call", -1, 0, 0, "class<`function`>", 1
+"pryr", "method_from_call", -1, 0, 1, "class<`MethodDefinition`>", 1
 "pryr", "method_from_call", 0, 0, 0, "any", 1
 "pryr", "method_from_call", 1, 0, 0, "environment", 1
 "pryr", "modify_call", -1, 0, 0, "class<`call`>", 1
 "pryr", "modify_call", 0, 0, 0, "class<`call`>", 1
 "pryr", "modify_call", 1, 0, 0, "list<class<`name`> | null | double>", 1
-"pryr", "modify_lang", -1, 0, 0, "(class<`<-`> | class<`call`> | class<`function`> | class<`name`> | double | expression | pairlist | list<any>)", 1
+"pryr", "modify_lang", -1, 0, 0, "class<`<-`>", 1
+"pryr", "modify_lang", -1, 0, 1, "class<`call`>", 1
+"pryr", "modify_lang", -1, 0, 2, "class<`function`>", 1
+"pryr", "modify_lang", -1, 0, 3, "class<`name`>", 1
+"pryr", "modify_lang", -1, 0, 4, "double", 1
+"pryr", "modify_lang", -1, 0, 5, "expression", 1
+"pryr", "modify_lang", -1, 0, 6, "pairlist", 1
+"pryr", "modify_lang", -1, 0, 7, "list<any>", 1
 "pryr", "modify_lang", 0, 0, 0, "class<`<-`>", 1
 "pryr", "modify_lang", 0, 0, 1, "class<`call`>", 1
 "pryr", "modify_lang", 0, 0, 2, "class<`function`>", 1
@@ -215,7 +235,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pryr", "print.envlist", 1, 0, 0, "logical", 1
 "pryr", "print.envlist", 2, 0, 0, "logical", 1
 "pryr", "print.envlist", 3, 0, 0, "...", 1
-"pryr", "promise_code", -1, 0, 0, "(class<`call`> | class<`name`>)", 1
+"pryr", "promise_code", -1, 0, 0, "class<`call`>", 1
+"pryr", "promise_code", -1, 0, 1, "class<`name`>", 1
 "pryr", "promise_code", 0, 0, 0, "class<`name`>", 1
 "pryr", "promise_code", 1, 0, 0, "environment", 1
 "pryr", "rebind", -1, 0, 0, "double", 1

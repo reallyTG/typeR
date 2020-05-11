@@ -1,5 +1,10 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"cli", "%||%", -1, 0, 0, "(character[] | class<`cliapp`> | class<`cli_glue_delay`> | double | null | list<any>)", 1
+"cli", "%||%", -1, 0, 0, "character[]", 1
+"cli", "%||%", -1, 0, 1, "class<`cliapp`>", 1
+"cli", "%||%", -1, 0, 2, "class<`cli_glue_delay`>", 1
+"cli", "%||%", -1, 0, 3, "double", 1
+"cli", "%||%", -1, 0, 4, "null", 1
+"cli", "%||%", -1, 0, 5, "list<any>", 1
 "cli", "%||%", 0, 0, 0, "character[]", 1
 "cli", "%||%", 0, 0, 1, "null", 1
 "cli", "%||%", 0, 0, 2, "class<`cliapp`>", 1
@@ -14,7 +19,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "add_handler", 0, 0, 0, "environment", 1
 "cli", "add_handler", 1, 0, 0, "list<class<`call`> | environment>", 1
 "cli", "add_handler", 2, 0, 0, "logical", 1
-"cli", "apply_style", -1, 0, 0, "(character[] | class<`ansi_string`>)", 1
+"cli", "apply_style", -1, 0, 0, "character[]", 1
+"cli", "apply_style", -1, 0, 1, "class<`ansi_string`>", 1
 "cli", "apply_style", 0, 0, 0, "character[]", 1
 "cli", "apply_style", 0, 0, 1, "class<`ansi_string`>", 1
 "cli", "apply_style", 1, 0, 0, "any", 1
@@ -115,7 +121,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "cli_code", 2, 0, 0, "character", 1
 "cli", "cli_code", 3, 0, 0, "logical", 1
 "cli", "cli_code", 4, 0, 0, "environment", 1
-"cli", "cli__default_handler", -1, 0, 0, "(character | class<`cliapp`> | null)", 1
+"cli", "cli__default_handler", -1, 0, 0, "character", 1
+"cli", "cli__default_handler", -1, 0, 1, "class<`cliapp`>", 1
+"cli", "cli__default_handler", -1, 0, 2, "null", 1
 "cli", "cli__default_handler", 0, 0, 0, "class<`callr_message`, `cli_message`, `condition`>", 1
 "cli", "cli_div", -1, 0, 0, "character", 1
 "cli", "cli_div", 0, 0, 0, "null", 1
@@ -133,10 +141,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "cli_dl", 3, 0, 0, "logical", 1
 "cli", "cli_dl", 4, 0, 0, "logical", 1
 "cli", "cli_dl", 5, 0, 0, "environment", 1
-"cli", "cli_end", -1, 0, 0, "(character | null)", 1
+"cli", "cli_end", -1, 0, 0, "character", 1
+"cli", "cli_end", -1, 0, 1, "null", 1
 "cli", "cli_end", 0, 0, 0, "character", 1
 "cli", "cli_end", 0, 0, 1, "null", 1
-"cli", "cli_format", -1, 0, 0, "(character[] | double[])", 1
+"cli", "cli_format", -1, 0, 0, "character[]", 1
+"cli", "cli_format", -1, 0, 1, "double[]", 1
 "cli", "cli_format", 0, 0, 0, "character[]", 1
 "cli", "cli_format", 0, 0, 1, "double[]", 1
 "cli", "cli_format", 1, 0, 0, "any", 1
@@ -331,7 +341,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "clii_verbatim", 0, 0, 0, "class<`cliapp`>", 1
 "cli", "clii_verbatim", 1, 0, 0, "...", 1
 "cli", "clii_verbatim", 2, 0, 0, "environment", 1
-"cli", "clii__vspace", -1, 0, 0, "(double | null)", 1
+"cli", "clii__vspace", -1, 0, 0, "double", 1
+"cli", "clii__vspace", -1, 0, 1, "null", 1
 "cli", "clii__vspace", 0, 0, 0, "class<`cliapp`>", 1
 "cli", "clii__vspace", 1, 0, 0, "double", 1
 "cli", "clii__xtext", -1, 0, 0, "class<`cliapp`>", 1
@@ -349,7 +360,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "cli_li", 2, 0, 0, "null", 1
 "cli", "cli_li", 3, 0, 0, "logical", 1
 "cli", "cli_li", 4, 0, 0, "environment", 1
-"cli", "cli__message", -1, 0, 0, "(character | null)", 1
+"cli", "cli__message", -1, 0, 0, "character", 1
+"cli", "cli__message", -1, 0, 1, "null", 1
 "cli", "cli__message", 0, 0, 0, "character", 1
 "cli", "cli__message", 1, 0, 0, "list<any>", 1
 "cli", "cli__message", 2, 0, 0, "logical", 1
@@ -397,9 +409,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "cli_rule", 2, 0, 0, "character", 1
 "cli", "cli_rule", 3, 0, 0, "null", 1
 "cli", "cli_rule", 4, 0, 0, "environment", 1
-"cli", "cli_server_default", -1, 0, 0, "(character | class<`cliapp`> | null)", 1
+"cli", "cli_server_default", -1, 0, 0, "character", 1
+"cli", "cli_server_default", -1, 0, 1, "class<`cliapp`>", 1
+"cli", "cli_server_default", -1, 0, 2, "null", 1
 "cli", "cli_server_default", 0, 0, 0, "class<`callr_message`, `cli_message`, `condition`>", 1
-"cli", "cli_server_default_safe", -1, 0, 0, "(character | class<`cliapp`> | null)", 1
+"cli", "cli_server_default_safe", -1, 0, 0, "character", 1
+"cli", "cli_server_default_safe", -1, 0, 1, "class<`cliapp`>", 1
+"cli", "cli_server_default_safe", -1, 0, 2, "null", 1
 "cli", "cli_server_default_safe", 0, 0, 0, "class<`callr_message`, `cli_message`, `condition`>", 1
 "cli", "cli_sitrep", -1, 0, 0, "class<`cli_sitrep`>", 1
 "cli", "cli_status", -1, 0, 0, "character", 1
@@ -410,7 +426,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "cli_status", 4, 0, 0, "logical", 1
 "cli", "cli_status", 5, 0, 0, "environment", 1
 "cli", "cli_status", 6, 0, 0, "character", 1
-"cli", "cli_status_clear", -1, 0, 0, "(character | null)", 1
+"cli", "cli_status_clear", -1, 0, 0, "character", 1
+"cli", "cli_status_clear", -1, 0, 1, "null", 1
 "cli", "cli_status_clear", 0, 0, 0, "character", 1
 "cli", "cli_status_clear", 0, 0, 1, "null", 1
 "cli", "cli_status_clear", 1, 0, 0, "character", 1
@@ -451,7 +468,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "dedent", -1, 0, 0, "character", 1
 "cli", "dedent", 0, 0, 0, "character", 1
 "cli", "dedent", 1, 0, 0, "double", 1
-"cli", "default_app", -1, 0, 0, "(class<`cliapp`> | null)", 1
+"cli", "default_app", -1, 0, 0, "class<`cliapp`>", 1
+"cli", "default_app", -1, 0, 1, "null", 1
 "cli", "defer", -1, 0, 0, "list<class<`call`> | environment>", 1
 "cli", "defer", 0, 0, 0, "any", 1
 "cli", "defer", 1, 0, 0, "environment", 1
@@ -476,7 +494,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "get_line_char", 0, 0, 0, "character", 1
 "cli", "get_line_char", 0, 0, 1, "class<`ansi_string`>", 1
 "cli", "get_line_char", 0, 0, 2, "double", 1
-"cli", "get_real_output", -1, 0, 0, "(class<`connection`, `terminal`> | class<`connection`, `textConnection`>)", 1
+"cli", "get_real_output", -1, 0, 0, "class<`connection`, `terminal`>", 1
+"cli", "get_real_output", -1, 0, 1, "class<`connection`, `textConnection`>", 1
 "cli", "get_real_output", 0, 0, 0, "character", 1
 "cli", "get_real_output", 0, 0, 1, "class<`connection`, `textConnection`>", 1
 "cli", "get_spinner", -1, 0, 0, "list<character | integer | class<`AsIs`>>", 1
@@ -528,7 +547,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "is_string", 0, 0, 1, "class<`ansi_string`>", 1
 "cli", "is_string", 0, 0, 2, "double", 1
 "cli", "is_utf8_output", -1, 0, 0, "logical", 1
-"cli", "last", -1, 0, 0, "(null | list<any>)", 1
+"cli", "last", -1, 0, 0, "null", 1
+"cli", "last", -1, 0, 1, "list<any>", 1
 "cli", "last", 0, 0, 0, "null", 1
 "cli", "last", 0, 0, 1, "list<list<any>>", 1
 "cli", "list_border_styles", -1, 0, 0, "character[]", 1
@@ -547,12 +567,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "make_ansi_style", 3, 1, 0, "double", 1
 "cli", "make_cmd_transformer", -1, 0, 0, "class<`function`>", 1
 "cli", "make_cmd_transformer", 0, 0, 0, "environment", 1
-"cli", "make_line", -1, 0, 0, "(character | class<`ansi_string`>)", 1
+"cli", "make_line", -1, 0, 0, "character", 1
+"cli", "make_line", -1, 0, 1, "class<`ansi_string`>", 1
 "cli", "make_line", 0, 0, 0, "double", 1
 "cli", "make_line", 1, 0, 0, "character", 1
 "cli", "make_line", 2, 0, 0, "null", 1
 "cli", "make_line", 2, 0, 1, "character", 1
-"cli", "make_quantity", -1, 0, 0, "(integer | null)", 1
+"cli", "make_quantity", -1, 0, 0, "integer", 1
+"cli", "make_quantity", -1, 0, 1, "null", 1
 "cli", "make_quantity", 0, 0, 0, "character[]", 1
 "cli", "make_quantity", 0, 0, 1, "class<`cli_no`>", 1
 "cli", "make_quantity", 0, 0, 2, "class<`cli_noprint`>", 1

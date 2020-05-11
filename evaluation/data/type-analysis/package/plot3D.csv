@@ -272,7 +272,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "check.args", -1, 0, 0, "list<any>", 1
 "plot3D", "check.args", 0, 0, 0, "logical", 1
 "plot3D", "check.args", 0, 0, 1, "list<character[] | double | character | double>", 1
-"plot3D", "check.breaks", -1, 0, 0, "(double[] | null)", 1
+"plot3D", "check.breaks", -1, 0, 0, "double[]", 1
+"plot3D", "check.breaks", -1, 0, 1, "null", 1
 "plot3D", "check.breaks", 0, 0, 0, "double[]", 1
 "plot3D", "check.breaks", 0, 0, 1, "null", 1
 "plot3D", "check.breaks", 1, 0, 0, "any", 1
@@ -346,7 +347,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "colkey", 18, 0, 1, "double[]", 1
 "plot3D", "colkey", 19, 0, 0, "character[]", 1
 "plot3D", "colkey", 19, 0, 1, "logical", 1
-"plot3D", "color3D", -1, 0, 0, "(class<`poly`> | list<any>)", 1
+"plot3D", "color3D", -1, 0, 0, "class<`poly`>", 1
+"plot3D", "color3D", -1, 0, 1, "list<any>", 1
 "plot3D", "color3D", 0, 0, 0, "class<`poly`>", 1
 "plot3D", "color3D", 0, 0, 1, "list<any>", 1
 "plot3D", "color3D", 1, 0, 0, "list<double>", 1
@@ -485,7 +487,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "createvoxel", 6, 0, 0, "character", 1
 "plot3D", "drawallcols", -1, 0, 0, "null", 1
 "plot3D", "drawallcols", 0, 0, 0, "class<`list`, `plist`>", 1
-"plot3D", "drawcolkey", -1, 0, 0, "(null | list<logical>)", 1
+"plot3D", "drawcolkey", -1, 0, 0, "null", 1
+"plot3D", "drawcolkey", -1, 0, 1, "list<logical>", 1
 "plot3D", "drawcolkey", 0, 0, 0, "list<any>", 1
 "plot3D", "drawcolkey", 1, 0, 0, "any", 1
 "plot3D", "drawcolkey", 2, 0, 0, "any", 1
@@ -494,7 +497,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "drawcolkey", 5, 0, 0, "logical", 1
 "plot3D", "drawfullbox", -1, 0, 0, "null", 1
 "plot3D", "drawfullbox", 0, 0, 0, "class<`list`, `plist`>", 1
-"plot3D", "expanddotslist", -1, 0, 0, "(null | list<character | double[]>)", 1
+"plot3D", "expanddotslist", -1, 0, 0, "null", 1
+"plot3D", "expanddotslist", -1, 0, 1, "list<character | double[]>", 1
 "plot3D", "expanddotslist", 0, 0, 0, "null", 1
 "plot3D", "expanddotslist", 0, 0, 1, "list<character | double[]>", 1
 "plot3D", "expanddotslist", 1, 0, 0, "any", 1
@@ -599,7 +603,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "hist3D", 17, 0, 0, "null", 1
 "plot3D", "hist3D", 18, 0, 0, "character", 1
 "plot3D", "hist3D", 19, 0, 0, "logical", 1
-"plot3D", "image2D", -1, 0, 0, "(null | list<double[]>)", 1
+"plot3D", "image2D", -1, 0, 0, "null", 1
+"plot3D", "image2D", -1, 0, 1, "list<double[]>", 1
 "plot3D", "image2D", 0, 0, 0, "class<`array`>", 1
 "plot3D", "image2D", 0, 0, 1, "class<`matrix`>", 1
 "plot3D", "image2D", 0, 0, 2, "list<class<`matrix`> | double[] | class<`matrix`>>", 1
@@ -610,7 +615,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "image2D.array", 2, 0, 0, "any", 1
 "plot3D", "image2D.array", 3, 0, 0, "null", 1
 "plot3D", "image2D.array", 4, 0, 0, "...", 1
-"plot3D", "image2D.list", -1, 0, 0, "(null | list<double[]>)", 1
+"plot3D", "image2D.list", -1, 0, 0, "null", 1
+"plot3D", "image2D.list", -1, 0, 1, "list<double[]>", 1
 "plot3D", "image2D.list", 0, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`>>", 1
 "plot3D", "image2D.list", 1, 0, 0, "...", 1
 "plot3D", "image2D.matrix", -1, 0, 0, "list<double[]>", 1
@@ -680,7 +686,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "image3D", 19, 0, 0, "logical", 1
 "plot3D", "ImageOcean", -1, 0, 0, "list<double[]>", 1
 "plot3D", "ImageOcean", 0, 0, 0, "...", 1
-"plot3D", "initplist", -1, 0, 0, "(class<`list`, `plist`> | null)", 1
+"plot3D", "initplist", -1, 0, 0, "class<`list`, `plist`>", 1
+"plot3D", "initplist", -1, 0, 1, "null", 1
 "plot3D", "initplist", 0, 0, 0, "logical", 1
 "plot3D", "is.colkey", -1, 0, 0, "logical", 1
 "plot3D", "is.colkey", 0, 0, 0, "logical", 1
@@ -897,7 +904,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "plot2D", 12, 0, 0, "logical", 1
 "plot3D", "plot2D", 13, 0, 0, "logical", 1
 "plot3D", "plot2D", 14, 0, 0, "character", 1
-"plot3D", "plotbox", -1, 0, 0, "(class<`list`, `plist`> | list<any>)", 1
+"plot3D", "plotbox", -1, 0, 0, "class<`list`, `plist`>", 1
+"plot3D", "plotbox", -1, 0, 1, "list<any>", 1
 "plot3D", "plotbox", 0, 0, 0, "class<`list`, `plist`>", 1
 "plot3D", "plotbox", 0, 0, 1, "list<any>", 1
 "plot3D", "plot.CI.2d", -1, 0, 0, "null", 1
@@ -907,7 +915,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "plot.CI.2d", 3, 0, 0, "any", 1
 "plot3D", "plotdev", -1, 0, 0, "class<`list`, `plist`>", 1
 "plot3D", "plotdev", 0, 0, 0, "...", 1
-"plot3D", "plotlist3D", -1, 0, 0, "(null | list<null>)", 1
+"plot3D", "plotlist3D", -1, 0, 0, "null", 1
+"plot3D", "plotlist3D", -1, 0, 1, "list<null>", 1
 "plot3D", "plotlist3D", 0, 0, 0, "class<`list`, `plist`>", 1
 "plot3D", "plot.plist", -1, 0, 0, "class<`list`, `plist`>", 1
 "plot3D", "plot.plist", 0, 0, 0, "class<`list`, `plist`>", 1
@@ -965,7 +974,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "polyfill2D", 5, 0, 0, "null", 1
 "plot3D", "polyfill2D", 6, 0, 0, "null", 1
 "plot3D", "polyfill2D", 7, 0, 0, "logical", 1
-"plot3D", "polygon2D", -1, 0, 0, "(null | list<double[]>)", 1
+"plot3D", "polygon2D", -1, 0, 0, "null", 1
+"plot3D", "polygon2D", -1, 0, 1, "list<double[]>", 1
 "plot3D", "polygon2D", 0, 0, 0, "^double[]", 1
 "plot3D", "polygon2D", 1, 0, 0, "^double[]", 1
 "plot3D", "polygon2D", 2, 0, 0, "...", 1
@@ -1203,7 +1213,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plot3D", "selectplist", -1, 0, 0, "class<`list`, `plist`>", 1
 "plot3D", "selectplist", 0, 0, 0, "class<`list`, `plist`>", 1
 "plot3D", "selectplist", 1, 0, 0, "class<`function`>", 1
-"plot3D", "setalpha", -1, 0, 0, "(^character[] | null)", 1
+"plot3D", "setalpha", -1, 0, 0, "^character[]", 1
+"plot3D", "setalpha", -1, 0, 1, "null", 1
 "plot3D", "setalpha", 0, 0, 0, "^character[]", 1
 "plot3D", "setalpha", 0, 0, 1, "double[]", 1
 "plot3D", "setalpha", 0, 0, 2, "null", 1

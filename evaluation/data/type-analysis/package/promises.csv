@@ -44,11 +44,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "promises", "is.promising", 0, 0, 1, "class<`data.frame`>", 1
 "promises", "is.promising", 0, 0, 2, "class<`promise`>", 1
 "promises", "is.promising", 0, 0, 3, "double", 1
-"promises", "normalizeOnFulfilled", -1, 0, 0, "(class<`function`> | null)", 1
+"promises", "normalizeOnFulfilled", -1, 0, 0, "class<`function`>", 1
+"promises", "normalizeOnFulfilled", -1, 0, 1, "null", 1
 "promises", "normalizeOnFulfilled", 0, 0, 0, "class<`function`>", 1
 "promises", "normalizeOnFulfilled", 0, 0, 1, "class<`function`, `rlang_lambda_function`>", 1
 "promises", "normalizeOnFulfilled", 0, 0, 2, "null", 1
-"promises", "normalizeOnRejected", -1, 0, 0, "(class<`function`> | class<`function`, `rlang_lambda_function`> | null)", 1
+"promises", "normalizeOnRejected", -1, 0, 0, "class<`function`>", 1
+"promises", "normalizeOnRejected", -1, 0, 1, "class<`function`, `rlang_lambda_function`>", 1
+"promises", "normalizeOnRejected", -1, 0, 2, "null", 1
 "promises", "normalizeOnRejected", 0, 0, 0, "class<`function`>", 1
 "promises", "normalizeOnRejected", 0, 0, 1, "class<`function`, `rlang_lambda_function`>", 1
 "promises", "normalizeOnRejected", 0, 0, 2, "null", 1
@@ -103,7 +106,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "promises", "then", 2, 0, 0, "null", 1
 "promises", "then", 2, 0, 1, "class<`formula`>", 1
 "promises", "then", 2, 0, 2, "class<`function`>", 1
-"promises", "tryCatch", -1, 0, 0, "(class<`function`> | class<`promise`> | null | list<class<`function`> | class<`promise`>>)", 1
+"promises", "tryCatch", -1, 0, 0, "class<`function`>", 1
+"promises", "tryCatch", -1, 0, 1, "class<`promise`>", 1
+"promises", "tryCatch", -1, 0, 2, "null", 1
+"promises", "tryCatch", -1, 0, 3, "list<class<`function`> | class<`promise`>>", 1
 "promises", "tryCatch", 0, 0, 0, "class<`function`>", 1
 "promises", "tryCatch", 0, 0, 1, "class<`promise`>", 1
 "promises", "tryCatch", 0, 0, 2, "null", 1

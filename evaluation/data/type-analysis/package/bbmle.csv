@@ -91,7 +91,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bbmle", "FUN", 1, 3, 0, "...", 1
 "bbmle", "FUN", 2, 3, 0, "double", 1
 "bbmle", "FUN", 3, 3, 0, "double", 1
-"bbmle", "FUN", -1, 4, 0, "(double | class<`data.frame`>)", 1
+"bbmle", "FUN", -1, 4, 0, "double", 1
+"bbmle", "FUN", -1, 4, 1, "class<`data.frame`>", 1
 "bbmle", "FUN", 0, 4, 0, "class<`glm`, `lm`>", 1
 "bbmle", "FUN", 0, 4, 1, "class<`mle2`>", 1
 "bbmle", "FUN", 0, 4, 2, "class<`logLik`>", 1
@@ -105,7 +106,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bbmle", "FUN", 2, 5, 0, "double", 1
 "bbmle", "FUN", 3, 5, 0, "double", 1
 "bbmle", "FUN", 4, 5, 0, "double", 1
-"bbmle", "FUN", -1, 6, 0, "(double | class<`data.frame`>)", 1
+"bbmle", "FUN", -1, 6, 0, "double", 1
+"bbmle", "FUN", -1, 6, 1, "class<`data.frame`>", 1
 "bbmle", "FUN", 0, 6, 0, "class<`mle2`>", 1
 "bbmle", "FUN", 1, 6, 0, "...", 1
 "bbmle", "FUN", 2, 6, 0, "double", 1
@@ -120,7 +122,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bbmle", "get_all_trange", 5, 0, 0, "...", 1
 "bbmle", "get.mnames", -1, 0, 0, "character[]", 1
 "bbmle", "get.mnames", 0, 0, 0, "class<`call`>", 1
-"bbmle", "gfun", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"bbmle", "gfun", -1, 0, 0, "class<`matrix`>", 1
+"bbmle", "gfun", -1, 0, 1, "double[]", 1
 "bbmle", "gfun", 0, 0, 0, "class<`mle2`>", 1
 "bbmle", "gfun", 1, 0, 0, "class<`data.frame`>", 1
 "bbmle", "gfun", 1, 0, 1, "null", 1
@@ -174,12 +177,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bbmle", "mle2", 19, 0, 0, "...", 1
 "bbmle", "mle2.options", -1, 0, 0, "character", 1
 "bbmle", "mle2.options", 0, 0, 0, "...", 1
-"bbmle", "namedrop", -1, 0, 0, "(double[] | null | pairlist | list<any>)", 1
+"bbmle", "namedrop", -1, 0, 0, "double[]", 1
+"bbmle", "namedrop", -1, 0, 1, "null", 1
+"bbmle", "namedrop", -1, 0, 2, "pairlist", 1
+"bbmle", "namedrop", -1, 0, 3, "list<any>", 1
 "bbmle", "namedrop", 0, 0, 0, "double[]", 1
 "bbmle", "namedrop", 0, 0, 1, "null", 1
 "bbmle", "namedrop", 0, 0, 2, "pairlist", 1
 "bbmle", "namedrop", 0, 0, 3, "list<any>", 1
-"bbmle", "parnames", -1, 0, 0, "(character[] | null)", 1
+"bbmle", "parnames", -1, 0, 0, "character[]", 1
+"bbmle", "parnames", -1, 0, 1, "null", 1
 "bbmle", "parnames", 0, 0, 0, "class<`function`>", 1
 "bbmle", "parnames<-", -1, 0, 0, "class<`function`>", 1
 "bbmle", "parnames<-", 0, 0, 0, "class<`function`>", 1
@@ -200,14 +207,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bbmle", "pop_pred_samp", 9, 0, 0, "character[]", 1
 "bbmle", "pop_pred_samp", 10, 0, 0, "character", 1
 "bbmle", "pop_pred_samp", 10, 0, 1, "null", 1
-"bbmle", "predict", -1, 0, 0, "(class<`matrix`> | double)", 1
+"bbmle", "predict", -1, 0, 0, "class<`matrix`>", 1
+"bbmle", "predict", -1, 0, 1, "double", 1
 "bbmle", "predict", 0, 0, 0, "class<`mle2`>", 1
 "bbmle", "predict", 1, 0, 0, "...", 1
 "bbmle", "print.ICtab", -1, 0, 0, "class<`matrix`>", 1
 "bbmle", "print.ICtab", 0, 0, 0, "class<`ICtab`>", 1
 "bbmle", "print.ICtab", 1, 0, 0, "...", 1
 "bbmle", "print.ICtab", 2, 0, 0, "double", 1
-"bbmle", "proffun", -1, 0, 0, "(class<`mle2`> | list<class<`summary.mle2`> | list<class<`data.frame`> | list<character>> | class<`summary.mle2`> | list<class<`data.frame`> | null | list<character>>>)", 1
+"bbmle", "proffun", -1, 0, 0, "class<`mle2`>", 1
+"bbmle", "proffun", -1, 0, 1, "list<class<`summary.mle2`> | list<class<`data.frame`> | list<character>> | class<`summary.mle2`> | list<class<`data.frame`> | null | list<character>>>", 1
 "bbmle", "proffun", 0, 0, 0, "class<`mle2`>", 1
 "bbmle", "proffun", 1, 0, 0, "integer[]", 1
 "bbmle", "proffun", 1, 0, 1, "character", 1
@@ -242,7 +251,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bbmle", "qAIC", 1, 2, 0, "...", 1
 "bbmle", "qAIC", 2, 2, 0, "double", 1
 "bbmle", "qAIC", 3, 2, 0, "double", 1
-"bbmle", "qAICc", -1, 0, 0, "(double | class<`data.frame`>)", 1
+"bbmle", "qAICc", -1, 0, 0, "double", 1
+"bbmle", "qAICc", -1, 0, 1, "class<`data.frame`>", 1
 "bbmle", "qAICc", 0, 0, 0, "class<`glm`, `lm`>", 1
 "bbmle", "qAICc", 0, 0, 1, "class<`mle2`>", 1
 "bbmle", "qAICc", 0, 0, 2, "class<`logLik`>", 1
@@ -256,7 +266,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bbmle", "qAICc", 2, 1, 0, "double", 1
 "bbmle", "qAICc", 3, 1, 0, "double", 1
 "bbmle", "qAICc", 4, 1, 0, "double", 1
-"bbmle", "qAICc", -1, 2, 0, "(double | class<`data.frame`>)", 1
+"bbmle", "qAICc", -1, 2, 0, "double", 1
+"bbmle", "qAICc", -1, 2, 1, "class<`data.frame`>", 1
 "bbmle", "qAICc", 0, 2, 0, "class<`mle2`>", 1
 "bbmle", "qAICc", 1, 2, 0, "...", 1
 "bbmle", "qAICc", 2, 2, 0, "double", 1

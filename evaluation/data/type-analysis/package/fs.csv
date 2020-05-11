@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"fs", "%||%", -1, 0, 0, "(character | class<`character`, `fs_path`>)", 1
+"fs", "%||%", -1, 0, 0, "character", 1
+"fs", "%||%", -1, 0, 1, "class<`character`, `fs_path`>", 1
 "fs", "%||%", 0, 0, 0, "null", 1
 "fs", "%||%", 0, 0, 1, "class<`character`, `fs_path`>", 1
 "fs", "%||%", 1, 0, 0, "any", 1
@@ -159,7 +160,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fs", "file_temp", 0, 0, 0, "character", 1
 "fs", "file_temp", 1, 0, 0, "character", 1
 "fs", "file_temp", 2, 0, 0, "character", 1
-"fs", "file_temp_pop", -1, 0, 0, "(class<`character`, `fs_path`> | null)", 1
+"fs", "file_temp_pop", -1, 0, 0, "class<`character`, `fs_path`>", 1
+"fs", "file_temp_pop", -1, 0, 1, "null", 1
 "fs", "file_temp_push", -1, 0, 0, "class<`character`, `fs_path`>", 1
 "fs", "file_temp_push", 0, 0, 0, "character[]", 1
 "fs", "file_touch", -1, 0, 0, "class<`character`, `fs_path`>", 1

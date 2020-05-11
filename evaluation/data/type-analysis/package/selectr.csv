@@ -34,14 +34,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "selectr", "parse_simple_selector", -1, 0, 0, "list<any>", 1
 "selectr", "parse_simple_selector", 0, 0, 0, "class<`R6`, `TokenStream`>", 1
 "selectr", "parse_simple_selector", 1, 0, 0, "logical", 1
-"selectr", "querySelector", -1, 0, 0, "(class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`> | class<`xml_node`> | null)", 1
+"selectr", "querySelector", -1, 0, 0, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1
+"selectr", "querySelector", -1, 0, 1, "class<`xml_node`>", 1
+"selectr", "querySelector", -1, 0, 2, "null", 1
 "selectr", "querySelector", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
 "selectr", "querySelector", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "selectr", "querySelector", 1, 0, 0, "character", 1
 "selectr", "querySelector", 2, 0, 0, "character", 1
 "selectr", "querySelector", 2, 0, 1, "null", 1
 "selectr", "querySelector", 3, 0, 0, "...", 1
-"selectr", "querySelectorAll", -1, 0, 0, "(class<`xml_nodeset`> | class<`XMLNodeSet`>)", 1
+"selectr", "querySelectorAll", -1, 0, 0, "class<`xml_nodeset`>", 1
+"selectr", "querySelectorAll", -1, 0, 1, "class<`XMLNodeSet`>", 1
 "selectr", "querySelectorAll", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "selectr", "querySelectorAll", 0, 0, 1, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
 "selectr", "querySelectorAll", 0, 0, 2, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1
@@ -49,7 +52,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "selectr", "querySelectorAll", 2, 0, 0, "character[]", 1
 "selectr", "querySelectorAll", 2, 0, 1, "null", 1
 "selectr", "querySelectorAll", 3, 0, 0, "...", 1
-"selectr", "querySelectorAllNS", -1, 0, 0, "(class<`xml_nodeset`> | class<`XMLNodeSet`>)", 1
+"selectr", "querySelectorAllNS", -1, 0, 0, "class<`xml_nodeset`>", 1
+"selectr", "querySelectorAllNS", -1, 0, 1, "class<`XMLNodeSet`>", 1
 "selectr", "querySelectorAllNS", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "selectr", "querySelectorAllNS", 0, 0, 1, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
 "selectr", "querySelectorAllNS", 1, 0, 0, "character", 1
@@ -86,7 +90,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "selectr", "querySelectorAll.xml_node", 2, 0, 0, "character[]", 1
 "selectr", "querySelectorAll.xml_node", 2, 0, 1, "null", 1
 "selectr", "querySelectorAll.xml_node", 3, 0, 0, "...", 1
-"selectr", "querySelectorNS", -1, 0, 0, "(class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`> | class<`xml_node`>)", 1
+"selectr", "querySelectorNS", -1, 0, 0, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1
+"selectr", "querySelectorNS", -1, 0, 1, "class<`xml_node`>", 1
 "selectr", "querySelectorNS", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
 "selectr", "querySelectorNS", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "selectr", "querySelectorNS", 1, 0, 0, "character", 1
@@ -105,13 +110,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "selectr", "querySelectorNS.xml_node", 2, 0, 0, "character", 1
 "selectr", "querySelectorNS.xml_node", 3, 0, 0, "character", 1
 "selectr", "querySelectorNS.xml_node", 4, 0, 0, "...", 1
-"selectr", "querySelector.XMLInternalDocument", -1, 0, 0, "(class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`> | null)", 1
+"selectr", "querySelector.XMLInternalDocument", -1, 0, 0, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1
+"selectr", "querySelector.XMLInternalDocument", -1, 0, 1, "null", 1
 "selectr", "querySelector.XMLInternalDocument", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
 "selectr", "querySelector.XMLInternalDocument", 1, 0, 0, "character", 1
 "selectr", "querySelector.XMLInternalDocument", 2, 0, 0, "character", 1
 "selectr", "querySelector.XMLInternalDocument", 2, 0, 1, "null", 1
 "selectr", "querySelector.XMLInternalDocument", 3, 0, 0, "...", 1
-"selectr", "querySelector.xml_node", -1, 0, 0, "(class<`xml_node`> | null)", 1
+"selectr", "querySelector.xml_node", -1, 0, 0, "class<`xml_node`>", 1
+"selectr", "querySelector.xml_node", -1, 0, 1, "null", 1
 "selectr", "querySelector.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "selectr", "querySelector.xml_node", 1, 0, 0, "character", 1
 "selectr", "querySelector.xml_node", 2, 0, 0, "character", 1

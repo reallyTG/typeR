@@ -17,12 +17,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "assert_destruction", -1, 0, 0, "null", 1
 "zeallot", "assert_destruction", 0, 0, 0, "character", 1
 "zeallot", "assert_destruction", 0, 0, 1, "class<`Date`>", 1
-"zeallot", "calls", -1, 0, 0, "(character[] | null)", 1
+"zeallot", "calls", -1, 0, 0, "character[]", 1
+"zeallot", "calls", -1, 0, 1, "null", 1
 "zeallot", "calls", 0, 0, 0, "character", 1
 "zeallot", "calls", 0, 0, 1, "class<`name`>", 1
 "zeallot", "calls", 0, 0, 2, "null", 1
 "zeallot", "calls", 0, 0, 3, "list<any>", 1
-"zeallot", "car", -1, 0, 0, "(character[] | class<`call`> | class<`name`> | double[] | null | list<any>)", 1
+"zeallot", "car", -1, 0, 0, "character[]", 1
+"zeallot", "car", -1, 0, 1, "class<`call`>", 1
+"zeallot", "car", -1, 0, 2, "class<`name`>", 1
+"zeallot", "car", -1, 0, 3, "double[]", 1
+"zeallot", "car", -1, 0, 4, "null", 1
+"zeallot", "car", -1, 0, 5, "list<any>", 1
 "zeallot", "car", 0, 0, 0, "list<any>", 1
 "zeallot", "cdr", -1, 0, 0, "list<any>", 1
 "zeallot", "cdr", 0, 0, 0, "list<any>", 1
@@ -52,7 +58,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "destructure.Date", 0, 0, 0, "class<`Date`>", 1
 "zeallot", "destructure.summary.lm", -1, 0, 0, "list<any>", 1
 "zeallot", "destructure.summary.lm", 0, 0, 0, "class<`summary.lm`>", 1
-"zeallot", "FUN", -1, 0, 0, "(character[] | null)", 1
+"zeallot", "FUN", -1, 0, 0, "character[]", 1
+"zeallot", "FUN", -1, 0, 1, "null", 1
 "zeallot", "FUN", 0, 0, 0, "character", 1
 "zeallot", "FUN", 0, 0, 1, "class<`name`>", 1
 "zeallot", "FUN", 0, 0, 2, "null", 1
@@ -66,7 +73,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "FUN", -1, 3, 0, "logical", 1
 "zeallot", "FUN", 0, 3, 0, "character", 1
 "zeallot", "FUN", 0, 3, 1, "list<character | character | list<character | list<character>> | character | list<character>>", 1
-"zeallot", "FUN", -1, 4, 0, "(character | list<any>)", 1
+"zeallot", "FUN", -1, 4, 0, "character", 1
+"zeallot", "FUN", -1, 4, 1, "list<any>", 1
 "zeallot", "FUN", 0, 4, 0, "class<`name`>", 1
 "zeallot", "FUN", 0, 4, 1, "list<any>", 1
 "zeallot", "get_default", -1, 0, 0, "null", 1
@@ -112,9 +120,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "stop_invalid_rhs", 0, 0, 0, "character", 1
 "zeallot", "stop_invalid_rhs", 1, 0, 0, "class<`call`>", 1
 "zeallot", "stop_invalid_rhs", 2, 0, 0, "...", 1
-"zeallot", "tree", -1, 0, 0, "(class<`name`> | list<any>)", 1
+"zeallot", "tree", -1, 0, 0, "class<`name`>", 1
+"zeallot", "tree", -1, 0, 1, "list<any>", 1
 "zeallot", "tree", 0, 0, 0, "class<`name`>", 1
 "zeallot", "tree", 0, 0, 1, "class<`call`>", 1
-"zeallot", "variables", -1, 0, 0, "(character | list<any>)", 1
+"zeallot", "variables", -1, 0, 0, "character", 1
+"zeallot", "variables", -1, 0, 1, "list<any>", 1
 "zeallot", "variables", 0, 0, 0, "class<`name`>", 1
 "zeallot", "variables", 0, 0, 1, "list<any>", 1

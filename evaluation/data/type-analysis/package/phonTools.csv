@@ -139,7 +139,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "normalize", 4, 0, 1, "null", 1
 "phonTools", "ntypes", -1, 0, 0, "integer", 1
 "phonTools", "ntypes", 0, 0, 0, "class<`factor`>", 1
-"phonTools", "peakfind", -1, 0, 0, "(double | integer[])", 1
+"phonTools", "peakfind", -1, 0, 0, "double", 1
+"phonTools", "peakfind", -1, 0, 1, "integer[]", 1
 "phonTools", "peakfind", 0, 0, 0, "double[]", 1
 "phonTools", "peakfind", 1, 0, 0, "logical", 1
 "phonTools", "phasor", -1, 0, 0, "null", 1
@@ -150,7 +151,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "phasor", 4, 0, 0, "any", 1
 "phonTools", "phasor", 5, 0, 0, "any", 1
 "phonTools", "phasor", 6, 0, 0, "...", 1
-"phonTools", "pitchtrack", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"phonTools", "pitchtrack", -1, 0, 0, "class<`data.frame`>", 1
+"phonTools", "pitchtrack", -1, 0, 1, "double[]", 1
 "phonTools", "pitchtrack", 0, 0, 0, "class<`sound`>", 1
 "phonTools", "pitchtrack", 0, 0, 1, "double[]", 1
 "phonTools", "pitchtrack", 1, 0, 0, "double[]", 1
@@ -188,14 +190,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "powertrack", 4, 0, 0, "logical", 1
 "phonTools", "powertrack", 5, 0, 0, "logical", 1
 "phonTools", "powertrack", 6, 0, 0, "...", 1
-"phonTools", "preemphasis", -1, 0, 0, "(class<`ts`> | double[])", 1
+"phonTools", "preemphasis", -1, 0, 0, "class<`ts`>", 1
+"phonTools", "preemphasis", -1, 0, 1, "double[]", 1
 "phonTools", "preemphasis", 0, 0, 0, "class<`ts`>", 1
 "phonTools", "preemphasis", 0, 0, 1, "double[]", 1
 "phonTools", "preemphasis", 1, 0, 0, "double", 1
 "phonTools", "preemphasis", 2, 0, 0, "any", 1
 "phonTools", "preemphasis", 3, 0, 0, "logical", 1
 "phonTools", "preemphasis", 4, 0, 0, "double", 1
-"phonTools", "PSTM", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"phonTools", "PSTM", -1, 0, 0, "class<`data.frame`>", 1
+"phonTools", "PSTM", -1, 0, 1, "list<class<`data.frame`>>", 1
 "phonTools", "PSTM", 0, 0, 0, "class<`data.frame`>", 1
 "phonTools", "PSTM", 1, 0, 0, "integer[]", 1
 "phonTools", "PSTM", 2, 0, 0, "class<`template`>", 1
@@ -219,7 +223,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "rcr", 3, 0, 0, "...", 1
 "phonTools", "reduce.fraction", -1, 0, 0, "double[]", 1
 "phonTools", "reduce.fraction", 0, 0, 0, "double[]", 1
-"phonTools", "resample", -1, 0, 0, "(class<`ts`> | double[])", 1
+"phonTools", "resample", -1, 0, 0, "class<`ts`>", 1
+"phonTools", "resample", -1, 0, 1, "double[]", 1
 "phonTools", "resample", 0, 0, 0, "class<`ts`>", 1
 "phonTools", "resample", 0, 0, 1, "double[]", 1
 "phonTools", "resample", 1, 0, 0, "double", 1
@@ -232,7 +237,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "rmvtnorm", 1, 0, 0, "double", 1
 "phonTools", "rmvtnorm", 2, 0, 0, "double[]", 1
 "phonTools", "rmvtnorm", 3, 0, 0, "double", 1
-"phonTools", "rotate", -1, 0, 0, "(class<`matrix`> | complex[])", 1
+"phonTools", "rotate", -1, 0, 0, "class<`matrix`>", 1
+"phonTools", "rotate", -1, 0, 1, "complex[]", 1
 "phonTools", "rotate", 0, 0, 0, "class<`matrix`>", 1
 "phonTools", "rotate", 0, 0, 1, "complex[]", 1
 "phonTools", "rotate", 1, 0, 0, "double", 1
@@ -296,7 +302,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "summary.rcr", -1, 0, 0, "class<`summary.rcr`>", 1
 "phonTools", "summary.rcr", 0, 0, 0, "class<`rcr`>", 1
 "phonTools", "summary.rcr", 1, 0, 0, "...", 1
-"phonTools", "synthfilter", -1, 0, 0, "(class<`ts`> | double[])", 1
+"phonTools", "synthfilter", -1, 0, 0, "class<`ts`>", 1
+"phonTools", "synthfilter", -1, 0, 1, "double[]", 1
 "phonTools", "synthfilter", 0, 0, 0, "class<`ts`>", 1
 "phonTools", "synthfilter", 0, 0, 1, "double[]", 1
 "phonTools", "synthfilter", 1, 0, 0, "double[]", 1
@@ -320,7 +327,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "vowelplot", 13, 0, 0, "logical", 1
 "phonTools", "vowelplot", 14, 0, 0, "logical", 1
 "phonTools", "vowelplot", 15, 0, 0, "...", 1
-"phonTools", "vowelsynth", -1, 0, 0, "(class<`sound`> | double[])", 1
+"phonTools", "vowelsynth", -1, 0, 0, "class<`sound`>", 1
+"phonTools", "vowelsynth", -1, 0, 1, "double[]", 1
 "phonTools", "vowelsynth", 0, 0, 0, "double[]", 1
 "phonTools", "vowelsynth", 1, 0, 0, "double[]", 1
 "phonTools", "vowelsynth", 2, 0, 0, "double", 1
@@ -358,6 +366,7 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phonTools", "xsampatoIPA", 0, 0, 1, "class<`factor`>", 1
 "phonTools", "xsampatoIPA", 1, 0, 0, "logical", 1
 "phonTools", "xsampatoIPA", 2, 0, 0, "logical", 1
-"phonTools", "zeros", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"phonTools", "zeros", -1, 0, 0, "class<`matrix`>", 1
+"phonTools", "zeros", -1, 0, 1, "double[]", 1
 "phonTools", "zeros", 0, 0, 0, "double[]", 1
 "phonTools", "zeros", 1, 0, 0, "double", 1

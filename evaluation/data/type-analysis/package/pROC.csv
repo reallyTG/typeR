@@ -176,9 +176,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "compute.pair.AUC", 5, 0, 0, "logical", 1
 "pROC", "compute.pair.AUC", 6, 0, 0, "character", 1
 "pROC", "compute.pair.AUC", 7, 0, 0, "...", 1
-"pROC", "coords", -1, 0, 0, "(class<`data.frame`> | class<`matrix`>)", 1
+"pROC", "coords", -1, 0, 0, "class<`data.frame`>", 1
+"pROC", "coords", -1, 0, 1, "class<`matrix`>", 1
 "pROC", "coords", 0, 0, 0, "...", 1
-"pROC", "coords.roc", -1, 0, 0, "(class<`data.frame`> | class<`matrix`> | double)", 1
+"pROC", "coords.roc", -1, 0, 0, "class<`data.frame`>", 1
+"pROC", "coords.roc", -1, 0, 1, "class<`matrix`>", 1
+"pROC", "coords.roc", -1, 0, 2, "double", 1
 "pROC", "coords.roc", 0, 0, 0, "class<`smooth.roc`>", 1
 "pROC", "coords.roc", 0, 0, 1, "class<`roc`>", 1
 "pROC", "coords.roc", 1, 0, 0, "character", 1
@@ -192,7 +195,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "coords.roc", 8, 0, 0, "logical", 1
 "pROC", "coords.roc", 9, 0, 0, "any", 1
 "pROC", "coords.roc", 10, 0, 0, "...", 1
-"pROC", "coords.smooth.roc", -1, 0, 0, "(double | class<`data.frame`>)", 1
+"pROC", "coords.smooth.roc", -1, 0, 0, "double", 1
+"pROC", "coords.smooth.roc", -1, 0, 1, "class<`data.frame`>", 1
 "pROC", "coords.smooth.roc", 0, 0, 0, "class<`smooth.roc`>", 1
 "pROC", "coords.smooth.roc", 1, 0, 0, "double", 1
 "pROC", "coords.smooth.roc", 2, 0, 0, "character", 1
@@ -301,14 +305,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "g.partial", 1, 0, 0, "double", 1
 "pROC", "g.partial", 2, 0, 0, "double", 1
 "pROC", "g.partial", 3, 0, 0, "double", 1
-"pROC", "has.partial.auc", -1, 0, 0, "(logical | null)", 1
+"pROC", "has.partial.auc", -1, 0, 0, "logical", 1
+"pROC", "has.partial.auc", -1, 0, 1, "null", 1
 "pROC", "has.partial.auc", 0, 0, 0, "class<`auc`, `numeric`>", 1
 "pROC", "has.partial.auc", 0, 0, 1, "class<`roc`>", 1
 "pROC", "has.partial.auc", 0, 0, 2, "class<`smooth.roc`>", 1
-"pROC", "has.partial.auc.auc", -1, 0, 0, "(logical | null)", 1
+"pROC", "has.partial.auc.auc", -1, 0, 0, "logical", 1
+"pROC", "has.partial.auc.auc", -1, 0, 1, "null", 1
 "pROC", "has.partial.auc.auc", 0, 0, 0, "class<`auc`, `numeric`>", 1
 "pROC", "has.partial.auc.auc", 0, 0, 1, "null", 1
-"pROC", "has.partial.auc.roc", -1, 0, 0, "(logical | null)", 1
+"pROC", "has.partial.auc.roc", -1, 0, 0, "logical", 1
+"pROC", "has.partial.auc.roc", -1, 0, 1, "null", 1
 "pROC", "has.partial.auc.roc", 0, 0, 0, "class<`smooth.roc`>", 1
 "pROC", "has.partial.auc.roc", 0, 0, 1, "class<`roc`>", 1
 "pROC", "has.partial.auc.smooth.roc", -1, 0, 0, "logical", 1
@@ -329,9 +336,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "Math.ci.auc", -1, 0, 0, "double[]", 1
 "pROC", "Math.ci.auc", 0, 0, 0, "class<`ci`, `ci.auc`, `numeric`>", 1
 "pROC", "Math.ci.auc", 1, 0, 0, "...", 1
-"pROC", "multiclass.roc", -1, 0, 0, "(class<`multiclass.roc`> | class<`mv.multiclass.roc`>)", 1
+"pROC", "multiclass.roc", -1, 0, 0, "class<`multiclass.roc`>", 1
+"pROC", "multiclass.roc", -1, 0, 1, "class<`mv.multiclass.roc`>", 1
 "pROC", "multiclass.roc", 0, 0, 0, "...", 1
-"pROC", "multiclass.roc.default", -1, 0, 0, "(class<`mv.multiclass.roc`> | class<`multiclass.roc`>)", 1
+"pROC", "multiclass.roc.default", -1, 0, 0, "class<`mv.multiclass.roc`>", 1
+"pROC", "multiclass.roc.default", -1, 0, 1, "class<`multiclass.roc`>", 1
 "pROC", "multiclass.roc.default", 0, 0, 0, "class<`factor`>", 1
 "pROC", "multiclass.roc.default", 0, 0, 1, "class<`factor`, `ordered`>", 1
 "pROC", "multiclass.roc.default", 1, 0, 0, "class<`data.frame`>", 1
@@ -496,9 +505,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "remove.ci.attributes", -1, 0, 0, "double[]", 1
 "pROC", "remove.ci.attributes", 0, 0, 0, "class<`ci`, `ci.auc`, `numeric`>", 1
 "pROC", "remove.ci.attributes", 0, 0, 1, "double", 1
-"pROC", "roc", -1, 0, 0, "(class<`roc`> | class<`smooth.roc`> | list<class<`roc`>>)", 1
+"pROC", "roc", -1, 0, 0, "class<`roc`>", 1
+"pROC", "roc", -1, 0, 1, "class<`smooth.roc`>", 1
+"pROC", "roc", -1, 0, 2, "list<class<`roc`>>", 1
 "pROC", "roc", 0, 0, 0, "...", 1
-"pROC", "roc.cc.nochecks", -1, 0, 0, "(class<`roc`> | class<`smooth.roc`>)", 1
+"pROC", "roc.cc.nochecks", -1, 0, 0, "class<`roc`>", 1
+"pROC", "roc.cc.nochecks", -1, 0, 1, "class<`smooth.roc`>", 1
 "pROC", "roc.cc.nochecks", 0, 0, 0, "double[]", 1
 "pROC", "roc.cc.nochecks", 1, 0, 0, "double[]", 1
 "pROC", "roc.cc.nochecks", 2, 0, 0, "logical", 1
@@ -509,7 +521,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "roc.cc.nochecks", 7, 0, 0, "any", 1
 "pROC", "roc.cc.nochecks", 8, 0, 0, "logical", 1
 "pROC", "roc.cc.nochecks", 9, 0, 0, "...", 1
-"pROC", "roc.default", -1, 0, 0, "(class<`roc`> | class<`smooth.roc`>)", 1
+"pROC", "roc.default", -1, 0, 0, "class<`roc`>", 1
+"pROC", "roc.default", -1, 0, 1, "class<`smooth.roc`>", 1
 "pROC", "roc.default", 0, 0, 0, "any", 1
 "pROC", "roc.default", 1, 0, 0, "any", 1
 "pROC", "roc.default", 2, 0, 0, "any", 1
@@ -530,7 +543,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "roc.default", 17, 0, 0, "double", 1
 "pROC", "roc.default", 18, 0, 0, "null", 1
 "pROC", "roc.default", 19, 0, 0, "null", 1
-"pROC", "roc.formula", -1, 0, 0, "(class<`roc`> | list<class<`roc`>>)", 1
+"pROC", "roc.formula", -1, 0, 0, "class<`roc`>", 1
+"pROC", "roc.formula", -1, 0, 1, "list<class<`roc`>>", 1
 "pROC", "roc.formula", 0, 0, 0, "class<`formula`>", 1
 "pROC", "roc.formula", 1, 0, 0, "any", 1
 "pROC", "roc.formula", 2, 0, 0, "...", 1
@@ -616,7 +630,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pROC", "roc.utils.thr.idx", -1, 0, 0, "double", 1
 "pROC", "roc.utils.thr.idx", 0, 0, 0, "class<`roc`>", 1
 "pROC", "roc.utils.thr.idx", 1, 0, 0, "double", 1
-"pROC", "roc.utils.unpercent", -1, 0, 0, "(class<`auc`, `numeric`> | class<`roc`>)", 1
+"pROC", "roc.utils.unpercent", -1, 0, 0, "class<`auc`, `numeric`>", 1
+"pROC", "roc.utils.unpercent", -1, 0, 1, "class<`roc`>", 1
 "pROC", "roc.utils.unpercent", 0, 0, 0, "class<`auc`, `numeric`>", 1
 "pROC", "roc.utils.unpercent", 0, 0, 1, "class<`roc`>", 1
 "pROC", "roc.utils.unpercent.auc", -1, 0, 0, "class<`auc`, `numeric`>", 1

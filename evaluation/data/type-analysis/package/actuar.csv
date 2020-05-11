@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"actuar", "adjCoef", -1, 0, 0, "(class<`adjCoef`, `function`> | double)", 1
+"actuar", "adjCoef", -1, 0, 0, "class<`adjCoef`, `function`>", 1
+"actuar", "adjCoef", -1, 0, 1, "double", 1
 "actuar", "adjCoef", 0, 0, 0, "any", 1
 "actuar", "adjCoef", 1, 0, 0, "any", 1
 "actuar", "adjCoef", 2, 0, 0, "any", 1
@@ -9,7 +10,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "adjCoef", 6, 0, 0, "any", 1
 "actuar", "adjCoef", 7, 0, 0, "any", 1
 "actuar", "adjCoef", 8, 0, 0, "double", 1
-"actuar", "aggregateDist", -1, 0, 0, "(class<`aggregateDist`, `ecdf`, `function`, `stepfun`> | class<`aggregateDist`, `function`>)", 1
+"actuar", "aggregateDist", -1, 0, 0, "class<`aggregateDist`, `ecdf`, `function`, `stepfun`>", 1
+"actuar", "aggregateDist", -1, 0, 1, "class<`aggregateDist`, `function`>", 1
 "actuar", "aggregateDist", 0, 0, 0, "character", 1
 "actuar", "aggregateDist", 1, 0, 0, "character", 1
 "actuar", "aggregateDist", 1, 0, 1, "double[]", 1
@@ -28,7 +30,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "aggregateDist", 9, 0, 0, "double", 1
 "actuar", "aggregateDist", 10, 0, 0, "double", 1
 "actuar", "aggregateDist", 11, 0, 0, "logical", 1
-"actuar", "aggregate.portfolio", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"actuar", "aggregate.portfolio", -1, 0, 0, "class<`matrix`>", 1
+"actuar", "aggregate.portfolio", -1, 0, 1, "double[]", 1
 "actuar", "aggregate.portfolio", 0, 0, 0, "class<`portfolio`>", 1
 "actuar", "aggregate.portfolio", 1, 0, 0, "character[]", 1
 "actuar", "aggregate.portfolio", 2, 0, 0, "class<`function`>", 1
@@ -62,7 +65,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "bvar.unbiased", 1, 0, 0, "double[]", 1
 "actuar", "bvar.unbiased", 2, 0, 0, "double", 1
 "actuar", "bvar.unbiased", 3, 0, 0, "integer", 1
-"actuar", "cm", -1, 0, 0, "(class<`bayes`, `cm`> | class<`bstraub`, `cm`> | class<`cm`, `hache`> | class<`cm`, `hierarc`>)", 1
+"actuar", "cm", -1, 0, 0, "class<`bayes`, `cm`>", 1
+"actuar", "cm", -1, 0, 1, "class<`bstraub`, `cm`>", 1
+"actuar", "cm", -1, 0, 2, "class<`cm`, `hache`>", 1
+"actuar", "cm", -1, 0, 3, "class<`cm`, `hierarc`>", 1
 "actuar", "cm", 0, 0, 0, "character", 1
 "actuar", "cm", 0, 0, 1, "class<`formula`>", 1
 "actuar", "cm", 1, 0, 0, "any", 1
@@ -335,7 +341,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "[<-.grouped.data", 1, 0, 0, "any", 1
 "actuar", "[<-.grouped.data", 2, 0, 0, "double[]", 1
 "actuar", "[<-.grouped.data", 3, 0, 0, "double[]", 1
-"actuar", "[.grouped.data", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped.data`> | double[])", 1
+"actuar", "[.grouped.data", -1, 0, 0, "class<`data.frame`>", 1
+"actuar", "[.grouped.data", -1, 0, 1, "class<`data.frame`, `grouped.data`>", 1
+"actuar", "[.grouped.data", -1, 0, 2, "double[]", 1
 "actuar", "[.grouped.data", 0, 0, 0, "class<`data.frame`, `grouped.data`>", 1
 "actuar", "[.grouped.data", 1, 0, 0, "any", 1
 "actuar", "[.grouped.data", 2, 0, 0, "any", 1
@@ -957,7 +965,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "predict.bstraub", 1, 0, 0, "null", 1
 "actuar", "predict.bstraub", 2, 0, 0, "any", 1
 "actuar", "predict.bstraub", 3, 0, 0, "...", 1
-"actuar", "predict.cm", -1, 0, 0, "(double[] | list<double[]>)", 1
+"actuar", "predict.cm", -1, 0, 0, "double[]", 1
+"actuar", "predict.cm", -1, 0, 1, "list<double[]>", 1
 "actuar", "predict.cm", 0, 0, 0, "class<`bstraub`, `cm`>", 1
 "actuar", "predict.cm", 0, 0, 1, "class<`cm`, `hache`>", 1
 "actuar", "predict.cm", 0, 0, 2, "class<`bayes`, `cm`>", 1
@@ -1291,7 +1300,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "rcompound", 1, 0, 0, "any", 1
 "actuar", "rcompound", 2, 0, 0, "any", 1
 "actuar", "rcompound", 3, 0, 0, "logical", 1
-"actuar", "rcomppois", -1, 0, 0, "(double[] | list<double[]>)", 1
+"actuar", "rcomppois", -1, 0, 0, "double[]", 1
+"actuar", "rcomppois", -1, 0, 1, "list<double[]>", 1
 "actuar", "rcomppois", 0, 0, 0, "double", 1
 "actuar", "rcomppois", 1, 0, 0, "double", 1
 "actuar", "rcomppois", 2, 0, 0, "any", 1
@@ -1325,7 +1335,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "rztnbinom", 0, 0, 0, "double", 1
 "actuar", "rztnbinom", 1, 0, 0, "double", 1
 "actuar", "rztnbinom", 2, 0, 0, "double", 1
-"actuar", "severity", -1, 0, 0, "(class<`matrix`> | list<class<`matrix`> | class<`matrix`> | null>)", 1
+"actuar", "severity", -1, 0, 0, "class<`matrix`>", 1
+"actuar", "severity", -1, 0, 1, "list<class<`matrix`> | class<`matrix`> | null>", 1
 "actuar", "severity", 0, 0, 0, "class<`matrix`>", 1
 "actuar", "severity", 0, 0, 1, "class<`portfolio`>", 1
 "actuar", "severity", 1, 0, 0, "...", 1
@@ -1359,7 +1370,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "summary.aggregateDist", -1, 0, 0, "class<`aggregateDist`, `ecdf`, `function`, `stepfun`, `summary.aggregateDist`>", 1
 "actuar", "summary.aggregateDist", 0, 0, 0, "class<`aggregateDist`, `ecdf`, `function`, `stepfun`>", 1
 "actuar", "summary.aggregateDist", 1, 0, 0, "...", 1
-"actuar", "summary.cm", -1, 0, 0, "(class<`bayes`, `cm`, `summary.cm`> | class<`bstraub`, `cm`, `summary.cm`> | class<`cm`, `hache`, `summary.cm`> | class<`cm`, `hierarc`, `summary.cm`>)", 1
+"actuar", "summary.cm", -1, 0, 0, "class<`bayes`, `cm`, `summary.cm`>", 1
+"actuar", "summary.cm", -1, 0, 1, "class<`bstraub`, `cm`, `summary.cm`>", 1
+"actuar", "summary.cm", -1, 0, 2, "class<`cm`, `hache`, `summary.cm`>", 1
+"actuar", "summary.cm", -1, 0, 3, "class<`cm`, `hierarc`, `summary.cm`>", 1
 "actuar", "summary.cm", 0, 0, 0, "class<`bayes`, `cm`>", 1
 "actuar", "summary.cm", 0, 0, 1, "class<`bstraub`, `cm`>", 1
 "actuar", "summary.cm", 0, 0, 2, "class<`cm`, `hache`>", 1
@@ -1374,7 +1388,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "summary.ogive", -1, 0, 0, "class<`summary.ogive`>", 1
 "actuar", "summary.ogive", 0, 0, 0, "class<`function`, `ogive`>", 1
 "actuar", "summary.ogive", 1, 0, 0, "...", 1
-"actuar", "unroll", -1, 0, 0, "(class<`matrix`> | integer[])", 1
+"actuar", "unroll", -1, 0, 0, "class<`matrix`>", 1
+"actuar", "unroll", -1, 0, 1, "integer[]", 1
 "actuar", "unroll", 0, 0, 0, "class<`matrix`>", 1
 "actuar", "unroll", 0, 0, 1, "list<integer[]>", 1
 "actuar", "unroll", 1, 0, 0, "logical", 1
@@ -1388,7 +1403,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "VaR.aggregateDist", 2, 0, 0, "logical", 1
 "actuar", "VaR.aggregateDist", 3, 0, 0, "logical", 1
 "actuar", "VaR.aggregateDist", 4, 0, 0, "...", 1
-"actuar", "weights.portfolio", -1, 0, 0, "(class<`matrix`> | null)", 1
+"actuar", "weights.portfolio", -1, 0, 0, "class<`matrix`>", 1
+"actuar", "weights.portfolio", -1, 0, 1, "null", 1
 "actuar", "weights.portfolio", 0, 0, 0, "class<`portfolio`>", 1
 "actuar", "weights.portfolio", 1, 0, 0, "logical", 1
 "actuar", "weights.portfolio", 2, 0, 0, "null", 1

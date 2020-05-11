@@ -29,14 +29,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "strucchange", "boundary.mefp", -1, 0, 0, "class<`ts`>", 1
 "strucchange", "boundary.mefp", 0, 0, 0, "class<`mefp`>", 1
 "strucchange", "boundary.mefp", 1, 0, 0, "...", 1
-"strucchange", "breakdates", -1, 0, 0, "(character[] | class<`matrix`> | double[])", 1
+"strucchange", "breakdates", -1, 0, 0, "character[]", 1
+"strucchange", "breakdates", -1, 0, 1, "class<`matrix`>", 1
+"strucchange", "breakdates", -1, 0, 2, "double[]", 1
 "strucchange", "breakdates", 0, 0, 0, "class<`breakpoints`>", 1
 "strucchange", "breakdates", 0, 0, 1, "class<`confint.breakpoints`>", 1
 "strucchange", "breakdates", 0, 0, 2, "class<`breakpoints`, `breakpointsfull`>", 1
 "strucchange", "breakdates", 1, 0, 0, "logical", 1
 "strucchange", "breakdates", 1, 0, 1, "null", 1
 "strucchange", "breakdates", 2, 0, 0, "...", 1
-"strucchange", "breakdates.breakpoints", -1, 0, 0, "(character[] | double[])", 1
+"strucchange", "breakdates.breakpoints", -1, 0, 0, "character[]", 1
+"strucchange", "breakdates.breakpoints", -1, 0, 1, "double[]", 1
 "strucchange", "breakdates.breakpoints", 0, 0, 0, "class<`breakpoints`>", 1
 "strucchange", "breakdates.breakpoints", 0, 0, 1, "class<`breakpoints`, `breakpointsfull`>", 1
 "strucchange", "breakdates.breakpoints", 1, 0, 0, "logical", 1
@@ -55,7 +58,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "strucchange", "breakfactor", 2, 0, 0, "null", 1
 "strucchange", "breakfactor", 2, 0, 1, "character", 1
 "strucchange", "breakfactor", 3, 0, 0, "...", 1
-"strucchange", "breakpoints", -1, 0, 0, "(class<`breakpoints`> | class<`breakpoints`, `breakpointsfull`>)", 1
+"strucchange", "breakpoints", -1, 0, 0, "class<`breakpoints`>", 1
+"strucchange", "breakpoints", -1, 0, 1, "class<`breakpoints`, `breakpointsfull`>", 1
 "strucchange", "breakpoints", 0, 0, 0, "class<`breakpoints`, `breakpointsfull`>", 1
 "strucchange", "breakpoints", 0, 0, 1, "class<`Fstats`>", 1
 "strucchange", "breakpoints", 0, 0, 2, "class<`formula`>", 1
@@ -253,7 +257,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "strucchange", "plot.Fstats", 7, 0, 0, "null", 1
 "strucchange", "plot.Fstats", 8, 0, 0, "null", 1
 "strucchange", "plot.Fstats", 9, 0, 0, "...", 1
-"strucchange", "plot.gefp", -1, 0, 0, "(class<`zoo`> | null)", 1
+"strucchange", "plot.gefp", -1, 0, 0, "class<`zoo`>", 1
+"strucchange", "plot.gefp", -1, 0, 1, "null", 1
 "strucchange", "plot.gefp", 0, 0, 0, "class<`gefp`>", 1
 "strucchange", "plot.gefp", 1, 0, 0, "double", 1
 "strucchange", "plot.gefp", 2, 0, 0, "class<`efpFunctional`>", 1
@@ -376,7 +381,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "strucchange", "supLM", -1, 0, 0, "class<`efpFunctional`>", 1
 "strucchange", "supLM", 0, 0, 0, "double", 1
 "strucchange", "supLM", 1, 0, 0, "null", 1
-"strucchange", "time.gefp", -1, 0, 0, "(class<`Date`> | double[])", 1
+"strucchange", "time.gefp", -1, 0, 0, "class<`Date`>", 1
+"strucchange", "time.gefp", -1, 0, 1, "double[]", 1
 "strucchange", "time.gefp", 0, 0, 0, "class<`gefp`>", 1
 "strucchange", "time.gefp", 1, 0, 0, "...", 1
 "strucchange", "vcov.breakpointsfull", -1, 0, 0, "list<class<`matrix`>>", 1

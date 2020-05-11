@@ -4,20 +4,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "futile.logger", "flog.appender", 0, 0, 0, "...", 1
 "futile.logger", "flog.carp", -1, 0, 0, "null", 1
 "futile.logger", "flog.carp", 0, 0, 0, "...", 1
-"futile.logger", "flog.debug", -1, 0, 0, "(character | null)", 1
+"futile.logger", "flog.debug", -1, 0, 0, "character", 1
+"futile.logger", "flog.debug", -1, 0, 1, "null", 1
 "futile.logger", "flog.debug", 0, 0, 0, "character", 1
 "futile.logger", "flog.debug", 1, 0, 0, "...", 1
 "futile.logger", "flog.debug", 2, 0, 0, "character", 1
 "futile.logger", "flog.debug", 3, 0, 0, "logical", 1
-"futile.logger", "flog.info", -1, 0, 0, "(character | null)", 1
+"futile.logger", "flog.info", -1, 0, 0, "character", 1
+"futile.logger", "flog.info", -1, 0, 1, "null", 1
 "futile.logger", "flog.info", 0, 0, 0, "character", 1
 "futile.logger", "flog.info", 0, 0, 1, "double", 1
 "futile.logger", "flog.info", 1, 0, 0, "...", 1
 "futile.logger", "flog.info", 2, 0, 0, "character", 1
 "futile.logger", "flog.info", 3, 0, 0, "logical", 1
-"futile.logger", "flog.layout", -1, 0, 0, "(class<`function`> | null)", 1
+"futile.logger", "flog.layout", -1, 0, 0, "class<`function`>", 1
+"futile.logger", "flog.layout", -1, 0, 1, "null", 1
 "futile.logger", "flog.layout", 0, 0, 0, "...", 1
-"futile.logger", "flog.logger", -1, 0, 0, "(null | list<character | integer | class<`function`>>)", 1
+"futile.logger", "flog.logger", -1, 0, 0, "null", 1
+"futile.logger", "flog.logger", -1, 0, 1, "list<character | integer | class<`function`>>", 1
 "futile.logger", "flog.logger", 0, 0, 0, "...", 1
 "futile.logger", "flog.namespace", -1, 0, 0, "character", 1
 "futile.logger", "flog.namespace", 0, 0, 0, "double", 1
@@ -37,7 +41,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "futile.logger", "layout.format", -1, 0, 0, "class<`function`>", 1
 "futile.logger", "layout.format", 0, 0, 0, "character", 1
 "futile.logger", "layout.format", 1, 0, 0, "character", 1
-"futile.logger", ".log_level", -1, 0, 0, "(character | null)", 1
+"futile.logger", ".log_level", -1, 0, 0, "character", 1
+"futile.logger", ".log_level", -1, 0, 1, "null", 1
 "futile.logger", ".log_level", 0, 0, 0, "any", 1
 "futile.logger", ".log_level", 1, 0, 0, "...", 1
 "futile.logger", ".log_level", 2, 0, 0, "integer", 1

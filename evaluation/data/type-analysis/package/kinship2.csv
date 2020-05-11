@@ -72,10 +72,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kinship2", "findAvailAffected", 1, 0, 0, "integer[]", 1
 "kinship2", "findAvailAffected", 2, 0, 0, "null", 1
 "kinship2", "findAvailAffected", 2, 0, 1, "double", 1
-"kinship2", "findAvailNonInform", -1, 0, 0, "(character[] | integer[])", 1
+"kinship2", "findAvailNonInform", -1, 0, 0, "character[]", 1
+"kinship2", "findAvailNonInform", -1, 0, 1, "integer[]", 1
 "kinship2", "findAvailNonInform", 0, 0, 0, "class<`pedigree`>", 1
 "kinship2", "findAvailNonInform", 1, 0, 0, "double[]", 1
-"kinship2", "findUnavailable", -1, 0, 0, "(character[] | integer[])", 1
+"kinship2", "findUnavailable", -1, 0, 0, "character[]", 1
+"kinship2", "findUnavailable", -1, 0, 1, "integer[]", 1
 "kinship2", "findUnavailable", 0, 0, 0, "class<`pedigree`>", 1
 "kinship2", "findUnavailable", 1, 0, 0, "double[]", 1
 "kinship2", "fixParents", -1, 0, 0, "class<`data.frame`>", 1
@@ -103,7 +105,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kinship2", "kindepth", 1, 0, 0, "any", 1
 "kinship2", "kindepth", 2, 0, 0, "any", 1
 "kinship2", "kindepth", 3, 0, 0, "logical", 1
-"kinship2", "kinship", -1, 0, 0, "(class<`dsCMatrix`> | class<`matrix`>)", 1
+"kinship2", "kinship", -1, 0, 0, "class<`dsCMatrix`>", 1
+"kinship2", "kinship", -1, 0, 1, "class<`matrix`>", 1
 "kinship2", "kinship", 0, 0, 0, "class<`pedigreeList`>", 1
 "kinship2", "kinship", 0, 0, 1, "class<`pedigree`>", 1
 "kinship2", "kinship", 1, 0, 0, "...", 1
@@ -130,7 +133,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kinship2", "makefamid", 0, 0, 0, "integer[]", 1
 "kinship2", "makefamid", 1, 0, 0, "double[]", 1
 "kinship2", "makefamid", 2, 0, 0, "double[]", 1
-"kinship2", "pedigree", -1, 0, 0, "(class<`pedigree`> | class<`pedigreeList`>)", 1
+"kinship2", "pedigree", -1, 0, 0, "class<`pedigree`>", 1
+"kinship2", "pedigree", -1, 0, 1, "class<`pedigreeList`>", 1
 "kinship2", "pedigree", 0, 0, 0, "character[]", 1
 "kinship2", "pedigree", 0, 0, 1, "class<`factor`>", 1
 "kinship2", "pedigree", 0, 0, 2, "double[]", 1

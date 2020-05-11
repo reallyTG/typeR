@@ -10,7 +10,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "hutils", "ahull", 4, 0, 0, "double", 1
 "hutils", "ahull", 5, 0, 0, "character", 1
 "hutils", "ahull", 6, 0, 0, "logical", 1
-"hutils", "all_same_sign", -1, 0, 0, "(logical | null)", 1
+"hutils", "all_same_sign", -1, 0, 0, "logical", 1
+"hutils", "all_same_sign", -1, 0, 1, "null", 1
 "hutils", "all_same_sign", 0, 0, 0, "character", 1
 "hutils", "all_same_sign", 0, 0, 1, "null", 1
 "hutils", "all_same_sign", 0, 0, 2, "^double[]", 1
@@ -102,7 +103,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "hutils", "mutate_other", 6, 0, 0, "double", 1
 "hutils", "mutate_other", 7, 0, 0, "logical", 1
 "hutils", "mutate_other", 8, 0, 0, "character", 1
-"hutils", "ngrep", -1, 0, 0, "(character[] | integer[])", 1
+"hutils", "ngrep", -1, 0, 0, "character[]", 1
+"hutils", "ngrep", -1, 0, 1, "integer[]", 1
 "hutils", "ngrep", 0, 0, 0, "character", 1
 "hutils", "ngrep", 1, 0, 0, "character[]", 1
 "hutils", "ngrep", 2, 0, 0, "logical", 1

@@ -14,13 +14,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "outliers", "dixon.test", 1, 0, 0, "double", 1
 "outliers", "dixon.test", 2, 0, 0, "logical", 1
 "outliers", "dixon.test", 3, 0, 0, "logical", 1
-"outliers", "FUN", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"outliers", "FUN", -1, 0, 0, "double[]", 1
+"outliers", "FUN", -1, 0, 1, "class<`matrix`>", 1
 "outliers", "FUN", 0, 0, 0, "double[]", 1
 "outliers", "FUN", 0, 0, 1, "class<`matrix`>", 1
 "outliers", "FUN", 1, 0, 0, "logical", 1
 "outliers", "FUN", 2, 0, 0, "any", 1
 "outliers", "FUN", 3, 0, 0, "logical", 1
-"outliers", "FUN", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"outliers", "FUN", -1, 1, 0, "class<`matrix`>", 1
+"outliers", "FUN", -1, 1, 1, "double[]", 1
 "outliers", "FUN", 0, 1, 0, "double[]", 1
 "outliers", "FUN", 0, 1, 1, "class<`matrix`>", 1
 "outliers", "FUN", 1, 1, 0, "logical", 1
@@ -30,7 +32,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "outliers", "grubbs.test", 1, 0, 0, "double", 1
 "outliers", "grubbs.test", 2, 0, 0, "logical", 1
 "outliers", "grubbs.test", 3, 0, 0, "logical", 1
-"outliers", "outlier", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"outliers", "outlier", -1, 0, 0, "class<`matrix`>", 1
+"outliers", "outlier", -1, 0, 1, "double[]", 1
 "outliers", "outlier", 0, 0, 0, "double[]", 1
 "outliers", "outlier", 0, 0, 1, "class<`matrix`>", 1
 "outliers", "outlier", 1, 0, 0, "logical", 1
@@ -65,7 +68,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "outliers", "qtable", 0, 0, 0, "double", 1
 "outliers", "qtable", 1, 0, 0, "double[]", 1
 "outliers", "qtable", 2, 0, 0, "double[]", 1
-"outliers", "rm.outlier", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"outliers", "rm.outlier", -1, 0, 0, "double[]", 1
+"outliers", "rm.outlier", -1, 0, 1, "class<`matrix`>", 1
 "outliers", "rm.outlier", 0, 0, 0, "double[]", 1
 "outliers", "rm.outlier", 0, 0, 1, "class<`matrix`>", 1
 "outliers", "rm.outlier", 1, 0, 0, "logical", 1

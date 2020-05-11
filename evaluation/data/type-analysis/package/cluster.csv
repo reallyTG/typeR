@@ -181,7 +181,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cluster", "mona", 0, 0, 0, "class<`data.frame`>", 1
 "cluster", "mona", 0, 0, 1, "class<`matrix`>", 1
 "cluster", "mona", 1, 0, 0, "double", 1
-"cluster", "pam", -1, 0, 0, "(class<`pam`, `partition`> | integer[])", 1
+"cluster", "pam", -1, 0, 0, "class<`pam`, `partition`>", 1
+"cluster", "pam", -1, 0, 1, "integer[]", 1
 "cluster", "pam", 0, 0, 0, "class<`data.frame`>", 1
 "cluster", "pam", 0, 0, 1, "class<`dissimilarity`, `dist`>", 1
 "cluster", "pam", 0, 0, 2, "class<`dist`>", 1
@@ -344,7 +345,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cluster", "silhouette.partition", 0, 0, 1, "class<`fanny`, `partition`>", 1
 "cluster", "silhouette.partition", 0, 0, 2, "class<`pam`, `partition`>", 1
 "cluster", "silhouette.partition", 1, 0, 0, "...", 1
-"cluster", "sizeDiss", -1, 0, 0, "(double | null)", 1
+"cluster", "sizeDiss", -1, 0, 0, "double", 1
+"cluster", "sizeDiss", -1, 0, 1, "null", 1
 "cluster", "sizeDiss", 0, 0, 0, "class<`dist`>", 1
 "cluster", "sizeDiss", 0, 0, 1, "integer[]", 1
 "cluster", "sortSilhouette", -1, 0, 0, "class<`silhouette`>", 1

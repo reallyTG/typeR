@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"pbapply", "::", -1, 0, 0, "(double | null)", 1
+"pbapply", "::", -1, 0, 0, "double", 1
+"pbapply", "::", -1, 0, 1, "null", 1
 "pbapply", "::", 0, 0, 0, "any", 1
 "pbapply", "::", 1, 0, 0, "any", 1
 "pbapply", "closepb", -1, 0, 0, "null", 1
@@ -10,7 +11,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pbapply", "getTimeAsString", -1, 0, 0, "character", 1
 "pbapply", "getTimeAsString", 0, 0, 0, "double", 1
 "pbapply", "getTimeAsString", 0, 0, 1, "null", 1
-"pbapply", "pbapply", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[] | list<class<`table`> | integer[]>)", 1
+"pbapply", "pbapply", -1, 0, 0, "class<`array`>", 1
+"pbapply", "pbapply", -1, 0, 1, "class<`matrix`>", 1
+"pbapply", "pbapply", -1, 0, 2, "double[]", 1
+"pbapply", "pbapply", -1, 0, 3, "list<class<`table`> | integer[]>", 1
 "pbapply", "pbapply", 0, 0, 0, "class<`array`>", 1
 "pbapply", "pbapply", 0, 0, 1, "class<`matrix`>", 1
 "pbapply", "pbapply", 1, 0, 0, "integer[]", 1
@@ -35,14 +39,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pbapply", "pbmapply", 4, 0, 0, "logical", 1
 "pbapply", "pboptions", -1, 0, 0, "list<character | double>", 1
 "pbapply", "pboptions", 0, 0, 0, "...", 1
-"pbapply", "pbreplicate", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"pbapply", "pbreplicate", -1, 0, 0, "class<`matrix`>", 1
+"pbapply", "pbreplicate", -1, 0, 1, "double[]", 1
 "pbapply", "pbreplicate", 0, 0, 0, "double", 1
 "pbapply", "pbreplicate", 1, 0, 0, "any", 1
 "pbapply", "pbreplicate", 2, 0, 0, "character", 1
 "pbapply", "pbreplicate", 3, 0, 0, "null", 1
 "pbapply", "pbreplicate", 3, 0, 1, "class<`SOCKcluster`, `cluster`>", 1
 "pbapply", "pbreplicate", 3, 0, 2, "integer", 1
-"pbapply", "pbsapply", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[] | list<any>)", 1
+"pbapply", "pbsapply", -1, 0, 0, "class<`array`>", 1
+"pbapply", "pbsapply", -1, 0, 1, "class<`matrix`>", 1
+"pbapply", "pbsapply", -1, 0, 2, "double[]", 1
+"pbapply", "pbsapply", -1, 0, 3, "list<any>", 1
 "pbapply", "pbsapply", 0, 0, 0, "double[]", 1
 "pbapply", "pbsapply", 0, 0, 1, "character[]", 1
 "pbapply", "pbsapply", 0, 0, 2, "list<double[]>", 1
@@ -55,7 +63,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pbapply", "pbsapply", 5, 0, 1, "class<`SOCKcluster`, `cluster`>", 1
 "pbapply", "pbsapply", 5, 0, 2, "integer", 1
 "pbapply", "pbtypes", -1, 0, 0, "character[]", 1
-"pbapply", "setpb", -1, 0, 0, "(double | null)", 1
+"pbapply", "setpb", -1, 0, 0, "double", 1
+"pbapply", "setpb", -1, 0, 1, "null", 1
 "pbapply", "setpb", 0, 0, 0, "any", 1
 "pbapply", "setpb", 1, 0, 0, "any", 1
 "pbapply", "splitpb", -1, 0, 0, "list<integer[]>", 1
@@ -63,7 +72,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pbapply", "splitpb", 1, 0, 0, "double", 1
 "pbapply", "splitpb", 2, 0, 0, "null", 1
 "pbapply", "splitpb", 2, 0, 1, "double", 1
-"pbapply", "startpb", -1, 0, 0, "(class<`timerProgressBar`, `txtProgressBar`> | class<`txtProgressBar`> | null)", 1
+"pbapply", "startpb", -1, 0, 0, "class<`timerProgressBar`, `txtProgressBar`>", 1
+"pbapply", "startpb", -1, 0, 1, "class<`txtProgressBar`>", 1
+"pbapply", "startpb", -1, 0, 2, "null", 1
 "pbapply", "startpb", 0, 0, 0, "double", 1
 "pbapply", "startpb", 1, 0, 0, "any", 1
 "pbapply", "timerProgressBar", -1, 0, 0, "class<`timerProgressBar`, `txtProgressBar`>", 1

@@ -16,7 +16,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", ".cinterval", 0, 0, 0, "class<`data.frame`, `response`>", 1
 "mlt", ".cleft", -1, 0, 0, "logical[]", 1
 "mlt", ".cleft", 0, 0, 0, "class<`data.frame`, `response`>", 1
-"mlt", "coef<-", -1, 0, 0, "(class<`ctm`> | class<`mlt`, `mlt_setup`>)", 1
+"mlt", "coef<-", -1, 0, 0, "class<`ctm`>", 1
+"mlt", "coef<-", -1, 0, 1, "class<`mlt`, `mlt_setup`>", 1
 "mlt", "coef<-", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "coef<-", 0, 0, 1, "class<`mlt`, `mlt_setup`>", 1
 "mlt", "coef<-", 1, 0, 0, "double[]", 1
@@ -29,7 +30,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "coef<-.mlt", -1, 0, 0, "class<`mlt`, `mlt_setup`>", 1
 "mlt", "coef<-.mlt", 0, 0, 0, "class<`mlt`, `mlt_setup`>", 1
 "mlt", "coef<-.mlt", 1, 0, 0, "double[]", 1
-"mlt", "coef.mlt", -1, 0, 0, "(double[] | ^logical[])", 1
+"mlt", "coef.mlt", -1, 0, 0, "double[]", 1
+"mlt", "coef.mlt", -1, 0, 1, "^logical[]", 1
 "mlt", "coef.mlt", 0, 0, 0, "class<`mlt`, `mlt_fit`, `mlt_setup`>", 1
 "mlt", "coef.mlt", 0, 0, 1, "class<`mlt`, `mlt_setup`>", 1
 "mlt", "coef.mlt", 1, 0, 0, "logical", 1
@@ -56,7 +58,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "ctm", 4, 0, 0, "character[]", 1
 "mlt", "ctm", 5, 0, 0, "any", 1
 "mlt", "ctm", 6, 0, 0, "...", 1
-"mlt", ".dealinf", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mlt", ".dealinf", -1, 0, 0, "class<`matrix`>", 1
+"mlt", ".dealinf", -1, 0, 1, "double[]", 1
 "mlt", ".dealinf", 0, 0, 0, "class<`matrix`>", 1
 "mlt", ".dealinf", 1, 0, 0, "any", 1
 "mlt", ".dealinf", 2, 0, 0, "any", 1
@@ -67,7 +70,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "description", 0, 0, 0, "class<`mlt`, `mlt_fit`, `mlt_setup`>", 1
 "mlt", ".distr", -1, 0, 0, "list<class<`function`> | character>", 1
 "mlt", ".distr", 0, 0, 0, "character[]", 1
-"mlt", "dmlt", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"mlt", "dmlt", -1, 0, 0, "class<`array`>", 1
+"mlt", "dmlt", -1, 0, 1, "class<`matrix`>", 1
 "mlt", "dmlt", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "dmlt", 1, 0, 0, "class<`data.frame`>", 1
 "mlt", "dmlt", 1, 0, 1, "list<class<`factor`, `ordered`> | integer[] | double[] | class<`factor`>>", 1
@@ -146,7 +150,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "mkgrid.mlt", 2, 0, 0, "...", 1
 "mlt", ".mkR", -1, 0, 0, "class<`data.frame`, `response`>", 1
 "mlt", ".mkR", 0, 0, 0, "...", 1
-"mlt", "mlt", -1, 0, 0, "(class<`mlt`, `mlt_fit`, `mlt_setup`> | class<`mlt`, `mlt_setup`>)", 1
+"mlt", "mlt", -1, 0, 0, "class<`mlt`, `mlt_fit`, `mlt_setup`>", 1
+"mlt", "mlt", -1, 0, 1, "class<`mlt`, `mlt_setup`>", 1
 "mlt", "mlt", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "mlt", 1, 0, 0, "class<`data.frame`>", 1
 "mlt", "mlt", 2, 0, 0, "null", 1
@@ -209,7 +214,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", ".mlt_loglik_exact", 4, 0, 1, "list<class<`matrix`>>", 1
 "mlt", ".mlt_loglik_exact", -1, 1, 0, "class<`matrix`>", 1
 "mlt", ".mlt_loglik_exact", 0, 1, 0, "double[]", 1
-"mlt", ".mlt_loglik_exact", -1, 2, 0, "(class<`matrix`> | double[])", 1
+"mlt", ".mlt_loglik_exact", -1, 2, 0, "class<`matrix`>", 1
+"mlt", ".mlt_loglik_exact", -1, 2, 1, "double[]", 1
 "mlt", ".mlt_loglik_exact", 0, 2, 0, "double[]", 1
 "mlt", ".mlt_loglik_exact", 0, 2, 1, "class<`matrix`>", 1
 "mlt", "..mlt_loglik_interval", -1, 0, 0, "double[]", 1
@@ -280,12 +286,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", ".mlt_start", 5, 0, 0, "null", 1
 "mlt", ".mlt_start", 5, 0, 1, "double[]", 1
 "mlt", ".mlt_start", 6, 0, 0, "double[]", 1
-"mlt", ".mm_exact", -1, 0, 0, "(null | list<class<`matrix`> | null | integer[] | class<`matrix`> | integer[] | list<class<`matrix`>>>)", 1
+"mlt", ".mm_exact", -1, 0, 0, "null", 1
+"mlt", ".mm_exact", -1, 0, 1, "list<class<`matrix`> | null | integer[] | class<`matrix`> | integer[] | list<class<`matrix`>>>", 1
 "mlt", ".mm_exact", 0, 0, 0, "any", 1
 "mlt", ".mm_exact", 1, 0, 0, "any", 1
 "mlt", ".mm_exact", 2, 0, 0, "any", 1
 "mlt", ".mm_exact", 3, 0, 0, "class<`data.frame`, `response`>", 1
-"mlt", ".mm_interval", -1, 0, 0, "(null | list<class<`matrix`> | null | integer[] | class<`matrix`> | integer[] | list<class<`matrix`>>>)", 1
+"mlt", ".mm_interval", -1, 0, 0, "null", 1
+"mlt", ".mm_interval", -1, 0, 1, "list<class<`matrix`> | null | integer[] | class<`matrix`> | integer[] | list<class<`matrix`>>>", 1
 "mlt", ".mm_interval", 0, 0, 0, "any", 1
 "mlt", ".mm_interval", 1, 0, 0, "any", 1
 "mlt", ".mm_interval", 2, 0, 0, "any", 1
@@ -304,7 +312,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", ".Normal", -1, 0, 0, "list<class<`function`> | character>", 1
 "mlt", ".one_factor_only", -1, 0, 0, "logical", 1
 "mlt", ".one_factor_only", 0, 0, 0, "class<`Bernstein_basis`, `basis`, `function`>", 1
-"mlt", ".p2q", -1, 0, 0, "(class<`data.frame`, `response`> | class<`factor`, `ordered`> | double[])", 1
+"mlt", ".p2q", -1, 0, 0, "class<`data.frame`, `response`>", 1
+"mlt", ".p2q", -1, 0, 1, "class<`factor`, `ordered`>", 1
+"mlt", ".p2q", -1, 0, 2, "double[]", 1
 "mlt", ".p2q", 0, 0, 0, "class<`matrix`>", 1
 "mlt", ".p2q", 1, 0, 0, "double[]", 1
 "mlt", ".p2q", 1, 0, 1, "class<`factor`, `ordered`>", 1
@@ -326,7 +336,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "plot.mlt", -1, 0, 0, "class<`matrix`>", 1
 "mlt", "plot.mlt", 0, 0, 0, "class<`mlt`, `mlt_fit`, `mlt_setup`>", 1
 "mlt", "plot.mlt", 1, 0, 0, "...", 1
-"mlt", "pmlt", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"mlt", "pmlt", -1, 0, 0, "class<`array`>", 1
+"mlt", "pmlt", -1, 0, 1, "class<`matrix`>", 1
 "mlt", "pmlt", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "pmlt", 1, 0, 0, "class<`data.frame`>", 1
 "mlt", "pmlt", 1, 0, 1, "list<class<`factor`, `ordered`> | integer[] | double[] | class<`factor`> | double[]>", 1
@@ -334,7 +345,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "pmlt", 2, 0, 1, "double[]", 1
 "mlt", "pmlt", 2, 0, 2, "class<`factor`, `ordered`>", 1
 "mlt", "pmlt", 3, 0, 0, "...", 1
-"mlt", "predict.ctm", -1, 0, 0, "(class<`array`> | class<`factor`, `ordered`> | class<`matrix`> | double[])", 1
+"mlt", "predict.ctm", -1, 0, 0, "class<`array`>", 1
+"mlt", "predict.ctm", -1, 0, 1, "class<`factor`, `ordered`>", 1
+"mlt", "predict.ctm", -1, 0, 2, "class<`matrix`>", 1
+"mlt", "predict.ctm", -1, 0, 3, "double[]", 1
 "mlt", "predict.ctm", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "predict.ctm", 1, 0, 0, "class<`data.frame`>", 1
 "mlt", "predict.ctm", 1, 0, 1, "list<double[] | class<`factor`, `ordered`> | integer[] | double[] | class<`factor`>>", 1
@@ -347,13 +361,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "predict.ctm", 6, 0, 0, "double", 1
 "mlt", "predict.ctm", 7, 0, 0, "logical", 1
 "mlt", "predict.ctm", 8, 0, 0, "...", 1
-"mlt", "predict.mlt", -1, 0, 0, "(class<`array`> | class<`factor`, `ordered`> | class<`matrix`> | double[])", 1
+"mlt", "predict.mlt", -1, 0, 0, "class<`array`>", 1
+"mlt", "predict.mlt", -1, 0, 1, "class<`factor`, `ordered`>", 1
+"mlt", "predict.mlt", -1, 0, 2, "class<`matrix`>", 1
+"mlt", "predict.mlt", -1, 0, 3, "double[]", 1
 "mlt", "predict.mlt", 0, 0, 0, "class<`mlt`, `mlt_fit`, `mlt_setup`>", 1
 "mlt", "predict.mlt", 0, 0, 1, "class<`mlt`, `mlt_setup`>", 1
 "mlt", "predict.mlt", 1, 0, 0, "class<`data.frame`>", 1
 "mlt", "predict.mlt", 1, 0, 1, "list<double[] | class<`factor`, `ordered`> | integer[] | double[] | class<`factor`>>", 1
 "mlt", "predict.mlt", 2, 0, 0, "...", 1
-"mlt", "qmlt", -1, 0, 0, "(class<`array`> | class<`factor`, `ordered`> | class<`matrix`>)", 1
+"mlt", "qmlt", -1, 0, 0, "class<`array`>", 1
+"mlt", "qmlt", -1, 0, 1, "class<`factor`, `ordered`>", 1
+"mlt", "qmlt", -1, 0, 2, "class<`matrix`>", 1
 "mlt", "qmlt", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "qmlt", 1, 0, 0, "class<`data.frame`>", 1
 "mlt", "qmlt", 1, 0, 1, "list<integer[] | double[] | class<`factor`>>", 1
@@ -409,7 +428,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "R.Surv", -1, 0, 0, "class<`data.frame`, `response`>", 1
 "mlt", "R.Surv", 0, 0, 0, "class<`Surv`>", 1
 "mlt", "R.Surv", 1, 0, 0, "...", 1
-"mlt", "simulate.ctm", -1, 0, 0, "(class<`data.frame`, `response`> | list<class<`factor`, `ordered`> | double[]>)", 1
+"mlt", "simulate.ctm", -1, 0, 0, "class<`data.frame`, `response`>", 1
+"mlt", "simulate.ctm", -1, 0, 1, "list<class<`factor`, `ordered`> | double[]>", 1
 "mlt", "simulate.ctm", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "simulate.ctm", 1, 0, 0, "double", 1
 "mlt", "simulate.ctm", 2, 0, 0, "double", 1
@@ -420,7 +440,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "simulate.ctm", 6, 0, 0, "logical", 1
 "mlt", "simulate.ctm", 7, 0, 0, "any", 1
 "mlt", "simulate.ctm", 8, 0, 0, "...", 1
-"mlt", "simulate.mlt", -1, 0, 0, "(class<`data.frame`, `response`> | list<class<`factor`, `ordered`> | double[]>)", 1
+"mlt", "simulate.mlt", -1, 0, 0, "class<`data.frame`, `response`>", 1
+"mlt", "simulate.mlt", -1, 0, 1, "list<class<`factor`, `ordered`> | double[]>", 1
 "mlt", "simulate.mlt", 0, 0, 0, "class<`mlt`, `mlt_fit`, `mlt_setup`>", 1
 "mlt", "simulate.mlt", 1, 0, 0, "double", 1
 "mlt", "simulate.mlt", 2, 0, 0, "double", 1
@@ -440,7 +461,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", ".tinterval", 0, 0, 0, "class<`data.frame`, `response`>", 1
 "mlt", ".tleft", -1, 0, 0, "logical[]", 1
 "mlt", ".tleft", 0, 0, 0, "class<`data.frame`, `response`>", 1
-"mlt", "tmlt", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"mlt", "tmlt", -1, 0, 0, "class<`array`>", 1
+"mlt", "tmlt", -1, 0, 1, "class<`matrix`>", 1
+"mlt", "tmlt", -1, 0, 2, "double[]", 1
 "mlt", "tmlt", 0, 0, 0, "class<`ctm`>", 1
 "mlt", "tmlt", 1, 0, 0, "class<`data.frame`>", 1
 "mlt", "tmlt", 1, 0, 1, "list<double[] | class<`factor`, `ordered`> | integer[] | double[] | class<`factor`>>", 1
@@ -476,7 +499,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlt", "weights.mlt", -1, 0, 0, "double[]", 1
 "mlt", "weights.mlt", 0, 0, 0, "class<`mlt`, `mlt_fit`, `mlt_setup`>", 1
 "mlt", "weights.mlt", 1, 0, 0, "...", 1
-"mlt", ".xmb", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mlt", ".xmb", -1, 0, 0, "class<`matrix`>", 1
+"mlt", ".xmb", -1, 0, 1, "double[]", 1
 "mlt", ".xmb", 0, 0, 0, "class<`matrix`>", 1
 "mlt", ".xmb", 1, 0, 0, "double[]", 1
 "mlt", ".xmb", 1, 0, 1, "class<`matrix`>", 1

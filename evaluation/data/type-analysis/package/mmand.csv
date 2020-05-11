@@ -17,19 +17,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "closing", -1, 0, 0, "class<`array`>", 1
 "mmand", "closing", 0, 0, 0, "class<`array`, `loder`>", 1
 "mmand", "closing", 1, 0, 0, "class<`kernel`, `kernelArray`>", 1
-"mmand", "components", -1, 0, 0, "(class<`matrix`> | ^double[])", 1
+"mmand", "components", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "components", -1, 0, 1, "^double[]", 1
 "mmand", "components", 0, 0, 0, "class<`matrix`>", 1
 "mmand", "components", 0, 0, 1, "double[]", 1
 "mmand", "components", 1, 0, 0, "class<`kernel`, `kernelArray`>", 1
 "mmand", "components", 1, 0, 1, "double[]", 1
 "mmand", "components", 2, 0, 0, "...", 1
-"mmand", "components.default", -1, 0, 0, "(class<`matrix`> | ^double[])", 1
+"mmand", "components.default", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "components.default", -1, 0, 1, "^double[]", 1
 "mmand", "components.default", 0, 0, 0, "class<`matrix`>", 1
 "mmand", "components.default", 0, 0, 1, "double[]", 1
 "mmand", "components.default", 1, 0, 0, "class<`kernel`, `kernelArray`>", 1
 "mmand", "components.default", 1, 0, 1, "double[]", 1
 "mmand", "components.default", 2, 0, 0, "...", 1
-"mmand", "dilate", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"mmand", "dilate", -1, 0, 0, "class<`array`>", 1
+"mmand", "dilate", -1, 0, 1, "class<`matrix`>", 1
+"mmand", "dilate", -1, 0, 2, "double[]", 1
 "mmand", "dilate", 0, 0, 0, "class<`array`>", 1
 "mmand", "dilate", 0, 0, 1, "class<`array`, `loder`>", 1
 "mmand", "dilate", 0, 0, 2, "class<`kernel`, `kernelArray`>", 1
@@ -51,17 +55,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "display.default", 3, 0, 0, "logical", 1
 "mmand", "display.default", 4, 0, 0, "character[]", 1
 "mmand", "display.default", 5, 0, 0, "...", 1
-"mmand", "distanceTransform", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mmand", "distanceTransform", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "distanceTransform", -1, 0, 1, "double[]", 1
 "mmand", "distanceTransform", 0, 0, 0, "class<`kernel`, `kernelArray`>", 1
 "mmand", "distanceTransform", 0, 0, 1, "double[]", 1
 "mmand", "distanceTransform", 1, 0, 0, "...", 1
-"mmand", "distanceTransform.default", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mmand", "distanceTransform.default", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "distanceTransform.default", -1, 0, 1, "double[]", 1
 "mmand", "distanceTransform.default", 0, 0, 0, "class<`kernel`, `kernelArray`>", 1
 "mmand", "distanceTransform.default", 0, 0, 1, "double[]", 1
 "mmand", "distanceTransform.default", 1, 0, 0, "double[]", 1
 "mmand", "distanceTransform.default", 2, 0, 0, "logical", 1
 "mmand", "distanceTransform.default", 3, 0, 0, "...", 1
-"mmand", "erode", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"mmand", "erode", -1, 0, 0, "class<`array`>", 1
+"mmand", "erode", -1, 0, 1, "class<`matrix`>", 1
+"mmand", "erode", -1, 0, 2, "double[]", 1
 "mmand", "erode", 0, 0, 0, "class<`array`>", 1
 "mmand", "erode", 0, 0, 1, "class<`array`, `loder`>", 1
 "mmand", "erode", 0, 0, 2, "class<`kernel`, `kernelArray`>", 1
@@ -69,7 +77,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "erode", 0, 0, 4, "double[]", 1
 "mmand", "erode", 1, 0, 0, "class<`kernel`, `kernelArray`>", 1
 "mmand", "erode", 1, 0, 1, "double[]", 1
-"mmand", "f", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"mmand", "f", -1, 0, 0, "class<`array`>", 1
+"mmand", "f", -1, 0, 1, "class<`matrix`>", 1
 "mmand", "f", 0, 0, 0, "class<`array`>", 1
 "mmand", "f", 0, 0, 1, "class<`array`, `loder`>", 1
 "mmand", "f", 0, 0, 2, "class<`matrix`>", 1
@@ -162,7 +171,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "mnKernel", -1, 0, 0, "class<`kernel`, `kernelFunction`>", 1
 "mmand", "mnKernel", 0, 0, 0, "double", 1
 "mmand", "mnKernel", 1, 0, 0, "double", 1
-"mmand", "morph", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"mmand", "morph", -1, 0, 0, "class<`array`>", 1
+"mmand", "morph", -1, 0, 1, "class<`matrix`>", 1
+"mmand", "morph", -1, 0, 2, "double[]", 1
 "mmand", "morph", 0, 0, 0, "class<`array`>", 1
 "mmand", "morph", 0, 0, 1, "class<`array`, `loder`>", 1
 "mmand", "morph", 0, 0, 2, "class<`kernel`, `kernelArray`>", 1
@@ -173,7 +184,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "morph", 1, 0, 2, "class<`matrix`>", 1
 "mmand", "morph", 1, 0, 3, "double", 1
 "mmand", "morph", 2, 0, 0, "...", 1
-"mmand", "morph.default", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"mmand", "morph.default", -1, 0, 0, "class<`array`>", 1
+"mmand", "morph.default", -1, 0, 1, "class<`matrix`>", 1
+"mmand", "morph.default", -1, 0, 2, "double[]", 1
 "mmand", "morph.default", 0, 0, 0, "class<`array`>", 1
 "mmand", "morph.default", 0, 0, 1, "class<`array`, `loder`>", 1
 "mmand", "morph.default", 0, 0, 2, "class<`kernel`, `kernelArray`>", 1
@@ -198,7 +211,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "neighbourhood", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
 "mmand", "neighbourhood", 0, 0, 0, "class<`matrix`>", 1
 "mmand", "neighbourhood", 1, 0, 0, "double", 1
-"mmand", "opening", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"mmand", "opening", -1, 0, 0, "class<`array`>", 1
+"mmand", "opening", -1, 0, 1, "class<`matrix`>", 1
+"mmand", "opening", -1, 0, 2, "double[]", 1
 "mmand", "opening", 0, 0, 0, "class<`array`, `loder`>", 1
 "mmand", "opening", 0, 0, 1, "class<`kernel`, `kernelArray`>", 1
 "mmand", "opening", 0, 0, 2, "class<`matrix`>", 1
@@ -220,7 +235,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "plot.kernelFunction", 3, 0, 0, "double", 1
 "mmand", "plot.kernelFunction", 4, 0, 0, "character", 1
 "mmand", "plot.kernelFunction", 5, 0, 0, "...", 1
-"mmand", "resample", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mmand", "resample", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "resample", -1, 0, 1, "double[]", 1
 "mmand", "resample", 0, 0, 0, "class<`array`, `loder`>", 1
 "mmand", "resample", 0, 0, 1, "class<`kernel`, `kernelArray`>", 1
 "mmand", "resample", 0, 0, 2, "class<`matrix`>", 1
@@ -231,7 +247,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "resample", 1, 0, 2, "list<double[]>", 1
 "mmand", "resample", 2, 0, 0, "class<`kernel`, `kernelFunction`>", 1
 "mmand", "resample", 3, 0, 0, "...", 1
-"mmand", "resample.default", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mmand", "resample.default", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "resample.default", -1, 0, 1, "double[]", 1
 "mmand", "resample.default", 0, 0, 0, "class<`array`, `loder`>", 1
 "mmand", "resample.default", 0, 0, 1, "class<`kernel`, `kernelArray`>", 1
 "mmand", "resample.default", 0, 0, 2, "class<`matrix`>", 1
@@ -243,7 +260,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "resample.default", 2, 0, 0, "class<`kernel`, `kernelFunction`>", 1
 "mmand", "resample.default", 3, 0, 0, "character[]", 1
 "mmand", "resample.default", 4, 0, 0, "...", 1
-"mmand", "rescale", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mmand", "rescale", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "rescale", -1, 0, 1, "double[]", 1
 "mmand", "rescale", 0, 0, 0, "class<`array`, `loder`>", 1
 "mmand", "rescale", 0, 0, 1, "class<`kernel`, `kernelArray`>", 1
 "mmand", "rescale", 0, 0, 2, "double[]", 1
@@ -261,7 +279,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mmand", "shapeKernel", 2, 0, 0, "character[]", 1
 "mmand", "shapeKernel", 3, 0, 0, "logical", 1
 "mmand", "shapeKernel", 4, 0, 0, "logical", 1
-"mmand", "skeletonise", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mmand", "skeletonise", -1, 0, 0, "class<`matrix`>", 1
+"mmand", "skeletonise", -1, 0, 1, "double[]", 1
 "mmand", "skeletonise", 0, 0, 0, "class<`kernel`, `kernelArray`>", 1
 "mmand", "skeletonise", 0, 0, 1, "double[]", 1
 "mmand", "skeletonise", 1, 0, 0, "any", 1

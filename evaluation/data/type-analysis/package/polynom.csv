@@ -43,7 +43,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "polynom", "FUN", 0, 1, 0, "class<`polynomial`>", 1
 "polynom", "FUN", 1, 1, 0, "double[]", 1
 "polynom", "FUN", 2, 1, 0, "...", 1
-"polynom", "FUN", -1, 2, 0, "(class<`polynomial`> | class<`polylist`>)", 1
+"polynom", "FUN", -1, 2, 0, "class<`polynomial`>", 1
+"polynom", "FUN", -1, 2, 1, "class<`polylist`>", 1
 "polynom", "FUN", 0, 2, 0, "class<`polynomial`>", 1
 "polynom", "FUN", 0, 2, 1, "class<`polylist`>", 1
 "polynom", "FUN", 1, 2, 0, "...", 1
@@ -54,7 +55,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "polynom", ".GCD2", 1, 0, 0, "class<`polynomial`>", 1
 "polynom", "GCD.polylist", -1, 0, 0, "class<`polynomial`>", 1
 "polynom", "GCD.polylist", 0, 0, 0, "...", 1
-"polynom", "integral", -1, 0, 0, "(class<`polynomial`> | class<`polylist`>)", 1
+"polynom", "integral", -1, 0, 0, "class<`polynomial`>", 1
+"polynom", "integral", -1, 0, 1, "class<`polylist`>", 1
 "polynom", "integral", 0, 0, 0, "class<`polynomial`>", 1
 "polynom", "integral", 0, 0, 1, "class<`polylist`>", 1
 "polynom", "integral", 1, 0, 0, "...", 1
@@ -87,7 +89,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "polynom", "Math.polynomial", -1, 0, 0, "class<`polynomial`>", 1
 "polynom", "Math.polynomial", 0, 0, 0, "class<`polynomial`>", 1
 "polynom", "Math.polynomial", 1, 0, 0, "...", 1
-"polynom", "Ops.polynomial", -1, 0, 0, "(class<`polynomial`> | logical)", 1
+"polynom", "Ops.polynomial", -1, 0, 0, "class<`polynomial`>", 1
+"polynom", "Ops.polynomial", -1, 0, 1, "logical", 1
 "polynom", "Ops.polynomial", 0, 0, 0, "class<`polynomial`>", 1
 "polynom", "Ops.polynomial", 0, 0, 1, "double", 1
 "polynom", "Ops.polynomial", 1, 0, 0, "class<`polynomial`>", 1
@@ -114,7 +117,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "polynom", "points.polynomial", 0, 0, 0, "class<`polynomial`>", 1
 "polynom", "points.polynomial", 1, 0, 0, "double", 1
 "polynom", "points.polynomial", 2, 0, 0, "...", 1
-"polynom", "poly.calc", -1, 0, 0, "(class<`polylist`> | class<`polynomial`>)", 1
+"polynom", "poly.calc", -1, 0, 0, "class<`polylist`>", 1
+"polynom", "poly.calc", -1, 0, 1, "class<`polynomial`>", 1
 "polynom", "poly.calc", 0, 0, 0, "class<`summary.polynomial`>", 1
 "polynom", "poly.calc", 0, 0, 1, "complex[]", 1
 "polynom", "poly.calc", 1, 0, 0, "any", 1
@@ -122,7 +126,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "polynom", "poly.calc", 3, 0, 0, "any", 1
 "polynom", "poly.from.roots", -1, 0, 0, "class<`polynomial`>", 1
 "polynom", "poly.from.roots", 0, 0, 0, "...", 1
-"polynom", "poly.from.values", -1, 0, 0, "(class<`polylist`> | class<`polynomial`>)", 1
+"polynom", "poly.from.values", -1, 0, 0, "class<`polylist`>", 1
+"polynom", "poly.from.values", -1, 0, 1, "class<`polynomial`>", 1
 "polynom", "poly.from.values", 0, 0, 0, "class<`summary.polynomial`>", 1
 "polynom", "poly.from.values", 0, 0, 1, "complex[]", 1
 "polynom", "poly.from.values", 1, 0, 0, "any", 1

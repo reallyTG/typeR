@@ -2,7 +2,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rex", "%==%", -1, 0, 0, "logical", 1
 "rex", "%==%", 0, 0, 0, "logical", 1
 "rex", "%==%", 1, 0, 0, "logical", 1
-"rex", "add_options", -1, 0, 0, "(character | class<`regex`>)", 1
+"rex", "add_options", -1, 0, 0, "character", 1
+"rex", "add_options", -1, 0, 1, "class<`regex`>", 1
 "rex", "add_options", 0, 0, 0, "character", 1
 "rex", "add_options", 0, 0, 1, "class<`regex`>", 1
 "rex", "add_options", 1, 0, 0, "null", 1
@@ -36,7 +37,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rex", "character_class", -1, 0, 0, "class<`character_class`, `regex`>", 1
 "rex", "character_class", 0, 0, 0, "character", 1
 "rex", "character_class", 0, 0, 1, "class<`regex`>", 1
-"rex", "character_class_escape", -1, 0, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "character_class_escape", -1, 0, 0, "class<`regex`>", 1
+"rex", "character_class_escape", -1, 0, 1, "list<class<`regex`>>", 1
 "rex", "character_class_escape", 0, 0, 0, "character", 1
 "rex", "character_class_escape", 0, 0, 1, "class<`regex`>", 1
 "rex", "character_class_escape", 0, 0, 2, "list<character | class<`regex`>>", 1
@@ -48,7 +50,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rex", "character_class_escape.list", 0, 0, 0, "list<character | class<`regex`>>", 1
 "rex", "character_class_escape.regex", -1, 0, 0, "class<`regex`>", 1
 "rex", "character_class_escape.regex", 0, 0, 0, "class<`regex`>", 1
-"rex", "escape", -1, 0, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "escape", -1, 0, 0, "class<`regex`>", 1
+"rex", "escape", -1, 0, 1, "list<class<`regex`>>", 1
 "rex", "escape", 0, 0, 0, "character", 1
 "rex", "escape", 0, 0, 1, "class<`character_class`, `regex`>", 1
 "rex", "escape", 0, 0, 2, "class<`regex`>", 1
@@ -68,11 +71,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rex", "except_some_of", -1, 0, 0, "class<`regex`>", 1
 "rex", "except_some_of", 0, 0, 0, "...", 1
 "rex", "except_some_of", 1, 0, 0, "character[]", 1
-"rex", "FUN", -1, 0, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "FUN", -1, 0, 0, "class<`regex`>", 1
+"rex", "FUN", -1, 0, 1, "list<class<`regex`>>", 1
 "rex", "FUN", 0, 0, 0, "character", 1
 "rex", "FUN", 0, 0, 1, "class<`regex`>", 1
 "rex", "FUN", 0, 0, 2, "list<character | class<`regex`>>", 1
-"rex", "FUN", -1, 1, 0, "(class<`regex`> | list<class<`regex`>>)", 1
+"rex", "FUN", -1, 1, 0, "class<`regex`>", 1
+"rex", "FUN", -1, 1, 1, "list<class<`regex`>>", 1
 "rex", "FUN", 0, 1, 0, "character", 1
 "rex", "FUN", 0, 1, 1, "class<`character_class`, `regex`>", 1
 "rex", "FUN", 0, 1, 2, "class<`regex`>", 1
@@ -121,7 +126,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rex", "regex", 1, 0, 0, "...", 1
 "rex", "register", -1, 0, 0, "environment", 1
 "rex", "register", 0, 0, 0, "...", 1
-"rex", "re_matches", -1, 0, 0, "(class<`data.frame`> | logical[])", 1
+"rex", "re_matches", -1, 0, 0, "class<`data.frame`>", 1
+"rex", "re_matches", -1, 0, 1, "logical[]", 1
 "rex", "re_matches", 0, 0, 0, "character[]", 1
 "rex", "re_matches", 1, 0, 0, "class<`regex`>", 1
 "rex", "re_matches", 2, 0, 0, "logical", 1

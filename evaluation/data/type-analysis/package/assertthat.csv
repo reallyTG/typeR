@@ -1,5 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"assertthat", "%||%", -1, 0, 0, "(class<`function`> | integer[] | null)", 1
+"assertthat", "%||%", -1, 0, 0, "class<`function`>", 1
+"assertthat", "%||%", -1, 0, 1, "integer[]", 1
+"assertthat", "%||%", -1, 0, 2, "null", 1
 "assertthat", "%||%", 0, 0, 0, "class<`function`>", 1
 "assertthat", "%||%", 0, 0, 1, "null", 1
 "assertthat", "%||%", 0, 0, 2, "integer[]", 1
@@ -78,7 +80,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "assertthat", "not_empty", -1, 0, 0, "logical", 1
 "assertthat", "not_empty", 0, 0, 0, "class<`data.frame`>", 1
 "assertthat", "not_empty", 0, 0, 1, "double[]", 1
-"assertthat", "on_failure", -1, 0, 0, "(class<`function`> | null)", 1
+"assertthat", "on_failure", -1, 0, 0, "class<`function`>", 1
+"assertthat", "on_failure", -1, 0, 1, "null", 1
 "assertthat", "on_failure", 0, 0, 0, "class<`function`>", 1
 "assertthat", "on_failure<-", -1, 0, 0, "class<`function`>", 1
 "assertthat", "on_failure<-", 0, 0, 0, "class<`function`>", 1
@@ -87,7 +90,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "assertthat", "see_if", 0, 0, 0, "...", 1
 "assertthat", "see_if", 1, 0, 0, "environment", 1
 "assertthat", "see_if", 2, 0, 0, "any", 1
-"assertthat", "validate_that", -1, 0, 0, "(character | logical)", 1
+"assertthat", "validate_that", -1, 0, 0, "character", 1
+"assertthat", "validate_that", -1, 0, 1, "logical", 1
 "assertthat", "validate_that", 0, 0, 0, "...", 1
 "assertthat", "validate_that", 1, 0, 0, "environment", 1
 "assertthat", "validate_that", 2, 0, 0, "null", 1

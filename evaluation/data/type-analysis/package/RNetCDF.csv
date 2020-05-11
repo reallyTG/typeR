@@ -12,7 +12,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "RNetCDF", "att.delete.nc", 0, 0, 0, "class<`NetCDF`>", 1
 "RNetCDF", "att.delete.nc", 1, 0, 0, "character", 1
 "RNetCDF", "att.delete.nc", 2, 0, 0, "character", 1
-"RNetCDF", "att.get.nc", -1, 0, 0, "(character | double)", 1
+"RNetCDF", "att.get.nc", -1, 0, 0, "character", 1
+"RNetCDF", "att.get.nc", -1, 0, 1, "double", 1
 "RNetCDF", "att.get.nc", 0, 0, 0, "class<`NetCDF`>", 1
 "RNetCDF", "att.get.nc", 1, 0, 0, "character", 1
 "RNetCDF", "att.get.nc", 1, 0, 1, "integer", 1
@@ -129,7 +130,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "RNetCDF", "type.inq.nc", 1, 0, 0, "integer", 1
 "RNetCDF", "type.inq.nc", 1, 0, 1, "character", 1
 "RNetCDF", "type.inq.nc", 2, 0, 0, "logical", 1
-"RNetCDF", "utcal.nc", -1, 0, 0, "(character[] | class<`matrix`> | class<`POSIXct`, `POSIXt`>)", 1
+"RNetCDF", "utcal.nc", -1, 0, 0, "character[]", 1
+"RNetCDF", "utcal.nc", -1, 0, 1, "class<`matrix`>", 1
+"RNetCDF", "utcal.nc", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
 "RNetCDF", "utcal.nc", 0, 0, 0, "character", 1
 "RNetCDF", "utcal.nc", 1, 0, 0, "double[]", 1
 "RNetCDF", "utcal.nc", 1, 0, 1, "class<`array`>", 1
@@ -156,7 +159,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "RNetCDF", "var.def.nc", 9, 0, 0, "logical", 1
 "RNetCDF", "var.def.nc", 10, 0, 0, "null", 1
 "RNetCDF", "var.def.nc", 11, 0, 0, "integer[]", 1
-"RNetCDF", "var.get.nc", -1, 0, 0, "(class<`array`> | class<`matrix`> | ^double[])", 1
+"RNetCDF", "var.get.nc", -1, 0, 0, "class<`array`>", 1
+"RNetCDF", "var.get.nc", -1, 0, 1, "class<`matrix`>", 1
+"RNetCDF", "var.get.nc", -1, 0, 2, "^double[]", 1
 "RNetCDF", "var.get.nc", 0, 0, 0, "class<`NetCDF`>", 1
 "RNetCDF", "var.get.nc", 1, 0, 0, "character", 1
 "RNetCDF", "var.get.nc", 1, 0, 1, "double", 1

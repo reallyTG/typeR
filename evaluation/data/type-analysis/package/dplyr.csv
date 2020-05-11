@@ -1,7 +1,12 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dplyr", "::", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | class<`data.frame`>)", 1
+"dplyr", "::", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "::", -1, 0, 1, "class<`data.frame`>", 1
 "dplyr", "::", 0, 0, 0, "...", 1
-"dplyr", "add_computed_columns", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl_cube`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "add_computed_columns", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "add_computed_columns", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "add_computed_columns", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "add_computed_columns", -1, 0, 3, "class<`tbl_cube`>", 1
+"dplyr", "add_computed_columns", -1, 0, 4, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "add_computed_columns", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "add_computed_columns", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "add_computed_columns", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -22,13 +27,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "add_suffixes", 0, 0, 0, "character[]", 1
 "dplyr", "add_suffixes", 1, 0, 0, "any", 1
 "dplyr", "add_suffixes", 2, 0, 0, "character", 1
-"dplyr", "add_tally", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "add_tally", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "add_tally", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "add_tally", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "add_tally", 0, 0, 1, "class<`data.frame`>", 1
 "dplyr", "add_tally", 1, 0, 0, "any", 1
 "dplyr", "add_tally", 2, 0, 0, "logical", 1
 "dplyr", "add_tally", 3, 0, 0, "character", 1
-"dplyr", "all_equal", -1, 0, 0, "(character | logical)", 1
+"dplyr", "all_equal", -1, 0, 0, "character", 1
+"dplyr", "all_equal", -1, 0, 1, "logical", 1
 "dplyr", "all_equal", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "all_equal", 1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "all_equal", 2, 0, 0, "logical", 1
@@ -76,7 +83,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "apply_filter_syms", 0, 0, 2, "class<`formula`>", 1
 "dplyr", "apply_filter_syms", 1, 0, 0, "list<class<`name`>>", 1
 "dplyr", "apply_filter_syms", 2, 0, 0, "any", 1
-"dplyr", "arrange", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "arrange", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "arrange", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "arrange", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "arrange", -1, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "arrange", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "arrange", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "arrange", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -96,7 +106,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "arrange.grouped_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "arrange.grouped_df", 1, 0, 0, "...", 1
 "dplyr", "arrange.grouped_df", 2, 0, 0, "logical", 1
-"dplyr", "arrange_impl", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "arrange_impl", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "arrange_impl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "arrange_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "arrange_impl", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "arrange_impl", 1, 0, 0, "class<`list`, `quosures`>", 1
@@ -119,7 +130,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "as_fun_list", 0, 0, 3, "list<any>", 1
 "dplyr", "as_fun_list", 1, 0, 0, "any", 1
 "dplyr", "as_fun_list", 2, 0, 0, "...", 1
-"dplyr", "as_group_map_function", -1, 0, 0, "(class<`function`> | class<`function`, `rlang_lambda_function`>)", 1
+"dplyr", "as_group_map_function", -1, 0, 0, "class<`function`>", 1
+"dplyr", "as_group_map_function", -1, 0, 1, "class<`function`, `rlang_lambda_function`>", 1
 "dplyr", "as_group_map_function", 0, 0, 0, "class<`function`>", 1
 "dplyr", "as_group_map_function", 0, 0, 1, "class<`formula`>", 1
 "dplyr", "as_inlined_function", -1, 0, 0, "class<`inline_colwise_function`>", 1
@@ -156,7 +168,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "as.tbl.data.frame", 1, 0, 0, "...", 1
 "dplyr", "auto_by_msg", -1, 0, 0, "character", 1
 "dplyr", "auto_by_msg", 0, 0, 0, "character[]", 1
-"dplyr", "auto_copy", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "auto_copy", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "auto_copy", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "auto_copy", -1, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "auto_copy", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "auto_copy", 0, 0, 1, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "auto_copy", 1, 0, 0, "class<`data.frame`>", 1
@@ -173,21 +187,27 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "big_mark", -1, 0, 0, "character[]", 1
 "dplyr", "big_mark", 0, 0, 0, "integer[]", 1
 "dplyr", "big_mark", 1, 0, 0, "...", 1
-"dplyr", "bind_cols", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | class<`data.frame`>)", 1
+"dplyr", "bind_cols", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "bind_cols", -1, 0, 1, "class<`data.frame`>", 1
 "dplyr", "bind_cols", 0, 0, 0, "...", 1
-"dplyr", "bind_rows", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "bind_rows", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "bind_rows", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "bind_rows", 0, 0, 0, "...", 1
 "dplyr", "bind_rows", 1, 0, 0, "character", 1
 "dplyr", "bind_rows", 1, 0, 1, "null", 1
-"dplyr", "bind_rows_", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "bind_rows_", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "bind_rows_", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "bind_rows_", 0, 0, 0, "list<any>", 1
 "dplyr", "bind_rows_", 1, 0, 0, "null", 1
 "dplyr", "bind_rows_", 1, 0, 1, "character", 1
-"dplyr", "case_when", -1, 0, 0, "(^character[] | ^double[])", 1
+"dplyr", "case_when", -1, 0, 0, "^character[]", 1
+"dplyr", "case_when", -1, 0, 1, "^double[]", 1
 "dplyr", "case_when", 0, 0, 0, "...", 1
-"dplyr", "cbind_all", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "cbind_all", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "cbind_all", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "cbind_all", 0, 0, 0, "list<any>", 1
-"dplyr", "changes", -1, 0, 0, "(class<`matrix`> | null)", 1
+"dplyr", "changes", -1, 0, 0, "class<`matrix`>", 1
+"dplyr", "changes", -1, 0, 1, "null", 1
 "dplyr", "changes", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "changes", 1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "check_class", -1, 0, 0, "null", 1
@@ -198,7 +218,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "check_class", 1, 0, 0, "any", 1
 "dplyr", "check_class", 2, 0, 0, "any", 1
 "dplyr", "check_dbplyr", -1, 0, 0, "logical", 1
-"dplyr", "check_dot_cols", -1, 0, 0, "(character[] | class<`list`, `quosures`>)", 1
+"dplyr", "check_dot_cols", -1, 0, 0, "character[]", 1
+"dplyr", "check_dot_cols", -1, 0, 1, "class<`list`, `quosures`>", 1
 "dplyr", "check_dot_cols", 0, 0, 0, "character[]", 1
 "dplyr", "check_dot_cols", 0, 0, 1, "class<`list`, `quosures`>", 1
 "dplyr", "check_dot_cols", 1, 0, 0, "null", 1
@@ -257,12 +278,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "collapse", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "collapse", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "collapse", 1, 0, 0, "...", 1
-"dplyr", "collect", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "collect", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "collect", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "collect", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "collect", 0, 0, 1, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "collect", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "collect", 1, 0, 0, "...", 1
-"dplyr", "collect.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "collect.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "collect.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "collect.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "collect.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "collect.data.frame", 1, 0, 0, "...", 1
@@ -334,7 +357,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "copy_to.DBIConnection", 2, 0, 0, "character", 1
 "dplyr", "copy_to.DBIConnection", 3, 0, 0, "logical", 1
 "dplyr", "copy_to.DBIConnection", 4, 0, 0, "...", 1
-"dplyr", "count", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "count", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "count", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "count", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "count", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "count", 0, 0, 2, "class<`data.frame`>", 1
@@ -422,7 +446,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "dfloc", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "dim_desc", -1, 0, 0, "character", 1
 "dplyr", "dim_desc", 0, 0, 0, "class<`data.frame`>", 1
-"dplyr", "distinct", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "distinct", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "distinct", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct", 1, 0, 0, "...", 1
@@ -449,7 +474,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "distinct_if", 2, 0, 0, "list<any>", 1
 "dplyr", "distinct_if", 3, 0, 0, "...", 1
 "dplyr", "distinct_if", 4, 0, 0, "logical", 1
-"dplyr", "distinct_impl", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "distinct_impl", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "distinct_impl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct_impl", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct_impl", 1, 0, 0, "integer[]", 1
@@ -465,11 +491,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "distinct.tbl_df", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct.tbl_df", 1, 0, 0, "...", 1
 "dplyr", "distinct.tbl_df", 2, 0, 0, "logical", 1
-"dplyr", "do", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>)", 1
+"dplyr", "do", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "do", -1, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "do", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "do", 0, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "do", 1, 0, 0, "...", 1
-"dplyr", "do.grouped_df", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>)", 1
+"dplyr", "do.grouped_df", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "do.grouped_df", -1, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "do.grouped_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "do.grouped_df", 1, 0, 0, "...", 1
 "dplyr", "do.rowwise_df", -1, 0, 0, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
@@ -491,7 +519,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "explain", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "explain", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "explain", 1, 0, 0, "...", 1
-"dplyr", "expr_substitute", -1, 0, 0, "(class<`all_vars`, `formula`, `quosure`> | class<`any_vars`, `formula`, `quosure`> | class<`formula`, `quosure`>)", 1
+"dplyr", "expr_substitute", -1, 0, 0, "class<`all_vars`, `formula`, `quosure`>", 1
+"dplyr", "expr_substitute", -1, 0, 1, "class<`any_vars`, `formula`, `quosure`>", 1
+"dplyr", "expr_substitute", -1, 0, 2, "class<`formula`, `quosure`>", 1
 "dplyr", "expr_substitute", 0, 0, 0, "class<`all_vars`, `formula`, `quosure`>", 1
 "dplyr", "expr_substitute", 0, 0, 1, "class<`any_vars`, `formula`, `quosure`>", 1
 "dplyr", "expr_substitute", 0, 0, 2, "class<`formula`, `quosure`>", 1
@@ -504,7 +534,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "expr_type_of", 0, 0, 3, "double", 1
 "dplyr", "filter", -1, 0, 0, "logical[]", 1
 "dplyr", "filter", 0, 0, 0, "character[]", 1
-"dplyr", "filter", -1, 1, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl_cube`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "filter", -1, 1, 0, "class<`data.frame`>", 1
+"dplyr", "filter", -1, 1, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "filter", -1, 1, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "filter", -1, 1, 3, "class<`tbl_cube`>", 1
+"dplyr", "filter", -1, 1, 4, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "filter", 0, 1, 0, "class<`data.frame`>", 1
 "dplyr", "filter", 0, 1, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "filter", 0, 1, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -532,14 +566,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "filter_if", 1, 0, 0, "class<`formula`>", 1
 "dplyr", "filter_if", 2, 0, 0, "class<`all_vars`, `formula`, `quosure`>", 1
 "dplyr", "filter_if", 3, 0, 0, "logical", 1
-"dplyr", "filter_impl", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "filter_impl", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "filter_impl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "filter_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "filter_impl", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "filter_impl", 1, 0, 0, "class<`formula`, `quosure`>", 1
 "dplyr", "filter.tbl_cube", -1, 0, 0, "class<`tbl_cube`>", 1
 "dplyr", "filter.tbl_cube", 0, 0, 0, "class<`tbl_cube`>", 1
 "dplyr", "filter.tbl_cube", 1, 0, 0, "...", 1
-"dplyr", "filter.tbl_df", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "filter.tbl_df", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "filter.tbl_df", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "filter.tbl_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "filter.tbl_df", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "filter.tbl_df", 1, 0, 0, "...", 1
@@ -553,13 +589,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "find_index_check", 0, 0, 0, "any", 1
 "dplyr", "find_index_check", 1, 0, 0, "class<`formula`, `quosure`>", 1
 "dplyr", "find_index_check", 2, 0, 0, "character[]", 1
-"dplyr", "find_template", -1, 0, 0, "(character | integer)", 1
+"dplyr", "find_template", -1, 0, 0, "character", 1
+"dplyr", "find_template", -1, 0, 1, "integer", 1
 "dplyr", "find_template", 0, 0, 0, "list<character | integer>", 1
 "dplyr", "find_template", 1, 0, 0, "null", 1
 "dplyr", "find_template", 1, 0, 1, "character[]", 1
 "dplyr", "find_template", 2, 0, 0, "null", 1
 "dplyr", "find_template", 2, 0, 1, "character", 1
-"dplyr", "first", -1, 0, 0, "(integer | null)", 1
+"dplyr", "first", -1, 0, 0, "integer", 1
+"dplyr", "first", -1, 0, 1, "null", 1
 "dplyr", "first", 0, 0, 0, "integer[]", 1
 "dplyr", "first", 1, 0, 0, "null", 1
 "dplyr", "first", 2, 0, 0, "any", 1
@@ -607,7 +645,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "full_join.tbl_df", 4, 0, 0, "character[]", 1
 "dplyr", "full_join.tbl_df", 5, 0, 0, "...", 1
 "dplyr", "full_join.tbl_df", 6, 0, 0, "null", 1
-"dplyr", "fun", -1, 0, 0, "(^double[] | class<`factor`>)", 1
+"dplyr", "fun", -1, 0, 0, "^double[]", 1
+"dplyr", "fun", -1, 0, 1, "class<`factor`>", 1
 "dplyr", "fun", 0, 0, 0, "double[]", 1
 "dplyr", "fun", 0, 0, 1, "class<`factor`>", 1
 "dplyr", "fun", 1, 0, 0, "double", 1
@@ -642,7 +681,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "glubort", 1, 0, 0, "...", 1
 "dplyr", "glubort", 2, 0, 0, "environment", 1
 "dplyr", "glubort", 3, 0, 0, "class<`function`>", 1
-"dplyr", "group_by", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl_cube`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "group_by", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "group_by", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "group_by", -1, 0, 2, "class<`tbl_cube`>", 1
+"dplyr", "group_by", -1, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "group_by", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "group_by", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_by", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -668,7 +710,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "group_by_at", 3, 0, 0, "...", 1
 "dplyr", "group_by_at", 4, 0, 0, "logical", 1
 "dplyr", "group_by_at", 5, 0, 0, "logical", 1
-"dplyr", "group_by.data.frame", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "group_by.data.frame", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "group_by.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_by.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "group_by.data.frame", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_by.data.frame", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -701,7 +744,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "group_by_prepare", 1, 0, 0, "...", 1
 "dplyr", "group_by_prepare", 2, 0, 0, "list<any>", 1
 "dplyr", "group_by_prepare", 3, 0, 0, "logical", 1
-"dplyr", ".group_by_static_drop", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", ".group_by_static_drop", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", ".group_by_static_drop", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", ".group_by_static_drop", 0, 0, 0, "...", 1
 "dplyr", ".group_by_static_drop", 1, 0, 0, "logical", 1
 "dplyr", "group_by.tbl_cube", -1, 0, 0, "class<`tbl_cube`>", 1
@@ -726,14 +770,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "[.grouped_df", 1, 0, 1, "integer[]", 1
 "dplyr", "[.grouped_df", 2, 0, 0, "any", 1
 "dplyr", "[.grouped_df", 3, 0, 0, "logical", 1
-"dplyr", "grouped_df", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "grouped_df", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "grouped_df", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df", 0, 0, 2, "class<`data.frame`>", 1
 "dplyr", "grouped_df", 1, 0, 0, "character[]", 1
 "dplyr", "grouped_df", 1, 0, 1, "list<class<`name`>>", 1
 "dplyr", "grouped_df", 2, 0, 0, "logical", 1
-"dplyr", "grouped_df_impl", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "grouped_df_impl", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "grouped_df_impl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df_impl", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df_impl", 0, 0, 2, "class<`data.frame`>", 1
@@ -766,7 +812,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "group_map", 1, 0, 1, "class<`function`>", 1
 "dplyr", "group_map", 2, 0, 0, "...", 1
 "dplyr", "group_map", 3, 0, 0, "logical", 1
-"dplyr", "group_modify", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>)", 1
+"dplyr", "group_modify", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "group_modify", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_modify", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "group_modify", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_modify", 1, 0, 0, "class<`formula`>", 1
@@ -805,7 +852,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "group_rows", -1, 0, 0, "list<integer[]>", 1
 "dplyr", "group_rows", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_rows", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "groups", -1, 0, 0, "(null | list<class<`name`>>)", 1
+"dplyr", "groups", -1, 0, 0, "null", 1
+"dplyr", "groups", -1, 0, 1, "list<class<`name`>>", 1
 "dplyr", "groups", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "groups", 0, 0, 1, "class<`data.frame`>", 1
 "dplyr", "groups", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -869,7 +917,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "hybrid_impl", 2, 0, 0, "environment", 1
 "dplyr", "ident", -1, 0, 0, "class<`character`, `ident`>", 1
 "dplyr", "ident", 0, 0, 0, "...", 1
-"dplyr", "if_else", -1, 0, 0, "(character[] | class<`factor`> | ^integer[])", 1
+"dplyr", "if_else", -1, 0, 0, "character[]", 1
+"dplyr", "if_else", -1, 0, 1, "class<`factor`>", 1
+"dplyr", "if_else", -1, 0, 2, "^integer[]", 1
 "dplyr", "if_else", 0, 0, 0, "^logical[]", 1
 "dplyr", "if_else", 1, 0, 0, "character", 1
 "dplyr", "if_else", 1, 0, 1, "class<`factor`>", 1
@@ -905,7 +955,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "inner_join.tbl_df", 4, 0, 0, "character[]", 1
 "dplyr", "inner_join.tbl_df", 5, 0, 0, "...", 1
 "dplyr", "inner_join.tbl_df", 6, 0, 0, "null", 1
-"dplyr", "intersect", -1, 0, 0, "(character[] | class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "intersect", -1, 0, 0, "character[]", 1
+"dplyr", "intersect", -1, 0, 1, "class<`data.frame`>", 1
+"dplyr", "intersect", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect", 0, 0, 0, "character[]", 1
 "dplyr", "intersect", 0, 0, 1, "class<`character`, `dplyr_sel_vars`>", 1
 "dplyr", "intersect", 0, 0, 2, "class<`data.frame`>", 1
@@ -916,12 +968,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "intersect", 1, 0, 2, "class<`data.frame`>", 1
 "dplyr", "intersect", 1, 0, 3, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect", 2, 0, 0, "...", 1
-"dplyr", "intersect_data_frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "intersect_data_frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "intersect_data_frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect_data_frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "intersect_data_frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect_data_frame", 1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "intersect_data_frame", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "intersect.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "intersect.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "intersect.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "intersect.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect.data.frame", 1, 0, 0, "class<`data.frame`>", 1
@@ -953,7 +1007,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "join_vars", 1, 0, 0, "class<`character`, `dplyr_sel_vars`>", 1
 "dplyr", "join_vars", 2, 0, 0, "list<character[]>", 1
 "dplyr", "join_vars", 3, 0, 0, "list<character>", 1
-"dplyr", "label_output_dataframe", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>)", 1
+"dplyr", "label_output_dataframe", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "label_output_dataframe", -1, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "label_output_dataframe", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "label_output_dataframe", 0, 0, 1, "null", 1
 "dplyr", "label_output_dataframe", 1, 0, 0, "list<list<class<`data.frame`, `tbl`, `tbl_df`> | class<`data.frame`>>>", 1
@@ -964,7 +1019,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "label_output_list", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "label_output_list", 1, 0, 0, "list<list<class<`anova`, `data.frame`> | integer[] | class<`lm`>>>", 1
 "dplyr", "label_output_list", 2, 0, 0, "any", 1
-"dplyr", "lag", -1, 0, 0, "(^double[] | class<`factor`>)", 1
+"dplyr", "lag", -1, 0, 0, "^double[]", 1
+"dplyr", "lag", -1, 0, 1, "class<`factor`>", 1
 "dplyr", "lag", 0, 0, 0, "double[]", 1
 "dplyr", "lag", 0, 0, 1, "class<`factor`>", 1
 "dplyr", "lag", 1, 0, 0, "double", 1
@@ -983,7 +1039,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "lead", 2, 0, 0, "null", 1
 "dplyr", "lead", 3, 0, 0, "null", 1
 "dplyr", "lead", 4, 0, 0, "...", 1
-"dplyr", "left_join", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "left_join", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "left_join", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "left_join", -1, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "left_join", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "left_join", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "left_join", 0, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
@@ -1021,7 +1079,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "left_join.tbl_df", 4, 0, 0, "character[]", 1
 "dplyr", "left_join.tbl_df", 5, 0, 0, "...", 1
 "dplyr", "left_join.tbl_df", 6, 0, 0, "null", 1
-"dplyr", "list_cols_warning", -1, 0, 0, "(character[] | integer[])", 1
+"dplyr", "list_cols_warning", -1, 0, 0, "character[]", 1
+"dplyr", "list_cols_warning", -1, 0, 1, "integer[]", 1
 "dplyr", "list_cols_warning", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "list_cols_warning", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "list_cols_warning", 1, 0, 0, "character[]", 1
@@ -1100,7 +1159,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "map_chr", 0, 0, 1, "list<any>", 1
 "dplyr", "map_chr", 1, 0, 0, "class<`function`>", 1
 "dplyr", "map_chr", 2, 0, 0, "...", 1
-"dplyr", "map_if", -1, 0, 0, "(null | list<class<`name`>>)", 1
+"dplyr", "map_if", -1, 0, 0, "null", 1
+"dplyr", "map_if", -1, 0, 1, "list<class<`name`>>", 1
 "dplyr", "map_if", 0, 0, 0, "null", 1
 "dplyr", "map_if", 0, 0, 1, "list<class<`name`>>", 1
 "dplyr", "map_if", 1, 0, 0, "class<`function`>", 1
@@ -1114,7 +1174,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "map_lgl", 0, 0, 4, "list<any>", 1
 "dplyr", "map_lgl", 1, 0, 0, "class<`function`>", 1
 "dplyr", "map_lgl", 2, 0, 0, "...", 1
-"dplyr", "map_mold", -1, 0, 0, "(character[] | logical[])", 1
+"dplyr", "map_mold", -1, 0, 0, "character[]", 1
+"dplyr", "map_mold", -1, 0, 1, "logical[]", 1
 "dplyr", "map_mold", 0, 0, 0, "null", 1
 "dplyr", "map_mold", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "map_mold", 0, 0, 2, "class<`list`, `quosures`>", 1
@@ -1131,7 +1192,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "match_vars", 0, 0, 0, "character[]", 1
 "dplyr", "match_vars", 0, 0, 1, "integer[]", 1
 "dplyr", "match_vars", 1, 0, 0, "any", 1
-"dplyr", "materialize_binding", -1, 0, 0, "(class<`factor`> | class<`lm`> | ^double[])", 1
+"dplyr", "materialize_binding", -1, 0, 0, "class<`factor`>", 1
+"dplyr", "materialize_binding", -1, 0, 1, "class<`lm`>", 1
+"dplyr", "materialize_binding", -1, 0, 2, "^double[]", 1
 "dplyr", "materialize_binding", 0, 0, 0, "integer", 1
 "dplyr", "materialize_binding", 1, 0, 0, "externalptr", 1
 "dplyr", "minimal_names", -1, 0, 0, "character[]", 1
@@ -1145,7 +1208,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "mutate", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "mutate", 0, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "mutate", 1, 0, 0, "...", 1
-"dplyr", "mutate_at", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "mutate_at", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "mutate_at", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "mutate_at", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "mutate_at", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "mutate_at", 1, 0, 0, "class<`list`, `quosures`>", 1
@@ -1173,7 +1237,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "mutate.tbl_df", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "mutate.tbl_df", 1, 0, 0, "...", 1
 "dplyr", "n", -1, 0, 0, "integer", 1
-"dplyr", "na_if", -1, 0, 0, "(^character[] | ^double[])", 1
+"dplyr", "na_if", -1, 0, 0, "^character[]", 1
+"dplyr", "na_if", -1, 0, 1, "^double[]", 1
 "dplyr", "na_if", 0, 0, 0, "^character[]", 1
 "dplyr", "na_if", 0, 0, 1, "double[]", 1
 "dplyr", "na_if", 1, 0, 0, "character", 1
@@ -1241,7 +1306,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "ntext", 0, 0, 0, "integer", 1
 "dplyr", "ntext", 1, 0, 0, "character", 1
 "dplyr", "ntext", 2, 0, 0, "character", 1
-"dplyr", "nth", -1, 0, 0, "(integer | null)", 1
+"dplyr", "nth", -1, 0, 0, "integer", 1
+"dplyr", "nth", -1, 0, 1, "null", 1
 "dplyr", "nth", 0, 0, 0, "integer[]", 1
 "dplyr", "nth", 1, 0, 0, "double", 1
 "dplyr", "nth", 2, 0, 0, "any", 1
@@ -1266,13 +1332,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "progress_estimated", -1, 0, 0, "class<`Progress`, `R6`>", 1
 "dplyr", "progress_estimated", 0, 0, 0, "double", 1
 "dplyr", "progress_estimated", 1, 0, 0, "double", 1
-"dplyr", "pull", -1, 0, 0, "(character[] | ^double[])", 1
+"dplyr", "pull", -1, 0, 0, "character[]", 1
+"dplyr", "pull", -1, 0, 1, "^double[]", 1
 "dplyr", "pull", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "pull", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "pull", 0, 0, 2, "class<`data.frame`>", 1
 "dplyr", "pull", 0, 0, 3, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "pull", 1, 0, 0, "any", 1
-"dplyr", "pull.data.frame", -1, 0, 0, "(character[] | ^double[])", 1
+"dplyr", "pull.data.frame", -1, 0, 0, "character[]", 1
+"dplyr", "pull.data.frame", -1, 0, 1, "^double[]", 1
 "dplyr", "pull.data.frame", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "pull.data.frame", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "pull.data.frame", 0, 0, 2, "class<`data.frame`>", 1
@@ -1280,7 +1348,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "quo_reduce", -1, 0, 0, "class<`formula`, `quosure`>", 1
 "dplyr", "quo_reduce", 0, 0, 0, "...", 1
 "dplyr", "quo_reduce", 1, 0, 0, "class<`name`>", 1
-"dplyr", "recode", -1, 0, 0, "(^character[] | class<`factor`> | ^integer[])", 1
+"dplyr", "recode", -1, 0, 0, "^character[]", 1
+"dplyr", "recode", -1, 0, 1, "class<`factor`>", 1
+"dplyr", "recode", -1, 0, 2, "^integer[]", 1
 "dplyr", "recode", 0, 0, 0, "character[]", 1
 "dplyr", "recode", 0, 0, 1, "^integer[]", 1
 "dplyr", "recode", 0, 0, 2, "double[]", 1
@@ -1295,7 +1365,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "recode.character", 1, 0, 0, "...", 1
 "dplyr", "recode.character", 2, 0, 0, "null", 1
 "dplyr", "recode.character", 3, 0, 0, "null", 1
-"dplyr", "recode_default", -1, 0, 0, "(character[] | ^integer[] | null)", 1
+"dplyr", "recode_default", -1, 0, 0, "character[]", 1
+"dplyr", "recode_default", -1, 0, 1, "^integer[]", 1
+"dplyr", "recode_default", -1, 0, 2, "null", 1
 "dplyr", "recode_default", 0, 0, 0, "character[]", 1
 "dplyr", "recode_default", 0, 0, 1, "class<`factor`>", 1
 "dplyr", "recode_default", 0, 0, 2, "double[]", 1
@@ -1303,7 +1375,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "recode_default", 1, 0, 0, "null", 1
 "dplyr", "recode_default", 1, 0, 1, "character[]", 1
 "dplyr", "recode_default", 2, 0, 0, "any", 1
-"dplyr", "recode_default.default", -1, 0, 0, "(character[] | ^integer[] | null)", 1
+"dplyr", "recode_default.default", -1, 0, 0, "character[]", 1
+"dplyr", "recode_default.default", -1, 0, 1, "^integer[]", 1
+"dplyr", "recode_default.default", -1, 0, 2, "null", 1
 "dplyr", "recode_default.default", 0, 0, 0, "character[]", 1
 "dplyr", "recode_default.default", 0, 0, 1, "double[]", 1
 "dplyr", "recode_default.default", 0, 0, 2, "^integer[]", 1
@@ -1332,7 +1406,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "recode.factor", 2, 0, 0, "character[]", 1
 "dplyr", "recode.factor", 2, 0, 1, "null", 1
 "dplyr", "recode.factor", 3, 0, 0, "null", 1
-"dplyr", "recode.numeric", -1, 0, 0, "(^character[] | ^integer[])", 1
+"dplyr", "recode.numeric", -1, 0, 0, "^character[]", 1
+"dplyr", "recode.numeric", -1, 0, 1, "^integer[]", 1
 "dplyr", "recode.numeric", 0, 0, 0, "^integer[]", 1
 "dplyr", "recode.numeric", 0, 0, 1, "double[]", 1
 "dplyr", "recode.numeric", 1, 0, 0, "...", 1
@@ -1344,7 +1419,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "reconstruct_join", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "reconstruct_join", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "reconstruct_join", 2, 0, 0, "any", 1
-"dplyr", "reconstruct_set", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "reconstruct_set", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "reconstruct_set", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "reconstruct_set", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "reconstruct_set", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "reconstruct_set", 1, 0, 0, "class<`data.frame`>", 1
@@ -1357,7 +1433,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "regroup", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "regroup", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "regroup", 1, 0, 0, "environment", 1
-"dplyr", "rename", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "rename", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "rename", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "rename", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "rename", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "rename", 1, 0, 0, "...", 1
@@ -1370,7 +1447,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "rename_at", 1, 0, 0, "class<`list`, `quosures`>", 1
 "dplyr", "rename_at", 2, 0, 0, "class<`function`>", 1
 "dplyr", "rename_at", 3, 0, 0, "...", 1
-"dplyr", "rename.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "rename.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "rename.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "rename.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "rename.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "rename.data.frame", 1, 0, 0, "...", 1
@@ -1379,7 +1457,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "rename_if", 1, 0, 0, "class<`function`>", 1
 "dplyr", "rename_if", 2, 0, 0, "class<`function`>", 1
 "dplyr", "rename_if", 3, 0, 0, "...", 1
-"dplyr", "replace_with", -1, 0, 0, "(^character[] | class<`factor`> | ^double[] | null)", 1
+"dplyr", "replace_with", -1, 0, 0, "^character[]", 1
+"dplyr", "replace_with", -1, 0, 1, "class<`factor`>", 1
+"dplyr", "replace_with", -1, 0, 2, "^double[]", 1
+"dplyr", "replace_with", -1, 0, 3, "null", 1
 "dplyr", "replace_with", 0, 0, 0, "^character[]", 1
 "dplyr", "replace_with", 0, 0, 1, "null", 1
 "dplyr", "replace_with", 0, 0, 2, "class<`factor`>", 1
@@ -1432,7 +1513,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "same_src.data.frame", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "same_src.data.frame", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "same_src.data.frame", 1, 0, 1, "class<`data.frame`>", 1
-"dplyr", "sample_frac", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "sample_frac", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "sample_frac", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "sample_frac", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_frac", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "sample_frac", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_frac", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1441,7 +1524,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "sample_frac", 3, 0, 0, "any", 1
 "dplyr", "sample_frac", 4, 0, 0, "null", 1
 "dplyr", "sample_frac", 5, 0, 0, "...", 1
-"dplyr", "sample_frac.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "sample_frac.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "sample_frac.data.frame", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "sample_frac.data.frame", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_frac.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "sample_frac.data.frame", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_frac.data.frame", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1450,7 +1535,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "sample_frac.data.frame", 3, 0, 0, "any", 1
 "dplyr", "sample_frac.data.frame", 4, 0, 0, "null", 1
 "dplyr", "sample_frac.data.frame", 5, 0, 0, "...", 1
-"dplyr", "sample_n", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "sample_n", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "sample_n", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "sample_n", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_n", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "sample_n", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_n", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1459,7 +1546,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "sample_n", 3, 0, 0, "any", 1
 "dplyr", "sample_n", 4, 0, 0, "null", 1
 "dplyr", "sample_n", 5, 0, 0, "...", 1
-"dplyr", "sample_n.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "sample_n.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "sample_n.data.frame", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "sample_n.data.frame", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_n.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "sample_n.data.frame", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "sample_n.data.frame", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1468,7 +1557,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "sample_n.data.frame", 3, 0, 0, "any", 1
 "dplyr", "sample_n.data.frame", 4, 0, 0, "null", 1
 "dplyr", "sample_n.data.frame", 5, 0, 0, "...", 1
-"dplyr", "select", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl_cube`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "select", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "select", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "select", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "select", -1, 0, 3, "class<`tbl_cube`>", 1
+"dplyr", "select", -1, 0, 4, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "select", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "select", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "select", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1481,7 +1574,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "select_all", 1, 0, 1, "class<`function`>", 1
 "dplyr", "select_all", 1, 0, 2, "list<any>", 1
 "dplyr", "select_all", 2, 0, 0, "...", 1
-"dplyr", "select_at", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "select_at", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "select_at", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "select_at", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "select_at", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "select_at", 1, 0, 0, "class<`list`, `quosures`>", 1
@@ -1489,7 +1583,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "select_at", 2, 0, 0, "class<`function`>", 1
 "dplyr", "select_at", 2, 0, 1, "list<any>", 1
 "dplyr", "select_at", 3, 0, 0, "...", 1
-"dplyr", "select.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "select.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "select.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "select.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "select.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "select.data.frame", 1, 0, 0, "...", 1
@@ -1500,14 +1595,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "select.grouped_df", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "select.grouped_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "select.grouped_df", 1, 0, 0, "...", 1
-"dplyr", "select_if", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "select_if", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "select_if", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "select_if", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "select_if", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "select_if", 1, 0, 0, "class<`function`>", 1
 "dplyr", "select_if", 2, 0, 0, "class<`function`>", 1
 "dplyr", "select_if", 2, 0, 1, "list<any>", 1
 "dplyr", "select_if", 3, 0, 0, "...", 1
-"dplyr", "select_impl", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "select_impl", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "select_impl", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "select_impl", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "select_impl", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "select_impl", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "select_impl", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1540,7 +1638,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "semi_join.tbl_df", 3, 0, 0, "logical", 1
 "dplyr", "semi_join.tbl_df", 4, 0, 0, "...", 1
 "dplyr", "semi_join.tbl_df", 5, 0, 0, "null", 1
-"dplyr", "setdiff", -1, 0, 0, "(character[] | class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`> | null)", 1
+"dplyr", "setdiff", -1, 0, 0, "character[]", 1
+"dplyr", "setdiff", -1, 0, 1, "class<`data.frame`>", 1
+"dplyr", "setdiff", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "setdiff", -1, 0, 3, "null", 1
 "dplyr", "setdiff", 0, 0, 0, "character[]", 1
 "dplyr", "setdiff", 0, 0, 1, "class<`character`, `dplyr_sel_vars`>", 1
 "dplyr", "setdiff", 0, 0, 2, "class<`data.frame`>", 1
@@ -1550,18 +1651,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "setdiff", 1, 0, 1, "class<`data.frame`>", 1
 "dplyr", "setdiff", 1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "setdiff", 2, 0, 0, "...", 1
-"dplyr", "setdiff_data_frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "setdiff_data_frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "setdiff_data_frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "setdiff_data_frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "setdiff_data_frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "setdiff_data_frame", 1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "setdiff_data_frame", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "setdiff.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "setdiff.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "setdiff.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "setdiff.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "setdiff.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "setdiff.data.frame", 1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "setdiff.data.frame", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "setdiff.data.frame", 2, 0, 0, "...", 1
-"dplyr", "setdiff.default", -1, 0, 0, "(character[] | null)", 1
+"dplyr", "setdiff.default", -1, 0, 0, "character[]", 1
+"dplyr", "setdiff.default", -1, 0, 1, "null", 1
 "dplyr", "setdiff.default", 0, 0, 0, "character[]", 1
 "dplyr", "setdiff.default", 0, 0, 1, "class<`character`, `dplyr_sel_vars`>", 1
 "dplyr", "setdiff.default", 0, 0, 2, "null", 1
@@ -1582,7 +1686,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "signal_soft_deprecated", 0, 0, 0, "character", 1
 "dplyr", "signal_soft_deprecated", 1, 0, 0, "any", 1
 "dplyr", "signal_soft_deprecated", 2, 0, 0, "environment", 1
-"dplyr", "slice", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "slice", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "slice", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "slice", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "slice", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1592,11 +1698,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "slice.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "slice.data.frame", 1, 0, 0, "...", 1
 "dplyr", "slice.data.frame", 2, 0, 0, "logical", 1
-"dplyr", "slice_impl", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "slice_impl", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "slice_impl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice_impl", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice_impl", 1, 0, 0, "class<`formula`, `quosure`>", 1
-"dplyr", "slice.tbl_df", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "slice.tbl_df", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "slice.tbl_df", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice.tbl_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice.tbl_df", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "slice.tbl_df", 1, 0, 0, "...", 1
@@ -1634,7 +1742,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "sql_select", 7, 0, 0, "null", 1
 "dplyr", "sql_select", 8, 0, 0, "logical", 1
 "dplyr", "sql_select", 9, 0, 0, "...", 1
-"dplyr", "sql_subquery", -1, 0, 0, "(class<`character`, `ident`> | class<`character`, `sql`>)", 1
+"dplyr", "sql_subquery", -1, 0, 0, "class<`character`, `ident`>", 1
+"dplyr", "sql_subquery", -1, 0, 1, "class<`character`, `sql`>", 1
 "dplyr", "sql_subquery", 0, 0, 0, "class<`SQLiteConnection`>", 1
 "dplyr", "sql_subquery", 1, 0, 0, "class<`character`, `ident`>", 1
 "dplyr", "sql_subquery", 1, 0, 1, "class<`character`, `sql`>", 1
@@ -1656,7 +1765,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "src_tbls", 0, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
 "dplyr", "strip_pos", -1, 0, 0, "character[]", 1
 "dplyr", "strip_pos", 0, 0, 0, "character[]", 1
-"dplyr", "summarise", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl_cube`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "summarise", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "summarise", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "summarise", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "summarise", -1, 0, 3, "class<`tbl_cube`>", 1
+"dplyr", "summarise", -1, 0, 4, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "summarise", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "summarise", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise", 0, 0, 2, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
@@ -1683,7 +1796,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "summarise_if", 1, 0, 0, "class<`function`>", 1
 "dplyr", "summarise_if", 2, 0, 0, "class<`function`>", 1
 "dplyr", "summarise_if", 3, 0, 0, "...", 1
-"dplyr", "summarise_impl", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "summarise_impl", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "summarise_impl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise_impl", 0, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise_impl", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1693,24 +1807,29 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "summarise.tbl_cube", -1, 0, 0, "class<`tbl_cube`>", 1
 "dplyr", "summarise.tbl_cube", 0, 0, 0, "class<`tbl_cube`>", 1
 "dplyr", "summarise.tbl_cube", 1, 0, 0, "...", 1
-"dplyr", "summarise.tbl_df", -1, 0, 0, "(class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "summarise.tbl_df", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "summarise.tbl_df", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise.tbl_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise.tbl_df", 0, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise.tbl_df", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise.tbl_df", 1, 0, 0, "...", 1
-"dplyr", "switch_expr", -1, 0, 0, "(null | pairlist)", 1
+"dplyr", "switch_expr", -1, 0, 0, "null", 1
+"dplyr", "switch_expr", -1, 0, 1, "pairlist", 1
 "dplyr", "switch_expr", 0, 0, 0, "class<`(`>", 1
 "dplyr", "switch_expr", 0, 0, 1, "class<`call`>", 1
 "dplyr", "switch_expr", 0, 0, 2, "double", 1
 "dplyr", "switch_expr", 0, 0, 3, "class<`name`>", 1
 "dplyr", "switch_expr", 1, 0, 0, "...", 1
-"dplyr", "tally", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "tally", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "tally", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
+"dplyr", "tally", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "tally", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "tally", 0, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "tally", 1, 0, 0, "any", 1
 "dplyr", "tally", 2, 0, 0, "logical", 1
 "dplyr", "tally", 3, 0, 0, "character", 1
-"dplyr", "tbl", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "tbl", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "tbl", -1, 0, 1, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "tbl", 0, 0, 0, "class<`src`, `src_local`>", 1
 "dplyr", "tbl", 0, 0, 1, "class<`SQLiteConnection`>", 1
 "dplyr", "tbl", 0, 0, 2, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
@@ -1782,7 +1901,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "top_frac", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "top_frac", 1, 0, 0, "double", 1
 "dplyr", "top_frac", 2, 0, 0, "any", 1
-"dplyr", "top_n", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "top_n", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "top_n", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "top_n", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "top_n", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "top_n", 1, 0, 0, "any", 1
@@ -1790,17 +1910,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "top_n_rank", -1, 0, 0, "logical[]", 1
 "dplyr", "top_n_rank", 0, 0, 0, "double", 1
 "dplyr", "top_n_rank", 1, 0, 0, "double[]", 1
-"dplyr", "transmute", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "transmute", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "transmute", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "transmute", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "transmute", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "transmute", 1, 0, 0, "...", 1
-"dplyr", "transmute.default", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "transmute.default", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "transmute.default", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "transmute.default", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "transmute.default", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "transmute.default", 1, 0, 0, "...", 1
 "dplyr", "undimname", -1, 0, 0, "class<`array`>", 1
 "dplyr", "undimname", 0, 0, 0, "class<`array`>", 1
-"dplyr", "ungroup", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>)", 1
+"dplyr", "ungroup", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "ungroup", -1, 0, 1, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "ungroup", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "ungroup", 0, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "ungroup", 0, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
@@ -1813,7 +1936,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "ungroup.rowwise_df", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "ungroup.rowwise_df", 0, 0, 0, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "ungroup.rowwise_df", 1, 0, 0, "...", 1
-"dplyr", "union", -1, 0, 0, "(character[] | class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "union", -1, 0, 0, "character[]", 1
+"dplyr", "union", -1, 0, 1, "class<`data.frame`>", 1
+"dplyr", "union", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "union", 0, 0, 0, "character[]", 1
 "dplyr", "union", 0, 0, 1, "class<`data.frame`>", 1
 "dplyr", "union", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1829,12 +1954,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "union_all.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "union_all.data.frame", 1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "union_all.data.frame", 2, 0, 0, "...", 1
-"dplyr", "union_data_frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "union_data_frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "union_data_frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "union_data_frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "union_data_frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "union_data_frame", 1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "union_data_frame", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "union.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"dplyr", "union.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"dplyr", "union.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "union.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "union.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "union.data.frame", 1, 0, 0, "class<`data.frame`>", 1
@@ -1852,7 +1979,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "validate_case_when_length", 0, 0, 0, "list<^logical[]>", 1
 "dplyr", "validate_case_when_length", 1, 0, 0, "list<any>", 1
 "dplyr", "validate_case_when_length", 2, 0, 0, "any", 1
-"dplyr", "validate_recode_default", -1, 0, 0, "(character[] | ^integer[] | null)", 1
+"dplyr", "validate_recode_default", -1, 0, 0, "character[]", 1
+"dplyr", "validate_recode_default", -1, 0, 1, "^integer[]", 1
+"dplyr", "validate_recode_default", -1, 0, 2, "null", 1
 "dplyr", "validate_recode_default", 0, 0, 0, "character[]", 1
 "dplyr", "validate_recode_default", 0, 0, 1, "null", 1
 "dplyr", "validate_recode_default", 1, 0, 0, "class<`factor`>", 1
@@ -1870,7 +1999,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "vars_select_syms", 2, 0, 0, "class<`data.frame`>", 1
 "dplyr", "vars_select_syms", 2, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "vars_select_syms", 3, 0, 0, "logical", 1
-"dplyr", "warn_deprecated", -1, 0, 0, "(character | null)", 1
+"dplyr", "warn_deprecated", -1, 0, 0, "character", 1
+"dplyr", "warn_deprecated", -1, 0, 1, "null", 1
 "dplyr", "warn_deprecated", 0, 0, 0, "any", 1
 "dplyr", "warn_deprecated", 1, 0, 0, "character", 1
 "dplyr", "warn_text_se", -1, 0, 0, "null", 1

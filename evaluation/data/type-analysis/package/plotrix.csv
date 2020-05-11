@@ -389,7 +389,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "color.legend", 7, 0, 0, "character", 1
 "plotrix", "color.legend", 8, 0, 0, "character", 1
 "plotrix", "color.legend", 9, 0, 0, "...", 1
-"plotrix", "color.scale", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"plotrix", "color.scale", -1, 0, 0, "character[]", 1
+"plotrix", "color.scale", -1, 0, 1, "class<`matrix`>", 1
 "plotrix", "color.scale", 0, 0, 0, "double[]", 1
 "plotrix", "color.scale", 0, 0, 1, "class<`matrix`>", 1
 "plotrix", "color.scale", 1, 0, 0, "any", 1
@@ -841,10 +842,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "hexagon", 2, 0, 0, "double", 1
 "plotrix", "hexagon", 3, 0, 0, "character", 1
 "plotrix", "hexagon", 4, 0, 0, "null", 1
-"plotrix", "histStack", -1, 0, 0, "(null | list<list<double[]>>)", 1
+"plotrix", "histStack", -1, 0, 0, "null", 1
+"plotrix", "histStack", -1, 0, 1, "list<list<double[]>>", 1
 "plotrix", "histStack", 0, 0, 0, "class<`formula`>", 1
 "plotrix", "histStack", 1, 0, 0, "...", 1
-"plotrix", "histStack.default", -1, 0, 0, "(null | list<list<double[]>>)", 1
+"plotrix", "histStack.default", -1, 0, 0, "null", 1
+"plotrix", "histStack.default", -1, 0, 1, "list<list<double[]>>", 1
 "plotrix", "histStack.default", 0, 0, 0, "double[]", 1
 "plotrix", "histStack.default", 1, 0, 0, "class<`factor`>", 1
 "plotrix", "histStack.default", 2, 0, 0, "character", 1
@@ -858,7 +861,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "histStack.default", 7, 0, 2, "double[]", 1
 "plotrix", "histStack.default", 8, 0, 0, "any", 1
 "plotrix", "histStack.default", 9, 0, 0, "...", 1
-"plotrix", "histStack.formula", -1, 0, 0, "(null | list<list<double[]>>)", 1
+"plotrix", "histStack.formula", -1, 0, 0, "null", 1
+"plotrix", "histStack.formula", -1, 0, 1, "list<list<double[]>>", 1
 "plotrix", "histStack.formula", 0, 0, 0, "class<`formula`>", 1
 "plotrix", "histStack.formula", 1, 0, 0, "class<`data.frame`>", 1
 "plotrix", "histStack.formula", 2, 0, 0, "character", 1
@@ -1168,12 +1172,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "plot.dendrite", 4, 0, 0, "double", 1
 "plotrix", "plot.dendrite", 5, 0, 0, "character[]", 1
 "plotrix", "plot.dendrite", 6, 0, 0, "...", 1
-"plotrix", "plotH", -1, 0, 0, "(class<`matrix`> | null)", 1
+"plotrix", "plotH", -1, 0, 0, "class<`matrix`>", 1
+"plotrix", "plotH", -1, 0, 1, "null", 1
 "plotrix", "plotH", 0, 0, 0, "character[]", 1
 "plotrix", "plotH", 0, 0, 1, "class<`formula`>", 1
 "plotrix", "plotH", 0, 0, 2, "double[]", 1
 "plotrix", "plotH", 1, 0, 0, "...", 1
-"plotrix", "plotH.default", -1, 0, 0, "(null | class<`matrix`>)", 1
+"plotrix", "plotH.default", -1, 0, 0, "null", 1
+"plotrix", "plotH.default", -1, 0, 1, "class<`matrix`>", 1
 "plotrix", "plotH.default", 0, 0, 0, "double[]", 1
 "plotrix", "plotH.default", 0, 0, 1, "character[]", 1
 "plotrix", "plotH.default", 1, 0, 0, "double[]", 1
@@ -1350,7 +1356,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "radialtext", 10, 0, 0, "double", 1
 "plotrix", "radialtext", 10, 0, 1, "null", 1
 "plotrix", "radialtext", 11, 0, 0, "...", 1
-"plotrix", "raw.means.plot", -1, 0, 0, "(null | list<double[]>)", 1
+"plotrix", "raw.means.plot", -1, 0, 0, "null", 1
+"plotrix", "raw.means.plot", -1, 0, 1, "list<double[]>", 1
 "plotrix", "raw.means.plot", 0, 0, 0, "class<`data.frame`>", 1
 "plotrix", "raw.means.plot", 1, 0, 0, "double", 1
 "plotrix", "raw.means.plot", 1, 0, 1, "character", 1
@@ -1395,7 +1402,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "remove.args", -1, 0, 0, "list<double>", 1
 "plotrix", "remove.args", 0, 0, 0, "list<double>", 1
 "plotrix", "remove.args", 1, 0, 0, "class<`function`>", 1
-"plotrix", "rescale", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"plotrix", "rescale", -1, 0, 0, "class<`matrix`>", 1
+"plotrix", "rescale", -1, 0, 1, "double[]", 1
 "plotrix", "rescale", 0, 0, 0, "class<`matrix`>", 1
 "plotrix", "rescale", 0, 0, 1, "double[]", 1
 "plotrix", "rescale", 1, 0, 0, "double[]", 1
@@ -1463,7 +1471,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "sizeplot", 5, 0, 0, "any", 1
 "plotrix", "sizeplot", 6, 0, 0, "logical", 1
 "plotrix", "sizeplot", 7, 0, 0, "...", 1
-"plotrix", "sizetree", -1, 0, 0, "(null | list<double[]>)", 1
+"plotrix", "sizetree", -1, 0, 0, "null", 1
+"plotrix", "sizetree", -1, 0, 1, "list<double[]>", 1
 "plotrix", "sizetree", 0, 0, 0, "class<`data.frame`>", 1
 "plotrix", "sizetree", 1, 0, 0, "double", 1
 "plotrix", "sizetree", 2, 0, 0, "any", 1
@@ -1486,7 +1495,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "smoothColors", -1, 0, 0, "character[]", 1
 "plotrix", "smoothColors", 0, 0, 0, "...", 1
 "plotrix", "smoothColors", 1, 0, 0, "null", 1
-"plotrix", "soil.texture", -1, 0, 0, "(null | list<double[]>)", 1
+"plotrix", "soil.texture", -1, 0, 0, "null", 1
+"plotrix", "soil.texture", -1, 0, 1, "list<double[]>", 1
 "plotrix", "soil.texture", 0, 0, 0, "null", 1
 "plotrix", "soil.texture", 0, 0, 1, "class<`data.frame`>", 1
 "plotrix", "soil.texture", 1, 0, 0, "character", 1
@@ -1616,7 +1626,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "starPie", 7, 0, 0, "logical", 1
 "plotrix", "starPie", 8, 0, 0, "character[]", 1
 "plotrix", "starPie", 9, 0, 0, "double", 1
-"plotrix", "staxlab", -1, 0, 0, "(null | list<logical>)", 1
+"plotrix", "staxlab", -1, 0, 0, "null", 1
+"plotrix", "staxlab", -1, 0, 1, "list<logical>", 1
 "plotrix", "staxlab", 0, 0, 0, "double", 1
 "plotrix", "staxlab", 1, 0, 0, "double[]", 1
 "plotrix", "staxlab", 2, 0, 0, "character[]", 1
@@ -1835,7 +1846,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotrix", "twoord.plot", 18, 0, 0, "null", 1
 "plotrix", "twoord.plot", 18, 0, 1, "double", 1
 "plotrix", "twoord.plot", 19, 0, 0, "double", 1
-"plotrix", "twoord.stackplot", -1, 0, 0, "(null | list<double[]>)", 1
+"plotrix", "twoord.stackplot", -1, 0, 0, "null", 1
+"plotrix", "twoord.stackplot", -1, 0, 1, "list<double[]>", 1
 "plotrix", "twoord.stackplot", 0, 0, 0, "integer[]", 1
 "plotrix", "twoord.stackplot", 1, 0, 0, "integer[]", 1
 "plotrix", "twoord.stackplot", 2, 0, 0, "class<`matrix`>", 1

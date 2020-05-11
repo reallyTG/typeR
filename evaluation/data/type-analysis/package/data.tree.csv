@@ -119,7 +119,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "CheckNameReservedWord", 0, 0, 0, "character", 1
 "data.tree", "CheckNameReservedWord", 1, 0, 0, "character[]", 1
 "data.tree", "CheckNameReservedWord", 1, 0, 1, "logical", 1
-"data.tree", "Climb", -1, 0, 0, "(class<`Node`, `R6`> | null)", 1
+"data.tree", "Climb", -1, 0, 0, "class<`Node`, `R6`>", 1
+"data.tree", "Climb", -1, 0, 1, "null", 1
 "data.tree", "Climb", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "Climb", 1, 0, 0, "...", 1
 "data.tree", "Clone", -1, 0, 0, "class<`Node`, `R6`>", 1
@@ -137,11 +138,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "CreateNodeFromSplittingNode", 0, 0, 0, "class<`SplittingNode`>", 1
 "data.tree", "CreateNodeFromSplittingNode", 0, 0, 1, "class<`TerminalNode`>", 1
 "data.tree", "CreateNodeFromSplittingNode", 1, 0, 0, "logical", 1
-"data.tree", "CreateRandomTree", -1, 0, 0, "(class<`Node`, `R6`> | null)", 1
+"data.tree", "CreateRandomTree", -1, 0, 0, "class<`Node`, `R6`>", 1
+"data.tree", "CreateRandomTree", -1, 0, 1, "null", 1
 "data.tree", "CreateRandomTree", 0, 0, 0, "double", 1
 "data.tree", "CreateRandomTree", 1, 0, 0, "any", 1
 "data.tree", "CreateRandomTree", 2, 0, 0, "any", 1
-"data.tree", "CreateRegularTree", -1, 0, 0, "(class<`Node`, `R6`> | null)", 1
+"data.tree", "CreateRegularTree", -1, 0, 0, "class<`Node`, `R6`>", 1
+"data.tree", "CreateRegularTree", -1, 0, 1, "null", 1
 "data.tree", "CreateRegularTree", 0, 0, 0, "double", 1
 "data.tree", "CreateRegularTree", 1, 0, 0, "any", 1
 "data.tree", "CreateRegularTree", 2, 0, 0, "any", 1
@@ -201,7 +204,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "FromParty", -1, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "FromParty", 0, 0, 0, "class<`party`>", 1
 "data.tree", "FromParty", 1, 0, 0, "class<`partynode`>", 1
-"data.tree", "Get", -1, 0, 0, "(^character[] | class<`matrix`> | ^double[] | list<any>)", 1
+"data.tree", "Get", -1, 0, 0, "^character[]", 1
+"data.tree", "Get", -1, 0, 1, "class<`matrix`>", 1
+"data.tree", "Get", -1, 0, 2, "^double[]", 1
+"data.tree", "Get", -1, 0, 3, "list<any>", 1
 "data.tree", "Get", 0, 0, 0, "list<class<`Node`, `R6`>>", 1
 "data.tree", "Get", 1, 0, 0, "character", 1
 "data.tree", "Get", 1, 0, 1, "class<`function`>", 1
@@ -211,7 +217,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "Get", 4, 0, 0, "any", 1
 "data.tree", "Get", 5, 0, 0, "character[]", 1
 "data.tree", "Get", 5, 0, 1, "logical", 1
-"data.tree", "GetAttribute", -1, 0, 0, "(character[] | double[] | null | list<any>)", 1
+"data.tree", "GetAttribute", -1, 0, 0, "character[]", 1
+"data.tree", "GetAttribute", -1, 0, 1, "double[]", 1
+"data.tree", "GetAttribute", -1, 0, 2, "null", 1
+"data.tree", "GetAttribute", -1, 0, 3, "list<any>", 1
 "data.tree", "GetAttribute", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "GetAttribute", 1, 0, 0, "character", 1
 "data.tree", "GetAttribute", 1, 0, 1, "class<`function`>", 1
@@ -222,14 +231,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "GetAttribute", 5, 0, 0, "logical", 1
 "data.tree", "GetEdgeStyleFactory", -1, 0, 0, "class<`function`>", 1
 "data.tree", "GetEdgeStyleFactory", 0, 0, 0, "character", 1
-"data.tree", "GetObjectAttribute", -1, 0, 0, "(null | list<class<`function`>>)", 1
+"data.tree", "GetObjectAttribute", -1, 0, 0, "null", 1
+"data.tree", "GetObjectAttribute", -1, 0, 1, "list<class<`function`>>", 1
 "data.tree", "GetObjectAttribute", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "GetObjectAttribute", 1, 0, 0, "character", 1
 "data.tree", "GetSplittingNodeLabel", -1, 0, 0, "character", 1
 "data.tree", "GetSplittingNodeLabel", 0, 0, 0, "class<`SplittingNode`>", 1
 "data.tree", "GetSplittingNodeLabel", 0, 0, 1, "class<`TerminalNode`>", 1
 "data.tree", "GetSplittingNodeLabel", 1, 0, 0, "any", 1
-"data.tree", "GetStyle", -1, 0, 0, "(character | double | null)", 1
+"data.tree", "GetStyle", -1, 0, 0, "character", 1
+"data.tree", "GetStyle", -1, 0, 1, "double", 1
+"data.tree", "GetStyle", -1, 0, 2, "null", 1
 "data.tree", "GetStyle", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "GetStyle", 1, 0, 0, "character", 1
 "data.tree", "GetStyle", 2, 0, 0, "character", 1
@@ -265,7 +277,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "Prune", -1, 0, 0, "double", 1
 "data.tree", "Prune", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "Prune", 1, 0, 0, "class<`function`>", 1
-"data.tree", ".Prune", -1, 0, 0, "(double | null)", 1
+"data.tree", ".Prune", -1, 0, 0, "double", 1
+"data.tree", ".Prune", -1, 0, 1, "null", 1
 "data.tree", ".Prune", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", ".Prune", 1, 0, 0, "any", 1
 "data.tree", ".Prune", 2, 0, 0, "logical", 1
@@ -298,7 +311,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "SetStyle", 2, 0, 0, "logical", 1
 "data.tree", "SetStyle", 3, 0, 0, "logical", 1
 "data.tree", "SetStyle", 4, 0, 0, "...", 1
-"data.tree", "Sort", -1, 0, 0, "(class<`Node`, `R6`> | null)", 1
+"data.tree", "Sort", -1, 0, 0, "class<`Node`, `R6`>", 1
+"data.tree", "Sort", -1, 0, 1, "null", 1
 "data.tree", "Sort", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "Sort", 1, 0, 0, "any", 1
 "data.tree", "Sort", 2, 0, 0, "...", 1

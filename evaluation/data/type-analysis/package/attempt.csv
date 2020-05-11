@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"attempt", "attempt", -1, 0, 0, "(class<`try-error`> | double)", 1
+"attempt", "attempt", -1, 0, 0, "class<`try-error`>", 1
+"attempt", "attempt", -1, 0, 1, "double", 1
 "attempt", "attempt", 0, 0, 0, "any", 1
 "attempt", "attempt", 1, 0, 0, "character", 1
 "attempt", "attempt", 1, 0, 1, "null", 1
@@ -18,7 +19,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "attempt", "if_else", 1, 0, 0, "class<`function`>", 1
 "attempt", "if_else", 2, 0, 0, "class<`formula`>", 1
 "attempt", "if_else", 3, 0, 0, "any", 1
-"attempt", "if_none", -1, 0, 0, "(double[] | null)", 1
+"attempt", "if_none", -1, 0, 0, "double[]", 1
+"attempt", "if_none", -1, 0, 1, "null", 1
 "attempt", "if_none", 0, 0, 0, "integer[]", 1
 "attempt", "if_none", 1, 0, 0, "class<`function`>", 1
 "attempt", "if_none", 2, 0, 0, "any", 1
@@ -32,7 +34,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "attempt", "if_then", 2, 0, 0, "class<`formula`>", 1
 "attempt", "is_try_error", -1, 0, 0, "logical", 1
 "attempt", "is_try_error", 0, 0, 0, "class<`try-error`>", 1
-"attempt", "silent_attempt", -1, 0, 0, "(class<`try-error`> | null)", 1
+"attempt", "silent_attempt", -1, 0, 0, "class<`try-error`>", 1
+"attempt", "silent_attempt", -1, 0, 1, "null", 1
 "attempt", "silent_attempt", 0, 0, 0, "...", 1
 "attempt", "silently", -1, 0, 0, "class<`function`>", 1
 "attempt", "silently", 0, 0, 0, "class<`function`>", 1

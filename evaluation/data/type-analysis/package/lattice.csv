@@ -44,7 +44,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "as.character.shingleLevel", -1, 0, 0, "character[]", 1
 "lattice", "as.character.shingleLevel", 0, 0, 0, "class<`shingleLevel`>", 1
 "lattice", "as.character.shingleLevel", 1, 0, 0, "...", 1
-"lattice", "as.factorOrShingle", -1, 0, 0, "(class<`factor`> | class<`shingle`>)", 1
+"lattice", "as.factorOrShingle", -1, 0, 0, "class<`factor`>", 1
+"lattice", "as.factorOrShingle", -1, 0, 1, "class<`shingle`>", 1
 "lattice", "as.factorOrShingle", 0, 0, 0, "character[]", 1
 "lattice", "as.factorOrShingle", 0, 0, 1, "class<`factor`>", 1
 "lattice", "as.factorOrShingle", 0, 0, 2, "class<`shingle`>", 1
@@ -170,7 +171,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "canonical.theme", -1, 0, 0, "list<list<any>>", 1
 "lattice", "canonical.theme", 0, 0, 0, "any", 1
 "lattice", "canonical.theme", 1, 0, 0, "logical", 1
-"lattice", "checkArgsAndCall", -1, 0, 0, "(class<`gDesc`, `grob`, `rect`> | class<`path`, `vpPath`> | double[] | null)", 1
+"lattice", "checkArgsAndCall", -1, 0, 0, "class<`gDesc`, `grob`, `rect`>", 1
+"lattice", "checkArgsAndCall", -1, 0, 1, "class<`path`, `vpPath`>", 1
+"lattice", "checkArgsAndCall", -1, 0, 2, "double[]", 1
+"lattice", "checkArgsAndCall", -1, 0, 3, "null", 1
 "lattice", "checkArgsAndCall", 0, 0, 0, "class<`function`>", 1
 "lattice", "checkArgsAndCall", 1, 0, 0, "list<any>", 1
 "lattice", "chooseFace", -1, 0, 0, "double", 1
@@ -241,7 +245,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "cond.orders", 0, 0, 0, "class<`trellis`>", 1
 "lattice", "cond.orders", 0, 0, 1, "list<any>", 1
 "lattice", "cond.orders", 1, 0, 0, "...", 1
-"lattice", "construct.legend", -1, 0, 0, "(null | list<list<any>>)", 1
+"lattice", "construct.legend", -1, 0, 0, "null", 1
+"lattice", "construct.legend", -1, 0, 1, "list<list<any>>", 1
 "lattice", "construct.legend", 0, 0, 0, "null", 1
 "lattice", "construct.legend", 0, 0, 1, "list<list<class<`gDesc`, `grob`, `text`> | character | double | list<logical | list<double | list<integer[]>>> | class<`gDesc`, `grob`, `text`>>>", 1
 "lattice", "construct.legend", 1, 0, 0, "null", 1
@@ -383,11 +388,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "equal.count", 0, 0, 0, "double[]", 1
 "lattice", "equal.count", 0, 0, 1, "class<`ts`>", 1
 "lattice", "equal.count", 1, 0, 0, "...", 1
-"lattice", "evaluate.legend", -1, 0, 0, "(null | list<list<class<`frame`, `gDesc`, `gTree`, `grob`>>>)", 1
+"lattice", "evaluate.legend", -1, 0, 0, "null", 1
+"lattice", "evaluate.legend", -1, 0, 1, "list<list<class<`frame`, `gDesc`, `gTree`, `grob`>>>", 1
 "lattice", "evaluate.legend", 0, 0, 0, "null", 1
 "lattice", "evaluate.legend", 0, 0, 1, "list<list<character | list<logical | list<double[] | character>>>>", 1
 "lattice", "experimentalOptions", -1, 0, 0, "list<list<list<double | character | null>>>", 1
-"lattice", "extend.limits", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | double[] | null)", 1
+"lattice", "extend.limits", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"lattice", "extend.limits", -1, 0, 1, "double[]", 1
+"lattice", "extend.limits", -1, 0, 2, "null", 1
 "lattice", "extend.limits", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "lattice", "extend.limits", 0, 0, 1, "character[]", 1
 "lattice", "extend.limits", 0, 0, 2, "^double[]", 1
@@ -419,18 +427,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "FUN", 0, 0, 6, "class<`shingle`>", 1
 "lattice", "FUN", 0, 0, 7, "class<`ts`>", 1
 "lattice", "FUN", 0, 0, 8, "null", 1
-"lattice", "getFunctionOrName", -1, 0, 0, "(class<`function`> | logical | null)", 1
+"lattice", "getFunctionOrName", -1, 0, 0, "class<`function`>", 1
+"lattice", "getFunctionOrName", -1, 0, 1, "logical", 1
+"lattice", "getFunctionOrName", -1, 0, 2, "null", 1
 "lattice", "getFunctionOrName", 0, 0, 0, "class<`function`>", 1
 "lattice", "getFunctionOrName", 0, 0, 1, "character", 1
 "lattice", "getFunctionOrName", 0, 0, 2, "logical", 1
 "lattice", "getFunctionOrName", 0, 0, 3, "null", 1
-"lattice", "getLabelList", -1, 0, 0, "(null | list<character | double>)", 1
+"lattice", "getLabelList", -1, 0, 0, "null", 1
+"lattice", "getLabelList", -1, 0, 1, "list<character | double>", 1
 "lattice", "getLabelList", 0, 0, 0, "null", 1
 "lattice", "getLabelList", 0, 0, 1, "character", 1
 "lattice", "getLabelList", 0, 0, 2, "logical", 1
 "lattice", "getLabelList", 1, 0, 0, "any", 1
 "lattice", "getLabelList", 2, 0, 0, "any", 1
-"lattice", "grobFromLabelList", -1, 0, 0, "(class<`gDesc`, `grob`, `text`> | null)", 1
+"lattice", "grobFromLabelList", -1, 0, 0, "class<`gDesc`, `grob`, `text`>", 1
+"lattice", "grobFromLabelList", -1, 0, 1, "null", 1
 "lattice", "grobFromLabelList", 0, 0, 0, "null", 1
 "lattice", "grobFromLabelList", 0, 0, 1, "list<character | double>", 1
 "lattice", "grobFromLabelList", 1, 0, 0, "any", 1
@@ -504,9 +516,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "larrows", 17, 0, 0, "any", 1
 "lattice", "larrows", 18, 0, 0, "any", 1
 "lattice", "larrows", 19, 0, 0, "...", 1
-"lattice", "lattice.getOption", -1, 0, 0, "(character | class<`function`> | double | null | list<any>)", 1
+"lattice", "lattice.getOption", -1, 0, 0, "character", 1
+"lattice", "lattice.getOption", -1, 0, 1, "class<`function`>", 1
+"lattice", "lattice.getOption", -1, 0, 2, "double", 1
+"lattice", "lattice.getOption", -1, 0, 3, "null", 1
+"lattice", "lattice.getOption", -1, 0, 4, "list<any>", 1
 "lattice", "lattice.getOption", 0, 0, 0, "character", 1
-"lattice", "lattice.getStatus", -1, 0, 0, "(character | class<`matrix`> | double[] | null)", 1
+"lattice", "lattice.getStatus", -1, 0, 0, "character", 1
+"lattice", "lattice.getStatus", -1, 0, 1, "class<`matrix`>", 1
+"lattice", "lattice.getStatus", -1, 0, 2, "double[]", 1
+"lattice", "lattice.getStatus", -1, 0, 3, "null", 1
 "lattice", "lattice.getStatus", 0, 0, 0, "character", 1
 "lattice", "lattice.getStatus", 1, 0, 0, "null", 1
 "lattice", "lattice.getStatus", 1, 0, 1, "character", 1
@@ -847,7 +866,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "parallelplot.formula", 17, 0, 0, "...", 1
 "lattice", "parallelplot.formula", 18, 0, 0, "null", 1
 "lattice", "parallelplot.formula", 19, 0, 0, "any", 1
-"lattice", "paste.and.draw", -1, 0, 0, "(class<`gDesc`, `grob`, `text`> | null)", 1
+"lattice", "paste.and.draw", -1, 0, 0, "class<`gDesc`, `grob`, `text`>", 1
+"lattice", "paste.and.draw", -1, 0, 1, "null", 1
 "lattice", "paste.and.draw", 0, 0, 0, "any", 1
 "lattice", "paste.and.draw", 1, 0, 0, "any", 1
 "lattice", "paste.and.draw", 2, 0, 0, "character", 1
@@ -985,7 +1005,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "Rows", -1, 0, 0, "list<double[] | character[]>", 1
 "lattice", "Rows", 0, 0, 0, "list<double[] | character[]>", 1
 "lattice", "Rows", 1, 0, 0, "integer[]", 1
-"lattice", "scale.limits", -1, 0, 0, "(character[] | class<`Date`> | class<`POSIXct`, `POSIXt`> | double[])", 1
+"lattice", "scale.limits", -1, 0, 0, "character[]", 1
+"lattice", "scale.limits", -1, 0, 1, "class<`Date`>", 1
+"lattice", "scale.limits", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"lattice", "scale.limits", -1, 0, 3, "double[]", 1
 "lattice", "scale.limits", 0, 0, 0, "class<`factor`>", 1
 "lattice", "scale.limits", 0, 0, 1, "class<`Date`>", 1
 "lattice", "scale.limits", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
@@ -1221,7 +1244,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lattice", "update.trellis", 17, 0, 0, "any", 1
 "lattice", "update.trellis", 18, 0, 0, "any", 1
 "lattice", "update.trellis", 19, 0, 0, "any", 1
-"lattice", "which.packet", -1, 0, 0, "(double[] | null)", 1
+"lattice", "which.packet", -1, 0, 0, "double[]", 1
+"lattice", "which.packet", -1, 0, 1, "null", 1
 "lattice", "which.packet", 0, 0, 0, "character", 1
 "lattice", "wireframe", -1, 0, 0, "class<`trellis`>", 1
 "lattice", "wireframe", 0, 0, 0, "class<`formula`>", 1

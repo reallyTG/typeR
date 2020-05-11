@@ -243,7 +243,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "check_set_bool", -1, 0, 0, "list<double>", 1
 "officer", "check_set_bool", 0, 0, 0, "list<double>", 1
 "officer", "check_set_bool", 1, 0, 0, "logical", 1
-"officer", "check_set_choice", -1, 0, 0, "(class<`fp_border`> | list<class<`fp_border`> | character | double | character | character>)", 1
+"officer", "check_set_choice", -1, 0, 0, "class<`fp_border`>", 1
+"officer", "check_set_choice", -1, 0, 1, "list<class<`fp_border`> | character | double | character | character>", 1
 "officer", "check_set_choice", 0, 0, 0, "class<`fp_border`>", 1
 "officer", "check_set_choice", 0, 0, 1, "list<class<`fp_border`> | character | double | character | character>", 1
 "officer", "check_set_choice", 1, 0, 0, "character", 1
@@ -251,11 +252,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "check_set_chr", -1, 0, 0, "list<double | character>", 1
 "officer", "check_set_chr", 0, 0, 0, "list<double | character>", 1
 "officer", "check_set_chr", 1, 0, 0, "character", 1
-"officer", "check_set_color", -1, 0, 0, "(class<`fp_text`> | list<class<`fp_border`> | character | double | character | character>)", 1
+"officer", "check_set_color", -1, 0, 0, "class<`fp_text`>", 1
+"officer", "check_set_color", -1, 0, 1, "list<class<`fp_border`> | character | double | character | character>", 1
 "officer", "check_set_color", 0, 0, 0, "class<`fp_text`>", 1
 "officer", "check_set_color", 0, 0, 1, "list<any>", 1
 "officer", "check_set_color", 1, 0, 0, "character", 1
-"officer", "check_set_integer", -1, 0, 0, "(class<`fp_border`> | class<`fp_cell`> | class<`fp_par`>)", 1
+"officer", "check_set_integer", -1, 0, 0, "class<`fp_border`>", 1
+"officer", "check_set_integer", -1, 0, 1, "class<`fp_cell`>", 1
+"officer", "check_set_integer", -1, 0, 2, "class<`fp_par`>", 1
 "officer", "check_set_integer", 0, 0, 0, "class<`fp_border`>", 1
 "officer", "check_set_integer", 0, 0, 1, "class<`fp_cell`>", 1
 "officer", "check_set_integer", 0, 0, 2, "class<`fp_par`>", 1
@@ -346,7 +350,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "format.fp_text", 2, 0, 0, "...", 1
 "officer", "fortify_fpar", -1, 0, 0, "list<class<`cot`, `external_img`> | class<`cot`, `ftext`> | class<`cot`, `external_img`> | class<`cot`, `ftext`>>", 1
 "officer", "fortify_fpar", 0, 0, 0, "class<`fpar`>", 1
-"officer", "fortify_location", -1, 0, 0, "(class<`location_manual`, `location_str`> | list<double | character | double | character | null>)", 1
+"officer", "fortify_location", -1, 0, 0, "class<`location_manual`, `location_str`>", 1
+"officer", "fortify_location", -1, 0, 1, "list<double | character | double | character | null>", 1
 "officer", "fortify_location", 0, 0, 0, "class<`location_manual`, `location_str`>", 1
 "officer", "fortify_location", 0, 0, 1, "class<`location_str`, `location_template`>", 1
 "officer", "fortify_location", 0, 0, 2, "class<`location_label`, `location_str`>", 1
@@ -743,7 +748,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "print.fp_text", -1, 0, 0, "null", 1
 "officer", "print.fp_text", 0, 0, 0, "class<`fp_text`>", 1
 "officer", "print.fp_text", 1, 0, 0, "...", 1
-"officer", "print.rdocx", -1, 0, 0, "(character | null)", 1
+"officer", "print.rdocx", -1, 0, 0, "character", 1
+"officer", "print.rdocx", -1, 0, 1, "null", 1
 "officer", "print.rdocx", 0, 0, 0, "class<`rdocx`>", 1
 "officer", "print.rdocx", 1, 0, 0, "character", 1
 "officer", "print.rdocx", 1, 0, 1, "null", 1

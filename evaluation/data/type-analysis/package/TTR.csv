@@ -29,7 +29,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "TTR", "BBands", 2, 0, 0, "any", 1
 "TTR", "BBands", 3, 0, 0, "double", 1
 "TTR", "BBands", 4, 0, 0, "...", 1
-"TTR", "CCI", -1, 0, 0, "(class<`matrix`> | ^double[])", 1
+"TTR", "CCI", -1, 0, 0, "class<`matrix`>", 1
+"TTR", "CCI", -1, 0, 1, "^double[]", 1
 "TTR", "CCI", 0, 0, 0, "class<`matrix`>", 1
 "TTR", "CCI", 0, 0, 1, "class<`data.frame`>", 1
 "TTR", "CCI", 1, 0, 0, "double", 1
@@ -45,7 +46,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "TTR", "chaikinVolatility", 1, 0, 0, "double", 1
 "TTR", "chaikinVolatility", 2, 0, 0, "any", 1
 "TTR", "chaikinVolatility", 3, 0, 0, "...", 1
-"TTR", "CLV", -1, 0, 0, "(class<`data.frame`> | class<`matrix`> | ^double[])", 1
+"TTR", "CLV", -1, 0, 0, "class<`data.frame`>", 1
+"TTR", "CLV", -1, 0, 1, "class<`matrix`>", 1
+"TTR", "CLV", -1, 0, 2, "^double[]", 1
 "TTR", "CLV", 0, 0, 0, "class<`xts`, `zoo`>", 1
 "TTR", "CLV", 0, 0, 1, "class<`matrix`>", 1
 "TTR", "CLV", 0, 0, 2, "class<`data.frame`>", 1
@@ -134,7 +137,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "TTR", "MFI", 0, 0, 0, "class<`data.frame`>", 1
 "TTR", "MFI", 1, 0, 0, "^double[]", 1
 "TTR", "MFI", 2, 0, 0, "double", 1
-"TTR", "momentum", -1, 0, 0, "(class<`matrix`> | ^double[])", 1
+"TTR", "momentum", -1, 0, 0, "class<`matrix`>", 1
+"TTR", "momentum", -1, 0, 1, "^double[]", 1
 "TTR", "momentum", 0, 0, 0, "class<`xts`, `zoo`>", 1
 "TTR", "momentum", 0, 0, 1, "class<`matrix`>", 1
 "TTR", "momentum", 0, 0, 2, "double[]", 1
@@ -157,7 +161,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "TTR", "PBands", 5, 0, 0, "double", 1
 "TTR", "PBands", 6, 0, 0, "logical", 1
 "TTR", "PBands", 7, 0, 0, "logical", 1
-"TTR", "ROC", -1, 0, 0, "(class<`data.frame`> | ^double[])", 1
+"TTR", "ROC", -1, 0, 0, "class<`data.frame`>", 1
+"TTR", "ROC", -1, 0, 1, "^double[]", 1
 "TTR", "ROC", 0, 0, 0, "class<`xts`, `zoo`>", 1
 "TTR", "ROC", 0, 0, 1, "^double[]", 1
 "TTR", "ROC", 1, 0, 0, "double", 1

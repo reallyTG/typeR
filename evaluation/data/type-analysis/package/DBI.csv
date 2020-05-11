@@ -334,11 +334,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DBI", "dbUnquoteIdentifier", 1, 1, 0, "class<`SQL`>", 1
 "DBI", "dbUnquoteIdentifier", 1, 1, 1, "class<`Id`>", 1
 "DBI", "dbUnquoteIdentifier", 2, 1, 0, "...", 1
-"DBI", "dbWithTransaction", -1, 0, 0, "(integer | null)", 1
+"DBI", "dbWithTransaction", -1, 0, 0, "integer", 1
+"DBI", "dbWithTransaction", -1, 0, 1, "null", 1
 "DBI", "dbWithTransaction", 0, 0, 0, "class<`SQLiteConnection`>", 1
 "DBI", "dbWithTransaction", 1, 0, 0, "any", 1
 "DBI", "dbWithTransaction", 2, 0, 0, "...", 1
-"DBI", "dbWithTransaction", -1, 1, 0, "(integer | null)", 1
+"DBI", "dbWithTransaction", -1, 1, 0, "integer", 1
+"DBI", "dbWithTransaction", -1, 1, 1, "null", 1
 "DBI", "dbWithTransaction", 0, 1, 0, "class<`SQLiteConnection`>", 1
 "DBI", "dbWithTransaction", 1, 1, 0, "any", 1
 "DBI", "dbWithTransaction", 2, 1, 0, "...", 1
@@ -384,7 +386,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DBI", "guessColName", -1, 0, 0, "null", 1
 "DBI", "guessColName", 0, 0, 0, "any", 1
 "DBI", "guessColName", 1, 0, 0, "logical", 1
-"DBI", "guessRowName", -1, 0, 0, "(character | null)", 1
+"DBI", "guessRowName", -1, 0, 0, "character", 1
+"DBI", "guessRowName", -1, 0, 1, "null", 1
 "DBI", "guessRowName", 0, 0, 0, "any", 1
 "DBI", "guessRowName", 1, 0, 0, "character", 1
 "DBI", "guessRowName", 1, 0, 1, "logical", 1
@@ -474,14 +477,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DBI", "sqlCreateTable", 3, 2, 1, "logical", 1
 "DBI", "sqlCreateTable", 4, 2, 0, "logical", 1
 "DBI", "sqlCreateTable", 5, 2, 0, "...", 1
-"DBI", "sqlData", -1, 0, 0, "(class<`data.frame`> | list<character>)", 1
+"DBI", "sqlData", -1, 0, 0, "class<`data.frame`>", 1
+"DBI", "sqlData", -1, 0, 1, "list<character>", 1
 "DBI", "sqlData", 0, 0, 0, "class<`AnsiConnection`>", 1
 "DBI", "sqlData", 1, 0, 0, "class<`data.frame`>", 1
 "DBI", "sqlData", 1, 0, 1, "list<class<`SQL`>>", 1
 "DBI", "sqlData", 2, 0, 0, "logical", 1
 "DBI", "sqlData", 2, 0, 1, "null", 1
 "DBI", "sqlData", 3, 0, 0, "...", 1
-"DBI", "sqlData", -1, 1, 0, "(class<`data.frame`> | list<class<`SQL`> | character>)", 1
+"DBI", "sqlData", -1, 1, 0, "class<`data.frame`>", 1
+"DBI", "sqlData", -1, 1, 1, "list<class<`SQL`> | character>", 1
 "DBI", "sqlData", 0, 1, 0, "class<`AnsiConnection`>", 1
 "DBI", "sqlData", 0, 1, 1, "class<`SQLiteConnection`>", 1
 "DBI", "sqlData", 1, 1, 0, "class<`data.frame`>", 1
@@ -527,7 +532,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DBI", "sqlQuoteSpec", 1, 0, 0, "character", 1
 "DBI", "sqlQuoteSpec", 2, 0, 0, "character", 1
 "DBI", "sqlQuoteSpec", 3, 0, 0, "logical", 1
-"DBI", "sqlRownamesToColumn", -1, 0, 0, "(class<`data.frame`> | list<class<`SQL`>>)", 1
+"DBI", "sqlRownamesToColumn", -1, 0, 0, "class<`data.frame`>", 1
+"DBI", "sqlRownamesToColumn", -1, 0, 1, "list<class<`SQL`>>", 1
 "DBI", "sqlRownamesToColumn", 0, 0, 0, "class<`data.frame`>", 1
 "DBI", "sqlRownamesToColumn", 0, 0, 1, "list<class<`SQL`>>", 1
 "DBI", "sqlRownamesToColumn", 1, 0, 0, "logical", 1

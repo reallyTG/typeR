@@ -36,7 +36,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bdsmatrix", "bdsmatrix", 2, 0, 0, "any", 1
 "bdsmatrix", "bdsmatrix", 3, 0, 0, "null", 1
 "bdsmatrix", "bdsmatrix", 3, 0, 1, "list<null | character[] | character[] | integer[]>", 1
-"bdsmatrix", "bdsmatrix.reconcile", -1, 0, 0, "(class<`bdsmatrix`> | list<class<`bdsmatrix`>>)", 1
+"bdsmatrix", "bdsmatrix.reconcile", -1, 0, 0, "class<`bdsmatrix`>", 1
+"bdsmatrix", "bdsmatrix.reconcile", -1, 0, 1, "list<class<`bdsmatrix`>>", 1
 "bdsmatrix", "bdsmatrix.reconcile", 0, 0, 0, "class<`function`>", 1
 "bdsmatrix", "bdsmatrix.reconcile", 0, 0, 1, "list<any>", 1
 "bdsmatrix", "bdsmatrix.reconcile", 1, 0, 0, "character[]", 1
@@ -64,22 +65,28 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bdsmatrix", "gchol", -1, 1, 0, "class<`gchol`>", 1
 "bdsmatrix", "gchol", 0, 1, 0, "class<`matrix`>", 1
 "bdsmatrix", "gchol", 1, 1, 0, "double", 1
-"bdsmatrix", "gchol", -1, 2, 0, "(class<`gchol`> | class<`gchol.bdsmatrix`>)", 1
+"bdsmatrix", "gchol", -1, 2, 0, "class<`gchol`>", 1
+"bdsmatrix", "gchol", -1, 2, 1, "class<`gchol.bdsmatrix`>", 1
 "bdsmatrix", "gchol", 0, 2, 0, "class<`matrix`>", 1
 "bdsmatrix", "gchol", 0, 2, 1, "class<`bdsmatrix`>", 1
 "bdsmatrix", "gchol", 1, 2, 0, "double", 1
-"bdsmatrix", "solve.bdsmatrix", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"bdsmatrix", "solve.bdsmatrix", -1, 0, 0, "class<`matrix`>", 1
+"bdsmatrix", "solve.bdsmatrix", -1, 0, 1, "double[]", 1
 "bdsmatrix", "solve.bdsmatrix", 0, 0, 0, "class<`bdsmatrix`>", 1
 "bdsmatrix", "solve.bdsmatrix", 1, 0, 0, "any", 1
 "bdsmatrix", "solve.bdsmatrix", 2, 0, 0, "logical", 1
 "bdsmatrix", "solve.bdsmatrix", 3, 0, 0, "double", 1
 "bdsmatrix", "solve.bdsmatrix", 4, 0, 0, "...", 1
-"bdsmatrix", "solve.gchol", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"bdsmatrix", "solve.gchol", -1, 0, 0, "class<`matrix`>", 1
+"bdsmatrix", "solve.gchol", -1, 0, 1, "double[]", 1
 "bdsmatrix", "solve.gchol", 0, 0, 0, "class<`gchol`>", 1
 "bdsmatrix", "solve.gchol", 1, 0, 0, "any", 1
 "bdsmatrix", "solve.gchol", 2, 0, 0, "logical", 1
 "bdsmatrix", "solve.gchol", 3, 0, 0, "...", 1
-"bdsmatrix", "solve.gchol.bdsmatrix", -1, 0, 0, "(class<`bdsmatrix`> | class<`gchol.bdsmatrix`> | class<`matrix`> | double[])", 1
+"bdsmatrix", "solve.gchol.bdsmatrix", -1, 0, 0, "class<`bdsmatrix`>", 1
+"bdsmatrix", "solve.gchol.bdsmatrix", -1, 0, 1, "class<`gchol.bdsmatrix`>", 1
+"bdsmatrix", "solve.gchol.bdsmatrix", -1, 0, 2, "class<`matrix`>", 1
+"bdsmatrix", "solve.gchol.bdsmatrix", -1, 0, 3, "double[]", 1
 "bdsmatrix", "solve.gchol.bdsmatrix", 0, 0, 0, "class<`gchol.bdsmatrix`>", 1
 "bdsmatrix", "solve.gchol.bdsmatrix", 1, 0, 0, "any", 1
 "bdsmatrix", "solve.gchol.bdsmatrix", 2, 0, 0, "logical", 1

@@ -37,7 +37,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "brewer_pal", 1, 1, 0, "character", 1
 "scales", "brewer_pal", 1, 1, 1, "double", 1
 "scales", "brewer_pal", 2, 1, 0, "double", 1
-"scales", "calcLevels", -1, 0, 0, "(character[] | integer[])", 1
+"scales", "calcLevels", -1, 0, 0, "character[]", 1
+"scales", "calcLevels", -1, 0, 1, "integer[]", 1
 "scales", "calcLevels", 0, 0, 0, "character[]", 1
 "scales", "calcLevels", 0, 0, 1, "class<`factor`>", 1
 "scales", "calcLevels", 0, 0, 2, "integer[]", 1
@@ -129,7 +130,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "comma_format", 6, 0, 0, "logical", 1
 "scales", "comma_format", 7, 0, 0, "any", 1
 "scales", "comma_format", 8, 0, 0, "...", 1
-"scales", "cscale", -1, 0, 0, "(character[] | double[])", 1
+"scales", "cscale", -1, 0, 0, "character[]", 1
+"scales", "cscale", -1, 0, 1, "double[]", 1
 "scales", "cscale", 0, 0, 0, "double[]", 1
 "scales", "cscale", 1, 0, 0, "class<`function`>", 1
 "scales", "cscale", 2, 0, 0, "null", 1
@@ -226,7 +228,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "getBins", 1, 0, 0, "any", 1
 "scales", "getBins", 2, 0, 0, "double[]", 1
 "scales", "getBins", 3, 0, 0, "any", 1
-"scales", "getLevels", -1, 0, 0, "(character[] | integer[] | null)", 1
+"scales", "getLevels", -1, 0, 0, "character[]", 1
+"scales", "getLevels", -1, 0, 1, "integer[]", 1
+"scales", "getLevels", -1, 0, 2, "null", 1
 "scales", "getLevels", 0, 0, 0, "any", 1
 "scales", "getLevels", 1, 0, 0, "any", 1
 "scales", "getLevels", 2, 0, 0, "character[]", 1
@@ -350,7 +354,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "logit_trans", -1, 0, 0, "class<`trans`>", 1
 "scales", "log_trans", -1, 0, 0, "class<`trans`>", 1
 "scales", "log_trans", 0, 0, 0, "double", 1
-"scales", "map_continuous", -1, 0, 0, "(character[] | double[])", 1
+"scales", "map_continuous", -1, 0, 0, "character[]", 1
+"scales", "map_continuous", -1, 0, 1, "double[]", 1
 "scales", "map_continuous", 0, 0, 0, "class<`function`>", 1
 "scales", "map_continuous", 1, 0, 0, "double[]", 1
 "scales", "map_continuous", 2, 0, 0, "double[]", 1
@@ -588,6 +593,7 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "withColorAttr", 2, 0, 0, "class<`function`>", 1
 "scales", "yj_trans", -1, 0, 0, "class<`trans`>", 1
 "scales", "yj_trans", 0, 0, 0, "double", 1
-"scales", "zero_range", -1, 0, 0, "(logical | null)", 1
+"scales", "zero_range", -1, 0, 0, "logical", 1
+"scales", "zero_range", -1, 0, 1, "null", 1
 "scales", "zero_range", 0, 0, 0, "^double[]", 1
 "scales", "zero_range", 1, 0, 0, "any", 1

@@ -6,7 +6,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "KFAS", "approxSSM", 3, 0, 0, "double", 1
 "KFAS", "artransform", -1, 0, 0, "double[]", 1
 "KFAS", "artransform", 0, 0, 0, "double[]", 1
-"KFAS", "coef.KFS", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`> | double[])", 1
+"KFAS", "coef.KFS", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "coef.KFS", -1, 0, 1, "class<`ts`>", 1
+"KFAS", "coef.KFS", -1, 0, 2, "double[]", 1
 "KFAS", "coef.KFS", 0, 0, 0, "class<`KFS`>", 1
 "KFAS", "coef.KFS", 1, 0, 0, "any", 1
 "KFAS", "coef.KFS", 2, 0, 0, "double[]", 1
@@ -15,7 +17,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "KFAS", "coef.KFS", 4, 0, 0, "character[]", 1
 "KFAS", "coef.KFS", 5, 0, 0, "logical", 1
 "KFAS", "coef.KFS", 6, 0, 0, "...", 1
-"KFAS", "coef.SSModel", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | double[])", 1
+"KFAS", "coef.SSModel", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "coef.SSModel", -1, 0, 1, "double[]", 1
 "KFAS", "coef.SSModel", 0, 0, 0, "class<`SSModel`>", 1
 "KFAS", "coef.SSModel", 1, 0, 0, "double[]", 1
 "KFAS", "coef.SSModel", 1, 0, 1, "null", 1
@@ -33,7 +36,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "KFAS", "fitSSM", 3, 0, 0, "any", 1
 "KFAS", "fitSSM", 4, 0, 0, "null", 1
 "KFAS", "fitSSM", 5, 0, 0, "...", 1
-"KFAS", "fitted.KFS", -1, 0, 0, "(class<`ts`> | double[])", 1
+"KFAS", "fitted.KFS", -1, 0, 0, "class<`ts`>", 1
+"KFAS", "fitted.KFS", -1, 0, 1, "double[]", 1
 "KFAS", "fitted.KFS", 0, 0, 0, "class<`KFS`>", 1
 "KFAS", "fitted.KFS", 1, 0, 0, "null", 1
 "KFAS", "fitted.KFS", 2, 0, 0, "null", 1
@@ -77,7 +81,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "KFAS", "interval", 8, 0, 0, "any", 1
 "KFAS", "interval", 9, 0, 0, "double", 1
 "KFAS", "interval", 10, 0, 0, "logical", 1
-"KFAS", "is.SSModel", -1, 0, 0, "(logical | null)", 1
+"KFAS", "is.SSModel", -1, 0, 0, "logical", 1
+"KFAS", "is.SSModel", -1, 0, 1, "null", 1
 "KFAS", "is.SSModel", 0, 0, 0, "class<`SSModel`>", 1
 "KFAS", "is.SSModel", 0, 0, 1, "class<`SSModel`, `approxSSM`>", 1
 "KFAS", "is.SSModel", 1, 0, 0, "logical", 1
@@ -113,7 +118,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "KFAS", "pearson_standardized", 0, 0, 0, "class<`KFS`>", 1
 "KFAS", "pearson_standardized", 1, 0, 0, "character", 1
 "KFAS", "pearson_standardized", 2, 0, 0, "double", 1
-"KFAS", "predict.SSModel", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | list<class<`matrix`, `mts`, `ts`>>)", 1
+"KFAS", "predict.SSModel", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "predict.SSModel", -1, 0, 1, "list<class<`matrix`, `mts`, `ts`>>", 1
 "KFAS", "predict.SSModel", 0, 0, 0, "class<`SSModel`>", 1
 "KFAS", "predict.SSModel", 1, 0, 0, "any", 1
 "KFAS", "predict.SSModel", 2, 0, 0, "any", 1
@@ -127,14 +133,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "KFAS", "predict.SSModel", 10, 0, 0, "double", 1
 "KFAS", "predict.SSModel", 11, 0, 0, "logical", 1
 "KFAS", "predict.SSModel", 12, 0, 0, "...", 1
-"KFAS", "recursive_standardized", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"KFAS", "recursive_standardized", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "recursive_standardized", -1, 0, 1, "class<`ts`>", 1
 "KFAS", "recursive_standardized", 0, 0, 0, "class<`KFS`>", 1
 "KFAS", "recursive_standardized", 1, 0, 0, "character", 1
 "KFAS", "recursive_standardized", 2, 0, 0, "double", 1
 "KFAS", "rename_states", -1, 0, 0, "class<`SSModel`>", 1
 "KFAS", "rename_states", 0, 0, 0, "class<`SSModel`>", 1
 "KFAS", "rename_states", 1, 0, 0, "character", 1
-"KFAS", "rstandard.KFS", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"KFAS", "rstandard.KFS", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"KFAS", "rstandard.KFS", -1, 0, 1, "class<`ts`>", 1
 "KFAS", "rstandard.KFS", 0, 0, 0, "class<`KFS`>", 1
 "KFAS", "rstandard.KFS", 1, 0, 0, "character[]", 1
 "KFAS", "rstandard.KFS", 2, 0, 0, "character[]", 1
@@ -202,7 +210,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "KFAS", "[<-.SSModel", 6, 0, 0, "...", 1
 "KFAS", "[<-.SSModel", 7, 0, 0, "class<`matrix`>", 1
 "KFAS", "[<-.SSModel", 7, 0, 1, "double[]", 1
-"KFAS", "[.SSModel", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[] | list<class<`ts`> | class<`array`> | class<`matrix`>>)", 1
+"KFAS", "[.SSModel", -1, 0, 0, "class<`array`>", 1
+"KFAS", "[.SSModel", -1, 0, 1, "class<`matrix`>", 1
+"KFAS", "[.SSModel", -1, 0, 2, "double[]", 1
+"KFAS", "[.SSModel", -1, 0, 3, "list<class<`ts`> | class<`array`> | class<`matrix`>>", 1
 "KFAS", "[.SSModel", 0, 0, 0, "class<`SSModel`>", 1
 "KFAS", "[.SSModel", 1, 0, 0, "character[]", 1
 "KFAS", "[.SSModel", 2, 0, 0, "any", 1

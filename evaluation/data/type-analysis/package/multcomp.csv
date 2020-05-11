@@ -22,7 +22,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "multcomp", "cftest", 2, 0, 0, "class<`function`>", 1
 "multcomp", "cftest", 3, 0, 0, "...", 1
 "multcomp", "Chisqtest", -1, 0, 0, "class<`function`>", 1
-"multcomp", "chkdots", -1, 0, 0, "(character | null)", 1
+"multcomp", "chkdots", -1, 0, 0, "character", 1
+"multcomp", "chkdots", -1, 0, 1, "null", 1
 "multcomp", "chkdots", 0, 0, 0, "...", 1
 "multcomp", "chrlinfct2matrix", -1, 0, 0, "any", 1
 "multcomp", "chrlinfct2matrix", 0, 0, 0, "character[]", 1
@@ -178,11 +179,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "multcomp", "insert_absorb", 5, 0, 0, "character[]", 1
 "multcomp", "is_num", -1, 0, 0, "logical", 1
 "multcomp", "is_num", 0, 0, 0, "double", 1
-"multcomp", "lhs", -1, 0, 0, "(class<`call`> | class<`name`>)", 1
+"multcomp", "lhs", -1, 0, 0, "class<`call`>", 1
+"multcomp", "lhs", -1, 0, 1, "class<`name`>", 1
 "multcomp", "lhs", 0, 0, 0, "expression", 1
 "multcomp", "maxsets", -1, 0, 0, "list<list<integer[]>>", 1
 "multcomp", "maxsets", 0, 0, 0, "class<`matrix`>", 1
-"multcomp", "mcp", -1, 0, 0, "(class<`mcp`> | class<`means`>)", 1
+"multcomp", "mcp", -1, 0, 0, "class<`mcp`>", 1
+"multcomp", "mcp", -1, 0, 1, "class<`means`>", 1
 "multcomp", "mcp", 0, 0, 0, "...", 1
 "multcomp", "mcp", 1, 0, 0, "logical", 1
 "multcomp", "mcp", 2, 0, 0, "logical", 1
@@ -212,7 +215,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "multcomp", "model.frame.coxme", -1, 0, 0, "class<`data.frame`>", 1
 "multcomp", "model.frame.coxme", 0, 0, 0, "class<`coxme`>", 1
 "multcomp", "model.frame.coxme", 1, 0, 0, "...", 1
-"multcomp", "model.frame.lme", -1, 0, 0, "(class<`data.frame`, `groupedData`, `nfGroupedData`, `nffGroupedData`> | class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>)", 1
+"multcomp", "model.frame.lme", -1, 0, 0, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nffGroupedData`>", 1
+"multcomp", "model.frame.lme", -1, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
 "multcomp", "model.frame.lme", 0, 0, 0, "class<`lme`>", 1
 "multcomp", "model.frame.lme", 1, 0, 0, "...", 1
 "multcomp", "model.matrix.aovlist", -1, 0, 0, "any", 1
@@ -308,7 +312,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "multcomp", "parm", 0, 0, 0, "double[]", 1
 "multcomp", "parm", 1, 0, 0, "class<`matrix`>", 1
 "multcomp", "parm", 2, 0, 0, "double", 1
-"multcomp", "plot.cld", -1, 0, 0, "(class<`table`, `xtabs`> | double[] | list<list<double[]>>)", 1
+"multcomp", "plot.cld", -1, 0, 0, "class<`table`, `xtabs`>", 1
+"multcomp", "plot.cld", -1, 0, 1, "double[]", 1
+"multcomp", "plot.cld", -1, 0, 2, "list<list<double[]>>", 1
 "multcomp", "plot.cld", 0, 0, 0, "class<`cld`>", 1
 "multcomp", "plot.cld", 1, 0, 0, "character[]", 1
 "multcomp", "plot.cld", 2, 0, 0, "...", 1
@@ -327,7 +333,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "multcomp", "print.confint.glht", 0, 0, 0, "class<`confint.glht`, `glht`>", 1
 "multcomp", "print.confint.glht", 1, 0, 0, "double", 1
 "multcomp", "print.confint.glht", 2, 0, 0, "...", 1
-"multcomp", "print.glht", -1, 0, 0, "(class<`glht`, `summary.gtest`> | class<`glht`>)", 1
+"multcomp", "print.glht", -1, 0, 0, "class<`glht`, `summary.gtest`>", 1
+"multcomp", "print.glht", -1, 0, 1, "class<`glht`>", 1
 "multcomp", "print.glht", 0, 0, 0, "class<`glht`, `summary.gtest`>", 1
 "multcomp", "print.glht", 0, 0, 1, "class<`glht`>", 1
 "multcomp", "print.glht", 1, 0, 0, "double", 1
@@ -344,7 +351,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "multcomp", "rhs", 0, 0, 0, "expression", 1
 "multcomp", "side", -1, 0, 0, "character", 1
 "multcomp", "side", 0, 0, 0, "expression", 1
-"multcomp", "summary.glht", -1, 0, 0, "(class<`glht`, `summary.glht`> | class<`glht`, `summary.gtest`>)", 1
+"multcomp", "summary.glht", -1, 0, 0, "class<`glht`, `summary.glht`>", 1
+"multcomp", "summary.glht", -1, 0, 1, "class<`glht`, `summary.gtest`>", 1
 "multcomp", "summary.glht", 0, 0, 0, "class<`glht`>", 1
 "multcomp", "summary.glht", 1, 0, 0, "class<`function`>", 1
 "multcomp", "summary.glht", 2, 0, 0, "...", 1

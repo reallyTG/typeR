@@ -64,7 +64,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "eval_colon", 0, 0, 0, "class<`call`>", 1
 "tidyselect", "eval_colon", 1, 0, 0, "environment", 1
 "tidyselect", "eval_colon", 2, 0, 0, "any", 1
-"tidyselect", "eval_context", -1, 0, 0, "(character[] | integer[])", 1
+"tidyselect", "eval_context", -1, 0, 0, "character[]", 1
+"tidyselect", "eval_context", -1, 0, 1, "integer[]", 1
 "tidyselect", "eval_context", 0, 0, 0, "class<`call`>", 1
 "tidyselect", "eval_context", 1, 0, 0, "environment", 1
 "tidyselect", "eval_or", -1, 0, 0, "integer[]", 1
@@ -88,7 +89,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "eval_select", 5, 0, 0, "null", 1
 "tidyselect", "eval_select", 6, 0, 0, "logical", 1
 "tidyselect", "eval_select", 7, 0, 0, "null", 1
-"tidyselect", "eval_select_impl", -1, 0, 0, "(integer[] | list<any>)", 1
+"tidyselect", "eval_select_impl", -1, 0, 0, "integer[]", 1
+"tidyselect", "eval_select_impl", -1, 0, 1, "list<any>", 1
 "tidyselect", "eval_select_impl", 0, 0, 0, "null", 1
 "tidyselect", "eval_select_impl", 0, 0, 1, "class<`data.frame`>", 1
 "tidyselect", "eval_select_impl", 1, 0, 0, "character[]", 1
@@ -146,7 +148,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "local_data", 0, 0, 0, "class<`data.frame`>", 1
 "tidyselect", "local_data", 0, 0, 1, "null", 1
 "tidyselect", "local_data", 1, 0, 0, "environment", 1
-"tidyselect", "local_vars", -1, 0, 0, "(character[] | null)", 1
+"tidyselect", "local_vars", -1, 0, 0, "character[]", 1
+"tidyselect", "local_vars", -1, 0, 1, "null", 1
 "tidyselect", "local_vars", 0, 0, 0, "character[]", 1
 "tidyselect", "local_vars", 1, 0, 0, "environment", 1
 "tidyselect", "loc_validate", -1, 0, 0, "integer[]", 1
@@ -178,10 +181,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "peek_vars", 0, 0, 0, "...", 1
 "tidyselect", "peek_vars", 1, 0, 0, "character", 1
 "tidyselect", "peek_vars", 1, 0, 1, "null", 1
-"tidyselect", "poke_data", -1, 0, 0, "(null | class<`data.frame`>)", 1
+"tidyselect", "poke_data", -1, 0, 0, "null", 1
+"tidyselect", "poke_data", -1, 0, 1, "class<`data.frame`>", 1
 "tidyselect", "poke_data", 0, 0, 0, "class<`data.frame`>", 1
 "tidyselect", "poke_data", 0, 0, 1, "null", 1
-"tidyselect", "poke_vars", -1, 0, 0, "(character[] | null)", 1
+"tidyselect", "poke_vars", -1, 0, 0, "character[]", 1
+"tidyselect", "poke_vars", -1, 0, 1, "null", 1
 "tidyselect", "poke_vars", 0, 0, 0, "character[]", 1
 "tidyselect", "poke_vars", 0, 0, 1, "null", 1
 "tidyselect", "propagate_names", -1, 0, 0, "class<`data.frame`>", 1
@@ -191,7 +196,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "pull_as_location2", 0, 0, 0, "double", 1
 "tidyselect", "pull_as_location2", 1, 0, 0, "integer", 1
 "tidyselect", "pull_as_location2", 2, 0, 0, "any", 1
-"tidyselect", "quo_get_expr2", -1, 0, 0, "(class<`call`> | class<`name`>)", 1
+"tidyselect", "quo_get_expr2", -1, 0, 0, "class<`call`>", 1
+"tidyselect", "quo_get_expr2", -1, 0, 1, "class<`name`>", 1
 "tidyselect", "quo_get_expr2", 0, 0, 0, "class<`call`>", 1
 "tidyselect", "quo_get_expr2", 0, 0, 1, "class<`formula`, `quosure`>", 1
 "tidyselect", "quo_get_expr2", 0, 0, 2, "class<`name`>", 1
@@ -209,7 +215,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "rename_impl", 2, 0, 0, "class<`formula`, `quosure`>", 1
 "tidyselect", "rename_impl", 3, 0, 0, "logical", 1
 "tidyselect", "rename_impl", 4, 0, 0, "null", 1
-"tidyselect", "scoped_vars", -1, 0, 0, "(character[] | null)", 1
+"tidyselect", "scoped_vars", -1, 0, 0, "character[]", 1
+"tidyselect", "scoped_vars", -1, 0, 1, "null", 1
 "tidyselect", "scoped_vars", 0, 0, 0, "character[]", 1
 "tidyselect", "scoped_vars", 1, 0, 0, "environment", 1
 "tidyselect", "sel_complement", -1, 0, 0, "integer[]", 1
@@ -222,7 +229,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "sel_intersect", -1, 0, 0, "integer", 1
 "tidyselect", "sel_intersect", 0, 0, 0, "integer[]", 1
 "tidyselect", "sel_intersect", 1, 0, 0, "integer[]", 1
-"tidyselect", "sel_op", -1, 0, 0, "(class<`data.frame`> | integer[])", 1
+"tidyselect", "sel_op", -1, 0, 0, "class<`data.frame`>", 1
+"tidyselect", "sel_op", -1, 0, 1, "integer[]", 1
 "tidyselect", "sel_op", 0, 0, 0, "class<`data.frame`>", 1
 "tidyselect", "sel_op", 0, 0, 1, "integer[]", 1
 "tidyselect", "sel_op", 1, 0, 0, "class<`data.frame`>", 1
@@ -239,12 +247,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tidyselect", "set_diff", -1, 0, 0, "integer[]", 1
 "tidyselect", "set_diff", 0, 0, 0, "integer[]", 1
 "tidyselect", "set_diff", 1, 0, 0, "integer[]", 1
-"tidyselect", "set_intersect", -1, 0, 0, "(character | integer)", 1
+"tidyselect", "set_intersect", -1, 0, 0, "character", 1
+"tidyselect", "set_intersect", -1, 0, 1, "integer", 1
 "tidyselect", "set_intersect", 0, 0, 0, "character[]", 1
 "tidyselect", "set_intersect", 0, 0, 1, "integer[]", 1
 "tidyselect", "set_intersect", 1, 0, 0, "^character[]", 1
 "tidyselect", "set_intersect", 1, 0, 1, "integer[]", 1
-"tidyselect", "set_union", -1, 0, 0, "(class<`data.frame`> | integer[])", 1
+"tidyselect", "set_union", -1, 0, 0, "class<`data.frame`>", 1
+"tidyselect", "set_union", -1, 0, 1, "integer[]", 1
 "tidyselect", "set_union", 0, 0, 0, "class<`data.frame`>", 1
 "tidyselect", "set_union", 0, 0, 1, "integer[]", 1
 "tidyselect", "set_union", 1, 0, 0, "class<`data.frame`>", 1

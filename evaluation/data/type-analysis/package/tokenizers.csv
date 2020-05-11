@@ -24,7 +24,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tokenizers", "generate_ngrams_batch", 2, 0, 0, "double", 1
 "tokenizers", "generate_ngrams_batch", 3, 0, 0, "character[]", 1
 "tokenizers", "generate_ngrams_batch", 4, 0, 0, "character", 1
-"tokenizers", "simplify_list", -1, 0, 0, "(character[] | list<character[]>)", 1
+"tokenizers", "simplify_list", -1, 0, 0, "character[]", 1
+"tokenizers", "simplify_list", -1, 0, 1, "list<character[]>", 1
 "tokenizers", "simplify_list", 0, 0, 0, "list<character[]>", 1
 "tokenizers", "simplify_list", 1, 0, 0, "logical", 1
 "tokenizers", "skip_ngrams_vectorised", -1, 0, 0, "list<character[]>", 1
@@ -137,7 +138,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tokenizers", "tokenize_tweets.default", 3, 0, 0, "logical", 1
 "tokenizers", "tokenize_tweets.default", 4, 0, 0, "logical", 1
 "tokenizers", "tokenize_tweets.default", 5, 0, 0, "logical", 1
-"tokenizers", "tokenize_words", -1, 0, 0, "(character[] | list<character[]>)", 1
+"tokenizers", "tokenize_words", -1, 0, 0, "character[]", 1
+"tokenizers", "tokenize_words", -1, 0, 1, "list<character[]>", 1
 "tokenizers", "tokenize_words", 0, 0, 0, "character[]", 1
 "tokenizers", "tokenize_words", 0, 0, 1, "list<character>", 1
 "tokenizers", "tokenize_words", 1, 0, 0, "logical", 1
@@ -146,7 +148,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tokenizers", "tokenize_words", 3, 0, 0, "logical", 1
 "tokenizers", "tokenize_words", 4, 0, 0, "logical", 1
 "tokenizers", "tokenize_words", 5, 0, 0, "logical", 1
-"tokenizers", "tokenize_words.default", -1, 0, 0, "(character[] | list<character[]>)", 1
+"tokenizers", "tokenize_words.default", -1, 0, 0, "character[]", 1
+"tokenizers", "tokenize_words.default", -1, 0, 1, "list<character[]>", 1
 "tokenizers", "tokenize_words.default", 0, 0, 0, "character[]", 1
 "tokenizers", "tokenize_words.default", 0, 0, 1, "list<character>", 1
 "tokenizers", "tokenize_words.default", 1, 0, 0, "logical", 1

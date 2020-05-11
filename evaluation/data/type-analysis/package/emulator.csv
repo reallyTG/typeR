@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"emulator", "betahat.fun", -1, 0, 0, "(double[] | list<double[] | class<`matrix`>>)", 1
+"emulator", "betahat.fun", -1, 0, 0, "double[]", 1
+"emulator", "betahat.fun", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
 "emulator", "betahat.fun", 0, 0, 0, "class<`matrix`>", 1
 "emulator", "betahat.fun", 0, 0, 1, "class<`data.frame`>", 1
 "emulator", "betahat.fun", 1, 0, 0, "class<`matrix`>", 1
@@ -69,7 +70,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "emulator", "ht", -1, 0, 0, "class<`matrix`>", 1
 "emulator", "ht", 0, 0, 0, "class<`matrix`>", 1
 "emulator", "ht", 0, 0, 1, "class<`data.frame`>", 1
-"emulator", "interpolant", -1, 0, 0, "(double | list<double[] | class<`matrix`>>)", 1
+"emulator", "interpolant", -1, 0, 0, "double", 1
+"emulator", "interpolant", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
 "emulator", "interpolant", 0, 0, 0, "double[]", 1
 "emulator", "interpolant", 1, 0, 0, "double[]", 1
 "emulator", "interpolant", 2, 0, 0, "class<`matrix`>", 1
@@ -82,7 +84,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "emulator", "interpolant", 9, 0, 0, "logical", 1
 "emulator", "interpolant", 10, 0, 0, "class<`function`>", 1
 "emulator", "interpolant", 11, 0, 0, "...", 1
-"emulator", "interpolant.quick", -1, 0, 0, "(double[] | list<double[]>)", 1
+"emulator", "interpolant.quick", -1, 0, 0, "double[]", 1
+"emulator", "interpolant.quick", -1, 0, 1, "list<double[]>", 1
 "emulator", "interpolant.quick", 0, 0, 0, "class<`matrix`>", 1
 "emulator", "interpolant.quick", 1, 0, 0, "double[]", 1
 "emulator", "interpolant.quick", 2, 0, 0, "class<`matrix`>", 1
@@ -158,12 +161,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "emulator", "quad.diag", -1, 0, 0, "complex[]", 1
 "emulator", "quad.diag", 0, 0, 0, "class<`matrix`>", 1
 "emulator", "quad.diag", 1, 0, 0, "class<`matrix`>", 1
-"emulator", "quad.form", -1, 0, 0, "(class<`matrix`> | double)", 1
+"emulator", "quad.form", -1, 0, 0, "class<`matrix`>", 1
+"emulator", "quad.form", -1, 0, 1, "double", 1
 "emulator", "quad.form", 0, 0, 0, "class<`matrix`>", 1
 "emulator", "quad.form", 1, 0, 0, "class<`matrix`>", 1
 "emulator", "quad.form", 1, 0, 1, "double[]", 1
 "emulator", "quad.form", 2, 0, 0, "logical", 1
-"emulator", "quad.form.inv", -1, 0, 0, "(class<`matrix`> | double)", 1
+"emulator", "quad.form.inv", -1, 0, 0, "class<`matrix`>", 1
+"emulator", "quad.form.inv", -1, 0, 1, "double", 1
 "emulator", "quad.form.inv", 0, 0, 0, "class<`matrix`>", 1
 "emulator", "quad.form.inv", 1, 0, 0, "class<`matrix`>", 1
 "emulator", "quad.form.inv", 1, 0, 1, "double[]", 1
@@ -201,7 +206,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "emulator", "scales.likelihood", 4, 0, 0, "double[]", 1
 "emulator", "scales.likelihood", 5, 0, 0, "logical", 1
 "emulator", "scales.likelihood", 6, 0, 0, "class<`function`>", 1
-"emulator", "s.chi", -1, 0, 0, "(class<`matrix`> | double)", 1
+"emulator", "s.chi", -1, 0, 0, "class<`matrix`>", 1
+"emulator", "s.chi", -1, 0, 1, "double", 1
 "emulator", "s.chi", 0, 0, 0, "class<`matrix`>", 1
 "emulator", "s.chi", 1, 0, 0, "class<`matrix`>", 1
 "emulator", "s.chi", 2, 0, 0, "double[]", 1

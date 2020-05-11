@@ -26,12 +26,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "FME", "cross2long", 3, 0, 0, "any", 1
 "FME", "cross2long", 4, 0, 0, "logical", 1
 "FME", "cross2long", 5, 0, 0, "logical", 1
-"FME", "expanddots", -1, 0, 0, "(character[] | integer[])", 1
+"FME", "expanddots", -1, 0, 0, "character[]", 1
+"FME", "expanddots", -1, 0, 1, "integer[]", 1
 "FME", "expanddots", 0, 0, 0, "character", 1
 "FME", "expanddots", 0, 0, 1, "null", 1
 "FME", "expanddots", 1, 0, 0, "any", 1
 "FME", "expanddots", 2, 0, 0, "integer", 1
-"FME", "expanddotslist", -1, 0, 0, "(null | list<double[]>)", 1
+"FME", "expanddotslist", -1, 0, 0, "null", 1
+"FME", "expanddotslist", -1, 0, 1, "list<double[]>", 1
 "FME", "expanddotslist", 0, 0, 0, "null", 1
 "FME", "expanddotslist", 0, 0, 1, "list<double[]>", 1
 "FME", "expanddotslist", 1, 0, 0, "any", 1

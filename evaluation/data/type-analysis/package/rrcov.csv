@@ -216,12 +216,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "CovOgk", 1, 0, 0, "double", 1
 "rrcov", "CovOgk", 2, 0, 0, "double", 1
 "rrcov", "CovOgk", 3, 0, 0, "any", 1
-"rrcov", "CovRobust", -1, 0, 0, "(class<`CovMcd`> | class<`CovMest`> | class<`CovOgk`> | class<`CovSde`> | class<`CovSest`>)", 1
+"rrcov", "CovRobust", -1, 0, 0, "class<`CovMcd`>", 1
+"rrcov", "CovRobust", -1, 0, 1, "class<`CovMest`>", 1
+"rrcov", "CovRobust", -1, 0, 2, "class<`CovOgk`>", 1
+"rrcov", "CovRobust", -1, 0, 3, "class<`CovSde`>", 1
+"rrcov", "CovRobust", -1, 0, 4, "class<`CovSest`>", 1
 "rrcov", "CovRobust", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", "CovRobust", 0, 0, 1, "class<`data.frame`>", 1
 "rrcov", "CovRobust", 1, 0, 0, "any", 1
 "rrcov", "CovRobust", 2, 0, 0, "class<`function`>", 1
-"rrcov", ".covRobustControl", -1, 0, 0, "(class<`CovControlMcd`> | class<`CovControlMest`> | class<`CovControlOgk`> | class<`CovControlSde`> | class<`CovControlSest`>)", 1
+"rrcov", ".covRobustControl", -1, 0, 0, "class<`CovControlMcd`>", 1
+"rrcov", ".covRobustControl", -1, 0, 1, "class<`CovControlMest`>", 1
+"rrcov", ".covRobustControl", -1, 0, 2, "class<`CovControlOgk`>", 1
+"rrcov", ".covRobustControl", -1, 0, 3, "class<`CovControlSde`>", 1
+"rrcov", ".covRobustControl", -1, 0, 4, "class<`CovControlSest`>", 1
 "rrcov", ".covRobustControl", 0, 0, 0, "any", 1
 "rrcov", ".covRobustControl", 1, 0, 0, "any", 1
 "rrcov", ".covRobustControl", 2, 0, 0, "any", 1
@@ -335,7 +343,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "..detSloc", 7, 0, 0, "double", 1
 "rrcov", "..detSloc", 8, 0, 0, "double", 1
 "rrcov", "..detSloc", 9, 0, 0, "logical", 1
-"rrcov", ".distances", -1, 0, 0, "(class<`PcaClassic`> | class<`PcaCov`> | class<`PcaGrid`> | class<`PcaHubert`> | class<`PcaLocantore`> | class<`PcaProj`>)", 1
+"rrcov", ".distances", -1, 0, 0, "class<`PcaClassic`>", 1
+"rrcov", ".distances", -1, 0, 1, "class<`PcaCov`>", 1
+"rrcov", ".distances", -1, 0, 2, "class<`PcaGrid`>", 1
+"rrcov", ".distances", -1, 0, 3, "class<`PcaHubert`>", 1
+"rrcov", ".distances", -1, 0, 4, "class<`PcaLocantore`>", 1
+"rrcov", ".distances", -1, 0, 5, "class<`PcaProj`>", 1
 "rrcov", ".distances", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", ".distances", 0, 0, 1, "class<`data.frame`>", 1
 "rrcov", ".distances", 1, 0, 0, "integer", 1
@@ -393,7 +406,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "FUN", 0, 5, 4, "class<`CovSde`>", 1
 "rrcov", "FUN", -1, 6, 0, "character", 1
 "rrcov", "FUN", 0, 6, 0, "class<`CovMcd`>", 1
-"rrcov", "FUN", -1, 7, 0, "(class<`CovMcd`> | class<`CovMest`> | class<`CovOgk`> | class<`CovSest`> | class<`CovSde`>)", 1
+"rrcov", "FUN", -1, 7, 0, "class<`CovMcd`>", 1
+"rrcov", "FUN", -1, 7, 1, "class<`CovMest`>", 1
+"rrcov", "FUN", -1, 7, 2, "class<`CovOgk`>", 1
+"rrcov", "FUN", -1, 7, 3, "class<`CovSest`>", 1
+"rrcov", "FUN", -1, 7, 4, "class<`CovSde`>", 1
 "rrcov", "FUN", 0, 7, 0, "class<`CovControlMcd`>", 1
 "rrcov", "FUN", 0, 7, 1, "class<`CovControlMest`>", 1
 "rrcov", "FUN", 0, 7, 2, "class<`CovControlOgk`>", 1
@@ -789,7 +806,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".myellipse", 12, 0, 0, "character[]", 1
 "rrcov", ".myellipse", 13, 0, 0, "any", 1
 "rrcov", ".myellipse", 14, 0, 0, "any", 1
-"rrcov", "myPcaPrint", -1, 0, 0, "(class<`PcaClassic`> | class<`PcaHubert`>)", 1
+"rrcov", "myPcaPrint", -1, 0, 0, "class<`PcaClassic`>", 1
+"rrcov", "myPcaPrint", -1, 0, 1, "class<`PcaHubert`>", 1
 "rrcov", "myPcaPrint", 0, 0, 0, "class<`PcaClassic`>", 1
 "rrcov", "myPcaPrint", 0, 0, 1, "class<`PcaHubert`>", 1
 "rrcov", "myPcaPrint", 1, 0, 0, "logical", 1
@@ -860,7 +878,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "PcaCov.formula", 2, 0, 0, "any", 1
 "rrcov", "PcaCov.formula", 3, 0, 0, "any", 1
 "rrcov", "PcaCov.formula", 4, 0, 0, "...", 1
-"rrcov", "pca.ddplot", -1, 0, 0, "(class<`PcaClassic`> | class<`PcaCov`> | class<`PcaHubert`> | class<`PcaLocantore`>)", 1
+"rrcov", "pca.ddplot", -1, 0, 0, "class<`PcaClassic`>", 1
+"rrcov", "pca.ddplot", -1, 0, 1, "class<`PcaCov`>", 1
+"rrcov", "pca.ddplot", -1, 0, 2, "class<`PcaHubert`>", 1
+"rrcov", "pca.ddplot", -1, 0, 3, "class<`PcaLocantore`>", 1
 "rrcov", "pca.ddplot", 0, 0, 0, "class<`PcaClassic`>", 1
 "rrcov", "pca.ddplot", 0, 0, 1, "class<`PcaCov`>", 1
 "rrcov", "pca.ddplot", 0, 0, 2, "class<`PcaHubert`>", 1
@@ -872,7 +893,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "pca.ddplot", 5, 0, 0, "any", 1
 "rrcov", "pca.ddplot", 6, 0, 0, "double", 1
 "rrcov", "pca.ddplot", 7, 0, 0, "...", 1
-"rrcov", "pca.distances", -1, 0, 0, "(class<`PcaClassic`> | class<`PcaCov`> | class<`PcaGrid`> | class<`PcaHubert`> | class<`PcaLocantore`> | class<`PcaProj`>)", 1
+"rrcov", "pca.distances", -1, 0, 0, "class<`PcaClassic`>", 1
+"rrcov", "pca.distances", -1, 0, 1, "class<`PcaCov`>", 1
+"rrcov", "pca.distances", -1, 0, 2, "class<`PcaGrid`>", 1
+"rrcov", "pca.distances", -1, 0, 3, "class<`PcaHubert`>", 1
+"rrcov", "pca.distances", -1, 0, 4, "class<`PcaLocantore`>", 1
+"rrcov", "pca.distances", -1, 0, 5, "class<`PcaProj`>", 1
 "rrcov", "pca.distances", 0, 0, 0, "class<`PcaClassic`>", 1
 "rrcov", "pca.distances", 0, 0, 1, "class<`PcaCov`>", 1
 "rrcov", "pca.distances", 0, 0, 2, "class<`PcaGrid`>", 1
@@ -883,7 +909,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "pca.distances", 1, 0, 1, "class<`data.frame`>", 1
 "rrcov", "pca.distances", 2, 0, 0, "integer", 1
 "rrcov", "pca.distances", 3, 0, 0, "double", 1
-"rrcov", "pca.distplot", -1, 0, 0, "(class<`PcaClassic`> | class<`PcaCov`> | class<`PcaHubert`> | class<`PcaLocantore`>)", 1
+"rrcov", "pca.distplot", -1, 0, 0, "class<`PcaClassic`>", 1
+"rrcov", "pca.distplot", -1, 0, 1, "class<`PcaCov`>", 1
+"rrcov", "pca.distplot", -1, 0, 2, "class<`PcaHubert`>", 1
+"rrcov", "pca.distplot", -1, 0, 3, "class<`PcaLocantore`>", 1
 "rrcov", "pca.distplot", 0, 0, 0, "class<`PcaClassic`>", 1
 "rrcov", "pca.distplot", 0, 0, 1, "class<`PcaCov`>", 1
 "rrcov", "pca.distplot", 0, 0, 2, "class<`PcaHubert`>", 1
@@ -1092,7 +1121,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "restimate", 1, 2, 0, "class<`data.frame`>", 1
 "rrcov", "restimate", 1, 2, 1, "class<`matrix`>", 1
 "rrcov", "restimate", 2, 2, 0, "...", 1
-"rrcov", "restimate", -1, 3, 0, "(class<`CovMcd`> | class<`CovMest`> | class<`CovOgk`> | class<`CovSest`> | class<`CovSde`>)", 1
+"rrcov", "restimate", -1, 3, 0, "class<`CovMcd`>", 1
+"rrcov", "restimate", -1, 3, 1, "class<`CovMest`>", 1
+"rrcov", "restimate", -1, 3, 2, "class<`CovOgk`>", 1
+"rrcov", "restimate", -1, 3, 3, "class<`CovSest`>", 1
+"rrcov", "restimate", -1, 3, 4, "class<`CovSde`>", 1
 "rrcov", "restimate", 0, 3, 0, "class<`CovControlMcd`>", 1
 "rrcov", "restimate", 0, 3, 1, "class<`CovControlMest`>", 1
 "rrcov", "restimate", 0, 3, 2, "class<`CovControlOgk`>", 1
@@ -1134,7 +1167,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "screeplot", -1, 3, 0, "null", 1
 "rrcov", "screeplot", 0, 3, 0, "class<`PcaCov`>", 1
 "rrcov", "screeplot", 1, 3, 0, "...", 1
-"rrcov", ".signflip", -1, 0, 0, "(class<`matrix`> | double)", 1
+"rrcov", ".signflip", -1, 0, 0, "class<`matrix`>", 1
+"rrcov", ".signflip", -1, 0, 1, "double", 1
 "rrcov", ".signflip", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", ".signflip", 0, 0, 1, "double", 1
 "rrcov", "spatial.median", -1, 0, 0, "list<double[]>", 1

@@ -2,7 +2,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "descendants", -1, 0, 0, "class<`matrix`>", 1
 "rpart", "descendants", 0, 0, 0, "double[]", 1
 "rpart", "descendants", 1, 0, 0, "logical", 1
-"rpart", "formatg", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"rpart", "formatg", -1, 0, 0, "character[]", 1
+"rpart", "formatg", -1, 0, 1, "class<`matrix`>", 1
 "rpart", "formatg", 0, 0, 0, "double[]", 1
 "rpart", "formatg", 0, 0, 1, "class<`matrix`>", 1
 "rpart", "formatg", 1, 0, 0, "any", 1
@@ -44,7 +45,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "plot.rpart", 5, 0, 0, "double", 1
 "rpart", "plot.rpart", 6, 0, 0, "double", 1
 "rpart", "plot.rpart", 7, 0, 0, "...", 1
-"rpart", "predict.rpart", -1, 0, 0, "(class<`factor`> | class<`matrix`> | double[])", 1
+"rpart", "predict.rpart", -1, 0, 0, "class<`factor`>", 1
+"rpart", "predict.rpart", -1, 0, 1, "class<`matrix`>", 1
+"rpart", "predict.rpart", -1, 0, 2, "double[]", 1
 "rpart", "predict.rpart", 0, 0, 0, "class<`rpart`>", 1
 "rpart", "predict.rpart", 1, 0, 0, "any", 1
 "rpart", "predict.rpart", 2, 0, 0, "character[]", 1
@@ -150,7 +153,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "text.rpart", 13, 0, 0, "...", 1
 "rpart", "tree.depth", -1, 0, 0, "double[]", 1
 "rpart", "tree.depth", 0, 0, 0, "double[]", 1
-"rpart", "xpred.rpart", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"rpart", "xpred.rpart", -1, 0, 0, "class<`array`>", 1
+"rpart", "xpred.rpart", -1, 0, 1, "class<`matrix`>", 1
 "rpart", "xpred.rpart", 0, 0, 0, "class<`rpart`>", 1
 "rpart", "xpred.rpart", 1, 0, 0, "integer[]", 1
 "rpart", "xpred.rpart", 2, 0, 0, "any", 1

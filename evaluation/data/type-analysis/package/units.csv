@@ -1,5 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"units", ":::", -1, 0, 0, "(character[] | logical | list<any>)", 1
+"units", ":::", -1, 0, 0, "character[]", 1
+"units", ":::", -1, 0, 1, "logical", 1
+"units", ":::", -1, 0, 2, "list<any>", 1
 "units", ":::", 0, 0, 0, "...", 1
 "units", ":::", 1, 0, 0, "any", 1
 "units", ":::", 2, 0, 0, "any", 1
@@ -44,7 +46,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", ".as.units", 0, 0, 1, "double[]", 1
 "units", ".as.units", 1, 0, 0, "class<`symbolic_units`>", 1
 "units", ".as.units", 2, 0, 0, "any", 1
-"units", "as_units", -1, 0, 0, "(class<`units`> | null)", 1
+"units", "as_units", -1, 0, 0, "class<`units`>", 1
+"units", "as_units", -1, 0, 1, "null", 1
 "units", "as_units", 0, 0, 0, "character", 1
 "units", "as_units", 0, 0, 1, "class<`call`>", 1
 "units", "as_units", 0, 0, 2, "class<`difftime`>", 1
@@ -66,7 +69,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "as_units.character", 2, 0, 1, "null", 1
 "units", "as_units.character", 3, 0, 0, "logical", 1
 "units", "as_units.character", 4, 0, 0, "...", 1
-"units", "as_units.default", -1, 0, 0, "(class<`units`> | null)", 1
+"units", "as_units.default", -1, 0, 0, "class<`units`>", 1
+"units", "as_units.default", -1, 0, 1, "null", 1
 "units", "as_units.default", 0, 0, 0, "double[]", 1
 "units", "as_units.default", 0, 0, 1, "null", 1
 "units", "as_units.default", 1, 0, 0, "any", 1
@@ -108,7 +112,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "c.units", 2, 0, 0, "any", 1
 "units", "deparse_unit", -1, 0, 0, "character", 1
 "units", "deparse_unit", 0, 0, 0, "class<`units`>", 1
-"units", "drop_units", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"units", "drop_units", -1, 0, 0, "class<`data.frame`>", 1
+"units", "drop_units", -1, 0, 1, "double[]", 1
 "units", "drop_units", 0, 0, 0, "class<`data.frame`>", 1
 "units", "drop_units", 0, 0, 1, "class<`units`>", 1
 "units", "drop_units.data.frame", -1, 0, 0, "class<`data.frame`>", 1
@@ -118,7 +123,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "%empty%", -1, 0, 0, "character[]", 1
 "units", "%empty%", 0, 0, 0, "character[]", 1
 "units", "%empty%", 1, 0, 0, "character", 1
-"units", "FUN", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"units", "FUN", -1, 0, 0, "class<`data.frame`>", 1
+"units", "FUN", -1, 0, 1, "double[]", 1
 "units", "FUN", 0, 0, 0, "class<`data.frame`>", 1
 "units", "FUN", 0, 0, 1, "class<`units`>", 1
 "units", "FUN", -1, 1, 0, "class<`units`>", 1
@@ -153,7 +159,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "log10.units", 0, 0, 0, "class<`units`>", 1
 "units", "log2.units", -1, 0, 0, "class<`units`>", 1
 "units", "log2.units", 0, 0, 0, "class<`units`>", 1
-"units", "make_unit_label", -1, 0, 0, "(character | expression)", 1
+"units", "make_unit_label", -1, 0, 0, "character", 1
+"units", "make_unit_label", -1, 0, 1, "expression", 1
 "units", "make_unit_label", 0, 0, 0, "character", 1
 "units", "make_unit_label", 1, 0, 0, "class<`units`>", 1
 "units", "make_unit_label", 2, 0, 0, "any", 1
@@ -162,7 +169,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "make_units", -1, 0, 0, "class<`units`>", 1
 "units", "make_units", 0, 0, 0, "any", 1
 "units", "make_units", 1, 0, 0, "logical", 1
-"units", "Math.units", -1, 0, 0, "(class<`units`> | double[])", 1
+"units", "Math.units", -1, 0, 0, "class<`units`>", 1
+"units", "Math.units", -1, 0, 1, "double[]", 1
 "units", "Math.units", 0, 0, 0, "class<`units`>", 1
 "units", "Math.units", 1, 0, 0, "...", 1
 "units", ".message_where_udunits_db", -1, 0, 0, "null", 1
@@ -249,11 +257,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "seq.units", 3, 0, 1, "double", 1
 "units", "seq.units", 4, 0, 0, "null", 1
 "units", "seq.units", 5, 0, 0, "...", 1
-"units", ".setopt", -1, 0, 0, "(character[] | logical | null)", 1
+"units", ".setopt", -1, 0, 0, "character[]", 1
+"units", ".setopt", -1, 0, 1, "logical", 1
+"units", ".setopt", -1, 0, 2, "null", 1
 "units", ".setopt", 0, 0, 0, "character[]", 1
 "units", ".setopt", 0, 0, 1, "logical", 1
 "units", ".setopt", 0, 0, 2, "null", 1
-"units", "set_units", -1, 0, 0, "(class<`mixed_units`> | class<`units`> | double)", 1
+"units", "set_units", -1, 0, 0, "class<`mixed_units`>", 1
+"units", "set_units", -1, 0, 1, "class<`units`>", 1
+"units", "set_units", -1, 0, 2, "double", 1
 "units", "set_units", 0, 0, 0, "class<`mixed_units`>", 1
 "units", "set_units", 0, 0, 1, "class<`matrix`>", 1
 "units", "set_units", 0, 0, 2, "class<`units`>", 1
@@ -267,14 +279,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "set_units.mixed_units", 1, 0, 0, "character[]", 1
 "units", "set_units.mixed_units", 2, 0, 0, "...", 1
 "units", "set_units.mixed_units", 3, 0, 0, "character", 1
-"units", "set_units.numeric", -1, 0, 0, "(class<`units`> | double)", 1
+"units", "set_units.numeric", -1, 0, 0, "class<`units`>", 1
+"units", "set_units.numeric", -1, 0, 1, "double", 1
 "units", "set_units.numeric", 0, 0, 0, "class<`matrix`>", 1
 "units", "set_units.numeric", 0, 0, 1, "double[]", 1
 "units", "set_units.numeric", 0, 0, 2, "class<`units`>", 1
 "units", "set_units.numeric", 1, 0, 0, "any", 1
 "units", "set_units.numeric", 2, 0, 0, "...", 1
 "units", "set_units.numeric", 3, 0, 0, "any", 1
-"units", "set_units.units", -1, 0, 0, "(class<`units`> | double)", 1
+"units", "set_units.units", -1, 0, 0, "class<`units`>", 1
+"units", "set_units.units", -1, 0, 1, "double", 1
 "units", "set_units.units", 0, 0, 0, "class<`matrix`>", 1
 "units", "set_units.units", 0, 0, 1, "double[]", 1
 "units", "set_units.units", 0, 0, 2, "class<`units`>", 1
@@ -325,7 +339,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", ".units_are_convertible", -1, 0, 0, "logical", 1
 "units", ".units_are_convertible", 0, 0, 0, "list<class<`units`>>", 1
 "units", ".units_are_convertible", 1, 0, 0, "class<`symbolic_units`>", 1
-"units", "units<-.numeric", -1, 0, 0, "(class<`units`> | double)", 1
+"units", "units<-.numeric", -1, 0, 0, "class<`units`>", 1
+"units", "units<-.numeric", -1, 0, 1, "double", 1
 "units", "units<-.numeric", 0, 0, 0, "class<`matrix`>", 1
 "units", "units<-.numeric", 0, 0, 1, "double[]", 1
 "units", "units<-.numeric", 1, 0, 0, "class<`units`>", 1
@@ -333,7 +348,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "units<-.numeric", 1, 0, 2, "character", 1
 "units", "units<-.numeric", 1, 0, 3, "class<`call`>", 1
 "units", "units<-.numeric", 1, 0, 4, "null", 1
-"units", "units_options", -1, 0, 0, "(character[] | logical | list<any>)", 1
+"units", "units_options", -1, 0, 0, "character[]", 1
+"units", "units_options", -1, 0, 1, "logical", 1
+"units", "units_options", -1, 0, 2, "list<any>", 1
 "units", "units_options", 0, 0, 0, "...", 1
 "units", "units_options", 1, 0, 0, "any", 1
 "units", "units_options", 2, 0, 0, "any", 1
@@ -345,8 +362,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "units_options", 8, 0, 0, "any", 1
 "units", "units_options", 9, 0, 0, "any", 1
 "units", "units_options", 10, 0, 0, "any", 1
-"units", ".units.simplify", -1, 0, 0, "(logical | null)", 1
-"units", "units<-.units", -1, 0, 0, "(class<`mixed_units`> | class<`units`> | double)", 1
+"units", ".units.simplify", -1, 0, 0, "logical", 1
+"units", ".units.simplify", -1, 0, 1, "null", 1
+"units", "units<-.units", -1, 0, 0, "class<`mixed_units`>", 1
+"units", "units<-.units", -1, 0, 1, "class<`units`>", 1
+"units", "units<-.units", -1, 0, 2, "double", 1
 "units", "units<-.units", 0, 0, 0, "class<`units`>", 1
 "units", "units<-.units", 1, 0, 0, "character[]", 1
 "units", "units<-.units", 1, 0, 1, "class<`symbolic_units`>", 1

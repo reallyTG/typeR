@@ -60,7 +60,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "doShuffleSet", 0, 0, 0, "integer[]", 1
 "permute", "doShuffleSet", 1, 0, 0, "double", 1
 "permute", "doShuffleSet", 2, 0, 0, "class<`how`>", 1
-"permute", "fixupCall", -1, 0, 0, "(class<`how`> | class<`Plots`> | class<`Within`>)", 1
+"permute", "fixupCall", -1, 0, 0, "class<`how`>", 1
+"permute", "fixupCall", -1, 0, 1, "class<`Plots`>", 1
+"permute", "fixupCall", -1, 0, 2, "class<`Within`>", 1
 "permute", "fixupCall", 0, 0, 0, "class<`how`>", 1
 "permute", "fixupCall", 0, 0, 1, "class<`Plots`>", 1
 "permute", "fixupCall", 0, 0, 2, "class<`Within`>", 1
@@ -78,7 +80,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "getAllperms.default", -1, 0, 0, "any", 1
 "permute", "getAllperms.default", 0, 0, 0, "integer[]", 1
 "permute", "getAllperms.default", 1, 0, 0, "...", 1
-"permute", "getAllperms.how", -1, 0, 0, "(class<`allPerms`, `matrix`> | null)", 1
+"permute", "getAllperms.how", -1, 0, 0, "class<`allPerms`, `matrix`>", 1
+"permute", "getAllperms.how", -1, 0, 1, "null", 1
 "permute", "getAllperms.how", 0, 0, 0, "class<`how`>", 1
 "permute", "getAllperms.how", 1, 0, 0, "...", 1
 "permute", "getBlocks", -1, 0, 0, "any", 1
@@ -88,15 +91,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "getBlocks.default", -1, 0, 0, "any", 1
 "permute", "getBlocks.default", 0, 0, 0, "integer[]", 1
 "permute", "getBlocks.default", 1, 0, 0, "...", 1
-"permute", "getBlocks.how", -1, 0, 0, "(class<`factor`> | null)", 1
+"permute", "getBlocks.how", -1, 0, 0, "class<`factor`>", 1
+"permute", "getBlocks.how", -1, 0, 1, "null", 1
 "permute", "getBlocks.how", 0, 0, 0, "class<`how`>", 1
 "permute", "getBlocks.how", 1, 0, 0, "...", 1
-"permute", "getCol", -1, 0, 0, "(double | null)", 1
+"permute", "getCol", -1, 0, 0, "double", 1
+"permute", "getCol", -1, 0, 1, "null", 1
 "permute", "getCol", 0, 0, 0, "class<`how`>", 1
 "permute", "getCol", 0, 0, 1, "class<`Plots`>", 1
 "permute", "getCol", 0, 0, 2, "class<`Within`>", 1
 "permute", "getCol", 1, 0, 0, "...", 1
-"permute", "getCol.how", -1, 0, 0, "(double | null)", 1
+"permute", "getCol.how", -1, 0, 0, "double", 1
+"permute", "getCol.how", -1, 0, 1, "null", 1
 "permute", "getCol.how", 0, 0, 0, "class<`how`>", 1
 "permute", "getCol.how", 1, 0, 0, "character", 1
 "permute", "getCol.how", 2, 0, 0, "...", 1
@@ -144,12 +150,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "getControl.default", 0, 0, 0, "class<`check`>", 1
 "permute", "getControl.default", 0, 0, 1, "integer[]", 1
 "permute", "getControl.default", 1, 0, 0, "...", 1
-"permute", "getDim", -1, 0, 0, "(double[] | null)", 1
+"permute", "getDim", -1, 0, 0, "double[]", 1
+"permute", "getDim", -1, 0, 1, "null", 1
 "permute", "getDim", 0, 0, 0, "class<`how`>", 1
 "permute", "getDim", 0, 0, 1, "class<`Plots`>", 1
 "permute", "getDim", 0, 0, 2, "class<`Within`>", 1
 "permute", "getDim", 1, 0, 0, "...", 1
-"permute", "getDim.how", -1, 0, 0, "(double[] | null)", 1
+"permute", "getDim.how", -1, 0, 0, "double[]", 1
+"permute", "getDim.how", -1, 0, 1, "null", 1
 "permute", "getDim.how", 0, 0, 0, "class<`how`>", 1
 "permute", "getDim.how", 1, 0, 0, "character", 1
 "permute", "getDim.how", 2, 0, 0, "...", 1
@@ -247,12 +255,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "getPlots.how", -1, 0, 0, "class<`Plots`>", 1
 "permute", "getPlots.how", 0, 0, 0, "class<`how`>", 1
 "permute", "getPlots.how", 1, 0, 0, "...", 1
-"permute", "getRow", -1, 0, 0, "(double | null)", 1
+"permute", "getRow", -1, 0, 0, "double", 1
+"permute", "getRow", -1, 0, 1, "null", 1
 "permute", "getRow", 0, 0, 0, "class<`how`>", 1
 "permute", "getRow", 0, 0, 1, "class<`Plots`>", 1
 "permute", "getRow", 0, 0, 2, "class<`Within`>", 1
 "permute", "getRow", 1, 0, 0, "...", 1
-"permute", "getRow.how", -1, 0, 0, "(double | null)", 1
+"permute", "getRow.how", -1, 0, 0, "double", 1
+"permute", "getRow.how", -1, 0, 1, "null", 1
 "permute", "getRow.how", 0, 0, 0, "class<`how`>", 1
 "permute", "getRow.how", 1, 0, 0, "character", 1
 "permute", "getRow.how", 2, 0, 0, "...", 1
@@ -272,7 +282,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "getStrata.default", -1, 0, 0, "any", 1
 "permute", "getStrata.default", 0, 0, 0, "integer[]", 1
 "permute", "getStrata.default", 1, 0, 0, "...", 1
-"permute", "getStrata.how", -1, 0, 0, "(class<`factor`> | null)", 1
+"permute", "getStrata.how", -1, 0, 0, "class<`factor`>", 1
+"permute", "getStrata.how", -1, 0, 1, "null", 1
 "permute", "getStrata.how", 0, 0, 0, "class<`how`>", 1
 "permute", "getStrata.how", 1, 0, 0, "character[]", 1
 "permute", "getStrata.how", 2, 0, 0, "logical", 1
@@ -412,11 +423,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "setCol<-.how", -1, 0, 0, "any", 1
 "permute", "setCol<-.how", 0, 0, 0, "class<`how`>", 1
 "permute", "setCol<-.how", 1, 0, 0, "double", 1
-"permute", "setCol<-.Plots", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setCol<-.Plots", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setCol<-.Plots", -1, 0, 1, "class<`Within`>", 1
 "permute", "setCol<-.Plots", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setCol<-.Plots", 0, 0, 1, "class<`Within`>", 1
 "permute", "setCol<-.Plots", 1, 0, 0, "double", 1
-"permute", "setCol<-.Within", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setCol<-.Within", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setCol<-.Within", -1, 0, 1, "class<`Within`>", 1
 "permute", "setCol<-.Within", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setCol<-.Within", 0, 0, 1, "class<`Within`>", 1
 "permute", "setCol<-.Within", 1, 0, 0, "double", 1
@@ -461,11 +474,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "setDim<-.how", -1, 0, 0, "any", 1
 "permute", "setDim<-.how", 0, 0, 0, "class<`how`>", 1
 "permute", "setDim<-.how", 1, 0, 0, "double[]", 1
-"permute", "setDim<-.Plots", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setDim<-.Plots", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setDim<-.Plots", -1, 0, 1, "class<`Within`>", 1
 "permute", "setDim<-.Plots", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setDim<-.Plots", 0, 0, 1, "class<`Within`>", 1
 "permute", "setDim<-.Plots", 1, 0, 0, "double[]", 1
-"permute", "setDim<-.Within", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setDim<-.Within", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setDim<-.Within", -1, 0, 1, "class<`Within`>", 1
 "permute", "setDim<-.Within", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setDim<-.Within", 0, 0, 1, "class<`Within`>", 1
 "permute", "setDim<-.Within", 1, 0, 0, "double[]", 1
@@ -511,11 +526,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "setMirror<-.how", -1, 0, 0, "any", 1
 "permute", "setMirror<-.how", 0, 0, 0, "class<`how`>", 1
 "permute", "setMirror<-.how", 1, 0, 0, "logical", 1
-"permute", "setMirror<-.Plots", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setMirror<-.Plots", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setMirror<-.Plots", -1, 0, 1, "class<`Within`>", 1
 "permute", "setMirror<-.Plots", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setMirror<-.Plots", 0, 0, 1, "class<`Within`>", 1
 "permute", "setMirror<-.Plots", 1, 0, 0, "logical", 1
-"permute", "setMirror<-.Within", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setMirror<-.Within", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setMirror<-.Within", -1, 0, 1, "class<`Within`>", 1
 "permute", "setMirror<-.Within", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setMirror<-.Within", 0, 0, 1, "class<`Within`>", 1
 "permute", "setMirror<-.Within", 1, 0, 0, "logical", 1
@@ -561,11 +578,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "permute", "setRow<-.how", -1, 0, 0, "any", 1
 "permute", "setRow<-.how", 0, 0, 0, "class<`how`>", 1
 "permute", "setRow<-.how", 1, 0, 0, "double", 1
-"permute", "setRow<-.Plots", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setRow<-.Plots", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setRow<-.Plots", -1, 0, 1, "class<`Within`>", 1
 "permute", "setRow<-.Plots", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setRow<-.Plots", 0, 0, 1, "class<`Within`>", 1
 "permute", "setRow<-.Plots", 1, 0, 0, "double", 1
-"permute", "setRow<-.Within", -1, 0, 0, "(class<`Plots`> | class<`Within`>)", 1
+"permute", "setRow<-.Within", -1, 0, 0, "class<`Plots`>", 1
+"permute", "setRow<-.Within", -1, 0, 1, "class<`Within`>", 1
 "permute", "setRow<-.Within", 0, 0, 0, "class<`Plots`>", 1
 "permute", "setRow<-.Within", 0, 0, 1, "class<`Within`>", 1
 "permute", "setRow<-.Within", 1, 0, 0, "double", 1

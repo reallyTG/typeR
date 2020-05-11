@@ -1,5 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"gmp", "%*%", -1, 0, 0, "(class<`bigq`> | class<`bigz`> | class<`matrix`>)", 1
+"gmp", "%*%", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "%*%", -1, 0, 1, "class<`bigz`>", 1
+"gmp", "%*%", -1, 0, 2, "class<`matrix`>", 1
 "gmp", "%*%", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "%*%", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "%*%", 0, 0, 2, "class<`matrix`>", 1
@@ -24,7 +26,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "all.equal.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "all.equal.bigz", 1, 0, 0, "double[]", 1
 "gmp", "all.equal.bigz", 2, 0, 0, "...", 1
-"gmp", "apply", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "apply", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "apply", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "apply", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "apply", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "apply", 1, 0, 0, "double", 1
@@ -76,16 +79,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "as.character.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "as.character.bigz", 1, 0, 0, "double", 1
 "gmp", "as.character.bigz", 2, 0, 0, "...", 1
-"gmp", "as.double.bigq", -1, 0, 0, "(^double[] | null)", 1
+"gmp", "as.double.bigq", -1, 0, 0, "^double[]", 1
+"gmp", "as.double.bigq", -1, 0, 1, "null", 1
 "gmp", "as.double.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "as.double.bigq", 1, 0, 0, "...", 1
-"gmp", "as.double.bigz", -1, 0, 0, "(^double[] | null)", 1
+"gmp", "as.double.bigz", -1, 0, 0, "^double[]", 1
+"gmp", "as.double.bigz", -1, 0, 1, "null", 1
 "gmp", "as.double.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "as.double.bigz", 1, 0, 0, "...", 1
 "gmp", "as.integer.bigq", -1, 0, 0, "^integer[]", 1
 "gmp", "as.integer.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "as.integer.bigq", 1, 0, 0, "...", 1
-"gmp", "as.integer.bigz", -1, 0, 0, "(^integer[] | null)", 1
+"gmp", "as.integer.bigz", -1, 0, 0, "^integer[]", 1
+"gmp", "as.integer.bigz", -1, 0, 1, "null", 1
 "gmp", "as.integer.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "as.integer.bigz", 1, 0, 0, "...", 1
 "gmp", "as.matrix.bigq", -1, 0, 0, "class<`bigq`>", 1
@@ -94,27 +100,33 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "as.matrix.bigz", -1, 0, 0, "class<`bigz`>", 1
 "gmp", "as.matrix.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "as.matrix.bigz", 1, 0, 0, "...", 1
-"gmp", "asNumeric", -1, 0, 0, "(class<`matrix`> | ^double[])", 1
+"gmp", "asNumeric", -1, 0, 0, "class<`matrix`>", 1
+"gmp", "asNumeric", -1, 0, 1, "^double[]", 1
 "gmp", "asNumeric", 0, 0, 0, "class<`bigq`>", 1
-"gmp", "asNumeric", -1, 1, 0, "(class<`matrix`> | ^double[])", 1
+"gmp", "asNumeric", -1, 1, 0, "class<`matrix`>", 1
+"gmp", "asNumeric", -1, 1, 1, "^double[]", 1
 "gmp", "asNumeric", 0, 1, 0, "class<`bigz`>", 1
 "gmp", "asNumeric", -1, 2, 0, "class<`matrix`>", 1
 "gmp", "asNumeric", 0, 2, 0, "class<`matrix`>", 1
-"gmp", "asNumeric", -1, 3, 0, "(class<`matrix`> | ^double[])", 1
+"gmp", "asNumeric", -1, 3, 0, "class<`matrix`>", 1
+"gmp", "asNumeric", -1, 3, 1, "^double[]", 1
 "gmp", "asNumeric", 0, 3, 0, "class<`bigq`>", 1
 "gmp", "asNumeric", 0, 3, 1, "class<`bigz`>", 1
 "gmp", "asNumeric", 0, 3, 2, "class<`matrix`>", 1
-"gmp", "as.vector.bigq", -1, 0, 0, "(class<`bigq`> | list<class<`bigq`>>)", 1
+"gmp", "as.vector.bigq", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "as.vector.bigq", -1, 0, 1, "list<class<`bigq`>>", 1
 "gmp", "as.vector.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "as.vector.bigq", 1, 0, 0, "character", 1
-"gmp", "as.vector.bigz", -1, 0, 0, "(class<`bigz`> | list<class<`bigz`>>)", 1
+"gmp", "as.vector.bigz", -1, 0, 0, "class<`bigz`>", 1
+"gmp", "as.vector.bigz", -1, 0, 1, "list<class<`bigz`>>", 1
 "gmp", "as.vector.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "as.vector.bigz", 1, 0, 0, "character", 1
 "gmp", "^.bigq", -1, 0, 0, "any", 1
 "gmp", "^.bigq", 0, 0, 0, "any", 1
 "gmp", "^.bigq", 1, 0, 0, "double", 1
 "gmp", "^.bigq", 1, 0, 1, "class<`bigq`>", 1
-"gmp", "<=.bigq", -1, 0, 0, "(class<`matrix`> | ^logical[])", 1
+"gmp", "<=.bigq", -1, 0, 0, "class<`matrix`>", 1
+"gmp", "<=.bigq", -1, 0, 1, "^logical[]", 1
 "gmp", "<=.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "<=.bigq", 0, 0, 1, "double", 1
 "gmp", "<=.bigq", 0, 0, 2, "null", 1
@@ -126,7 +138,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "<.bigq", 0, 0, 2, "null", 1
 "gmp", "<.bigq", 1, 0, 0, "class<`bigq`>", 1
 "gmp", "<.bigq", 1, 0, 1, "^double[]", 1
-"gmp", "==.bigq", -1, 0, 0, "(class<`matrix`> | ^logical[])", 1
+"gmp", "==.bigq", -1, 0, 0, "class<`matrix`>", 1
+"gmp", "==.bigq", -1, 0, 1, "^logical[]", 1
 "gmp", "==.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "==.bigq", 0, 0, 1, "class<`matrix`>", 1
 "gmp", "==.bigq", 0, 0, 2, "^double[]", 1
@@ -197,7 +210,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "+.bigq", 0, 0, 2, "null", 1
 "gmp", "+.bigq", 1, 0, 0, "class<`bigq`>", 1
 "gmp", "+.bigq", 1, 0, 1, "^double[]", 1
-"gmp", "^.bigz", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "^.bigz", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "^.bigz", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "^.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "^.bigz", 0, 0, 1, "double", 1
 "gmp", "^.bigz", 0, 0, 2, "null", 1
@@ -211,13 +225,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "<=.bigz", 0, 0, 2, "null", 1
 "gmp", "<=.bigz", 1, 0, 0, "class<`bigz`>", 1
 "gmp", "<=.bigz", 1, 0, 1, "^double[]", 1
-"gmp", "<.bigz", -1, 0, 0, "(class<`matrix`> | ^logical[])", 1
+"gmp", "<.bigz", -1, 0, 0, "class<`matrix`>", 1
+"gmp", "<.bigz", -1, 0, 1, "^logical[]", 1
 "gmp", "<.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "<.bigz", 0, 0, 1, "double", 1
 "gmp", "<.bigz", 0, 0, 2, "null", 1
 "gmp", "<.bigz", 1, 0, 0, "class<`bigz`>", 1
 "gmp", "<.bigz", 1, 0, 1, "^double[]", 1
-"gmp", "==.bigz", -1, 0, 0, "(class<`matrix`> | ^logical[])", 1
+"gmp", "==.bigz", -1, 0, 0, "class<`matrix`>", 1
+"gmp", "==.bigz", -1, 0, 1, "^logical[]", 1
 "gmp", "==.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "==.bigz", 0, 0, 1, "^double[]", 1
 "gmp", "==.bigz", 0, 0, 2, "null", 1
@@ -230,7 +246,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", ">=.bigz", 0, 0, 2, "null", 1
 "gmp", ">=.bigz", 1, 0, 0, "class<`bigz`>", 1
 "gmp", ">=.bigz", 1, 0, 1, "^double[]", 1
-"gmp", ">.bigz", -1, 0, 0, "(class<`matrix`> | ^logical[])", 1
+"gmp", ">.bigz", -1, 0, 0, "class<`matrix`>", 1
+"gmp", ">.bigz", -1, 0, 1, "^logical[]", 1
 "gmp", ">.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", ">.bigz", 0, 0, 1, "double", 1
 "gmp", ">.bigz", 0, 0, 2, "null", 1
@@ -248,7 +265,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "!=.bigz", 0, 0, 2, "null", 1
 "gmp", "!=.bigz", 1, 0, 0, "class<`bigz`>", 1
 "gmp", "!=.bigz", 1, 0, 1, "^double[]", 1
-"gmp", "/.bigz", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "/.bigz", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "/.bigz", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "/.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "/.bigz", 0, 0, 1, "double", 1
 "gmp", "/.bigz", 0, 0, 2, "null", 1
@@ -296,7 +314,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "%/%.bigz", 1, 0, 2, "character", 1
 "gmp", "%/%.bigz", 1, 0, 3, "class<`bigq`>", 1
 "gmp", "%/%.bigz", 1, 0, 4, "null", 1
-"gmp", "%*%.bigz", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "%*%.bigz", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "%*%.bigz", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "%*%.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "%*%.bigz", 1, 0, 0, "class<`bigq`>", 1
 "gmp", "%*%.bigz", 1, 0, 1, "class<`bigz`>", 1
@@ -326,7 +345,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "chooseZ", 0, 0, 1, "double[]", 1
 "gmp", "chooseZ", 1, 0, 0, "double[]", 1
 "gmp", "chooseZ", 1, 0, 1, "class<`bigz`>", 1
-"gmp", "crossprod", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "crossprod", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "crossprod", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "crossprod", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "crossprod", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "crossprod", 1, 0, 0, "class<`bigq`>", 1
@@ -336,7 +356,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "crossprod.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "crossprod.bigq", 1, 0, 0, "class<`bigq`>", 1
 "gmp", "crossprod.bigq", 1, 0, 1, "null", 1
-"gmp", "crossprod.bigz", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "crossprod.bigz", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "crossprod.bigz", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "crossprod.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "crossprod.bigz", 1, 0, 0, "class<`bigq`>", 1
 "gmp", "crossprod.bigz", 1, 0, 1, "class<`bigz`>", 1
@@ -345,7 +366,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "cumsum.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "cumsum.bigz", -1, 0, 0, "class<`bigz`>", 1
 "gmp", "cumsum.bigz", 0, 0, 0, "class<`bigz`>", 1
-"gmp", "%*%.default", -1, 0, 0, "(class<`bigq`> | class<`bigz`> | class<`matrix`>)", 1
+"gmp", "%*%.default", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "%*%.default", -1, 0, 1, "class<`bigz`>", 1
+"gmp", "%*%.default", -1, 0, 2, "class<`matrix`>", 1
 "gmp", "%*%.default", 0, 0, 0, "class<`matrix`>", 1
 "gmp", "%*%.default", 0, 0, 1, "double[]", 1
 "gmp", "%*%.default", 1, 0, 0, "class<`bigq`>", 1
@@ -353,18 +376,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "%*%.default", 1, 0, 2, "class<`matrix`>", 1
 "gmp", "denominator", -1, 0, 0, "class<`bigz`>", 1
 "gmp", "denominator", 0, 0, 0, "class<`bigq`>", 1
-"gmp", "dim<-.bigq", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "dim<-.bigq", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "dim<-.bigq", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "dim<-.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "dim<-.bigq", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "dim<-.bigq", 1, 0, 0, "double[]", 1
-"gmp", "dim.bigq", -1, 0, 0, "(double[] | null)", 1
+"gmp", "dim.bigq", -1, 0, 0, "double[]", 1
+"gmp", "dim.bigq", -1, 0, 1, "null", 1
 "gmp", "dim.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "dim.bigq", 0, 0, 1, "class<`bigz`>", 1
-"gmp", "dim<-.bigz", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "dim<-.bigz", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "dim<-.bigz", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "dim<-.bigz", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "dim<-.bigz", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "dim<-.bigz", 1, 0, 0, "double[]", 1
-"gmp", "dim.bigz", -1, 0, 0, "(double[] | null)", 1
+"gmp", "dim.bigz", -1, 0, 0, "double[]", 1
+"gmp", "dim.bigz", -1, 0, 1, "null", 1
 "gmp", "dim.bigz", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "dim.bigz", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "divq.bigz", -1, 0, 0, "class<`bigz`>", 1
@@ -520,7 +547,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "gcd.bigz", 1, 0, 2, "class<`bigz`>", 1
 "gmp", "gcd.bigz", 1, 0, 3, "null", 1
 "gmp", "gcd.bigz", 1, 0, 4, "double[]", 1
-"gmp", "gcd.default", -1, 0, 0, "(integer[] | null)", 1
+"gmp", "gcd.default", -1, 0, 0, "integer[]", 1
+"gmp", "gcd.default", -1, 0, 1, "null", 1
 "gmp", "gcd.default", 0, 0, 0, "double[]", 1
 "gmp", "gcd.default", 0, 0, 1, "null", 1
 "gmp", "gcd.default", 1, 0, 0, "double[]", 1
@@ -607,7 +635,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "lucnum2", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "lucnum2", 0, 0, 1, "double", 1
 "gmp", "lucnum2", 0, 0, 2, "integer[]", 1
-"gmp", "matrix", -1, 0, 0, "(class<`bigq`> | class<`bigz`> | class<`matrix`>)", 1
+"gmp", "matrix", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "matrix", -1, 0, 1, "class<`bigz`>", 1
+"gmp", "matrix", -1, 0, 2, "class<`matrix`>", 1
 "gmp", "matrix", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "matrix", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "matrix", 0, 0, 2, "double[]", 1
@@ -660,7 +690,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "mod.bigz", 1, 0, 0, "class<`bigz`>", 1
 "gmp", "mod.bigz", 1, 0, 1, "^double[]", 1
 "gmp", "mod.bigz", 1, 0, 2, "character", 1
-"gmp", "modulus", -1, 0, 0, "(class<`bigz`> | null)", 1
+"gmp", "modulus", -1, 0, 0, "class<`bigz`>", 1
+"gmp", "modulus", -1, 0, 1, "null", 1
 "gmp", "modulus", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "modulus<-", -1, 0, 0, "class<`bigz`>", 1
 "gmp", "modulus<-", 0, 0, 0, "class<`bigz`>", 1
@@ -672,7 +703,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "modulus<-.bigz", 1, 0, 0, "null", 1
 "gmp", "modulus<-.bigz", 1, 0, 1, "class<`bigz`>", 1
 "gmp", "modulus<-.bigz", 1, 0, 2, "double", 1
-"gmp", "modulus.bigz", -1, 0, 0, "(class<`bigz`> | null)", 1
+"gmp", "modulus.bigz", -1, 0, 0, "class<`bigz`>", 1
+"gmp", "modulus.bigz", -1, 0, 1, "null", 1
 "gmp", "modulus.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "nextprime", -1, 0, 0, "class<`bigz`>", 1
 "gmp", "nextprime", 0, 0, 0, "double", 1
@@ -681,14 +713,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "numerator<-", -1, 0, 0, "class<`bigq`>", 1
 "gmp", "numerator<-", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "numerator<-", 1, 0, 0, "class<`bigz`>", 1
-"gmp", "outer", -1, 0, 0, "(class<`bigz`> | class<`matrix`>)", 1
+"gmp", "outer", -1, 0, 0, "class<`bigz`>", 1
+"gmp", "outer", -1, 0, 1, "class<`matrix`>", 1
 "gmp", "outer", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "outer", 0, 0, 1, "double[]", 1
 "gmp", "outer", 1, 0, 0, "double[]", 1
 "gmp", "outer", 2, 0, 0, "class<`function`>", 1
 "gmp", "outer", 2, 0, 1, "character", 1
 "gmp", "outer", 3, 0, 0, "...", 1
-"gmp", "pow.bigz", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "pow.bigz", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "pow.bigz", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "pow.bigz", 0, 0, 0, "class<`bigz`>", 1
 "gmp", "pow.bigz", 0, 0, 1, "double", 1
 "gmp", "pow.bigz", 0, 0, 2, "null", 1
@@ -757,7 +791,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "t.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "t.bigz", -1, 0, 0, "class<`bigz`>", 1
 "gmp", "t.bigz", 0, 0, 0, "class<`bigz`>", 1
-"gmp", "tcrossprod", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "tcrossprod", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "tcrossprod", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "tcrossprod", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "tcrossprod", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "tcrossprod", 0, 0, 2, "class<`matrix`>", 1
@@ -775,12 +810,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gmp", "tcrossprod.default", -1, 0, 0, "class<`bigz`>", 1
 "gmp", "tcrossprod.default", 0, 0, 0, "class<`matrix`>", 1
 "gmp", "tcrossprod.default", 1, 0, 0, "class<`bigz`>", 1
-"gmp", "unique.bigq", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "unique.bigq", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "unique.bigq", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "unique.bigq", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "unique.bigq", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "unique.bigq", 1, 0, 0, "logical", 1
 "gmp", "unique.bigq", 2, 0, 0, "...", 1
-"gmp", "unique.bigz", -1, 0, 0, "(class<`bigq`> | class<`bigz`>)", 1
+"gmp", "unique.bigz", -1, 0, 0, "class<`bigq`>", 1
+"gmp", "unique.bigz", -1, 0, 1, "class<`bigz`>", 1
 "gmp", "unique.bigz", 0, 0, 0, "class<`bigq`>", 1
 "gmp", "unique.bigz", 0, 0, 1, "class<`bigz`>", 1
 "gmp", "unique.bigz", 1, 0, 0, "logical", 1

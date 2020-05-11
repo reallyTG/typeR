@@ -3,7 +3,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "Cache", 0, 0, 0, "class<`call`>", 1
 "Deriv", "Cache", 1, 0, 0, "environment", 1
 "Deriv", "Cache", 2, 0, 0, "character", 1
-"Deriv", "deCache", -1, 0, 0, "(class<`call`> | class<`name`> | double)", 1
+"Deriv", "deCache", -1, 0, 0, "class<`call`>", 1
+"Deriv", "deCache", -1, 0, 1, "class<`name`>", 1
+"Deriv", "deCache", -1, 0, 2, "double", 1
 "Deriv", "deCache", 0, 0, 0, "class<`call`>", 1
 "Deriv", "deCache", 0, 0, 1, "class<`name`>", 1
 "Deriv", "deCache", 0, 0, 2, "double", 1
@@ -15,7 +17,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "Deriv", 4, 0, 0, "logical", 1
 "Deriv", "Deriv", 5, 0, 0, "null", 1
 "Deriv", "Deriv", 6, 0, 0, "character", 1
-"Deriv", "Deriv_", -1, 0, 0, "(class<`call`> | class<`if`> | double)", 1
+"Deriv", "Deriv_", -1, 0, 0, "class<`call`>", 1
+"Deriv", "Deriv_", -1, 0, 1, "class<`if`>", 1
+"Deriv", "Deriv_", -1, 0, 2, "double", 1
 "Deriv", "Deriv_", 0, 0, 0, "class<`call`>", 1
 "Deriv", "Deriv_", 0, 0, 1, "class<`if`>", 1
 "Deriv", "Deriv_", 0, 0, 2, "class<`name`>", 1
@@ -32,11 +36,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "format1", 0, 0, 2, "class<`if`>", 1
 "Deriv", "format1", 0, 0, 3, "class<`name`>", 1
 "Deriv", "format1", 0, 0, 4, "double", 1
-"Deriv", "FUN", -1, 0, 0, "(class<`call`> | class<`name`> | double)", 1
+"Deriv", "FUN", -1, 0, 0, "class<`call`>", 1
+"Deriv", "FUN", -1, 0, 1, "class<`name`>", 1
+"Deriv", "FUN", -1, 0, 2, "double", 1
 "Deriv", "FUN", 0, 0, 0, "class<`call`>", 1
 "Deriv", "FUN", 0, 0, 1, "class<`name`>", 1
 "Deriv", "FUN", 0, 0, 2, "double", 1
-"Deriv", "FUN", -1, 1, 0, "(class<`call`> | class<`if`> | double)", 1
+"Deriv", "FUN", -1, 1, 0, "class<`call`>", 1
+"Deriv", "FUN", -1, 1, 1, "class<`if`>", 1
+"Deriv", "FUN", -1, 1, 2, "double", 1
 "Deriv", "FUN", 0, 1, 0, "class<`call`>", 1
 "Deriv", "FUN", 0, 1, 1, "class<`if`>", 1
 "Deriv", "FUN", 0, 1, 2, "class<`name`>", 1
@@ -63,7 +71,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "FUN", 1, 4, 0, "any", 1
 "Deriv", "FUN", 2, 4, 0, "null", 1
 "Deriv", "FUN", 2, 4, 1, "logical", 1
-"Deriv", "FUN", -1, 5, 0, "(class<`call`> | class<`name`> | double | class<`if`>)", 1
+"Deriv", "FUN", -1, 5, 0, "class<`call`>", 1
+"Deriv", "FUN", -1, 5, 1, "class<`name`>", 1
+"Deriv", "FUN", -1, 5, 2, "double", 1
+"Deriv", "FUN", -1, 5, 3, "class<`if`>", 1
 "Deriv", "FUN", 0, 5, 0, "class<`(`>", 1
 "Deriv", "FUN", 0, 5, 1, "class<`call`>", 1
 "Deriv", "FUN", 0, 5, 2, "class<`name`>", 1
@@ -118,12 +129,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "Numden", 0, 0, 0, "double", 1
 "Deriv", "Numden", 0, 0, 1, "class<`call`>", 1
 "Deriv", "Numden", 0, 0, 2, "class<`name`>", 1
-"Deriv", "Simplify", -1, 0, 0, "(class<`call`> | class<`if`>)", 1
+"Deriv", "Simplify", -1, 0, 0, "class<`call`>", 1
+"Deriv", "Simplify", -1, 0, 1, "class<`if`>", 1
 "Deriv", "Simplify", 0, 0, 0, "class<`call`>", 1
 "Deriv", "Simplify", 0, 0, 1, "class<`if`>", 1
 "Deriv", "Simplify", 1, 0, 0, "any", 1
 "Deriv", "Simplify", 2, 0, 0, "environment", 1
-"Deriv", "Simplify_", -1, 0, 0, "(class<`call`> | class<`name`> | double | class<`if`>)", 1
+"Deriv", "Simplify_", -1, 0, 0, "class<`call`>", 1
+"Deriv", "Simplify_", -1, 0, 1, "class<`name`>", 1
+"Deriv", "Simplify_", -1, 0, 2, "double", 1
+"Deriv", "Simplify_", -1, 0, 3, "class<`if`>", 1
 "Deriv", "Simplify_", 0, 0, 0, "class<`(`>", 1
 "Deriv", "Simplify_", 0, 0, 1, "class<`call`>", 1
 "Deriv", "Simplify_", 0, 0, 2, "class<`name`>", 1

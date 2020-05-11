@@ -7,7 +7,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", "as.data.frame.density", -1, 0, 0, "class<`data.frame`>", 1
 "bayestestR", "as.data.frame.density", 0, 0, 0, "class<`density`>", 1
 "bayestestR", "as.data.frame.density", 1, 0, 0, "...", 1
-"bayestestR", "bayesfactor", -1, 0, 0, "(class<`bayesfactor_inclusion`, `data.frame`> | class<`bayesfactor_models`, `data.frame`, `see_bayesfactor_models`> | class<`bayesfactor_parameters`, `data.frame`, `see_bayesfactor_parameters`>)", 1
+"bayestestR", "bayesfactor", -1, 0, 0, "class<`bayesfactor_inclusion`, `data.frame`>", 1
+"bayestestR", "bayesfactor", -1, 0, 1, "class<`bayesfactor_models`, `data.frame`, `see_bayesfactor_models`>", 1
+"bayestestR", "bayesfactor", -1, 0, 2, "class<`bayesfactor_parameters`, `data.frame`, `see_bayesfactor_parameters`>", 1
 "bayestestR", "bayesfactor", 0, 0, 0, "...", 1
 "bayestestR", "bayesfactor", 1, 0, 0, "null", 1
 "bayestestR", "bayesfactor", 1, 0, 1, "double[]", 1
@@ -80,11 +82,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", ".check_ci_argument", 0, 0, 0, "double[]", 1
 "bayestestR", ".check_ci_argument", 1, 0, 0, "double", 1
 "bayestestR", ".check_ci_argument", 2, 0, 0, "any", 1
-"bayestestR", "ci", -1, 0, 0, "(class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`> | class<`bayestestR_eti`, `data.frame`, `see_eti`> | class<`bayestestR_hdi`, `data.frame`, `see_hdi`>)", 1
+"bayestestR", "ci", -1, 0, 0, "class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`>", 1
+"bayestestR", "ci", -1, 0, 1, "class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>", 1
+"bayestestR", "ci", -1, 0, 2, "class<`bayestestR_eti`, `data.frame`, `see_eti`>", 1
+"bayestestR", "ci", -1, 0, 3, "class<`bayestestR_hdi`, `data.frame`, `see_hdi`>", 1
 "bayestestR", "ci", 0, 0, 0, "double[]", 1
 "bayestestR", "ci", 0, 0, 1, "class<`data.frame`>", 1
 "bayestestR", "ci", 1, 0, 0, "...", 1
-"bayestestR", ".ci_bayesian", -1, 0, 0, "(class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`> | class<`bayestestR_eti`, `data.frame`, `see_eti`> | class<`bayestestR_hdi`, `data.frame`, `see_hdi`>)", 1
+"bayestestR", ".ci_bayesian", -1, 0, 0, "class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`>", 1
+"bayestestR", ".ci_bayesian", -1, 0, 1, "class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>", 1
+"bayestestR", ".ci_bayesian", -1, 0, 2, "class<`bayestestR_eti`, `data.frame`, `see_eti`>", 1
+"bayestestR", ".ci_bayesian", -1, 0, 3, "class<`bayestestR_hdi`, `data.frame`, `see_hdi`>", 1
 "bayestestR", ".ci_bayesian", 0, 0, 0, "double[]", 1
 "bayestestR", ".ci_bayesian", 0, 0, 1, "class<`data.frame`>", 1
 "bayestestR", ".ci_bayesian", 1, 0, 0, "double[]", 1
@@ -95,7 +103,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", ".ci_bayesian", 6, 0, 0, "any", 1
 "bayestestR", ".ci_bayesian", 7, 0, 0, "any", 1
 "bayestestR", ".ci_bayesian", 8, 0, 0, "...", 1
-"bayestestR", "ci.data.frame", -1, 0, 0, "(class<`bayestestR_eti`, `data.frame`, `see_eti`> | class<`bayestestR_hdi`, `data.frame`, `see_hdi`> | class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>)", 1
+"bayestestR", "ci.data.frame", -1, 0, 0, "class<`bayestestR_eti`, `data.frame`, `see_eti`>", 1
+"bayestestR", "ci.data.frame", -1, 0, 1, "class<`bayestestR_hdi`, `data.frame`, `see_hdi`>", 1
+"bayestestR", "ci.data.frame", -1, 0, 2, "class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`>", 1
+"bayestestR", "ci.data.frame", -1, 0, 3, "class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>", 1
 "bayestestR", "ci.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "bayestestR", "ci.data.frame", 0, 0, 1, "double[]", 1
 "bayestestR", "ci.data.frame", 1, 0, 0, "double[]", 1
@@ -103,7 +114,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", "ci.data.frame", 3, 0, 0, "logical", 1
 "bayestestR", "ci.data.frame", 4, 0, 0, "double", 1
 "bayestestR", "ci.data.frame", 5, 0, 0, "...", 1
-"bayestestR", "ci.numeric", -1, 0, 0, "(class<`bayestestR_eti`, `data.frame`, `see_eti`> | class<`bayestestR_hdi`, `data.frame`, `see_hdi`> | class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>)", 1
+"bayestestR", "ci.numeric", -1, 0, 0, "class<`bayestestR_eti`, `data.frame`, `see_eti`>", 1
+"bayestestR", "ci.numeric", -1, 0, 1, "class<`bayestestR_hdi`, `data.frame`, `see_hdi`>", 1
+"bayestestR", "ci.numeric", -1, 0, 2, "class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`>", 1
+"bayestestR", "ci.numeric", -1, 0, 3, "class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>", 1
 "bayestestR", "ci.numeric", 0, 0, 0, "class<`data.frame`>", 1
 "bayestestR", "ci.numeric", 0, 0, 1, "double[]", 1
 "bayestestR", "ci.numeric", 1, 0, 0, "double[]", 1
@@ -113,7 +127,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", "ci.numeric", 5, 0, 0, "...", 1
 "bayestestR", ".compact_list", -1, 0, 0, "list<class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>>", 1
 "bayestestR", ".compact_list", 0, 0, 0, "list<class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>>", 1
-"bayestestR", ".compute_interval_dataframe", -1, 0, 0, "(class<`bayestestR_eti`, `data.frame`, `see_eti`> | class<`bayestestR_hdi`, `data.frame`, `see_hdi`>)", 1
+"bayestestR", ".compute_interval_dataframe", -1, 0, 0, "class<`bayestestR_eti`, `data.frame`, `see_eti`>", 1
+"bayestestR", ".compute_interval_dataframe", -1, 0, 1, "class<`bayestestR_hdi`, `data.frame`, `see_hdi`>", 1
 "bayestestR", ".compute_interval_dataframe", 0, 0, 0, "class<`data.frame`>", 1
 "bayestestR", ".compute_interval_dataframe", 1, 0, 0, "double[]", 1
 "bayestestR", ".compute_interval_dataframe", 2, 0, 0, "any", 1
@@ -150,7 +165,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", "estimate_density.numeric", 6, 0, 0, "...", 1
 "bayestestR", "estimate_samples_density", -1, 0, 0, "list<class<`data.frame`>>", 1
 "bayestestR", "estimate_samples_density", 0, 0, 0, "class<`data.frame`>", 1
-"bayestestR", "eti", -1, 0, 0, "(class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_eti`, `data.frame`, `see_eti`>)", 1
+"bayestestR", "eti", -1, 0, 0, "class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`>", 1
+"bayestestR", "eti", -1, 0, 1, "class<`bayestestR_eti`, `data.frame`, `see_eti`>", 1
 "bayestestR", "eti", 0, 0, 0, "double[]", 1
 "bayestestR", "eti", 0, 0, 1, "class<`data.frame`>", 1
 "bayestestR", "eti", 1, 0, 0, "...", 1
@@ -170,7 +186,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", "eti.numeric", 3, 0, 0, "...", 1
 "bayestestR", "filter", -1, 0, 0, "logical[]", 1
 "bayestestR", "filter", 0, 0, 0, "character[]", 1
-"bayestestR", "FUN", -1, 0, 0, "(class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`> | class<`bayestestR_eti`, `data.frame`, `see_eti`>)", 1
+"bayestestR", "FUN", -1, 0, 0, "class<`bayestestR_ci`, `bayestestR_eti`, `data.frame`, `see_ci`, `see_eti`>", 1
+"bayestestR", "FUN", -1, 0, 1, "class<`bayestestR_eti`, `data.frame`, `see_eti`>", 1
 "bayestestR", "FUN", 0, 0, 0, "double[]", 1
 "bayestestR", "FUN", 0, 0, 1, "class<`data.frame`>", 1
 "bayestestR", "FUN", 1, 0, 0, "...", 1
@@ -182,7 +199,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", "FUN", 0, 3, 0, "double[]", 1
 "bayestestR", "FUN", -1, 4, 0, "character", 1
 "bayestestR", "FUN", 0, 4, 0, "character", 1
-"bayestestR", "FUN", -1, 5, 0, "(class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`> | class<`bayestestR_hdi`, `data.frame`, `see_hdi`>)", 1
+"bayestestR", "FUN", -1, 5, 0, "class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>", 1
+"bayestestR", "FUN", -1, 5, 1, "class<`bayestestR_hdi`, `data.frame`, `see_hdi`>", 1
 "bayestestR", "FUN", 0, 5, 0, "double[]", 1
 "bayestestR", "FUN", 0, 5, 1, "class<`data.frame`>", 1
 "bayestestR", "FUN", 1, 5, 0, "...", 1
@@ -212,7 +230,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bayestestR", ".get_model_table", 0, 0, 0, "class<`bayesfactor_models`, `data.frame`, `see_bayesfactor_models`>", 1
 "bayestestR", ".get_model_table", 1, 0, 0, "null", 1
 "bayestestR", ".get_model_table", 2, 0, 0, "...", 1
-"bayestestR", "hdi", -1, 0, 0, "(class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`> | class<`bayestestR_hdi`, `data.frame`, `see_hdi`>)", 1
+"bayestestR", "hdi", -1, 0, 0, "class<`bayestestR_ci`, `bayestestR_hdi`, `data.frame`, `see_ci`, `see_hdi`>", 1
+"bayestestR", "hdi", -1, 0, 1, "class<`bayestestR_hdi`, `data.frame`, `see_hdi`>", 1
 "bayestestR", "hdi", 0, 0, 0, "double[]", 1
 "bayestestR", "hdi", 0, 0, 1, "class<`data.frame`>", 1
 "bayestestR", "hdi", 1, 0, 0, "...", 1

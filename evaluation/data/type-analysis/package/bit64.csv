@@ -1,14 +1,17 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"bit64", ":", -1, 0, 0, "(class<`integer64`> | integer[])", 1
+"bit64", ":", -1, 0, 0, "class<`integer64`>", 1
+"bit64", ":", -1, 0, 1, "integer[]", 1
 "bit64", ":", 0, 0, 0, "class<`integer64`>", 1
 "bit64", ":", 0, 0, 1, "double", 1
 "bit64", ":", 1, 0, 0, "double", 1
 "bit64", "abs.integer64", -1, 0, 0, "class<`integer64`>", 1
 "bit64", "abs.integer64", 0, 0, 0, "class<`integer64`>", 1
-"bit64", "all.integer64", -1, 0, 0, "(logical | null)", 1
+"bit64", "all.integer64", -1, 0, 0, "logical", 1
+"bit64", "all.integer64", -1, 0, 1, "null", 1
 "bit64", "all.integer64", 0, 0, 0, "...", 1
 "bit64", "all.integer64", 1, 0, 0, "logical", 1
-"bit64", "any.integer64", -1, 0, 0, "(logical | null)", 1
+"bit64", "any.integer64", -1, 0, 0, "logical", 1
+"bit64", "any.integer64", -1, 0, 1, "null", 1
 "bit64", "any.integer64", 0, 0, 0, "...", 1
 "bit64", "any.integer64", 1, 0, 0, "logical", 1
 "bit64", "as.bitstring", -1, 0, 0, "character[]", 1
@@ -67,12 +70,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit64", "benchmark64", 0, 0, 0, "double", 1
 "bit64", "benchmark64", 1, 0, 0, "double", 1
 "bit64", "benchmark64", 2, 0, 0, "class<`function`>", 1
-"bit64", "binattr", -1, 0, 0, "(null | list<character>)", 1
+"bit64", "binattr", -1, 0, 0, "null", 1
+"bit64", "binattr", -1, 0, 1, "list<character>", 1
 "bit64", "binattr", 0, 0, 0, "double[]", 1
 "bit64", "binattr", 0, 0, 1, "class<`integer64`>", 1
 "bit64", "binattr", 1, 0, 0, "class<`integer64`>", 1
 "bit64", "binattr", 1, 0, 1, "double[]", 1
-"bit64", "cache", -1, 0, 0, "(class<`cache`, `cache_integer64`, `environment`> | null)", 1
+"bit64", "cache", -1, 0, 0, "class<`cache`, `cache_integer64`, `environment`>", 1
+"bit64", "cache", -1, 0, 1, "null", 1
 "bit64", "cache", 0, 0, 0, "class<`integer64`>", 1
 "bit64", "ceiling.integer64", -1, 0, 0, "class<`integer64`>", 1
 "bit64", "ceiling.integer64", 0, 0, 0, "class<`integer64`>", 1
@@ -107,7 +112,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit64", "format.integer64", 0, 0, 0, "class<`integer64`>", 1
 "bit64", "format.integer64", 1, 0, 0, "character", 1
 "bit64", "format.integer64", 2, 0, 0, "...", 1
-"bit64", "getcache", -1, 0, 0, "(double | null)", 1
+"bit64", "getcache", -1, 0, 0, "double", 1
+"bit64", "getcache", -1, 0, 1, "null", 1
 "bit64", "getcache", 0, 0, 0, "class<`integer64`>", 1
 "bit64", "getcache", 1, 0, 0, "character", 1
 "bit64", "hashcache", -1, 0, 0, "class<`cache`, `cache_integer64`, `environment`>", 1
@@ -298,7 +304,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit64", "[<-.integer64", 2, 0, 1, "double", 1
 "bit64", "[<-.integer64", 2, 0, 2, "integer[]", 1
 "bit64", "[<-.integer64", 2, 0, 3, "null", 1
-"bit64", "[.integer64", -1, 0, 0, "(class<`AsIs`, `integer64`> | class<`integer64`>)", 1
+"bit64", "[.integer64", -1, 0, 0, "class<`AsIs`, `integer64`>", 1
+"bit64", "[.integer64", -1, 0, 1, "class<`integer64`>", 1
 "bit64", "[.integer64", 0, 0, 0, "class<`AsIs`, `integer64`>", 1
 "bit64", "[.integer64", 0, 0, 1, "class<`integer64`>", 1
 "bit64", "[.integer64", 1, 0, 0, "...", 1
@@ -847,7 +854,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit64", "summary.integer64", -1, 0, 0, "class<`integer64`>", 1
 "bit64", "summary.integer64", 0, 0, 0, "class<`integer64`>", 1
 "bit64", "summary.integer64", 1, 0, 0, "...", 1
-"bit64", "table.integer64", -1, 0, 0, "(class<`data.frame`> | class<`table`> | list<class<`integer64`> | integer[]>)", 1
+"bit64", "table.integer64", -1, 0, 0, "class<`data.frame`>", 1
+"bit64", "table.integer64", -1, 0, 1, "class<`table`>", 1
+"bit64", "table.integer64", -1, 0, 2, "list<class<`integer64`> | integer[]>", 1
 "bit64", "table.integer64", 0, 0, 0, "...", 1
 "bit64", "table.integer64", 1, 0, 0, "character[]", 1
 "bit64", "table.integer64", 2, 0, 0, "character[]", 1

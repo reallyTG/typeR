@@ -30,7 +30,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "ain", 2, 0, 0, "...", 1
 "stringdist", "all_int", -1, 0, 0, "logical", 1
 "stringdist", "all_int", 0, 0, 0, "list<any>", 1
-"stringdist", "amatch", -1, 0, 0, "(^integer[] | null)", 1
+"stringdist", "amatch", -1, 0, 0, "^integer[]", 1
+"stringdist", "amatch", -1, 0, 1, "null", 1
 "stringdist", "amatch", 0, 0, 0, "character[]", 1
 "stringdist", "amatch", 0, 0, 1, "null", 1
 "stringdist", "amatch", 1, 0, 0, "character[]", 1
@@ -47,7 +48,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "amatch", 9, 0, 0, "double", 1
 "stringdist", "amatch", 10, 0, 0, "double", 1
 "stringdist", "amatch", 11, 0, 0, "double", 1
-"stringdist", "do_dist", -1, 0, 0, "(^double[] | null)", 1
+"stringdist", "do_dist", -1, 0, 0, "^double[]", 1
+"stringdist", "do_dist", -1, 0, 1, "null", 1
 "stringdist", "do_dist", 0, 0, 0, "character[]", 1
 "stringdist", "do_dist", 0, 0, 1, "null", 1
 "stringdist", "do_dist", 0, 0, 2, "list<^integer[]>", 1
@@ -64,7 +66,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "ensure_int_list", -1, 0, 0, "list<any>", 1
 "stringdist", "ensure_int_list", 0, 0, 0, "double[]", 1
 "stringdist", "ensure_int_list", 0, 0, 1, "list<any>", 1
-"stringdist", "FUN", -1, 0, 0, "(^double[] | null)", 1
+"stringdist", "FUN", -1, 0, 0, "^double[]", 1
+"stringdist", "FUN", -1, 0, 1, "null", 1
 "stringdist", "FUN", 0, 0, 0, "character[]", 1
 "stringdist", "FUN", 0, 0, 1, "null", 1
 "stringdist", "FUN", 0, 0, 2, "list<^integer[]>", 1
@@ -135,7 +138,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "seq_ain", 0, 0, 0, "list<integer[]>", 1
 "stringdist", "seq_ain", 1, 0, 0, "list<integer[]>", 1
 "stringdist", "seq_ain", 2, 0, 0, "...", 1
-"stringdist", "seq_amatch", -1, 0, 0, "(^integer[] | null)", 1
+"stringdist", "seq_amatch", -1, 0, 0, "^integer[]", 1
+"stringdist", "seq_amatch", -1, 0, 1, "null", 1
 "stringdist", "seq_amatch", 0, 0, 0, "double[]", 1
 "stringdist", "seq_amatch", 0, 0, 1, "list<^integer[] | null | integer[] | null>", 1
 "stringdist", "seq_amatch", 1, 0, 0, "double[]", 1
@@ -161,7 +165,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "seq_dist", 5, 0, 0, "double", 1
 "stringdist", "seq_dist", 6, 0, 0, "double", 1
 "stringdist", "seq_dist", 7, 0, 0, "double", 1
-"stringdist", "seq_distmatrix", -1, 0, 0, "(class<`dist`> | class<`matrix`>)", 1
+"stringdist", "seq_distmatrix", -1, 0, 0, "class<`dist`>", 1
+"stringdist", "seq_distmatrix", -1, 0, 1, "class<`matrix`>", 1
 "stringdist", "seq_distmatrix", 0, 0, 0, "double[]", 1
 "stringdist", "seq_distmatrix", 0, 0, 1, "list<double[]>", 1
 "stringdist", "seq_distmatrix", 1, 0, 0, "any", 1
@@ -184,7 +189,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "seq_sim", 4, 0, 0, "...", 1
 "stringdist", "setnames", -1, 0, 0, "list<^character[] | null | list<integer[] | ^integer[] | null>>", 1
 "stringdist", "setnames", 0, 0, 0, "list<^character[] | null | list<integer[] | ^integer[] | null>>", 1
-"stringdist", "setNames", -1, 0, 0, "(character[] | list<^character[] | null | list<integer[] | ^integer[] | null>>)", 1
+"stringdist", "setNames", -1, 0, 0, "character[]", 1
+"stringdist", "setNames", -1, 0, 1, "list<^character[] | null | list<integer[] | ^integer[] | null>>", 1
 "stringdist", "setNames", 0, 0, 0, "character[]", 1
 "stringdist", "setNames", 0, 0, 1, "list<^character[] | null | list<integer[] | ^integer[] | null>>", 1
 "stringdist", "setNames", 1, 0, 0, "character[]", 1
@@ -202,7 +208,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringdist", "stringdist", 6, 0, 0, "double", 1
 "stringdist", "stringdist", 7, 0, 0, "double", 1
 "stringdist", "stringdist", 8, 0, 0, "any", 1
-"stringdist", "stringdistmatrix", -1, 0, 0, "(class<`dist`> | class<`matrix`>)", 1
+"stringdist", "stringdistmatrix", -1, 0, 0, "class<`dist`>", 1
+"stringdist", "stringdistmatrix", -1, 0, 1, "class<`matrix`>", 1
 "stringdist", "stringdistmatrix", 0, 0, 0, "^character[]", 1
 "stringdist", "stringdistmatrix", 0, 0, 1, "list<character>", 1
 "stringdist", "stringdistmatrix", 1, 0, 0, "any", 1

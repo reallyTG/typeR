@@ -1,5 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"sjlabelled", "::", -1, 0, 0, "(character[] | null | list<character[] | null | character[] | character[] | null>)", 1
+"sjlabelled", "::", -1, 0, 0, "character[]", 1
+"sjlabelled", "::", -1, 0, 1, "null", 1
+"sjlabelled", "::", -1, 0, 2, "list<character[] | null | character[] | character[] | null>", 1
 "sjlabelled", "::", 0, 0, 0, "^double[]", 1
 "sjlabelled", "::", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "::", 0, 0, 2, "character[]", 1
@@ -12,21 +14,27 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "::", 3, 0, 0, "any", 1
 "sjlabelled", "::", 4, 0, 0, "any", 1
 "sjlabelled", "::", 5, 0, 0, "logical", 1
-"sjlabelled", "::", -1, 1, 0, "(null | character[] | ^double[] | list<^double[] | ^double[] | null>)", 1
+"sjlabelled", "::", -1, 1, 0, "null", 1
+"sjlabelled", "::", -1, 1, 1, "character[]", 1
+"sjlabelled", "::", -1, 1, 2, "^double[]", 1
+"sjlabelled", "::", -1, 1, 3, "list<^double[] | ^double[] | null>", 1
 "sjlabelled", "::", 0, 1, 0, "^double[]", 1
 "sjlabelled", "::", 0, 1, 1, "class<`factor`>", 1
 "sjlabelled", "::", 0, 1, 2, "class<`haven_labelled`>", 1
 "sjlabelled", "::", 0, 1, 3, "character[]", 1
 "sjlabelled", "::", 0, 1, 4, "class<`data.frame`>", 1
 "sjlabelled", "::", 1, 1, 0, "logical", 1
-"sjlabelled", "::", -1, 2, 0, "(^double[] | class<`data.frame`> | class<`haven_labelled`>)", 1
+"sjlabelled", "::", -1, 2, 0, "^double[]", 1
+"sjlabelled", "::", -1, 2, 1, "class<`data.frame`>", 1
+"sjlabelled", "::", -1, 2, 2, "class<`haven_labelled`>", 1
 "sjlabelled", "::", 0, 2, 0, "^double[]", 1
 "sjlabelled", "::", 0, 2, 1, "class<`data.frame`>", 1
 "sjlabelled", "::", 0, 2, 2, "class<`haven_labelled`>", 1
 "sjlabelled", "::", 1, 2, 0, "...", 1
 "sjlabelled", "::", 2, 2, 0, "null", 1
 "sjlabelled", "::", 2, 2, 1, "double[]", 1
-"sjlabelled", "::", -1, 3, 0, "(null | character[])", 1
+"sjlabelled", "::", -1, 3, 0, "null", 1
+"sjlabelled", "::", -1, 3, 1, "character[]", 1
 "sjlabelled", "::", 0, 3, 0, "class<`factor`>", 1
 "sjlabelled", "::", 0, 3, 1, "^double[]", 1
 "sjlabelled", "::", 0, 3, 2, "class<`data.frame`>", 1
@@ -38,7 +46,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "::", 2, 3, 0, "any", 1
 "sjlabelled", "::", 3, 3, 0, "null", 1
 "sjlabelled", "::", 3, 3, 1, "character", 1
-"sjlabelled", "::", -1, 4, 0, "(^double[] | character[] | class<`data.frame`> | class<`factor`> | class<`haven_labelled`>)", 1
+"sjlabelled", "::", -1, 4, 0, "^double[]", 1
+"sjlabelled", "::", -1, 4, 1, "character[]", 1
+"sjlabelled", "::", -1, 4, 2, "class<`data.frame`>", 1
+"sjlabelled", "::", -1, 4, 3, "class<`factor`>", 1
+"sjlabelled", "::", -1, 4, 4, "class<`haven_labelled`>", 1
 "sjlabelled", "::", 0, 4, 0, "^double[]", 1
 "sjlabelled", "::", 0, 4, 1, "character[]", 1
 "sjlabelled", "::", 0, 4, 2, "class<`data.frame`>", 1
@@ -52,19 +64,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "::", 3, 4, 0, "any", 1
 "sjlabelled", "::", 4, 4, 0, "any", 1
 "sjlabelled", "::", 5, 4, 0, "logical", 1
-"sjlabelled", "add_labels", -1, 0, 0, "(^double[] | class<`data.frame`> | class<`haven_labelled`>)", 1
+"sjlabelled", "add_labels", -1, 0, 0, "^double[]", 1
+"sjlabelled", "add_labels", -1, 0, 1, "class<`data.frame`>", 1
+"sjlabelled", "add_labels", -1, 0, 2, "class<`haven_labelled`>", 1
 "sjlabelled", "add_labels", 0, 0, 0, "^double[]", 1
 "sjlabelled", "add_labels", 0, 0, 1, "class<`data.frame`>", 1
 "sjlabelled", "add_labels", 0, 0, 2, "class<`haven_labelled`>", 1
 "sjlabelled", "add_labels", 1, 0, 0, "...", 1
 "sjlabelled", "add_labels", 2, 0, 0, "null", 1
 "sjlabelled", "add_labels", 2, 0, 1, "double[]", 1
-"sjlabelled", "add_labels_helper", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "add_labels_helper", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "add_labels_helper", -1, 0, 1, "^double[]", 1
 "sjlabelled", "add_labels_helper", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "add_labels_helper", 0, 0, 1, "^double[]", 1
 "sjlabelled", "add_labels_helper", 1, 0, 0, "null", 1
 "sjlabelled", "add_labels_helper", 1, 0, 1, "double[]", 1
-"sjlabelled", "as_factor", -1, 0, 0, "(class<`data.frame`> | class<`factor`>)", 1
+"sjlabelled", "as_factor", -1, 0, 0, "class<`data.frame`>", 1
+"sjlabelled", "as_factor", -1, 0, 1, "class<`factor`>", 1
 "sjlabelled", "as_factor", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "as_factor", 0, 0, 1, "^double[]", 1
 "sjlabelled", "as_factor", 1, 0, 0, "...", 1
@@ -76,7 +92,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "as_factor.default", 0, 0, 0, "^double[]", 1
 "sjlabelled", "as_factor.default", 1, 0, 0, "logical", 1
 "sjlabelled", "as_factor.default", 2, 0, 0, "...", 1
-"sjlabelled", "as_label", -1, 0, 0, "(class<`data.frame`> | class<`factor`> | ^double[])", 1
+"sjlabelled", "as_label", -1, 0, 0, "class<`data.frame`>", 1
+"sjlabelled", "as_label", -1, 0, 1, "class<`factor`>", 1
+"sjlabelled", "as_label", -1, 0, 2, "^double[]", 1
 "sjlabelled", "as_label", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "as_label", 0, 0, 1, "character[]", 1
 "sjlabelled", "as_label", 0, 0, 2, "class<`factor`>", 1
@@ -92,7 +110,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "as_label.data.frame", 5, 0, 0, "logical", 1
 "sjlabelled", "as_label.data.frame", 6, 0, 0, "logical", 1
 "sjlabelled", "as_label.data.frame", 7, 0, 0, "logical", 1
-"sjlabelled", "as_label.default", -1, 0, 0, "(class<`factor`> | ^double[])", 1
+"sjlabelled", "as_label.default", -1, 0, 0, "class<`factor`>", 1
+"sjlabelled", "as_label.default", -1, 0, 1, "^double[]", 1
 "sjlabelled", "as_label.default", 0, 0, 0, "character[]", 1
 "sjlabelled", "as_label.default", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "as_label.default", 0, 0, 2, "class<`haven_labelled`>", 1
@@ -105,7 +124,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "as_label.default", 5, 0, 0, "logical", 1
 "sjlabelled", "as_label.default", 6, 0, 0, "logical", 1
 "sjlabelled", "as_label.default", 7, 0, 0, "...", 1
-"sjlabelled", "as_label_helper", -1, 0, 0, "(class<`factor`> | ^double[])", 1
+"sjlabelled", "as_label_helper", -1, 0, 0, "class<`factor`>", 1
+"sjlabelled", "as_label_helper", -1, 0, 1, "^double[]", 1
 "sjlabelled", "as_label_helper", 0, 0, 0, "character[]", 1
 "sjlabelled", "as_label_helper", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "as_label_helper", 0, 0, 2, "class<`haven_labelled`>", 1
@@ -117,22 +137,29 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "as_label_helper", 4, 0, 0, "logical", 1
 "sjlabelled", "as_label_helper", 5, 0, 0, "logical", 1
 "sjlabelled", "as_label_helper", 6, 0, 0, "logical", 1
-"sjlabelled", "as_labelled", -1, 0, 0, "(class<`haven_labelled`> | class<`haven_labelled`, `numeric`> | double[])", 1
+"sjlabelled", "as_labelled", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "as_labelled", -1, 0, 1, "class<`haven_labelled`, `numeric`>", 1
+"sjlabelled", "as_labelled", -1, 0, 2, "double[]", 1
 "sjlabelled", "as_labelled", 0, 0, 0, "^double[]", 1
 "sjlabelled", "as_labelled", 1, 0, 0, "logical", 1
 "sjlabelled", "as_labelled", 2, 0, 0, "logical", 1
 "sjlabelled", "as_labelled", 3, 0, 0, "logical", 1
-"sjlabelled", "as_labelled.default", -1, 0, 0, "(class<`haven_labelled`> | class<`haven_labelled`, `numeric`> | double[])", 1
+"sjlabelled", "as_labelled.default", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "as_labelled.default", -1, 0, 1, "class<`haven_labelled`, `numeric`>", 1
+"sjlabelled", "as_labelled.default", -1, 0, 2, "double[]", 1
 "sjlabelled", "as_labelled.default", 0, 0, 0, "^double[]", 1
 "sjlabelled", "as_labelled.default", 1, 0, 0, "logical", 1
 "sjlabelled", "as_labelled.default", 2, 0, 0, "logical", 1
 "sjlabelled", "as_labelled.default", 3, 0, 0, "logical", 1
-"sjlabelled", "as_labelled_helper", -1, 0, 0, "(class<`haven_labelled`> | class<`haven_labelled`, `numeric`> | double[])", 1
+"sjlabelled", "as_labelled_helper", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "as_labelled_helper", -1, 0, 1, "class<`haven_labelled`, `numeric`>", 1
+"sjlabelled", "as_labelled_helper", -1, 0, 2, "double[]", 1
 "sjlabelled", "as_labelled_helper", 0, 0, 0, "^double[]", 1
 "sjlabelled", "as_labelled_helper", 1, 0, 0, "any", 1
 "sjlabelled", "as_labelled_helper", 2, 0, 0, "any", 1
 "sjlabelled", "as_labelled_helper", 3, 0, 0, "any", 1
-"sjlabelled", "as_numeric", -1, 0, 0, "(class<`data.frame`> | ^double[])", 1
+"sjlabelled", "as_numeric", -1, 0, 0, "class<`data.frame`>", 1
+"sjlabelled", "as_numeric", -1, 0, 1, "^double[]", 1
 "sjlabelled", "as_numeric", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "as_numeric", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "as_numeric", 0, 0, 2, "class<`factor`, `ordered`>", 1
@@ -159,7 +186,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "as_numeric_helper", 1, 0, 0, "any", 1
 "sjlabelled", "as_numeric_helper", 2, 0, 0, "any", 1
 "sjlabelled", "as_numeric_helper", 3, 0, 0, "any", 1
-"sjlabelled", "convert_case", -1, 0, 0, "(character[] | null)", 1
+"sjlabelled", "convert_case", -1, 0, 0, "character[]", 1
+"sjlabelled", "convert_case", -1, 0, 1, "null", 1
 "sjlabelled", "convert_case", 0, 0, 0, "character[]", 1
 "sjlabelled", "convert_case", 0, 0, 1, "null", 1
 "sjlabelled", "convert_case", 1, 0, 0, "character", 1
@@ -171,23 +199,28 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "copy_labels", 1, 0, 0, "null", 1
 "sjlabelled", "copy_labels", 1, 0, 1, "class<`data.frame`>", 1
 "sjlabelled", "copy_labels", 2, 0, 0, "...", 1
-"sjlabelled", "drop_labels", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "drop_labels", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "drop_labels", -1, 0, 1, "^double[]", 1
 "sjlabelled", "drop_labels", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "drop_labels", 0, 0, 1, "^double[]", 1
 "sjlabelled", "drop_labels", 1, 0, 0, "...", 1
 "sjlabelled", "drop_labels", 2, 0, 0, "logical", 1
-"sjlabelled", "drop_labels_helper", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "drop_labels_helper", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "drop_labels_helper", -1, 0, 1, "^double[]", 1
 "sjlabelled", "drop_labels_helper", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "drop_labels_helper", 0, 0, 1, "^double[]", 1
 "sjlabelled", "drop_labels_helper", 1, 0, 0, "logical", 1
-"sjlabelled", "fill_labels", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "fill_labels", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "fill_labels", -1, 0, 1, "^double[]", 1
 "sjlabelled", "fill_labels", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "fill_labels", 0, 0, 1, "^double[]", 1
 "sjlabelled", "fill_labels", 1, 0, 0, "...", 1
-"sjlabelled", "fill_labels_helper", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "fill_labels_helper", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "fill_labels_helper", -1, 0, 1, "^double[]", 1
 "sjlabelled", "fill_labels_helper", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "fill_labels_helper", 0, 0, 1, "^double[]", 1
-"sjlabelled", "FUN", -1, 0, 0, "(character[] | null)", 1
+"sjlabelled", "FUN", -1, 0, 0, "character[]", 1
+"sjlabelled", "FUN", -1, 0, 1, "null", 1
 "sjlabelled", "FUN", 0, 0, 0, "^double[]", 1
 "sjlabelled", "FUN", 0, 0, 1, "character[]", 1
 "sjlabelled", "FUN", 0, 0, 2, "class<`factor`>", 1
@@ -198,19 +231,27 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "FUN", 3, 0, 0, "any", 1
 "sjlabelled", "FUN", 4, 0, 0, "any", 1
 "sjlabelled", "FUN", 5, 0, 0, "logical", 1
-"sjlabelled", "FUN", -1, 1, 0, "(character[] | double[] | null)", 1
+"sjlabelled", "FUN", -1, 1, 0, "character[]", 1
+"sjlabelled", "FUN", -1, 1, 1, "double[]", 1
+"sjlabelled", "FUN", -1, 1, 2, "null", 1
 "sjlabelled", "FUN", 0, 1, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "FUN", 0, 1, 1, "^double[]", 1
 "sjlabelled", "FUN", 0, 1, 2, "class<`factor`>", 1
 "sjlabelled", "FUN", 1, 1, 0, "any", 1
 "sjlabelled", "FUN", 2, 1, 0, "any", 1
-"sjlabelled", "FUN", -1, 2, 0, "(^double[] | null | character[])", 1
+"sjlabelled", "FUN", -1, 2, 0, "^double[]", 1
+"sjlabelled", "FUN", -1, 2, 1, "null", 1
+"sjlabelled", "FUN", -1, 2, 2, "character[]", 1
 "sjlabelled", "FUN", 0, 2, 0, "^double[]", 1
 "sjlabelled", "FUN", 0, 2, 1, "class<`haven_labelled`>", 1
 "sjlabelled", "FUN", 0, 2, 2, "class<`factor`>", 1
 "sjlabelled", "FUN", 0, 2, 3, "character[]", 1
 "sjlabelled", "FUN", 1, 2, 0, "any", 1
-"sjlabelled", ".get_dot_data", -1, 0, 0, "(character[] | class<`data.frame`> | class<`factor`> | class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", ".get_dot_data", -1, 0, 0, "character[]", 1
+"sjlabelled", ".get_dot_data", -1, 0, 1, "class<`data.frame`>", 1
+"sjlabelled", ".get_dot_data", -1, 0, 2, "class<`factor`>", 1
+"sjlabelled", ".get_dot_data", -1, 0, 3, "class<`haven_labelled`>", 1
+"sjlabelled", ".get_dot_data", -1, 0, 4, "^double[]", 1
 "sjlabelled", ".get_dot_data", 0, 0, 0, "character[]", 1
 "sjlabelled", ".get_dot_data", 0, 0, 1, "class<`data.frame`>", 1
 "sjlabelled", ".get_dot_data", 0, 0, 2, "class<`factor`>", 1
@@ -218,7 +259,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", ".get_dot_data", 0, 0, 4, "^double[]", 1
 "sjlabelled", ".get_dot_data", 1, 0, 0, "any", 1
 "sjlabelled", ".get_dot_data", 2, 0, 0, "logical", 1
-"sjlabelled", "get_label", -1, 0, 0, "(null | character[])", 1
+"sjlabelled", "get_label", -1, 0, 0, "null", 1
+"sjlabelled", "get_label", -1, 0, 1, "character[]", 1
 "sjlabelled", "get_label", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "get_label", 0, 0, 1, "^double[]", 1
 "sjlabelled", "get_label", 0, 0, 2, "class<`data.frame`>", 1
@@ -236,7 +278,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_label.data.frame", 2, 0, 0, "any", 1
 "sjlabelled", "get_label.data.frame", 3, 0, 0, "null", 1
 "sjlabelled", "get_label.data.frame", 3, 0, 1, "character", 1
-"sjlabelled", "get_label.default", -1, 0, 0, "(character | null)", 1
+"sjlabelled", "get_label.default", -1, 0, 0, "character", 1
+"sjlabelled", "get_label.default", -1, 0, 1, "null", 1
 "sjlabelled", "get_label.default", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "get_label.default", 0, 0, 1, "^double[]", 1
 "sjlabelled", "get_label.default", 0, 0, 2, "character[]", 1
@@ -251,7 +294,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_label.list", 1, 0, 0, "...", 1
 "sjlabelled", "get_label.list", 2, 0, 0, "null", 1
 "sjlabelled", "get_label.list", 3, 0, 0, "null", 1
-"sjlabelled", "get_labels", -1, 0, 0, "(character[] | null | list<character[] | null | character[] | character[] | null>)", 1
+"sjlabelled", "get_labels", -1, 0, 0, "character[]", 1
+"sjlabelled", "get_labels", -1, 0, 1, "null", 1
+"sjlabelled", "get_labels", -1, 0, 2, "list<character[] | null | character[] | character[] | null>", 1
 "sjlabelled", "get_labels", 0, 0, 0, "^double[]", 1
 "sjlabelled", "get_labels", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "get_labels", 0, 0, 2, "character[]", 1
@@ -272,7 +317,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_labels.data.frame", 3, 0, 0, "logical", 1
 "sjlabelled", "get_labels.data.frame", 4, 0, 0, "logical", 1
 "sjlabelled", "get_labels.data.frame", 5, 0, 0, "logical", 1
-"sjlabelled", "get_labels.default", -1, 0, 0, "(character[] | null)", 1
+"sjlabelled", "get_labels.default", -1, 0, 0, "character[]", 1
+"sjlabelled", "get_labels.default", -1, 0, 1, "null", 1
 "sjlabelled", "get_labels.default", 0, 0, 0, "character[]", 1
 "sjlabelled", "get_labels.default", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "get_labels.default", 0, 0, 2, "class<`haven_labelled`>", 1
@@ -283,7 +329,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_labels.default", 3, 0, 0, "any", 1
 "sjlabelled", "get_labels.default", 4, 0, 0, "any", 1
 "sjlabelled", "get_labels.default", 5, 0, 0, "logical", 1
-"sjlabelled", "get_labels_helper", -1, 0, 0, "(character[] | null)", 1
+"sjlabelled", "get_labels_helper", -1, 0, 0, "character[]", 1
+"sjlabelled", "get_labels_helper", -1, 0, 1, "null", 1
 "sjlabelled", "get_labels_helper", 0, 0, 0, "^double[]", 1
 "sjlabelled", "get_labels_helper", 0, 0, 1, "character[]", 1
 "sjlabelled", "get_labels_helper", 0, 0, 2, "class<`factor`>", 1
@@ -301,7 +348,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_labels.list", 3, 0, 0, "logical", 1
 "sjlabelled", "get_labels.list", 4, 0, 0, "logical", 1
 "sjlabelled", "get_labels.list", 5, 0, 0, "logical", 1
-"sjlabelled", "get_na", -1, 0, 0, "(null | character[] | ^double[] | list<^double[] | ^double[] | null>)", 1
+"sjlabelled", "get_na", -1, 0, 0, "null", 1
+"sjlabelled", "get_na", -1, 0, 1, "character[]", 1
+"sjlabelled", "get_na", -1, 0, 2, "^double[]", 1
+"sjlabelled", "get_na", -1, 0, 3, "list<^double[] | ^double[] | null>", 1
 "sjlabelled", "get_na", 0, 0, 0, "^double[]", 1
 "sjlabelled", "get_na", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "get_na", 0, 0, 2, "class<`haven_labelled`>", 1
@@ -311,13 +361,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_na.data.frame", -1, 0, 0, "list<^double[] | ^double[] | null>", 1
 "sjlabelled", "get_na.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "get_na.data.frame", 1, 0, 0, "logical", 1
-"sjlabelled", "get_na.default", -1, 0, 0, "(character[] | ^double[] | null)", 1
+"sjlabelled", "get_na.default", -1, 0, 0, "character[]", 1
+"sjlabelled", "get_na.default", -1, 0, 1, "^double[]", 1
+"sjlabelled", "get_na.default", -1, 0, 2, "null", 1
 "sjlabelled", "get_na.default", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "get_na.default", 0, 0, 1, "class<`haven_labelled`>", 1
 "sjlabelled", "get_na.default", 0, 0, 2, "^double[]", 1
 "sjlabelled", "get_na.default", 0, 0, 3, "character[]", 1
 "sjlabelled", "get_na.default", 1, 0, 0, "logical", 1
-"sjlabelled", "get_na_helper", -1, 0, 0, "(^double[] | null | character[])", 1
+"sjlabelled", "get_na_helper", -1, 0, 0, "^double[]", 1
+"sjlabelled", "get_na_helper", -1, 0, 1, "null", 1
+"sjlabelled", "get_na_helper", -1, 0, 2, "character[]", 1
 "sjlabelled", "get_na_helper", 0, 0, 0, "^double[]", 1
 "sjlabelled", "get_na_helper", 0, 0, 1, "class<`haven_labelled`>", 1
 "sjlabelled", "get_na_helper", 0, 0, 2, "class<`factor`>", 1
@@ -327,7 +381,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_value_range", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "get_value_range", 0, 0, 1, "class<`haven_labelled`>", 1
 "sjlabelled", "get_value_range", 0, 0, 2, "^double[]", 1
-"sjlabelled", "get_values", -1, 0, 0, "(character[] | double[] | null | list<character[]>)", 1
+"sjlabelled", "get_values", -1, 0, 0, "character[]", 1
+"sjlabelled", "get_values", -1, 0, 1, "double[]", 1
+"sjlabelled", "get_values", -1, 0, 2, "null", 1
+"sjlabelled", "get_values", -1, 0, 3, "list<character[]>", 1
 "sjlabelled", "get_values", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "get_values", 0, 0, 1, "^double[]", 1
 "sjlabelled", "get_values", 0, 0, 2, "class<`factor`>", 1
@@ -338,13 +395,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "get_values.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "get_values.data.frame", 1, 0, 0, "logical", 1
 "sjlabelled", "get_values.data.frame", 2, 0, 0, "logical", 1
-"sjlabelled", "get_values.default", -1, 0, 0, "(character[] | double[] | null)", 1
+"sjlabelled", "get_values.default", -1, 0, 0, "character[]", 1
+"sjlabelled", "get_values.default", -1, 0, 1, "double[]", 1
+"sjlabelled", "get_values.default", -1, 0, 2, "null", 1
 "sjlabelled", "get_values.default", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "get_values.default", 0, 0, 1, "^double[]", 1
 "sjlabelled", "get_values.default", 0, 0, 2, "class<`factor`>", 1
 "sjlabelled", "get_values.default", 1, 0, 0, "logical", 1
 "sjlabelled", "get_values.default", 2, 0, 0, "any", 1
-"sjlabelled", "get_values_helper", -1, 0, 0, "(character[] | double[] | null)", 1
+"sjlabelled", "get_values_helper", -1, 0, 0, "character[]", 1
+"sjlabelled", "get_values_helper", -1, 0, 1, "double[]", 1
+"sjlabelled", "get_values_helper", -1, 0, 2, "null", 1
 "sjlabelled", "get_values_helper", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "get_values_helper", 0, 0, 1, "^double[]", 1
 "sjlabelled", "get_values_helper", 0, 0, 2, "class<`factor`>", 1
@@ -376,35 +437,42 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "prepare.labels", 0, 0, 0, "character[]", 1
 "sjlabelled", "prepare.labels", 1, 0, 0, "logical[]", 1
 "sjlabelled", "prepare.labels", 2, 0, 0, "character", 1
-"sjlabelled", "remove_all_labels", -1, 0, 0, "(class<`data.frame`> | class<`factor`> | integer[])", 1
+"sjlabelled", "remove_all_labels", -1, 0, 0, "class<`data.frame`>", 1
+"sjlabelled", "remove_all_labels", -1, 0, 1, "class<`factor`>", 1
+"sjlabelled", "remove_all_labels", -1, 0, 2, "integer[]", 1
 "sjlabelled", "remove_all_labels", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "remove_all_labels", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "remove_all_labels", 0, 0, 2, "integer[]", 1
 "sjlabelled", "remove_all_labels.data.frame", -1, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "remove_all_labels.data.frame", 0, 0, 0, "class<`data.frame`>", 1
-"sjlabelled", "remove_all_labels.default", -1, 0, 0, "(class<`factor`> | integer[])", 1
+"sjlabelled", "remove_all_labels.default", -1, 0, 0, "class<`factor`>", 1
+"sjlabelled", "remove_all_labels.default", -1, 0, 1, "integer[]", 1
 "sjlabelled", "remove_all_labels.default", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "remove_all_labels.default", 0, 0, 1, "integer[]", 1
-"sjlabelled", "remove_all_labels_helper", -1, 0, 0, "(class<`factor`> | integer[])", 1
+"sjlabelled", "remove_all_labels_helper", -1, 0, 0, "class<`factor`>", 1
+"sjlabelled", "remove_all_labels_helper", -1, 0, 1, "integer[]", 1
 "sjlabelled", "remove_all_labels_helper", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "remove_all_labels_helper", 0, 0, 1, "integer[]", 1
 "sjlabelled", "remove_label", -1, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "remove_label", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "remove_label", 1, 0, 0, "...", 1
-"sjlabelled", "remove_labels", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "remove_labels", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "remove_labels", -1, 0, 1, "^double[]", 1
 "sjlabelled", "remove_labels", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "remove_labels", 0, 0, 1, "^double[]", 1
 "sjlabelled", "remove_labels", 1, 0, 0, "...", 1
 "sjlabelled", "remove_labels", 2, 0, 0, "null", 1
 "sjlabelled", "remove_labels", 2, 0, 1, "double", 1
 "sjlabelled", "remove_labels", 2, 0, 2, "character[]", 1
-"sjlabelled", "remove_labels_helper", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "remove_labels_helper", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "remove_labels_helper", -1, 0, 1, "^double[]", 1
 "sjlabelled", "remove_labels_helper", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "remove_labels_helper", 0, 0, 1, "^double[]", 1
 "sjlabelled", "remove_labels_helper", 1, 0, 0, "null", 1
 "sjlabelled", "remove_labels_helper", 1, 0, 1, "double", 1
 "sjlabelled", "remove_labels_helper", 1, 0, 2, "character[]", 1
-"sjlabelled", "replace_labels", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "replace_labels", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "replace_labels", -1, 0, 1, "^double[]", 1
 "sjlabelled", "replace_labels", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "replace_labels", 0, 0, 1, "^double[]", 1
 "sjlabelled", "replace_labels", 1, 0, 0, "...", 1
@@ -415,22 +483,31 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "response_labels", 2, 0, 0, "logical", 1
 "sjlabelled", "response_labels", 3, 0, 0, "logical", 1
 "sjlabelled", "response_labels", 4, 0, 0, "...", 1
-"sjlabelled", "set_label", -1, 0, 0, "(class<`data.frame`> | class<`factor`> | ^double[] | list<integer[]>)", 1
+"sjlabelled", "set_label", -1, 0, 0, "class<`data.frame`>", 1
+"sjlabelled", "set_label", -1, 0, 1, "class<`factor`>", 1
+"sjlabelled", "set_label", -1, 0, 2, "^double[]", 1
+"sjlabelled", "set_label", -1, 0, 3, "list<integer[]>", 1
 "sjlabelled", "set_label", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "set_label", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "set_label", 0, 0, 2, "^double[]", 1
 "sjlabelled", "set_label", 0, 0, 3, "list<integer[]>", 1
 "sjlabelled", "set_label", 1, 0, 0, "character[]", 1
 "sjlabelled", "set_label", 1, 0, 1, "null", 1
-"sjlabelled", "set_label<-", -1, 0, 0, "(class<`factor`> | integer[])", 1
+"sjlabelled", "set_label<-", -1, 0, 0, "class<`factor`>", 1
+"sjlabelled", "set_label<-", -1, 0, 1, "integer[]", 1
 "sjlabelled", "set_label<-", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "set_label<-", 0, 0, 1, "integer[]", 1
 "sjlabelled", "set_label<-", 1, 0, 0, "character", 1
-"sjlabelled", "set_label<-.default", -1, 0, 0, "(class<`factor`> | integer[])", 1
+"sjlabelled", "set_label<-.default", -1, 0, 0, "class<`factor`>", 1
+"sjlabelled", "set_label<-.default", -1, 0, 1, "integer[]", 1
 "sjlabelled", "set_label<-.default", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "set_label<-.default", 0, 0, 1, "integer[]", 1
 "sjlabelled", "set_label<-.default", 1, 0, 0, "character", 1
-"sjlabelled", "set_labels", -1, 0, 0, "(^double[] | character[] | class<`data.frame`> | class<`factor`> | class<`haven_labelled`>)", 1
+"sjlabelled", "set_labels", -1, 0, 0, "^double[]", 1
+"sjlabelled", "set_labels", -1, 0, 1, "character[]", 1
+"sjlabelled", "set_labels", -1, 0, 2, "class<`data.frame`>", 1
+"sjlabelled", "set_labels", -1, 0, 3, "class<`factor`>", 1
+"sjlabelled", "set_labels", -1, 0, 4, "class<`haven_labelled`>", 1
 "sjlabelled", "set_labels", 0, 0, 0, "^double[]", 1
 "sjlabelled", "set_labels", 0, 0, 1, "character[]", 1
 "sjlabelled", "set_labels", 0, 0, 2, "class<`data.frame`>", 1
@@ -444,7 +521,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "set_labels", 3, 0, 0, "any", 1
 "sjlabelled", "set_labels", 4, 0, 0, "any", 1
 "sjlabelled", "set_labels", 5, 0, 0, "logical", 1
-"sjlabelled", "set_labels_helper", -1, 0, 0, "(character[] | class<`factor`> | class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "set_labels_helper", -1, 0, 0, "character[]", 1
+"sjlabelled", "set_labels_helper", -1, 0, 1, "class<`factor`>", 1
+"sjlabelled", "set_labels_helper", -1, 0, 2, "class<`haven_labelled`>", 1
+"sjlabelled", "set_labels_helper", -1, 0, 3, "^double[]", 1
 "sjlabelled", "set_labels_helper", 0, 0, 0, "character[]", 1
 "sjlabelled", "set_labels_helper", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "set_labels_helper", 0, 0, 2, "class<`haven_labelled`>", 1
@@ -457,7 +537,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "set_labels_helper", 4, 0, 0, "any", 1
 "sjlabelled", "set_labels_helper", 5, 0, 0, "null", 1
 "sjlabelled", "set_labels_helper", 5, 0, 1, "character", 1
-"sjlabelled", "set_na", -1, 0, 0, "(class<`data.frame`> | class<`factor`> | ^double[])", 1
+"sjlabelled", "set_na", -1, 0, 0, "class<`data.frame`>", 1
+"sjlabelled", "set_na", -1, 0, 1, "class<`factor`>", 1
+"sjlabelled", "set_na", -1, 0, 2, "^double[]", 1
 "sjlabelled", "set_na", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "set_na", 0, 0, 1, "class<`factor`>", 1
 "sjlabelled", "set_na", 0, 0, 2, "^double[]", 1
@@ -467,7 +549,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "set_na", 2, 0, 2, "list<double[]>", 1
 "sjlabelled", "set_na", 3, 0, 0, "logical", 1
 "sjlabelled", "set_na", 4, 0, 0, "logical", 1
-"sjlabelled", "set_na_helper", -1, 0, 0, "(class<`factor`> | ^double[])", 1
+"sjlabelled", "set_na_helper", -1, 0, 0, "class<`factor`>", 1
+"sjlabelled", "set_na_helper", -1, 0, 1, "^double[]", 1
 "sjlabelled", "set_na_helper", 0, 0, 0, "class<`factor`>", 1
 "sjlabelled", "set_na_helper", 0, 0, 1, "^double[]", 1
 "sjlabelled", "set_na_helper", 1, 0, 0, "double[]", 1
@@ -509,17 +592,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sjlabelled", "var_labels", -1, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "var_labels", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "var_labels", 1, 0, 0, "...", 1
-"sjlabelled", "zap_labels", -1, 0, 0, "(class<`data.frame`> | ^double[])", 1
+"sjlabelled", "zap_labels", -1, 0, 0, "class<`data.frame`>", 1
+"sjlabelled", "zap_labels", -1, 0, 1, "^double[]", 1
 "sjlabelled", "zap_labels", 0, 0, 0, "class<`data.frame`>", 1
 "sjlabelled", "zap_labels", 0, 0, 1, "^double[]", 1
 "sjlabelled", "zap_labels", 1, 0, 0, "...", 1
 "sjlabelled", "zap_labels_helper", -1, 0, 0, "^double[]", 1
 "sjlabelled", "zap_labels_helper", 0, 0, 0, "^double[]", 1
-"sjlabelled", "zap_na_tags", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "zap_na_tags", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "zap_na_tags", -1, 0, 1, "^double[]", 1
 "sjlabelled", "zap_na_tags", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "zap_na_tags", 0, 0, 1, "^double[]", 1
 "sjlabelled", "zap_na_tags", 1, 0, 0, "...", 1
-"sjlabelled", "zap_na_tags_helper", -1, 0, 0, "(class<`haven_labelled`> | ^double[])", 1
+"sjlabelled", "zap_na_tags_helper", -1, 0, 0, "class<`haven_labelled`>", 1
+"sjlabelled", "zap_na_tags_helper", -1, 0, 1, "^double[]", 1
 "sjlabelled", "zap_na_tags_helper", 0, 0, 0, "class<`haven_labelled`>", 1
 "sjlabelled", "zap_na_tags_helper", 0, 0, 1, "^double[]", 1
 "sjlabelled", "zap_unlabelled", -1, 0, 0, "^double[]", 1

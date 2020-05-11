@@ -5,7 +5,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "as.character.xml_document", 1, 0, 0, "...", 1
 "xml2", "as.character.xml_document", 2, 0, 0, "character", 1
 "xml2", "as.character.xml_document", 3, 0, 0, "character", 1
-"xml2", "as_list", -1, 0, 0, "(character | list<any>)", 1
+"xml2", "as_list", -1, 0, 0, "character", 1
+"xml2", "as_list", -1, 0, 1, "list<any>", 1
 "xml2", "as_list", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "as_list", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "as_list", 1, 0, 0, "any", 1
@@ -14,7 +15,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "as_list.xml_document", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "as_list.xml_document", 1, 0, 0, "any", 1
 "xml2", "as_list.xml_document", 2, 0, 0, "...", 1
-"xml2", "as_list.xml_node", -1, 0, 0, "(character | list<any>)", 1
+"xml2", "as_list.xml_node", -1, 0, 0, "character", 1
+"xml2", "as_list.xml_node", -1, 0, 1, "list<any>", 1
 "xml2", "as_list.xml_node", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "as_list.xml_node", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "as_list.xml_node", 1, 0, 0, "any", 1
@@ -32,7 +34,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "as_xml_document.xml_nodeset", 2, 0, 0, "...", 1
 "xml2", "check_path", -1, 0, 0, "character", 1
 "xml2", "check_path", 0, 0, 0, "character", 1
-"xml2", "create_node", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`> | null)", 1
+"xml2", "create_node", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "create_node", -1, 0, 1, "class<`xml_node`>", 1
+"xml2", "create_node", -1, 0, 2, "null", 1
 "xml2", "create_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "create_node", 0, 0, 1, "character", 1
 "xml2", "create_node", 0, 0, 2, "class<`xml_cdata`>", 1
@@ -42,20 +46,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "create_node", 1, 0, 0, "...", 1
 "xml2", "create_node", 2, 0, 0, "any", 1
 "xml2", "create_node", 3, 0, 0, "any", 1
-"xml2", "FUN", -1, 0, 0, "(null | ^character[])", 1
+"xml2", "FUN", -1, 0, 0, "null", 1
+"xml2", "FUN", -1, 0, 1, "^character[]", 1
 "xml2", "FUN", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "FUN", 0, 0, 1, "class<`xml_missing`>", 1
 "xml2", "FUN", 0, 0, 2, "class<`xml_nodeset`>", 1
 "xml2", "FUN", 0, 0, 3, "class<`xml_document`, `xml_node`>", 1
 "xml2", "FUN", 1, 0, 0, "logical", 1
-"xml2", "FUN", -1, 1, 0, "(null | ^character[])", 1
+"xml2", "FUN", -1, 1, 0, "null", 1
+"xml2", "FUN", -1, 1, 1, "^character[]", 1
 "xml2", "FUN", 0, 1, 0, "class<`xml_node`>", 1
 "xml2", "FUN", 0, 1, 1, "class<`xml_nodeset`>", 1
 "xml2", "FUN", 0, 1, 2, "class<`xml_document`, `xml_node`>", 1
 "xml2", "FUN", 1, 1, 0, "character", 1
 "xml2", "FUN", 2, 1, 0, "any", 1
 "xml2", "FUN", 3, 1, 0, "null", 1
-"xml2", "FUN", -1, 2, 0, "(null | list<any>)", 1
+"xml2", "FUN", -1, 2, 0, "null", 1
+"xml2", "FUN", -1, 2, 1, "list<any>", 1
 "xml2", "FUN", 0, 2, 0, "class<`xml_node`>", 1
 "xml2", "FUN", 0, 2, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "FUN", 1, 2, 0, "double", 1
@@ -73,7 +80,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "FUN", 0, 5, 1, "class<`xml_nodeset`>", 1
 "xml2", "FUN", 0, 5, 2, "class<`xml_document`, `xml_node`>", 1
 "xml2", "FUN", 1, 5, 0, "any", 1
-"xml2", "FUN", -1, 6, 0, "(character[] | list<character[]>)", 1
+"xml2", "FUN", -1, 6, 0, "character[]", 1
+"xml2", "FUN", -1, 6, 1, "list<character[]>", 1
 "xml2", "FUN", 0, 6, 0, "class<`xml_node`>", 1
 "xml2", "FUN", 0, 6, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "FUN", 0, 6, 2, "class<`xml_nodeset`>", 1
@@ -128,14 +136,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "path_to_connection", -1, 0, 0, "character", 1
 "xml2", "path_to_connection", 0, 0, 0, "character", 1
 "xml2", "path_to_connection", 1, 0, 0, "character[]", 1
-"xml2", "print_xml_structure", -1, 0, 0, "(null | list<any>)", 1
+"xml2", "print_xml_structure", -1, 0, 0, "null", 1
+"xml2", "print_xml_structure", -1, 0, 1, "list<any>", 1
 "xml2", "print_xml_structure", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "print_xml_structure", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "print_xml_structure", 1, 0, 0, "double", 1
 "xml2", "print_xml_structure", 2, 0, 0, "any", 1
 "xml2", "print_xml_structure", 3, 0, 0, "any", 1
 "xml2", "print_xml_structure", 4, 0, 0, "character", 1
-"xml2", "r_attrs_to_xml", -1, 0, 0, "(null | list<any>)", 1
+"xml2", "r_attrs_to_xml", -1, 0, 0, "null", 1
+"xml2", "r_attrs_to_xml", -1, 0, 1, "list<any>", 1
 "xml2", "r_attrs_to_xml", 0, 0, 0, "null", 1
 "xml2", "r_attrs_to_xml", 0, 0, 1, "list<character[]>", 1
 "xml2", "read_html", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
@@ -220,7 +230,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "write_xml.xml_document", 4, 0, 0, "character", 1
 "xml2", "xml2_example", -1, 0, 0, "character", 1
 "xml2", "xml2_example", 0, 0, 0, "character", 1
-"xml2", "xml_add_child", -1, 0, 0, "(class<`xml_document`> | class<`xml_document`, `xml_node`> | class<`xml_node`>)", 1
+"xml2", "xml_add_child", -1, 0, 0, "class<`xml_document`>", 1
+"xml2", "xml_add_child", -1, 0, 1, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_add_child", -1, 0, 2, "class<`xml_node`>", 1
 "xml2", "xml_add_child", 0, 0, 0, "class<`xml_document`>", 1
 "xml2", "xml_add_child", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_add_child", 0, 0, 2, "class<`xml_document`, `xml_node`>", 1
@@ -233,7 +245,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_add_child", 2, 0, 0, "...", 1
 "xml2", "xml_add_child", 3, 0, 0, "any", 1
 "xml2", "xml_add_child", 4, 0, 0, "any", 1
-"xml2", "xml_add_child.xml_document", -1, 0, 0, "(class<`xml_document`> | class<`xml_document`, `xml_node`> | class<`xml_node`>)", 1
+"xml2", "xml_add_child.xml_document", -1, 0, 0, "class<`xml_document`>", 1
+"xml2", "xml_add_child.xml_document", -1, 0, 1, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_add_child.xml_document", -1, 0, 2, "class<`xml_node`>", 1
 "xml2", "xml_add_child.xml_document", 0, 0, 0, "class<`xml_document`>", 1
 "xml2", "xml_add_child.xml_document", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_add_child.xml_document", 1, 0, 0, "class<`xml_dtd`>", 1
@@ -244,7 +258,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_add_child.xml_document", 2, 0, 0, "...", 1
 "xml2", "xml_add_child.xml_document", 3, 0, 0, "any", 1
 "xml2", "xml_add_child.xml_document", 4, 0, 0, "any", 1
-"xml2", "xml_add_child.xml_node", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`>)", 1
+"xml2", "xml_add_child.xml_node", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_add_child.xml_node", -1, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_add_child.xml_node", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "xml_add_child.xml_node", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_add_child.xml_node", 1, 0, 0, "class<`xml_document`, `xml_node`>", 1
@@ -267,14 +282,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_add_sibling.xml_node", 2, 0, 0, "...", 1
 "xml2", "xml_add_sibling.xml_node", 3, 0, 0, "character[]", 1
 "xml2", "xml_add_sibling.xml_node", 4, 0, 0, "logical", 1
-"xml2", "xml_attr", -1, 0, 0, "(null | ^character[])", 1
+"xml2", "xml_attr", -1, 0, 0, "null", 1
+"xml2", "xml_attr", -1, 0, 1, "^character[]", 1
 "xml2", "xml_attr", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "xml_attr", 0, 0, 1, "class<`xml_nodeset`>", 1
 "xml2", "xml_attr", 0, 0, 2, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_attr", 1, 0, 0, "character", 1
 "xml2", "xml_attr", 2, 0, 0, "any", 1
 "xml2", "xml_attr", 3, 0, 0, "null", 1
-"xml2", "xml_attr<-", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`> | class<`xml_nodeset`>)", 1
+"xml2", "xml_attr<-", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_attr<-", -1, 0, 1, "class<`xml_node`>", 1
+"xml2", "xml_attr<-", -1, 0, 2, "class<`xml_nodeset`>", 1
 "xml2", "xml_attr<-", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_attr<-", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attr<-", 0, 0, 2, "class<`xml_nodeset`>", 1
@@ -282,19 +300,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_attr<-", 2, 0, 0, "any", 1
 "xml2", "xml_attr<-", 3, 0, 0, "character", 1
 "xml2", "xml_attr<-", 3, 0, 1, "null", 1
-"xml2", "xml_attrs", -1, 0, 0, "(character[] | list<character[]>)", 1
+"xml2", "xml_attrs", -1, 0, 0, "character[]", 1
+"xml2", "xml_attrs", -1, 0, 1, "list<character[]>", 1
 "xml2", "xml_attrs", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "xml_attrs", 0, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_attrs", 0, 0, 2, "class<`xml_nodeset`>", 1
 "xml2", "xml_attrs", 1, 0, 0, "any", 1
-"xml2", "xml_attrs<-", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`>)", 1
+"xml2", "xml_attrs<-", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_attrs<-", -1, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attrs<-", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_attrs<-", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attrs<-", 1, 0, 0, "any", 1
 "xml2", "xml_attrs<-", 2, 0, 0, "character[]", 1
 "xml2", "xml_attrs<-", 2, 0, 1, "null", 1
 "xml2", "xml_attrs<-", 2, 0, 2, "list<any>", 1
-"xml2", "xml_attrs<-.xml_node", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`>)", 1
+"xml2", "xml_attrs<-.xml_node", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_attrs<-.xml_node", -1, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attrs<-.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_attrs<-.xml_node", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attrs<-.xml_node", 1, 0, 0, "character[]", 1
@@ -309,14 +330,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_attrs.xml_nodeset", -1, 0, 0, "list<character[]>", 1
 "xml2", "xml_attrs.xml_nodeset", 0, 0, 0, "class<`xml_nodeset`>", 1
 "xml2", "xml_attrs.xml_nodeset", 1, 0, 0, "character[]", 1
-"xml2", "xml_attr<-.xml_node", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`>)", 1
+"xml2", "xml_attr<-.xml_node", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_attr<-.xml_node", -1, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attr<-.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_attr<-.xml_node", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attr<-.xml_node", 1, 0, 0, "character", 1
 "xml2", "xml_attr<-.xml_node", 2, 0, 0, "character[]", 1
 "xml2", "xml_attr<-.xml_node", 3, 0, 0, "character", 1
 "xml2", "xml_attr<-.xml_node", 3, 0, 1, "null", 1
-"xml2", "xml_attr.xml_node", -1, 0, 0, "(character | null)", 1
+"xml2", "xml_attr.xml_node", -1, 0, 0, "character", 1
+"xml2", "xml_attr.xml_node", -1, 0, 1, "null", 1
 "xml2", "xml_attr.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_attr.xml_node", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_attr.xml_node", 1, 0, 0, "character", 1
@@ -335,7 +358,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_attr.xml_nodeset", 3, 0, 0, "null", 1
 "xml2", "xml_cdata", -1, 0, 0, "class<`xml_cdata`>", 1
 "xml2", "xml_cdata", 0, 0, 0, "character", 1
-"xml2", "xml_child", -1, 0, 0, "(class<`xml_missing`> | class<`xml_node`>)", 1
+"xml2", "xml_child", -1, 0, 0, "class<`xml_missing`>", 1
+"xml2", "xml_child", -1, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_child", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_child", 1, 0, 0, "character", 1
 "xml2", "xml_child", 1, 0, 1, "double", 1
@@ -349,7 +373,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_contents", -1, 0, 0, "class<`xml_nodeset`>", 1
 "xml2", "xml_contents", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_contents", 0, 0, 1, "class<`xml_node`>", 1
-"xml2", "xml_document", -1, 0, 0, "(class<`xml_document`> | class<`xml_document`, `xml_node`>)", 1
+"xml2", "xml_document", -1, 0, 0, "class<`xml_document`>", 1
+"xml2", "xml_document", -1, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_document", 0, 0, 0, "externalptr", 1
 "xml2", "xml_dtd", -1, 0, 0, "class<`xml_dtd`>", 1
 "xml2", "xml_dtd", 0, 0, 0, "character", 1
@@ -368,13 +393,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_find_all.xml_nodeset", 0, 0, 0, "class<`xml_nodeset`>", 1
 "xml2", "xml_find_all.xml_nodeset", 1, 0, 0, "character", 1
 "xml2", "xml_find_all.xml_nodeset", 2, 0, 0, "class<`xml_namespace`>", 1
-"xml2", "xml_find_first", -1, 0, 0, "(class<`xml_missing`> | class<`xml_node`> | class<`xml_nodeset`>)", 1
+"xml2", "xml_find_first", -1, 0, 0, "class<`xml_missing`>", 1
+"xml2", "xml_find_first", -1, 0, 1, "class<`xml_node`>", 1
+"xml2", "xml_find_first", -1, 0, 2, "class<`xml_nodeset`>", 1
 "xml2", "xml_find_first", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_find_first", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_find_first", 0, 0, 2, "class<`xml_nodeset`>", 1
 "xml2", "xml_find_first", 1, 0, 0, "character", 1
 "xml2", "xml_find_first", 2, 0, 0, "any", 1
-"xml2", "xml_find_first.xml_node", -1, 0, 0, "(class<`xml_missing`> | class<`xml_node`>)", 1
+"xml2", "xml_find_first.xml_node", -1, 0, 0, "class<`xml_missing`>", 1
+"xml2", "xml_find_first.xml_node", -1, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_find_first.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_find_first.xml_node", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_find_first.xml_node", 1, 0, 0, "character", 1
@@ -431,7 +459,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_new_document", -1, 0, 0, "class<`xml_document`>", 1
 "xml2", "xml_new_document", 0, 0, 0, "character", 1
 "xml2", "xml_new_document", 1, 0, 0, "character", 1
-"xml2", "xml_new_root", -1, 0, 0, "(class<`xml_document`> | class<`xml_document`, `xml_node`>)", 1
+"xml2", "xml_new_root", -1, 0, 0, "class<`xml_document`>", 1
+"xml2", "xml_new_root", -1, 0, 1, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_new_root", 0, 0, 0, "class<`xml_dtd`>", 1
 "xml2", "xml_new_root", 0, 0, 1, "character", 1
 "xml2", "xml_new_root", 1, 0, 0, "...", 1
@@ -531,13 +560,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_structure", 0, 0, 1, "class<`xml_nodeset`>", 1
 "xml2", "xml_structure", 1, 0, 0, "double", 1
 "xml2", "xml_structure", 2, 0, 0, "character", 1
-"xml2", "xml_text", -1, 0, 0, "(null | ^character[])", 1
+"xml2", "xml_text", -1, 0, 0, "null", 1
+"xml2", "xml_text", -1, 0, 1, "^character[]", 1
 "xml2", "xml_text", 0, 0, 0, "class<`xml_node`>", 1
 "xml2", "xml_text", 0, 0, 1, "class<`xml_missing`>", 1
 "xml2", "xml_text", 0, 0, 2, "class<`xml_nodeset`>", 1
 "xml2", "xml_text", 0, 0, 3, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_text", 1, 0, 0, "logical", 1
-"xml2", "xml_text<-", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`> | class<`xml_nodeset`>)", 1
+"xml2", "xml_text<-", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_text<-", -1, 0, 1, "class<`xml_node`>", 1
+"xml2", "xml_text<-", -1, 0, 2, "class<`xml_nodeset`>", 1
 "xml2", "xml_text<-", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_text<-", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_text<-", 0, 0, 2, "class<`xml_nodeset`>", 1
@@ -545,7 +577,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_text.xml_missing", -1, 0, 0, "null", 1
 "xml2", "xml_text.xml_missing", 0, 0, 0, "class<`xml_missing`>", 1
 "xml2", "xml_text.xml_missing", 1, 0, 0, "logical", 1
-"xml2", "xml_text<-.xml_node", -1, 0, 0, "(class<`xml_document`, `xml_node`> | class<`xml_node`>)", 1
+"xml2", "xml_text<-.xml_node", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
+"xml2", "xml_text<-.xml_node", -1, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_text<-.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_text<-.xml_node", 0, 0, 1, "class<`xml_node`>", 1
 "xml2", "xml_text<-.xml_node", 1, 0, 0, "character", 1
@@ -559,7 +592,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_text.xml_nodeset", -1, 0, 0, "^character[]", 1
 "xml2", "xml_text.xml_nodeset", 0, 0, 0, "class<`xml_nodeset`>", 1
 "xml2", "xml_text.xml_nodeset", 1, 0, 0, "logical", 1
-"xml2", "xml_to_r_attrs", -1, 0, 0, "(null | list<character>)", 1
+"xml2", "xml_to_r_attrs", -1, 0, 0, "null", 1
+"xml2", "xml_to_r_attrs", -1, 0, 1, "list<character>", 1
 "xml2", "xml_to_r_attrs", 0, 0, 0, "character[]", 1
 "xml2", "xml_type", -1, 0, 0, "character[]", 1
 "xml2", "xml_type", 0, 0, 0, "class<`xml_nodeset`>", 1
@@ -573,9 +607,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "xml2", "xml_unserialize", -1, 0, 0, "class<`xml_nodeset`>", 1
 "xml2", "xml_unserialize", 0, 0, 0, "raw[]", 1
 "xml2", "xml_unserialize", 1, 0, 0, "...", 1
-"xml2", "xml_url", -1, 0, 0, "(character | null)", 1
+"xml2", "xml_url", -1, 0, 0, "character", 1
+"xml2", "xml_url", -1, 0, 1, "null", 1
 "xml2", "xml_url", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
-"xml2", "xml_url.xml_node", -1, 0, 0, "(character | null)", 1
+"xml2", "xml_url.xml_node", -1, 0, 0, "character", 1
+"xml2", "xml_url.xml_node", -1, 0, 1, "null", 1
 "xml2", "xml_url.xml_node", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "xml2", "xml_validate", -1, 0, 0, "logical", 1
 "xml2", "xml_validate", 0, 0, 0, "class<`xml_document`, `xml_node`>", 1

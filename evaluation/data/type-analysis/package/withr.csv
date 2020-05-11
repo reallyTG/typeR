@@ -10,9 +10,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "withr", "defer_parent", -1, 0, 0, "list<class<`call`> | environment>", 1
 "withr", "defer_parent", 0, 0, 0, "any", 1
 "withr", "defer_parent", 1, 0, 0, "character[]", 1
-"withr", "get_handlers", -1, 0, 0, "(null | list<list<class<`call`> | environment>>)", 1
+"withr", "get_handlers", -1, 0, 0, "null", 1
+"withr", "get_handlers", -1, 0, 1, "list<list<class<`call`> | environment>>", 1
 "withr", "get_handlers", 0, 0, 0, "environment", 1
-"withr", "get_seed", -1, 0, 0, "(integer[] | null)", 1
+"withr", "get_seed", -1, 0, 0, "integer[]", 1
+"withr", "get_seed", -1, 0, 1, "null", 1
 "withr", "is.named", -1, 0, 0, "logical", 1
 "withr", "is.named", 0, 0, 0, "character", 1
 "withr", "is.named", 0, 0, 1, "double", 1
@@ -52,7 +54,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "withr", "png_dev", -1, 0, 0, "integer", 1
 "withr", "png_dev", 0, 0, 0, "character", 1
 "withr", "png_dev", 1, 0, 0, "...", 1
-"withr", "set_envvar", -1, 0, 0, "(character | null)", 1
+"withr", "set_envvar", -1, 0, 0, "character", 1
+"withr", "set_envvar", -1, 0, 1, "null", 1
 "withr", "set_envvar", 0, 0, 0, "character", 1
 "withr", "set_envvar", 0, 0, 1, "double", 1
 "withr", "set_envvar", 0, 0, 2, "null", 1
@@ -83,7 +86,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "withr", "with_envvar", 0, 0, 0, "double", 1
 "withr", "with_envvar", 1, 0, 0, "character", 1
 "withr", "with_envvar", 2, 0, 0, "character", 1
-"withr", "with_file", -1, 0, 0, "(character | list<null>)", 1
+"withr", "with_file", -1, 0, 0, "character", 1
+"withr", "with_file", -1, 0, 1, "list<null>", 1
 "withr", "with_file", 0, 0, 0, "character", 1
 "withr", "with_file", 0, 0, 1, "list<null>", 1
 "withr", "with_file", 1, 0, 0, "character", 1

@@ -1,9 +1,11 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"reshape2", "%||%", -1, 0, 0, "(^character[] | integer[])", 1
+"reshape2", "%||%", -1, 0, 0, "^character[]", 1
+"reshape2", "%||%", -1, 0, 1, "integer[]", 1
 "reshape2", "%||%", 0, 0, 0, "^character[]", 1
 "reshape2", "%||%", 0, 0, 1, "null", 1
 "reshape2", "%||%", 1, 0, 0, "any", 1
-"reshape2", "acast", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"reshape2", "acast", -1, 0, 0, "class<`array`>", 1
+"reshape2", "acast", -1, 0, 1, "class<`matrix`>", 1
 "reshape2", "acast", 0, 0, 0, "class<`data.frame`>", 1
 "reshape2", "acast", 1, 0, 0, "class<`formula`>", 1
 "reshape2", "acast", 2, 0, 0, "null", 1

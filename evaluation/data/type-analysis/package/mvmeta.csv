@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"mvmeta", "blup.mvmeta", -1, 0, 0, "(class<`matrix`> | list<class<`matrix`> | list<double[] | class<`matrix`>>>)", 1
+"mvmeta", "blup.mvmeta", -1, 0, 0, "class<`matrix`>", 1
+"mvmeta", "blup.mvmeta", -1, 0, 1, "list<class<`matrix`> | list<double[] | class<`matrix`>>>", 1
 "mvmeta", "blup.mvmeta", 0, 0, 0, "class<`mvmeta`>", 1
 "mvmeta", "blup.mvmeta", 1, 0, 0, "logical", 1
 "mvmeta", "blup.mvmeta", 2, 0, 0, "logical", 1
@@ -12,11 +13,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvmeta", "checkPD", 0, 0, 0, "class<`matrix`>", 1
 "mvmeta", "checkPD", 1, 0, 0, "integer", 1
 "mvmeta", "checkPD", 2, 0, 0, "character", 1
-"mvmeta", "coef.mvmeta", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mvmeta", "coef.mvmeta", -1, 0, 0, "class<`matrix`>", 1
+"mvmeta", "coef.mvmeta", -1, 0, 1, "double[]", 1
 "mvmeta", "coef.mvmeta", 0, 0, 0, "class<`mvmeta`>", 1
 "mvmeta", "coef.mvmeta", 1, 0, 0, "character[]", 1
 "mvmeta", "coef.mvmeta", 2, 0, 0, "...", 1
-"mvmeta", "fbtr", -1, 0, 0, "(class<`matrix`> | double)", 1
+"mvmeta", "fbtr", -1, 0, 0, "class<`matrix`>", 1
+"mvmeta", "fbtr", -1, 0, 1, "double", 1
 "mvmeta", "fbtr", 0, 0, 0, "class<`matrix`>", 1
 "mvmeta", "fbtr", 1, 0, 0, "integer", 1
 "mvmeta", "glsfit", -1, 0, 0, "list<double[] | class<`matrix`> | list<class<`matrix`>> | double | class<`matrix`> | list<class<`matrix`>>>", 1
@@ -84,7 +87,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvmeta", "model.matrix.mvmeta", -1, 0, 0, "class<`matrix`>", 1
 "mvmeta", "model.matrix.mvmeta", 0, 0, 0, "class<`mvmeta`>", 1
 "mvmeta", "model.matrix.mvmeta", 1, 0, 0, "...", 1
-"mvmeta", "mvmeta", -1, 0, 0, "(class<`data.frame`, `data.frame.mvmeta`> | class<`mvmeta`>)", 1
+"mvmeta", "mvmeta", -1, 0, 0, "class<`data.frame`, `data.frame.mvmeta`>", 1
+"mvmeta", "mvmeta", -1, 0, 1, "class<`mvmeta`>", 1
 "mvmeta", "mvmeta", 0, 0, 0, "any", 1
 "mvmeta", "mvmeta", 1, 0, 0, "any", 1
 "mvmeta", "mvmeta", 2, 0, 0, "any", 1
@@ -166,7 +170,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvmeta", "mvmeta.reml", 8, 0, 0, "character", 1
 "mvmeta", "mvmeta.reml", 9, 0, 0, "list<any>", 1
 "mvmeta", "mvmeta.reml", 10, 0, 0, "...", 1
-"mvmeta", "mvmetaSim", -1, 0, 0, "(class<`matrix`> | list<class<`matrix`>>)", 1
+"mvmeta", "mvmetaSim", -1, 0, 0, "class<`matrix`>", 1
+"mvmeta", "mvmetaSim", -1, 0, 1, "list<class<`matrix`>>", 1
 "mvmeta", "mvmetaSim", 0, 0, 0, "class<`matrix`>", 1
 "mvmeta", "mvmetaSim", 1, 0, 0, "class<`matrix`>", 1
 "mvmeta", "mvmetaSim", 2, 0, 0, "any", 1
@@ -235,7 +240,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvmeta", "simulate.mvmeta", 1, 0, 0, "double", 1
 "mvmeta", "simulate.mvmeta", 2, 0, 0, "null", 1
 "mvmeta", "simulate.mvmeta", 3, 0, 0, "...", 1
-"mvmeta", "sumlist", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mvmeta", "sumlist", -1, 0, 0, "class<`matrix`>", 1
+"mvmeta", "sumlist", -1, 0, 1, "double[]", 1
 "mvmeta", "sumlist", 0, 0, 0, "list<class<`matrix`> | logical[]>", 1
 "mvmeta", "summary.mvmeta", -1, 0, 0, "class<`summary.mvmeta`>", 1
 "mvmeta", "summary.mvmeta", 0, 0, 0, "class<`mvmeta`>", 1

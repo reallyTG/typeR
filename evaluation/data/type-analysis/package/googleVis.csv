@@ -2,7 +2,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "googleVis", ":::", -1, 0, 0, "character", 1
 "googleVis", "$", -1, 0, 0, "class<`Date`>", 1
 "googleVis", "$", 0, 0, 0, "class<`Date`>", 1
-"googleVis", "$", -1, 1, 0, "(class<`factor`> | double[])", 1
+"googleVis", "$", -1, 1, 0, "class<`factor`>", 1
+"googleVis", "$", -1, 1, 1, "double[]", 1
 "googleVis", "$", 0, 1, 0, "class<`factor`>", 1
 "googleVis", "$", 0, 1, 1, "double[]", 1
 "googleVis", "$", -1, 2, 0, "^character[]", 1
@@ -51,7 +52,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "googleVis", "fun", 2, 1, 0, "...", 1
 "googleVis", "FUN", -1, 0, 0, "integer[]", 1
 "googleVis", "FUN", 0, 0, 0, "character", 1
-"googleVis", "FUN", -1, 1, 0, "(character[] | class<`factor`> | double[])", 1
+"googleVis", "FUN", -1, 1, 0, "character[]", 1
+"googleVis", "FUN", -1, 1, 1, "class<`factor`>", 1
+"googleVis", "FUN", -1, 1, 2, "double[]", 1
 "googleVis", "FUN", 0, 1, 0, "character", 1
 "googleVis", "FUN", -1, 2, 0, "character", 1
 "googleVis", "FUN", 0, 2, 0, "character", 1
@@ -62,7 +65,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "googleVis", "FUN", 0, 3, 3, "^double[]", 1
 "googleVis", "FUN", -1, 4, 0, "character", 1
 "googleVis", "FUN", 0, 4, 0, "character", 1
-"googleVis", "FUN", -1, 5, 0, "(^character[] | class<`Date`> | class<`POSIXct`, `POSIXt`> | ^double[])", 1
+"googleVis", "FUN", -1, 5, 0, "^character[]", 1
+"googleVis", "FUN", -1, 5, 1, "class<`Date`>", 1
+"googleVis", "FUN", -1, 5, 2, "class<`POSIXct`, `POSIXt`>", 1
+"googleVis", "FUN", -1, 5, 3, "^double[]", 1
 "googleVis", "FUN", 0, 5, 0, "class<`factor`>", 1
 "googleVis", "FUN", 0, 5, 1, "character[]", 1
 "googleVis", "FUN", 0, 5, 2, "class<`Date`>", 1
@@ -70,11 +76,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "googleVis", "FUN", 0, 5, 4, "^double[]", 1
 "googleVis", "FUN", -1, 6, 0, "character", 1
 "googleVis", "FUN", 0, 6, 0, "list<character | class<`function`>>", 1
-"googleVis", "FUN", -1, 7, 0, "(character | null)", 1
+"googleVis", "FUN", -1, 7, 0, "character", 1
+"googleVis", "FUN", -1, 7, 1, "null", 1
 "googleVis", "FUN", 0, 7, 0, "character", 1
 "googleVis", "FUN", -1, 8, 0, "character", 1
 "googleVis", "FUN", 0, 8, 0, "integer", 1
-"googleVis", "FUN", -1, 9, 0, "(^character[] | class<`Date`> | class<`factor`> | class<`POSIXct`, `POSIXt`> | double[])", 1
+"googleVis", "FUN", -1, 9, 0, "^character[]", 1
+"googleVis", "FUN", -1, 9, 1, "class<`Date`>", 1
+"googleVis", "FUN", -1, 9, 2, "class<`factor`>", 1
+"googleVis", "FUN", -1, 9, 3, "class<`POSIXct`, `POSIXt`>", 1
+"googleVis", "FUN", -1, 9, 4, "double[]", 1
 "googleVis", "FUN", 0, 9, 0, "character", 1
 "googleVis", "gvis", -1, 0, 0, "list<character | list<character>>", 1
 "googleVis", "gvis", 0, 0, 0, "character", 1
@@ -309,7 +320,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "googleVis", "gvisNewChart", 0, 0, 0, "character", 1
 "googleVis", "gvisNewChart", 1, 0, 0, "character", 1
 "googleVis", "gvisNewChart", 2, 0, 0, "list<any>", 1
-"googleVis", "gvisOptions", -1, 0, 0, "(character[] | list<any>)", 1
+"googleVis", "gvisOptions", -1, 0, 0, "character[]", 1
+"googleVis", "gvisOptions", -1, 0, 1, "list<any>", 1
 "googleVis", "gvisOptions", 0, 0, 0, "list<any>", 1
 "googleVis", "gvisOrgChart", -1, 0, 0, "class<`gvis`, `list`>", 1
 "googleVis", "gvisOrgChart", 0, 0, 0, "class<`data.frame`>", 1
@@ -382,7 +394,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "googleVis", "modifyList", -1, 0, 0, "list<any>", 1
 "googleVis", "modifyList", 0, 0, 0, "list<any>", 1
 "googleVis", "modifyList", 1, 0, 0, "list<any>", 1
-"googleVis", "plot.gvis", -1, 0, 0, "(character | null)", 1
+"googleVis", "plot.gvis", -1, 0, 0, "character", 1
+"googleVis", "plot.gvis", -1, 0, 1, "null", 1
 "googleVis", "plot.gvis", 0, 0, 0, "class<`gvis`, `list`>", 1
 "googleVis", "plot.gvis", 1, 0, 0, "null", 1
 "googleVis", "plot.gvis", 2, 0, 0, "...", 1

@@ -10,7 +10,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "agg.tables", 2, 0, 0, "integer[]", 1
 "msm", "agg.tables", 3, 0, 0, "list<character[]>", 1
 "msm", "agg.tables", 4, 0, 0, "list<any>", 1
-"msm", "Ccall.msm", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"msm", "Ccall.msm", -1, 0, 0, "class<`array`>", 1
+"msm", "Ccall.msm", -1, 0, 1, "class<`matrix`>", 1
+"msm", "Ccall.msm", -1, 0, 2, "double[]", 1
 "msm", "Ccall.msm", 0, 0, 0, "double[]", 1
 "msm", "Ccall.msm", 1, 0, 0, "character", 1
 "msm", "Ccall.msm", 2, 0, 0, "list<any>", 1
@@ -154,7 +156,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "lsum", -1, 0, 0, "character", 1
 "msm", "lsum", 0, 0, 0, "integer", 1
 "msm", "lsum", 1, 0, 0, "double", 1
-"msm", "MatrixExp", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"msm", "MatrixExp", -1, 0, 0, "class<`array`>", 1
+"msm", "MatrixExp", -1, 0, 1, "class<`matrix`>", 1
 "msm", "MatrixExp", 0, 0, 0, "class<`matrix`>", 1
 "msm", "MatrixExp", 1, 0, 0, "double[]", 1
 "msm", "MatrixExp", 2, 0, 0, "character", 1
@@ -204,7 +207,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.add.qcovs", 2, 0, 0, "class<`matrix`>", 1
 "msm", "msm.aggregate.data", -1, 0, 0, "class<`data.frame`>", 1
 "msm", "msm.aggregate.data", 0, 0, 0, "class<`data.frame`>", 1
-"msm", "msm.center.covs", -1, 0, 0, "(class<`matrix`> | null)", 1
+"msm", "msm.center.covs", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.center.covs", -1, 0, 1, "null", 1
 "msm", "msm.center.covs", 0, 0, 0, "class<`matrix`>", 1
 "msm", "msm.center.covs", 0, 0, 1, "null", 1
 "msm", "msm.center.covs", 1, 0, 0, "any", 1
@@ -305,19 +309,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.form.initprobs", 0, 0, 0, "class<`hmodel`>", 1
 "msm", "msm.form.initprobs", 1, 0, 0, "any", 1
 "msm", "msm.form.initprobs", 2, 0, 0, "class<`data.frame`>", 1
-"msm", "msm.form.mf.agg", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"msm", "msm.form.mf.agg", -1, 0, 0, "class<`data.frame`>", 1
+"msm", "msm.form.mf.agg", -1, 0, 1, "null", 1
 "msm", "msm.form.mf.agg", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mf.agg", 0, 0, 1, "list<class<`msmqmodel`> | list<class<`data.frame`> | double[] | double | null> | class<`msmqmodel`> | class<`hmodel`> | list<class<`data.frame`> | double | null>>", 1
 "msm", "msm.form.mm.cov", -1, 0, 0, "class<`matrix`>", 1
 "msm", "msm.form.mm.cov", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mm.cov", 0, 0, 1, "list<class<`formula`> | logical | list<class<`data.frame`>>>", 1
-"msm", "msm.form.mm.cov.agg", -1, 0, 0, "(class<`matrix`> | null)", 1
+"msm", "msm.form.mm.cov.agg", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.mm.cov.agg", -1, 0, 1, "null", 1
 "msm", "msm.form.mm.cov.agg", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mm.cov.agg", 0, 0, 1, "list<any>", 1
-"msm", "msm.form.mm.hcov", -1, 0, 0, "(null | list<class<`matrix`>>)", 1
+"msm", "msm.form.mm.hcov", -1, 0, 0, "null", 1
+"msm", "msm.form.mm.hcov", -1, 0, 1, "list<class<`matrix`>>", 1
 "msm", "msm.form.mm.hcov", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mm.hcov", 0, 0, 1, "list<any>", 1
-"msm", "msm.form.mm.icov", -1, 0, 0, "(class<`matrix`> | null)", 1
+"msm", "msm.form.mm.icov", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.form.mm.icov", -1, 0, 1, "null", 1
 "msm", "msm.form.mm.icov", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mm.icov", 0, 0, 1, "list<any>", 1
 "msm", "msm.form.mm.mcov", -1, 0, 0, "null", 1
@@ -359,7 +367,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.impute.censored", 1, 0, 0, "integer[]", 1
 "msm", "msm.impute.censored", 2, 0, 0, "any", 1
 "msm", "msm.impute.censored", 3, 0, 0, "list<double | null>", 1
-"msm", "msm.initprobs2mat", -1, 0, 0, "(class<`matrix`> | double)", 1
+"msm", "msm.initprobs2mat", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.initprobs2mat", -1, 0, 1, "double", 1
 "msm", "msm.initprobs2mat", 0, 0, 0, "class<`hmodel`>", 1
 "msm", "msm.initprobs2mat", 0, 0, 1, "list<double[]>", 1
 "msm", "msm.initprobs2mat", 1, 0, 0, "any", 1
@@ -370,7 +379,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.inv.transform", 1, 0, 0, "class<`hmodel`>", 1
 "msm", "msm.inv.transform", 1, 0, 1, "list<double[]>", 1
 "msm", "msm.inv.transform", 2, 0, 0, "class<`matrix`>", 1
-"msm", "msm.mninvlogit.transform", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"msm", "msm.mninvlogit.transform", -1, 0, 0, "class<`matrix`>", 1
+"msm", "msm.mninvlogit.transform", -1, 0, 1, "double[]", 1
 "msm", "msm.mninvlogit.transform", 0, 0, 0, "class<`matrix`>", 1
 "msm", "msm.mninvlogit.transform", 0, 0, 1, "double[]", 1
 "msm", "msm.mninvlogit.transform", 1, 0, 0, "class<`hmodel`>", 1
@@ -491,7 +501,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "qmatrix.diagse.msm", 3, 0, 0, "double", 1
 "msm", "qmatrix.diagse.msm", 4, 0, 0, "double[]", 1
 "msm", "qmatrix.diagse.msm", 5, 0, 0, "integer", 1
-"msm", "qmatrix.msm", -1, 0, 0, "(class<`matrix`> | class<`msm.est`>)", 1
+"msm", "qmatrix.msm", -1, 0, 0, "class<`matrix`>", 1
+"msm", "qmatrix.msm", -1, 0, 1, "class<`msm.est`>", 1
 "msm", "qmatrix.msm", 0, 0, 0, "class<`msm`>", 1
 "msm", "qmatrix.msm", 1, 0, 0, "character", 1
 "msm", "qmatrix.msm", 1, 0, 1, "list<integer>", 1
@@ -530,7 +541,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "simmulti.msm", 8, 0, 0, "null", 1
 "msm", "simmulti.msm", 9, 0, 0, "null", 1
 "msm", "simmulti.msm", 10, 0, 0, "logical", 1
-"msm", "sojourn.msm", -1, 0, 0, "(class<`data.frame`> | list<double>)", 1
+"msm", "sojourn.msm", -1, 0, 0, "class<`data.frame`>", 1
+"msm", "sojourn.msm", -1, 0, 1, "list<double>", 1
 "msm", "sojourn.msm", 0, 0, 0, "class<`msm`>", 1
 "msm", "sojourn.msm", 1, 0, 0, "character", 1
 "msm", "sojourn.msm", 2, 0, 0, "character[]", 1

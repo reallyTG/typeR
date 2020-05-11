@@ -27,7 +27,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "evaluate", "evaluate_call", 8, 0, 0, "any", 1
 "evaluate", "evaluate_call", 9, 0, 0, "class<`output_handler`>", 1
 "evaluate", "evaluate_call", 10, 0, 0, "any", 1
-"evaluate", "FUN", -1, 0, 0, "(class<`recordedplot`> | null | list<null | class<`recordedplot`> | null>)", 1
+"evaluate", "FUN", -1, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "FUN", -1, 0, 1, "null", 1
+"evaluate", "FUN", -1, 0, 2, "list<null | class<`recordedplot`> | null>", 1
 "evaluate", "FUN", 0, 0, 0, "class<`recordedplot`>", 1
 "evaluate", "FUN", 0, 0, 1, "character", 1
 "evaluate", "FUN", 0, 0, 2, "class<`condition`, `error`, `simpleError`>", 1
@@ -64,17 +66,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "evaluate", "parse_all.connection", 0, 0, 0, "class<`connection`, `file`>", 1
 "evaluate", "parse_all.connection", 1, 0, 0, "null", 1
 "evaluate", "parse_all.connection", 2, 0, 0, "...", 1
-"evaluate", "plot_calls", -1, 0, 0, "(character[] | null)", 1
+"evaluate", "plot_calls", -1, 0, 0, "character[]", 1
+"evaluate", "plot_calls", -1, 0, 1, "null", 1
 "evaluate", "plot_calls", 0, 0, 0, "class<`recordedplot`>", 1
 "evaluate", "plot_calls", 0, 0, 1, "null", 1
-"evaluate", "plot_snapshot", -1, 0, 0, "(class<`recordedplot`> | null)", 1
+"evaluate", "plot_snapshot", -1, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "plot_snapshot", -1, 0, 1, "null", 1
 "evaluate", "plot_snapshot", 0, 0, 0, "logical", 1
 "evaluate", "remove_hooks", -1, 0, 0, "null", 1
 "evaluate", "remove_hooks", 0, 0, 0, "list<class<`function`>>", 1
 "evaluate", "render", -1, 0, 0, "null", 1
 "evaluate", "render", 0, 0, 0, "null", 1
 "evaluate", "render", 0, 0, 1, "class<`FOO_BAR`>", 1
-"evaluate", "replay", -1, 0, 0, "(class<`recordedplot`> | null | list<null | class<`recordedplot`> | null>)", 1
+"evaluate", "replay", -1, 0, 0, "class<`recordedplot`>", 1
+"evaluate", "replay", -1, 0, 1, "null", 1
+"evaluate", "replay", -1, 0, 2, "list<null | class<`recordedplot`> | null>", 1
 "evaluate", "replay", 0, 0, 0, "class<`recordedplot`>", 1
 "evaluate", "replay", 0, 0, 1, "character", 1
 "evaluate", "replay", 0, 0, 2, "class<`condition`, `error`, `simpleError`>", 1

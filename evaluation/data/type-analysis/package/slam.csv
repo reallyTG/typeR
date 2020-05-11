@@ -2,7 +2,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "abind_simple_sparse_array", -1, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "abind_simple_sparse_array", 0, 0, 0, "...", 1
 "slam", "abind_simple_sparse_array", 1, 0, 0, "integer", 1
-"slam", "as.array.simple_sparse_array", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"slam", "as.array.simple_sparse_array", -1, 0, 0, "class<`array`>", 1
+"slam", "as.array.simple_sparse_array", -1, 0, 1, "class<`matrix`>", 1
 "slam", "as.array.simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "as.array.simple_sparse_array", 1, 0, 0, "...", 1
 "slam", "as.array.simple_triplet_matrix", -1, 0, 0, "class<`matrix`>", 1
@@ -35,7 +36,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "as.simple_triplet_matrix.matrix", 0, 0, 0, "class<`matrix`>", 1
 "slam", "as.simple_triplet_matrix.simple_sparse_array", -1, 0, 0, "class<`simple_triplet_matrix`>", 1
 "slam", "as.simple_triplet_matrix.simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
-"slam", "as.vector.simple_sparse_array", -1, 0, 0, "(double[] | null)", 1
+"slam", "as.vector.simple_sparse_array", -1, 0, 0, "double[]", 1
+"slam", "as.vector.simple_sparse_array", -1, 0, 1, "null", 1
 "slam", "as.vector.simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "as.vector.simple_sparse_array", 1, 0, 0, "character", 1
 "slam", "as.vector.simple_triplet_matrix", -1, 0, 0, "double[]", 1
@@ -95,20 +97,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "crossprod_simple_triplet_matrix", 1, 0, 0, "class<`simple_triplet_matrix`>", 1
 "slam", "crossprod_simple_triplet_matrix", 1, 0, 1, "class<`matrix`>", 1
 "slam", "crossprod_simple_triplet_matrix", 1, 0, 2, "null", 1
-"slam", "dimnames<-.simple_sparse_array", -1, 0, 0, "(class<`simple_sparse_array`> | class<`simple_triplet_matrix`>)", 1
+"slam", "dimnames<-.simple_sparse_array", -1, 0, 0, "class<`simple_sparse_array`>", 1
+"slam", "dimnames<-.simple_sparse_array", -1, 0, 1, "class<`simple_triplet_matrix`>", 1
 "slam", "dimnames<-.simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "dimnames<-.simple_sparse_array", 0, 0, 1, "class<`simple_triplet_matrix`>", 1
 "slam", "dimnames<-.simple_sparse_array", 1, 0, 0, "null", 1
 "slam", "dimnames<-.simple_sparse_array", 1, 0, 1, "list<any>", 1
-"slam", "dimnames.simple_sparse_array", -1, 0, 0, "(null | list<any>)", 1
+"slam", "dimnames.simple_sparse_array", -1, 0, 0, "null", 1
+"slam", "dimnames.simple_sparse_array", -1, 0, 1, "list<any>", 1
 "slam", "dimnames.simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "dimnames.simple_sparse_array", 0, 0, 1, "class<`simple_triplet_matrix`>", 1
-"slam", "dimnames<-.simple_triplet_matrix", -1, 0, 0, "(class<`simple_sparse_array`> | class<`simple_triplet_matrix`>)", 1
+"slam", "dimnames<-.simple_triplet_matrix", -1, 0, 0, "class<`simple_sparse_array`>", 1
+"slam", "dimnames<-.simple_triplet_matrix", -1, 0, 1, "class<`simple_triplet_matrix`>", 1
 "slam", "dimnames<-.simple_triplet_matrix", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "dimnames<-.simple_triplet_matrix", 0, 0, 1, "class<`simple_triplet_matrix`>", 1
 "slam", "dimnames<-.simple_triplet_matrix", 1, 0, 0, "null", 1
 "slam", "dimnames<-.simple_triplet_matrix", 1, 0, 1, "list<any>", 1
-"slam", "dimnames.simple_triplet_matrix", -1, 0, 0, "(null | list<any>)", 1
+"slam", "dimnames.simple_triplet_matrix", -1, 0, 0, "null", 1
+"slam", "dimnames.simple_triplet_matrix", -1, 0, 1, "list<any>", 1
 "slam", "dimnames.simple_triplet_matrix", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "dimnames.simple_triplet_matrix", 0, 0, 1, "class<`simple_triplet_matrix`>", 1
 "slam", "dim<-.simple_sparse_array", -1, 0, 0, "class<`simple_sparse_array`>", 1
@@ -121,7 +127,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "dim<-.simple_triplet_matrix", 1, 0, 0, "double[]", 1
 "slam", "dim.simple_triplet_matrix", -1, 0, 0, "integer[]", 1
 "slam", "dim.simple_triplet_matrix", 0, 0, 0, "class<`simple_triplet_matrix`>", 1
-"slam", "drop_simple_sparse_array", -1, 0, 0, "(class<`simple_sparse_array`> | integer[])", 1
+"slam", "drop_simple_sparse_array", -1, 0, 0, "class<`simple_sparse_array`>", 1
+"slam", "drop_simple_sparse_array", -1, 0, 1, "integer[]", 1
 "slam", "drop_simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "extend_simple_sparse_array", -1, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "extend_simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
@@ -156,7 +163,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "reduce_simple_sparse_array", 0, 0, 0, "class<`simple_sparse_array`>", 1
 "slam", "reduce_simple_sparse_array", 1, 0, 0, "logical", 1
 "slam", "reduce_simple_sparse_array", 2, 0, 0, "logical", 1
-"slam", "rollup", -1, 0, 0, "(class<`array`> | class<`matrix`> | class<`simple_sparse_array`> | class<`simple_triplet_matrix`>)", 1
+"slam", "rollup", -1, 0, 0, "class<`array`>", 1
+"slam", "rollup", -1, 0, 1, "class<`matrix`>", 1
+"slam", "rollup", -1, 0, 2, "class<`simple_sparse_array`>", 1
+"slam", "rollup", -1, 0, 3, "class<`simple_triplet_matrix`>", 1
 "slam", "rollup", 0, 0, 0, "class<`array`>", 1
 "slam", "rollup", 0, 0, 1, "class<`matrix`>", 1
 "slam", "rollup", 0, 0, 2, "class<`simple_sparse_array`>", 1
@@ -165,7 +175,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "rollup", 2, 0, 0, "any", 1
 "slam", "rollup", 3, 0, 0, "any", 1
 "slam", "rollup", 4, 0, 0, "...", 1
-"slam", "rollup.array", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"slam", "rollup.array", -1, 0, 0, "class<`array`>", 1
+"slam", "rollup.array", -1, 0, 1, "class<`matrix`>", 1
 "slam", "rollup.array", 0, 0, 0, "class<`array`>", 1
 "slam", "rollup.array", 0, 0, 1, "class<`matrix`>", 1
 "slam", "rollup.array", 1, 0, 0, "integer[]", 1
@@ -176,7 +187,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "rollup.array", 4, 0, 0, "...", 1
 "slam", "rollup.array", 5, 0, 0, "logical", 1
 "slam", "rollup.array", 6, 0, 0, "character", 1
-"slam", "rollup.matrix", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"slam", "rollup.matrix", -1, 0, 0, "class<`array`>", 1
+"slam", "rollup.matrix", -1, 0, 1, "class<`matrix`>", 1
 "slam", "rollup.matrix", 0, 0, 0, "class<`array`>", 1
 "slam", "rollup.matrix", 0, 0, 1, "class<`matrix`>", 1
 "slam", "rollup.matrix", 1, 0, 0, "integer[]", 1
@@ -208,7 +220,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "rollup.simple_triplet_matrix", 3, 0, 0, "class<`function`>", 1
 "slam", "rollup.simple_triplet_matrix", 4, 0, 0, "...", 1
 "slam", "rollup.simple_triplet_matrix", 5, 0, 0, "logical", 1
-"slam", "rowapply_simple_triplet_matrix", -1, 0, 0, "(double[] | list<integer[]>)", 1
+"slam", "rowapply_simple_triplet_matrix", -1, 0, 0, "double[]", 1
+"slam", "rowapply_simple_triplet_matrix", -1, 0, 1, "list<integer[]>", 1
 "slam", "rowapply_simple_triplet_matrix", 0, 0, 0, "class<`simple_triplet_matrix`>", 1
 "slam", "rowapply_simple_triplet_matrix", 1, 0, 0, "class<`function`>", 1
 "slam", "rowapply_simple_triplet_matrix", 2, 0, 0, "...", 1
@@ -295,7 +308,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "slam", "simple_triplet_zero_matrix", 0, 0, 0, "double", 1
 "slam", "simple_triplet_zero_matrix", 1, 0, 0, "double", 1
 "slam", "simple_triplet_zero_matrix", 2, 0, 0, "character", 1
-"slam", "slam_options", -1, 0, 0, "(double | list<double>)", 1
+"slam", "slam_options", -1, 0, 0, "double", 1
+"slam", "slam_options", -1, 0, 1, "list<double>", 1
 "slam", "slam_options", 0, 0, 0, "any", 1
 "slam", "slam_options", 1, 0, 0, "any", 1
 "slam", "split.simple_triplet_matrix", -1, 0, 0, "list<class<`simple_triplet_matrix`>>", 1

@@ -176,12 +176,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mda", "polyreg", 3, 0, 0, "double", 1
 "mda", "polyreg", 4, 0, 0, "logical", 1
 "mda", "polyreg", 5, 0, 0, "...", 1
-"mda", "predict.bruto", -1, 0, 0, "(class<`matrix`> | list<list<double[] | class<`matrix`>>>)", 1
+"mda", "predict.bruto", -1, 0, 0, "class<`matrix`>", 1
+"mda", "predict.bruto", -1, 0, 1, "list<list<double[] | class<`matrix`>>>", 1
 "mda", "predict.bruto", 0, 0, 0, "class<`bruto`>", 1
 "mda", "predict.bruto", 1, 0, 0, "class<`matrix`>", 1
 "mda", "predict.bruto", 2, 0, 0, "character[]", 1
 "mda", "predict.bruto", 3, 0, 0, "...", 1
-"mda", "predict.fda", -1, 0, 0, "(class<`matrix`> | class<`factor`>)", 1
+"mda", "predict.fda", -1, 0, 0, "class<`matrix`>", 1
+"mda", "predict.fda", -1, 0, 1, "class<`factor`>", 1
 "mda", "predict.fda", 0, 0, 0, "class<`fda`, `mda`>", 1
 "mda", "predict.fda", 0, 0, 1, "class<`fda`>", 1
 "mda", "predict.fda", 0, 0, 2, "list<any>", 1
@@ -194,7 +196,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mda", "predict.mars", 0, 0, 0, "class<`mars`>", 1
 "mda", "predict.mars", 1, 0, 0, "any", 1
 "mda", "predict.mars", 2, 0, 0, "...", 1
-"mda", "predict.mda", -1, 0, 0, "(class<`factor`> | class<`matrix`>)", 1
+"mda", "predict.mda", -1, 0, 0, "class<`factor`>", 1
+"mda", "predict.mda", -1, 0, 1, "class<`matrix`>", 1
 "mda", "predict.mda", 0, 0, 0, "class<`fda`, `mda`>", 1
 "mda", "predict.mda", 1, 0, 0, "class<`matrix`>", 1
 "mda", "predict.mda", 1, 0, 1, "class<`data.frame`>", 1

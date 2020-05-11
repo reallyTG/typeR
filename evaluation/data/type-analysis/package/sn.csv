@@ -6,7 +6,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "affineTransSECdistr", 3, 0, 0, "any", 1
 "sn", "affineTransSECdistr", 4, 0, 0, "any", 1
 "sn", "affineTransSECdistr", 5, 0, 0, "logical", 1
-"sn", "b", -1, 0, 0, "(double | null)", 1
+"sn", "b", -1, 0, 0, "double", 1
+"sn", "b", -1, 0, 1, "null", 1
 "sn", "b", 0, 0, 0, "double", 1
 "sn", "b", 0, 0, 1, "null", 1
 "sn", "conditionalSECdistr", -1, 0, 0, "class<`SECdistrMv`>", 1
@@ -15,7 +16,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "conditionalSECdistr", 2, 0, 0, "double", 1
 "sn", "conditionalSECdistr", 3, 0, 0, "any", 1
 "sn", "conditionalSECdistr", 4, 0, 0, "logical", 1
-"sn", "cp2dp", -1, 0, 0, "(double[] | list<double[] | class<`matrix`>>)", 1
+"sn", "cp2dp", -1, 0, 0, "double[]", 1
+"sn", "cp2dp", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
 "sn", "cp2dp", 0, 0, 0, "double[]", 1
 "sn", "cp2dp", 0, 0, 1, "list<double[] | class<`matrix`>>", 1
 "sn", "cp2dp", 1, 0, 0, "character", 1
@@ -29,11 +31,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "cp2dpUv", 1, 0, 0, "character", 1
 "sn", "cp2dpUv", 2, 0, 0, "logical", 1
 "sn", "cp2dpUv", 3, 0, 0, "double", 1
-"sn", "delta.etc", -1, 0, 0, "(double[] | list<double[] | class<`matrix`>>)", 1
+"sn", "delta.etc", -1, 0, 0, "double[]", 1
+"sn", "delta.etc", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
 "sn", "delta.etc", 0, 0, 0, "double[]", 1
 "sn", "delta.etc", 1, 0, 0, "null", 1
 "sn", "delta.etc", 1, 0, 1, "class<`matrix`>", 1
-"sn", "d.fn", -1, 0, 0, "(double[] | null)", 1
+"sn", "d.fn", -1, 0, 0, "double[]", 1
+"sn", "d.fn", -1, 0, 1, "null", 1
 "sn", "d.fn", 0, 0, 0, "any", 1
 "sn", "d.fn", 1, 0, 0, "any", 1
 "sn", "d.fn", 2, 0, 0, "any", 1
@@ -69,7 +73,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "dmsn", 4, 0, 0, "double", 1
 "sn", "dmsn", 5, 0, 0, "null", 1
 "sn", "dmsn", 6, 0, 0, "logical", 1
-"sn", "dmst", -1, 0, 0, "(double[] | null)", 1
+"sn", "dmst", -1, 0, 0, "double[]", 1
+"sn", "dmst", -1, 0, 1, "null", 1
 "sn", "dmst", 0, 0, 0, "any", 1
 "sn", "dmst", 1, 0, 0, "any", 1
 "sn", "dmst", 2, 0, 0, "any", 1
@@ -78,7 +83,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "dmst", 5, 0, 0, "null", 1
 "sn", "dmst", 5, 0, 1, "list<double[] | class<`matrix`>>", 1
 "sn", "dmst", 6, 0, 0, "logical", 1
-"sn", "dp2cp", -1, 0, 0, "(double[] | list<double[] | class<`matrix`> | double[]>)", 1
+"sn", "dp2cp", -1, 0, 0, "double[]", 1
+"sn", "dp2cp", -1, 0, 1, "list<double[] | class<`matrix`> | double[]>", 1
 "sn", "dp2cp", 0, 0, 0, "any", 1
 "sn", "dp2cp", 1, 0, 0, "any", 1
 "sn", "dp2cp", 2, 0, 0, "null", 1
@@ -147,7 +153,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "dSymmModulated", 10, 0, 0, "...", 1
 "sn", "duplicationMatrix", -1, 0, 0, "class<`matrix`>", 1
 "sn", "duplicationMatrix", 0, 0, 0, "integer", 1
-"sn", "extractSECdistr", -1, 0, 0, "(class<`SECdistrMv`> | class<`SECdistrUv`>)", 1
+"sn", "extractSECdistr", -1, 0, 0, "class<`SECdistrMv`>", 1
+"sn", "extractSECdistr", -1, 0, 1, "class<`SECdistrUv`>", 1
 "sn", "extractSECdistr", 0, 0, 0, "class<`mselm`>", 1
 "sn", "extractSECdistr", 0, 0, 1, "class<`selm`>", 1
 "sn", "extractSECdistr", 1, 0, 0, "any", 1
@@ -210,13 +217,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", ".local", 0, 0, 0, "class<`mselm`>", 1
 "sn", ".local", 1, 0, 0, "character", 1
 "sn", ".local", 2, 0, 0, "...", 1
-"sn", "makeSECdistr", -1, 0, 0, "(class<`SECdistrMv`> | class<`SECdistrUv`>)", 1
+"sn", "makeSECdistr", -1, 0, 0, "class<`SECdistrMv`>", 1
+"sn", "makeSECdistr", -1, 0, 1, "class<`SECdistrUv`>", 1
 "sn", "makeSECdistr", 0, 0, 0, "double[]", 1
 "sn", "makeSECdistr", 0, 0, 1, "list<class<`matrix`> | double[] | double[] | class<`matrix`>>", 1
 "sn", "makeSECdistr", 1, 0, 0, "character", 1
 "sn", "makeSECdistr", 2, 0, 0, "any", 1
 "sn", "makeSECdistr", 3, 0, 0, "any", 1
-"sn", "marginalSECdistr", -1, 0, 0, "(class<`SECdistrMv`> | class<`SECdistrUv`>)", 1
+"sn", "marginalSECdistr", -1, 0, 0, "class<`SECdistrMv`>", 1
+"sn", "marginalSECdistr", -1, 0, 1, "class<`SECdistrUv`>", 1
 "sn", "marginalSECdistr", 0, 0, 0, "class<`SECdistrMv`>", 1
 "sn", "marginalSECdistr", 1, 0, 0, "double[]", 1
 "sn", "marginalSECdistr", 2, 0, 0, "any", 1
@@ -265,7 +274,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "mst.cp2dp", 1, 0, 0, "any", 1
 "sn", "mst.cp2dp", 2, 0, 0, "any", 1
 "sn", "mst.cp2dp", 3, 0, 0, "logical", 1
-"sn", "mst.dp2cp", -1, 0, 0, "(null | list<any>)", 1
+"sn", "mst.dp2cp", -1, 0, 0, "null", 1
+"sn", "mst.dp2cp", -1, 0, 1, "list<any>", 1
 "sn", "mst.dp2cp", 0, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double>", 1
 "sn", "mst.dp2cp", 1, 0, 0, "character", 1
 "sn", "mst.dp2cp", 2, 0, 0, "null", 1
@@ -502,7 +512,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "sd", -1, 1, 0, "double", 1
 "sn", "sd", 0, 1, 0, "class<`SECdistrUv`>", 1
 "sn", "sd", 1, 1, 0, "...", 1
-"sn", "selm", -1, 0, 0, "(class<`mselm`> | class<`selm`>)", 1
+"sn", "selm", -1, 0, 0, "class<`mselm`>", 1
+"sn", "selm", -1, 0, 1, "class<`selm`>", 1
 "sn", "selm", 0, 0, 0, "class<`formula`>", 1
 "sn", "selm", 1, 0, 0, "character", 1
 "sn", "selm", 2, 0, 0, "any", 1
@@ -535,7 +546,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "seqLog", 1, 0, 0, "double", 1
 "sn", "seqLog", 2, 0, 0, "double", 1
 "sn", "seqLog", 3, 0, 0, "logical", 1
-"sn", "sn.cumulants", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"sn", "sn.cumulants", -1, 0, 0, "class<`matrix`>", 1
+"sn", "sn.cumulants", -1, 0, 1, "double[]", 1
 "sn", "sn.cumulants", 0, 0, 0, "double", 1
 "sn", "sn.cumulants", 1, 0, 0, "double", 1
 "sn", "sn.cumulants", 2, 0, 0, "double[]", 1
@@ -583,7 +595,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "sn.pdev.gh", 4, 0, 1, "null", 1
 "sn", "sn.pdev.gh", 5, 0, 0, "logical", 1
 "sn", "sn.pdev.gh", 6, 0, 0, "logical", 1
-"sn", "st.cp2dp", -1, 0, 0, "(double[] | null)", 1
+"sn", "st.cp2dp", -1, 0, 0, "double[]", 1
+"sn", "st.cp2dp", -1, 0, 1, "null", 1
 "sn", "st.cp2dp", 0, 0, 0, "double[]", 1
 "sn", "st.cp2dp", 1, 0, 0, "character", 1
 "sn", "st.cp2dp", 2, 0, 0, "null", 1
@@ -674,7 +687,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "weights.selm", 0, 0, 0, "class<`mselm`>", 1
 "sn", "weights.selm", 0, 0, 1, "class<`selm`>", 1
 "sn", "weights.selm", 1, 0, 0, "...", 1
-"sn", "zeta", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"sn", "zeta", -1, 0, 0, "class<`matrix`>", 1
+"sn", "zeta", -1, 0, 1, "double[]", 1
 "sn", "zeta", 0, 0, 0, "double", 1
 "sn", "zeta", 1, 0, 0, "class<`matrix`>", 1
 "sn", "zeta", 1, 0, 1, "double[]", 1

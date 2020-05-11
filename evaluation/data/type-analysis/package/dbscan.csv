@@ -207,7 +207,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbscan", "kNN", 5, 0, 0, "any", 1
 "dbscan", "kNN", 6, 0, 0, "any", 1
 "dbscan", "kNN", 7, 0, 0, "any", 1
-"dbscan", "kNNdist", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"dbscan", "kNNdist", -1, 0, 0, "class<`matrix`>", 1
+"dbscan", "kNNdist", -1, 0, 1, "double[]", 1
 "dbscan", "kNNdist", 0, 0, 0, "class<`matrix`>", 1
 "dbscan", "kNNdist", 0, 0, 1, "class<`data.frame`>", 1
 "dbscan", "kNNdist", 0, 0, 2, "class<`dist`>", 1
@@ -288,7 +289,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbscan", "plot.NN", 1, 0, 0, "class<`data.frame`>", 1
 "dbscan", "plot.NN", 2, 0, 0, "null", 1
 "dbscan", "plot.NN", 3, 0, 0, "...", 1
-"dbscan", "plot.optics", -1, 0, 0, "(null | list<character | double[] | null>)", 1
+"dbscan", "plot.optics", -1, 0, 0, "null", 1
+"dbscan", "plot.optics", -1, 0, 1, "list<character | double[] | null>", 1
 "dbscan", "plot.optics", 0, 0, 0, "class<`optics`>", 1
 "dbscan", "plot.optics", 1, 0, 0, "logical", 1
 "dbscan", "plot.optics", 2, 0, 0, "logical", 1
@@ -356,7 +358,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbscan", "sort.frNN", 0, 0, 0, "class<`NN`, `frNN`>", 1
 "dbscan", "sort.frNN", 1, 0, 0, "logical", 1
 "dbscan", "sort.frNN", 2, 0, 0, "...", 1
-"dbscan", "sort.kNN", -1, 0, 0, "(class<`NN`, `kNN`, `sNN`> | class<`NN`, `kNN`>)", 1
+"dbscan", "sort.kNN", -1, 0, 0, "class<`NN`, `kNN`, `sNN`>", 1
+"dbscan", "sort.kNN", -1, 0, 1, "class<`NN`, `kNN`>", 1
 "dbscan", "sort.kNN", 0, 0, 0, "class<`NN`, `kNN`, `sNN`>", 1
 "dbscan", "sort.kNN", 0, 0, 1, "class<`NN`, `kNN`>", 1
 "dbscan", "sort.kNN", 1, 0, 0, "logical", 1

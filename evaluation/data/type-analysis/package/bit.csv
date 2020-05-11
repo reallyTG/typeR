@@ -196,11 +196,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit", "FUN", 0, 0, 2, "^logical[]", 1
 "bit", "FUN", 0, 0, 3, "class<`bitwhich`>", 1
 "bit", "FUN", 1, 0, 0, "...", 1
-"bit", "intisasc", -1, 0, 0, "(logical | null)", 1
+"bit", "intisasc", -1, 0, 0, "logical", 1
+"bit", "intisasc", -1, 0, 1, "null", 1
 "bit", "intisasc", 0, 0, 0, "^integer[]", 1
 "bit", "intisdesc", -1, 0, 0, "logical", 1
 "bit", "intisdesc", 0, 0, 0, "integer[]", 1
-"bit", "intrle", -1, 0, 0, "(class<`rle`> | null)", 1
+"bit", "intrle", -1, 0, 0, "class<`rle`>", 1
+"bit", "intrle", -1, 0, 1, "null", 1
 "bit", "intrle", 0, 0, 0, "integer[]", 1
 "bit", "is.bit", -1, 0, 0, "logical", 1
 "bit", "is.bit", 0, 0, 0, "class<`bit`>", 1
@@ -223,14 +225,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit", "length.bitwhich", 0, 0, 0, "class<`bitwhich`>", 1
 "bit", "length.ri", -1, 0, 0, "integer", 1
 "bit", "length.ri", 0, 0, 0, "class<`ri`>", 1
-"bit", "max.bit", -1, 0, 0, "(integer | null)", 1
+"bit", "max.bit", -1, 0, 0, "integer", 1
+"bit", "max.bit", -1, 0, 1, "null", 1
 "bit", "max.bit", 0, 0, 0, "class<`bit`>", 1
 "bit", "max.bit", 1, 0, 0, "null", 1
 "bit", "max.bit", 2, 0, 0, "...", 1
 "bit", "max.bitwhich", -1, 0, 0, "integer", 1
 "bit", "max.bitwhich", 0, 0, 0, "class<`bitwhich`>", 1
 "bit", "max.bitwhich", 1, 0, 0, "...", 1
-"bit", "min.bit", -1, 0, 0, "(integer | null)", 1
+"bit", "min.bit", -1, 0, 0, "integer", 1
+"bit", "min.bit", -1, 0, 1, "null", 1
 "bit", "min.bit", 0, 0, 0, "class<`bit`>", 1
 "bit", "min.bit", 1, 0, 0, "null", 1
 "bit", "min.bit", 2, 0, 0, "...", 1
@@ -307,7 +311,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit", "unique.rlepack", 0, 0, 0, "class<`rlepack`>", 1
 "bit", "unique.rlepack", 1, 0, 0, "logical", 1
 "bit", "unique.rlepack", 2, 0, 0, "...", 1
-"bit", "vecseq", -1, 0, 0, "(class<`call`> | integer[] | list<class<`call`> | integer[]>)", 1
+"bit", "vecseq", -1, 0, 0, "class<`call`>", 1
+"bit", "vecseq", -1, 0, 1, "integer[]", 1
+"bit", "vecseq", -1, 0, 2, "list<class<`call`> | integer[]>", 1
 "bit", "vecseq", 0, 0, 0, "double[]", 1
 "bit", "vecseq", 1, 0, 0, "double[]", 1
 "bit", "vecseq", 1, 0, 1, "null", 1
@@ -317,7 +323,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bit", "virtual", 0, 0, 0, "class<`bit`>", 1
 "bit", "virtual.default", -1, 0, 0, "list<integer>", 1
 "bit", "virtual.default", 0, 0, 0, "class<`bit`>", 1
-"bit", "xor", -1, 0, 0, "(class<`bit`> | class<`bitwhich`> | logical[])", 1
+"bit", "xor", -1, 0, 0, "class<`bit`>", 1
+"bit", "xor", -1, 0, 1, "class<`bitwhich`>", 1
+"bit", "xor", -1, 0, 2, "logical[]", 1
 "bit", "xor", 0, 0, 0, "class<`bit`>", 1
 "bit", "xor", 0, 0, 1, "class<`bitwhich`>", 1
 "bit", "xor", 0, 0, 2, "logical[]", 1

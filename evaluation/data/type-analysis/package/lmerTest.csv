@@ -50,7 +50,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lmerTest", "as_lmerModLT", 2, 0, 0, "double", 1
 "lmerTest", "containment", -1, 0, 0, "list<character[]>", 1
 "lmerTest", "containment", 0, 0, 0, "class<`lmerModLmerTest`>", 1
-"lmerTest", "contest", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"lmerTest", "contest", -1, 0, 0, "class<`data.frame`>", 1
+"lmerTest", "contest", -1, 0, 1, "list<class<`data.frame`>>", 1
 "lmerTest", "contest", 0, 0, 0, "class<`lmerModLmerTest`>", 1
 "lmerTest", "contest", 0, 0, 1, "class<`merModLmerTest`>", 1
 "lmerTest", "contest", 1, 0, 0, "class<`matrix`>", 1
@@ -94,7 +95,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lmerTest", "contest.lmerMod", 7, 0, 0, "logical", 1
 "lmerTest", "contest.lmerMod", 8, 0, 0, "character[]", 1
 "lmerTest", "contest.lmerMod", 9, 0, 0, "...", 1
-"lmerTest", "contest.lmerModLmerTest", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"lmerTest", "contest.lmerModLmerTest", -1, 0, 0, "class<`data.frame`>", 1
+"lmerTest", "contest.lmerModLmerTest", -1, 0, 1, "list<class<`data.frame`>>", 1
 "lmerTest", "contest.lmerModLmerTest", 0, 0, 0, "class<`lmerModLmerTest`>", 1
 "lmerTest", "contest.lmerModLmerTest", 1, 0, 0, "class<`matrix`>", 1
 "lmerTest", "contest.lmerModLmerTest", 1, 0, 1, "double[]", 1
@@ -181,7 +183,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lmerTest", "get_coefmat", -1, 0, 0, "class<`matrix`>", 1
 "lmerTest", "get_coefmat", 0, 0, 0, "class<`lmerModLmerTest`>", 1
 "lmerTest", "get_coefmat", 1, 0, 0, "character", 1
-"lmerTest", "get_contrast_coding", -1, 0, 0, "(null | list<any>)", 1
+"lmerTest", "get_contrast_coding", -1, 0, 0, "null", 1
+"lmerTest", "get_contrast_coding", -1, 0, 1, "list<any>", 1
 "lmerTest", "get_contrast_coding", 0, 0, 0, "class<`lmerModLmerTest`>", 1
 "lmerTest", "get_contrast_coding", 1, 0, 0, "character", 1
 "lmerTest", "get_contrasts_marginal", -1, 0, 0, "list<class<`matrix`>>", 1
@@ -309,7 +312,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lmerTest", "nullspace", 0, 0, 0, "class<`matrix`>", 1
 "lmerTest", "nullspace", 1, 0, 0, "character[]", 1
 "lmerTest", "nullspace", 2, 0, 0, "any", 1
-"lmerTest", "numeric_terms", -1, 0, 0, "(logical[] | list<any>)", 1
+"lmerTest", "numeric_terms", -1, 0, 0, "logical[]", 1
+"lmerTest", "numeric_terms", -1, 0, 1, "list<any>", 1
 "lmerTest", "numeric_terms", 0, 0, 0, "class<`lmerModLmerTest`>", 1
 "lmerTest", "qform", -1, 0, 0, "double", 1
 "lmerTest", "qform", 0, 0, 0, "double[]", 1
@@ -392,7 +396,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lmerTest", "step.merModLmerTest", 5, 0, 0, "logical", 1
 "lmerTest", "step.merModLmerTest", 6, 0, 0, "any", 1
 "lmerTest", "step.merModLmerTest", 7, 0, 0, "...", 1
-"lmerTest", "summary.lmerModLmerTest", -1, 0, 0, "(class<`summary.lmerModLmerTest`, `summary.merMod`> | class<`summary.merMod`>)", 1
+"lmerTest", "summary.lmerModLmerTest", -1, 0, 0, "class<`summary.lmerModLmerTest`, `summary.merMod`>", 1
+"lmerTest", "summary.lmerModLmerTest", -1, 0, 1, "class<`summary.merMod`>", 1
 "lmerTest", "summary.lmerModLmerTest", 0, 0, 0, "class<`lmerModLmerTest`>", 1
 "lmerTest", "summary.lmerModLmerTest", 1, 0, 0, "...", 1
 "lmerTest", "summary.lmerModLmerTest", 2, 0, 0, "character[]", 1
@@ -408,7 +413,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lmerTest", "term_contain", 1, 0, 0, "class<`matrix`>", 1
 "lmerTest", "term_contain", 2, 0, 0, "character[]", 1
 "lmerTest", "term_contain", 3, 0, 0, "character[]", 1
-"lmerTest", "update.lmerModLmerTest", -1, 0, 0, "(class<`call`> | class<`function`> | class<`lmerModLmerTest`>)", 1
+"lmerTest", "update.lmerModLmerTest", -1, 0, 0, "class<`call`>", 1
+"lmerTest", "update.lmerModLmerTest", -1, 0, 1, "class<`function`>", 1
+"lmerTest", "update.lmerModLmerTest", -1, 0, 2, "class<`lmerModLmerTest`>", 1
 "lmerTest", "update.lmerModLmerTest", 0, 0, 0, "class<`lmerModLmerTest`>", 1
 "lmerTest", "update.lmerModLmerTest", 1, 0, 0, "any", 1
 "lmerTest", "update.lmerModLmerTest", 2, 0, 0, "...", 1

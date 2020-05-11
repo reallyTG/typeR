@@ -14,15 +14,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", ":::", 0, 0, 8, "null", 1
 "validate", ":::", -1, 1, 0, "any", 1
 "validate", ":::", 0, 1, 0, "...", 1
-"validate", ":::", -1, 2, 0, "(character[] | null)", 1
+"validate", ":::", -1, 2, 0, "character[]", 1
+"validate", ":::", -1, 2, 1, "null", 1
 "validate", ":::", 0, 2, 0, "class<`call`>", 1
 "validate", ":::", 0, 2, 1, "class<`if`>", 1
-"validate", ":::", -1, 3, 0, "(null | list<any>)", 1
+"validate", ":::", -1, 3, 0, "null", 1
+"validate", ":::", -1, 3, 1, "list<any>", 1
 "validate", ":::", 0, 3, 0, "list<any>", 1
 "validate", ":::", -1, 4, 0, "logical[]", 1
 "validate", ":::", 0, 4, 0, "class<`indication`>", 1
 "validate", ":::", 0, 4, 1, "class<`validation`>", 1
-"validate", ":::", -1, 5, 0, "(class<`(`> | class<`call`> | class<`{`> | character | class<`name`> | double | null)", 1
+"validate", ":::", -1, 5, 0, "class<`(`>", 1
+"validate", ":::", -1, 5, 1, "class<`call`>", 1
+"validate", ":::", -1, 5, 2, "class<`{`>", 1
+"validate", ":::", -1, 5, 3, "character", 1
+"validate", ":::", -1, 5, 4, "class<`name`>", 1
+"validate", ":::", -1, 5, 5, "double", 1
+"validate", ":::", -1, 5, 6, "null", 1
 "validate", ":::", 0, 5, 0, "class<`(`>", 1
 "validate", ":::", 0, 5, 1, "class<`call`>", 1
 "validate", ":::", 0, 5, 2, "class<`if`>", 1
@@ -213,7 +221,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "created", -1, 2, 0, "class<`POSIXct`, `POSIXt`>", 1
 "validate", "created", 0, 2, 0, "class<`rule`>", 1
 "validate", "created", 1, 2, 0, "...", 1
-"validate", "created<-", -1, 0, 0, "(class<`rule`> | class<`validator`>)", 1
+"validate", "created<-", -1, 0, 0, "class<`rule`>", 1
+"validate", "created<-", -1, 0, 1, "class<`validator`>", 1
 "validate", "created<-", 0, 0, 0, "class<`rule`>", 1
 "validate", "created<-", 0, 0, 1, "class<`validator`>", 1
 "validate", "created<-", 1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
@@ -239,7 +248,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "description<-", -1, 1, 0, "class<`rule`>", 1
 "validate", "description<-", 0, 1, 0, "class<`rule`>", 1
 "validate", "description<-", 1, 1, 0, "character", 1
-"validate", "description<-", -1, 2, 0, "(class<`rule`> | class<`validator`>)", 1
+"validate", "description<-", -1, 2, 0, "class<`rule`>", 1
+"validate", "description<-", -1, 2, 1, "class<`validator`>", 1
 "validate", "description<-", 0, 2, 0, "class<`rule`>", 1
 "validate", "description<-", 0, 2, 1, "class<`validator`>", 1
 "validate", "description<-", 1, 2, 0, "character[]", 1
@@ -277,7 +287,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "exists_one", 2, 0, 0, "logical", 1
 "validate", "expand_assignments", -1, 0, 0, "list<any>", 1
 "validate", "expand_assignments", 0, 0, 0, "list<any>", 1
-"validate", "expand_groups", -1, 0, 0, "(null | list<any>)", 1
+"validate", "expand_groups", -1, 0, 0, "null", 1
+"validate", "expand_groups", -1, 0, 1, "list<any>", 1
 "validate", "expand_groups", 0, 0, 0, "list<any>", 1
 "validate", "export_yaml", -1, 0, 0, "null", 1
 "validate", "export_yaml", 0, 0, 0, "class<`validator`>", 1
@@ -287,10 +298,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "export_yaml", 0, 1, 0, "class<`validator`>", 1
 "validate", "export_yaml", 1, 1, 0, "character", 1
 "validate", "export_yaml", 2, 1, 0, "...", 1
-"validate", "expr", -1, 0, 0, "(class<`call`> | class<`{`> | class<`if`>)", 1
+"validate", "expr", -1, 0, 0, "class<`call`>", 1
+"validate", "expr", -1, 0, 1, "class<`{`>", 1
+"validate", "expr", -1, 0, 2, "class<`if`>", 1
 "validate", "expr", 0, 0, 0, "class<`rule`>", 1
 "validate", "expr", 1, 0, 0, "...", 1
-"validate", "expr", -1, 1, 0, "(class<`call`> | class<`{`> | class<`if`>)", 1
+"validate", "expr", -1, 1, 0, "class<`call`>", 1
+"validate", "expr", -1, 1, 1, "class<`{`>", 1
+"validate", "expr", -1, 1, 2, "class<`if`>", 1
 "validate", "expr", 0, 1, 0, "class<`rule`>", 1
 "validate", "expr", 1, 1, 0, "...", 1
 "validate", "extract_names", -1, 0, 0, "character[]", 1
@@ -308,7 +323,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "failed_confrontations", 0, 0, 0, "class<`validation`>", 1
 "validate", "fails", -1, 0, 0, "double[]", 1
 "validate", "fails", 0, 0, 0, "class<`validation`>", 1
-"validate", "filter_yrf_options", -1, 0, 0, "(character[] | null)", 1
+"validate", "filter_yrf_options", -1, 0, 0, "character[]", 1
+"validate", "filter_yrf_options", -1, 0, 1, "null", 1
 "validate", "filter_yrf_options", 0, 0, 0, "character[]", 1
 "validate", "fun", -1, 0, 0, "class<`validation`>", 1
 "validate", "fun", 0, 0, 0, "class<`data.frame`>", 1
@@ -324,10 +340,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "fun", 1, 2, 0, "class<`validator`>", 1
 "validate", "fun", 2, 2, 0, "any", 1
 "validate", "fun", 3, 2, 0, "...", 1
-"validate", "FUN", -1, 0, 0, "(character[] | null)", 1
+"validate", "FUN", -1, 0, 0, "character[]", 1
+"validate", "FUN", -1, 0, 1, "null", 1
 "validate", "FUN", 0, 0, 0, "class<`call`>", 1
 "validate", "FUN", 0, 0, 1, "class<`if`>", 1
-"validate", "FUN", -1, 1, 0, "(class<`(`> | class<`call`> | class<`{`> | character | class<`name`> | double | null)", 1
+"validate", "FUN", -1, 1, 0, "class<`(`>", 1
+"validate", "FUN", -1, 1, 1, "class<`call`>", 1
+"validate", "FUN", -1, 1, 2, "class<`{`>", 1
+"validate", "FUN", -1, 1, 3, "character", 1
+"validate", "FUN", -1, 1, 4, "class<`name`>", 1
+"validate", "FUN", -1, 1, 5, "double", 1
+"validate", "FUN", -1, 1, 6, "null", 1
 "validate", "FUN", 0, 1, 0, "class<`(`>", 1
 "validate", "FUN", 0, 1, 1, "class<`call`>", 1
 "validate", "FUN", 0, 1, 2, "class<`if`>", 1
@@ -343,10 +366,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "FUN", -1, 3, 0, "character", 1
 "validate", "FUN", 0, 3, 0, "class<`rule`>", 1
 "validate", "FUN", 1, 3, 0, "...", 1
-"validate", "FUN", -1, 4, 0, "(class<`call`> | class<`{`> | class<`if`>)", 1
+"validate", "FUN", -1, 4, 0, "class<`call`>", 1
+"validate", "FUN", -1, 4, 1, "class<`{`>", 1
+"validate", "FUN", -1, 4, 2, "class<`if`>", 1
 "validate", "FUN", 0, 4, 0, "class<`rule`>", 1
 "validate", "FUN", 1, 4, 0, "...", 1
-"validate", "FUN", -1, 5, 0, "(class<`call`> | class<`{`> | class<`if`>)", 1
+"validate", "FUN", -1, 5, 0, "class<`call`>", 1
+"validate", "FUN", -1, 5, 1, "class<`{`>", 1
+"validate", "FUN", -1, 5, 2, "class<`if`>", 1
 "validate", "FUN", 0, 5, 0, "class<`rule`>", 1
 "validate", "FUN", 1, 5, 0, "...", 1
 "validate", "FUN", -1, 6, 0, "character[]", 1
@@ -421,12 +448,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", ".ini_expressionset_df", 0, 0, 0, "any", 1
 "validate", ".ini_expressionset_df", 1, 0, 0, "class<`data.frame`>", 1
 "validate", ".ini_expressionset_df", 2, 0, 0, "character", 1
-"validate", ".ini_expressionset_yml", -1, 0, 0, "(null | list<character | double | null>)", 1
+"validate", ".ini_expressionset_yml", -1, 0, 0, "null", 1
+"validate", ".ini_expressionset_yml", -1, 0, 1, "list<character | double | null>", 1
 "validate", ".ini_expressionset_yml", 0, 0, 0, "class<`indicator`>", 1
 "validate", ".ini_expressionset_yml", 0, 0, 1, "class<`validator`>", 1
 "validate", ".ini_expressionset_yml", 1, 0, 0, "character", 1
 "validate", ".ini_expressionset_yml", 2, 0, 0, "character", 1
-"validate", "ini_indicator", -1, 0, 0, "(class<`function`> | null)", 1
+"validate", "ini_indicator", -1, 0, 0, "class<`function`>", 1
+"validate", "ini_indicator", -1, 0, 1, "null", 1
 "validate", "ini_indicator", 0, 0, 0, "class<`indicator`>", 1
 "validate", "ini_indicator", 1, 0, 0, "...", 1
 "validate", "ini_indicator", 2, 0, 0, "any", 1
@@ -436,13 +465,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "ini_validator", 1, 0, 0, "...", 1
 "validate", "ini_validator", 2, 0, 0, "any", 1
 "validate", "ini_validator", 3, 0, 0, "any", 1
-"validate", "int_values", -1, 0, 0, "(class<`matrix`> | logical | list<class<`matrix`> | double[] | ^logical[]>)", 1
+"validate", "int_values", -1, 0, 0, "class<`matrix`>", 1
+"validate", "int_values", -1, 0, 1, "logical", 1
+"validate", "int_values", -1, 0, 2, "list<class<`matrix`> | double[] | ^logical[]>", 1
 "validate", "int_values", 0, 0, 0, "class<`indication`>", 1
 "validate", "int_values", 0, 0, 1, "class<`validation`>", 1
 "validate", "int_values", 1, 0, 0, "logical", 1
 "validate", "int_values", 2, 0, 0, "logical", 1
 "validate", "int_values", 3, 0, 0, "...", 1
-"validate", "is.assignment", -1, 0, 0, "(logical[] | list<any>)", 1
+"validate", "is.assignment", -1, 0, 0, "logical[]", 1
+"validate", "is.assignment", -1, 0, 1, "list<any>", 1
 "validate", "is.assignment", 0, 0, 0, "list<any>", 1
 "validate", "is_complete", -1, 0, 0, "logical[]", 1
 "validate", "is_complete", 0, 0, 0, "...", 1
@@ -475,7 +507,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "label", -1, 2, 0, "character[]", 1
 "validate", "label", 0, 2, 0, "class<`validator`>", 1
 "validate", "label", 1, 2, 0, "...", 1
-"validate", "label<-", -1, 0, 0, "(class<`rule`> | class<`validator`>)", 1
+"validate", "label<-", -1, 0, 0, "class<`rule`>", 1
+"validate", "label<-", -1, 0, 1, "class<`validator`>", 1
 "validate", "label<-", 0, 0, 0, "class<`rule`>", 1
 "validate", "label<-", 0, 0, 1, "class<`validator`>", 1
 "validate", "label<-", 1, 0, 0, "character[]", 1
@@ -489,7 +522,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "lbj_cells", 0, 0, 0, "...", 1
 "validate", "lbj_rules", -1, 0, 0, "class<`lbj_rules`>", 1
 "validate", "lbj_rules", 0, 0, 0, "...", 1
-"validate", "left", -1, 0, 0, "(character | class<`(`> | class<`call`> | class<`name`> | double | null)", 1
+"validate", "left", -1, 0, 0, "character", 1
+"validate", "left", -1, 0, 1, "class<`(`>", 1
+"validate", "left", -1, 0, 2, "class<`call`>", 1
+"validate", "left", -1, 0, 3, "class<`name`>", 1
+"validate", "left", -1, 0, 4, "double", 1
+"validate", "left", -1, 0, 5, "null", 1
 "validate", "left", 0, 0, 0, "class<`call`>", 1
 "validate", "linear", -1, 0, 0, "logical[]", 1
 "validate", "linear", 0, 0, 0, "class<`rule`>", 1
@@ -518,7 +556,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "meta", -1, 0, 0, "class<`data.frame`>", 1
 "validate", "meta", 0, 0, 0, "class<`indicator`>", 1
 "validate", "meta", 1, 0, 0, "...", 1
-"validate", "meta", -1, 1, 0, "(class<`data.frame`> | list<any>)", 1
+"validate", "meta", -1, 1, 0, "class<`data.frame`>", 1
+"validate", "meta", -1, 1, 1, "list<any>", 1
 "validate", "meta", 0, 1, 0, "class<`indicator`>", 1
 "validate", "meta", 0, 1, 1, "class<`validator`>", 1
 "validate", "meta", 0, 1, 2, "class<`rule`>", 1
@@ -535,7 +574,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "meta<-", 2, 0, 0, "character", 1
 "validate", "meta<-", 2, 0, 1, "double", 1
 "validate", "meta<-", 2, 0, 2, "integer[]", 1
-"validate", "meta<-", -1, 1, 0, "(class<`rule`> | class<`validator`>)", 1
+"validate", "meta<-", -1, 1, 0, "class<`rule`>", 1
+"validate", "meta<-", -1, 1, 1, "class<`validator`>", 1
 "validate", "meta<-", 0, 1, 0, "class<`rule`>", 1
 "validate", "meta<-", 0, 1, 1, "class<`validator`>", 1
 "validate", "meta<-", 1, 1, 0, "character", 1
@@ -552,7 +592,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "nas", -1, 0, 0, "double[]", 1
 "validate", "nas", 0, 0, 0, "class<`indication`>", 1
 "validate", "nas", 0, 0, 1, "class<`validation`>", 1
-"validate", "node", -1, 0, 0, "(class<`name`> | null)", 1
+"validate", "node", -1, 0, 0, "class<`name`>", 1
+"validate", "node", -1, 0, 1, "null", 1
 "validate", "node", 0, 0, 0, "class<`<-`>", 1
 "validate", "node", 0, 0, 1, "class<`(`>", 1
 "validate", "node", 0, 0, 2, "class<`{`>", 1
@@ -563,15 +604,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "node", 0, 0, 7, "null", 1
 "validate", "npos", -1, 0, 0, "double", 1
 "validate", "npos", 0, 0, 0, "integer", 1
-"validate", "options_from_yml", -1, 0, 0, "(null | list<character>)", 1
+"validate", "options_from_yml", -1, 0, 0, "null", 1
+"validate", "options_from_yml", -1, 0, 1, "list<character>", 1
 "validate", "options_from_yml", 0, 0, 0, "character", 1
-"validate", "opts", -1, 0, 0, "(character | class<`function`> | null | list<character | double | null>)", 1
+"validate", "opts", -1, 0, 0, "character", 1
+"validate", "opts", -1, 0, 1, "class<`function`>", 1
+"validate", "opts", -1, 0, 2, "null", 1
+"validate", "opts", -1, 0, 3, "list<character | double | null>", 1
 "validate", "opts", 0, 0, 0, "character", 1
 "validate", "opts", 0, 0, 1, "class<`validator`>", 1
 "validate", "opts", 0, 0, 2, "class<`indicator`>", 1
 "validate", "opts", 0, 0, 3, "null", 1
 "validate", "opts", 1, 0, 0, "...", 1
-"validate", "opts", -1, 1, 0, "(character | null)", 1
+"validate", "opts", -1, 1, 0, "character", 1
+"validate", "opts", -1, 1, 1, "null", 1
 "validate", "opts", 0, 1, 0, "character", 1
 "validate", "opts", 1, 1, 0, "...", 1
 "validate", "origin", -1, 0, 0, "character[]", 1
@@ -590,7 +636,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "origin<-", -1, 1, 0, "class<`validator`>", 1
 "validate", "origin<-", 0, 1, 0, "class<`validator`>", 1
 "validate", "origin<-", 1, 1, 0, "character[]", 1
-"validate", "origin<-", -1, 2, 0, "(class<`rule`> | class<`validator`>)", 1
+"validate", "origin<-", -1, 2, 0, "class<`rule`>", 1
+"validate", "origin<-", -1, 2, 1, "class<`validator`>", 1
 "validate", "origin<-", 0, 2, 0, "class<`rule`>", 1
 "validate", "origin<-", 0, 2, 1, "class<`validator`>", 1
 "validate", "origin<-", 1, 2, 0, "character[]", 1
@@ -599,13 +646,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "outcheck", -1, 1, 0, "any", 1
 "validate", "outcheck", 0, 1, 0, "...", 1
 "validate", "output", -1, 0, 0, "environment", 1
-"validate", "parse_yrf_include", -1, 0, 0, "(character[] | null)", 1
+"validate", "parse_yrf_include", -1, 0, 0, "character[]", 1
+"validate", "parse_yrf_include", -1, 0, 1, "null", 1
 "validate", "parse_yrf_include", 0, 0, 0, "character", 1
-"validate", ".parse_yrf_options", -1, 0, 0, "(null | list<character>)", 1
+"validate", ".parse_yrf_options", -1, 0, 0, "null", 1
+"validate", ".parse_yrf_options", -1, 0, 1, "list<character>", 1
 "validate", ".parse_yrf_options", 0, 0, 0, "character[]", 1
 "validate", "passes", -1, 0, 0, "double[]", 1
 "validate", "passes", 0, 0, 0, "class<`validation`>", 1
-"validate", "plot", -1, 0, 0, "(class<`factor`> | null)", 1
+"validate", "plot", -1, 0, 0, "class<`factor`>", 1
+"validate", "plot", -1, 0, 1, "null", 1
 "validate", "plot", 0, 0, 0, "class<`validator`>", 1
 "validate", "plot", 1, 0, 0, "any", 1
 "validate", "plot", 2, 0, 0, "...", 1
@@ -624,7 +674,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", ".readlines_utf8", -1, 0, 0, "character[]", 1
 "validate", ".readlines_utf8", 0, 0, 0, "character", 1
 "validate", ".readlines_utf8", 1, 0, 0, "character", 1
-"validate", "recycle", -1, 0, 0, "(character[] | class<`POSIXct`, `POSIXt`>)", 1
+"validate", "recycle", -1, 0, 0, "character[]", 1
+"validate", "recycle", -1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "validate", "recycle", 0, 0, 0, "character[]", 1
 "validate", "recycle", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "validate", "recycle", 1, 0, 0, "class<`indicator`>", 1
@@ -643,7 +694,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "reset", -1, 2, 0, "list<character | double | null>", 1
 "validate", "reset", 0, 2, 0, "class<`standardGeneric`>", 1
 "validate", "reset", 0, 2, 1, "class<`validator`>", 1
-"validate", "right", -1, 0, 0, "(character | class<`call`> | class<`name`> | double)", 1
+"validate", "right", -1, 0, 0, "character", 1
+"validate", "right", -1, 0, 1, "class<`call`>", 1
+"validate", "right", -1, 0, 2, "class<`name`>", 1
+"validate", "right", -1, 0, 3, "double", 1
 "validate", "right", 0, 0, 0, "class<`call`>", 1
 "validate", "rule", -1, 0, 0, "class<`rule`>", 1
 "validate", "rule", 0, 0, 0, "...", 1
@@ -652,13 +706,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "rules_diff", 1, 0, 0, "class<`data.frame`>", 1
 "validate", "rules_diff", 2, 0, 0, "class<`data.frame`>", 1
 "validate", "rules_diff", 2, 0, 1, "null", 1
-"validate", "rules_from_yrf_file", -1, 0, 0, "(null | list<class<`rule`>>)", 1
+"validate", "rules_from_yrf_file", -1, 0, 0, "null", 1
+"validate", "rules_from_yrf_file", -1, 0, 1, "list<class<`rule`>>", 1
 "validate", "rules_from_yrf_file", 0, 0, 0, "character", 1
 "validate", "rules_from_yrf_file", 1, 0, 0, "character", 1
 "validate", "run_validation_file", -1, 0, 0, "class<`list`, `validations`>", 1
 "validate", "run_validation_file", 0, 0, 0, "character", 1
 "validate", "run_validation_file", 1, 0, 0, "logical", 1
-"validate", "setNames", -1, 0, 0, "(character | class<`data.frame`> | class<`POSIXct`, `POSIXt`> | double[] | list<any>)", 1
+"validate", "setNames", -1, 0, 0, "character", 1
+"validate", "setNames", -1, 0, 1, "class<`data.frame`>", 1
+"validate", "setNames", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"validate", "setNames", -1, 0, 3, "double[]", 1
+"validate", "setNames", -1, 0, 4, "list<any>", 1
 "validate", "setNames", 0, 0, 0, "character", 1
 "validate", "setNames", 0, 0, 1, "class<`data.frame`>", 1
 "validate", "setNames", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
@@ -676,7 +735,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "sort", 0, 0, 0, "class<`validation`>", 1
 "validate", "sort", 1, 0, 0, "logical", 1
 "validate", "sort", 2, 0, 0, "...", 1
-"validate", "substitute_assignments", -1, 0, 0, "(class<`{`> | class<`call`> | class<`if`>)", 1
+"validate", "substitute_assignments", -1, 0, 0, "class<`{`>", 1
+"validate", "substitute_assignments", -1, 0, 1, "class<`call`>", 1
+"validate", "substitute_assignments", -1, 0, 2, "class<`if`>", 1
 "validate", "substitute_assignments", 0, 0, 0, "class<`{`>", 1
 "validate", "substitute_assignments", 0, 0, 1, "class<`call`>", 1
 "validate", "substitute_assignments", 0, 0, 2, "class<`if`>", 1
@@ -710,22 +771,30 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "validator", 2, 0, 0, "any", 1
 "validate", "valid_yaml", -1, 0, 0, "logical", 1
 "validate", "valid_yaml", 0, 0, 0, "character", 1
-"validate", "values", -1, 0, 0, "(class<`matrix`> | logical | list<class<`matrix`> | double[] | ^logical[]>)", 1
+"validate", "values", -1, 0, 0, "class<`matrix`>", 1
+"validate", "values", -1, 0, 1, "logical", 1
+"validate", "values", -1, 0, 2, "list<class<`matrix`> | double[] | ^logical[]>", 1
 "validate", "values", 0, 0, 0, "class<`indication`>", 1
 "validate", "values", 0, 0, 1, "class<`validation`>", 1
 "validate", "values", 1, 0, 0, "...", 1
-"validate", "values", -1, 1, 0, "(class<`matrix`> | list<double[]>)", 1
+"validate", "values", -1, 1, 0, "class<`matrix`>", 1
+"validate", "values", -1, 1, 1, "list<double[]>", 1
 "validate", "values", 0, 1, 0, "class<`indication`>", 1
 "validate", "values", 1, 1, 0, "...", 1
-"validate", "values", -1, 2, 0, "(class<`matrix`> | logical | list<class<`matrix`> | ^logical[]>)", 1
+"validate", "values", -1, 2, 0, "class<`matrix`>", 1
+"validate", "values", -1, 2, 1, "logical", 1
+"validate", "values", -1, 2, 2, "list<class<`matrix`> | ^logical[]>", 1
 "validate", "values", 0, 2, 0, "class<`validation`>", 1
 "validate", "values", 1, 2, 0, "...", 1
-"validate", "var_from_call", -1, 0, 0, "(character[] | null)", 1
+"validate", "var_from_call", -1, 0, 0, "character[]", 1
+"validate", "var_from_call", -1, 0, 1, "null", 1
 "validate", "var_from_call", 0, 0, 0, "class<`call`>", 1
 "validate", "var_from_call", 0, 0, 1, "class<`if`>", 1
 "validate", "var_group", -1, 0, 0, "class<`function`>", 1
 "validate", "var_group", 0, 0, 0, "...", 1
-"validate", "variables", -1, 0, 0, "(character[] | class<`matrix`> | null)", 1
+"validate", "variables", -1, 0, 0, "character[]", 1
+"validate", "variables", -1, 0, 1, "class<`matrix`>", 1
+"validate", "variables", -1, 0, 2, "null", 1
 "validate", "variables", 0, 0, 0, "class<`data.frame`>", 1
 "validate", "variables", 0, 0, 1, "class<`rule`>", 1
 "validate", "variables", 0, 0, 2, "class<`validator`>", 1
@@ -735,10 +804,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "variables", -1, 1, 0, "character[]", 1
 "validate", "variables", 0, 1, 0, "list<double[]>", 1
 "validate", "variables", 1, 1, 0, "...", 1
-"validate", "variables", -1, 2, 0, "(character[] | class<`matrix`>)", 1
+"validate", "variables", -1, 2, 0, "character[]", 1
+"validate", "variables", -1, 2, 1, "class<`matrix`>", 1
 "validate", "variables", 0, 2, 0, "class<`validator`>", 1
 "validate", "variables", 1, 2, 0, "...", 1
-"validate", "variables", -1, 3, 0, "(character[] | null)", 1
+"validate", "variables", -1, 3, 0, "character[]", 1
+"validate", "variables", -1, 3, 1, "null", 1
 "validate", "variables", 0, 3, 0, "class<`rule`>", 1
 "validate", "variables", 1, 3, 0, "...", 1
 "validate", "variables", -1, 4, 0, "character[]", 1
@@ -747,7 +818,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "variables", -1, 5, 0, "character[]", 1
 "validate", "variables", 0, 5, 0, "environment", 1
 "validate", "variables", 1, 5, 0, "...", 1
-"validate", "vectorize", -1, 0, 0, "(class<`(`> | class<`call`> | class<`{`> | character | class<`name`> | double | null)", 1
+"validate", "vectorize", -1, 0, 0, "class<`(`>", 1
+"validate", "vectorize", -1, 0, 1, "class<`call`>", 1
+"validate", "vectorize", -1, 0, 2, "class<`{`>", 1
+"validate", "vectorize", -1, 0, 3, "character", 1
+"validate", "vectorize", -1, 0, 4, "class<`name`>", 1
+"validate", "vectorize", -1, 0, 5, "double", 1
+"validate", "vectorize", -1, 0, 6, "null", 1
 "validate", "vectorize", 0, 0, 0, "class<`(`>", 1
 "validate", "vectorize", 0, 0, 1, "class<`call`>", 1
 "validate", "vectorize", 0, 0, 2, "class<`if`>", 1
@@ -759,13 +836,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "%vin%", -1, 0, 0, "any", 1
 "validate", "%vin%", 0, 0, 0, "any", 1
 "validate", "%vin%", 1, 0, 0, "any", 1
-"validate", "voptions", -1, 0, 0, "(character | class<`function`> | null | list<character | double | null>)", 1
+"validate", "voptions", -1, 0, 0, "character", 1
+"validate", "voptions", -1, 0, 1, "class<`function`>", 1
+"validate", "voptions", -1, 0, 2, "null", 1
+"validate", "voptions", -1, 0, 3, "list<character | double | null>", 1
 "validate", "voptions", 0, 0, 0, "character", 1
 "validate", "voptions", 0, 0, 1, "class<`validator`>", 1
 "validate", "voptions", 0, 0, 2, "class<`indicator`>", 1
 "validate", "voptions", 0, 0, 3, "null", 1
 "validate", "voptions", 1, 0, 0, "...", 1
-"validate", "voptions", -1, 1, 0, "(character | null)", 1
+"validate", "voptions", -1, 1, 0, "character", 1
+"validate", "voptions", -1, 1, 1, "null", 1
 "validate", "voptions", 0, 1, 0, "character", 1
 "validate", "voptions", 1, 1, 0, "...", 1
 "validate", "voptions", -1, 2, 0, "list<character | double | null>", 1
@@ -774,7 +855,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "voptions", -1, 3, 0, "class<`function`>", 1
 "validate", "voptions", 0, 3, 0, "class<`indicator`>", 1
 "validate", "voptions", 1, 3, 0, "...", 1
-"validate", "voptions", -1, 4, 0, "(character | class<`function`> | list<character | double | null>)", 1
+"validate", "voptions", -1, 4, 0, "character", 1
+"validate", "voptions", -1, 4, 1, "class<`function`>", 1
+"validate", "voptions", -1, 4, 2, "list<character | double | null>", 1
 "validate", "voptions", 0, 4, 0, "class<`validator`>", 1
 "validate", "voptions", 1, 4, 0, "...", 1
 "validate", "warnf", -1, 0, 0, "character", 1
@@ -791,7 +874,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "validate", "which.call", 3, 0, 0, "environment", 1
 "validate", "yaml_blocks", -1, 0, 0, "list<any>", 1
 "validate", "yaml_blocks", 0, 0, 0, "character[]", 1
-"validate", "yrf_block_type", -1, 0, 0, "(character | null)", 1
+"validate", "yrf_block_type", -1, 0, 0, "character", 1
+"validate", "yrf_block_type", -1, 0, 1, "null", 1
 "validate", "yrf_block_type", 0, 0, 0, "character", 1
 "validate", "yrf_block_type", 0, 0, 1, "null", 1
 "validate", "yrf_block_type", 0, 0, 2, "list<character[] | list<character | list<character | list<character> | character>>>", 1

@@ -20,7 +20,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgdal", "::", 16, 0, 0, "logical", 1
 "rgdal", "::", -1, 1, 0, "list<logical | character>", 1
 "rgdal", "::", 0, 1, 0, "character", 1
-"rgdal", "assertClass", -1, 0, 0, "(class<`GDALDriver`> | class<`GDALRasterBand`> | class<`GDALReadOnlyDataset`> | class<`GDALTransientDataset`>)", 1
+"rgdal", "assertClass", -1, 0, 0, "class<`GDALDriver`>", 1
+"rgdal", "assertClass", -1, 0, 1, "class<`GDALRasterBand`>", 1
+"rgdal", "assertClass", -1, 0, 2, "class<`GDALReadOnlyDataset`>", 1
+"rgdal", "assertClass", -1, 0, 3, "class<`GDALTransientDataset`>", 1
 "rgdal", "assertClass", 0, 0, 0, "class<`GDALDriver`>", 1
 "rgdal", "assertClass", 0, 0, 1, "class<`GDALRasterBand`>", 1
 "rgdal", "assertClass", 0, 0, 2, "class<`GDALReadOnlyDataset`>", 1

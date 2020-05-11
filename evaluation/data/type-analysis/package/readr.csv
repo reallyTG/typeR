@@ -1,15 +1,23 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"readr", "%||%", -1, 0, 0, "(character[] | logical)", 1
+"readr", "%||%", -1, 0, 0, "character[]", 1
+"readr", "%||%", -1, 0, 1, "logical", 1
 "readr", "%||%", 0, 0, 0, "character[]", 1
 "readr", "%||%", 0, 0, 1, "null", 1
 "readr", "%||%", 1, 0, 0, "any", 1
-"readr", "as_chunk_callback", -1, 0, 0, "(class<`AccumulateCallback`, `ChunkCallback`, `R6`> | class<`ChunkCallback`, `DataFrameCallback`, `R6`> | class<`ChunkCallback`, `ListCallback`, `R6`> | class<`ChunkCallback`, `R6`, `SideEffectChunkCallback`>)", 1
+"readr", "as_chunk_callback", -1, 0, 0, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
+"readr", "as_chunk_callback", -1, 0, 1, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
+"readr", "as_chunk_callback", -1, 0, 2, "class<`ChunkCallback`, `ListCallback`, `R6`>", 1
+"readr", "as_chunk_callback", -1, 0, 3, "class<`ChunkCallback`, `R6`, `SideEffectChunkCallback`>", 1
 "readr", "as_chunk_callback", 0, 0, 0, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
 "readr", "as_chunk_callback", 0, 0, 1, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
 "readr", "as_chunk_callback", 0, 0, 2, "class<`ChunkCallback`, `ListCallback`, `R6`>", 1
 "readr", "as_chunk_callback", 0, 0, 3, "class<`ChunkCallback`, `R6`, `SideEffectChunkCallback`>", 1
 "readr", "as_chunk_callback", 0, 0, 4, "class<`function`>", 1
-"readr", "as_chunk_callback.ChunkCallback", -1, 0, 0, "(class<`AccumulateCallback`, `ChunkCallback`, `R6`> | class<`ChunkCallback`, `DataFrameCallback`, `R6`> | class<`ChunkCallback`, `ListCallback`, `R6`> | class<`ChunkCallback`, `R6`, `SideEffectChunkCallback`> | ^double[])", 1
+"readr", "as_chunk_callback.ChunkCallback", -1, 0, 0, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
+"readr", "as_chunk_callback.ChunkCallback", -1, 0, 1, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
+"readr", "as_chunk_callback.ChunkCallback", -1, 0, 2, "class<`ChunkCallback`, `ListCallback`, `R6`>", 1
+"readr", "as_chunk_callback.ChunkCallback", -1, 0, 3, "class<`ChunkCallback`, `R6`, `SideEffectChunkCallback`>", 1
+"readr", "as_chunk_callback.ChunkCallback", -1, 0, 4, "^double[]", 1
 "readr", "as_chunk_callback.ChunkCallback", 0, 0, 0, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
 "readr", "as_chunk_callback.ChunkCallback", 0, 0, 1, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
 "readr", "as_chunk_callback.ChunkCallback", 0, 0, 2, "class<`ChunkCallback`, `ListCallback`, `R6`>", 1
@@ -57,10 +65,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "col_factor", 2, 0, 0, "logical", 1
 "readr", "col_guess", -1, 0, 0, "class<`collector`, `collector_guess`>", 1
 "readr", "col_integer", -1, 0, 0, "class<`collector`, `collector_integer`>", 1
-"readr", "collector", -1, 0, 0, "(class<`collector`, `collector_character`> | class<`collector`, `collector_date`> | class<`collector`, `collector_datetime`> | class<`collector`, `collector_double`> | class<`collector`, `collector_factor`> | class<`collector`, `collector_guess`> | class<`collector`, `collector_integer`> | class<`collector`, `collector_logical`> | class<`collector`, `collector_number`> | class<`collector`, `collector_skip`> | class<`collector`, `collector_time`>)", 1
+"readr", "collector", -1, 0, 0, "class<`collector`, `collector_character`>", 1
+"readr", "collector", -1, 0, 1, "class<`collector`, `collector_date`>", 1
+"readr", "collector", -1, 0, 2, "class<`collector`, `collector_datetime`>", 1
+"readr", "collector", -1, 0, 3, "class<`collector`, `collector_double`>", 1
+"readr", "collector", -1, 0, 4, "class<`collector`, `collector_factor`>", 1
+"readr", "collector", -1, 0, 5, "class<`collector`, `collector_guess`>", 1
+"readr", "collector", -1, 0, 6, "class<`collector`, `collector_integer`>", 1
+"readr", "collector", -1, 0, 7, "class<`collector`, `collector_logical`>", 1
+"readr", "collector", -1, 0, 8, "class<`collector`, `collector_number`>", 1
+"readr", "collector", -1, 0, 9, "class<`collector`, `collector_skip`>", 1
+"readr", "collector", -1, 0, 10, "class<`collector`, `collector_time`>", 1
 "readr", "collector", 0, 0, 0, "character", 1
 "readr", "collector", 1, 0, 0, "...", 1
-"readr", "collector_find", -1, 0, 0, "(class<`collector`, `collector_character`> | class<`collector`, `collector_date`> | class<`collector`, `collector_double`> | class<`collector`, `collector_logical`> | class<`collector`, `collector_number`>)", 1
+"readr", "collector_find", -1, 0, 0, "class<`collector`, `collector_character`>", 1
+"readr", "collector_find", -1, 0, 1, "class<`collector`, `collector_date`>", 1
+"readr", "collector_find", -1, 0, 2, "class<`collector`, `collector_double`>", 1
+"readr", "collector_find", -1, 0, 3, "class<`collector`, `collector_logical`>", 1
+"readr", "collector_find", -1, 0, 4, "class<`collector`, `collector_number`>", 1
 "readr", "collector_find", 0, 0, 0, "character", 1
 "readr", "collectorGuess", -1, 0, 0, "character", 1
 "readr", "collectorGuess", 0, 0, 0, "^character[]", 1
@@ -114,7 +136,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "count_fields_", 0, 0, 0, "class<`source`, `source_file`>", 1
 "readr", "count_fields_", 1, 0, 0, "class<`tokenizer_delim`>", 1
 "readr", "count_fields_", 2, 0, 0, "integer", 1
-"readr", "datasource", -1, 0, 0, "(class<`source`, `source_file`> | class<`source`, `source_raw`> | class<`source`, `source_string`>)", 1
+"readr", "datasource", -1, 0, 0, "class<`source`, `source_file`>", 1
+"readr", "datasource", -1, 0, 1, "class<`source`, `source_raw`>", 1
+"readr", "datasource", -1, 0, 2, "class<`source`, `source_string`>", 1
 "readr", "datasource", 0, 0, 0, "character", 1
 "readr", "datasource", 0, 0, 1, "class<`connection`, `rawConnection`>", 1
 "readr", "datasource", 0, 0, 2, "class<`source`, `source_file`>", 1
@@ -437,7 +461,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "name_problems", 0, 0, 0, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "name_problems", 1, 0, 0, "any", 1
 "readr", "name_problems", 2, 0, 0, "any", 1
-"readr", "new_datasource", -1, 0, 0, "(class<`source`, `source_file`> | class<`source`, `source_raw`> | class<`source`, `source_string`>)", 1
+"readr", "new_datasource", -1, 0, 0, "class<`source`, `source_file`>", 1
+"readr", "new_datasource", -1, 0, 1, "class<`source`, `source_raw`>", 1
+"readr", "new_datasource", -1, 0, 2, "class<`source`, `source_string`>", 1
 "readr", "new_datasource", 0, 0, 0, "character", 1
 "readr", "new_datasource", 1, 0, 0, "character", 1
 "readr", "new_datasource", 1, 0, 1, "raw[]", 1
@@ -458,7 +484,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "output_column", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "readr", "output_column.default", -1, 0, 0, "character[]", 1
 "readr", "output_column.default", 0, 0, 0, "class<`factor`>", 1
-"readr", "output_column.double", -1, 0, 0, "(class<`AccumulateCallback`, `ChunkCallback`, `R6`> | class<`ChunkCallback`, `DataFrameCallback`, `R6`> | class<`ChunkCallback`, `ListCallback`, `R6`> | class<`ChunkCallback`, `R6`, `SideEffectChunkCallback`> | ^double[])", 1
+"readr", "output_column.double", -1, 0, 0, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
+"readr", "output_column.double", -1, 0, 1, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
+"readr", "output_column.double", -1, 0, 2, "class<`ChunkCallback`, `ListCallback`, `R6`>", 1
+"readr", "output_column.double", -1, 0, 3, "class<`ChunkCallback`, `R6`, `SideEffectChunkCallback`>", 1
+"readr", "output_column.double", -1, 0, 4, "^double[]", 1
 "readr", "output_column.double", 0, 0, 0, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
 "readr", "output_column.double", 0, 0, 1, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
 "readr", "output_column.double", 0, 0, 2, "class<`ChunkCallback`, `ListCallback`, `R6`>", 1
@@ -497,7 +527,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "parse_factor", 4, 0, 0, "class<`locale`>", 1
 "readr", "parse_factor", 5, 0, 0, "logical", 1
 "readr", "parse_factor", 6, 0, 0, "logical", 1
-"readr", "parse_guess", -1, 0, 0, "(character | class<`Date`> | double[])", 1
+"readr", "parse_guess", -1, 0, 0, "character", 1
+"readr", "parse_guess", -1, 0, 1, "class<`Date`>", 1
+"readr", "parse_guess", -1, 0, 2, "double[]", 1
 "readr", "parse_guess", 0, 0, 0, "character[]", 1
 "readr", "parse_guess", 1, 0, 0, "character[]", 1
 "readr", "parse_guess", 2, 0, 0, "class<`locale`>", 1
@@ -524,7 +556,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "parse_time", 2, 0, 0, "character[]", 1
 "readr", "parse_time", 3, 0, 0, "class<`locale`>", 1
 "readr", "parse_time", 4, 0, 0, "logical", 1
-"readr", "parse_vector", -1, 0, 0, "(character | class<`Date`> | class<`difftime`, `hms`> | class<`factor`> | class<`POSIXct`, `POSIXt`> | ^double[])", 1
+"readr", "parse_vector", -1, 0, 0, "character", 1
+"readr", "parse_vector", -1, 0, 1, "class<`Date`>", 1
+"readr", "parse_vector", -1, 0, 2, "class<`difftime`, `hms`>", 1
+"readr", "parse_vector", -1, 0, 3, "class<`factor`>", 1
+"readr", "parse_vector", -1, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"readr", "parse_vector", -1, 0, 5, "^double[]", 1
 "readr", "parse_vector", 0, 0, 0, "character[]", 1
 "readr", "parse_vector", 1, 0, 0, "character", 1
 "readr", "parse_vector", 1, 0, 1, "class<`collector`, `collector_character`>", 1
@@ -539,7 +576,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "parse_vector", 2, 0, 0, "character[]", 1
 "readr", "parse_vector", 3, 0, 0, "class<`locale`>", 1
 "readr", "parse_vector", 4, 0, 0, "logical", 1
-"readr", "parse_vector_", -1, 0, 0, "(character | class<`Date`> | class<`difftime`, `hms`> | class<`factor`> | class<`POSIXct`, `POSIXt`> | ^double[])", 1
+"readr", "parse_vector_", -1, 0, 0, "character", 1
+"readr", "parse_vector_", -1, 0, 1, "class<`Date`>", 1
+"readr", "parse_vector_", -1, 0, 2, "class<`difftime`, `hms`>", 1
+"readr", "parse_vector_", -1, 0, 3, "class<`factor`>", 1
+"readr", "parse_vector_", -1, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
+"readr", "parse_vector_", -1, 0, 5, "^double[]", 1
 "readr", "parse_vector_", 0, 0, 0, "character[]", 1
 "readr", "parse_vector_", 1, 0, 0, "class<`collector`, `collector_character`>", 1
 "readr", "parse_vector_", 1, 0, 1, "class<`collector`, `collector_date`>", 1
@@ -553,10 +595,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "parse_vector_", 2, 0, 0, "class<`locale`>", 1
 "readr", "parse_vector_", 3, 0, 0, "character[]", 1
 "readr", "parse_vector_", 4, 0, 0, "logical", 1
-"readr", "problems", -1, 0, 0, "(class<`data.frame`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"readr", "problems", -1, 0, 0, "class<`data.frame`, `tbl_df`>", 1
+"readr", "problems", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "readr", "problems", 0, 0, 0, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "problems", 0, 0, 1, "^integer[]", 1
-"readr", "probs", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | null)", 1
+"readr", "probs", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readr", "probs", -1, 0, 1, "null", 1
 "readr", "probs", 0, 0, 0, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "probs", 0, 0, 1, "class<`factor`>", 1
 "readr", "probs", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
@@ -608,7 +652,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "read_csv2", 11, 0, 0, "double", 1
 "readr", "read_csv2", 12, 0, 0, "logical", 1
 "readr", "read_csv2", 13, 0, 0, "logical", 1
-"readr", "read_csv_chunked", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | double | list<double[]>)", 1
+"readr", "read_csv_chunked", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readr", "read_csv_chunked", -1, 0, 1, "double", 1
+"readr", "read_csv_chunked", -1, 0, 2, "list<double[]>", 1
 "readr", "read_csv_chunked", 0, 0, 0, "character", 1
 "readr", "read_csv_chunked", 1, 0, 0, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
 "readr", "read_csv_chunked", 1, 0, 1, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
@@ -660,7 +706,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "read_delimited", 8, 0, 0, "double", 1
 "readr", "read_delimited", 9, 0, 0, "any", 1
 "readr", "read_delimited", 10, 0, 0, "logical", 1
-"readr", "read_delimited_chunked", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | double | list<double[]>)", 1
+"readr", "read_delimited_chunked", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readr", "read_delimited_chunked", -1, 0, 1, "double", 1
+"readr", "read_delimited_chunked", -1, 0, 2, "list<double[]>", 1
 "readr", "read_delimited_chunked", 0, 0, 0, "character", 1
 "readr", "read_delimited_chunked", 1, 0, 0, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
 "readr", "read_delimited_chunked", 1, 0, 1, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
@@ -788,7 +836,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "read_tokens_", 4, 0, 0, "class<`locale`>", 1
 "readr", "read_tokens_", 5, 0, 0, "double", 1
 "readr", "read_tokens_", 6, 0, 0, "logical", 1
-"readr", "read_tokens_chunked", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | double | list<double[]>)", 1
+"readr", "read_tokens_chunked", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readr", "read_tokens_chunked", -1, 0, 1, "double", 1
+"readr", "read_tokens_chunked", -1, 0, 2, "list<double[]>", 1
 "readr", "read_tokens_chunked", 0, 0, 0, "class<`source`, `source_file`>", 1
 "readr", "read_tokens_chunked", 1, 0, 0, "class<`ChunkCallback`, `DataFrameCallback`, `R6`>", 1
 "readr", "read_tokens_chunked", 1, 0, 1, "class<`AccumulateCallback`, `ChunkCallback`, `R6`>", 1
@@ -858,7 +908,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "[.spec_tbl_df", 1, 0, 0, "...", 1
 "readr", "standardise_escape", -1, 0, 0, "integer", 1
 "readr", "standardise_escape", 0, 0, 0, "character", 1
-"readr", "standardise_path", -1, 0, 0, "(character | class<`bzfile`, `connection`> | class<`connection`, `file`> | class<`connection`, `gzfile`> | class<`connection`, `unz`> | class<`connection`, `xzfile`> | null)", 1
+"readr", "standardise_path", -1, 0, 0, "character", 1
+"readr", "standardise_path", -1, 0, 1, "class<`bzfile`, `connection`>", 1
+"readr", "standardise_path", -1, 0, 2, "class<`connection`, `file`>", 1
+"readr", "standardise_path", -1, 0, 3, "class<`connection`, `gzfile`>", 1
+"readr", "standardise_path", -1, 0, 4, "class<`connection`, `unz`>", 1
+"readr", "standardise_path", -1, 0, 5, "class<`connection`, `xzfile`>", 1
+"readr", "standardise_path", -1, 0, 6, "null", 1
 "readr", "standardise_path", 0, 0, 0, "character", 1
 "readr", "standardise_path", 0, 0, 1, "null", 1
 "readr", "standardise_path", 1, 0, 0, "logical", 1
@@ -928,7 +984,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "tokenizer_tsv", 3, 0, 0, "character", 1
 "readr", "tokenizer_tsv", 4, 0, 0, "logical", 1
 "readr", "tokenizer_tsv", 5, 0, 0, "logical", 1
-"readr", "type_convert", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>)", 1
+"readr", "type_convert", -1, 0, 0, "class<`data.frame`>", 1
+"readr", "type_convert", -1, 0, 1, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "type_convert", 0, 0, 0, "class<`data.frame`>", 1
 "readr", "type_convert", 0, 0, 1, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "type_convert", 1, 0, 0, "null", 1
@@ -942,7 +999,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "type_convert_col", 3, 0, 0, "integer", 1
 "readr", "type_convert_col", 4, 0, 0, "character[]", 1
 "readr", "type_convert_col", 5, 0, 0, "logical", 1
-"readr", "warn_problems", -1, 0, 0, "(character | class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`> | class<`data.frame`, `tbl`, `tbl_df`> | class<`Date`> | class<`difftime`, `hms`> | class<`factor`> | class<`POSIXct`, `POSIXt`> | ^double[])", 1
+"readr", "warn_problems", -1, 0, 0, "character", 1
+"readr", "warn_problems", -1, 0, 1, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
+"readr", "warn_problems", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"readr", "warn_problems", -1, 0, 3, "class<`Date`>", 1
+"readr", "warn_problems", -1, 0, 4, "class<`difftime`, `hms`>", 1
+"readr", "warn_problems", -1, 0, 5, "class<`factor`>", 1
+"readr", "warn_problems", -1, 0, 6, "class<`POSIXct`, `POSIXt`>", 1
+"readr", "warn_problems", -1, 0, 7, "^double[]", 1
 "readr", "warn_problems", 0, 0, 0, "character", 1
 "readr", "warn_problems", 0, 0, 1, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "warn_problems", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1

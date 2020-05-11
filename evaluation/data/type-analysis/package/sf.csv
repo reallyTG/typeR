@@ -26,7 +26,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", ".as_Spatial", 0, 0, 0, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
 "sf", ".as_Spatial", 1, 0, 0, "logical", 1
 "sf", ".as_Spatial", 2, 0, 0, "character[]", 1
-"sf", "as_Spatial", -1, 0, 0, "(class<`SpatialPolygons`> | class<`SpatialPolygonsDataFrame`>)", 1
+"sf", "as_Spatial", -1, 0, 0, "class<`SpatialPolygons`>", 1
+"sf", "as_Spatial", -1, 0, 1, "class<`SpatialPolygonsDataFrame`>", 1
 "sf", "as_Spatial", 0, 0, 0, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
 "sf", "as_Spatial", 0, 0, 1, "class<`data.frame`, `sf`>", 1
 "sf", "as_Spatial", 1, 0, 0, "logical", 1
@@ -136,7 +137,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "CPL_read_ogr", 9, 0, 0, "logical", 1
 "sf", "CPL_read_ogr", 10, 0, 0, "logical", 1
 "sf", "CPL_read_ogr", 11, 0, 0, "logical", 1
-"sf", "$.crs", -1, 0, 0, "(null | character | integer)", 1
+"sf", "$.crs", -1, 0, 0, "null", 1
+"sf", "$.crs", -1, 0, 1, "character", 1
+"sf", "$.crs", -1, 0, 2, "integer", 1
 "sf", "$.crs", 0, 0, 0, "class<`crs`>", 1
 "sf", "$.crs", 0, 0, 1, "list<character>", 1
 "sf", "$.crs", 1, 0, 0, "character", 1
@@ -155,7 +158,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "fun", 0, 2, 0, "...", 1
 "sf", "FUN", -1, 0, 0, "character", 1
 "sf", "FUN", 0, 0, 0, "character[]", 1
-"sf", "FUN", -1, 1, 0, "(character[] | double[])", 1
+"sf", "FUN", -1, 1, 0, "character[]", 1
+"sf", "FUN", -1, 1, 1, "double[]", 1
 "sf", "FUN", 0, 1, 0, "character[]", 1
 "sf", "FUN", 0, 1, 1, "double[]", 1
 "sf", "FUN", -1, 2, 0, "logical", 1
@@ -192,7 +196,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "FUN", 0, 11, 0, "class<`MULTIPOLYGON`, `XY`, `sfg`>", 1
 "sf", "FUN", -1, 12, 0, "null", 1
 "sf", "FUN", 0, 12, 0, "class<`matrix`>", 1
-"sf", "FUN", -1, 13, 0, "(character | logical)", 1
+"sf", "FUN", -1, 13, 0, "character", 1
+"sf", "FUN", -1, 13, 1, "logical", 1
 "sf", "FUN", 0, 13, 0, "character[]", 1
 "sf", "FUN", -1, 14, 0, "logical", 1
 "sf", "FUN", 0, 14, 0, "character[]", 1
@@ -240,7 +245,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "FUN", 0, 28, 3, "double[]", 1
 "sf", "FUN", -1, 29, 0, "integer", 1
 "sf", "FUN", 0, 29, 0, "list<class<`matrix`>>", 1
-"sf", "gdal_utils", -1, 0, 0, "(character | logical)", 1
+"sf", "gdal_utils", -1, 0, 0, "character", 1
+"sf", "gdal_utils", -1, 0, 1, "logical", 1
 "sf", "gdal_utils", 0, 0, 0, "character", 1
 "sf", "gdal_utils", 1, 0, 0, "character", 1
 "sf", "gdal_utils", 2, 0, 0, "any", 1
@@ -328,7 +334,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "Mtrx", 0, 0, 0, "class<`matrix`>", 1
 "sf", "Mtrx", 1, 0, 0, "any", 1
 "sf", "Mtrx", 2, 0, 0, "character", 1
-"sf", "MtrxSet", -1, 0, 0, "(class<`MULTILINESTRING`, `XY`, `sfg`> | class<`POLYGON`, `XY`, `sfg`>)", 1
+"sf", "MtrxSet", -1, 0, 0, "class<`MULTILINESTRING`, `XY`, `sfg`>", 1
+"sf", "MtrxSet", -1, 0, 1, "class<`POLYGON`, `XY`, `sfg`>", 1
 "sf", "MtrxSet", 0, 0, 0, "list<class<`matrix`>>", 1
 "sf", "MtrxSet", 1, 0, 0, "any", 1
 "sf", "MtrxSet", 2, 0, 0, "character", 1
@@ -358,7 +365,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "plot_sf", 9, 0, 0, "any", 1
 "sf", "plot_sf", 10, 0, 0, "logical", 1
 "sf", "plot_sf", 11, 0, 0, "null", 1
-"sf", "plot.sf", -1, 0, 0, "(null | list<character | double[] | null>)", 1
+"sf", "plot.sf", -1, 0, 0, "null", 1
+"sf", "plot.sf", -1, 0, 1, "list<character | double[] | null>", 1
 "sf", "plot.sf", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "plot.sf", 1, 0, 0, "any", 1
 "sf", "plot.sf", 2, 0, 0, "...", 1
@@ -412,7 +420,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "print.sf", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "print.sf", 1, 0, 0, "...", 1
 "sf", "print.sf", 2, 0, 0, "double", 1
-"sf", "print.sfc", -1, 0, 0, "(class<`sfc`, `sfc_LINESTRING`> | class<`sfc`, `sfc_MULTIPOLYGON`>)", 1
+"sf", "print.sfc", -1, 0, 0, "class<`sfc`, `sfc_LINESTRING`>", 1
+"sf", "print.sfc", -1, 0, 1, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
 "sf", "print.sfc", 0, 0, 0, "class<`sfc`, `sfc_LINESTRING`>", 1
 "sf", "print.sfc", 0, 0, 1, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
 "sf", "print.sfc", 1, 0, 0, "...", 1
@@ -459,7 +468,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "[[<-.sf", 2, 0, 3, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "[[<-.sf", 2, 0, 4, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "[[<-.sf", 2, 0, 5, "null", 1
-"sf", "[<-.sfc", -1, 0, 0, "(class<`sfc`, `sfc_GEOMETRY`> | class<`sfc`, `sfc_LINESTRING`> | class<`sfc`, `sfc_POINT`>)", 1
+"sf", "[<-.sfc", -1, 0, 0, "class<`sfc`, `sfc_GEOMETRY`>", 1
+"sf", "[<-.sfc", -1, 0, 1, "class<`sfc`, `sfc_LINESTRING`>", 1
+"sf", "[<-.sfc", -1, 0, 2, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "[<-.sfc", 0, 0, 0, "class<`sfc`, `sfc_LINESTRING`>", 1
 "sf", "[<-.sfc", 0, 0, 1, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "[<-.sfc", 0, 0, 2, "class<`sfc`, `sfc_GEOMETRY`>", 1
@@ -539,7 +550,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "st_bbox.sfc", 0, 0, 2, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "st_bbox.sfc", 0, 0, 3, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_bbox.sfc", 1, 0, 0, "...", 1
-"sf", "st_buffer", -1, 0, 0, "(class<`data.frame`, `sf`> | class<`sfc`, `sfc_POLYGON`>)", 1
+"sf", "st_buffer", -1, 0, 0, "class<`data.frame`, `sf`>", 1
+"sf", "st_buffer", -1, 0, 1, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_buffer", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_buffer", 0, 0, 1, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "st_buffer", 1, 0, 0, "double", 1
@@ -583,7 +595,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "st_crs", 0, 0, 6, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_crs", 0, 0, 7, "double", 1
 "sf", "st_crs", 1, 0, 0, "...", 1
-"sf", "st_crs<-", -1, 0, 0, "(class<`data.frame`, `sf`> | class<`sfc`, `sfc_GEOMETRY`> | class<`sfc`, `sfc_LINESTRING`> | class<`sfc`, `sfc_MULTILINESTRING`> | class<`sfc`, `sfc_MULTIPOLYGON`> | class<`sfc`, `sfc_POINT`> | class<`sfc`, `sfc_POLYGON`>)", 1
+"sf", "st_crs<-", -1, 0, 0, "class<`data.frame`, `sf`>", 1
+"sf", "st_crs<-", -1, 0, 1, "class<`sfc`, `sfc_GEOMETRY`>", 1
+"sf", "st_crs<-", -1, 0, 2, "class<`sfc`, `sfc_LINESTRING`>", 1
+"sf", "st_crs<-", -1, 0, 3, "class<`sfc`, `sfc_MULTILINESTRING`>", 1
+"sf", "st_crs<-", -1, 0, 4, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
+"sf", "st_crs<-", -1, 0, 5, "class<`sfc`, `sfc_POINT`>", 1
+"sf", "st_crs<-", -1, 0, 6, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_crs<-", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_crs<-", 0, 0, 1, "class<`sfc`, `sfc_GEOMETRY`>", 1
 "sf", "st_crs<-", 0, 0, 2, "class<`sfc`, `sfc_LINESTRING`>", 1
@@ -604,7 +622,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "st_crs.sf", -1, 0, 0, "class<`crs`>", 1
 "sf", "st_crs.sf", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_crs.sf", 1, 0, 0, "...", 1
-"sf", "st_crs<-.sfc", -1, 0, 0, "(class<`sfc`, `sfc_GEOMETRY`> | class<`sfc`, `sfc_LINESTRING`> | class<`sfc`, `sfc_MULTILINESTRING`> | class<`sfc`, `sfc_MULTIPOLYGON`> | class<`sfc`, `sfc_POINT`> | class<`sfc`, `sfc_POLYGON`>)", 1
+"sf", "st_crs<-.sfc", -1, 0, 0, "class<`sfc`, `sfc_GEOMETRY`>", 1
+"sf", "st_crs<-.sfc", -1, 0, 1, "class<`sfc`, `sfc_LINESTRING`>", 1
+"sf", "st_crs<-.sfc", -1, 0, 2, "class<`sfc`, `sfc_MULTILINESTRING`>", 1
+"sf", "st_crs<-.sfc", -1, 0, 3, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
+"sf", "st_crs<-.sfc", -1, 0, 4, "class<`sfc`, `sfc_POINT`>", 1
+"sf", "st_crs<-.sfc", -1, 0, 5, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_crs<-.sfc", 0, 0, 0, "class<`sfc`, `sfc_GEOMETRY`>", 1
 "sf", "st_crs<-.sfc", 0, 0, 1, "class<`sfc`, `sfc_LINESTRING`>", 1
 "sf", "st_crs<-.sfc", 0, 0, 2, "class<`sfc`, `sfc_MULTILINESTRING`>", 1
@@ -626,13 +649,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "st_dimension", 0, 0, 0, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "st_dimension", 0, 0, 1, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_dimension", 1, 0, 0, "logical", 1
-"sf", "st_geometry", -1, 0, 0, "(class<`sfc`, `sfc_GEOMETRY`> | class<`sfc`, `sfc_LINESTRING`> | class<`sfc`, `sfc_MULTILINESTRING`> | class<`sfc`, `sfc_MULTIPOLYGON`> | class<`sfc`, `sfc_POINT`> | class<`sfc`, `sfc_POLYGON`>)", 1
+"sf", "st_geometry", -1, 0, 0, "class<`sfc`, `sfc_GEOMETRY`>", 1
+"sf", "st_geometry", -1, 0, 1, "class<`sfc`, `sfc_LINESTRING`>", 1
+"sf", "st_geometry", -1, 0, 2, "class<`sfc`, `sfc_MULTILINESTRING`>", 1
+"sf", "st_geometry", -1, 0, 3, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
+"sf", "st_geometry", -1, 0, 4, "class<`sfc`, `sfc_POINT`>", 1
+"sf", "st_geometry", -1, 0, 5, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_geometry", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_geometry", 0, 0, 1, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
 "sf", "st_geometry", 0, 0, 2, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "st_geometry", 0, 0, 3, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_geometry", 1, 0, 0, "...", 1
-"sf", "st_geometry<-", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `sf`>)", 1
+"sf", "st_geometry<-", -1, 0, 0, "class<`data.frame`>", 1
+"sf", "st_geometry<-", -1, 0, 1, "class<`data.frame`, `sf`>", 1
 "sf", "st_geometry<-", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_geometry<-", 0, 0, 1, "class<`data.frame`>", 1
 "sf", "st_geometry<-", 1, 0, 0, "null", 1
@@ -641,15 +670,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "st_geometry<-.data.frame", -1, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_geometry<-.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "sf", "st_geometry<-.data.frame", 1, 0, 0, "class<`sfc`, `sfc_POLYGON`>", 1
-"sf", "st_geometry<-.sf", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `sf`>)", 1
+"sf", "st_geometry<-.sf", -1, 0, 0, "class<`data.frame`>", 1
+"sf", "st_geometry<-.sf", -1, 0, 1, "class<`data.frame`, `sf`>", 1
 "sf", "st_geometry<-.sf", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_geometry<-.sf", 1, 0, 0, "null", 1
 "sf", "st_geometry<-.sf", 1, 0, 1, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_geometry<-.sf", 1, 0, 2, "class<`sfc`, `sfc_GEOMETRY`>", 1
-"sf", "st_geometry.sf", -1, 0, 0, "(class<`sfc`, `sfc_GEOMETRY`> | class<`sfc`, `sfc_LINESTRING`> | class<`sfc`, `sfc_MULTILINESTRING`> | class<`sfc`, `sfc_MULTIPOLYGON`> | class<`sfc`, `sfc_POINT`> | class<`sfc`, `sfc_POLYGON`>)", 1
+"sf", "st_geometry.sf", -1, 0, 0, "class<`sfc`, `sfc_GEOMETRY`>", 1
+"sf", "st_geometry.sf", -1, 0, 1, "class<`sfc`, `sfc_LINESTRING`>", 1
+"sf", "st_geometry.sf", -1, 0, 2, "class<`sfc`, `sfc_MULTILINESTRING`>", 1
+"sf", "st_geometry.sf", -1, 0, 3, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
+"sf", "st_geometry.sf", -1, 0, 4, "class<`sfc`, `sfc_POINT`>", 1
+"sf", "st_geometry.sf", -1, 0, 5, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_geometry.sf", 0, 0, 0, "class<`data.frame`, `sf`>", 1
 "sf", "st_geometry.sf", 1, 0, 0, "...", 1
-"sf", "st_geometry.sfc", -1, 0, 0, "(class<`sfc`, `sfc_MULTIPOLYGON`> | class<`sfc`, `sfc_POINT`> | class<`sfc`, `sfc_POLYGON`>)", 1
+"sf", "st_geometry.sfc", -1, 0, 0, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
+"sf", "st_geometry.sfc", -1, 0, 1, "class<`sfc`, `sfc_POINT`>", 1
+"sf", "st_geometry.sfc", -1, 0, 2, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_geometry.sfc", 0, 0, 0, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
 "sf", "st_geometry.sfc", 0, 0, 1, "class<`sfc`, `sfc_POINT`>", 1
 "sf", "st_geometry.sfc", 0, 0, 2, "class<`sfc`, `sfc_POLYGON`>", 1
@@ -733,7 +770,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sf", "st_sf", 6, 0, 1, "null", 1
 "sf", "st_sf", 7, 0, 0, "logical", 1
 "sf", "st_sf", 8, 0, 0, "logical", 1
-"sf", "st_sfc", -1, 0, 0, "(class<`sfc`, `sfc_GEOMETRY`> | class<`sfc`, `sfc_LINESTRING`> | class<`sfc`, `sfc_MULTILINESTRING`> | class<`sfc`, `sfc_MULTIPOLYGON`> | class<`sfc`, `sfc_POINT`> | class<`sfc`, `sfc_POLYGON`>)", 1
+"sf", "st_sfc", -1, 0, 0, "class<`sfc`, `sfc_GEOMETRY`>", 1
+"sf", "st_sfc", -1, 0, 1, "class<`sfc`, `sfc_LINESTRING`>", 1
+"sf", "st_sfc", -1, 0, 2, "class<`sfc`, `sfc_MULTILINESTRING`>", 1
+"sf", "st_sfc", -1, 0, 3, "class<`sfc`, `sfc_MULTIPOLYGON`>", 1
+"sf", "st_sfc", -1, 0, 4, "class<`sfc`, `sfc_POINT`>", 1
+"sf", "st_sfc", -1, 0, 5, "class<`sfc`, `sfc_POLYGON`>", 1
 "sf", "st_sfc", 0, 0, 0, "...", 1
 "sf", "st_sfc", 1, 0, 0, "class<`crs`>", 1
 "sf", "st_sfc", 1, 0, 1, "character", 1

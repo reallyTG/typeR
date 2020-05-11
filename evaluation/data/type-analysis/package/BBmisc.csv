@@ -46,10 +46,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "computeMode", 0, 0, 0, "double[]", 1
 "BBmisc", "computeMode", 1, 0, 0, "character", 1
 "BBmisc", "computeMode", 2, 0, 0, "logical", 1
-"BBmisc", "convertInteger", -1, 0, 0, "(character | double[])", 1
+"BBmisc", "convertInteger", -1, 0, 0, "character", 1
+"BBmisc", "convertInteger", -1, 0, 1, "double[]", 1
 "BBmisc", "convertInteger", 0, 0, 0, "character", 1
 "BBmisc", "convertInteger", 0, 0, 1, "double[]", 1
-"BBmisc", "convertIntegers", -1, 0, 0, "(character | double | integer[])", 1
+"BBmisc", "convertIntegers", -1, 0, 0, "character", 1
+"BBmisc", "convertIntegers", -1, 0, 1, "double", 1
+"BBmisc", "convertIntegers", -1, 0, 2, "integer[]", 1
 "BBmisc", "convertIntegers", 0, 0, 0, "character", 1
 "BBmisc", "convertIntegers", 0, 0, 1, "double[]", 1
 "BBmisc", "convertListOfRowsToDataFrame", -1, 0, 0, "class<`data.frame`>", 1
@@ -64,13 +67,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "explode", -1, 0, 0, "character[]", 1
 "BBmisc", "explode", 0, 0, 0, "character", 1
 "BBmisc", "explode", 1, 0, 0, "character", 1
-"BBmisc", "extractSubList", -1, 0, 0, "(double[] | list<double>)", 1
+"BBmisc", "extractSubList", -1, 0, 0, "double[]", 1
+"BBmisc", "extractSubList", -1, 0, 1, "list<double>", 1
 "BBmisc", "extractSubList", 0, 0, 0, "list<list<double>>", 1
 "BBmisc", "extractSubList", 1, 0, 0, "character", 1
 "BBmisc", "extractSubList", 2, 0, 0, "any", 1
 "BBmisc", "extractSubList", 3, 0, 0, "logical", 1
 "BBmisc", "extractSubList", 4, 0, 0, "logical", 1
-"BBmisc", "FUN", -1, 0, 0, "(^character[] | null)", 1
+"BBmisc", "FUN", -1, 0, 0, "^character[]", 1
+"BBmisc", "FUN", -1, 0, 1, "null", 1
 "BBmisc", "FUN", 0, 0, 0, "integer[]", 1
 "BBmisc", "FUN", 0, 0, 1, "list<any>", 1
 "BBmisc", "FUN", 1, 0, 0, "null", 1
@@ -118,7 +123,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "itostr", 0, 0, 0, "integer[]", 1
 "BBmisc", "itostr", 0, 0, 1, "double", 1
 "BBmisc", "itostr", 1, 0, 0, "double", 1
-"BBmisc", "load2", -1, 0, 0, "(double | list<double>)", 1
+"BBmisc", "load2", -1, 0, 0, "double", 1
+"BBmisc", "load2", -1, 0, 1, "list<double>", 1
 "BBmisc", "load2", 0, 0, 0, "character", 1
 "BBmisc", "load2", 1, 0, 0, "character[]", 1
 "BBmisc", "load2", 2, 0, 0, "logical", 1
@@ -139,10 +145,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "makeProgressBar", 4, 0, 0, "character", 1
 "BBmisc", "makeProgressBar", 5, 0, 0, "integer", 1
 "BBmisc", "makeProgressBar", 6, 0, 0, "character", 1
-"BBmisc", "makeS3Obj", -1, 0, 0, "(class<`car`> | class<`ProgressBar`>)", 1
+"BBmisc", "makeS3Obj", -1, 0, 0, "class<`car`>", 1
+"BBmisc", "makeS3Obj", -1, 0, 1, "class<`ProgressBar`>", 1
 "BBmisc", "makeS3Obj", 0, 0, 0, "character", 1
 "BBmisc", "makeS3Obj", 1, 0, 0, "...", 1
-"BBmisc", "mapValues", -1, 0, 0, "(class<`factor`> | double[])", 1
+"BBmisc", "mapValues", -1, 0, 0, "class<`factor`>", 1
+"BBmisc", "mapValues", -1, 0, 1, "double[]", 1
 "BBmisc", "mapValues", 0, 0, 0, "class<`factor`>", 1
 "BBmisc", "mapValues", 0, 0, 1, "integer[]", 1
 "BBmisc", "mapValues", 1, 0, 0, "character", 1
@@ -156,7 +164,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "namedList", -1, 0, 0, "list<double | null>", 1
 "BBmisc", "namedList", 0, 0, 0, "character[]", 1
 "BBmisc", "namedList", 1, 0, 0, "any", 1
-"BBmisc", "names2", -1, 0, 0, "(^character[] | null)", 1
+"BBmisc", "names2", -1, 0, 0, "^character[]", 1
+"BBmisc", "names2", -1, 0, 1, "null", 1
 "BBmisc", "names2", 0, 0, 0, "integer[]", 1
 "BBmisc", "names2", 0, 0, 1, "list<any>", 1
 "BBmisc", "names2", 1, 0, 0, "null", 1
@@ -198,7 +207,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "setAttribute", 0, 0, 0, "list<any>", 1
 "BBmisc", "setAttribute", 1, 0, 0, "character", 1
 "BBmisc", "setAttribute", 2, 0, 0, "double", 1
-"BBmisc", "setClasses", -1, 0, 0, "(class<`car`> | class<`factor`> | class<`foo1`, `foo2`> | class<`ProgressBar`>)", 1
+"BBmisc", "setClasses", -1, 0, 0, "class<`car`>", 1
+"BBmisc", "setClasses", -1, 0, 1, "class<`factor`>", 1
+"BBmisc", "setClasses", -1, 0, 2, "class<`foo1`, `foo2`>", 1
+"BBmisc", "setClasses", -1, 0, 3, "class<`ProgressBar`>", 1
 "BBmisc", "setClasses", 0, 0, 0, "integer[]", 1
 "BBmisc", "setClasses", 0, 0, 1, "list<any>", 1
 "BBmisc", "setClasses", 1, 0, 0, "character[]", 1

@@ -82,11 +82,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "urltools", "rm_component_", 1, 0, 0, "double", 1
 "urltools", "scheme", -1, 0, 0, "character", 1
 "urltools", "scheme", 0, 0, 0, "character", 1
-"urltools", "scheme<-", -1, 0, 0, "(character | null)", 1
+"urltools", "scheme<-", -1, 0, 0, "character", 1
+"urltools", "scheme<-", -1, 0, 1, "null", 1
 "urltools", "scheme<-", 0, 0, 0, "character", 1
 "urltools", "scheme<-", 1, 0, 0, "character", 1
 "urltools", "scheme<-", 1, 0, 1, "null", 1
-"urltools", "scheme<-", -1, 1, 0, "(character | null)", 1
+"urltools", "scheme<-", -1, 1, 0, "character", 1
+"urltools", "scheme<-", -1, 1, 1, "null", 1
 "urltools", "scheme<-", 0, 1, 0, "character", 1
 "urltools", "scheme<-", 1, 1, 0, "character", 1
 "urltools", "scheme<-", 1, 1, 1, "null", 1
@@ -99,7 +101,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "urltools", "set_component_f", 1, 0, 0, "double", 1
 "urltools", "set_component_f", 2, 0, 0, "character", 1
 "urltools", "set_component_f", 3, 0, 0, "character", 1
-"urltools", "set_component_r", -1, 0, 0, "(character | null)", 1
+"urltools", "set_component_r", -1, 0, 0, "character", 1
+"urltools", "set_component_r", -1, 0, 1, "null", 1
 "urltools", "set_component_r", 0, 0, 0, "character", 1
 "urltools", "set_component_r", 1, 0, 0, "double", 1
 "urltools", "set_component_r", 2, 0, 0, "character", 1

@@ -22,7 +22,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "as.kcca.partition", 1, 0, 1, "null", 1
 "flexclust", "as.kcca.partition", 2, 0, 0, "logical", 1
 "flexclust", "as.kcca.partition", 3, 0, 0, "...", 1
-"flexclust", "barchart", -1, 0, 0, "(class<`trellis`> | null)", 1
+"flexclust", "barchart", -1, 0, 0, "class<`trellis`>", 1
+"flexclust", "barchart", -1, 0, 1, "null", 1
 "flexclust", "barchart", 0, 0, 0, "class<`kcca`>", 1
 "flexclust", "barchart", 1, 0, 0, "any", 1
 "flexclust", "barchart", 2, 0, 0, "...", 1
@@ -74,7 +75,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "boxplot", -1, 1, 0, "list<class<`matrix`> | double[] | character>", 1
 "flexclust", "boxplot", 0, 1, 0, "class<`bootFlexclust`>", 1
 "flexclust", "boxplot", 1, 1, 0, "...", 1
-"flexclust", "bundestag", -1, 0, 0, "(class<`factor`> | class<`matrix`>)", 1
+"flexclust", "bundestag", -1, 0, 0, "class<`factor`>", 1
+"flexclust", "bundestag", -1, 0, 1, "class<`matrix`>", 1
 "flexclust", "bundestag", 0, 0, 0, "double", 1
 "flexclust", "bundestag", 1, 0, 0, "logical", 1
 "flexclust", "bundestag", 2, 0, 0, "logical", 1
@@ -202,7 +204,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "getColnames", 0, 0, 0, "class<`prcomp`>", 1
 "flexclust", "getColnames.prcomp", -1, 0, 0, "character[]", 1
 "flexclust", "getColnames.prcomp", 0, 0, 0, "class<`prcomp`>", 1
-"flexclust", "getData", -1, 0, 0, "(class<`matrix`> | null)", 1
+"flexclust", "getData", -1, 0, 0, "class<`matrix`>", 1
+"flexclust", "getData", -1, 0, 1, "null", 1
 "flexclust", "getData", 0, 0, 0, "class<`kcca`>", 1
 "flexclust", "getData", 1, 0, 0, "logical", 1
 "flexclust", "getData", -1, 1, 0, "class<`data.frame`>", 1
@@ -273,7 +276,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "kmeanspp", 0, 0, 0, "class<`matrix`>", 1
 "flexclust", "kmeanspp", 1, 0, 0, "integer", 1
 "flexclust", "kmeanspp", 2, 0, 0, "class<`kccaFamily`>", 1
-"flexclust", "list2object", -1, 0, 0, "(class<`cclustControl`> | class<`flexclustControl`>)", 1
+"flexclust", "list2object", -1, 0, 0, "class<`cclustControl`>", 1
+"flexclust", "list2object", -1, 0, 1, "class<`flexclustControl`>", 1
 "flexclust", "list2object", 0, 0, 0, "list<double | character | character | double>", 1
 "flexclust", "list2object", 1, 0, 0, "character", 1
 "flexclust", "matrix2df", -1, 0, 0, "class<`data.frame`>", 1
@@ -309,7 +313,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "neighbours", 0, 2, 1, "list<integer[]>", 1
 "flexclust", "neighbours", 1, 2, 0, "logical", 1
 "flexclust", "neighbours", 2, 2, 0, "...", 1
-"flexclust", "newKccaObject", -1, 0, 0, "(class<`kcca`> | class<`kccasimple`>)", 1
+"flexclust", "newKccaObject", -1, 0, 0, "class<`kcca`>", 1
+"flexclust", "newKccaObject", -1, 0, 1, "class<`kccasimple`>", 1
 "flexclust", "newKccaObject", 0, 0, 0, "class<`matrix`>", 1
 "flexclust", "newKccaObject", 1, 0, 0, "class<`kccaFamily`>", 1
 "flexclust", "newKccaObject", 2, 0, 0, "class<`matrix`>", 1

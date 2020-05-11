@@ -2,7 +2,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", ".", -1, 0, 0, "class<`quoted`>", 1
 "plyr", ".", 0, 0, 0, "...", 1
 "plyr", ".", 1, 0, 0, "environment", 1
-"plyr", "aaply", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "aaply", -1, 0, 0, "class<`array`>", 1
+"plyr", "aaply", -1, 0, 1, "class<`matrix`>", 1
+"plyr", "aaply", -1, 0, 2, "double[]", 1
 "plyr", "aaply", 0, 0, 0, "class<`array`>", 1
 "plyr", "aaply", 0, 0, 1, "class<`data.frame`>", 1
 "plyr", "aaply", 1, 0, 0, "double[]", 1
@@ -108,7 +110,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "create_progress_bar", 0, 0, 0, "character", 1
 "plyr", "create_progress_bar", 0, 0, 1, "list<class<`function`>>", 1
 "plyr", "create_progress_bar", 1, 0, 0, "...", 1
-"plyr", "daply", -1, 0, 0, "(class<`matrix`> | integer[])", 1
+"plyr", "daply", -1, 0, 0, "class<`matrix`>", 1
+"plyr", "daply", -1, 0, 1, "integer[]", 1
 "plyr", "daply", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", "daply", 1, 0, 0, "class<`quoted`>", 1
 "plyr", "daply", 2, 0, 0, "class<`function`>", 1
@@ -144,7 +147,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "dims", 0, 0, 2, "class<`matrix`>", 1
 "plyr", "dims", 0, 0, 3, "character", 1
 "plyr", "dims", 0, 0, 4, "double[]", 1
-"plyr", "dlply", -1, 0, 0, "(class<`list`, `split`> | list<class<`data.frame`> | class<`lm`> | integer>)", 1
+"plyr", "dlply", -1, 0, 0, "class<`list`, `split`>", 1
+"plyr", "dlply", -1, 0, 1, "list<class<`data.frame`> | class<`lm`> | integer>", 1
 "plyr", "dlply", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", "dlply", 0, 0, 1, "class<`environment`, `idf`>", 1
 "plyr", "dlply", 1, 0, 0, "character[]", 1
@@ -170,7 +174,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "eval.quoted", 1, 0, 1, "class<`environment`, `idf`>", 1
 "plyr", "eval.quoted", 2, 0, 0, "null", 1
 "plyr", "eval.quoted", 3, 0, 0, "logical", 1
-"plyr", "extract_rows", -1, 0, 0, "(class<`data.frame`> | class<`environment`, `idf`>)", 1
+"plyr", "extract_rows", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "extract_rows", -1, 0, 1, "class<`environment`, `idf`>", 1
 "plyr", "extract_rows", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", "extract_rows", 0, 0, 1, "class<`environment`, `idf`>", 1
 "plyr", "extract_rows", 1, 0, 0, "integer[]", 1
@@ -187,7 +192,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", ".fun", -1, 0, 0, "class<`data.frame`>", 1
 "plyr", ".fun", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", ".fun", 1, 0, 0, "...", 1
-"plyr", ".fun", -1, 1, 0, "(class<`data.frame`> | double[])", 1
+"plyr", ".fun", -1, 1, 0, "class<`data.frame`>", 1
+"plyr", ".fun", -1, 1, 1, "double[]", 1
 "plyr", ".fun", 0, 1, 0, "class<`data.frame`>", 1
 "plyr", ".fun", 1, 1, 0, "...", 1
 "plyr", ".fun", -1, 2, 0, "class<`data.frame`>", 1
@@ -226,13 +232,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "id_var", 0, 0, 1, "class<`factor`>", 1
 "plyr", "id_var", 0, 0, 2, "^double[]", 1
 "plyr", "id_var", 1, 0, 0, "any", 1
-"plyr", "[[.indexed_array", -1, 0, 0, "(class<`data.frame`> | class<`matrix`> | double[])", 1
+"plyr", "[[.indexed_array", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "[[.indexed_array", -1, 0, 1, "class<`matrix`>", 1
+"plyr", "[[.indexed_array", -1, 0, 2, "double[]", 1
 "plyr", "[[.indexed_array", 0, 0, 0, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
 "plyr", "[[.indexed_array", 1, 0, 0, "integer", 1
 "plyr", "indexed_array", -1, 0, 0, "class<`indexed`, `indexed_array`>", 1
 "plyr", "indexed_array", 0, 0, 0, "environment", 1
 "plyr", "indexed_array", 1, 0, 0, "class<`data.frame`>", 1
-"plyr", "[[.indexed_df", -1, 0, 0, "(class<`data.frame`> | class<`environment`, `idf`>)", 1
+"plyr", "[[.indexed_df", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "[[.indexed_df", -1, 0, 1, "class<`environment`, `idf`>", 1
 "plyr", "[[.indexed_df", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
 "plyr", "[[.indexed_df", 1, 0, 0, "integer", 1
 "plyr", "indexed_df", -1, 0, 0, "class<`indexed`, `indexed_df`>", 1
@@ -273,7 +282,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "join.keys", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", "join.keys", 1, 0, 0, "class<`data.frame`>", 1
 "plyr", "join.keys", 2, 0, 0, "character", 1
-"plyr", "laply", -1, 0, 0, "(character[] | class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "laply", -1, 0, 0, "character[]", 1
+"plyr", "laply", -1, 0, 1, "class<`array`>", 1
+"plyr", "laply", -1, 0, 2, "class<`matrix`>", 1
+"plyr", "laply", -1, 0, 3, "double[]", 1
 "plyr", "laply", 0, 0, 0, "class<`call`>", 1
 "plyr", "laply", 0, 0, 1, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
 "plyr", "laply", 0, 0, 2, "integer[]", 1
@@ -305,7 +317,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "length.indexed", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
 "plyr", "length.indexed_array", -1, 0, 0, "integer", 1
 "plyr", "length.indexed_array", 0, 0, 0, "class<`indexed`, `indexed_array`, `list`, `split`>", 1
-"plyr", "list_to_array", -1, 0, 0, "(character[] | class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "list_to_array", -1, 0, 0, "character[]", 1
+"plyr", "list_to_array", -1, 0, 1, "class<`array`>", 1
+"plyr", "list_to_array", -1, 0, 2, "class<`matrix`>", 1
+"plyr", "list_to_array", -1, 0, 3, "double[]", 1
 "plyr", "list_to_array", 0, 0, 0, "list<any>", 1
 "plyr", "list_to_array", 1, 0, 0, "null", 1
 "plyr", "list_to_array", 1, 0, 1, "class<`data.frame`>", 1
@@ -319,7 +334,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "list_to_dataframe", 3, 0, 0, "any", 1
 "plyr", "list_to_vector", -1, 0, 0, "double[]", 1
 "plyr", "list_to_vector", 0, 0, 0, "list<double>", 1
-"plyr", "llply", -1, 0, 0, "(class<`list`, `split`> | list<any>)", 1
+"plyr", "llply", -1, 0, 0, "class<`list`, `split`>", 1
+"plyr", "llply", -1, 0, 1, "list<any>", 1
 "plyr", "llply", 0, 0, 0, "class<`indexed`, `indexed_df`, `list`, `split`>", 1
 "plyr", "llply", 0, 0, 1, "integer[]", 1
 "plyr", "llply", 0, 0, 2, "character[]", 1
@@ -368,7 +384,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "maply", 6, 0, 0, "logical", 1
 "plyr", "maply", 7, 0, 0, "logical", 1
 "plyr", "maply", 8, 0, 0, "null", 1
-"plyr", "mapvalues", -1, 0, 0, "(character[] | class<`factor`> | double[])", 1
+"plyr", "mapvalues", -1, 0, 0, "character[]", 1
+"plyr", "mapvalues", -1, 0, 1, "class<`factor`>", 1
+"plyr", "mapvalues", -1, 0, 2, "double[]", 1
 "plyr", "mapvalues", 0, 0, 0, "character[]", 1
 "plyr", "mapvalues", 0, 0, 1, "class<`factor`>", 1
 "plyr", "mapvalues", 0, 0, 2, "double[]", 1
@@ -436,7 +454,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "progress_text", 1, 0, 0, "...", 1
 "plyr", "quickdf", -1, 0, 0, "class<`data.frame`>", 1
 "plyr", "quickdf", 0, 0, 0, "list<any>", 1
-"plyr", "raply", -1, 0, 0, "(class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "raply", -1, 0, 0, "class<`array`>", 1
+"plyr", "raply", -1, 0, 1, "class<`matrix`>", 1
+"plyr", "raply", -1, 0, 2, "double[]", 1
 "plyr", "raply", 0, 0, 0, "double", 1
 "plyr", "raply", 1, 0, 0, "any", 1
 "plyr", "raply", 2, 0, 0, "character", 1
@@ -450,16 +470,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "rdply", 1, 0, 0, "any", 1
 "plyr", "rdply", 2, 0, 0, "character", 1
 "plyr", "rdply", 3, 0, 0, "null", 1
-"plyr", "reduce_dim", -1, 0, 0, "(character[] | class<`array`> | class<`matrix`> | double[])", 1
+"plyr", "reduce_dim", -1, 0, 0, "character[]", 1
+"plyr", "reduce_dim", -1, 0, 1, "class<`array`>", 1
+"plyr", "reduce_dim", -1, 0, 2, "class<`matrix`>", 1
+"plyr", "reduce_dim", -1, 0, 3, "double[]", 1
 "plyr", "reduce_dim", 0, 0, 0, "class<`matrix`>", 1
 "plyr", "reduce_dim", 0, 0, 1, "class<`array`>", 1
-"plyr", "rename", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"plyr", "rename", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "rename", -1, 0, 1, "double[]", 1
 "plyr", "rename", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", "rename", 0, 0, 1, "double[]", 1
 "plyr", "rename", 1, 0, 0, "character", 1
 "plyr", "rename", 2, 0, 0, "logical", 1
 "plyr", "rename", 3, 0, 0, "logical", 1
-"plyr", "revalue", -1, 0, 0, "(character[] | class<`factor`>)", 1
+"plyr", "revalue", -1, 0, 0, "character[]", 1
+"plyr", "revalue", -1, 0, 1, "class<`factor`>", 1
 "plyr", "revalue", 0, 0, 0, "character[]", 1
 "plyr", "revalue", 0, 0, 1, "class<`factor`>", 1
 "plyr", "revalue", 1, 0, 0, "character[]", 1
@@ -468,13 +493,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "rlply", 0, 0, 0, "double", 1
 "plyr", "rlply", 1, 0, 0, "any", 1
 "plyr", "rlply", 2, 0, 0, "character", 1
-"plyr", ".rlply_worker", -1, 0, 0, "(null | list<any>)", 1
+"plyr", ".rlply_worker", -1, 0, 0, "null", 1
+"plyr", ".rlply_worker", -1, 0, 1, "list<any>", 1
 "plyr", ".rlply_worker", 0, 0, 0, "double", 1
 "plyr", ".rlply_worker", 1, 0, 0, "character", 1
 "plyr", ".rlply_worker", 2, 0, 0, "class<`function`>", 1
 "plyr", ".rlply_worker", 3, 0, 0, "logical", 1
 "plyr", ".rlply_worker", 4, 0, 0, "logical", 1
-"plyr", "round_any", -1, 0, 0, "(class<`POSIXct`, `POSIXt`> | double[])", 1
+"plyr", "round_any", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
+"plyr", "round_any", -1, 0, 1, "double[]", 1
 "plyr", "round_any", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "plyr", "round_any", 0, 0, 1, "double[]", 1
 "plyr", "round_any", 1, 0, 0, "double", 1
@@ -494,7 +521,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "r_ply", 3, 0, 0, "logical", 1
 "plyr", "show_time", -1, 0, 0, "character", 1
 "plyr", "show_time", 0, 0, 0, "double", 1
-"plyr", "splat", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"plyr", "splat", -1, 0, 0, "class<`data.frame`>", 1
+"plyr", "splat", -1, 0, 1, "double[]", 1
 "plyr", "splat", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", "splat", 1, 0, 0, "...", 1
 "plyr", "splat", -1, 1, 0, "class<`function`>", 1
@@ -525,12 +553,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "summarise", -1, 0, 0, "class<`data.frame`>", 1
 "plyr", "summarise", 0, 0, 0, "class<`data.frame`>", 1
 "plyr", "summarise", 1, 0, 0, "...", 1
-"plyr", "take", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"plyr", "take", -1, 0, 0, "class<`array`>", 1
+"plyr", "take", -1, 0, 1, "class<`matrix`>", 1
 "plyr", "take", 0, 0, 0, "class<`array`>", 1
 "plyr", "take", 1, 0, 0, "double", 1
 "plyr", "take", 2, 0, 0, "double", 1
 "plyr", "take", 3, 0, 0, "logical", 1
-"plyr", "try_default", -1, 0, 0, "(double | null)", 1
+"plyr", "try_default", -1, 0, 0, "double", 1
+"plyr", "try_default", -1, 0, 1, "null", 1
 "plyr", "try_default", 0, 0, 0, "any", 1
 "plyr", "try_default", 1, 0, 0, "null", 1
 "plyr", "try_default", 2, 0, 0, "logical", 1
@@ -538,7 +568,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plyr", "txtTimerBar", 0, 0, 0, "integer", 1
 "plyr", "unrowname", -1, 0, 0, "class<`data.frame`>", 1
 "plyr", "unrowname", 0, 0, 0, "class<`data.frame`>", 1
-"plyr", "vaggregate", -1, 0, 0, "(class<`matrix`> | double[] | ^integer[])", 1
+"plyr", "vaggregate", -1, 0, 0, "class<`matrix`>", 1
+"plyr", "vaggregate", -1, 0, 1, "double[]", 1
+"plyr", "vaggregate", -1, 0, 2, "^integer[]", 1
 "plyr", "vaggregate", 0, 0, 0, "double[]", 1
 "plyr", "vaggregate", 1, 0, 0, "class<`factor`>", 1
 "plyr", "vaggregate", 1, 0, 1, "integer[]", 1

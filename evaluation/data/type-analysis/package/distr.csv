@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"distr", "@", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"distr", "@", -1, 0, 0, "class<`matrix`>", 1
+"distr", "@", -1, 0, 1, "double[]", 1
 "distr", "@", 0, 0, 0, "class<`matrix`>", 1
 "distr", "@", 0, 0, 1, "double[]", 1
 "distr", "@", 1, 0, 0, "logical", 1
@@ -150,7 +151,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "@", 0, 37, 0, "double[]", 1
 "distr", "@", 1, 37, 0, "logical", 1
 "distr", "@", 2, 37, 0, "logical", 1
-"distr", "@", -1, 38, 0, "(^double[] | class<`matrix`>)", 1
+"distr", "@", -1, 38, 0, "^double[]", 1
+"distr", "@", -1, 38, 1, "class<`matrix`>", 1
 "distr", "@", 0, 38, 0, "^double[]", 1
 "distr", "@", 0, 38, 1, "class<`matrix`>", 1
 "distr", "@", 1, 38, 0, "logical", 1
@@ -192,10 +194,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "AbscontDistribution", 17, 0, 0, "any", 1
 "distr", "AbscontDistribution", 18, 0, 0, "any", 1
 "distr", "AbscontDistribution", 19, 0, 0, "any", 1
-"distr", "acPart", -1, 0, 0, "(class<`AbscontDistribution`> | class<`AffLinAbscontDistribution`> | class<`Chisq`> | class<`DExp`> | class<`Norm`> | class<`Unif`>)", 1
+"distr", "acPart", -1, 0, 0, "class<`AbscontDistribution`>", 1
+"distr", "acPart", -1, 0, 1, "class<`AffLinAbscontDistribution`>", 1
+"distr", "acPart", -1, 0, 2, "class<`Chisq`>", 1
+"distr", "acPart", -1, 0, 3, "class<`DExp`>", 1
+"distr", "acPart", -1, 0, 4, "class<`Norm`>", 1
+"distr", "acPart", -1, 0, 5, "class<`Unif`>", 1
 "distr", "acPart", 0, 0, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "acPart", 0, 0, 1, "class<`AffLinUnivarLebDecDistribution`>", 1
-"distr", "acPart", -1, 1, 0, "(class<`AbscontDistribution`> | class<`AffLinAbscontDistribution`> | class<`Chisq`> | class<`DExp`> | class<`Norm`> | class<`Unif`>)", 1
+"distr", "acPart", -1, 1, 0, "class<`AbscontDistribution`>", 1
+"distr", "acPart", -1, 1, 1, "class<`AffLinAbscontDistribution`>", 1
+"distr", "acPart", -1, 1, 2, "class<`Chisq`>", 1
+"distr", "acPart", -1, 1, 3, "class<`DExp`>", 1
+"distr", "acPart", -1, 1, 4, "class<`Norm`>", 1
+"distr", "acPart", -1, 1, 5, "class<`Unif`>", 1
 "distr", "acPart", 0, 1, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "acPart", -1, 2, 0, "class<`AffLinAbscontDistribution`>", 1
 "distr", "acPart", 0, 2, 0, "class<`AffLinUnivarLebDecDistribution`>", 1
@@ -271,7 +283,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "convpow", -1, 1, 0, "class<`AbscontDistribution`>", 1
 "distr", "convpow", 0, 1, 0, "class<`AbscontDistribution`>", 1
 "distr", "convpow", 1, 1, 0, "...", 1
-"distr", "convpow", -1, 2, 0, "(class<`AbscontDistribution`> | class<`Norm`>)", 1
+"distr", "convpow", -1, 2, 0, "class<`AbscontDistribution`>", 1
+"distr", "convpow", -1, 2, 1, "class<`Norm`>", 1
 "distr", "convpow", 0, 2, 0, "class<`AbscontDistribution`>", 1
 "distr", "convpow", 0, 2, 1, "class<`Norm`>", 1
 "distr", "convpow", 1, 2, 0, "...", 1
@@ -646,7 +659,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "df<-", -1, 2, 0, "class<`Td`>", 1
 "distr", "df<-", 0, 2, 0, "class<`Td`>", 1
 "distr", "df<-", 1, 2, 0, "double", 1
-"distr", "df<-", -1, 3, 0, "(class<`Chisq`> | class<`Td`> | class<`TParameter`>)", 1
+"distr", "df<-", -1, 3, 0, "class<`Chisq`>", 1
+"distr", "df<-", -1, 3, 1, "class<`Td`>", 1
+"distr", "df<-", -1, 3, 2, "class<`TParameter`>", 1
 "distr", "df<-", 0, 3, 0, "class<`Chisq`>", 1
 "distr", "df<-", 0, 3, 1, "class<`Td`>", 1
 "distr", "df<-", 0, 3, 2, "class<`TParameter`>", 1
@@ -703,10 +718,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "DiscreteDistribution", 7, 0, 0, "any", 1
 "distr", "DiscreteDistribution", 8, 0, 0, "any", 1
 "distr", "DiscreteDistribution", 9, 0, 0, "class<`NoSymmetry`>", 1
-"distr", "discretePart", -1, 0, 0, "(class<`AffLinDiscreteDistribution`> | class<`Binom`> | class<`Dirac`> | class<`DiscreteDistribution`> | class<`LatticeDistribution`> | class<`Nbinom`> | class<`Pois`>)", 1
+"distr", "discretePart", -1, 0, 0, "class<`AffLinDiscreteDistribution`>", 1
+"distr", "discretePart", -1, 0, 1, "class<`Binom`>", 1
+"distr", "discretePart", -1, 0, 2, "class<`Dirac`>", 1
+"distr", "discretePart", -1, 0, 3, "class<`DiscreteDistribution`>", 1
+"distr", "discretePart", -1, 0, 4, "class<`LatticeDistribution`>", 1
+"distr", "discretePart", -1, 0, 5, "class<`Nbinom`>", 1
+"distr", "discretePart", -1, 0, 6, "class<`Pois`>", 1
 "distr", "discretePart", 0, 0, 0, "class<`AffLinUnivarLebDecDistribution`>", 1
 "distr", "discretePart", 0, 0, 1, "class<`UnivarLebDecDistribution`>", 1
-"distr", "discretePart", -1, 1, 0, "(class<`Binom`> | class<`Dirac`> | class<`DiscreteDistribution`> | class<`LatticeDistribution`> | class<`Nbinom`> | class<`Pois`>)", 1
+"distr", "discretePart", -1, 1, 0, "class<`Binom`>", 1
+"distr", "discretePart", -1, 1, 1, "class<`Dirac`>", 1
+"distr", "discretePart", -1, 1, 2, "class<`DiscreteDistribution`>", 1
+"distr", "discretePart", -1, 1, 3, "class<`LatticeDistribution`>", 1
+"distr", "discretePart", -1, 1, 4, "class<`Nbinom`>", 1
+"distr", "discretePart", -1, 1, 5, "class<`Pois`>", 1
 "distr", "discretePart", 0, 1, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "discretePart", -1, 2, 0, "class<`AffLinDiscreteDistribution`>", 1
 "distr", "discretePart", 0, 2, 0, "class<`AffLinUnivarLebDecDistribution`>", 1
@@ -813,7 +839,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "flat.LCD", 0, 0, 0, "...", 1
 "distr", "flat.LCD", 1, 0, 0, "double[]", 1
 "distr", "flat.LCD", 2, 0, 0, "any", 1
-"distr", "flat.mix", -1, 0, 0, "(class<`AbscontDistribution`> | class<`UnivarLebDecDistribution`>)", 1
+"distr", "flat.mix", -1, 0, 0, "class<`AbscontDistribution`>", 1
+"distr", "flat.mix", -1, 0, 1, "class<`UnivarLebDecDistribution`>", 1
 "distr", "flat.mix", 0, 0, 0, "class<`CompoundDistribution`>", 1
 "distr", "flat.mix", 0, 0, 1, "class<`UnivarMixingDistribution`>", 1
 "distr", ".fM", -1, 0, 0, "double", 1
@@ -822,9 +849,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "Gammad", -1, 0, 0, "class<`Gammad`>", 1
 "distr", "Gammad", 0, 0, 0, "double", 1
 "distr", "Gammad", 1, 0, 0, "double", 1
-"distr", "gaps", -1, 0, 0, "(class<`matrix`> | null)", 1
+"distr", "gaps", -1, 0, 0, "class<`matrix`>", 1
+"distr", "gaps", -1, 0, 1, "null", 1
 "distr", "gaps", 0, 0, 0, "class<`Chisq`>", 1
-"distr", "gaps", -1, 1, 0, "(class<`matrix`> | null)", 1
+"distr", "gaps", -1, 1, 0, "class<`matrix`>", 1
+"distr", "gaps", -1, 1, 1, "null", 1
 "distr", "gaps", 0, 1, 0, "class<`AbscontDistribution`>", 1
 "distr", "gaps", -1, 2, 0, "null", 1
 "distr", "gaps", 0, 2, 0, "class<`UnivarMixingDistribution`>", 1
@@ -832,7 +861,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "gaps", 0, 3, 0, "class<`DExp`>", 1
 "distr", "gaps", -1, 4, 0, "null", 1
 "distr", "gaps", 0, 4, 0, "class<`Exp`>", 1
-"distr", "gaps", -1, 5, 0, "(class<`matrix`> | null)", 1
+"distr", "gaps", -1, 5, 0, "class<`matrix`>", 1
+"distr", "gaps", -1, 5, 1, "null", 1
 "distr", "gaps", 0, 5, 0, "class<`AffLinAbscontDistribution`>", 1
 "distr", "gaps", -1, 6, 0, "null", 1
 "distr", "gaps", 0, 6, 0, "class<`AffLinUnivarLebDecDistribution`>", 1
@@ -857,7 +887,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "gaps", 0, 10, 11, "class<`Norm`>", 1
 "distr", "gaps", 0, 10, 12, "class<`Unif`>", 1
 "distr", "gaps", 0, 10, 13, "class<`UnivarMixingDistribution`>", 1
-"distr", "gaps", -1, 11, 0, "(class<`matrix`> | null)", 1
+"distr", "gaps", -1, 11, 0, "class<`matrix`>", 1
+"distr", "gaps", -1, 11, 1, "null", 1
 "distr", "gaps", 0, 11, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "Geom", -1, 0, 0, "class<`Geom`>", 1
 "distr", "Geom", 0, 0, 0, "double", 1
@@ -902,7 +933,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "getLow", -1, 9, 0, "double", 1
 "distr", "getLow", 0, 9, 0, "class<`AffLinDiscreteDistribution`>", 1
 "distr", "getLow", 1, 9, 0, "...", 1
-"distr", "getLow", -1, 10, 0, "(class<`Integer`> | double)", 1
+"distr", "getLow", -1, 10, 0, "class<`Integer`>", 1
+"distr", "getLow", -1, 10, 1, "double", 1
 "distr", "getLow", 0, 10, 0, "class<`AbscontDistribution`>", 1
 "distr", "getLow", 1, 10, 0, "...", 1
 "distr", "getLow", -1, 11, 0, "double", 1
@@ -911,7 +943,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "getLow", -1, 12, 0, "double", 1
 "distr", "getLow", 0, 12, 0, "class<`Exp`>", 1
 "distr", "getLow", 1, 12, 0, "...", 1
-"distr", "getLow", -1, 13, 0, "(class<`Integer`> | double)", 1
+"distr", "getLow", -1, 13, 0, "class<`Integer`>", 1
+"distr", "getLow", -1, 13, 1, "double", 1
 "distr", "getLow", 0, 13, 0, "class<`AbscontDistribution`>", 1
 "distr", "getLow", 0, 13, 1, "class<`AffLinAbscontDistribution`>", 1
 "distr", "getLow", 0, 13, 2, "class<`AffLinDiscreteDistribution`>", 1
@@ -984,7 +1017,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "getUp", -1, 11, 0, "double", 1
 "distr", "getUp", 0, 11, 0, "class<`Geom`>", 1
 "distr", "getUp", 1, 11, 0, "...", 1
-"distr", "getUp", -1, 12, 0, "(class<`Integer`> | double)", 1
+"distr", "getUp", -1, 12, 0, "class<`Integer`>", 1
+"distr", "getUp", -1, 12, 1, "double", 1
 "distr", "getUp", 0, 12, 0, "class<`AbscontDistribution`>", 1
 "distr", "getUp", 0, 12, 1, "class<`AffLinAbscontDistribution`>", 1
 "distr", "getUp", 0, 12, 2, "class<`AffLinDiscreteDistribution`>", 1
@@ -1016,7 +1050,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "getUp", -1, 16, 0, "double", 1
 "distr", "getUp", 0, 16, 0, "class<`Norm`>", 1
 "distr", "getUp", 1, 16, 0, "...", 1
-"distr", "getUp", -1, 17, 0, "(class<`Integer`> | double)", 1
+"distr", "getUp", -1, 17, 0, "class<`Integer`>", 1
+"distr", "getUp", -1, 17, 1, "double", 1
 "distr", "getUp", 0, 17, 0, "class<`AbscontDistribution`>", 1
 "distr", "getUp", 1, 17, 0, "...", 1
 "distr", "getUp", -1, 18, 0, "double", 1
@@ -1102,7 +1137,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "lambda", -1, 2, 0, "double", 1
 "distr", "lambda", 0, 2, 0, "class<`Pois`>", 1
 "distr", "lambda", 0, 2, 1, "class<`PoisParameter`>", 1
-"distr", "lambda<-", -1, 0, 0, "(class<`Pois`> | class<`PoisParameter`>)", 1
+"distr", "lambda<-", -1, 0, 0, "class<`Pois`>", 1
+"distr", "lambda<-", -1, 0, 1, "class<`PoisParameter`>", 1
 "distr", "lambda<-", 0, 0, 0, "class<`Pois`>", 1
 "distr", "lambda<-", 0, 0, 1, "class<`PoisParameter`>", 1
 "distr", "lambda<-", 1, 0, 0, "double", 1
@@ -1139,7 +1175,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "Lattice", 1, 0, 0, "double", 1
 "distr", "Lattice", 2, 0, 0, "double", 1
 "distr", "Lattice", 3, 0, 0, "character", 1
-"distr", "LatticeDistribution", -1, 0, 0, "(class<`AffLinLatticeDistribution`> | class<`LatticeDistribution`>)", 1
+"distr", "LatticeDistribution", -1, 0, 0, "class<`AffLinLatticeDistribution`>", 1
+"distr", "LatticeDistribution", -1, 0, 1, "class<`LatticeDistribution`>", 1
 "distr", "LatticeDistribution", 0, 0, 0, "class<`Lattice`>", 1
 "distr", "LatticeDistribution", 0, 0, 1, "null", 1
 "distr", "LatticeDistribution", 1, 0, 0, "null", 1
@@ -1215,7 +1252,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "Lnorm", -1, 0, 0, "class<`Lnorm`>", 1
 "distr", "Lnorm", 0, 0, 0, "double", 1
 "distr", "Lnorm", 1, 0, 0, "double", 1
-"distr", "location", -1, 0, 0, "(class<`Integer`> | double)", 1
+"distr", "location", -1, 0, 0, "class<`Integer`>", 1
+"distr", "location", -1, 0, 1, "double", 1
 "distr", "location", 0, 0, 0, "class<`DiracParameter`>", 1
 "distr", "location", 0, 0, 1, "class<`Cauchy`>", 1
 "distr", "location", 0, 0, 2, "class<`CauchyParameter`>", 1
@@ -1230,14 +1268,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "location", 0, 3, 0, "class<`Logis`>", 1
 "distr", "location", -1, 4, 0, "double", 1
 "distr", "location", 0, 4, 0, "class<`LogisParameter`>", 1
-"distr", "location", -1, 5, 0, "(class<`Integer`> | double)", 1
+"distr", "location", -1, 5, 0, "class<`Integer`>", 1
+"distr", "location", -1, 5, 1, "double", 1
 "distr", "location", 0, 5, 0, "class<`DiracParameter`>", 1
 "distr", "location", -1, 6, 0, "double", 1
 "distr", "location", 0, 6, 0, "class<`Cauchy`>", 1
 "distr", "location<-", -1, 0, 0, "class<`DiracParameter`>", 1
 "distr", "location<-", 0, 0, 0, "class<`DiracParameter`>", 1
 "distr", "location<-", 1, 0, 0, "double", 1
-"distr", "location<-", -1, 1, 0, "(class<`Cauchy`> | class<`CauchyParameter`> | class<`Dirac`> | class<`DiracParameter`> | class<`Logis`>)", 1
+"distr", "location<-", -1, 1, 0, "class<`Cauchy`>", 1
+"distr", "location<-", -1, 1, 1, "class<`CauchyParameter`>", 1
+"distr", "location<-", -1, 1, 2, "class<`Dirac`>", 1
+"distr", "location<-", -1, 1, 3, "class<`DiracParameter`>", 1
+"distr", "location<-", -1, 1, 4, "class<`Logis`>", 1
 "distr", "location<-", 0, 1, 0, "class<`Cauchy`>", 1
 "distr", "location<-", 0, 1, 1, "class<`CauchyParameter`>", 1
 "distr", "location<-", 0, 1, 2, "class<`Dirac`>", 1
@@ -1348,7 +1391,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "m<-", -1, 1, 0, "class<`Hyper`>", 1
 "distr", "m<-", 0, 1, 0, "class<`Hyper`>", 1
 "distr", "m<-", 1, 1, 0, "double", 1
-"distr", "m<-", -1, 2, 0, "(class<`Hyper`> | class<`HyperParameter`>)", 1
+"distr", "m<-", -1, 2, 0, "class<`Hyper`>", 1
+"distr", "m<-", -1, 2, 1, "class<`HyperParameter`>", 1
 "distr", "m<-", 0, 2, 0, "class<`Hyper`>", 1
 "distr", "m<-", 0, 2, 1, "class<`HyperParameter`>", 1
 "distr", "m<-", 1, 2, 0, "double", 1
@@ -1387,15 +1431,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", ".makeDNew", 4, 0, 0, "character", 1
 "distr", ".makedotsL", -1, 0, 0, "null", 1
 "distr", ".makedotsL", 0, 0, 0, "null", 1
-"distr", ".makedotsLowLevel", -1, 0, 0, "(null | pairlist)", 1
+"distr", ".makedotsLowLevel", -1, 0, 0, "null", 1
+"distr", ".makedotsLowLevel", -1, 0, 1, "pairlist", 1
 "distr", ".makedotsLowLevel", 0, 0, 0, "null", 1
 "distr", ".makedotsLowLevel", 0, 0, 1, "pairlist", 1
-"distr", ".makedotsPt", -1, 0, 0, "(null | list<double>)", 1
+"distr", ".makedotsPt", -1, 0, 0, "null", 1
+"distr", ".makedotsPt", -1, 0, 1, "list<double>", 1
 "distr", ".makedotsPt", 0, 0, 0, "null", 1
 "distr", ".makedotsPt", 0, 0, 1, "pairlist", 1
 "distr", ".make.lattice.es.vector", -1, 0, 0, "class<`Lattice`>", 1
 "distr", ".make.lattice.es.vector", 0, 0, 0, "double[]", 1
-"distr", ".makeLenAndOrder", -1, 0, 0, "(character[] | double[])", 1
+"distr", ".makeLenAndOrder", -1, 0, 0, "character[]", 1
+"distr", ".makeLenAndOrder", -1, 0, 1, "double[]", 1
 "distr", ".makeLenAndOrder", 0, 0, 0, "character[]", 1
 "distr", ".makeLenAndOrder", 0, 0, 1, "double", 1
 "distr", ".makeLenAndOrder", 1, 0, 0, "integer[]", 1
@@ -1469,7 +1516,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "Maximum", 0, 1, 0, "class<`Unif`>", 1
 "distr", "Maximum", 1, 1, 0, "class<`AbscontDistribution`>", 1
 "distr", "Maximum", 2, 1, 0, "...", 1
-"distr", "Maximum", -1, 2, 0, "(class<`AffLinAbscontDistribution`> | class<`AffLinUnivarLebDecDistribution`>)", 1
+"distr", "Maximum", -1, 2, 0, "class<`AffLinAbscontDistribution`>", 1
+"distr", "Maximum", -1, 2, 1, "class<`AffLinUnivarLebDecDistribution`>", 1
 "distr", "Maximum", 0, 2, 0, "class<`Unif`>", 1
 "distr", "Maximum", 0, 2, 1, "class<`Dirac`>", 1
 "distr", "Maximum", 1, 2, 0, "class<`AbscontDistribution`>", 1
@@ -1497,11 +1545,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "meanlog<-", -1, 1, 0, "class<`LnormParameter`>", 1
 "distr", "meanlog<-", 0, 1, 0, "class<`LnormParameter`>", 1
 "distr", "meanlog<-", 1, 1, 0, "double", 1
-"distr", "meanlog<-", -1, 2, 0, "(class<`Lnorm`> | class<`LnormParameter`>)", 1
+"distr", "meanlog<-", -1, 2, 0, "class<`Lnorm`>", 1
+"distr", "meanlog<-", -1, 2, 1, "class<`LnormParameter`>", 1
 "distr", "meanlog<-", 0, 2, 0, "class<`Lnorm`>", 1
 "distr", "meanlog<-", 0, 2, 1, "class<`LnormParameter`>", 1
 "distr", "meanlog<-", 1, 2, 0, "double", 1
-"distr", ".mergegaps", -1, 0, 0, "(class<`matrix`> | null)", 1
+"distr", ".mergegaps", -1, 0, 0, "class<`matrix`>", 1
+"distr", ".mergegaps", -1, 0, 1, "null", 1
 "distr", ".mergegaps", 0, 0, 0, "class<`matrix`>", 1
 "distr", ".mergegaps", 0, 0, 1, "null", 1
 "distr", ".mergegaps", 1, 0, 0, "any", 1
@@ -1541,7 +1591,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "Minimum", 0, 4, 0, "class<`Unif`>", 1
 "distr", "Minimum", 1, 4, 0, "class<`AffLinAbscontDistribution`>", 1
 "distr", "Minimum", 2, 4, 0, "...", 1
-"distr", "Minimum", -1, 5, 0, "(class<`AbscontDistribution`> | class<`DiscreteDistribution`> | class<`UnivarLebDecDistribution`>)", 1
+"distr", "Minimum", -1, 5, 0, "class<`AbscontDistribution`>", 1
+"distr", "Minimum", -1, 5, 1, "class<`DiscreteDistribution`>", 1
+"distr", "Minimum", -1, 5, 2, "class<`UnivarLebDecDistribution`>", 1
 "distr", "Minimum", 0, 5, 0, "class<`Exp`>", 1
 "distr", "Minimum", 0, 5, 1, "class<`Unif`>", 1
 "distr", "Minimum", 0, 5, 2, "class<`Dirac`>", 1
@@ -1588,7 +1640,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", ".modifyqgaps", 1, 0, 0, "class<`function`>", 1
 "distr", ".modifyqgaps", 2, 0, 0, "class<`matrix`>", 1
 "distr", ".modifyqgaps", 3, 0, 0, "character", 1
-"distr", ".multm", -1, 0, 0, "(class<`AbscontDistribution`> | class<`AffLinAbscontDistribution`> | class<`AffLinDiscreteDistribution`> | class<`DiscreteDistribution`>)", 1
+"distr", ".multm", -1, 0, 0, "class<`AbscontDistribution`>", 1
+"distr", ".multm", -1, 0, 1, "class<`AffLinAbscontDistribution`>", 1
+"distr", ".multm", -1, 0, 2, "class<`AffLinDiscreteDistribution`>", 1
+"distr", ".multm", -1, 0, 3, "class<`DiscreteDistribution`>", 1
 "distr", ".multm", 0, 0, 0, "class<`AbscontDistribution`>", 1
 "distr", ".multm", 0, 0, 1, "class<`AffLinAbscontDistribution`>", 1
 "distr", ".multm", 0, 0, 2, "class<`Gammad`>", 1
@@ -1637,7 +1692,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "ncp", 0, 7, 0, "class<`Beta`>", 1
 "distr", "ncp", -1, 8, 0, "double", 1
 "distr", "ncp", 0, 8, 0, "class<`Td`>", 1
-"distr", "ncp<-", -1, 0, 0, "(class<`Beta`> | class<`ChisqParameter`>)", 1
+"distr", "ncp<-", -1, 0, 0, "class<`Beta`>", 1
+"distr", "ncp<-", -1, 0, 1, "class<`ChisqParameter`>", 1
 "distr", "ncp<-", 0, 0, 0, "class<`Beta`>", 1
 "distr", "ncp<-", 0, 0, 1, "class<`ChisqParameter`>", 1
 "distr", "ncp<-", 1, 0, 0, "double", 1
@@ -1667,7 +1723,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", ".notwithLArg", 0, 0, 8, "class<`Pois`>", 1
 "distr", ".notwithLArg", 0, 0, 9, "class<`Td`>", 1
 "distr", ".notwithLArg", 0, 0, 10, "class<`Unif`>", 1
-"distr", "p", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"distr", "p", -1, 0, 0, "class<`matrix`>", 1
+"distr", "p", -1, 0, 1, "double[]", 1
 "distr", "p", 0, 0, 0, "class<`matrix`>", 1
 "distr", "p", 0, 0, 1, "double[]", 1
 "distr", "p", 1, 0, 0, "logical", 1
@@ -1715,7 +1772,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p", 0, 10, 0, "double[]", 1
 "distr", "p", 1, 10, 0, "logical", 1
 "distr", "p", 2, 10, 0, "logical", 1
-"distr", "p", -1, 11, 0, "(^double[] | class<`matrix`>)", 1
+"distr", "p", -1, 11, 0, "^double[]", 1
+"distr", "p", -1, 11, 1, "class<`matrix`>", 1
 "distr", "p", 0, 11, 0, "^double[]", 1
 "distr", "p", 0, 11, 1, "class<`matrix`>", 1
 "distr", "p", 1, 11, 0, "logical", 1
@@ -1726,7 +1784,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p", 0, 12, 1, "class<`matrix`>", 1
 "distr", "p", 1, 12, 0, "logical", 1
 "distr", "p", 2, 12, 0, "logical", 1
-"distr", "p", -1, 13, 0, "(class<`matrix`> | double[])", 1
+"distr", "p", -1, 13, 0, "class<`matrix`>", 1
+"distr", "p", -1, 13, 1, "double[]", 1
 "distr", "p", 0, 13, 0, "class<`matrix`>", 1
 "distr", "p", 0, 13, 1, "double[]", 1
 "distr", "p", 1, 13, 0, "logical", 1
@@ -1799,7 +1858,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p", 0, 35, 0, "double[]", 1
 "distr", "p", 1, 35, 0, "logical", 1
 "distr", "p", 2, 35, 0, "logical", 1
-"distr", "p", -1, 36, 0, "(class<`matrix`> | double[])", 1
+"distr", "p", -1, 36, 0, "class<`matrix`>", 1
+"distr", "p", -1, 36, 1, "double[]", 1
 "distr", "p", 0, 36, 0, "class<`matrix`>", 1
 "distr", "p", 0, 36, 1, "double[]", 1
 "distr", "p", 1, 36, 0, "logical", 1
@@ -1814,7 +1874,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p", 0, 39, 0, "class<`Td`>", 1
 "distr", "p", -1, 40, 0, "class<`function`>", 1
 "distr", "p", 0, 40, 0, "class<`Chisq`>", 1
-"distr", "p", -1, 41, 0, "(double[] | class<`matrix`>)", 1
+"distr", "p", -1, 41, 0, "double[]", 1
+"distr", "p", -1, 41, 1, "class<`matrix`>", 1
 "distr", "p", 0, 41, 0, "double[]", 1
 "distr", "p", 0, 41, 1, "class<`matrix`>", 1
 "distr", "p", 1, 41, 0, "logical", 1
@@ -2008,7 +2069,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p", 0, 88, 0, "class<`Arcsine`>", 1
 "distr", "p", -1, 89, 0, "class<`function`>", 1
 "distr", "p", 0, 89, 0, "class<`Norm`>", 1
-"distr", "p", -1, 90, 0, "(double[] | class<`matrix`>)", 1
+"distr", "p", -1, 90, 0, "double[]", 1
+"distr", "p", -1, 90, 1, "class<`matrix`>", 1
 "distr", "p", 0, 90, 0, "double[]", 1
 "distr", "p", 0, 90, 1, "class<`matrix`>", 1
 "distr", "p", 1, 90, 0, "logical", 1
@@ -2039,7 +2101,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p.ac", -1, 2, 0, "class<`function`>", 1
 "distr", "p.ac", 0, 2, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "p.ac", 1, 2, 0, "...", 1
-"distr", ".panel.mingle", -1, 0, 0, "(class<`call`> | list<class<`call`> | expression>)", 1
+"distr", ".panel.mingle", -1, 0, 0, "class<`call`>", 1
+"distr", ".panel.mingle", -1, 0, 1, "list<class<`call`> | expression>", 1
 "distr", ".panel.mingle", 0, 0, 0, "pairlist", 1
 "distr", ".panel.mingle", 1, 0, 0, "character", 1
 "distr", "param", -1, 0, 0, "class<`BinomParameter`>", 1
@@ -2090,7 +2153,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "param", 0, 22, 0, "class<`LatticeDistribution`>", 1
 "distr", "param", -1, 23, 0, "null", 1
 "distr", "param", 0, 23, 0, "class<`AffLinDiscreteDistribution`>", 1
-"distr", "param", -1, 24, 0, "(class<`BetaParameter`> | class<`BinomParameter`> | class<`CauchyParameter`> | class<`ChisqParameter`> | class<`DiracParameter`> | class<`ExpParameter`> | class<`FParameter`> | class<`GammaParameter`> | class<`HyperParameter`> | class<`LnormParameter`> | class<`LogisParameter`> | class<`NbinomParameter`> | class<`PoisParameter`> | class<`TParameter`> | class<`UnifParameter`> | class<`UniNormParameter`> | class<`WeibullParameter`> | null)", 1
+"distr", "param", -1, 24, 0, "class<`BetaParameter`>", 1
+"distr", "param", -1, 24, 1, "class<`BinomParameter`>", 1
+"distr", "param", -1, 24, 2, "class<`CauchyParameter`>", 1
+"distr", "param", -1, 24, 3, "class<`ChisqParameter`>", 1
+"distr", "param", -1, 24, 4, "class<`DiracParameter`>", 1
+"distr", "param", -1, 24, 5, "class<`ExpParameter`>", 1
+"distr", "param", -1, 24, 6, "class<`FParameter`>", 1
+"distr", "param", -1, 24, 7, "class<`GammaParameter`>", 1
+"distr", "param", -1, 24, 8, "class<`HyperParameter`>", 1
+"distr", "param", -1, 24, 9, "class<`LnormParameter`>", 1
+"distr", "param", -1, 24, 10, "class<`LogisParameter`>", 1
+"distr", "param", -1, 24, 11, "class<`NbinomParameter`>", 1
+"distr", "param", -1, 24, 12, "class<`PoisParameter`>", 1
+"distr", "param", -1, 24, 13, "class<`TParameter`>", 1
+"distr", "param", -1, 24, 14, "class<`UnifParameter`>", 1
+"distr", "param", -1, 24, 15, "class<`UniNormParameter`>", 1
+"distr", "param", -1, 24, 16, "class<`WeibullParameter`>", 1
+"distr", "param", -1, 24, 17, "null", 1
 "distr", "param", 0, 24, 0, "class<`Beta`>", 1
 "distr", "param", 0, 24, 1, "class<`Binom`>", 1
 "distr", "param", 0, 24, 2, "class<`Cauchy`>", 1
@@ -2152,7 +2232,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "pfun", 1, 4, 0, "logical", 1
 "distr", "pfun", 2, 4, 0, "logical", 1
 "distr", "pfun", 3, 4, 0, "...", 1
-"distr", "pfun", -1, 5, 0, "(double[] | class<`matrix`>)", 1
+"distr", "pfun", -1, 5, 0, "double[]", 1
+"distr", "pfun", -1, 5, 1, "class<`matrix`>", 1
 "distr", "pfun", 0, 5, 0, "double[]", 1
 "distr", "pfun", 0, 5, 1, "class<`matrix`>", 1
 "distr", "pfun", 1, 5, 0, "logical", 1
@@ -2178,7 +2259,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p.l", 0, 0, 0, "double[]", 1
 "distr", "p.l", 1, 0, 0, "logical", 1
 "distr", "p.l", 2, 0, 0, "logical", 1
-"distr", "p.l", -1, 1, 0, "(double[] | class<`matrix`>)", 1
+"distr", "p.l", -1, 1, 0, "double[]", 1
+"distr", "p.l", -1, 1, 1, "class<`matrix`>", 1
 "distr", "p.l", 0, 1, 0, "double[]", 1
 "distr", "p.l", 0, 1, 1, "class<`matrix`>", 1
 "distr", "p.l", 1, 1, 0, "logical", 1
@@ -2234,7 +2316,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "p.l", 0, 17, 0, "class<`Pois`>", 1
 "distr", "p.l", -1, 18, 0, "class<`function`>", 1
 "distr", "p.l", 0, 18, 0, "class<`AbscontDistribution`>", 1
-"distr", "Pl", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"distr", "Pl", -1, 0, 0, "double[]", 1
+"distr", "Pl", -1, 0, 1, "class<`matrix`>", 1
 "distr", "Pl", 0, 0, 0, "double[]", 1
 "distr", "Pl", 0, 0, 1, "class<`matrix`>", 1
 "distr", "Pl", 1, 0, 0, "logical", 1
@@ -2305,7 +2388,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "plot", 0, 15, 0, "class<`LatticeDistribution`>", 1
 "distr", "plot", 1, 15, 0, "any", 1
 "distr", "plot", 2, 15, 0, "...", 1
-"distr", ".plusm", -1, 0, 0, "(class<`AffLinAbscontDistribution`> | class<`AffLinDiscreteDistribution`>)", 1
+"distr", ".plusm", -1, 0, 0, "class<`AffLinAbscontDistribution`>", 1
+"distr", ".plusm", -1, 0, 1, "class<`AffLinDiscreteDistribution`>", 1
 "distr", ".plusm", 0, 0, 0, "class<`AffLinAbscontDistribution`>", 1
 "distr", ".plusm", 0, 0, 1, "class<`Exp`>", 1
 "distr", ".plusm", 0, 0, 2, "class<`DiscreteDistribution`>", 1
@@ -2328,7 +2412,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "pnew", 0, 2, 0, "double[]", 1
 "distr", "pnew", 1, 2, 0, "logical", 1
 "distr", "pnew", 2, 2, 0, "logical", 1
-"distr", "pnew", -1, 3, 0, "(double[] | class<`matrix`>)", 1
+"distr", "pnew", -1, 3, 0, "double[]", 1
+"distr", "pnew", -1, 3, 1, "class<`matrix`>", 1
 "distr", "pnew", 0, 3, 0, "double[]", 1
 "distr", "pnew", 0, 3, 1, "class<`matrix`>", 1
 "distr", "pnew", 1, 3, 0, "logical", 1
@@ -2342,7 +2427,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "PosSemDefSymmMatrix", -1, 0, 0, "class<`PosSemDefSymmMatrix`>", 1
 "distr", "PosSemDefSymmMatrix", 0, 0, 0, "class<`matrix`>", 1
 "distr", "PosSemDefSymmMatrix", 0, 0, 1, "double", 1
-"distr", "p.r", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"distr", "p.r", -1, 0, 0, "double[]", 1
+"distr", "p.r", -1, 0, 1, "class<`matrix`>", 1
 "distr", "p.r", 0, 0, 0, "double[]", 1
 "distr", "p.r", 0, 0, 1, "class<`matrix`>", 1
 "distr", "p.r", 1, 0, 0, "logical", 1
@@ -2594,7 +2680,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", ".q0fun", 0, 4, 0, "double", 1
 "distr", ".q0fun", 1, 4, 0, "logical", 1
 "distr", ".q0fun", 2, 4, 0, "logical", 1
-"distr", ".q0fun", -1, 5, 0, "(class<`Integer`> | double)", 1
+"distr", ".q0fun", -1, 5, 0, "class<`Integer`>", 1
+"distr", ".q0fun", -1, 5, 1, "double", 1
 "distr", ".q0fun", 0, 5, 0, "double", 1
 "distr", ".q0fun", 1, 5, 0, "logical", 1
 "distr", ".q0fun", 2, 5, 0, "logical", 1
@@ -2704,7 +2791,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "qF", 0, 17, 0, "double", 1
 "distr", "qF", 1, 17, 0, "logical", 1
 "distr", "qF", 2, 17, 0, "logical", 1
-"distr", "qF", -1, 18, 0, "(class<`Integer`> | double)", 1
+"distr", "qF", -1, 18, 0, "class<`Integer`>", 1
+"distr", "qF", -1, 18, 1, "double", 1
 "distr", "qF", 0, 18, 0, "double", 1
 "distr", "qF", 1, 18, 0, "logical", 1
 "distr", "qF", 2, 18, 0, "logical", 1
@@ -2876,7 +2964,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "q.l", 0, 27, 0, "double", 1
 "distr", "q.l", 1, 27, 0, "logical", 1
 "distr", "q.l", 2, 27, 0, "logical", 1
-"distr", "q.l", -1, 28, 0, "(class<`Integer`> | double)", 1
+"distr", "q.l", -1, 28, 0, "class<`Integer`>", 1
+"distr", "q.l", -1, 28, 1, "double", 1
 "distr", "q.l", 0, 28, 0, "double", 1
 "distr", "q.l", 1, 28, 0, "logical", 1
 "distr", "q.l", 2, 28, 0, "logical", 1
@@ -3247,7 +3336,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "rate<-", -1, 2, 0, "class<`ExpParameter`>", 1
 "distr", "rate<-", 0, 2, 0, "class<`ExpParameter`>", 1
 "distr", "rate<-", 1, 2, 0, "double", 1
-"distr", "rate<-", -1, 3, 0, "(class<`DExp`> | class<`Exp`> | class<`ExpParameter`>)", 1
+"distr", "rate<-", -1, 3, 0, "class<`DExp`>", 1
+"distr", "rate<-", -1, 3, 1, "class<`Exp`>", 1
+"distr", "rate<-", -1, 3, 2, "class<`ExpParameter`>", 1
 "distr", "rate<-", 0, 3, 0, "class<`DExp`>", 1
 "distr", "rate<-", 0, 3, 1, "class<`Exp`>", 1
 "distr", "rate<-", 0, 3, 2, "class<`ExpParameter`>", 1
@@ -3306,7 +3397,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "scale", 0, 8, 0, "class<`WeibullParameter`>", 1
 "distr", "scale", 1, 8, 0, "logical", 1
 "distr", "scale", 2, 8, 0, "logical", 1
-"distr", "scale<-", -1, 0, 0, "(class<`Gammad`> | class<`LogisParameter`>)", 1
+"distr", "scale<-", -1, 0, 0, "class<`Gammad`>", 1
+"distr", "scale<-", -1, 0, 1, "class<`LogisParameter`>", 1
 "distr", "scale<-", 0, 0, 0, "class<`Gammad`>", 1
 "distr", "scale<-", 0, 0, 1, "class<`LogisParameter`>", 1
 "distr", "scale<-", 1, 0, 0, "double", 1
@@ -3337,7 +3429,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "sd<-", -1, 0, 0, "class<`UniNormParameter`>", 1
 "distr", "sd<-", 0, 0, 0, "class<`UniNormParameter`>", 1
 "distr", "sd<-", 1, 0, 0, "double", 1
-"distr", "sd<-", -1, 1, 0, "(class<`Norm`> | class<`NormParameter`> | class<`UniNormParameter`>)", 1
+"distr", "sd<-", -1, 1, 0, "class<`Norm`>", 1
+"distr", "sd<-", -1, 1, 1, "class<`NormParameter`>", 1
+"distr", "sd<-", -1, 1, 2, "class<`UniNormParameter`>", 1
 "distr", "sd<-", 0, 1, 0, "class<`Norm`>", 1
 "distr", "sd<-", 0, 1, 1, "class<`NormParameter`>", 1
 "distr", "sd<-", 0, 1, 2, "class<`UniNormParameter`>", 1
@@ -3388,7 +3482,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "shape<-", -1, 0, 0, "class<`Weibull`>", 1
 "distr", "shape<-", 0, 0, 0, "class<`Weibull`>", 1
 "distr", "shape<-", 1, 0, 0, "double", 1
-"distr", "shape<-", -1, 1, 0, "(class<`GammaParameter`> | class<`Weibull`> | class<`WeibullParameter`>)", 1
+"distr", "shape<-", -1, 1, 0, "class<`GammaParameter`>", 1
+"distr", "shape<-", -1, 1, 1, "class<`Weibull`>", 1
+"distr", "shape<-", -1, 1, 2, "class<`WeibullParameter`>", 1
 "distr", "shape<-", 0, 1, 0, "class<`GammaParameter`>", 1
 "distr", "shape<-", 0, 1, 1, "class<`Weibull`>", 1
 "distr", "shape<-", 0, 1, 2, "class<`WeibullParameter`>", 1
@@ -3425,13 +3521,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "shape2<-", -1, 1, 0, "class<`BetaParameter`>", 1
 "distr", "shape2<-", 0, 1, 0, "class<`BetaParameter`>", 1
 "distr", "shape2<-", 1, 1, 0, "double", 1
-"distr", "simplifyD", -1, 0, 0, "(class<`AbscontDistribution`> | class<`UnivarLebDecDistribution`>)", 1
+"distr", "simplifyD", -1, 0, 0, "class<`AbscontDistribution`>", 1
+"distr", "simplifyD", -1, 0, 1, "class<`UnivarLebDecDistribution`>", 1
 "distr", "simplifyD", 0, 0, 0, "class<`CompoundDistribution`>", 1
-"distr", "simplifyD", -1, 1, 0, "(class<`AbscontDistribution`> | class<`UnivarLebDecDistribution`>)", 1
+"distr", "simplifyD", -1, 1, 0, "class<`AbscontDistribution`>", 1
+"distr", "simplifyD", -1, 1, 1, "class<`UnivarLebDecDistribution`>", 1
 "distr", "simplifyD", 0, 1, 0, "class<`CompoundDistribution`>", 1
 "distr", "simplifyD", 0, 1, 1, "class<`UnivarLebDecDistribution`>", 1
 "distr", "simplifyD", 0, 1, 2, "class<`UnivarMixingDistribution`>", 1
-"distr", "simplifyD", -1, 2, 0, "(class<`AbscontDistribution`> | class<`UnivarLebDecDistribution`>)", 1
+"distr", "simplifyD", -1, 2, 0, "class<`AbscontDistribution`>", 1
+"distr", "simplifyD", -1, 2, 1, "class<`UnivarLebDecDistribution`>", 1
 "distr", "simplifyD", 0, 2, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "simplifyD", -1, 3, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "simplifyD", 0, 3, 0, "class<`UnivarMixingDistribution`>", 1
@@ -3464,7 +3563,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "size<-", -1, 0, 0, "class<`BinomParameter`>", 1
 "distr", "size<-", 0, 0, 0, "class<`BinomParameter`>", 1
 "distr", "size<-", 1, 0, 0, "double", 1
-"distr", "size<-", -1, 1, 0, "(class<`Binom`> | class<`BinomParameter`> | class<`Nbinom`> | class<`NbinomParameter`>)", 1
+"distr", "size<-", -1, 1, 0, "class<`Binom`>", 1
+"distr", "size<-", -1, 1, 1, "class<`BinomParameter`>", 1
+"distr", "size<-", -1, 1, 2, "class<`Nbinom`>", 1
+"distr", "size<-", -1, 1, 3, "class<`NbinomParameter`>", 1
 "distr", "size<-", 0, 1, 0, "class<`Binom`>", 1
 "distr", "size<-", 0, 1, 1, "class<`BinomParameter`>", 1
 "distr", "size<-", 0, 1, 2, "class<`Nbinom`>", 1
@@ -3487,7 +3589,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "standardMethods", 2, 0, 0, "any", 1
 "distr", "support", -1, 0, 0, "double[]", 1
 "distr", "support", 0, 0, 0, "class<`Pois`>", 1
-"distr", "support", -1, 1, 0, "(class<`Integer`> | double[])", 1
+"distr", "support", -1, 1, 0, "class<`Integer`>", 1
+"distr", "support", -1, 1, 1, "double[]", 1
 "distr", "support", 0, 1, 0, "class<`UnivarLebDecDistribution`>", 1
 "distr", "support", -1, 2, 0, "any", 1
 "distr", "support", 0, 2, 0, "class<`Dirac`>", 1
@@ -3518,7 +3621,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "support", 0, 6, 0, "class<`AffLinLatticeDistribution`>", 1
 "distr", "support", -1, 7, 0, "double[]", 1
 "distr", "support", 0, 7, 0, "class<`DiscreteDistribution`>", 1
-"distr", "support", -1, 8, 0, "(class<`Integer`> | double)", 1
+"distr", "support", -1, 8, 0, "class<`Integer`>", 1
+"distr", "support", -1, 8, 1, "double", 1
 "distr", "support", 0, 8, 0, "class<`Dirac`>", 1
 "distr", "support", -1, 9, 0, "double[]", 1
 "distr", "support", 0, 9, 0, "class<`Nbinom`>", 1
@@ -3536,7 +3640,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "Symmetry", 0, 0, 0, "class<`Binom`>", 1
 "distr", "Symmetry", -1, 1, 0, "class<`SphericalSymmetry`>", 1
 "distr", "Symmetry", 0, 1, 0, "class<`Norm`>", 1
-"distr", "Symmetry", -1, 2, 0, "(class<`NoSymmetry`> | class<`SphericalSymmetry`>)", 1
+"distr", "Symmetry", -1, 2, 0, "class<`NoSymmetry`>", 1
+"distr", "Symmetry", -1, 2, 1, "class<`SphericalSymmetry`>", 1
 "distr", "Symmetry", 0, 2, 0, "class<`Binom`>", 1
 "distr", "Symmetry", 0, 2, 1, "class<`Norm`>", 1
 "distr", "Td", -1, 0, 0, "class<`Td`>", 1
@@ -3545,7 +3650,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "Truncate", -1, 0, 0, "class<`LatticeDistribution`>", 1
 "distr", "Truncate", 0, 0, 0, "class<`LatticeDistribution`>", 1
 "distr", "Truncate", 1, 0, 0, "...", 1
-"distr", "Truncate", -1, 1, 0, "(class<`AbscontDistribution`> | class<`LatticeDistribution`>)", 1
+"distr", "Truncate", -1, 1, 0, "class<`AbscontDistribution`>", 1
+"distr", "Truncate", -1, 1, 1, "class<`LatticeDistribution`>", 1
 "distr", "Truncate", 0, 1, 0, "class<`AbscontDistribution`>", 1
 "distr", "Truncate", 0, 1, 1, "class<`AffLinAbscontDistribution`>", 1
 "distr", "Truncate", 0, 1, 2, "class<`Norm`>", 1
@@ -3572,7 +3678,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", ".trunc.up", 0, 0, 0, "class<`AbscontDistribution`>", 1
 "distr", ".trunc.up", 0, 0, 1, "class<`Norm`>", 1
 "distr", ".trunc.up", 1, 0, 0, "double", 1
-"distr", ".ULC.cast", -1, 0, 0, "(class<`AbscontDistribution`> | class<`UnivarLebDecDistribution`>)", 1
+"distr", ".ULC.cast", -1, 0, 0, "class<`AbscontDistribution`>", 1
+"distr", ".ULC.cast", -1, 0, 1, "class<`UnivarLebDecDistribution`>", 1
 "distr", ".ULC.cast", 0, 0, 0, "class<`CompoundDistribution`>", 1
 "distr", ".ULC.cast", 0, 0, 1, "class<`AbscontDistribution`>", 1
 "distr", ".ULC.cast", 0, 0, 2, "class<`Norm`>", 1
@@ -3593,7 +3700,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "distr", "UnivarLebDecDistribution", 5, 0, 0, "null", 1
 "distr", "UnivarLebDecDistribution", 6, 0, 0, "null", 1
 "distr", "UnivarLebDecDistribution", 7, 0, 0, "null", 1
-"distr", "UnivarMixingDistribution", -1, 0, 0, "(class<`UnivarLebDecDistribution`> | class<`UnivarMixingDistribution`>)", 1
+"distr", "UnivarMixingDistribution", -1, 0, 0, "class<`UnivarLebDecDistribution`>", 1
+"distr", "UnivarMixingDistribution", -1, 0, 1, "class<`UnivarMixingDistribution`>", 1
 "distr", "UnivarMixingDistribution", 0, 0, 0, "...", 1
 "distr", "UnivarMixingDistribution", 1, 0, 0, "any", 1
 "distr", "UnivarMixingDistribution", 2, 0, 0, "any", 1

@@ -167,7 +167,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "XLConnect", "existsSheet", -1, 1, 0, "logical", 1
 "XLConnect", "existsSheet", 0, 1, 0, "class<`workbook`>", 1
 "XLConnect", "existsSheet", 1, 1, 0, "character", 1
-"XLConnect", "extractRownames", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"XLConnect", "extractRownames", -1, 0, 0, "class<`data.frame`>", 1
+"XLConnect", "extractRownames", -1, 0, 1, "list<class<`data.frame`>>", 1
 "XLConnect", "extractRownames", 0, 0, 0, "class<`data.frame`>", 1
 "XLConnect", "extractRownames", 0, 0, 1, "list<class<`data.frame`>>", 1
 "XLConnect", "extractRownames", 1, 0, 0, "null", 1
@@ -456,7 +457,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "XLConnect", "readNamedRegion", 10, 1, 3, "list<double[]>", 1
 "XLConnect", "readNamedRegion", 11, 1, 0, "logical", 1
 "XLConnect", "readNamedRegion", 12, 1, 0, "character", 1
-"XLConnect", "readNamedRegionFromFile", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"XLConnect", "readNamedRegionFromFile", -1, 0, 0, "class<`data.frame`>", 1
+"XLConnect", "readNamedRegionFromFile", -1, 0, 1, "list<class<`data.frame`>>", 1
 "XLConnect", "readNamedRegionFromFile", 0, 0, 0, "character", 1
 "XLConnect", "readNamedRegionFromFile", 1, 0, 0, "...", 1
 "XLConnect", "readTable", -1, 0, 0, "class<`data.frame`>", 1
@@ -595,7 +597,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "XLConnect", "readWorksheet", 17, 2, 3, "list<double[]>", 1
 "XLConnect", "readWorksheet", 18, 2, 0, "logical", 1
 "XLConnect", "readWorksheet", 19, 2, 0, "character", 1
-"XLConnect", "readWorksheetFromFile", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"XLConnect", "readWorksheetFromFile", -1, 0, 0, "class<`data.frame`>", 1
+"XLConnect", "readWorksheetFromFile", -1, 0, 1, "list<class<`data.frame`>>", 1
 "XLConnect", "readWorksheetFromFile", 0, 0, 0, "character", 1
 "XLConnect", "readWorksheetFromFile", 1, 0, 0, "...", 1
 "XLConnect", "removeName", -1, 0, 0, "null", 1
@@ -846,7 +849,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "XLConnect", "unmergeCells", 0, 1, 0, "class<`workbook`>", 1
 "XLConnect", "unmergeCells", 1, 1, 0, "character", 1
 "XLConnect", "unmergeCells", 2, 1, 0, "character", 1
-"XLConnect", "with.workbook", -1, 0, 0, "(class<`table`> | logical)", 1
+"XLConnect", "with.workbook", -1, 0, 0, "class<`table`>", 1
+"XLConnect", "with.workbook", -1, 0, 1, "logical", 1
 "XLConnect", "with.workbook", 0, 0, 0, "class<`workbook`>", 1
 "XLConnect", "with.workbook", 1, 0, 0, "any", 1
 "XLConnect", "with.workbook", 2, 0, 0, "...", 1

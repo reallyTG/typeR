@@ -30,7 +30,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "allocVector", 1, 0, 0, "null", 1
 "matrixStats", "allocVector", 1, 0, 1, "double", 1
 "matrixStats", "allocVector", 2, 0, 0, "...", 1
-"matrixStats", "allValue", -1, 0, 0, "(logical | null)", 1
+"matrixStats", "allValue", -1, 0, 0, "logical", 1
+"matrixStats", "allValue", -1, 0, 1, "null", 1
 "matrixStats", "allValue", 0, 0, 0, "^character[]", 1
 "matrixStats", "allValue", 0, 0, 1, "^double[]", 1
 "matrixStats", "allValue", 1, 0, 0, "null", 1
@@ -50,7 +51,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "anyMissing", 0, 0, 7, "list<any>", 1
 "matrixStats", "anyMissing", 1, 0, 0, "null", 1
 "matrixStats", "anyMissing", 2, 0, 0, "...", 1
-"matrixStats", "anyValue", -1, 0, 0, "(logical | null)", 1
+"matrixStats", "anyValue", -1, 0, 0, "logical", 1
+"matrixStats", "anyValue", -1, 0, 1, "null", 1
 "matrixStats", "anyValue", 0, 0, 0, "^character[]", 1
 "matrixStats", "anyValue", 0, 0, 1, "^double[]", 1
 "matrixStats", "anyValue", 1, 0, 0, "null", 1
@@ -225,7 +227,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "colProds", 3, 0, 0, "logical", 1
 "matrixStats", "colProds", 4, 0, 0, "any", 1
 "matrixStats", "colProds", 5, 0, 0, "...", 1
-"matrixStats", "colQuantiles", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"matrixStats", "colQuantiles", -1, 0, 0, "class<`matrix`>", 1
+"matrixStats", "colQuantiles", -1, 0, 1, "double[]", 1
 "matrixStats", "colQuantiles", 0, 0, 0, "class<`matrix`>", 1
 "matrixStats", "colQuantiles", 1, 0, 0, "null", 1
 "matrixStats", "colQuantiles", 2, 0, 0, "null", 1
@@ -249,7 +252,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "colRanks", 4, 0, 0, "any", 1
 "matrixStats", "colRanks", 5, 0, 0, "logical", 1
 "matrixStats", "colRanks", 6, 0, 0, "...", 1
-"matrixStats", "colSds", -1, 0, 0, "(^double[] | null)", 1
+"matrixStats", "colSds", -1, 0, 0, "^double[]", 1
+"matrixStats", "colSds", -1, 0, 1, "null", 1
 "matrixStats", "colSds", 0, 0, 0, "class<`matrix`>", 1
 "matrixStats", "colSds", 1, 0, 0, "null", 1
 "matrixStats", "colSds", 2, 0, 0, "null", 1
@@ -273,7 +277,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "colTabulates", 3, 0, 1, "null", 1
 "matrixStats", "colTabulates", 3, 0, 2, "raw[]", 1
 "matrixStats", "colTabulates", 4, 0, 0, "...", 1
-"matrixStats", "colVars", -1, 0, 0, "(^double[] | null)", 1
+"matrixStats", "colVars", -1, 0, 0, "^double[]", 1
+"matrixStats", "colVars", -1, 0, 1, "null", 1
 "matrixStats", "colVars", 0, 0, 0, "class<`matrix`>", 1
 "matrixStats", "colVars", 1, 0, 0, "null", 1
 "matrixStats", "colVars", 2, 0, 0, "null", 1
@@ -322,7 +327,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "colWeightedVars", 3, 0, 0, "null", 1
 "matrixStats", "colWeightedVars", 4, 0, 0, "logical", 1
 "matrixStats", "colWeightedVars", 5, 0, 0, "...", 1
-"matrixStats", "count", -1, 0, 0, "(integer | null)", 1
+"matrixStats", "count", -1, 0, 0, "integer", 1
+"matrixStats", "count", -1, 0, 1, "null", 1
 "matrixStats", "count", 0, 0, 0, "^character[]", 1
 "matrixStats", "count", 0, 0, 1, "^double[]", 1
 "matrixStats", "count", 1, 0, 0, "null", 1
@@ -331,27 +337,31 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "count", 2, 0, 2, "double", 1
 "matrixStats", "count", 3, 0, 0, "any", 1
 "matrixStats", "count", 4, 0, 0, "...", 1
-"matrixStats", "diff2", -1, 0, 0, "(^double[] | null)", 1
+"matrixStats", "diff2", -1, 0, 0, "^double[]", 1
+"matrixStats", "diff2", -1, 0, 1, "null", 1
 "matrixStats", "diff2", 0, 0, 0, "^double[]", 1
 "matrixStats", "diff2", 1, 0, 0, "null", 1
 "matrixStats", "diff2", 2, 0, 0, "integer", 1
 "matrixStats", "diff2", 3, 0, 0, "integer", 1
 "matrixStats", "diff2", 4, 0, 0, "...", 1
-"matrixStats", "fcn", -1, 0, 0, "(double | null)", 1
+"matrixStats", "fcn", -1, 0, 0, "double", 1
+"matrixStats", "fcn", -1, 0, 1, "null", 1
 "matrixStats", "fcn", 0, 0, 0, "double[]", 1
 "matrixStats", "fcn", 1, 0, 0, "null", 1
 "matrixStats", "fcn", 2, 0, 0, "logical", 1
 "matrixStats", "fcn", 3, 0, 0, "integer", 1
 "matrixStats", "fcn", 4, 0, 0, "double", 1
 "matrixStats", "fcn", 5, 0, 0, "...", 1
-"matrixStats", "fcn", -1, 1, 0, "(double | null)", 1
+"matrixStats", "fcn", -1, 1, 0, "double", 1
+"matrixStats", "fcn", -1, 1, 1, "null", 1
 "matrixStats", "fcn", 0, 1, 0, "double[]", 1
 "matrixStats", "fcn", 1, 1, 0, "null", 1
 "matrixStats", "fcn", 2, 1, 0, "logical", 1
 "matrixStats", "fcn", 3, 1, 0, "integer", 1
 "matrixStats", "fcn", 4, 1, 0, "double", 1
 "matrixStats", "fcn", 5, 1, 0, "...", 1
-"matrixStats", "fcn", -1, 2, 0, "(double | null)", 1
+"matrixStats", "fcn", -1, 2, 0, "double", 1
+"matrixStats", "fcn", -1, 2, 1, "null", 1
 "matrixStats", "fcn", 0, 2, 0, "double[]", 1
 "matrixStats", "fcn", 1, 2, 0, "null", 1
 "matrixStats", "fcn", 2, 2, 0, "logical", 1
@@ -359,14 +369,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "fcn", 4, 2, 0, "double", 1
 "matrixStats", "fcn", 5, 2, 0, "double", 1
 "matrixStats", "fcn", 6, 2, 0, "...", 1
-"matrixStats", "fcn", -1, 3, 0, "(double | null)", 1
+"matrixStats", "fcn", -1, 3, 0, "double", 1
+"matrixStats", "fcn", -1, 3, 1, "null", 1
 "matrixStats", "fcn", 0, 3, 0, "double[]", 1
 "matrixStats", "fcn", 1, 3, 0, "null", 1
 "matrixStats", "fcn", 2, 3, 0, "logical", 1
 "matrixStats", "fcn", 3, 3, 0, "integer", 1
 "matrixStats", "fcn", 4, 3, 0, "double", 1
 "matrixStats", "fcn", 5, 3, 0, "...", 1
-"matrixStats", "fcn", -1, 4, 0, "(double | null)", 1
+"matrixStats", "fcn", -1, 4, 0, "double", 1
+"matrixStats", "fcn", -1, 4, 1, "null", 1
 "matrixStats", "fcn", 0, 4, 0, "^double[]", 1
 "matrixStats", "fcn", 1, 4, 0, "null", 1
 "matrixStats", "fcn", 1, 4, 1, "^double[]", 1
@@ -375,7 +387,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "fcn", 3, 4, 0, "logical", 1
 "matrixStats", "fcn", 4, 4, 0, "null", 1
 "matrixStats", "fcn", 5, 4, 0, "...", 1
-"matrixStats", "FUN", -1, 0, 0, "(double | null)", 1
+"matrixStats", "FUN", -1, 0, 0, "double", 1
+"matrixStats", "FUN", -1, 0, 1, "null", 1
 "matrixStats", "FUN", 0, 0, 0, "double[]", 1
 "matrixStats", "FUN", 0, 0, 1, "null", 1
 "matrixStats", "FUN", 1, 0, 0, "null", 1
@@ -393,25 +406,29 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "indexByRow", 1, 0, 0, "double[]", 1
 "matrixStats", "indexByRow", 1, 0, 1, "null", 1
 "matrixStats", "indexByRow", 2, 0, 0, "...", 1
-"matrixStats", "iqr", -1, 0, 0, "(double | null)", 1
+"matrixStats", "iqr", -1, 0, 0, "double", 1
+"matrixStats", "iqr", -1, 0, 1, "null", 1
 "matrixStats", "iqr", 0, 0, 0, "^double[]", 1
 "matrixStats", "iqr", 1, 0, 0, "null", 1
 "matrixStats", "iqr", 2, 0, 0, "logical", 1
 "matrixStats", "iqr", 3, 0, 0, "...", 1
-"matrixStats", "iqrDiff", -1, 0, 0, "(double | null)", 1
+"matrixStats", "iqrDiff", -1, 0, 0, "double", 1
+"matrixStats", "iqrDiff", -1, 0, 1, "null", 1
 "matrixStats", "iqrDiff", 0, 0, 0, "double[]", 1
 "matrixStats", "iqrDiff", 1, 0, 0, "null", 1
 "matrixStats", "iqrDiff", 2, 0, 0, "logical", 1
 "matrixStats", "iqrDiff", 3, 0, 0, "integer", 1
 "matrixStats", "iqrDiff", 4, 0, 0, "double", 1
 "matrixStats", "iqrDiff", 5, 0, 0, "...", 1
-"matrixStats", "logSumExp", -1, 0, 0, "(double | null)", 1
+"matrixStats", "logSumExp", -1, 0, 0, "double", 1
+"matrixStats", "logSumExp", -1, 0, 1, "null", 1
 "matrixStats", "logSumExp", 0, 0, 0, "^double[]", 1
 "matrixStats", "logSumExp", 0, 0, 1, "null", 1
 "matrixStats", "logSumExp", 1, 0, 0, "null", 1
 "matrixStats", "logSumExp", 2, 0, 0, "logical", 1
 "matrixStats", "logSumExp", 3, 0, 0, "...", 1
-"matrixStats", "madDiff", -1, 0, 0, "(double | null)", 1
+"matrixStats", "madDiff", -1, 0, 0, "double", 1
+"matrixStats", "madDiff", -1, 0, 1, "null", 1
 "matrixStats", "madDiff", 0, 0, 0, "double[]", 1
 "matrixStats", "madDiff", 1, 0, 0, "null", 1
 "matrixStats", "madDiff", 2, 0, 0, "logical", 1
@@ -419,14 +436,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "madDiff", 4, 0, 0, "double", 1
 "matrixStats", "madDiff", 5, 0, 0, "double", 1
 "matrixStats", "madDiff", 6, 0, 0, "...", 1
-"matrixStats", "mean2", -1, 0, 0, "(double | null)", 1
+"matrixStats", "mean2", -1, 0, 0, "double", 1
+"matrixStats", "mean2", -1, 0, 1, "null", 1
 "matrixStats", "mean2", 0, 0, 0, "^double[]", 1
 "matrixStats", "mean2", 1, 0, 0, "null", 1
 "matrixStats", "mean2", 1, 0, 1, "double[]", 1
 "matrixStats", "mean2", 2, 0, 0, "logical", 1
 "matrixStats", "mean2", 3, 0, 0, "logical", 1
 "matrixStats", "mean2", 4, 0, 0, "...", 1
-"matrixStats", "product", -1, 0, 0, "(double | null)", 1
+"matrixStats", "product", -1, 0, 0, "double", 1
+"matrixStats", "product", -1, 0, 1, "null", 1
 "matrixStats", "product", 0, 0, 0, "^double[]", 1
 "matrixStats", "product", 1, 0, 0, "null", 1
 "matrixStats", "product", 2, 0, 0, "logical", 1
@@ -581,7 +600,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "rowProds", 3, 0, 0, "logical", 1
 "matrixStats", "rowProds", 4, 0, 0, "any", 1
 "matrixStats", "rowProds", 5, 0, 0, "...", 1
-"matrixStats", "rowQuantiles", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"matrixStats", "rowQuantiles", -1, 0, 0, "class<`matrix`>", 1
+"matrixStats", "rowQuantiles", -1, 0, 1, "double[]", 1
 "matrixStats", "rowQuantiles", 0, 0, 0, "class<`matrix`>", 1
 "matrixStats", "rowQuantiles", 1, 0, 0, "null", 1
 "matrixStats", "rowQuantiles", 2, 0, 0, "null", 1
@@ -604,7 +624,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "rowRanks", 3, 0, 0, "character", 1
 "matrixStats", "rowRanks", 4, 0, 0, "any", 1
 "matrixStats", "rowRanks", 5, 0, 0, "...", 1
-"matrixStats", "rowSds", -1, 0, 0, "(^double[] | null)", 1
+"matrixStats", "rowSds", -1, 0, 0, "^double[]", 1
+"matrixStats", "rowSds", -1, 0, 1, "null", 1
 "matrixStats", "rowSds", 0, 0, 0, "class<`matrix`>", 1
 "matrixStats", "rowSds", 1, 0, 0, "null", 1
 "matrixStats", "rowSds", 2, 0, 0, "null", 1
@@ -628,7 +649,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "rowTabulates", 3, 0, 1, "null", 1
 "matrixStats", "rowTabulates", 3, 0, 2, "raw[]", 1
 "matrixStats", "rowTabulates", 4, 0, 0, "...", 1
-"matrixStats", "rowVars", -1, 0, 0, "(^double[] | null)", 1
+"matrixStats", "rowVars", -1, 0, 0, "^double[]", 1
+"matrixStats", "rowVars", -1, 0, 1, "null", 1
 "matrixStats", "rowVars", 0, 0, 0, "class<`matrix`>", 1
 "matrixStats", "rowVars", 1, 0, 0, "null", 1
 "matrixStats", "rowVars", 2, 0, 0, "null", 1
@@ -677,7 +699,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "rowWeightedVars", 3, 0, 0, "null", 1
 "matrixStats", "rowWeightedVars", 4, 0, 0, "logical", 1
 "matrixStats", "rowWeightedVars", 5, 0, 0, "...", 1
-"matrixStats", "sdDiff", -1, 0, 0, "(double | null)", 1
+"matrixStats", "sdDiff", -1, 0, 0, "double", 1
+"matrixStats", "sdDiff", -1, 0, 1, "null", 1
 "matrixStats", "sdDiff", 0, 0, 0, "double[]", 1
 "matrixStats", "sdDiff", 1, 0, 0, "null", 1
 "matrixStats", "sdDiff", 2, 0, 0, "logical", 1
@@ -709,14 +732,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "validateIndices", 0, 0, 0, "double[]", 1
 "matrixStats", "validateIndices", 1, 0, 0, "double", 1
 "matrixStats", "validateIndices", 2, 0, 0, "logical", 1
-"matrixStats", "varDiff", -1, 0, 0, "(double | null)", 1
+"matrixStats", "varDiff", -1, 0, 0, "double", 1
+"matrixStats", "varDiff", -1, 0, 1, "null", 1
 "matrixStats", "varDiff", 0, 0, 0, "double[]", 1
 "matrixStats", "varDiff", 1, 0, 0, "null", 1
 "matrixStats", "varDiff", 2, 0, 0, "logical", 1
 "matrixStats", "varDiff", 3, 0, 0, "integer", 1
 "matrixStats", "varDiff", 4, 0, 0, "double", 1
 "matrixStats", "varDiff", 5, 0, 0, "...", 1
-"matrixStats", "weightedMad", -1, 0, 0, "(double | null)", 1
+"matrixStats", "weightedMad", -1, 0, 0, "double", 1
+"matrixStats", "weightedMad", -1, 0, 1, "null", 1
 "matrixStats", "weightedMad", 0, 0, 0, "integer[]", 1
 "matrixStats", "weightedMad", 1, 0, 0, "double[]", 1
 "matrixStats", "weightedMad", 1, 0, 1, "null", 1
@@ -725,14 +750,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "weightedMad", 4, 0, 0, "double", 1
 "matrixStats", "weightedMad", 5, 0, 0, "null", 1
 "matrixStats", "weightedMad", 6, 0, 0, "...", 1
-"matrixStats", "weightedMean", -1, 0, 0, "(double | null)", 1
+"matrixStats", "weightedMean", -1, 0, 0, "double", 1
+"matrixStats", "weightedMean", -1, 0, 1, "null", 1
 "matrixStats", "weightedMean", 0, 0, 0, "^double[]", 1
 "matrixStats", "weightedMean", 1, 0, 0, "^double[]", 1
 "matrixStats", "weightedMean", 2, 0, 0, "null", 1
 "matrixStats", "weightedMean", 3, 0, 0, "logical", 1
 "matrixStats", "weightedMean", 4, 0, 0, "logical", 1
 "matrixStats", "weightedMean", 5, 0, 0, "...", 1
-"matrixStats", "weightedMedian", -1, 0, 0, "(double | null)", 1
+"matrixStats", "weightedMedian", -1, 0, 0, "double", 1
+"matrixStats", "weightedMedian", -1, 0, 1, "null", 1
 "matrixStats", "weightedMedian", 0, 0, 0, "double[]", 1
 "matrixStats", "weightedMedian", 0, 0, 1, "null", 1
 "matrixStats", "weightedMedian", 1, 0, 0, "null", 1
@@ -744,7 +771,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matrixStats", "weightedMedian", 5, 0, 0, "null", 1
 "matrixStats", "weightedMedian", 5, 0, 1, "character", 1
 "matrixStats", "weightedMedian", 6, 0, 0, "...", 1
-"matrixStats", "weightedVar", -1, 0, 0, "(double | null)", 1
+"matrixStats", "weightedVar", -1, 0, 0, "double", 1
+"matrixStats", "weightedVar", -1, 0, 1, "null", 1
 "matrixStats", "weightedVar", 0, 0, 0, "^double[]", 1
 "matrixStats", "weightedVar", 1, 0, 0, "null", 1
 "matrixStats", "weightedVar", 1, 0, 1, "^double[]", 1

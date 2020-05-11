@@ -78,7 +78,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "e1071", "compareMatchedClasses", 3, 0, 0, "double", 1
 "e1071", "compareMatchedClasses", 4, 0, 0, "double", 1
 "e1071", "compareMatchedClasses", 5, 0, 0, "logical", 1
-"e1071", "countpattern", -1, 0, 0, "(integer[] | list<double[]>)", 1
+"e1071", "countpattern", -1, 0, 0, "integer[]", 1
+"e1071", "countpattern", -1, 0, 1, "list<double[]>", 1
 "e1071", "countpattern", 0, 0, 0, "class<`matrix`>", 1
 "e1071", "countpattern", 1, 0, 0, "logical", 1
 "e1071", "cshell", -1, 0, 0, "class<`cshell`, `fclust`>", 1
@@ -108,7 +109,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "e1071", "fclustIndex", 0, 0, 0, "class<`fclust`>", 1
 "e1071", "fclustIndex", 1, 0, 0, "class<`matrix`>", 1
 "e1071", "fclustIndex", 2, 0, 0, "character", 1
-"e1071", "hamming.distance", -1, 0, 0, "(class<`matrix`> | integer)", 1
+"e1071", "hamming.distance", -1, 0, 0, "class<`matrix`>", 1
+"e1071", "hamming.distance", -1, 0, 1, "integer", 1
 "e1071", "hamming.distance", 0, 0, 0, "class<`matrix`>", 1
 "e1071", "hamming.distance", 0, 0, 1, "double[]", 1
 "e1071", "hamming.distance", 1, 0, 0, "any", 1
@@ -227,7 +229,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "e1071", "plot.svm", 8, 0, 0, "character", 1
 "e1071", "plot.svm", 8, 0, 1, "double", 1
 "e1071", "plot.svm", 9, 0, 0, "...", 1
-"e1071", "plot.tune", -1, 0, 0, "(class<`matrix`> | null)", 1
+"e1071", "plot.tune", -1, 0, 0, "class<`matrix`>", 1
+"e1071", "plot.tune", -1, 0, 1, "null", 1
 "e1071", "plot.tune", 0, 0, 0, "class<`tune`>", 1
 "e1071", "plot.tune", 1, 0, 0, "character[]", 1
 "e1071", "plot.tune", 2, 0, 0, "double", 1
@@ -248,14 +251,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "e1071", "predict.lca", 0, 0, 0, "class<`lca`>", 1
 "e1071", "predict.lca", 1, 0, 0, "class<`matrix`>", 1
 "e1071", "predict.lca", 2, 0, 0, "...", 1
-"e1071", "predict.naiveBayes", -1, 0, 0, "(class<`factor`> | class<`matrix`>)", 1
+"e1071", "predict.naiveBayes", -1, 0, 0, "class<`factor`>", 1
+"e1071", "predict.naiveBayes", -1, 0, 1, "class<`matrix`>", 1
 "e1071", "predict.naiveBayes", 0, 0, 0, "class<`naiveBayes`>", 1
 "e1071", "predict.naiveBayes", 1, 0, 0, "class<`data.frame`>", 1
 "e1071", "predict.naiveBayes", 2, 0, 0, "character[]", 1
 "e1071", "predict.naiveBayes", 3, 0, 0, "double", 1
 "e1071", "predict.naiveBayes", 4, 0, 0, "double", 1
 "e1071", "predict.naiveBayes", 5, 0, 0, "...", 1
-"e1071", "predict.svm", -1, 0, 0, "(class<`factor`> | double[])", 1
+"e1071", "predict.svm", -1, 0, 0, "class<`factor`>", 1
+"e1071", "predict.svm", -1, 0, 1, "double[]", 1
 "e1071", "predict.svm", 0, 0, 0, "class<`svm`>", 1
 "e1071", "predict.svm", 0, 0, 1, "class<`svm`, `svm.formula`>", 1
 "e1071", "predict.svm", 1, 0, 0, "class<`data.frame`>", 1
@@ -265,7 +270,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "e1071", "predict.svm", 3, 0, 0, "logical", 1
 "e1071", "predict.svm", 4, 0, 0, "...", 1
 "e1071", "predict.svm", 5, 0, 0, "class<`function`>", 1
-"e1071", "print.fclust", -1, 0, 0, "(class<`cshell`, `fclust`> | class<`fclust`>)", 1
+"e1071", "print.fclust", -1, 0, 0, "class<`cshell`, `fclust`>", 1
+"e1071", "print.fclust", -1, 0, 1, "class<`fclust`>", 1
 "e1071", "print.fclust", 0, 0, 0, "class<`cshell`, `fclust`>", 1
 "e1071", "print.fclust", 0, 0, 1, "class<`fclust`>", 1
 "e1071", "print.fclust", 1, 0, 0, "...", 1
@@ -287,7 +293,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "e1071", "rbridge", -1, 0, 0, "class<`ts`>", 1
 "e1071", "rbridge", 0, 0, 0, "double", 1
 "e1071", "rbridge", 1, 0, 0, "double", 1
-"e1071", "rdiscrete", -1, 0, 0, "(character[] | integer[])", 1
+"e1071", "rdiscrete", -1, 0, 0, "character[]", 1
+"e1071", "rdiscrete", -1, 0, 1, "integer[]", 1
 "e1071", "rdiscrete", 0, 0, 0, "double", 1
 "e1071", "rdiscrete", 1, 0, 0, "double[]", 1
 "e1071", "rdiscrete", 2, 0, 0, "character[]", 1
@@ -329,7 +336,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "e1071", "summary.tune", -1, 0, 0, "class<`summary.tune`>", 1
 "e1071", "summary.tune", 0, 0, 0, "class<`tune`>", 1
 "e1071", "summary.tune", 1, 0, 0, "...", 1
-"e1071", "svm", -1, 0, 0, "(class<`svm`> | class<`svm`, `svm.formula`>)", 1
+"e1071", "svm", -1, 0, 0, "class<`svm`>", 1
+"e1071", "svm", -1, 0, 1, "class<`svm`, `svm.formula`>", 1
 "e1071", "svm", 0, 0, 0, "class<`data.frame`>", 1
 "e1071", "svm", 0, 0, 1, "double[]", 1
 "e1071", "svm", 0, 0, 2, "class<`formula`>", 1

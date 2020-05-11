@@ -51,10 +51,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "hash", ".set", -1, 0, 0, "null", 1
 "hash", ".set", 0, 0, 0, "class<`hash`>", 1
 "hash", ".set", 1, 0, 0, "...", 1
-"hash", "values", -1, 0, 0, "(character[] | integer[] | list<integer>)", 1
+"hash", "values", -1, 0, 0, "character[]", 1
+"hash", "values", -1, 0, 1, "integer[]", 1
+"hash", "values", -1, 0, 2, "list<integer>", 1
 "hash", "values", 0, 0, 0, "class<`hash`>", 1
 "hash", "values", 1, 0, 0, "...", 1
-"hash", "values", -1, 1, 0, "(character[] | integer[] | list<integer>)", 1
+"hash", "values", -1, 1, 0, "character[]", 1
+"hash", "values", -1, 1, 1, "integer[]", 1
+"hash", "values", -1, 1, 2, "list<integer>", 1
 "hash", "values", 0, 1, 0, "class<`hash`>", 1
 "hash", "values", 1, 1, 0, "...", 1
 "hash", "values<-", -1, 0, 0, "class<`hash`>", 1

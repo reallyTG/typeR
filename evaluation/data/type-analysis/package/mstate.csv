@@ -48,7 +48,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mstate", "ELOS", 1, 0, 0, "any", 1
 "mstate", "events", -1, 0, 0, "list<class<`table`>>", 1
 "mstate", "events", 0, 0, 0, "class<`data.frame`, `msdata`>", 1
-"mstate", "expand.covs", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `msdata`>)", 1
+"mstate", "expand.covs", -1, 0, 0, "class<`data.frame`>", 1
+"mstate", "expand.covs", -1, 0, 1, "class<`data.frame`, `msdata`>", 1
 "mstate", "expand.covs", 0, 0, 0, "class<`data.frame`>", 1
 "mstate", "expand.covs", 0, 0, 1, "class<`data.frame`, `msdata`>", 1
 "mstate", "expand.covs", 1, 0, 0, "...", 1
@@ -59,7 +60,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mstate", "expand.covs.default", 3, 0, 0, "logical", 1
 "mstate", "expand.covs.default", 4, 0, 0, "character", 1
 "mstate", "expand.covs.default", 5, 0, 0, "...", 1
-"mstate", "expand.covs.msdata", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `msdata`>)", 1
+"mstate", "expand.covs.msdata", -1, 0, 0, "class<`data.frame`>", 1
+"mstate", "expand.covs.msdata", -1, 0, 1, "class<`data.frame`, `msdata`>", 1
 "mstate", "expand.covs.msdata", 0, 0, 0, "class<`data.frame`, `msdata`>", 1
 "mstate", "expand.covs.msdata", 1, 0, 0, "character[]", 1
 "mstate", "expand.covs.msdata", 2, 0, 0, "logical", 1
@@ -115,7 +117,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mstate", "msprepEngine", 6, 0, 0, "any", 1
 "mstate", "msprepEngine", 7, 0, 0, "class<`matrix`>", 1
 "mstate", "msprepEngine", 7, 0, 1, "null", 1
-"mstate", "mssample", -1, 0, 0, "(class<`data.frame`> | class<`msdata`>)", 1
+"mstate", "mssample", -1, 0, 0, "class<`data.frame`>", 1
+"mstate", "mssample", -1, 0, 1, "class<`msdata`>", 1
 "mstate", "mssample", 0, 0, 0, "class<`data.frame`>", 1
 "mstate", "mssample", 1, 0, 0, "class<`matrix`>", 1
 "mstate", "mssample", 2, 0, 0, "list<double | null>", 1

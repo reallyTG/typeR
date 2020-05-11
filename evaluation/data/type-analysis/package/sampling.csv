@@ -77,7 +77,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sampling", "gencalib", 7, 0, 0, "logical", 1
 "sampling", "gencalib", 8, 0, 0, "double", 1
 "sampling", "gencalib", 9, 0, 0, "double", 1
-"sampling", "getdata", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"sampling", "getdata", -1, 0, 0, "class<`data.frame`>", 1
+"sampling", "getdata", -1, 0, 1, "list<class<`data.frame`>>", 1
 "sampling", "getdata", 0, 0, 0, "class<`data.frame`>", 1
 "sampling", "getdata", 0, 0, 1, "class<`factor`>", 1
 "sampling", "getdata", 1, 0, 0, "class<`data.frame`>", 1
@@ -272,6 +273,7 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sampling", "vartaylor_ratio", 0, 0, 0, "integer[]", 1
 "sampling", "vartaylor_ratio", 1, 0, 0, "integer[]", 1
 "sampling", "vartaylor_ratio", 2, 0, 0, "class<`matrix`>", 1
-"sampling", "writesample", -1, 0, 0, "(class<`matrix`> | double)", 1
+"sampling", "writesample", -1, 0, 0, "class<`matrix`>", 1
+"sampling", "writesample", -1, 0, 1, "double", 1
 "sampling", "writesample", 0, 0, 0, "double", 1
 "sampling", "writesample", 1, 0, 0, "double", 1

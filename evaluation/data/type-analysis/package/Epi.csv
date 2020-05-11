@@ -114,7 +114,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "Aplot", 17, 0, 0, "character", 1
 "Epi", "Aplot", 18, 0, 0, "double", 1
 "Epi", "Aplot", 19, 0, 0, "any", 1
-"Epi", "array.subset", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"Epi", "array.subset", -1, 0, 0, "class<`array`>", 1
+"Epi", "array.subset", -1, 0, 1, "class<`matrix`>", 1
 "Epi", "array.subset", 0, 0, 0, "double[]", 1
 "Epi", "array.subset", 1, 0, 0, "double[]", 1
 "Epi", "array.subset", 2, 0, 0, "double[]", 1
@@ -134,7 +135,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "boxarr", 2, 0, 0, "double[]", 1
 "Epi", "boxarr", 3, 0, 0, "double", 1
 "Epi", "boxarr", 4, 0, 0, "...", 1
-"Epi", "boxes", -1, 0, 0, "(class<`MS`> | null)", 1
+"Epi", "boxes", -1, 0, 0, "class<`MS`>", 1
+"Epi", "boxes", -1, 0, 1, "null", 1
 "Epi", "boxes", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "boxes", 0, 0, 1, "class<`matrix`>", 1
 "Epi", "boxes", 0, 0, 2, "class<`MS`>", 1
@@ -172,7 +174,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "boxes.MS", 2, 0, 0, "any", 1
 "Epi", "boxes.MS", 3, 0, 0, "double", 1
 "Epi", "boxes.MS", 4, 0, 0, "...", 1
-"Epi", "cal.yr", -1, 0, 0, "(class<`cal.yr`, `numeric`> | class<`data.frame`>)", 1
+"Epi", "cal.yr", -1, 0, 0, "class<`cal.yr`, `numeric`>", 1
+"Epi", "cal.yr", -1, 0, 1, "class<`data.frame`>", 1
 "Epi", "cal.yr", 0, 0, 0, "character[]", 1
 "Epi", "cal.yr", 0, 0, 1, "class<`Date`>", 1
 "Epi", "cal.yr", 0, 0, 2, "class<`factor`>", 1
@@ -323,7 +326,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "contr.diff", 0, 0, 0, "double", 1
 "Epi", "contr.orth", -1, 0, 0, "class<`matrix`>", 1
 "Epi", "contr.orth", 0, 0, 0, "double", 1
-"Epi", "count", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"Epi", "count", -1, 0, 0, "class<`array`>", 1
+"Epi", "count", -1, 0, 1, "class<`matrix`>", 1
 "Epi", "count", 0, 0, 0, "any", 1
 "Epi", "Cplot", -1, 0, 0, "null", 1
 "Epi", "Cplot", 0, 0, 0, "class<`matrix`>", 1
@@ -368,7 +372,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "cutLexis", 7, 0, 2, "null", 1
 "Epi", "cutLexis", 7, 0, 3, "character[]", 1
 "Epi", "cutLexis", 8, 0, 0, "logical", 1
-"Epi", "df2ctr", -1, 0, 0, "(class<`matrix`> | list<any>)", 1
+"Epi", "df2ctr", -1, 0, 0, "class<`matrix`>", 1
+"Epi", "df2ctr", -1, 0, 1, "list<any>", 1
 "Epi", "df2ctr", 0, 0, 0, "class<`glm`, `lm`>", 1
 "Epi", "df2ctr", 0, 0, 1, "class<`lm`>", 1
 "Epi", "df2ctr", 0, 0, 2, "class<`gam`, `glm`, `lm`>", 1
@@ -381,7 +386,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "dur", -1, 0, 0, "double[]", 1
 "Epi", "dur", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "dur", 1, 0, 0, "logical", 1
-"Epi", "effx", -1, 0, 0, "(null | list<class<`matrix`> | character>)", 1
+"Epi", "effx", -1, 0, 0, "null", 1
+"Epi", "effx", -1, 0, 1, "list<class<`matrix`> | character>", 1
 "Epi", "effx", 0, 0, 0, "any", 1
 "Epi", "effx", 1, 0, 0, "character", 1
 "Epi", "effx", 2, 0, 0, "null", 1
@@ -395,7 +401,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "effx", 9, 0, 0, "double", 1
 "Epi", "effx", 10, 0, 0, "double", 1
 "Epi", "effx", 11, 0, 0, "class<`data.frame`>", 1
-"Epi", "effx.match", -1, 0, 0, "(null | list<class<`matrix`> | character>)", 1
+"Epi", "effx.match", -1, 0, 0, "null", 1
+"Epi", "effx.match", -1, 0, 1, "list<class<`matrix`> | character>", 1
 "Epi", "effx.match", 0, 0, 0, "any", 1
 "Epi", "effx.match", 1, 0, 0, "any", 1
 "Epi", "effx.match", 2, 0, 0, "any", 1
@@ -419,7 +426,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "etm.Lexis", 5, 0, 0, "logical", 1
 "Epi", "etm.Lexis", 6, 0, 0, "logical", 1
 "Epi", "etm.Lexis", 7, 0, 0, "...", 1
-"Epi", "exit", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"Epi", "exit", -1, 0, 0, "class<`matrix`>", 1
+"Epi", "exit", -1, 0, 1, "double[]", 1
 "Epi", "exit", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "exit", 1, 0, 0, "null", 1
 "Epi", "exit", 1, 0, 1, "character", 1
@@ -436,7 +444,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "factorize.Lexis", 1, 0, 2, "list<character[]>", 1
 "Epi", "factorize.Lexis", 2, 0, 0, "logical", 1
 "Epi", "factorize.Lexis", 3, 0, 0, "...", 1
-"Epi", "fgrep", -1, 0, 0, "(character[] | class<`factor`>)", 1
+"Epi", "fgrep", -1, 0, 0, "character[]", 1
+"Epi", "fgrep", -1, 0, 1, "class<`factor`>", 1
 "Epi", "fgrep", 0, 0, 0, "character", 1
 "Epi", "fgrep", 1, 0, 0, "character[]", 1
 "Epi", "fgrep", 1, 0, 1, "class<`factor`>", 1
@@ -477,7 +486,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "fit.mult", 3, 0, 0, "any", 1
 "Epi", "fixEvent", -1, 0, 0, "integer[]", 1
 "Epi", "fixEvent", 0, 0, 0, "double[]", 1
-"Epi", "FUN", -1, 0, 0, "(class<`summary.Lexis`> | list<class<`summary.Lexis`>>)", 1
+"Epi", "FUN", -1, 0, 0, "class<`summary.Lexis`>", 1
+"Epi", "FUN", -1, 0, 1, "list<class<`summary.Lexis`>>", 1
 "Epi", "FUN", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "FUN", 1, 0, 0, "logical", 1
 "Epi", "FUN", 2, 0, 0, "double", 1
@@ -536,7 +546,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "id.span", 0, 0, 0, "class<`matrix`>", 1
 "Epi", "id.span", 1, 0, 0, "class<`matrix`>", 1
 "Epi", "id.span", 2, 0, 0, "double", 1
-"Epi", "in.span", -1, 0, 0, "(class<`matrix`> | logical)", 1
+"Epi", "in.span", -1, 0, 0, "class<`matrix`>", 1
+"Epi", "in.span", -1, 0, 1, "logical", 1
 "Epi", "in.span", 0, 0, 0, "class<`matrix`>", 1
 "Epi", "in.span", 1, 0, 0, "class<`matrix`>", 1
 "Epi", "in.span", 1, 0, 1, "integer[]", 1
@@ -568,7 +579,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "LCa.fit", 14, 0, 0, "double", 1
 "Epi", "LCa.fit", 15, 0, 0, "double", 1
 "Epi", "LCa.fit", 16, 0, 0, "logical", 1
-"Epi", "levels.Lexis", -1, 0, 0, "(character[] | null)", 1
+"Epi", "levels.Lexis", -1, 0, 0, "character[]", 1
+"Epi", "levels.Lexis", -1, 0, 1, "null", 1
 "Epi", "levels.Lexis", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "Lexis", -1, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "Lexis", 0, 0, 0, "any", 1
@@ -585,10 +597,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "Lexis", 9, 0, 0, "logical", 1
 "Epi", "Lexis", 10, 0, 0, "double", 1
 "Epi", "Lexis", 11, 0, 0, "logical", 1
-"Epi", "[.Lexis", -1, 0, 0, "(^character[] | class<`cal.yr`, `numeric`> | class<`factor`> | class<`Lexis`, `data.frame`> | ^double[])", 1
+"Epi", "[.Lexis", -1, 0, 0, "^character[]", 1
+"Epi", "[.Lexis", -1, 0, 1, "class<`cal.yr`, `numeric`>", 1
+"Epi", "[.Lexis", -1, 0, 2, "class<`factor`>", 1
+"Epi", "[.Lexis", -1, 0, 3, "class<`Lexis`, `data.frame`>", 1
+"Epi", "[.Lexis", -1, 0, 4, "^double[]", 1
 "Epi", "[.Lexis", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "[.Lexis", 1, 0, 0, "...", 1
-"Epi", "Lexis.diagram", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"Epi", "Lexis.diagram", -1, 0, 0, "class<`data.frame`>", 1
+"Epi", "Lexis.diagram", -1, 0, 1, "null", 1
 "Epi", "Lexis.diagram", 0, 0, 0, "double[]", 1
 "Epi", "Lexis.diagram", 1, 0, 0, "character", 1
 "Epi", "Lexis.diagram", 2, 0, 0, "double[]", 1
@@ -668,7 +685,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "list.lex", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "list.lex", 1, 0, 0, "double", 1
 "Epi", "list.lex", 2, 0, 0, "character", 1
-"Epi", "lls", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"Epi", "lls", -1, 0, 0, "class<`data.frame`>", 1
+"Epi", "lls", -1, 0, 1, "null", 1
 "Epi", "lls", 0, 0, 0, "double", 1
 "Epi", "lls", 1, 0, 0, "character", 1
 "Epi", "lls", 2, 0, 0, "logical", 1
@@ -727,13 +745,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "msdata.Lexis", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "msdata.Lexis", 1, 0, 0, "character", 1
 "Epi", "msdata.Lexis", 2, 0, 0, "...", 1
-"Epi", "N2Y", -1, 0, 0, "(class<`array`> | class<`data.frame`>)", 1
+"Epi", "N2Y", -1, 0, 0, "class<`array`>", 1
+"Epi", "N2Y", -1, 0, 1, "class<`data.frame`>", 1
 "Epi", "N2Y", 0, 0, 0, "any", 1
 "Epi", "N2Y", 1, 0, 0, "any", 1
 "Epi", "N2Y", 2, 0, 0, "any", 1
 "Epi", "N2Y", 3, 0, 0, "class<`data.frame`>", 1
 "Epi", "N2Y", 4, 0, 0, "logical", 1
-"Epi", "NArray", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"Epi", "NArray", -1, 0, 0, "class<`array`>", 1
+"Epi", "NArray", -1, 0, 1, "class<`matrix`>", 1
 "Epi", "NArray", 0, 0, 0, "list<character[] | integer[]>", 1
 "Epi", "NArray", 1, 0, 0, "null", 1
 "Epi", "ncut", -1, 0, 0, "^double[]", 1
@@ -792,7 +812,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "pctab", 0, 0, 1, "class<`table`>", 1
 "Epi", "pctab", 1, 0, 0, "double", 1
 "Epi", "pctab", 2, 0, 0, "double", 1
-"Epi", "percent", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"Epi", "percent", -1, 0, 0, "class<`array`>", 1
+"Epi", "percent", -1, 0, 1, "class<`matrix`>", 1
 "Epi", "percent", 0, 0, 0, "...", 1
 "Epi", "plotCIF", -1, 0, 0, "null", 1
 "Epi", "plotCIF", 0, 0, 0, "class<`survfit`, `survfitms`>", 1
@@ -1057,12 +1078,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "stack.Lexis", -1, 0, 0, "class<`data.frame`, `stacked.Lexis`>", 1
 "Epi", "stack.Lexis", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "stack.Lexis", 1, 0, 0, "...", 1
-"Epi", "stat.table", -1, 0, 0, "(class<`array`, `stat.table`> | class<`matrix`, `stat.table`>)", 1
+"Epi", "stat.table", -1, 0, 0, "class<`array`, `stat.table`>", 1
+"Epi", "stat.table", -1, 0, 1, "class<`matrix`, `stat.table`>", 1
 "Epi", "stat.table", 0, 0, 0, "any", 1
 "Epi", "stat.table", 1, 0, 0, "any", 1
 "Epi", "stat.table", 2, 0, 0, "class<`data.frame`>", 1
 "Epi", "stat.table", 3, 0, 0, "logical[]", 1
-"Epi", "status", -1, 0, 0, "(class<`factor`> | double[])", 1
+"Epi", "status", -1, 0, 0, "class<`factor`>", 1
+"Epi", "status", -1, 0, 1, "double[]", 1
 "Epi", "status", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "status", 1, 0, 0, "character", 1
 "Epi", "status", 2, 0, 0, "logical", 1
@@ -1083,7 +1106,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "summary.LCa", 0, 0, 0, "class<`LCa`>", 1
 "Epi", "summary.LCa", 1, 0, 0, "logical", 1
 "Epi", "summary.LCa", 2, 0, 0, "...", 1
-"Epi", "summary.Lexis", -1, 0, 0, "(class<`summary.Lexis`> | list<class<`summary.Lexis`>>)", 1
+"Epi", "summary.Lexis", -1, 0, 0, "class<`summary.Lexis`>", 1
+"Epi", "summary.Lexis", -1, 0, 1, "list<class<`summary.Lexis`>>", 1
 "Epi", "summary.Lexis", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "summary.Lexis", 1, 0, 0, "logical", 1
 "Epi", "summary.Lexis", 2, 0, 0, "double", 1
@@ -1117,7 +1141,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Epi", "thinCol", 0, 0, 0, "class<`matrix`>", 1
 "Epi", "thinCol", 1, 0, 0, "double", 1
 "Epi", "thinCol", 2, 0, 0, "logical", 1
-"Epi", "timeBand", -1, 0, 0, "(class<`factor`> | double[])", 1
+"Epi", "timeBand", -1, 0, 0, "class<`factor`>", 1
+"Epi", "timeBand", -1, 0, 1, "double[]", 1
 "Epi", "timeBand", 0, 0, 0, "class<`Lexis`, `data.frame`>", 1
 "Epi", "timeBand", 1, 0, 0, "character", 1
 "Epi", "timeBand", 2, 0, 0, "character", 1

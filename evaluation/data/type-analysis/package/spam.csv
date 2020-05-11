@@ -5,7 +5,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "all.equal", 0, 0, 0, "class<`matrix`>", 1
 "spam", "all.equal", 1, 0, 0, "class<`spam`>", 1
 "spam", "all.equal", 2, 0, 0, "...", 1
-"spam", "all.equal", -1, 1, 0, "(character[] | logical)", 1
+"spam", "all.equal", -1, 1, 0, "character[]", 1
+"spam", "all.equal", -1, 1, 1, "logical", 1
 "spam", "all.equal", 0, 1, 0, "class<`spam`>", 1
 "spam", "all.equal", 1, 1, 0, "class<`spam`>", 1
 "spam", "all.equal", 2, 1, 0, "...", 1
@@ -13,14 +14,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "all.equal", 0, 2, 0, "class<`spam`>", 1
 "spam", "all.equal", 1, 2, 0, "class<`matrix`>", 1
 "spam", "all.equal", 2, 2, 0, "...", 1
-"spam", "all.equal.spam", -1, 0, 0, "(character[] | logical)", 1
+"spam", "all.equal.spam", -1, 0, 0, "character[]", 1
+"spam", "all.equal.spam", -1, 0, 1, "logical", 1
 "spam", "all.equal.spam", 0, 0, 0, "class<`spam`>", 1
 "spam", "all.equal.spam", 1, 0, 0, "class<`spam`>", 1
 "spam", "all.equal.spam", 2, 0, 0, "any", 1
 "spam", "all.equal.spam", 3, 0, 0, "null", 1
 "spam", "all.equal.spam", 4, 0, 0, "logical", 1
 "spam", "all.equal.spam", 5, 0, 0, "...", 1
-"spam", "apply.spam", -1, 0, 0, "(class<`matrix`> | class<`spam`> | double[] | list<class<`table`> | double[]>)", 1
+"spam", "apply.spam", -1, 0, 0, "class<`matrix`>", 1
+"spam", "apply.spam", -1, 0, 1, "class<`spam`>", 1
+"spam", "apply.spam", -1, 0, 2, "double[]", 1
+"spam", "apply.spam", -1, 0, 3, "list<class<`table`> | double[]>", 1
 "spam", "apply.spam", 0, 0, 0, "class<`spam`>", 1
 "spam", "apply.spam", 1, 0, 0, "double[]", 1
 "spam", "apply.spam", 1, 0, 1, "null", 1
@@ -76,7 +81,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "as.spam.spam", -1, 0, 0, "class<`spam`>", 1
 "spam", "as.spam.spam", 0, 0, 0, "class<`spam`>", 1
 "spam", "as.spam.spam", 1, 0, 0, "double", 1
-"spam", "backsolve", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"spam", "backsolve", -1, 0, 0, "class<`matrix`>", 1
+"spam", "backsolve", -1, 0, 1, "double[]", 1
 "spam", "backsolve", 0, 0, 0, "class<`spam.chol.NgPeyton`>", 1
 "spam", "backsolve", 1, 0, 0, "class<`matrix`>", 1
 "spam", "backsolve", 1, 0, 1, "double[]", 1
@@ -85,7 +91,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "backsolve", 0, 1, 0, "class<`matrix`>", 1
 "spam", "backsolve", 1, 1, 0, "class<`matrix`>", 1
 "spam", "backsolve", 2, 1, 0, "...", 1
-"spam", "backsolve", -1, 2, 0, "(class<`matrix`> | double[])", 1
+"spam", "backsolve", -1, 2, 0, "class<`matrix`>", 1
+"spam", "backsolve", -1, 2, 1, "double[]", 1
 "spam", "backsolve", 0, 2, 0, "class<`matrix`>", 1
 "spam", "backsolve", 0, 2, 1, "class<`spam.chol.NgPeyton`>", 1
 "spam", "backsolve", 1, 2, 0, "class<`matrix`>", 1
@@ -148,7 +155,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "%d+%", 0, 1, 0, "integer[]", 1
 "spam", "%d+%", 1, 1, 0, "class<`matrix`>", 1
 "spam", "%d+%", 2, 1, 0, "...", 1
-"spam", "%d+%", -1, 2, 0, "(class<`matrix`> | class<`spam`>)", 1
+"spam", "%d+%", -1, 2, 0, "class<`matrix`>", 1
+"spam", "%d+%", -1, 2, 1, "class<`spam`>", 1
 "spam", "%d+%", 0, 2, 0, "integer[]", 1
 "spam", "%d+%", 1, 2, 0, "class<`matrix`>", 1
 "spam", "%d+%", 1, 2, 1, "class<`spam`>", 1
@@ -181,7 +189,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "diag.of.spam", 0, 0, 0, "class<`spam`>", 1
 "spam", "diag.of.spam", 1, 0, 0, "any", 1
 "spam", "diag.of.spam", 2, 0, 0, "any", 1
-"spam", "diag.spam", -1, 0, 0, "(class<`spam`> | double[])", 1
+"spam", "diag.spam", -1, 0, 0, "class<`spam`>", 1
+"spam", "diag.spam", -1, 0, 1, "double[]", 1
 "spam", "diag.spam", 0, 0, 0, "double[]", 1
 "spam", "diag.spam", 0, 0, 1, "class<`spam`>", 1
 "spam", "diag.spam", 1, 0, 0, "any", 1
@@ -228,12 +237,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", ".format.spam", 0, 0, 1, "class<`spam.chol.NgPeyton`>", 1
 "spam", ".format.spam", 1, 0, 0, "...", 1
 "spam", ".format.spam", 2, 0, 0, "logical", 1
-"spam", "forwardsolve", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"spam", "forwardsolve", -1, 0, 0, "class<`matrix`>", 1
+"spam", "forwardsolve", -1, 0, 1, "double[]", 1
 "spam", "forwardsolve", 0, 0, 0, "class<`spam.chol.NgPeyton`>", 1
 "spam", "forwardsolve", 1, 0, 0, "class<`matrix`>", 1
 "spam", "forwardsolve", 1, 0, 1, "double[]", 1
 "spam", "forwardsolve", 2, 0, 0, "...", 1
-"spam", "forwardsolve", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"spam", "forwardsolve", -1, 1, 0, "class<`matrix`>", 1
+"spam", "forwardsolve", -1, 1, 1, "double[]", 1
 "spam", "forwardsolve", 0, 1, 0, "class<`spam.chol.NgPeyton`>", 1
 "spam", "forwardsolve", 1, 1, 0, "class<`matrix`>", 1
 "spam", "forwardsolve", 1, 1, 1, "double[]", 1
@@ -348,7 +359,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "kronecker.spam", 2, 0, 0, "character", 1
 "spam", "kronecker.spam", 3, 0, 0, "logical", 1
 "spam", "kronecker.spam", 4, 0, 0, "...", 1
-"spam", ".local", -1, 0, 0, "(character[] | logical)", 1
+"spam", ".local", -1, 0, 0, "character[]", 1
+"spam", ".local", -1, 0, 1, "logical", 1
 "spam", ".local", 0, 0, 0, "class<`spam`>", 1
 "spam", ".local", 1, 0, 0, "class<`spam`>", 1
 "spam", ".local", 2, 0, 0, "any", 1
@@ -536,7 +548,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "setMode", 0, 0, 0, "character", 1
 "spam", "setMode", 1, 0, 0, "logical", 1
 "spam", "setMode", 2, 0, 0, "logical", 1
-"spam", "solve", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"spam", "solve", -1, 0, 0, "class<`matrix`>", 1
+"spam", "solve", -1, 0, 1, "double[]", 1
 "spam", "solve", 0, 0, 0, "class<`spam`>", 1
 "spam", "solve", 1, 0, 0, "any", 1
 "spam", "solve", 2, 0, 0, "...", 1
@@ -633,7 +646,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "spam", "triplet", 1, 0, 0, "logical", 1
 "spam", "t.spam", -1, 0, 0, "class<`spam`>", 1
 "spam", "t.spam", 0, 0, 0, "class<`spam`>", 1
-"spam", "update.spam.chol.NgPeyton", -1, 0, 0, "(class<`spam.chol.NgPeyton`> | null)", 1
+"spam", "update.spam.chol.NgPeyton", -1, 0, 0, "class<`spam.chol.NgPeyton`>", 1
+"spam", "update.spam.chol.NgPeyton", -1, 0, 1, "null", 1
 "spam", "update.spam.chol.NgPeyton", 0, 0, 0, "class<`spam.chol.NgPeyton`>", 1
 "spam", "update.spam.chol.NgPeyton", 1, 0, 0, "class<`spam`>", 1
 "spam", "update.spam.chol.NgPeyton", 2, 0, 0, "...", 1

@@ -10,7 +10,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "%..%", 0, 0, 1, "null", 1
 "sets", "%..%", 1, 0, 0, "double", 1
 "sets", "%..%", 1, 0, 1, "null", 1
-"sets", ".apply_connector_to_list_of_gsets_and_support", -1, 0, 0, "(double[] | list<double[]>)", 1
+"sets", ".apply_connector_to_list_of_gsets_and_support", -1, 0, 0, "double[]", 1
+"sets", ".apply_connector_to_list_of_gsets_and_support", -1, 0, 1, "list<double[]>", 1
 "sets", ".apply_connector_to_list_of_gsets_and_support", 0, 0, 0, "list<any>", 1
 "sets", ".apply_connector_to_list_of_gsets_and_support", 1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", ".apply_connector_to_list_of_gsets_and_support", 1, 0, 1, "class<`cset`, `gset`>", 1
@@ -28,32 +29,38 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "as.character.cset", -1, 0, 0, "character[]", 1
 "sets", "as.character.cset", 0, 0, 0, "class<`cset`>", 1
 "sets", "as.character.cset", 1, 0, 0, "...", 1
-"sets", "as.cset", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`>)", 1
+"sets", "as.cset", -1, 0, 0, "class<`cset`>", 1
+"sets", "as.cset", -1, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "as.cset", 0, 0, 0, "class<`factor`, `ordered`>", 1
 "sets", "as.cset", 0, 0, 1, "character[]", 1
-"sets", "as.cset.character", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`>)", 1
+"sets", "as.cset.character", -1, 0, 0, "class<`cset`>", 1
+"sets", "as.cset.character", -1, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "as.cset.character", 0, 0, 0, "character[]", 1
 "sets", "as.cset.ordered", -1, 0, 0, "class<`cset`>", 1
 "sets", "as.cset.ordered", 0, 0, 0, "class<`factor`, `ordered`>", 1
-"sets", "as.gset", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "as.gset", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "as.gset", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "as.gset", 0, 0, 0, "character[]", 1
 "sets", "as.gset", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "as.gset", 0, 0, 2, "class<`factor`, `ordered`>", 1
 "sets", "as.gset", 0, 0, 3, "class<`cset`, `gset`, `set`>", 1
 "sets", "as.gset", 0, 0, 4, "double[]", 1
 "sets", "as.gset", 0, 0, 5, "list<class<`matrix`>>", 1
-"sets", ".as.gset.atomic", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", ".as.gset.atomic", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", ".as.gset.atomic", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".as.gset.atomic", 0, 0, 0, "character[]", 1
 "sets", ".as.gset.atomic", 0, 0, 1, "class<`factor`, `ordered`>", 1
 "sets", ".as.gset.atomic", 0, 0, 2, "double[]", 1
 "sets", ".as.gset.atomic", 1, 0, 0, "class<`function`>", 1
-"sets", "as.gset.character", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "as.gset.character", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "as.gset.character", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "as.gset.character", 0, 0, 0, "character[]", 1
 "sets", "as.gset.integer", -1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "as.gset.integer", 0, 0, 0, "integer[]", 1
 "sets", "as.gset.list", -1, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "as.gset.list", 0, 0, 0, "list<class<`matrix`>>", 1
-"sets", "as.gset.numeric", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "as.gset.numeric", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "as.gset.numeric", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "as.gset.numeric", 0, 0, 0, "double[]", 1
 "sets", "as.gset.ordered", -1, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "as.gset.ordered", 0, 0, 0, "class<`factor`, `ordered`>", 1
@@ -136,7 +143,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".canonicalize_interval", -1, 0, 0, "list<list<double>>", 1
 "sets", ".canonicalize_interval", 0, 0, 0, "list<list<double>>", 1
 "sets", ".canonicalize_interval", 1, 0, 0, "logical", 1
-"sets", ".canonicalize_memberships", -1, 0, 0, "(class<`table`> | double[] | list<any>)", 1
+"sets", ".canonicalize_memberships", -1, 0, 0, "class<`table`>", 1
+"sets", ".canonicalize_memberships", -1, 0, 1, "double[]", 1
+"sets", ".canonicalize_memberships", -1, 0, 2, "list<any>", 1
 "sets", ".canonicalize_memberships", 0, 0, 0, "class<`table`>", 1
 "sets", ".canonicalize_memberships", 0, 0, 1, "double[]", 1
 "sets", ".canonicalize_memberships", 0, 0, 2, "list<any>", 1
@@ -171,9 +180,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "closure.set", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "closure.set", 1, 0, 0, "character[]", 1
 "sets", "closure.set", 2, 0, 0, "...", 1
-"sets", ".create_hash", -1, 0, 0, "(environment | null)", 1
+"sets", ".create_hash", -1, 0, 0, "environment", 1
+"sets", ".create_hash", -1, 0, 1, "null", 1
 "sets", ".create_hash", 0, 0, 0, "list<any>", 1
-"sets", "cset", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "cset", -1, 0, 0, "class<`cset`>", 1
+"sets", "cset", -1, 0, 1, "class<`cset`, `gset`>", 1
+"sets", "cset", -1, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "cset", 0, 0, 1, "character[]", 1
 "sets", "cset", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -195,7 +207,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "cset_cardinality", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_cardinality", 1, 0, 0, "character[]", 1
 "sets", "cset_cardinality", 2, 0, 0, "any", 1
-"sets", "cset_cartesian", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "cset_cartesian", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "cset_cartesian", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_cartesian", 0, 0, 0, "...", 1
 "sets", "cset_charfun", -1, 0, 0, "double", 1
 "sets", "cset_charfun", 0, 0, 0, "double", 1
@@ -204,7 +217,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "cset_combn", -1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_combn", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_combn", 1, 0, 0, "integer", 1
-"sets", "cset_complement", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`>)", 1
+"sets", "cset_complement", -1, 0, 0, "class<`cset`>", 1
+"sets", "cset_complement", -1, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "cset_complement", 0, 0, 0, "class<`cset`>", 1
 "sets", "cset_complement", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "cset_complement", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -213,9 +227,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "cset_contains_element", -1, 0, 0, "logical", 1
 "sets", "cset_contains_element", 0, 0, 0, "class<`cset`>", 1
 "sets", "cset_contains_element", 1, 0, 0, "integer", 1
-"sets", "cset_difference", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "cset_difference", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "cset_difference", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_difference", 0, 0, 0, "...", 1
-"sets", "cset_intersection", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`>)", 1
+"sets", "cset_intersection", -1, 0, 0, "class<`cset`>", 1
+"sets", "cset_intersection", -1, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "cset_intersection", 0, 0, 0, "...", 1
 "sets", "cset_is_empty", -1, 0, 0, "logical", 1
 "sets", "cset_is_empty", 0, 0, 0, "class<`cset`>", 1
@@ -251,7 +267,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "cset_matchfun", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "cset_matchfun", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_matchfun", 0, 0, 3, "integer", 1
-"sets", "cset_memberships", -1, 0, 0, "(double[] | class<`table`> | list<class<`cset`, `gset`, `set`> | double[]>)", 1
+"sets", "cset_memberships", -1, 0, 0, "double[]", 1
+"sets", "cset_memberships", -1, 0, 1, "class<`table`>", 1
+"sets", "cset_memberships", -1, 0, 2, "list<class<`cset`, `gset`, `set`> | double[]>", 1
 "sets", "cset_memberships", 0, 0, 0, "class<`cset`>", 1
 "sets", "cset_memberships", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "cset_memberships", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -265,9 +283,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "cset_orderfun", 0, 0, 3, "integer", 1
 "sets", "cset_power", -1, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "cset_power", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
-"sets", "cset_sum", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "cset_sum", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "cset_sum", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_sum", 0, 0, 0, "...", 1
-"sets", "cset_union", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`>)", 1
+"sets", "cset_union", -1, 0, 0, "class<`cset`>", 1
+"sets", "cset_union", -1, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "cset_union", 0, 0, 0, "...", 1
 "sets", "cset_universe", -1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "cset_universe", 0, 0, 0, "class<`cset`>", 1
@@ -307,14 +327,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "%e%", 1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "%e%", 1, 0, 1, "class<`cset`>", 1
 "sets", ".empty_interval", -1, 0, 0, "class<`interval`>", 1
-"sets", "ex", -1, 0, 0, "(class<`table`> | double[] | class<`cset`, `gset`, `set`> | list<class<`cset`, `gset`, `set`> | class<`cset`, `gset`, `set`> | class<`cset`, `gset`>>)", 1
+"sets", "ex", -1, 0, 0, "class<`table`>", 1
+"sets", "ex", -1, 0, 1, "double[]", 1
+"sets", "ex", -1, 0, 2, "class<`cset`, `gset`, `set`>", 1
+"sets", "ex", -1, 0, 3, "list<class<`cset`, `gset`, `set`> | class<`cset`, `gset`, `set`> | class<`cset`, `gset`>>", 1
 "sets", "ex", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "ex", 0, 0, 1, "class<`cset`>", 1
 "sets", "ex", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "ex", 0, 0, 3, "class<`element`>", 1
 "sets", "ex", 0, 0, 4, "double[]", 1
 "sets", "ex", 0, 0, 5, "list<character | double>", 1
-"sets", ".exact_match", -1, 0, 0, "(null | ^integer[])", 1
+"sets", ".exact_match", -1, 0, 0, "null", 1
+"sets", ".exact_match", -1, 0, 1, "^integer[]", 1
 "sets", ".exact_match", 0, 0, 0, "double[]", 1
 "sets", ".exact_match", 0, 0, 1, "class<`cset`>", 1
 "sets", ".exact_match", 0, 0, 2, "class<`cset`, `gset`>", 1
@@ -386,7 +410,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", 2, 0, 0, "any", 1
 "sets", "FUN", 3, 0, 0, "double", 1
 "sets", "FUN", 4, 0, 0, "any", 1
-"sets", "FUN", -1, 1, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "FUN", -1, 1, 0, "class<`cset`, `gset`>", 1
+"sets", "FUN", -1, 1, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "FUN", 0, 1, 0, "character[]", 1
 "sets", "FUN", 0, 1, 1, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 1, 2, "class<`factor`, `ordered`>", 1
@@ -420,7 +445,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", -1, 5, 0, "class<`tuple`>", 1
 "sets", "FUN", 0, 5, 0, "integer[]", 1
 "sets", "FUN", 0, 5, 1, "list<class<`cset`, `gset`> | character | integer>", 1
-"sets", "FUN", -1, 6, 0, "(class<`cset`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "FUN", -1, 6, 0, "class<`cset`>", 1
+"sets", "FUN", -1, 6, 1, "class<`cset`, `gset`>", 1
+"sets", "FUN", -1, 6, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "FUN", 0, 6, 0, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 6, 1, "character[]", 1
 "sets", "FUN", 0, 6, 2, "class<`cset`, `gset`, `set`>", 1
@@ -435,7 +462,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", -1, 8, 0, "logical", 1
 "sets", "FUN", 0, 8, 0, "class<`cset`, `gset`>", 1
 "sets", "FUN", 1, 8, 0, "logical", 1
-"sets", "FUN", -1, 9, 0, "(double[] | class<`table`> | list<class<`cset`, `gset`, `set`> | double[]>)", 1
+"sets", "FUN", -1, 9, 0, "double[]", 1
+"sets", "FUN", -1, 9, 1, "class<`table`>", 1
+"sets", "FUN", -1, 9, 2, "list<class<`cset`, `gset`, `set`> | double[]>", 1
 "sets", "FUN", 0, 9, 0, "class<`cset`>", 1
 "sets", "FUN", 0, 9, 1, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 9, 2, "class<`cset`, `gset`, `set`>", 1
@@ -446,7 +475,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", 0, 10, 0, "class<`cset`>", 1
 "sets", "FUN", 0, 10, 1, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 10, 2, "class<`cset`, `gset`, `set`>", 1
-"sets", "FUN", -1, 11, 0, "(class<`table`> | double[] | class<`cset`, `gset`, `set`> | list<class<`cset`, `gset`, `set`> | class<`cset`, `gset`, `set`> | class<`cset`, `gset`>>)", 1
+"sets", "FUN", -1, 11, 0, "class<`table`>", 1
+"sets", "FUN", -1, 11, 1, "double[]", 1
+"sets", "FUN", -1, 11, 2, "class<`cset`, `gset`, `set`>", 1
+"sets", "FUN", -1, 11, 3, "list<class<`cset`, `gset`, `set`> | class<`cset`, `gset`, `set`> | class<`cset`, `gset`>>", 1
 "sets", "FUN", 0, 11, 0, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 11, 1, "class<`cset`>", 1
 "sets", "FUN", 0, 11, 2, "class<`cset`, `gset`, `set`>", 1
@@ -521,7 +553,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", -1, 28, 0, "double", 1
 "sets", "FUN", 0, 28, 0, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 28, 1, "class<`cset`, `gset`, `set`>", 1
-"sets", "FUN", -1, 29, 0, "(integer | null)", 1
+"sets", "FUN", -1, 29, 0, "integer", 1
+"sets", "FUN", -1, 29, 1, "null", 1
 "sets", "FUN", 0, 29, 0, "character", 1
 "sets", "FUN", 0, 29, 1, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 29, 2, "class<`cset`, `gset`, `set`>", 1
@@ -544,7 +577,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", 0, 33, 0, "class<`interval`>", 1
 "sets", "FUN", -1, 34, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "FUN", 0, 34, 0, "integer", 1
-"sets", "FUN", -1, 35, 0, "(class<`cset`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "FUN", -1, 35, 0, "class<`cset`>", 1
+"sets", "FUN", -1, 35, 1, "class<`cset`, `gset`>", 1
+"sets", "FUN", -1, 35, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "FUN", 0, 35, 0, "class<`cset`>", 1
 "sets", "FUN", 0, 35, 1, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 35, 2, "class<`cset`, `gset`, `set`>", 1
@@ -570,7 +605,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", 0, 41, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "FUN", 0, 41, 2, "integer", 1
 "sets", "FUN", 0, 41, 3, "list<character>", 1
-"sets", "FUN", -1, 42, 0, "(class<`tuple`> | list<double>)", 1
+"sets", "FUN", -1, 42, 0, "class<`tuple`>", 1
+"sets", "FUN", -1, 42, 1, "list<double>", 1
 "sets", "FUN", 0, 42, 0, "class<`tuple`>", 1
 "sets", "FUN", 0, 42, 1, "double", 1
 "sets", "FUN", -1, 43, 0, "logical", 1
@@ -609,7 +645,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "FUN", 0, 53, 4, "list<character>", 1
 "sets", "FUN", 1, 53, 0, "character[]", 1
 "sets", "FUN", 2, 53, 0, "any", 1
-"sets", "FUN", -1, 54, 0, "(double[] | list<any>)", 1
+"sets", "FUN", -1, 54, 0, "double[]", 1
+"sets", "FUN", -1, 54, 1, "list<any>", 1
 "sets", "FUN", 0, 54, 0, "class<`cset`, `gset`>", 1
 "sets", "FUN", 0, 54, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "FUN", 0, 54, 2, "integer", 1
@@ -741,14 +778,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".get_bound", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", ".get_bound", 0, 0, 1, "class<`cset`>", 1
 "sets", ".get_bound", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
-"sets", ".get_memberships", -1, 0, 0, "(class<`table`> | double[] | class<`cset`, `gset`, `set`> | list<class<`cset`, `gset`, `set`> | class<`cset`, `gset`, `set`> | class<`cset`, `gset`>>)", 1
+"sets", ".get_memberships", -1, 0, 0, "class<`table`>", 1
+"sets", ".get_memberships", -1, 0, 1, "double[]", 1
+"sets", ".get_memberships", -1, 0, 2, "class<`cset`, `gset`, `set`>", 1
+"sets", ".get_memberships", -1, 0, 3, "list<class<`cset`, `gset`, `set`> | class<`cset`, `gset`, `set`> | class<`cset`, `gset`>>", 1
 "sets", ".get_memberships", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", ".get_memberships", 0, 0, 1, "class<`cset`>", 1
 "sets", ".get_memberships", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", ".get_memberships", 0, 0, 3, "class<`element`>", 1
 "sets", ".get_memberships", 0, 0, 4, "double[]", 1
 "sets", ".get_memberships", 0, 0, 5, "list<character | double>", 1
-"sets", ".get_support", -1, 0, 0, "(character[] | double[] | list<any>)", 1
+"sets", ".get_support", -1, 0, 0, "character[]", 1
+"sets", ".get_support", -1, 0, 1, "double[]", 1
+"sets", ".get_support", -1, 0, 2, "list<any>", 1
 "sets", ".get_support", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", ".get_support", 0, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".get_support", 0, 0, 2, "class<`cset`>", 1
@@ -757,7 +799,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".get_universe", 0, 0, 0, "class<`cset`>", 1
 "sets", ".get_universe", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", ".get_universe", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
-"sets", "gset", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "gset", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "gset", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset", 0, 0, 0, "character[]", 1
 "sets", "gset", 0, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset", 0, 0, 2, "double[]", 1
@@ -796,7 +839,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "gset_cardinality", 0, 0, 4, "list<character>", 1
 "sets", "gset_cardinality", 1, 0, 0, "character[]", 1
 "sets", "gset_cardinality", 2, 0, 0, "any", 1
-"sets", "gset_cartesian", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "gset_cartesian", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "gset_cartesian", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_cartesian", 0, 0, 0, "...", 1
 "sets", "gset_combn", -1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_combn", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
@@ -807,7 +851,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".gset_complement", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", ".gset_complement", 1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", ".gset_complement", 2, 0, 0, "double", 1
-"sets", "gset_complement", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "gset_complement", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "gset_complement", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_complement", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "gset_complement", 0, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_complement", 1, 0, 0, "class<`cset`, `gset`>", 1
@@ -817,7 +862,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "gset_defuzzify", -1, 0, 0, "double", 1
 "sets", "gset_defuzzify", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "gset_defuzzify", 1, 0, 0, "character", 1
-"sets", "gset_difference", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "gset_difference", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "gset_difference", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_difference", 0, 0, 0, "...", 1
 "sets", "gset_dilate", -1, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "gset_dilate", 0, 0, 0, "class<`cset`, `gset`>", 1
@@ -828,7 +874,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "gset_height", -1, 0, 0, "double", 1
 "sets", "gset_height", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "gset_height", 1, 0, 0, "logical", 1
-"sets", "gset_intersection", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "gset_intersection", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "gset_intersection", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_intersection", 0, 0, 0, "...", 1
 "sets", "gset_is_crisp", -1, 0, 0, "logical", 1
 "sets", "gset_is_crisp", 0, 0, 0, "class<`cset`, `gset`>", 1
@@ -880,7 +927,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "gset_mean", 1, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "gset_mean", 1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_mean", 2, 0, 0, "character[]", 1
-"sets", "gset_memberships", -1, 0, 0, "(double[] | class<`table`> | list<class<`cset`, `gset`, `set`> | double[]>)", 1
+"sets", "gset_memberships", -1, 0, 0, "double[]", 1
+"sets", "gset_memberships", -1, 0, 1, "class<`table`>", 1
+"sets", "gset_memberships", -1, 0, 2, "list<class<`cset`, `gset`, `set`> | double[]>", 1
 "sets", "gset_memberships", 0, 0, 0, "class<`cset`>", 1
 "sets", "gset_memberships", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "gset_memberships", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -901,7 +950,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "gset_similarity", 1, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "gset_similarity", 1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_similarity", 2, 0, 0, "character", 1
-"sets", "gset_sum", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "gset_sum", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "gset_sum", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_sum", 0, 0, 0, "...", 1
 "sets", "gset_support", -1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_support", 0, 0, 0, "class<`cset`, `gset`>", 1
@@ -910,7 +960,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "gset_transform_memberships", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "gset_transform_memberships", 1, 0, 0, "class<`function`>", 1
 "sets", "gset_transform_memberships", 2, 0, 0, "...", 1
-"sets", "gset_union", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "gset_union", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "gset_union", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_union", 0, 0, 0, "...", 1
 "sets", "gset_universe", -1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "gset_universe", 0, 0, 0, "class<`cset`>", 1
@@ -1166,7 +1217,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".lookup_elements", 1, 0, 1, "double[]", 1
 "sets", ".lookup_elements", 1, 0, 2, "list<any>", 1
 "sets", ".lookup_elements", 2, 0, 0, "class<`function`>", 1
-"sets", ".make_cset_from_gset_and_orderfun_and_matchfun", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", ".make_cset_from_gset_and_orderfun_and_matchfun", -1, 0, 0, "class<`cset`>", 1
+"sets", ".make_cset_from_gset_and_orderfun_and_matchfun", -1, 0, 1, "class<`cset`, `gset`>", 1
+"sets", ".make_cset_from_gset_and_orderfun_and_matchfun", -1, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_cset_from_gset_and_orderfun_and_matchfun", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", ".make_cset_from_gset_and_orderfun_and_matchfun", 0, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_cset_from_gset_and_orderfun_and_matchfun", 1, 0, 0, "integer[]", 1
@@ -1180,7 +1233,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".make_element_from_support_and_memberships", 0, 0, 2, "double", 1
 "sets", ".make_element_from_support_and_memberships", 1, 0, 0, "double", 1
 "sets", ".make_element_from_support_and_memberships", 1, 0, 1, "class<`cset`, `gset`, `set`>", 1
-"sets", ".make_gset_by_support_and_memberships", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", ".make_gset_by_support_and_memberships", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", ".make_gset_by_support_and_memberships", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_gset_by_support_and_memberships", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_gset_by_support_and_memberships", 0, 0, 1, "list<any>", 1
 "sets", ".make_gset_by_support_and_memberships", 1, 0, 0, "class<`table`>", 1
@@ -1194,14 +1248,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".make_gset_by_support_and_memberships", 3, 0, 0, "any", 1
 "sets", ".make_gset_from_list", -1, 0, 0, "class<`cset`, `gset`>", 1
 "sets", ".make_gset_from_list", 0, 0, 0, "list<class<`cset`, `gset`, `set`>>", 1
-"sets", ".make_gset_from_list_of_gsets_and_support_and_connector", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", ".make_gset_from_list_of_gsets_and_support_and_connector", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", ".make_gset_from_list_of_gsets_and_support_and_connector", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_gset_from_list_of_gsets_and_support_and_connector", 0, 0, 0, "list<any>", 1
 "sets", ".make_gset_from_list_of_gsets_and_support_and_connector", 1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_gset_from_list_of_gsets_and_support_and_connector", 1, 0, 1, "class<`cset`, `gset`>", 1
 "sets", ".make_gset_from_list_of_gsets_and_support_and_connector", 2, 0, 0, "class<`function`>", 1
 "sets", ".make_gset_from_list_of_gsets_and_support_and_connector", 3, 0, 0, "class<`function`>", 1
 "sets", ".make_gset_from_list_of_gsets_and_support_and_connector", 4, 0, 0, "logical", 1
-"sets", ".make_gset_from_support_and_memberships", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", ".make_gset_from_support_and_memberships", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", ".make_gset_from_support_and_memberships", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_gset_from_support_and_memberships", 0, 0, 0, "^character[]", 1
 "sets", ".make_gset_from_support_and_memberships", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", ".make_gset_from_support_and_memberships", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -1263,7 +1319,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "make_set_with_order.set", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", ".make_tuple_from_list", -1, 0, 0, "class<`tuple`>", 1
 "sets", ".make_tuple_from_list", 0, 0, 0, "list<any>", 1
-"sets", ".match", -1, 0, 0, "(null | ^integer[])", 1
+"sets", ".match", -1, 0, 0, "null", 1
+"sets", ".match", -1, 0, 1, "^integer[]", 1
 "sets", ".match", 0, 0, 0, "double[]", 1
 "sets", ".match", 0, 0, 1, "class<`cset`>", 1
 "sets", ".match", 0, 0, 2, "class<`cset`, `gset`>", 1
@@ -1276,7 +1333,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".match", 1, 0, 3, "class<`cset`, `gset`>", 1
 "sets", ".match", 1, 0, 4, "character[]", 1
 "sets", ".match", 1, 0, 5, "list<any>", 1
-"sets", "matchfun", -1, 0, 0, "(null | ^integer[])", 1
+"sets", "matchfun", -1, 0, 0, "null", 1
+"sets", "matchfun", -1, 0, 1, "^integer[]", 1
 "sets", "matchfun", 0, 0, 0, "double[]", 1
 "sets", "matchfun", 0, 0, 1, "class<`cset`>", 1
 "sets", "matchfun", 0, 0, 2, "class<`cset`, `gset`>", 1
@@ -1291,7 +1349,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "matchfun", 1, 0, 5, "list<any>", 1
 "sets", "matchfun", -1, 1, 0, "class<`function`>", 1
 "sets", "matchfun", 0, 1, 0, "class<`function`>", 1
-"sets", ".matchfun", -1, 0, 0, "(class<`function`> | null)", 1
+"sets", ".matchfun", -1, 0, 0, "class<`function`>", 1
+"sets", ".matchfun", -1, 0, 1, "null", 1
 "sets", ".matchfun", 0, 0, 0, "class<`cset`>", 1
 "sets", ".matchfun", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", ".matchfun", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -1317,7 +1376,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "median.set", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "median.set", 1, 0, 0, "logical", 1
 "sets", "median.set", 2, 0, 0, "...", 1
-"sets", ".memberships_for_support", -1, 0, 0, "(double[] | list<any>)", 1
+"sets", ".memberships_for_support", -1, 0, 0, "double[]", 1
+"sets", ".memberships_for_support", -1, 0, 1, "list<any>", 1
 "sets", ".memberships_for_support", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", ".memberships_for_support", 0, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".memberships_for_support", 0, 0, 2, "integer", 1
@@ -1342,22 +1402,30 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "naturals0", -1, 0, 0, "class<`interval`>", 1
 "sets", "naturals0", 0, 0, 0, "null", 1
 "sets", "naturals0", 1, 0, 0, "null", 1
-"sets", "Ops.cset", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`> | logical)", 1
+"sets", "Ops.cset", -1, 0, 0, "class<`cset`>", 1
+"sets", "Ops.cset", -1, 0, 1, "class<`cset`, `gset`>", 1
+"sets", "Ops.cset", -1, 0, 2, "class<`cset`, `gset`, `set`>", 1
+"sets", "Ops.cset", -1, 0, 3, "logical", 1
 "sets", "Ops.cset", 0, 0, 0, "class<`cset`>", 1
 "sets", "Ops.cset", 0, 0, 1, "double", 1
 "sets", "Ops.cset", 0, 0, 2, "class<`cset`, `gset`>", 1
 "sets", "Ops.cset", 0, 0, 3, "class<`cset`, `gset`, `set`>", 1
 "sets", "Ops.cset", 1, 0, 0, "any", 1
-"sets", "Ops_gset", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`> | logical)", 1
+"sets", "Ops_gset", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "Ops_gset", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
+"sets", "Ops_gset", -1, 0, 2, "logical", 1
 "sets", "Ops_gset", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "Ops_gset", 0, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "Ops_gset", 1, 0, 0, "any", 1
 "sets", "Ops_gset", 2, 0, 0, "character", 1
 "sets", "Ops_gset", 3, 0, 0, "any", 1
-"sets", "Ops.interval", -1, 0, 0, "(class<`interval`> | logical)", 1
+"sets", "Ops.interval", -1, 0, 0, "class<`interval`>", 1
+"sets", "Ops.interval", -1, 0, 1, "logical", 1
 "sets", "Ops.interval", 0, 0, 0, "class<`interval`>", 1
 "sets", "Ops.interval", 1, 0, 0, "any", 1
-"sets", "Ops_set", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`> | logical)", 1
+"sets", "Ops_set", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "Ops_set", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
+"sets", "Ops_set", -1, 0, 2, "logical", 1
 "sets", "Ops_set", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "Ops_set", 1, 0, 0, "any", 1
 "sets", "Ops_set", 2, 0, 0, "character", 1
@@ -1365,7 +1433,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "Ops.tuple", -1, 0, 0, "class<`tuple`>", 1
 "sets", "Ops.tuple", 0, 0, 0, "class<`tuple`>", 1
 "sets", "Ops.tuple", 1, 0, 0, "class<`tuple`>", 1
-"sets", ".orderfun", -1, 0, 0, "(class<`function`> | null)", 1
+"sets", ".orderfun", -1, 0, 0, "class<`function`>", 1
+"sets", ".orderfun", -1, 0, 1, "null", 1
 "sets", ".orderfun", 0, 0, 0, "class<`cset`>", 1
 "sets", ".orderfun", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", ".orderfun", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -1384,14 +1453,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "plot.fuzzy_variable", 0, 0, 0, "class<`fuzzy_variable`, `tuple`>", 1
 "sets", "plot.fuzzy_variable", 1, 0, 0, "double", 1
 "sets", "plot.fuzzy_variable", 2, 0, 0, "...", 1
-"sets", "plot.gset", -1, 0, 0, "(class<`cset`, `gset`> | class<`tuple`>)", 1
+"sets", "plot.gset", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "plot.gset", -1, 0, 1, "class<`tuple`>", 1
 "sets", "plot.gset", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "plot.gset", 1, 0, 0, "null", 1
 "sets", "plot.gset", 2, 0, 0, "null", 1
 "sets", "plot.gset", 3, 0, 0, "character", 1
 "sets", "plot.gset", 4, 0, 0, "character", 1
 "sets", "plot.gset", 5, 0, 0, "...", 1
-"sets", "plot.tuple", -1, 0, 0, "(class<`fuzzy_variable`, `tuple`> | class<`tuple`>)", 1
+"sets", "plot.tuple", -1, 0, 0, "class<`fuzzy_variable`, `tuple`>", 1
+"sets", "plot.tuple", -1, 0, 1, "class<`tuple`>", 1
 "sets", "plot.tuple", 0, 0, 0, "class<`fuzzy_variable`, `tuple`>", 1
 "sets", "plot.tuple", 0, 0, 1, "class<`tuple`>", 1
 "sets", "plot.tuple", 1, 0, 0, "character", 1
@@ -1412,12 +1483,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "print.fuzzy_system", -1, 0, 0, "class<`fuzzy_system`>", 1
 "sets", "print.fuzzy_system", 0, 0, 0, "class<`fuzzy_system`>", 1
 "sets", "print.fuzzy_system", 1, 0, 0, "...", 1
-"sets", "print.gset", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "print.gset", -1, 0, 0, "class<`cset`>", 1
+"sets", "print.gset", -1, 0, 1, "class<`cset`, `gset`>", 1
+"sets", "print.gset", -1, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "print.gset", 0, 0, 0, "class<`cset`>", 1
 "sets", "print.gset", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "print.gset", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "print.gset", 1, 0, 0, "...", 1
-"sets", "print.set", -1, 0, 0, "(class<`cset`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "print.set", -1, 0, 0, "class<`cset`>", 1
+"sets", "print.set", -1, 0, 1, "class<`cset`, `gset`>", 1
+"sets", "print.set", -1, 0, 2, "class<`cset`, `gset`, `set`>", 1
 "sets", "print.set", 0, 0, 0, "class<`cset`>", 1
 "sets", "print.set", 0, 0, 1, "class<`cset`, `gset`>", 1
 "sets", "print.set", 0, 0, 2, "class<`cset`, `gset`, `set`>", 1
@@ -1440,7 +1515,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "reduction.set", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "reduction.set", 1, 0, 0, "character[]", 1
 "sets", "reduction.set", 2, 0, 0, "...", 1
-"sets", "rep.gset", -1, 0, 0, "(class<`cset`, `gset`> | class<`cset`, `gset`, `set`>)", 1
+"sets", "rep.gset", -1, 0, 0, "class<`cset`, `gset`>", 1
+"sets", "rep.gset", -1, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", "rep.gset", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", "rep.gset", 1, 0, 0, "...", 1
 "sets", "rep.tuple", -1, 0, 0, "class<`tuple`>", 1
@@ -1552,7 +1628,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", "set_similarity", 0, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "set_similarity", 1, 0, 0, "class<`cset`, `gset`, `set`>", 1
 "sets", "set_similarity", 2, 0, 0, "character", 1
-"sets", "sets_options", -1, 0, 0, "(character | class<`function`> | double[] | null | list<logical | character>)", 1
+"sets", "sets_options", -1, 0, 0, "character", 1
+"sets", "sets_options", -1, 0, 1, "class<`function`>", 1
+"sets", "sets_options", -1, 0, 2, "double[]", 1
+"sets", "sets_options", -1, 0, 3, "null", 1
+"sets", "sets_options", -1, 0, 4, "list<logical | character>", 1
 "sets", "sets_options", 0, 0, 0, "any", 1
 "sets", "sets_options", 1, 0, 0, "any", 1
 "sets", "set_symdiff", -1, 0, 0, "class<`cset`, `gset`, `set`>", 1
@@ -1573,14 +1653,26 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sets", ".stop_if_memberships_are_invalid", 0, 0, 2, "list<any>", 1
 "sets", ".stop_if_memberships_are_invalid", 1, 0, 0, "null", 1
 "sets", ".stop_if_memberships_are_invalid", 1, 0, 1, "character", 1
-"sets", ".structure", -1, 0, 0, "(class<`cset`> | class<`cset_charfun`> | class<`cset`, `gset`> | class<`cset`, `gset`, `set`> | class<`element`> | class<`fuzzy_logic_family`> | class<`fuzzy_rule`> | class<`fuzzy_system`> | class<`fuzzy_variable`, `tuple`> | class<`interval`> | class<`tuple`> | list<character | double>)", 1
+"sets", ".structure", -1, 0, 0, "class<`cset`>", 1
+"sets", ".structure", -1, 0, 1, "class<`cset_charfun`>", 1
+"sets", ".structure", -1, 0, 2, "class<`cset`, `gset`>", 1
+"sets", ".structure", -1, 0, 3, "class<`cset`, `gset`, `set`>", 1
+"sets", ".structure", -1, 0, 4, "class<`element`>", 1
+"sets", ".structure", -1, 0, 5, "class<`fuzzy_logic_family`>", 1
+"sets", ".structure", -1, 0, 6, "class<`fuzzy_rule`>", 1
+"sets", ".structure", -1, 0, 7, "class<`fuzzy_system`>", 1
+"sets", ".structure", -1, 0, 8, "class<`fuzzy_variable`, `tuple`>", 1
+"sets", ".structure", -1, 0, 9, "class<`interval`>", 1
+"sets", ".structure", -1, 0, 10, "class<`tuple`>", 1
+"sets", ".structure", -1, 0, 11, "list<character | double>", 1
 "sets", ".structure", 0, 0, 0, "class<`cset`, `gset`>", 1
 "sets", ".structure", 0, 0, 1, "class<`cset`, `gset`, `set`>", 1
 "sets", ".structure", 0, 0, 2, "class<`function`>", 1
 "sets", ".structure", 0, 0, 3, "class<`tuple`>", 1
 "sets", ".structure", 0, 0, 4, "list<any>", 1
 "sets", ".structure", 1, 0, 0, "...", 1
-"sets", "Summary.set", -1, 0, 0, "(double | integer[])", 1
+"sets", "Summary.set", -1, 0, 0, "double", 1
+"sets", "Summary.set", -1, 0, 1, "integer[]", 1
 "sets", "Summary.set", 0, 0, 0, "...", 1
 "sets", "Summary.set", 1, 0, 0, "logical", 1
 "sets", "Summary.tuple", -1, 0, 0, "double", 1

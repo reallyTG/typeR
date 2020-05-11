@@ -32,7 +32,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "htmltools", "doRenderTags", 0, 0, 0, "class<`shiny.tag`>", 1
 "htmltools", "doRenderTags", 0, 0, 1, "list<any>", 1
 "htmltools", "doRenderTags", 1, 0, 0, "any", 1
-"htmltools", "dropNullsOrEmpty", -1, 0, 0, "(character[] | list<any>)", 1
+"htmltools", "dropNullsOrEmpty", -1, 0, 0, "character[]", 1
+"htmltools", "dropNullsOrEmpty", -1, 0, 1, "list<any>", 1
 "htmltools", "dropNullsOrEmpty", 0, 0, 0, "character[]", 1
 "htmltools", "dropNullsOrEmpty", 0, 0, 1, "list<any>", 1
 "htmltools", "extractPreserveChunks", -1, 0, 0, "list<character>", 1
@@ -61,13 +62,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "htmltools", "FUN", 0, 1, 3, "class<`shiny.tag`>", 1
 "htmltools", "FUN", 0, 1, 4, "null", 1
 "htmltools", "FUN", 0, 1, 5, "list<any>", 1
-"htmltools", "FUN", -1, 2, 0, "(character | class<`character`, `html`> | class<`shiny.tag`> | null)", 1
+"htmltools", "FUN", -1, 2, 0, "character", 1
+"htmltools", "FUN", -1, 2, 1, "class<`character`, `html`>", 1
+"htmltools", "FUN", -1, 2, 2, "class<`shiny.tag`>", 1
+"htmltools", "FUN", -1, 2, 3, "null", 1
 "htmltools", "FUN", 0, 2, 0, "character", 1
 "htmltools", "FUN", 0, 2, 1, "class<`character`, `html`>", 1
 "htmltools", "FUN", 0, 2, 2, "class<`shiny.tag`>", 1
 "htmltools", "FUN", 1, 2, 0, "class<`function`>", 1
 "htmltools", "FUN", 2, 2, 0, "logical", 1
-"htmltools", "FUN", -1, 3, 0, "(character | null)", 1
+"htmltools", "FUN", -1, 3, 0, "character", 1
+"htmltools", "FUN", -1, 3, 1, "null", 1
 "htmltools", "FUN", 0, 3, 0, "class<`shiny.tag`>", 1
 "htmltools", "FUN", 0, 3, 1, "character", 1
 "htmltools", "FUN", 0, 3, 2, "list<any>", 1
@@ -127,7 +132,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "htmltools", "isTagList", 0, 0, 2, "class<`list`, `shiny.tag.list`>", 1
 "htmltools", "isTagList", 0, 0, 3, "null", 1
 "htmltools", "isTagList", 0, 0, 4, "list<any>", 1
-"htmltools", "normalizeText", -1, 0, 0, "(character | class<`character`, `html`>)", 1
+"htmltools", "normalizeText", -1, 0, 0, "character", 1
+"htmltools", "normalizeText", -1, 0, 1, "class<`character`, `html`>", 1
 "htmltools", "normalizeText", 0, 0, 0, "character", 1
 "htmltools", "normalizeText", 0, 0, 1, "class<`character`, `html`>", 1
 "htmltools", "p", -1, 0, 0, "class<`shiny.tag`>", 1
@@ -150,7 +156,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "htmltools", "restorePreserveChunks", -1, 0, 0, "character", 1
 "htmltools", "restorePreserveChunks", 0, 0, 0, "character", 1
 "htmltools", "restorePreserveChunks", 1, 0, 0, "character", 1
-"htmltools", "rewriteTags", -1, 0, 0, "(character | class<`character`, `html`> | class<`shiny.tag`> | null)", 1
+"htmltools", "rewriteTags", -1, 0, 0, "character", 1
+"htmltools", "rewriteTags", -1, 0, 1, "class<`character`, `html`>", 1
+"htmltools", "rewriteTags", -1, 0, 2, "class<`shiny.tag`>", 1
+"htmltools", "rewriteTags", -1, 0, 3, "null", 1
 "htmltools", "rewriteTags", 0, 0, 0, "character", 1
 "htmltools", "rewriteTags", 0, 0, 1, "class<`character`, `html`>", 1
 "htmltools", "rewriteTags", 0, 0, 2, "class<`shiny.tag`>", 1
@@ -171,7 +180,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "htmltools", "tagify", 0, 0, 0, "class<`shiny.tag`>", 1
 "htmltools", "tagList", -1, 0, 0, "class<`list`, `shiny.tag.list`>", 1
 "htmltools", "tagList", 0, 0, 0, "...", 1
-"htmltools", "tagWrite", -1, 0, 0, "(character | null)", 1
+"htmltools", "tagWrite", -1, 0, 0, "character", 1
+"htmltools", "tagWrite", -1, 0, 1, "null", 1
 "htmltools", "tagWrite", 0, 0, 0, "class<`shiny.tag`>", 1
 "htmltools", "tagWrite", 0, 0, 1, "character", 1
 "htmltools", "tagWrite", 0, 0, 2, "list<any>", 1

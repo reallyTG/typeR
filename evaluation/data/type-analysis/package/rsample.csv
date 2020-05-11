@@ -1,5 +1,18 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"rsample", "add_class", -1, 0, 0, "(class<`apparent`, `data.frame`, `rset`, `tbl`, `tbl_df`> | class<`boot_split`, `rsplit`> | class<`bootstraps`, `data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`> | class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `group_vfold_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `loo_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`, `vfold_cv`> | class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`> | class<`group_vfold_split`, `rsplit`> | class<`mc_split`, `rsplit`> | class<`rof_split`, `rsplit`> | class<`rsplit`, `vfold_split`>)", 1
+"rsample", "add_class", -1, 0, 0, "class<`apparent`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", -1, 0, 1, "class<`boot_split`, `rsplit`>", 1
+"rsample", "add_class", -1, 0, 2, "class<`bootstraps`, `data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", -1, 0, 3, "class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", -1, 0, 4, "class<`data.frame`, `group_vfold_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", -1, 0, 5, "class<`data.frame`, `loo_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", -1, 0, 6, "class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", -1, 0, 7, "class<`data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "add_class", -1, 0, 8, "class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "add_class", -1, 0, 9, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
+"rsample", "add_class", -1, 0, 10, "class<`group_vfold_split`, `rsplit`>", 1
+"rsample", "add_class", -1, 0, 11, "class<`mc_split`, `rsplit`>", 1
+"rsample", "add_class", -1, 0, 12, "class<`rof_split`, `rsplit`>", 1
+"rsample", "add_class", -1, 0, 13, "class<`rsplit`, `vfold_split`>", 1
 "rsample", "add_class", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rsample", "add_class", 0, 0, 1, "class<`rsplit`>", 1
 "rsample", "add_class", 0, 0, 2, "class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
@@ -11,7 +24,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "add_resample_id", 1, 0, 0, "any", 1
 "rsample", "add_resample_id", 2, 0, 0, "double", 1
 "rsample", "add_resample_id", 2, 0, 1, "logical[]", 1
-"rsample", "analysis", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "analysis", -1, 0, 0, "class<`data.frame`>", 1
+"rsample", "analysis", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rsample", "analysis", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
 "rsample", "analysis", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
 "rsample", "analysis", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
@@ -21,7 +35,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "apparent", -1, 0, 0, "class<`apparent`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
 "rsample", "apparent", 0, 0, 0, "class<`data.frame`>", 1
 "rsample", "apparent", 1, 0, 0, "...", 1
-"rsample", "as.data.frame.rsplit", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "as.data.frame.rsplit", -1, 0, 0, "class<`data.frame`>", 1
+"rsample", "as.data.frame.rsplit", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rsample", "as.data.frame.rsplit", 0, 0, 0, "class<`boot_split`, `rsplit`>", 1
 "rsample", "as.data.frame.rsplit", 0, 0, 1, "class<`group_vfold_split`, `rsplit`>", 1
 "rsample", "as.data.frame.rsplit", 0, 0, 2, "class<`mc_split`, `rsplit`>", 1
@@ -41,7 +56,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "as.integer.rsplit", 0, 0, 5, "class<`rsplit`, `vfold_split`>", 1
 "rsample", "as.integer.rsplit", 1, 0, 0, "character", 1
 "rsample", "as.integer.rsplit", 2, 0, 0, "...", 1
-"rsample", "assessment", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "assessment", -1, 0, 0, "class<`data.frame`>", 1
+"rsample", "assessment", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rsample", "assessment", 0, 0, 0, "class<`group_vfold_split`, `rsplit`>", 1
 "rsample", "assessment", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
 "rsample", "assessment", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
@@ -89,7 +105,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "complement.vfold_split", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
 "rsample", "complement.vfold_split", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
 "rsample", "complement.vfold_split", 1, 0, 0, "...", 1
-"rsample", ".f", -1, 0, 0, "(class<`rsplit`, `vfold_split`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", ".f", -1, 0, 0, "class<`rsplit`, `vfold_split`>", 1
+"rsample", ".f", -1, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
 "rsample", ".f", 0, 0, 0, "class<`rsplit`, `vfold_split`>", 1
 "rsample", ".f", 0, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
 "rsample", ".f", 1, 0, 0, "...", 1
@@ -169,18 +186,25 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "names0", -1, 0, 0, "character[]", 1
 "rsample", "names0", 0, 0, 0, "double", 1
 "rsample", "names0", 1, 0, 0, "character", 1
-"rsample", "nested_cv", -1, 0, 0, "(class<`bootstraps`, `data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", "nested_cv", -1, 0, 0, "class<`bootstraps`, `data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "nested_cv", -1, 0, 1, "class<`data.frame`, `nested_cv`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
 "rsample", "nested_cv", 0, 0, 0, "any", 1
 "rsample", "nested_cv", 1, 0, 0, "any", 1
 "rsample", "nested_cv", 2, 0, 0, "any", 1
-"rsample", "new_rset", -1, 0, 0, "(class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `group_vfold_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `loo_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", "new_rset", -1, 0, 0, "class<`bootstraps`, `data.frame`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "new_rset", -1, 0, 1, "class<`data.frame`, `group_vfold_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "new_rset", -1, 0, 2, "class<`data.frame`, `loo_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "new_rset", -1, 0, 3, "class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "new_rset", -1, 0, 4, "class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`>", 1
+"rsample", "new_rset", -1, 0, 5, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
 "rsample", "new_rset", 0, 0, 0, "list<any>", 1
 "rsample", "new_rset", 1, 0, 0, "character[]", 1
 "rsample", "new_rset", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rsample", "new_rset", 2, 0, 0, "null", 1
 "rsample", "new_rset", 2, 0, 1, "list<double | null | character | double | character>", 1
 "rsample", "new_rset", 3, 0, 0, "character[]", 1
-"rsample", "populate", -1, 0, 0, "(class<`rsplit`, `vfold_split`> | class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>)", 1
+"rsample", "populate", -1, 0, 0, "class<`rsplit`, `vfold_split`>", 1
+"rsample", "populate", -1, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
 "rsample", "populate", 0, 0, 0, "class<`rsplit`, `vfold_split`>", 1
 "rsample", "populate", 0, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
 "rsample", "populate", 1, 0, 0, "...", 1
@@ -233,7 +257,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "tidy.vfold_cv", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rsample", "tidy.vfold_cv", 0, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
 "rsample", "tidy.vfold_cv", 1, 0, 0, "...", 1
-"rsample", "training", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rsample", "training", -1, 0, 0, "class<`data.frame`>", 1
+"rsample", "training", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rsample", "training", 0, 0, 0, "class<`mc_split`, `rsplit`>", 1
 "rsample", "training", 0, 0, 1, "class<`rsplit`>", 1
 "rsample", "vfold_cv", -1, 0, 0, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1

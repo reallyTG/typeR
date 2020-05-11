@@ -81,7 +81,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpConvertMultidimArray", -1, 0, 0, "list<^double[]>", 1
 "forestplot", "prFpConvertMultidimArray", 0, 0, 0, "class<`data.frame`>", 1
 "forestplot", "prFpConvertMultidimArray", 0, 0, 1, "class<`matrix`>", 1
-"forestplot", "prFpDrawLegend", -1, 0, 0, "(class<`path`, `vpPath`> | null)", 1
+"forestplot", "prFpDrawLegend", -1, 0, 0, "class<`path`, `vpPath`>", 1
+"forestplot", "prFpDrawLegend", -1, 0, 1, "null", 1
 "forestplot", "prFpDrawLegend", 0, 0, 0, "class<`Legend`, `list`>", 1
 "forestplot", "prFpDrawLegend", 1, 0, 0, "class<`fpColors`, `list`>", 1
 "forestplot", "prFpDrawLegend", 2, 0, 0, "class<`unit`>", 1
@@ -93,7 +94,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpDrawLegend", 6, 0, 0, "any", 1
 "forestplot", "prFpDrawLegend", 7, 0, 0, "list<class<`function`>>", 1
 "forestplot", "prFpDrawLegend", 8, 0, 0, "...", 1
-"forestplot", "prFpDrawLine", -1, 0, 0, "(class<`gDesc`, `grob`, `lines`> | null)", 1
+"forestplot", "prFpDrawLine", -1, 0, 0, "class<`gDesc`, `grob`, `lines`>", 1
+"forestplot", "prFpDrawLine", -1, 0, 1, "null", 1
 "forestplot", "prFpDrawLine", 0, 0, 0, "double", 1
 "forestplot", "prFpDrawLine", 1, 0, 0, "double", 1
 "forestplot", "prFpDrawLine", 2, 0, 0, "any", 1
@@ -107,7 +109,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpDrawLines", 1, 0, 0, "integer", 1
 "forestplot", "prFpDrawLines", 2, 0, 0, "any", 1
 "forestplot", "prFpDrawLines", 3, 0, 0, "any", 1
-"forestplot", "prFpFetchRowLabel", -1, 0, 0, "(character | class<`call`> | expression | integer)", 1
+"forestplot", "prFpFetchRowLabel", -1, 0, 0, "character", 1
+"forestplot", "prFpFetchRowLabel", -1, 0, 1, "class<`call`>", 1
+"forestplot", "prFpFetchRowLabel", -1, 0, 2, "expression", 1
+"forestplot", "prFpFetchRowLabel", -1, 0, 3, "integer", 1
 "forestplot", "prFpFetchRowLabel", 0, 0, 0, "character", 1
 "forestplot", "prFpFetchRowLabel", 1, 0, 0, "class<`matrix`>", 1
 "forestplot", "prFpFetchRowLabel", 1, 0, 1, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
@@ -196,7 +201,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpXrange", 5, 0, 0, "logical", 1
 "forestplot", "prGetTextGrobCex", -1, 0, 0, "double", 1
 "forestplot", "prGetTextGrobCex", 0, 0, 0, "class<`gDesc`, `grob`, `text`>", 1
-"forestplot", "prGparMerge", -1, 0, 0, "(class<`gpar`, `list`> | list<character | double>)", 1
+"forestplot", "prGparMerge", -1, 0, 0, "class<`gpar`, `list`>", 1
+"forestplot", "prGparMerge", -1, 0, 1, "list<character | double>", 1
 "forestplot", "prGparMerge", 0, 0, 0, "class<`gpar`>", 1
 "forestplot", "prGparMerge", 0, 0, 1, "list<character | double>", 1
 "forestplot", "prGparMerge", 1, 0, 0, "class<`gpar`>", 1

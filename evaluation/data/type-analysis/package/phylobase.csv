@@ -23,12 +23,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", ".bubLegendGrob", -1, 0, 0, "class<`bubLegend`, `gDesc`, `grob`>", 1
 "phylobase", ".bubLegendGrob", 0, 0, 0, "class<`data.frame`>", 1
 "phylobase", ".bubLegendGrob", 1, 0, 0, "class<`matrix`>", 1
-"phylobase", "checkPhylo4", -1, 0, 0, "(character | logical)", 1
+"phylobase", "checkPhylo4", -1, 0, 0, "character", 1
+"phylobase", "checkPhylo4", -1, 0, 1, "logical", 1
 "phylobase", "checkPhylo4", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "checkPhylo4", 0, 0, 1, "class<`phylo4d`>", 1
 "phylobase", "checkPhylo4Data", -1, 0, 0, "logical", 1
 "phylobase", "checkPhylo4Data", 0, 0, 0, "class<`phylo4d`>", 1
-"phylobase", "checkTree", -1, 0, 0, "(character | logical)", 1
+"phylobase", "checkTree", -1, 0, 0, "character", 1
+"phylobase", "checkTree", -1, 0, 1, "logical", 1
 "phylobase", "checkTree", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "checkTree", 0, 0, 1, "class<`phylo4d`>", 1
 "phylobase", "checkTreeCpp", -1, 0, 0, "list<character>", 1
@@ -39,7 +41,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "children", 0, 0, 0, "class<`phylo4d`>", 1
 "phylobase", "children", 1, 0, 0, "character", 1
 "phylobase", "children", 1, 0, 1, "double", 1
-"phylobase", ".createEdge", -1, 0, 0, "(^character[] | ^double[])", 1
+"phylobase", ".createEdge", -1, 0, 0, "^character[]", 1
+"phylobase", ".createEdge", -1, 0, 1, "^double[]", 1
 "phylobase", ".createEdge", 0, 0, 0, "null", 1
 "phylobase", ".createEdge", 0, 0, 1, "^character[]", 1
 "phylobase", ".createEdge", 0, 0, 2, "^double[]", 1
@@ -56,7 +59,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "depthTips", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "depthTips", -1, 1, 0, "double[]", 1
 "phylobase", "depthTips", 0, 1, 0, "class<`phylo4`>", 1
-"phylobase", "descendants", -1, 0, 0, "(integer[] | list<any>)", 1
+"phylobase", "descendants", -1, 0, 0, "integer[]", 1
+"phylobase", "descendants", -1, 0, 1, "list<any>", 1
 "phylobase", "descendants", 0, 0, 0, "class<`phylo4d`>", 1
 "phylobase", "descendants", 0, 0, 1, "class<`phylo4`>", 1
 "phylobase", "descendants", 1, 0, 0, "double", 1
@@ -84,17 +88,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "edgeLabels<-", 0, 1, 0, "class<`phylo4`>", 1
 "phylobase", "edgeLabels<-", 1, 1, 0, "...", 1
 "phylobase", "edgeLabels<-", 2, 1, 0, "^character[]", 1
-"phylobase", "edgeLength", -1, 0, 0, "(^double[] | null)", 1
+"phylobase", "edgeLength", -1, 0, 0, "^double[]", 1
+"phylobase", "edgeLength", -1, 0, 1, "null", 1
 "phylobase", "edgeLength", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "edgeLength", 1, 0, 0, "...", 1
-"phylobase", "edgeLength", -1, 1, 0, "(^double[] | null)", 1
+"phylobase", "edgeLength", -1, 1, 0, "^double[]", 1
+"phylobase", "edgeLength", -1, 1, 1, "null", 1
 "phylobase", "edgeLength", 0, 1, 0, "class<`phylo4d`>", 1
 "phylobase", "edgeLength", 1, 1, 0, "...", 1
-"phylobase", "edgeLength", -1, 2, 0, "(^double[] | null)", 1
+"phylobase", "edgeLength", -1, 2, 0, "^double[]", 1
+"phylobase", "edgeLength", -1, 2, 1, "null", 1
 "phylobase", "edgeLength", 0, 2, 0, "class<`phylo4`>", 1
 "phylobase", "edgeLength", 0, 2, 1, "class<`phylo4d`>", 1
 "phylobase", "edgeLength", 1, 2, 0, "...", 1
-"phylobase", "edgeLength<-", -1, 0, 0, "(class<`phylo4`> | class<`phylo4d`>)", 1
+"phylobase", "edgeLength<-", -1, 0, 0, "class<`phylo4`>", 1
+"phylobase", "edgeLength<-", -1, 0, 1, "class<`phylo4d`>", 1
 "phylobase", "edgeLength<-", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "edgeLength<-", 0, 0, 1, "class<`phylo4d`>", 1
 "phylobase", "edgeLength<-", 1, 0, 0, "double", 1
@@ -175,18 +183,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "getEdge", 1, 2, 0, "double", 1
 "phylobase", "getEdge", 2, 2, 0, "character[]", 1
 "phylobase", "getEdge", 3, 2, 0, "character[]", 1
-"phylobase", "getNode", -1, 0, 0, "(^integer[] | null)", 1
+"phylobase", "getNode", -1, 0, 0, "^integer[]", 1
+"phylobase", "getNode", -1, 0, 1, "null", 1
 "phylobase", "getNode", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "getNode", 0, 0, 1, "class<`phylo4d`>", 1
 "phylobase", "getNode", 1, 0, 0, "any", 1
 "phylobase", "getNode", 2, 0, 0, "character[]", 1
 "phylobase", "getNode", 3, 0, 0, "character[]", 1
-"phylobase", "getNode", -1, 1, 0, "(^integer[] | null)", 1
+"phylobase", "getNode", -1, 1, 0, "^integer[]", 1
+"phylobase", "getNode", -1, 1, 1, "null", 1
 "phylobase", "getNode", 0, 1, 0, "class<`phylo4d`>", 1
 "phylobase", "getNode", 1, 1, 0, "any", 1
 "phylobase", "getNode", 2, 1, 0, "character[]", 1
 "phylobase", "getNode", 3, 1, 0, "character[]", 1
-"phylobase", "getNode", -1, 2, 0, "(^integer[] | null)", 1
+"phylobase", "getNode", -1, 2, 0, "^integer[]", 1
+"phylobase", "getNode", -1, 2, 1, "null", 1
 "phylobase", "getNode", 0, 2, 0, "class<`phylo4`>", 1
 "phylobase", "getNode", 1, 2, 0, "character[]", 1
 "phylobase", "getNode", 1, 2, 1, "double[]", 1
@@ -290,7 +301,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "labels<-", 2, 0, 0, "any", 1
 "phylobase", "labels<-", 3, 0, 0, "...", 1
 "phylobase", "labels<-", 4, 0, 0, "character[]", 1
-"phylobase", "labels<-", -1, 1, 0, "(class<`phylo4`> | class<`phylo4d`>)", 1
+"phylobase", "labels<-", -1, 1, 0, "class<`phylo4`>", 1
+"phylobase", "labels<-", -1, 1, 1, "class<`phylo4d`>", 1
 "phylobase", "labels<-", 0, 1, 0, "class<`phylo4`>", 1
 "phylobase", "labels<-", 0, 1, 1, "class<`phylo4d`>", 1
 "phylobase", "labels<-", 1, 1, 0, "character", 1
@@ -373,7 +385,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "nodeLabels", 0, 1, 1, "class<`phylo4d`>", 1
 "phylobase", "nodeLabels", -1, 2, 0, "^character[]", 1
 "phylobase", "nodeLabels", 0, 2, 0, "class<`phylo4d`>", 1
-"phylobase", "nodeLabels<-", -1, 0, 0, "(class<`phylo4`> | class<`phylo4d`>)", 1
+"phylobase", "nodeLabels<-", -1, 0, 0, "class<`phylo4`>", 1
+"phylobase", "nodeLabels<-", -1, 0, 1, "class<`phylo4d`>", 1
 "phylobase", "nodeLabels<-", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "nodeLabels<-", 0, 0, 1, "class<`phylo4d`>", 1
 "phylobase", "nodeLabels<-", 1, 0, 0, "...", 1
@@ -490,7 +503,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "prune", -1, 0, 0, "class<`phylo4d`>", 1
 "phylobase", "prune", 0, 0, 0, "class<`phylo4d`>", 1
 "phylobase", "prune", 1, 0, 0, "...", 1
-"phylobase", "prune", -1, 1, 0, "(class<`phylo4`> | class<`phylo4d`>)", 1
+"phylobase", "prune", -1, 1, 0, "class<`phylo4`>", 1
+"phylobase", "prune", -1, 1, 1, "class<`phylo4d`>", 1
 "phylobase", "prune", 0, 1, 0, "class<`phylo4`>", 1
 "phylobase", "prune", 0, 1, 1, "class<`phylo4d`>", 1
 "phylobase", "prune", 1, 1, 0, "...", 1
@@ -616,7 +630,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "tipLabels<-", 0, 1, 0, "class<`phylo4d`>", 1
 "phylobase", "tipLabels<-", 1, 1, 0, "...", 1
 "phylobase", "tipLabels<-", 2, 1, 0, "character[]", 1
-"phylobase", "tipLabels<-", -1, 2, 0, "(class<`phylo4`> | class<`phylo4d`>)", 1
+"phylobase", "tipLabels<-", -1, 2, 0, "class<`phylo4`>", 1
+"phylobase", "tipLabels<-", -1, 2, 1, "class<`phylo4d`>", 1
 "phylobase", "tipLabels<-", 0, 2, 0, "class<`phylo4`>", 1
 "phylobase", "tipLabels<-", 0, 2, 1, "class<`phylo4d`>", 1
 "phylobase", "tipLabels<-", 1, 2, 0, "...", 1

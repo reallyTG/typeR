@@ -15,7 +15,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "%as%", -1, 0, 0, "null", 1
 "lambda.r", "%as%", 0, 0, 0, "any", 1
 "lambda.r", "%as%", 1, 0, 0, "any", 1
-"lambda.r", "body_fn", -1, 0, 0, "(character[] | class<`function`>)", 1
+"lambda.r", "body_fn", -1, 0, 0, "character[]", 1
+"lambda.r", "body_fn", -1, 0, 1, "class<`function`>", 1
 "lambda.r", "body_fn", 0, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "body_fn", 0, 0, 1, "null", 1
 "lambda.r", "body_fn", 1, 0, 0, "class<`data.frame`>", 1
@@ -24,9 +25,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "check_types", 0, 0, 0, "null", 1
 "lambda.r", "check_types", 0, 0, 1, "list<class<`data.frame`> | character | integer[]>", 1
 "lambda.r", "check_types", 1, 0, 0, "any", 1
-"lambda.r", "clean_defaults", -1, 0, 0, "(^character[] | ^logical[] | null)", 1
+"lambda.r", "clean_defaults", -1, 0, 0, "^character[]", 1
+"lambda.r", "clean_defaults", -1, 0, 1, "^logical[]", 1
+"lambda.r", "clean_defaults", -1, 0, 2, "null", 1
 "lambda.r", "clean_defaults", 0, 0, 0, "list<any>", 1
-"lambda.r", "clean_tokens", -1, 0, 0, "(character[] | null)", 1
+"lambda.r", "clean_tokens", -1, 0, 0, "character[]", 1
+"lambda.r", "clean_tokens", -1, 0, 1, "null", 1
 "lambda.r", "clean_tokens", 0, 0, 0, "list<any>", 1
 "lambda.r", "dereference_type", -1, 0, 0, "class<`function`>", 1
 "lambda.r", "dereference_type", 0, 0, 0, "character[]", 1
@@ -34,7 +38,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "fast_forward", -1, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "fast_forward", 0, 0, 0, "class<`function`>", 1
 "lambda.r", "fast_forward", 1, 0, 0, "character[]", 1
-"lambda.r", "fill_args", -1, 0, 0, "(null | list<any>)", 1
+"lambda.r", "fill_args", -1, 0, 0, "null", 1
+"lambda.r", "fill_args", -1, 0, 1, "list<any>", 1
 "lambda.r", "fill_args", 0, 0, 0, "list<any>", 1
 "lambda.r", "fill_args", 1, 0, 0, "null", 1
 "lambda.r", "fill_args", 1, 0, 1, "character[]", 1
@@ -43,15 +48,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "from_root_env", -1, 0, 0, "logical", 1
 "lambda.r", "from_root_env", 0, 0, 0, "pairlist", 1
 "lambda.r", "get_function_env", -1, 0, 0, "environment", 1
-"lambda.r", "get_lr", -1, 0, 0, "(class<`function`, `lambdar.fun`> | class<`function`, `lambdar.type`>)", 1
+"lambda.r", "get_lr", -1, 0, 0, "class<`function`, `lambdar.fun`>", 1
+"lambda.r", "get_lr", -1, 0, 1, "class<`function`, `lambdar.type`>", 1
 "lambda.r", "get_lr", 0, 0, 0, "character", 1
 "lambda.r", "get_name", -1, 0, 0, "character", 1
 "lambda.r", "get_name", 0, 0, 0, "class<`function`>", 1
-"lambda.r", "get_type", -1, 0, 0, "(null | list<class<`data.frame`> | character | integer[]>)", 1
+"lambda.r", "get_type", -1, 0, 0, "null", 1
+"lambda.r", "get_type", -1, 0, 1, "list<class<`data.frame`> | character | integer[]>", 1
 "lambda.r", "get_type", 0, 0, 0, "any", 1
 "lambda.r", "get_type", 1, 0, 0, "null", 1
 "lambda.r", "get_type", 1, 0, 1, "double", 1
-"lambda.r", "get_type_index", -1, 0, 0, "(double | null)", 1
+"lambda.r", "get_type_index", -1, 0, 0, "double", 1
+"lambda.r", "get_type_index", -1, 0, 1, "null", 1
 "lambda.r", "get_type_index", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
 "lambda.r", "get_type_index", 0, 0, 1, "class<`function`, `lambdar.type`>", 1
 "lambda.r", "get_type_index", 1, 0, 0, "any", 1
@@ -60,21 +68,25 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "get_variant", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
 "lambda.r", "get_variant", 0, 0, 1, "class<`function`, `lambdar.type`>", 1
 "lambda.r", "get_variant", 1, 0, 0, "integer", 1
-"lambda.r", "guard_fn", -1, 0, 0, "(class<`function`> | null)", 1
+"lambda.r", "guard_fn", -1, 0, 0, "class<`function`>", 1
+"lambda.r", "guard_fn", -1, 0, 1, "null", 1
 "lambda.r", "guard_fn", 0, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "guard_fn", 1, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "guard_fn", 1, 0, 1, "null", 1
 "lambda.r", "guard_fn", 2, 0, 0, "any", 1
 "lambda.r", "has_ellipsis", -1, 0, 0, "integer[]", 1
 "lambda.r", "has_ellipsis", 0, 0, 0, "character[]", 1
-"lambda.r", "has_variant", -1, 0, 0, "(integer | logical[] | list<any>)", 1
+"lambda.r", "has_variant", -1, 0, 0, "integer", 1
+"lambda.r", "has_variant", -1, 0, 1, "logical[]", 1
+"lambda.r", "has_variant", -1, 0, 2, "list<any>", 1
 "lambda.r", "has_variant", 0, 0, 0, "list<any>", 1
 "lambda.r", "has_variant", 1, 0, 0, "any", 1
 "lambda.r", "has_variant", 2, 0, 0, "any", 1
 "lambda.r", "has_variant", 3, 0, 0, "any", 1
 "lambda.r", "idx_ellipsis", -1, 0, 0, "integer[]", 1
 "lambda.r", "idx_ellipsis", 0, 0, 0, "list<any>", 1
-"lambda.r", "init_function", -1, 0, 0, "(class<`function`, `lambdar.fun`> | class<`function`, `lambdar.type`>)", 1
+"lambda.r", "init_function", -1, 0, 0, "class<`function`, `lambdar.fun`>", 1
+"lambda.r", "init_function", -1, 0, 1, "class<`function`, `lambdar.type`>", 1
 "lambda.r", "init_function", 0, 0, 0, "character", 1
 "lambda.r", "init_function", 1, 0, 0, "environment", 1
 "lambda.r", "%isa%", -1, 0, 0, "logical", 1
@@ -105,9 +117,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "parse_fun", -1, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "parse_fun", 0, 0, 0, "class<`function`>", 1
 "lambda.r", "parse_fun", 1, 0, 0, "null", 1
-"lambda.r", "parse_guard", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"lambda.r", "parse_guard", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_guard", -1, 0, 1, "null", 1
 "lambda.r", "parse_guard", 0, 0, 0, "class<`function`>", 1
-"lambda.r", "parse_infix", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"lambda.r", "parse_infix", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "parse_infix", -1, 0, 1, "null", 1
 "lambda.r", "parse_infix", 0, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "parse_types", -1, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "parse_types", 0, 0, 0, "class<`function`>", 1
@@ -124,7 +138,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "seal", -1, 0, 0, "null", 1
 "lambda.r", "seal", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
 "lambda.r", "seal", 0, 0, 1, "class<`function`, `lambdar.type`>", 1
-"lambda.r", "setup_parent", -1, 0, 0, "(class<`function`, `lambdar.fun`> | class<`function`, `lambdar.type`> | null)", 1
+"lambda.r", "setup_parent", -1, 0, 0, "class<`function`, `lambdar.fun`>", 1
+"lambda.r", "setup_parent", -1, 0, 1, "class<`function`, `lambdar.type`>", 1
+"lambda.r", "setup_parent", -1, 0, 2, "null", 1
 "lambda.r", "setup_parent", 0, 0, 0, "character", 1
 "lambda.r", "setup_parent", 1, 0, 0, "environment", 1
 "lambda.r", "strip_ellipsis", -1, 0, 0, "character", 1
@@ -134,7 +150,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "target_env", -1, 0, 0, "environment", 1
 "lambda.r", "target_env", 0, 0, 0, "class<`call`>", 1
 "lambda.r", "target_env", 1, 0, 0, "integer", 1
-"lambda.r", "transform_attrs", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"lambda.r", "transform_attrs", -1, 0, 0, "class<`data.frame`>", 1
+"lambda.r", "transform_attrs", -1, 0, 1, "null", 1
 "lambda.r", "transform_attrs", 0, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "transform_attrs", 0, 0, 1, "null", 1
 "lambda.r", "update_type_map", -1, 0, 0, "list<character[]>", 1

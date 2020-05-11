@@ -37,7 +37,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "cooks.distance.gnm", 1, 0, 0, "class<`table`>", 1
 "gnm", "cooks.distance.gnm", 2, 0, 0, "double", 1
 "gnm", "cooks.distance.gnm", 3, 0, 0, "...", 1
-"gnm", "Diag", -1, 0, 0, "(class<`factor`> | double[])", 1
+"gnm", "Diag", -1, 0, 0, "class<`factor`>", 1
+"gnm", "Diag", -1, 0, 1, "double[]", 1
 "gnm", "Diag", 0, 0, 0, "...", 1
 "gnm", "Diag", 1, 0, 0, "logical", 1
 "gnm", "Dref", -1, 0, 0, "list<any>", 1
@@ -71,7 +72,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "getContrasts", 5, 0, 0, "null", 1
 "gnm", "getContrasts", 6, 0, 0, "logical", 1
 "gnm", "getContrasts", 7, 0, 0, "...", 1
-"gnm", "glm.fit.e", -1, 0, 0, "(^double[] | list<any>)", 1
+"gnm", "glm.fit.e", -1, 0, 0, "^double[]", 1
+"gnm", "glm.fit.e", -1, 0, 1, "list<any>", 1
 "gnm", "glm.fit.e", 0, 0, 0, "class<`matrix`>", 1
 "gnm", "glm.fit.e", 1, 0, 0, "double[]", 1
 "gnm", "glm.fit.e", 2, 0, 0, "double[]", 1
@@ -86,7 +88,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "glm.fit.e", 10, 0, 1, "class<`factor`>", 1
 "gnm", "glm.fit.e", 11, 0, 0, "double", 1
 "gnm", "glm.fit.e", 12, 0, 0, "logical", 1
-"gnm", "gnm", -1, 0, 0, "(class<`glm`, `gnm`, `lm`> | class<`matrix`>)", 1
+"gnm", "gnm", -1, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
+"gnm", "gnm", -1, 0, 1, "class<`matrix`>", 1
 "gnm", "gnm", 0, 0, 0, "class<`formula`>", 1
 "gnm", "gnm", 1, 0, 0, "any", 1
 "gnm", "gnm", 2, 0, 0, "null", 1
@@ -202,7 +205,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "MultHomog", 0, 0, 0, "...", 1
 "gnm", "MultHomog", 1, 0, 0, "double", 1
 "gnm", "MultHomog", 1, 0, 1, "null", 1
-"gnm", "naToZero", -1, 0, 0, "(class<`coef.gnm`, `numeric`> | class<`matrix`> | double[])", 1
+"gnm", "naToZero", -1, 0, 0, "class<`coef.gnm`, `numeric`>", 1
+"gnm", "naToZero", -1, 0, 1, "class<`matrix`>", 1
+"gnm", "naToZero", -1, 0, 2, "double[]", 1
 "gnm", "naToZero", 0, 0, 0, "class<`coef.gnm`, `numeric`>", 1
 "gnm", "naToZero", 0, 0, 1, "class<`matrix`>", 1
 "gnm", "naToZero", 0, 0, 2, "^double[]", 1
@@ -225,7 +230,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "nonlinTerms", 8, 0, 2, "class<`data.frame`>", 1
 "gnm", "nonlinTerms", 8, 0, 3, "class<`table`, `xtabs`>", 1
 "gnm", "nonlinTerms", 8, 0, 4, "class<`table`>", 1
-"gnm", "ofInterest", -1, 0, 0, "(integer[] | null)", 1
+"gnm", "ofInterest", -1, 0, 0, "integer[]", 1
+"gnm", "ofInterest", -1, 0, 1, "null", 1
 "gnm", "ofInterest", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "ofInterest", 0, 0, 1, "class<`summary.gnm`>", 1
 "gnm", "ofInterest<-", -1, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
@@ -262,7 +268,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "plot.profile.gnm", 2, 0, 0, "...", 1
 "gnm", "prattle", -1, 0, 0, "null", 1
 "gnm", "prattle", 0, 0, 0, "...", 1
-"gnm", "predict.gnm", -1, 0, 0, "(class<`table`> | list<class<`table`> | double>)", 1
+"gnm", "predict.gnm", -1, 0, 0, "class<`table`>", 1
+"gnm", "predict.gnm", -1, 0, 1, "list<class<`table`> | double>", 1
 "gnm", "predict.gnm", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "predict.gnm", 1, 0, 0, "null", 1
 "gnm", "predict.gnm", 2, 0, 0, "character[]", 1
@@ -289,13 +296,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "quickRank", -1, 0, 0, "integer", 1
 "gnm", "quickRank", 0, 0, 0, "class<`matrix`>", 1
 "gnm", "quickRank", 1, 0, 0, "null", 1
-"gnm", "residSVD", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"gnm", "residSVD", -1, 0, 0, "class<`matrix`>", 1
+"gnm", "residSVD", -1, 0, 1, "double[]", 1
 "gnm", "residSVD", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "residSVD", 0, 0, 1, "class<`lm`>", 1
 "gnm", "residSVD", 1, 0, 0, "any", 1
 "gnm", "residSVD", 2, 0, 0, "any", 1
 "gnm", "residSVD", 3, 0, 0, "double", 1
-"gnm", "residuals.gnm", -1, 0, 0, "(class<`table`> | double[])", 1
+"gnm", "residuals.gnm", -1, 0, 0, "class<`table`>", 1
+"gnm", "residuals.gnm", -1, 0, 1, "double[]", 1
 "gnm", "residuals.gnm", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "residuals.gnm", 1, 0, 0, "character", 1
 "gnm", "residuals.gnm", 2, 0, 0, "...", 1

@@ -25,7 +25,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rje", "conditionMatrix", 4, 0, 1, "double[]", 1
 "rje", "conditionMatrix", 5, 0, 0, "logical", 1
 "rje", "conditionMatrix", 6, 0, 0, "double", 1
-"rje", "conditionTable", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"rje", "conditionTable", -1, 0, 0, "class<`array`>", 1
+"rje", "conditionTable", -1, 0, 1, "class<`matrix`>", 1
 "rje", "conditionTable", 0, 0, 0, "class<`array`>", 1
 "rje", "conditionTable", 1, 0, 0, "double[]", 1
 "rje", "conditionTable", 2, 0, 0, "double[]", 1
@@ -66,7 +67,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rje", "fun", -1, 0, 0, "null", 1
 "rje", "fun", 0, 0, 0, "any", 1
 "rje", "fun", 1, 0, 0, "character", 1
-"rje", "FUN", -1, 0, 0, "(character[] | integer[])", 1
+"rje", "FUN", -1, 0, 0, "character[]", 1
+"rje", "FUN", -1, 0, 1, "integer[]", 1
 "rje", "FUN", 0, 0, 0, "character[]", 1
 "rje", "FUN", 0, 0, 1, "integer[]", 1
 "rje", "FUN", -1, 1, 0, "character", 1
@@ -105,12 +107,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rje", "marginMatrix", 2, 0, 1, "null", 1
 "rje", "marginMatrix", 3, 0, 0, "logical", 1
 "rje", "marginMatrix", 4, 0, 0, "logical", 1
-"rje", "marginTable", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"rje", "marginTable", -1, 0, 0, "class<`array`>", 1
+"rje", "marginTable", -1, 0, 1, "class<`matrix`>", 1
 "rje", "marginTable", 0, 0, 0, "class<`array`>", 1
 "rje", "marginTable", 0, 0, 1, "class<`matrix`>", 1
 "rje", "marginTable", 1, 0, 0, "double[]", 1
 "rje", "marginTable", 2, 0, 0, "logical", 1
-"rje", "patternRepeat", -1, 0, 0, "(character[] | integer[])", 1
+"rje", "patternRepeat", -1, 0, 0, "character[]", 1
+"rje", "patternRepeat", -1, 0, 1, "integer[]", 1
 "rje", "patternRepeat", 0, 0, 0, "character[]", 1
 "rje", "patternRepeat", 0, 0, 1, "integer[]", 1
 "rje", "patternRepeat", 1, 0, 0, "double[]", 1
@@ -148,7 +152,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rje", "printPercentage", 3, 0, 0, "double", 1
 "rje", "printPercentage", 4, 0, 0, "double", 1
 "rje", "printPercentage", 5, 0, 0, "double", 1
-"rje", "propTable", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"rje", "propTable", -1, 0, 0, "class<`array`>", 1
+"rje", "propTable", -1, 0, 1, "class<`matrix`>", 1
 "rje", "propTable", 0, 0, 0, "class<`array`>", 1
 "rje", "propTable", 0, 0, 1, "class<`matrix`>", 1
 "rje", "propTable", 1, 0, 0, "integer[]", 1
@@ -180,7 +185,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rje", "setsetequal", -1, 0, 0, "logical", 1
 "rje", "setsetequal", 0, 0, 0, "list<integer[]>", 1
 "rje", "setsetequal", 1, 0, 0, "list<double[]>", 1
-"rje", "subarray", -1, 0, 0, "(class<`array`> | class<`matrix`> | integer[])", 1
+"rje", "subarray", -1, 0, 0, "class<`array`>", 1
+"rje", "subarray", -1, 0, 1, "class<`matrix`>", 1
+"rje", "subarray", -1, 0, 2, "integer[]", 1
 "rje", "subarray", 0, 0, 0, "class<`array`>", 1
 "rje", "subarray", 0, 0, 1, "class<`matrix`>", 1
 "rje", "subarray", 1, 0, 0, "double[]", 1
@@ -198,14 +205,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rje", "subsetOrder", -1, 0, 0, "double", 1
 "rje", "subsetOrder", 0, 0, 0, "integer[]", 1
 "rje", "subsetOrder", 1, 0, 0, "integer[]", 1
-"rje", "subtable", -1, 0, 0, "(class<`array`> | class<`matrix`> | integer[])", 1
+"rje", "subtable", -1, 0, 0, "class<`array`>", 1
+"rje", "subtable", -1, 0, 1, "class<`matrix`>", 1
+"rje", "subtable", -1, 0, 2, "integer[]", 1
 "rje", "subtable", 0, 0, 0, "class<`array`>", 1
 "rje", "subtable", 0, 0, 1, "class<`matrix`>", 1
 "rje", "subtable", 1, 0, 0, "double[]", 1
 "rje", "subtable", 2, 0, 0, "double[]", 1
 "rje", "subtable", 2, 0, 1, "list<integer[] | double | double | integer[]>", 1
 "rje", "subtable", 3, 0, 0, "logical", 1
-"rje", ".sweep0", -1, 0, 0, "(class<`array`> | class<`matrix`>)", 1
+"rje", ".sweep0", -1, 0, 0, "class<`array`>", 1
+"rje", ".sweep0", -1, 0, 1, "class<`matrix`>", 1
 "rje", ".sweep0", 0, 0, 0, "class<`array`>", 1
 "rje", ".sweep0", 0, 0, 1, "class<`matrix`>", 1
 "rje", ".sweep0", 1, 0, 0, "integer[]", 1

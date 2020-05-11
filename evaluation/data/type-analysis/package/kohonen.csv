@@ -7,7 +7,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "check.data", -1, 0, 0, "list<class<`matrix`>>", 1
 "kohonen", "check.data", 0, 0, 0, "class<`matrix`>", 1
 "kohonen", "check.data", 0, 0, 1, "list<class<`matrix`> | class<`factor`> | class<`matrix`>>", 1
-"kohonen", "check.data.na", -1, 0, 0, "(integer[] | null)", 1
+"kohonen", "check.data.na", -1, 0, 0, "integer[]", 1
+"kohonen", "check.data.na", -1, 0, 1, "null", 1
 "kohonen", "check.data.na", 0, 0, 0, "list<any>", 1
 "kohonen", "check.data.na", 1, 0, 0, "any", 1
 "kohonen", "checkListVariables", -1, 0, 0, "logical", 1
@@ -16,7 +17,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "checkListVariables", 1, 0, 1, "list<integer>", 1
 "kohonen", "check.somgrid", -1, 0, 0, "class<`somgrid`>", 1
 "kohonen", "check.somgrid", 0, 0, 0, "class<`somgrid`>", 1
-"kohonen", "check.whatmap", -1, 0, 0, "(double | integer[])", 1
+"kohonen", "check.whatmap", -1, 0, 0, "double", 1
+"kohonen", "check.whatmap", -1, 0, 1, "integer[]", 1
 "kohonen", "check.whatmap", 0, 0, 0, "class<`kohonen`>", 1
 "kohonen", "check.whatmap", 0, 0, 1, "list<class<`matrix`> | double | class<`somgrid`> | class<`matrix`>>", 1
 "kohonen", "check.whatmap", 1, 0, 0, "double", 1
@@ -38,7 +40,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "FUN", 0, 0, 0, "class<`matrix`>", 1
 "kohonen", "FUN", 1, 0, 0, "double", 1
 "kohonen", "FUN", 2, 0, 0, "double", 1
-"kohonen", "getCodes", -1, 0, 0, "(class<`matrix`> | list<class<`matrix`> | null | class<`matrix`>>)", 1
+"kohonen", "getCodes", -1, 0, 0, "class<`matrix`>", 1
+"kohonen", "getCodes", -1, 0, 1, "list<class<`matrix`> | null | class<`matrix`>>", 1
 "kohonen", "getCodes", 0, 0, 0, "class<`kohonen`>", 1
 "kohonen", "getCodes", 1, 0, 0, "double", 1
 "kohonen", "getCodes", 1, 0, 1, "integer[]", 1
@@ -151,7 +154,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "plot.kohmapping", 8, 0, 0, "character", 1
 "kohonen", "plot.kohmapping", 8, 0, 1, "null", 1
 "kohonen", "plot.kohmapping", 9, 0, 0, "...", 1
-"kohonen", "plot.kohonen", -1, 0, 0, "(^double[] | null)", 1
+"kohonen", "plot.kohonen", -1, 0, 0, "^double[]", 1
+"kohonen", "plot.kohonen", -1, 0, 1, "null", 1
 "kohonen", "plot.kohonen", 0, 0, 0, "class<`kohonen`>", 1
 "kohonen", "plot.kohonen", 1, 0, 0, "character", 1
 "kohonen", "plot.kohonen", 2, 0, 0, "null", 1

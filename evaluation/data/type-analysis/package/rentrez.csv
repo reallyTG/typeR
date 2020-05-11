@@ -57,11 +57,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rentrez", "entrez_summary", 6, 0, 0, "null", 1
 "rentrez", "entrez_summary", 7, 0, 0, "...", 1
 "rentrez", "entrez_tool", -1, 0, 0, "character", 1
-"rentrez", "extract_from_esummary", -1, 0, 0, "(character[] | class<`matrix`> | list<list<character>>)", 1
+"rentrez", "extract_from_esummary", -1, 0, 0, "character[]", 1
+"rentrez", "extract_from_esummary", -1, 0, 1, "class<`matrix`>", 1
+"rentrez", "extract_from_esummary", -1, 0, 2, "list<list<character>>", 1
 "rentrez", "extract_from_esummary", 0, 0, 0, "class<`esummary_list`, `list`>", 1
 "rentrez", "extract_from_esummary", 1, 0, 0, "character", 1
 "rentrez", "extract_from_esummary", 2, 0, 0, "logical", 1
-"rentrez", "extract_from_esummary.esummary_list", -1, 0, 0, "(character[] | class<`matrix`> | list<list<character>>)", 1
+"rentrez", "extract_from_esummary.esummary_list", -1, 0, 0, "character[]", 1
+"rentrez", "extract_from_esummary.esummary_list", -1, 0, 1, "class<`matrix`>", 1
+"rentrez", "extract_from_esummary.esummary_list", -1, 0, 2, "list<list<character>>", 1
 "rentrez", "extract_from_esummary.esummary_list", 0, 0, 0, "class<`esummary_list`, `list`>", 1
 "rentrez", "extract_from_esummary.esummary_list", 1, 0, 0, "character", 1
 "rentrez", "extract_from_esummary.esummary_list", 2, 0, 0, "logical", 1
@@ -99,7 +103,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rentrez", "parse_esummary.list", 0, 0, 0, "list<list<character | character[] | list<any> | character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
 "rentrez", "parse_esummary.list", 1, 0, 0, "any", 1
 "rentrez", "parse_esummary.list", 2, 0, 0, "logical", 1
-"rentrez", "parse_response", -1, 0, 0, "(class<`XMLAbstractDocument`, `XMLInternalDocument`> | list<list<character | character[] | list<any> | character | character[] | list<character | class<`data.frame`> | list<character>>>>)", 1
+"rentrez", "parse_response", -1, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
+"rentrez", "parse_response", -1, 0, 1, "list<list<character | character[] | list<any> | character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
 "rentrez", "parse_response", 0, 0, 0, "character", 1
 "rentrez", "parse_response", 1, 0, 0, "character", 1
 "rentrez", "sleep_time", -1, 0, 0, "double", 1

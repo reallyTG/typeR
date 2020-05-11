@@ -72,7 +72,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "collectUsageFun", 2, 0, 6, "logical", 1
 "codetools", "collectUsageFun", 2, 0, 7, "null", 1
 "codetools", "collectUsageFun", 3, 0, 0, "list<any>", 1
-"codetools", "constantFold", -1, 0, 0, "(double | null)", 1
+"codetools", "constantFold", -1, 0, 0, "double", 1
+"codetools", "constantFold", -1, 0, 1, "null", 1
 "codetools", "constantFold", 0, 0, 0, "class<`call`>", 1
 "codetools", "constantFold", 0, 0, 1, "class<`name`>", 1
 "codetools", "constantFold", 0, 0, 2, "double", 1
@@ -80,7 +81,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "constantFold", 1, 0, 1, "character", 1
 "codetools", "constantFold", 2, 0, 0, "null", 1
 "codetools", "constantFold", 2, 0, 1, "logical", 1
-"codetools", "constantFoldEnv", -1, 0, 0, "(logical | null)", 1
+"codetools", "constantFoldEnv", -1, 0, 0, "logical", 1
+"codetools", "constantFoldEnv", -1, 0, 1, "null", 1
 "codetools", "constantFoldEnv", 0, 0, 0, "class<`call`>", 1
 "codetools", "constantFoldEnv", 0, 0, 1, "logical", 1
 "codetools", "constantFoldEnv", 0, 0, 2, "class<`name`>", 1
@@ -108,7 +110,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "findFuncLocals", 1, 0, 6, "logical", 1
 "codetools", "findFuncLocals", 1, 0, 7, "null", 1
 "codetools", "findFuncLocals", 1, 0, 8, "class<`for`>", 1
-"codetools", "findGlobals", -1, 0, 0, "(character[] | list<character[]>)", 1
+"codetools", "findGlobals", -1, 0, 0, "character[]", 1
+"codetools", "findGlobals", -1, 0, 1, "list<character[]>", 1
 "codetools", "findGlobals", 0, 0, 0, "class<`function`>", 1
 "codetools", "findGlobals", 1, 0, 0, "logical", 1
 "codetools", "findLocals", -1, 0, 0, "character[]", 1
@@ -121,7 +124,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "findLocalsList", 0, 0, 0, "list<any>", 1
 "codetools", "findLocalsList", 1, 0, 0, "environment", 1
 "codetools", "findLocalsList", 1, 0, 1, "character", 1
-"codetools", "findOwnerEnv", -1, 0, 0, "(environment | null)", 1
+"codetools", "findOwnerEnv", -1, 0, 0, "environment", 1
+"codetools", "findOwnerEnv", -1, 0, 1, "null", 1
 "codetools", "findOwnerEnv", 0, 0, 0, "character", 1
 "codetools", "findOwnerEnv", 1, 0, 0, "environment", 1
 "codetools", "findOwnerEnv", 2, 0, 0, "environment", 1
@@ -138,7 +142,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "getLocalUsageEntry", -1, 0, 0, "environment", 1
 "codetools", "getLocalUsageEntry", 0, 0, 0, "character", 1
 "codetools", "getLocalUsageEntry", 1, 0, 0, "list<any>", 1
-"codetools", "getLocalUsageValue", -1, 0, 0, "(class<`data.frame`> | double | null | list<null | pairlist>)", 1
+"codetools", "getLocalUsageValue", -1, 0, 0, "class<`data.frame`>", 1
+"codetools", "getLocalUsageValue", -1, 0, 1, "double", 1
+"codetools", "getLocalUsageValue", -1, 0, 2, "null", 1
+"codetools", "getLocalUsageValue", -1, 0, 3, "list<null | pairlist>", 1
 "codetools", "getLocalUsageValue", 0, 0, 0, "character", 1
 "codetools", "getLocalUsageValue", 1, 0, 0, "character", 1
 "codetools", "getLocalUsageValue", 2, 0, 0, "list<any>", 1
@@ -172,7 +179,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "isUtilsVar", -1, 0, 0, "logical", 1
 "codetools", "isUtilsVar", 0, 0, 0, "character", 1
 "codetools", "isUtilsVar", 1, 0, 0, "environment", 1
-"codetools", "makeAssgnFcn", -1, 0, 0, "(class<`call`> | class<`name`>)", 1
+"codetools", "makeAssgnFcn", -1, 0, 0, "class<`call`>", 1
+"codetools", "makeAssgnFcn", -1, 0, 1, "class<`name`>", 1
 "codetools", "makeAssgnFcn", 0, 0, 0, "class<`call`>", 1
 "codetools", "makeAssgnFcn", 0, 0, 1, "class<`name`>", 1
 "codetools", "makeCodeWalker", -1, 0, 0, "list<any>", 1
@@ -213,7 +221,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "matchCall", 1, 0, 0, "class<`call`>", 1
 "codetools", "matchCall", 2, 0, 0, "...", 1
 "codetools", "mkHash", -1, 0, 0, "environment", 1
-"codetools", "showTree", -1, 0, 0, "(character | null)", 1
+"codetools", "showTree", -1, 0, 0, "character", 1
+"codetools", "showTree", -1, 0, 1, "null", 1
 "codetools", "showTree", 0, 0, 0, "class<`call`>", 1
 "codetools", "showTree", 0, 0, 1, "class<`<-`>", 1
 "codetools", "showTree", 1, 0, 0, "class<`function`>", 1

@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"party", ":::", -1, 0, 0, "(class<`SplittingNode`> | class<`TerminalNode`>)", 1
+"party", ":::", -1, 0, 0, "class<`SplittingNode`>", 1
+"party", ":::", -1, 0, 1, "class<`TerminalNode`>", 1
 "party", ":::", 0, 0, 0, "list<any>", 1
 "party", ":::", 1, 0, 0, "character[]", 1
 "party", ":::", 1, 0, 1, "null", 1
@@ -60,7 +61,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "copyslots", -1, 0, 0, "class<`ForestControl`>", 1
 "party", "copyslots", 0, 0, 0, "class<`TreeControl`>", 1
 "party", "copyslots", 1, 0, 0, "class<`ForestControl`>", 1
-"party", "create_cond_list", -1, 0, 0, "(character[] | null)", 1
+"party", "create_cond_list", -1, 0, 0, "character[]", 1
+"party", "create_cond_list", -1, 0, 1, "null", 1
 "party", "create_cond_list", 0, 0, 0, "logical", 1
 "party", "create_cond_list", 1, 0, 0, "any", 1
 "party", "create_cond_list", 2, 0, 0, "any", 1
@@ -93,7 +95,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "ctreefit", 1, 0, 0, "class<`TreeControl`>", 1
 "party", "ctreefit", 2, 0, 0, "null", 1
 "party", "ctreefit", 3, 0, 0, "...", 1
-"party", "cutpoints_list", -1, 0, 0, "(double[] | null)", 1
+"party", "cutpoints_list", -1, 0, 0, "double[]", 1
+"party", "cutpoints_list", -1, 0, 1, "null", 1
 "party", "cutpoints_list", 0, 0, 0, "list<null | double[] | list<any> | null | double | list<any>>", 1
 "party", "cutpoints_list", 1, 0, 0, "integer", 1
 "party", "deviance.mob", -1, 0, 0, "double", 1
@@ -119,17 +122,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "fitted.mob", -1, 0, 0, "double[]", 1
 "party", "fitted.mob", 0, 0, 0, "class<`mob`>", 1
 "party", "fitted.mob", 1, 0, 0, "...", 1
-"party", "FUN", -1, 0, 0, "(class<`orderedSplit`> | class<`nominalSplit`>)", 1
+"party", "FUN", -1, 0, 0, "class<`orderedSplit`>", 1
+"party", "FUN", -1, 0, 1, "class<`nominalSplit`>", 1
 "party", "FUN", 0, 0, 0, "list<any>", 1
 "party", "FUN", 1, 0, 0, "character[]", 1
 "party", "FUN", 1, 0, 1, "null", 1
 "party", "FUN", 2, 0, 0, "null", 1
 "party", "FUN", 2, 0, 1, "list<any>", 1
-"party", "initVariableFrame", -1, 0, 0, "(class<`ResponseFrame`> | class<`VariableFrame`>)", 1
+"party", "initVariableFrame", -1, 0, 0, "class<`ResponseFrame`>", 1
+"party", "initVariableFrame", -1, 0, 1, "class<`VariableFrame`>", 1
 "party", "initVariableFrame", 0, 0, 0, "class<`data.frame`>", 1
 "party", "initVariableFrame", 0, 0, 1, "class<`matrix`>", 1
 "party", "initVariableFrame", 1, 0, 0, "...", 1
-"party", "initVariableFrame", -1, 1, 0, "(class<`ResponseFrame`> | class<`VariableFrame`>)", 1
+"party", "initVariableFrame", -1, 1, 0, "class<`ResponseFrame`>", 1
+"party", "initVariableFrame", -1, 1, 1, "class<`VariableFrame`>", 1
 "party", "initVariableFrame", 0, 1, 0, "class<`data.frame`>", 1
 "party", "initVariableFrame", 1, 1, 0, "...", 1
 "party", "initVariableFrame", -1, 2, 0, "class<`VariableFrame`>", 1
@@ -210,12 +216,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "mob_fit_getobjfun", 2, 0, 0, "double[]", 1
 "party", "mob_fit_getobjfun", 3, 0, 0, "logical[]", 1
 "party", "mob_fit_getobjfun", 4, 0, 0, "class<`function`>", 1
-"party", "mob_fit_setupnode", -1, 0, 0, "(class<`SplittingNode`> | class<`TerminalModelNode`>)", 1
+"party", "mob_fit_setupnode", -1, 0, 0, "class<`SplittingNode`>", 1
+"party", "mob_fit_setupnode", -1, 0, 1, "class<`TerminalModelNode`>", 1
 "party", "mob_fit_setupnode", 0, 0, 0, "any", 1
 "party", "mob_fit_setupnode", 1, 0, 0, "any", 1
 "party", "mob_fit_setupnode", 2, 0, 0, "double[]", 1
 "party", "mob_fit_setupnode", 3, 0, 0, "class<`mob_control`>", 1
-"party", "mob_fit_splitnode", -1, 0, 0, "(class<`orderedSplit`> | logical)", 1
+"party", "mob_fit_splitnode", -1, 0, 0, "class<`orderedSplit`>", 1
+"party", "mob_fit_splitnode", -1, 0, 1, "logical", 1
 "party", "mob_fit_splitnode", 0, 0, 0, "class<`factor`, `ordered`>", 1
 "party", "mob_fit_splitnode", 0, 0, 1, "double[]", 1
 "party", "mob_fit_splitnode", 0, 0, 2, "class<`factor`>", 1
@@ -333,7 +341,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "plotTree", 8, 0, 0, "double", 1
 "party", "plotTree", 9, 0, 0, "any", 1
 "party", "plotTree", 10, 0, 0, "logical", 1
-"party", "predict.BinaryTree", -1, 0, 0, "(class<`factor`> | class<`matrix`> | integer[] | list<double[]>)", 1
+"party", "predict.BinaryTree", -1, 0, 0, "class<`factor`>", 1
+"party", "predict.BinaryTree", -1, 0, 1, "class<`matrix`>", 1
+"party", "predict.BinaryTree", -1, 0, 2, "integer[]", 1
+"party", "predict.BinaryTree", -1, 0, 3, "list<double[]>", 1
 "party", "predict.BinaryTree", 0, 0, 0, "class<`BinaryTree`>", 1
 "party", "predict.BinaryTree", 1, 0, 0, "...", 1
 "party", "predict.mob", -1, 0, 0, "double[]", 1
@@ -346,13 +357,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "predict.RandomForest", 1, 0, 0, "logical", 1
 "party", "predict.RandomForest", 2, 0, 0, "logical", 1
 "party", "predict.RandomForest", 3, 0, 0, "...", 1
-"party", "prettysplit", -1, 0, 0, "(class<`orderedSplit`> | class<`nominalSplit`>)", 1
+"party", "prettysplit", -1, 0, 0, "class<`orderedSplit`>", 1
+"party", "prettysplit", -1, 0, 1, "class<`nominalSplit`>", 1
 "party", "prettysplit", 0, 0, 0, "list<any>", 1
 "party", "prettysplit", 1, 0, 0, "character[]", 1
 "party", "prettysplit", 1, 0, 1, "null", 1
 "party", "prettysplit", 2, 0, 0, "null", 1
 "party", "prettysplit", 2, 0, 1, "list<any>", 1
-"party", "prettytree", -1, 0, 0, "(class<`SplittingNode`> | class<`TerminalNode`>)", 1
+"party", "prettytree", -1, 0, 0, "class<`SplittingNode`>", 1
+"party", "prettytree", -1, 0, 1, "class<`TerminalNode`>", 1
 "party", "prettytree", 0, 0, 0, "list<any>", 1
 "party", "prettytree", 1, 0, 0, "character[]", 1
 "party", "prettytree", 1, 0, 1, "null", 1
@@ -405,7 +418,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "response", 0, 2, 0, "class<`mob`>", 1
 "party", "response", 0, 2, 1, "class<`BinaryTree`>", 1
 "party", "response", 1, 2, 0, "...", 1
-"party", "reweight", -1, 0, 0, "(class<`glinearModel`, `glm`, `lm`> | class<`linearModel`, `lm`>)", 1
+"party", "reweight", -1, 0, 0, "class<`glinearModel`, `glm`, `lm`>", 1
+"party", "reweight", -1, 0, 1, "class<`linearModel`, `lm`>", 1
 "party", "reweight", 0, 0, 0, "class<`glinearModel`, `glm`, `lm`>", 1
 "party", "reweight", 0, 0, 1, "class<`linearModel`, `lm`>", 1
 "party", "reweight", 1, 0, 0, "double[]", 1
@@ -431,7 +445,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "party", "sctest.mob", 0, 0, 0, "class<`mob`>", 1
 "party", "sctest.mob", 1, 0, 0, "double", 1
 "party", "sctest.mob", 2, 0, 0, "...", 1
-"party", "summary.mob", -1, 0, 0, "(class<`summary.lm`> | list<class<`summary.glm`> | class<`summary.lm`>>)", 1
+"party", "summary.mob", -1, 0, 0, "class<`summary.lm`>", 1
+"party", "summary.mob", -1, 0, 1, "list<class<`summary.glm`> | class<`summary.lm`>>", 1
 "party", "summary.mob", 0, 0, 0, "class<`mob`>", 1
 "party", "summary.mob", 1, 0, 0, "double", 1
 "party", "summary.mob", 1, 0, 1, "null", 1

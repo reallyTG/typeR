@@ -83,6 +83,18 @@ void analyze_argument_type(std::ofstream& of,
                               outer_alternative,
                               inner_alternative);
     }
+    /* argument type is inside a group  */
+    else if (node.is_group_type_node()) {
+        const tastr::ast::GroupTypeNode& group_node =
+            tastr::ast::as<tastr::ast::GroupTypeNode>(node);
+        analyze_argument_type(of,
+                              package_name,
+                              function_name,
+                              group_node.get_inner_type(),
+                              parameter_position,
+                              outer_alternative,
+                              inner_alternative);
+    }
     /* leaf node type of the argument type alternative  */
     else {
         TypeSize type_size;

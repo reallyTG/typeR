@@ -69,7 +69,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "ex_between", 8, 0, 0, "logical", 1
 "qdapRegex", "ex_between", 9, 0, 0, "null", 1
 "qdapRegex", "ex_between", 10, 0, 0, "...", 1
-"qdapRegex", "ex_between_multiple", -1, 0, 0, "(class<`extracted`, `list`> | list<character[]>)", 1
+"qdapRegex", "ex_between_multiple", -1, 0, 0, "class<`extracted`, `list`>", 1
+"qdapRegex", "ex_between_multiple", -1, 0, 1, "list<character[]>", 1
 "qdapRegex", "ex_between_multiple", 0, 0, 0, "character[]", 1
 "qdapRegex", "ex_between_multiple", 1, 0, 0, "character[]", 1
 "qdapRegex", "ex_between_multiple", 2, 0, 0, "character[]", 1
@@ -392,7 +393,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "ex_zip", 5, 0, 0, "logical", 1
 "qdapRegex", "ex_zip", 6, 0, 0, "null", 1
 "qdapRegex", "ex_zip", 7, 0, 0, "...", 1
-"qdapRegex", "FUN", -1, 0, 0, "(null | ^character[])", 1
+"qdapRegex", "FUN", -1, 0, 0, "null", 1
+"qdapRegex", "FUN", -1, 0, 1, "^character[]", 1
 "qdapRegex", "FUN", 0, 0, 0, "null", 1
 "qdapRegex", "FUN", 0, 0, 1, "^character[]", 1
 "qdapRegex", "FUN", -1, 1, 0, "logical", 1
@@ -406,7 +408,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", ".genX", 4, 0, 0, "logical", 1
 "qdapRegex", ".genX", 5, 0, 0, "character", 1
 "qdapRegex", ".genX", 6, 0, 0, "logical", 1
-"qdapRegex", ".genXtract", -1, 0, 0, "(class<`extracted`, `list`> | list<character[]>)", 1
+"qdapRegex", ".genXtract", -1, 0, 0, "class<`extracted`, `list`>", 1
+"qdapRegex", ".genXtract", -1, 0, 1, "list<character[]>", 1
 "qdapRegex", ".genXtract", 0, 0, 0, "character[]", 1
 "qdapRegex", ".genXtract", 1, 0, 0, "character[]", 1
 "qdapRegex", ".genXtract", 2, 0, 0, "character[]", 1
@@ -442,7 +445,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "pastex", 0, 0, 0, "...", 1
 "qdapRegex", "pastex", 1, 0, 0, "character", 1
 "qdapRegex", "pastex", 2, 0, 0, "any", 1
-"qdapRegex", "reg_check", -1, 0, 0, "(character | class<`character`, `escape`> | class<`character`, `regexr`>)", 1
+"qdapRegex", "reg_check", -1, 0, 0, "character", 1
+"qdapRegex", "reg_check", -1, 0, 1, "class<`character`, `escape`>", 1
+"qdapRegex", "reg_check", -1, 0, 2, "class<`character`, `regexr`>", 1
 "qdapRegex", "reg_check", 0, 0, 0, "character", 1
 "qdapRegex", "reg_check", 0, 0, 1, "double", 1
 "qdapRegex", "reg_check", 0, 0, 2, "class<`character`, `escape`>", 1
@@ -482,7 +487,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "rm_angle", 6, 0, 0, "logical", 1
 "qdapRegex", "rm_angle", 7, 0, 0, "null", 1
 "qdapRegex", "rm_angle", 8, 0, 0, "...", 1
-"qdapRegex", "rm_between", -1, 0, 0, "(character[] | class<`extracted`, `list`>)", 1
+"qdapRegex", "rm_between", -1, 0, 0, "character[]", 1
+"qdapRegex", "rm_between", -1, 0, 1, "class<`extracted`, `list`>", 1
 "qdapRegex", "rm_between", 0, 0, 0, "character[]", 1
 "qdapRegex", "rm_between", 1, 0, 0, "character[]", 1
 "qdapRegex", "rm_between", 2, 0, 0, "character[]", 1
@@ -582,7 +588,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "rm_city_state_zip", 5, 0, 0, "logical", 1
 "qdapRegex", "rm_city_state_zip", 6, 0, 0, "null", 1
 "qdapRegex", "rm_city_state_zip", 7, 0, 0, "...", 1
-"qdapRegex", "rm_curly", -1, 0, 0, "(character | class<`extracted`, `list`>)", 1
+"qdapRegex", "rm_curly", -1, 0, 0, "character", 1
+"qdapRegex", "rm_curly", -1, 0, 1, "class<`extracted`, `list`>", 1
 "qdapRegex", "rm_curly", 0, 0, 0, "character[]", 1
 "qdapRegex", "rm_curly", 1, 0, 0, "character", 1
 "qdapRegex", "rm_curly", 2, 0, 0, "logical", 1
@@ -601,7 +608,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "rm_date", 5, 0, 0, "logical", 1
 "qdapRegex", "rm_date", 6, 0, 0, "null", 1
 "qdapRegex", "rm_date", 7, 0, 0, "...", 1
-"qdapRegex", "rm_default", -1, 0, 0, "(character[] | class<`extracted`, `list`>)", 1
+"qdapRegex", "rm_default", -1, 0, 0, "character[]", 1
+"qdapRegex", "rm_default", -1, 0, 1, "class<`extracted`, `list`>", 1
 "qdapRegex", "rm_default", 0, 0, 0, "character[]", 1
 "qdapRegex", "rm_default", 1, 0, 0, "logical", 1
 "qdapRegex", "rm_default", 2, 0, 0, "any", 1
@@ -805,7 +813,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "rm_transcript_time", 5, 0, 0, "logical", 1
 "qdapRegex", "rm_transcript_time", 6, 0, 0, "null", 1
 "qdapRegex", "rm_transcript_time", 7, 0, 0, "...", 1
-"qdapRegex", "rm_twitter_url", -1, 0, 0, "(character[] | class<`extracted`, `list`>)", 1
+"qdapRegex", "rm_twitter_url", -1, 0, 0, "character[]", 1
+"qdapRegex", "rm_twitter_url", -1, 0, 1, "class<`extracted`, `list`>", 1
 "qdapRegex", "rm_twitter_url", 0, 0, 0, "character[]", 1
 "qdapRegex", "rm_twitter_url", 1, 0, 0, "logical", 1
 "qdapRegex", "rm_twitter_url", 2, 0, 0, "logical", 1
@@ -929,7 +938,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "qdapRegex", "TC", 0, 0, 0, "character[]", 1
 "qdapRegex", "TC", 1, 0, 0, "null", 1
 "qdapRegex", "TC", 2, 0, 0, "...", 1
-"qdapRegex", "Trim", -1, 0, 0, "(null | ^character[])", 1
+"qdapRegex", "Trim", -1, 0, 0, "null", 1
+"qdapRegex", "Trim", -1, 0, 1, "^character[]", 1
 "qdapRegex", "Trim", 0, 0, 0, "null", 1
 "qdapRegex", "Trim", 0, 0, 1, "^character[]", 1
 "qdapRegex", "U", -1, 0, 0, "list<character>", 1

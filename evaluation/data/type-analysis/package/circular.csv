@@ -65,7 +65,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "arrows.circular", 7, 0, 0, "null", 1
 "circular", "arrows.circular", 8, 0, 0, "null", 1
 "circular", "arrows.circular", 9, 0, 0, "...", 1
-"circular", "as.circular", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "as.circular", -1, 0, 0, "class<`array`, `circular`>", 1
+"circular", "as.circular", -1, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "as.circular", -1, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "as.circular", -1, 0, 3, "class<`circular`, `numeric`>", 1
 "circular", "as.circular", 0, 0, 0, "class<`array`, `circular`>", 1
 "circular", "as.circular", 0, 0, 1, "class<`circular`, `integer`>", 1
 "circular", "as.circular", 0, 0, 2, "class<`circular`, `matrix`>", 1
@@ -170,7 +173,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "CirclePlotRad", 7, 0, 1, "expression", 1
 "circular", "CirclePlotRad", 8, 0, 0, "character", 1
 "circular", "CirclePlotRad", 9, 0, 0, "list<double | character>", 1
-"circular", "circular", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "circular", -1, 0, 0, "class<`array`, `circular`>", 1
+"circular", "circular", -1, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "circular", -1, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "circular", -1, 0, 3, "class<`circular`, `numeric`>", 1
 "circular", "circular", 0, 0, 0, "class<`array`>", 1
 "circular", "circular", 0, 0, 1, "class<`matrix`>", 1
 "circular", "circular", 0, 0, 2, "class<`data.frame`>", 1
@@ -184,7 +190,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "circular", 5, 0, 0, "any", 1
 "circular", "circular", 6, 0, 0, "character[]", 1
 "circular", "circular", 7, 0, 0, "null", 1
-"circular", "[.circular", -1, 0, 0, "(class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "[.circular", -1, 0, 0, "class<`circular`, `matrix`>", 1
+"circular", "[.circular", -1, 0, 1, "class<`circular`, `numeric`>", 1
 "circular", "[.circular", 0, 0, 0, "class<`circular`, `matrix`>", 1
 "circular", "[.circular", 0, 0, 1, "class<`circular`, `numeric`>", 1
 "circular", "[.circular", 1, 0, 0, "any", 1
@@ -195,19 +202,27 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "circular.colors", 2, 0, 0, "double", 1
 "circular", "circular.colors", 3, 0, 0, "double", 1
 "circular", "circular.colors", 4, 0, 0, "...", 1
-"circular", "circularp", -1, 0, 0, "(null | list<character | double>)", 1
+"circular", "circularp", -1, 0, 0, "null", 1
+"circular", "circularp", -1, 0, 1, "list<character | double>", 1
 "circular", "circularp", 0, 0, 0, "class<`matrix`>", 1
 "circular", "circularp", 0, 0, 1, "double[]", 1
 "circular", "circularp", 0, 0, 2, "class<`circular`, `matrix`>", 1
 "circular", "circularp", 0, 0, 3, "class<`circular`, `numeric`>", 1
-"circular", "circularp<-", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`> | double[])", 1
+"circular", "circularp<-", -1, 0, 0, "class<`array`, `circular`>", 1
+"circular", "circularp<-", -1, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "circularp<-", -1, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "circularp<-", -1, 0, 3, "class<`circular`, `numeric`>", 1
+"circular", "circularp<-", -1, 0, 4, "double[]", 1
 "circular", "circularp<-", 0, 0, 0, "class<`array`, `circular`>", 1
 "circular", "circularp<-", 0, 0, 1, "class<`circular`, `integer`>", 1
 "circular", "circularp<-", 0, 0, 2, "class<`circular`, `matrix`>", 1
 "circular", "circularp<-", 0, 0, 3, "class<`circular`, `numeric`>", 1
 "circular", "circularp<-", 0, 0, 4, "double[]", 1
 "circular", "circularp<-", 1, 0, 0, "list<character | double>", 1
-"circular", "conversion.circular", -1, 0, 0, "(class<`array`, `circular`> | class<`circular`, `integer`> | class<`circular`, `matrix`> | class<`circular`, `numeric`>)", 1
+"circular", "conversion.circular", -1, 0, 0, "class<`array`, `circular`>", 1
+"circular", "conversion.circular", -1, 0, 1, "class<`circular`, `integer`>", 1
+"circular", "conversion.circular", -1, 0, 2, "class<`circular`, `matrix`>", 1
+"circular", "conversion.circular", -1, 0, 3, "class<`circular`, `numeric`>", 1
 "circular", "conversion.circular", 0, 0, 0, "class<`array`, `circular`>", 1
 "circular", "conversion.circular", 0, 0, 1, "class<`circular`, `integer`>", 1
 "circular", "conversion.circular", 0, 0, 2, "class<`circular`, `matrix`>", 1
@@ -435,7 +450,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "FUN", 4, 3, 0, "...", 1
 "circular", "FUN", -1, 4, 0, "double", 1
 "circular", "FUN", 0, 4, 0, "double[]", 1
-"circular", "IntersectIntervalRad", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"circular", "IntersectIntervalRad", -1, 0, 0, "class<`matrix`>", 1
+"circular", "IntersectIntervalRad", -1, 0, 1, "double[]", 1
 "circular", "IntersectIntervalRad", 0, 0, 0, "class<`circular`, `matrix`>", 1
 "circular", "IntersectIntervalRad", 1, 0, 0, "double[]", 1
 "circular", "intersect.modal.region", -1, 0, 0, "list<double | list<class<`areas.region.circular`> | class<`matrix`>> | double | list<null | class<`matrix`>>>", 1
@@ -513,7 +529,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "lines.edf", 0, 0, 0, "class<`circular`, `numeric`>", 1
 "circular", "lines.edf", 1, 0, 0, "character", 1
 "circular", "lines.edf", 2, 0, 0, "...", 1
-"circular", "lm.circular", -1, 0, 0, "(class<`lm.circular.cc`> | class<`lm.circular.cl`>)", 1
+"circular", "lm.circular", -1, 0, 0, "class<`lm.circular.cc`>", 1
+"circular", "lm.circular", -1, 0, 1, "class<`lm.circular.cl`>", 1
 "circular", "lm.circular", 0, 0, 0, "...", 1
 "circular", "lm.circular", 1, 0, 0, "character[]", 1
 "circular", "lm.circular.cc", -1, 0, 0, "class<`lm.circular.cc`>", 1
@@ -570,7 +587,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "median.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
 "circular", "median.circular", 1, 0, 0, "logical", 1
 "circular", "median.circular", 2, 0, 0, "...", 1
-"circular", "MedianCircularRad", -1, 0, 0, "(double | null)", 1
+"circular", "MedianCircularRad", -1, 0, 0, "double", 1
+"circular", "MedianCircularRad", -1, 0, 1, "null", 1
 "circular", "MedianCircularRad", 0, 0, 0, "double[]", 1
 "circular", "medianHL.circular", -1, 0, 0, "class<`circular`, `numeric`>", 1
 "circular", "medianHL.circular", 0, 0, 0, "class<`circular`, `numeric`>", 1
@@ -695,7 +713,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "plot.circular", 18, 0, 0, "null", 1
 "circular", "plot.circular", 19, 0, 0, "null", 1
 "circular", "plot.circular", 19, 0, 1, "character", 1
-"circular", "plot.density.circular", -1, 0, 0, "(null | list<double[] | character>)", 1
+"circular", "plot.density.circular", -1, 0, 0, "null", 1
+"circular", "plot.density.circular", -1, 0, 1, "list<double[] | character>", 1
 "circular", "plot.density.circular", 0, 0, 0, "class<`density.circular`>", 1
 "circular", "plot.density.circular", 1, 0, 0, "character", 1
 "circular", "plot.density.circular", 1, 0, 1, "null", 1
@@ -897,7 +916,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "circular", "range.circular", 3, 0, 0, "logical", 1
 "circular", "range.circular", 4, 0, 0, "list<any>", 1
 "circular", "range.circular", 5, 0, 0, "...", 1
-"circular", "RangeCircularRad", -1, 0, 0, "(double | list<double>)", 1
+"circular", "RangeCircularRad", -1, 0, 0, "double", 1
+"circular", "RangeCircularRad", -1, 0, 1, "list<double>", 1
 "circular", "RangeCircularRad", 0, 0, 0, "double[]", 1
 "circular", "RangeCircularRad", 1, 0, 0, "logical", 1
 "circular", "rao.spacing.test", -1, 0, 0, "class<`rao.spacing.test`>", 1

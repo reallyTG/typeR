@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"utf8", "as_character_scalar", -1, 0, 0, "(character | null)", 1
+"utf8", "as_character_scalar", -1, 0, 0, "character", 1
+"utf8", "as_character_scalar", -1, 0, 1, "null", 1
 "utf8", "as_character_scalar", 0, 0, 0, "any", 1
 "utf8", "as_character_scalar", 1, 0, 0, "character", 1
 "utf8", "as_character_scalar", 1, 0, 1, "null", 1
@@ -8,7 +9,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "utf8", "as_character_vector", 0, 0, 0, "any", 1
 "utf8", "as_character_vector", 1, 0, 0, "character", 1
 "utf8", "as_character_vector", 2, 0, 0, "logical", 1
-"utf8", "as_chars", -1, 0, 0, "(integer | null)", 1
+"utf8", "as_chars", -1, 0, 0, "integer", 1
+"utf8", "as_chars", -1, 0, 1, "null", 1
 "utf8", "as_chars", 0, 0, 0, "any", 1
 "utf8", "as_chars", 1, 0, 0, "double", 1
 "utf8", "as_chars", 1, 0, 1, "null", 1
@@ -16,7 +18,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "utf8", "as_enum", 0, 0, 0, "any", 1
 "utf8", "as_enum", 1, 0, 0, "character", 1
 "utf8", "as_enum", 2, 0, 0, "character[]", 1
-"utf8", "as_integer_scalar", -1, 0, 0, "(integer | null)", 1
+"utf8", "as_integer_scalar", -1, 0, 0, "integer", 1
+"utf8", "as_integer_scalar", -1, 0, 1, "null", 1
 "utf8", "as_integer_scalar", 0, 0, 0, "any", 1
 "utf8", "as_integer_scalar", 1, 0, 0, "double", 1
 "utf8", "as_integer_scalar", 1, 0, 1, "null", 1
@@ -28,14 +31,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "utf8", "as_justify", -1, 0, 0, "character", 1
 "utf8", "as_justify", 0, 0, 0, "character", 1
 "utf8", "as_justify", 1, 0, 0, "character", 1
-"utf8", "as_max_print", -1, 0, 0, "(integer | null)", 1
+"utf8", "as_max_print", -1, 0, 0, "integer", 1
+"utf8", "as_max_print", -1, 0, 1, "null", 1
 "utf8", "as_max_print", 0, 0, 0, "any", 1
 "utf8", "as_max_print", 1, 0, 0, "double", 1
 "utf8", "as_max_print", 1, 0, 1, "null", 1
 "utf8", "as_na_print", -1, 0, 0, "null", 1
 "utf8", "as_na_print", 0, 0, 0, "character", 1
 "utf8", "as_na_print", 1, 0, 0, "null", 1
-"utf8", "as_nonnegative", -1, 0, 0, "(integer | null)", 1
+"utf8", "as_nonnegative", -1, 0, 0, "integer", 1
+"utf8", "as_nonnegative", -1, 0, 1, "null", 1
 "utf8", "as_nonnegative", 0, 0, 0, "any", 1
 "utf8", "as_nonnegative", 1, 0, 0, "double", 1
 "utf8", "as_nonnegative", 1, 0, 1, "null", 1
@@ -49,7 +54,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "utf8", "as_print_gap", -1, 0, 0, "null", 1
 "utf8", "as_print_gap", 0, 0, 0, "character", 1
 "utf8", "as_print_gap", 1, 0, 0, "null", 1
-"utf8", "as_style", -1, 0, 0, "(character | null)", 1
+"utf8", "as_style", -1, 0, 0, "character", 1
+"utf8", "as_style", -1, 0, 1, "null", 1
 "utf8", "as_style", 0, 0, 0, "character", 1
 "utf8", "as_style", 1, 0, 0, "character", 1
 "utf8", "as_style", 1, 0, 1, "null", 1
@@ -129,7 +135,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "utf8", "utf8_encode", 4, 0, 1, "character", 1
 "utf8", "utf8_encode", 5, 0, 0, "logical", 1
 "utf8", "utf8_encode", 6, 0, 0, "null", 1
-"utf8", "utf8_format", -1, 0, 0, "(character[] | class<`matrix`>)", 1
+"utf8", "utf8_format", -1, 0, 0, "character[]", 1
+"utf8", "utf8_format", -1, 0, 1, "class<`matrix`>", 1
 "utf8", "utf8_format", 0, 0, 0, "character[]", 1
 "utf8", "utf8_format", 0, 0, 1, "class<`matrix`>", 1
 "utf8", "utf8_format", 1, 0, 0, "logical", 1
@@ -151,7 +158,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "utf8", "utf8_normalize", 2, 0, 0, "logical", 1
 "utf8", "utf8_normalize", 3, 0, 0, "logical", 1
 "utf8", "utf8_normalize", 4, 0, 0, "logical", 1
-"utf8", "utf8_print", -1, 0, 0, "(character | class<`matrix`>)", 1
+"utf8", "utf8_print", -1, 0, 0, "character", 1
+"utf8", "utf8_print", -1, 0, 1, "class<`matrix`>", 1
 "utf8", "utf8_print", 0, 0, 0, "character", 1
 "utf8", "utf8_print", 0, 0, 1, "class<`matrix`>", 1
 "utf8", "utf8_print", 1, 0, 0, "double", 1

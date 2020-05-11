@@ -6,7 +6,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Formula", "as.Formula.formula", 0, 0, 0, "class<`formula`>", 1
 "Formula", "as.Formula.formula", 1, 0, 0, "...", 1
 "Formula", "as.Formula.formula", 2, 0, 0, "any", 1
-"Formula", "c_formula", -1, 0, 0, "(class<`call`> | class<`formula`>)", 1
+"Formula", "c_formula", -1, 0, 0, "class<`call`>", 1
+"Formula", "c_formula", -1, 0, 1, "class<`formula`>", 1
 "Formula", "c_formula", 0, 0, 0, "class<`call`>", 1
 "Formula", "c_formula", 0, 0, 1, "class<`name`>", 1
 "Formula", "c_formula", 0, 0, 2, "null", 1
@@ -50,10 +51,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Formula", "model.matrix.Formula", 3, 0, 1, "double", 1
 "Formula", "model.matrix.Formula", 4, 0, 0, "double", 1
 "Formula", "model.matrix.Formula", 5, 0, 0, "character", 1
-"Formula", "model.part", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"Formula", "model.part", -1, 0, 0, "class<`data.frame`>", 1
+"Formula", "model.part", -1, 0, 1, "double[]", 1
 "Formula", "model.part", 0, 0, 0, "class<`Formula`, `formula`>", 1
 "Formula", "model.part", 1, 0, 0, "...", 1
-"Formula", "model.part.Formula", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"Formula", "model.part.Formula", -1, 0, 0, "class<`data.frame`>", 1
+"Formula", "model.part.Formula", -1, 0, 1, "double[]", 1
 "Formula", "model.part.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1
 "Formula", "model.part.Formula", 1, 0, 0, "class<`data.frame`>", 1
 "Formula", "model.part.Formula", 2, 0, 0, "double", 1

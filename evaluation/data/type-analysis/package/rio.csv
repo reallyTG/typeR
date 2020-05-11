@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"rio", "characterize", -1, 0, 0, "(^character[] | class<`data.frame`>)", 1
+"rio", "characterize", -1, 0, 0, "^character[]", 1
+"rio", "characterize", -1, 0, 1, "class<`data.frame`>", 1
 "rio", "characterize", 0, 0, 0, "class<`data.frame`>", 1
 "rio", "characterize", 0, 0, 1, "double[]", 1
 "rio", "characterize", 1, 0, 0, "...", 1
@@ -25,7 +26,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", "export", 1, 0, 0, "any", 1
 "rio", "export", 2, 0, 0, "any", 1
 "rio", "export", 3, 0, 0, "...", 1
-"rio", ".export", -1, 0, 0, "(character | class<`data.frame`> | class<`Workbook`> | null)", 1
+"rio", ".export", -1, 0, 0, "character", 1
+"rio", ".export", -1, 0, 1, "class<`data.frame`>", 1
+"rio", ".export", -1, 0, 2, "class<`Workbook`>", 1
+"rio", ".export", -1, 0, 3, "null", 1
 "rio", ".export", 0, 0, 0, "class<`character`, `rio_dump`>", 1
 "rio", ".export", 0, 0, 1, "class<`character`, `rio_dta`>", 1
 "rio", ".export", 0, 0, 2, "class<`character`, `rio_sav`>", 1
@@ -88,7 +92,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", ".export.rio_xlsx", 1, 0, 0, "list<class<`data.frame`>>", 1
 "rio", ".export.rio_xlsx", 2, 0, 0, "any", 1
 "rio", ".export.rio_xlsx", 3, 0, 0, "...", 1
-"rio", "factorize", -1, 0, 0, "(class<`data.frame`> | class<`factor`>)", 1
+"rio", "factorize", -1, 0, 0, "class<`data.frame`>", 1
+"rio", "factorize", -1, 0, 1, "class<`factor`>", 1
 "rio", "factorize", 0, 0, 0, "class<`data.frame`>", 1
 "rio", "factorize", 0, 0, 1, "double[]", 1
 "rio", "factorize", 1, 0, 0, "...", 1
@@ -100,11 +105,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", "factorize.default", 1, 0, 0, "...", 1
 "rio", "find_compress", -1, 0, 0, "list<character | character | null>", 1
 "rio", "find_compress", 0, 0, 0, "character", 1
-"rio", "FUN", -1, 0, 0, "(^character[] | class<`data.frame`>)", 1
+"rio", "FUN", -1, 0, 0, "^character[]", 1
+"rio", "FUN", -1, 0, 1, "class<`data.frame`>", 1
 "rio", "FUN", 0, 0, 0, "class<`data.frame`>", 1
 "rio", "FUN", 0, 0, 1, "double[]", 1
 "rio", "FUN", 1, 0, 0, "...", 1
-"rio", "FUN", -1, 1, 0, "(class<`data.frame`> | class<`factor`>)", 1
+"rio", "FUN", -1, 1, 0, "class<`data.frame`>", 1
+"rio", "FUN", -1, 1, 1, "class<`factor`>", 1
 "rio", "FUN", 0, 1, 0, "class<`data.frame`>", 1
 "rio", "FUN", 0, 1, 1, "double[]", 1
 "rio", "FUN", 1, 1, 0, "...", 1
@@ -114,13 +121,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", "get_ext", 0, 0, 0, "character", 1
 "rio", "get_type", -1, 0, 0, "character", 1
 "rio", "get_type", 0, 0, 0, "character", 1
-"rio", "import", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `data.table`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rio", "import", -1, 0, 0, "class<`data.frame`>", 1
+"rio", "import", -1, 0, 1, "class<`data.frame`, `data.table`>", 1
+"rio", "import", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rio", "import", 0, 0, 0, "character", 1
 "rio", "import", 1, 0, 0, "any", 1
 "rio", "import", 2, 0, 0, "any", 1
 "rio", "import", 3, 0, 0, "any", 1
 "rio", "import", 4, 0, 0, "...", 1
-"rio", ".import", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rio", ".import", -1, 0, 0, "class<`data.frame`>", 1
+"rio", ".import", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rio", ".import", 0, 0, 0, "class<`character`, `rio_csv`>", 1
 "rio", ".import", 0, 0, 1, "class<`character`, `rio_rds`>", 1
 "rio", ".import", 0, 0, 2, "class<`character`, `rio_tsv`>", 1
@@ -138,7 +148,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", "import_delim", 5, 0, 0, "logical", 1
 "rio", "import_delim", 6, 0, 0, "logical", 1
 "rio", "import_delim", 7, 0, 0, "...", 1
-"rio", "import_list", -1, 0, 0, "(class<`data.frame`> | list<class<`data.frame`>>)", 1
+"rio", "import_list", -1, 0, 0, "class<`data.frame`>", 1
+"rio", "import_list", -1, 0, 1, "list<class<`data.frame`>>", 1
 "rio", "import_list", 0, 0, 0, "character[]", 1
 "rio", "import_list", 1, 0, 0, "any", 1
 "rio", "import_list", 2, 0, 0, "any", 1
@@ -189,7 +200,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", "remote_to_local", 1, 0, 0, "any", 1
 "rio", "restore_labelled", -1, 0, 0, "class<`data.frame`>", 1
 "rio", "restore_labelled", 0, 0, 0, "class<`data.frame`>", 1
-"rio", "set_class", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `data.table`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"rio", "set_class", -1, 0, 0, "class<`data.frame`>", 1
+"rio", "set_class", -1, 0, 1, "class<`data.frame`, `data.table`>", 1
+"rio", "set_class", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rio", "set_class", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "rio", "set_class", 0, 0, 1, "class<`data.frame`>", 1
 "rio", "set_class", 0, 0, 2, "class<`data.frame`, `data.table`>", 1

@@ -39,7 +39,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "MASS", "anova.loglm", 0, 0, 0, "class<`loglm`>", 1
 "MASS", "anova.loglm", 1, 0, 0, "...", 1
 "MASS", "anova.loglm", 2, 0, 0, "character[]", 1
-"MASS", "anova.negbin", -1, 0, 0, "(class<`anova`, `data.frame`> | class<`Anova`, `data.frame`>)", 1
+"MASS", "anova.negbin", -1, 0, 0, "class<`anova`, `data.frame`>", 1
+"MASS", "anova.negbin", -1, 0, 1, "class<`Anova`, `data.frame`>", 1
 "MASS", "anova.negbin", 0, 0, 0, "class<`glm`, `lm`, `negbin`>", 1
 "MASS", "anova.negbin", 1, 0, 0, "...", 1
 "MASS", "anova.negbin", 2, 0, 0, "character", 1
@@ -98,7 +99,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "MASS", "boxcox.formula", 5, 0, 0, "any", 1
 "MASS", "boxcox.formula", 6, 0, 0, "character", 1
 "MASS", "boxcox.formula", 7, 0, 0, "...", 1
-"MASS", "confint.glm", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"MASS", "confint.glm", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "confint.glm", -1, 0, 1, "double[]", 1
 "MASS", "confint.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
 "MASS", "confint.glm", 1, 0, 0, "any", 1
 "MASS", "confint.glm", 2, 0, 0, "double", 1
@@ -109,7 +111,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "MASS", "confint.nls", 1, 0, 0, "character", 1
 "MASS", "confint.nls", 2, 0, 0, "double", 1
 "MASS", "confint.nls", 3, 0, 0, "...", 1
-"MASS", "confint.profile.glm", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"MASS", "confint.profile.glm", -1, 0, 0, "class<`matrix`>", 1
+"MASS", "confint.profile.glm", -1, 0, 1, "double[]", 1
 "MASS", "confint.profile.glm", 0, 0, 0, "class<`profile`, `profile.glm`>", 1
 "MASS", "confint.profile.glm", 1, 0, 0, "integer[]", 1
 "MASS", "confint.profile.glm", 2, 0, 0, "double", 1
@@ -160,10 +163,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "MASS", "cov.trob", 4, 0, 0, "double", 1
 "MASS", "cov.trob", 5, 0, 0, "double", 1
 "MASS", "cov.trob", 6, 0, 0, "double", 1
-"MASS", "denumerate", -1, 0, 0, "(class<`formula`> | class<`formula`, `terms`>)", 1
+"MASS", "denumerate", -1, 0, 0, "class<`formula`>", 1
+"MASS", "denumerate", -1, 0, 1, "class<`formula`, `terms`>", 1
 "MASS", "denumerate", 0, 0, 0, "class<`formula`>", 1
 "MASS", "denumerate", 0, 0, 1, "class<`formula`, `terms`>", 1
-"MASS", "denumerate.formula", -1, 0, 0, "(class<`(`> | class<`call`> | class<`name`> | class<`formula`> | class<`formula`, `terms`>)", 1
+"MASS", "denumerate.formula", -1, 0, 0, "class<`(`>", 1
+"MASS", "denumerate.formula", -1, 0, 1, "class<`call`>", 1
+"MASS", "denumerate.formula", -1, 0, 2, "class<`name`>", 1
+"MASS", "denumerate.formula", -1, 0, 3, "class<`formula`>", 1
+"MASS", "denumerate.formula", -1, 0, 4, "class<`formula`, `terms`>", 1
 "MASS", "denumerate.formula", 0, 0, 0, "class<`(`>", 1
 "MASS", "denumerate.formula", 0, 0, 1, "class<`call`>", 1
 "MASS", "denumerate.formula", 0, 0, 2, "class<`name`>", 1
@@ -575,7 +583,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "MASS", "renumerate", 0, 0, 0, "class<`formula`>", 1
 "MASS", "renumerate", 0, 0, 1, "class<`formula`, `terms`>", 1
 "MASS", "renumerate", 0, 0, 2, "null", 1
-"MASS", "renumerate.formula", -1, 0, 0, "(class<`call`> | class<`name`> | class<`formula`> | class<`formula`, `terms`>)", 1
+"MASS", "renumerate.formula", -1, 0, 0, "class<`call`>", 1
+"MASS", "renumerate.formula", -1, 0, 1, "class<`name`>", 1
+"MASS", "renumerate.formula", -1, 0, 2, "class<`formula`>", 1
+"MASS", "renumerate.formula", -1, 0, 3, "class<`formula`, `terms`>", 1
 "MASS", "renumerate.formula", 0, 0, 0, "class<`call`>", 1
 "MASS", "renumerate.formula", 0, 0, 1, "class<`name`>", 1
 "MASS", "renumerate.formula", 0, 0, 2, "class<`formula`>", 1
@@ -650,7 +661,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "MASS", "simulate.negbin", 1, 0, 0, "double", 1
 "MASS", "simulate.negbin", 2, 0, 0, "null", 1
 "MASS", "simulate.negbin", 3, 0, 0, "...", 1
-"MASS", "stepAIC", -1, 0, 0, "(class<`aov`, `lm`> | class<`glm`, `lm`> | class<`glm`, `lm`, `negbin`> | class<`gls`> | class<`lm`> | class<`lme`> | class<`polr`>)", 1
+"MASS", "stepAIC", -1, 0, 0, "class<`aov`, `lm`>", 1
+"MASS", "stepAIC", -1, 0, 1, "class<`glm`, `lm`>", 1
+"MASS", "stepAIC", -1, 0, 2, "class<`glm`, `lm`, `negbin`>", 1
+"MASS", "stepAIC", -1, 0, 3, "class<`gls`>", 1
+"MASS", "stepAIC", -1, 0, 4, "class<`lm`>", 1
+"MASS", "stepAIC", -1, 0, 5, "class<`lme`>", 1
+"MASS", "stepAIC", -1, 0, 6, "class<`polr`>", 1
 "MASS", "stepAIC", 0, 0, 0, "class<`aov`, `lm`>", 1
 "MASS", "stepAIC", 0, 0, 1, "class<`glm`, `lm`>", 1
 "MASS", "stepAIC", 0, 0, 2, "class<`glm`, `lm`, `negbin`>", 1

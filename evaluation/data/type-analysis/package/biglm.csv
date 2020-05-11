@@ -50,7 +50,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "biglm", "coef.bigqr", 0, 0, 0, "class<`bigqr`>", 1
 "biglm", "coef.bigqr", 1, 0, 0, "null", 1
 "biglm", "coef.bigqr", 2, 0, 0, "...", 1
-"biglm", "data", -1, 0, 0, "(class<`data.frame`> | null)", 1
+"biglm", "data", -1, 0, 0, "class<`data.frame`>", 1
+"biglm", "data", -1, 0, 1, "null", 1
 "biglm", "data", 0, 0, 0, "logical", 1
 "biglm", "deviance.bigglm", -1, 0, 0, "double", 1
 "biglm", "deviance.bigglm", 0, 0, 0, "class<`bigglm`, `biglm`>", 1
@@ -58,7 +59,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "biglm", "deviance.biglm", -1, 0, 0, "double", 1
 "biglm", "deviance.biglm", 0, 0, 0, "class<`biglm`>", 1
 "biglm", "deviance.biglm", 1, 0, 0, "...", 1
-"biglm", "etafun", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"biglm", "etafun", -1, 0, 0, "class<`matrix`>", 1
+"biglm", "etafun", -1, 0, 1, "double[]", 1
 "biglm", "etafun", 0, 0, 0, "class<`matrix`>", 1
 "biglm", "f", -1, 0, 0, "class<`matrix`>", 1
 "biglm", "f", 0, 0, 0, "class<`matrix`>", 1
@@ -66,14 +68,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "biglm", "filter", 0, 0, 0, "character[]", 1
 "biglm", "fit", -1, 0, 0, "class<`matrix`>", 1
 "biglm", "fit", 0, 0, 0, "class<`matrix`>", 1
-"biglm", "predict.bigglm", -1, 0, 0, "(class<`function`> | class<`matrix`>)", 1
+"biglm", "predict.bigglm", -1, 0, 0, "class<`function`>", 1
+"biglm", "predict.bigglm", -1, 0, 1, "class<`matrix`>", 1
 "biglm", "predict.bigglm", 0, 0, 0, "class<`biglm`>", 1
 "biglm", "predict.bigglm", 1, 0, 0, "any", 1
 "biglm", "predict.bigglm", 2, 0, 0, "character", 1
 "biglm", "predict.bigglm", 3, 0, 0, "logical", 1
 "biglm", "predict.bigglm", 4, 0, 0, "logical", 1
 "biglm", "predict.bigglm", 5, 0, 0, "...", 1
-"biglm", "predict.biglm", -1, 0, 0, "(class<`function`> | class<`matrix`>)", 1
+"biglm", "predict.biglm", -1, 0, 0, "class<`function`>", 1
+"biglm", "predict.biglm", -1, 0, 1, "class<`matrix`>", 1
 "biglm", "predict.biglm", 0, 0, 0, "class<`biglm`>", 1
 "biglm", "predict.biglm", 1, 0, 0, "null", 1
 "biglm", "predict.biglm", 1, 0, 1, "class<`data.frame`>", 1

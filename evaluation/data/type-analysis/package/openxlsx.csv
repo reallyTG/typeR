@@ -40,7 +40,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openxlsx", "addWorksheet", 15, 0, 0, "double", 1
 "openxlsx", "build_cell_merges", -1, 0, 0, "list<any>", 1
 "openxlsx", "build_cell_merges", 0, 0, 0, "list<any>", 1
-"openxlsx", "build_cell_types_integer", -1, 0, 0, "(^integer[] | null)", 1
+"openxlsx", "build_cell_types_integer", -1, 0, 0, "^integer[]", 1
+"openxlsx", "build_cell_types_integer", -1, 0, 1, "null", 1
 "openxlsx", "build_cell_types_integer", 0, 0, 0, "character[]", 1
 "openxlsx", "build_cell_types_integer", 1, 0, 0, "integer", 1
 "openxlsx", "buildFillList", -1, 0, 0, "list<character | list<character[]>>", 1
@@ -285,7 +286,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openxlsx", "getTables", 1, 0, 1, "double", 1
 "openxlsx", "hashPassword", -1, 0, 0, "character", 1
 "openxlsx", "hashPassword", 0, 0, 0, "character", 1
-"openxlsx", "headerFooterSub", -1, 0, 0, "(^character[] | null)", 1
+"openxlsx", "headerFooterSub", -1, 0, 0, "^character[]", 1
+"openxlsx", "headerFooterSub", -1, 0, 1, "null", 1
 "openxlsx", "headerFooterSub", 0, 0, 0, "^character[]", 1
 "openxlsx", "headerFooterSub", 0, 0, 1, "null", 1
 "openxlsx", "insertImage", -1, 0, 0, "list<character>", 1
@@ -353,7 +355,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openxlsx", "pageBreak", 1, 0, 0, "double", 1
 "openxlsx", "pageBreak", 2, 0, 0, "double", 1
 "openxlsx", "pageBreak", 3, 0, 0, "character", 1
-"openxlsx", "pageSetup", -1, 0, 0, "(character[] | null)", 1
+"openxlsx", "pageSetup", -1, 0, 0, "character[]", 1
+"openxlsx", "pageSetup", -1, 0, 1, "null", 1
 "openxlsx", "pageSetup", 0, 0, 0, "class<`Workbook`>", 1
 "openxlsx", "pageSetup", 1, 0, 0, "character", 1
 "openxlsx", "pageSetup", 1, 0, 1, "double", 1

@@ -114,7 +114,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "curl", "nslookup", 3, 0, 0, "logical", 1
 "curl", "parse_date", -1, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "curl", "parse_date", 0, 0, 0, "character", 1
-"curl", "parse_headers", -1, 0, 0, "(character[] | list<character[]>)", 1
+"curl", "parse_headers", -1, 0, 0, "character[]", 1
+"curl", "parse_headers", -1, 0, 1, "list<character[]>", 1
 "curl", "parse_headers", 0, 0, 0, "raw[]", 1
 "curl", "parse_headers", 1, 0, 0, "logical", 1
 "curl", "parse_headers_list", -1, 0, 0, "list<character>", 1

@@ -47,7 +47,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "as.character.bignum", 0, 0, 0, "class<`bignum`>", 1
 "openssl", "as.character.bignum", 1, 0, 0, "logical", 1
 "openssl", "as.character.bignum", 2, 0, 0, "...", 1
-"openssl", "as.character.hash", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `sha1`>)", 1
+"openssl", "as.character.hash", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "as.character.hash", -1, 0, 1, "class<`hash`, `sha1`>", 1
 "openssl", "as.character.hash", 0, 0, 0, "class<`hash`, `md5`>", 1
 "openssl", "as.character.hash", 0, 0, 1, "class<`hash`, `sha1`>", 1
 "openssl", "as.character.hash", 1, 0, 0, "character", 1
@@ -141,7 +142,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "data_verify", 0, 0, 0, "raw[]", 1
 "openssl", "data_verify", 1, 0, 0, "raw[]", 1
 "openssl", "data_verify", 2, 0, 0, "class<`ed25519`, `pubkey`>", 1
-"openssl", "decompose", -1, 0, 0, "(raw[] | list<character | class<`bignum`> | class<`bignum`>>)", 1
+"openssl", "decompose", -1, 0, 0, "raw[]", 1
+"openssl", "decompose", -1, 0, 1, "list<character | class<`bignum`> | class<`bignum`>>", 1
 "openssl", "decompose", 0, 0, 0, "class<`ed25519`, `key`>", 1
 "openssl", "decompose", 0, 0, 1, "class<`ed25519`, `pubkey`>", 1
 "openssl", "decompose", 0, 0, 2, "class<`key`, `x25519`>", 1
@@ -152,13 +154,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "decompose", 0, 0, 7, "class<`key`, `rsa`>", 1
 "openssl", "decompose", 0, 0, 8, "class<`dsa`, `pubkey`>", 1
 "openssl", "decompose", 1, 0, 0, "...", 1
-"openssl", "decompose.key", -1, 0, 0, "(raw[] | list<character | class<`bignum`> | class<`bignum`>>)", 1
+"openssl", "decompose.key", -1, 0, 0, "raw[]", 1
+"openssl", "decompose.key", -1, 0, 1, "list<character | class<`bignum`> | class<`bignum`>>", 1
 "openssl", "decompose.key", 0, 0, 0, "class<`ed25519`, `key`>", 1
 "openssl", "decompose.key", 0, 0, 1, "class<`key`, `x25519`>", 1
 "openssl", "decompose.key", 0, 0, 2, "class<`ecdsa`, `key`>", 1
 "openssl", "decompose.key", 0, 0, 3, "class<`key`, `rsa`>", 1
 "openssl", "decompose.key", 1, 0, 0, "...", 1
-"openssl", "decompose.pubkey", -1, 0, 0, "(raw[] | list<character | class<`bignum`> | class<`bignum`>>)", 1
+"openssl", "decompose.pubkey", -1, 0, 0, "raw[]", 1
+"openssl", "decompose.pubkey", -1, 0, 1, "list<character | class<`bignum`> | class<`bignum`>>", 1
 "openssl", "decompose.pubkey", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
 "openssl", "decompose.pubkey", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
 "openssl", "decompose.pubkey", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
@@ -178,7 +182,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "der_export.pubkey", -1, 0, 0, "raw[]", 1
 "openssl", "der_export.pubkey", 0, 0, 0, "class<`ecdsa`, `pubkey`>", 1
 "openssl", "der_export.pubkey", 1, 0, 0, "...", 1
-"openssl", "derive_pubkey", -1, 0, 0, "(class<`dsa`, `pubkey`> | class<`ecdsa`, `pubkey`> | class<`ed25519`, `pubkey`> | class<`NA`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`>)", 1
+"openssl", "derive_pubkey", -1, 0, 0, "class<`dsa`, `pubkey`>", 1
+"openssl", "derive_pubkey", -1, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "derive_pubkey", -1, 0, 2, "class<`ed25519`, `pubkey`>", 1
+"openssl", "derive_pubkey", -1, 0, 3, "class<`NA`, `pubkey`>", 1
+"openssl", "derive_pubkey", -1, 0, 4, "class<`pubkey`, `rsa`>", 1
+"openssl", "derive_pubkey", -1, 0, 5, "class<`pubkey`, `x25519`>", 1
 "openssl", "derive_pubkey", 0, 0, 0, "class<`dsa`, `key`>", 1
 "openssl", "derive_pubkey", 0, 0, 1, "class<`ecdsa`, `key`>", 1
 "openssl", "derive_pubkey", 0, 0, 2, "class<`ed25519`, `key`>", 1
@@ -221,7 +230,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "encrypt_envelope", -1, 0, 0, "list<raw[]>", 1
 "openssl", "encrypt_envelope", 0, 0, 0, "raw[]", 1
 "openssl", "encrypt_envelope", 1, 0, 0, "class<`pubkey`, `rsa`>", 1
-"openssl", "fingerprint", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `sha1`> | class<`hash`, `sha256`>)", 1
+"openssl", "fingerprint", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "fingerprint", -1, 0, 1, "class<`hash`, `sha1`>", 1
+"openssl", "fingerprint", -1, 0, 2, "class<`hash`, `sha256`>", 1
 "openssl", "fingerprint", 0, 0, 0, "class<`dsa`, `key`>", 1
 "openssl", "fingerprint", 0, 0, 1, "class<`dsa`, `pubkey`>", 1
 "openssl", "fingerprint", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
@@ -232,7 +243,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "fingerprint.key", 0, 0, 0, "class<`dsa`, `key`>", 1
 "openssl", "fingerprint.key", 0, 0, 1, "class<`key`, `rsa`>", 1
 "openssl", "fingerprint.key", 1, 0, 0, "class<`function`>", 1
-"openssl", "fingerprint.pubkey", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `sha1`> | class<`hash`, `sha256`>)", 1
+"openssl", "fingerprint.pubkey", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "fingerprint.pubkey", -1, 0, 1, "class<`hash`, `sha1`>", 1
+"openssl", "fingerprint.pubkey", -1, 0, 2, "class<`hash`, `sha256`>", 1
 "openssl", "fingerprint.pubkey", 0, 0, 0, "class<`dsa`, `pubkey`>", 1
 "openssl", "fingerprint.pubkey", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
 "openssl", "fingerprint.pubkey", 0, 0, 2, "class<`pubkey`, `rsa`>", 1
@@ -254,7 +267,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "fpdata.rsa", 0, 0, 0, "class<`pubkey`, `rsa`>", 1
 "openssl", "fpdata.x25519", -1, 0, 0, "list<raw[]>", 1
 "openssl", "fpdata.x25519", 0, 0, 0, "class<`pubkey`, `x25519`>", 1
-"openssl", "hashfun", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `hmac`, `md5`>)", 1
+"openssl", "hashfun", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "hashfun", -1, 0, 1, "class<`hash`, `hmac`, `md5`>", 1
 "openssl", "hashfun", 0, 0, 0, "raw[]", 1
 "openssl", "hashfun", 0, 0, 1, "class<`connection`, `file`>", 1
 "openssl", "hashfun", 0, 0, 2, "character[]", 1
@@ -292,13 +306,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "is_pubkey_str", 0, 0, 4, "class<`pubkey`, `x25519`>", 1
 "openssl", "is_pubkey_str", 0, 0, 5, "raw[]", 1
 "openssl", "is_windows", -1, 0, 0, "logical", 1
-"openssl", "$.key", -1, 0, 0, "(class<`ecdsa`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`> | list<class<`bignum`>>)", 1
+"openssl", "$.key", -1, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "$.key", -1, 0, 1, "class<`pubkey`, `rsa`>", 1
+"openssl", "$.key", -1, 0, 2, "class<`pubkey`, `x25519`>", 1
+"openssl", "$.key", -1, 0, 3, "list<class<`bignum`>>", 1
 "openssl", "$.key", 0, 0, 0, "class<`ecdsa`, `key`>", 1
 "openssl", "$.key", 0, 0, 1, "class<`key`, `rsa`>", 1
 "openssl", "$.key", 0, 0, 2, "class<`key`, `x25519`>", 1
 "openssl", "$.key", 0, 0, 3, "class<`pubkey`, `rsa`>", 1
 "openssl", "$.key", 1, 0, 0, "character", 1
-"openssl", "md5", -1, 0, 0, "(class<`hash`, `md5`> | class<`hash`, `hmac`, `md5`>)", 1
+"openssl", "md5", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "md5", -1, 0, 1, "class<`hash`, `hmac`, `md5`>", 1
 "openssl", "md5", 0, 0, 0, "raw[]", 1
 "openssl", "md5", 0, 0, 1, "class<`connection`, `file`>", 1
 "openssl", "md5", 0, 0, 2, "character[]", 1
@@ -341,7 +359,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "parse_pem_key", 0, 0, 0, "raw[]", 1
 "openssl", "parse_pem_key", 1, 0, 0, "character", 1
 "openssl", "parse_pem_key", 1, 0, 1, "class<`function`>", 1
-"openssl", "path_or_raw", -1, 0, 0, "(class<`hash`, `md5`> | raw[])", 1
+"openssl", "path_or_raw", -1, 0, 0, "class<`hash`, `md5`>", 1
+"openssl", "path_or_raw", -1, 0, 1, "raw[]", 1
 "openssl", "path_or_raw", 0, 0, 0, "class<`hash`, `md5`>", 1
 "openssl", "path_or_raw", 0, 0, 1, "character", 1
 "openssl", "path_or_raw", 0, 0, 2, "raw[]", 1
@@ -391,7 +410,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "priv_decompose.x25519", -1, 0, 0, "raw[]", 1
 "openssl", "priv_decompose.x25519", 0, 0, 0, "class<`ed25519`, `key`>", 1
 "openssl", "priv_decompose.x25519", 0, 0, 1, "class<`key`, `x25519`>", 1
-"openssl", "$.pubkey", -1, 0, 0, "(class<`ecdsa`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`> | list<class<`bignum`>>)", 1
+"openssl", "$.pubkey", -1, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "$.pubkey", -1, 0, 1, "class<`pubkey`, `rsa`>", 1
+"openssl", "$.pubkey", -1, 0, 2, "class<`pubkey`, `x25519`>", 1
+"openssl", "$.pubkey", -1, 0, 3, "list<class<`bignum`>>", 1
 "openssl", "$.pubkey", 0, 0, 0, "class<`ecdsa`, `key`>", 1
 "openssl", "$.pubkey", 0, 0, 1, "class<`key`, `rsa`>", 1
 "openssl", "$.pubkey", 0, 0, 2, "class<`key`, `x25519`>", 1
@@ -430,7 +452,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "rawhash", 0, 0, 1, "raw[]", 1
 "openssl", "rawhash", 1, 0, 0, "character", 1
 "openssl", "rawhash", 2, 0, 0, "null", 1
-"openssl", "rawstringhash", -1, 0, 0, "(class<`hash`, `hmac`, `md5`> | class<`hash`, `hmac`, `sha1`> | class<`hash`, `hmac`, `sha256`> | class<`hash`, `md5`> | class<`hash`, `sha1`> | class<`hash`, `sha256`>)", 1
+"openssl", "rawstringhash", -1, 0, 0, "class<`hash`, `hmac`, `md5`>", 1
+"openssl", "rawstringhash", -1, 0, 1, "class<`hash`, `hmac`, `sha1`>", 1
+"openssl", "rawstringhash", -1, 0, 2, "class<`hash`, `hmac`, `sha256`>", 1
+"openssl", "rawstringhash", -1, 0, 3, "class<`hash`, `md5`>", 1
+"openssl", "rawstringhash", -1, 0, 4, "class<`hash`, `sha1`>", 1
+"openssl", "rawstringhash", -1, 0, 5, "class<`hash`, `sha256`>", 1
 "openssl", "rawstringhash", 0, 0, 0, "class<`connection`, `file`>", 1
 "openssl", "rawstringhash", 0, 0, 1, "character[]", 1
 "openssl", "rawstringhash", 0, 0, 2, "class<`cert`>", 1
@@ -440,13 +467,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "rawstringhash", 2, 0, 1, "null", 1
 "openssl", "read_cert_bundle", -1, 0, 0, "list<class<`cert`>>", 1
 "openssl", "read_cert_bundle", 0, 0, 0, "character", 1
-"openssl", "read_con_buf", -1, 0, 0, "(null | raw[])", 1
+"openssl", "read_con_buf", -1, 0, 0, "null", 1
+"openssl", "read_con_buf", -1, 0, 1, "raw[]", 1
 "openssl", "read_con_buf", 0, 0, 0, "class<`connection`, `rawConnection`>", 1
 "openssl", "read_ed25519_key", -1, 0, 0, "class<`ed25519`, `key`>", 1
 "openssl", "read_ed25519_key", 0, 0, 0, "raw[]", 1
 "openssl", "read_ed25519_pubkey", -1, 0, 0, "class<`ed25519`, `pubkey`>", 1
 "openssl", "read_ed25519_pubkey", 0, 0, 0, "raw[]", 1
-"openssl", "read_input", -1, 0, 0, "(class<`ecdsa`, `key`> | class<`ecdsa`, `pubkey`> | class<`ed25519`, `key`> | class<`ed25519`, `pubkey`> | class<`key`, `rsa`> | class<`key`, `x25519`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`> | raw[])", 1
+"openssl", "read_input", -1, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "read_input", -1, 0, 1, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "read_input", -1, 0, 2, "class<`ed25519`, `key`>", 1
+"openssl", "read_input", -1, 0, 3, "class<`ed25519`, `pubkey`>", 1
+"openssl", "read_input", -1, 0, 4, "class<`key`, `rsa`>", 1
+"openssl", "read_input", -1, 0, 5, "class<`key`, `x25519`>", 1
+"openssl", "read_input", -1, 0, 6, "class<`pubkey`, `rsa`>", 1
+"openssl", "read_input", -1, 0, 7, "class<`pubkey`, `x25519`>", 1
+"openssl", "read_input", -1, 0, 8, "raw[]", 1
 "openssl", "read_input", 0, 0, 0, "class<`ecdsa`, `key`>", 1
 "openssl", "read_input", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
 "openssl", "read_input", 0, 0, 2, "class<`ed25519`, `key`>", 1
@@ -458,7 +494,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "read_input", 0, 0, 8, "character", 1
 "openssl", "read_input", 0, 0, 9, "class<`connection`, `textConnection`>", 1
 "openssl", "read_input", 0, 0, 10, "raw[]", 1
-"openssl", "read_key", -1, 0, 0, "(class<`ecdsa`, `key`> | class<`ed25519`, `key`> | class<`key`, `rsa`> | class<`key`, `x25519`>)", 1
+"openssl", "read_key", -1, 0, 0, "class<`ecdsa`, `key`>", 1
+"openssl", "read_key", -1, 0, 1, "class<`ed25519`, `key`>", 1
+"openssl", "read_key", -1, 0, 2, "class<`key`, `rsa`>", 1
+"openssl", "read_key", -1, 0, 3, "class<`key`, `x25519`>", 1
 "openssl", "read_key", 0, 0, 0, "class<`ecdsa`, `key`>", 1
 "openssl", "read_key", 0, 0, 1, "class<`ed25519`, `key`>", 1
 "openssl", "read_key", 0, 0, 2, "character", 1
@@ -466,7 +505,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "read_key", 0, 0, 4, "class<`key`, `x25519`>", 1
 "openssl", "read_key", 1, 0, 0, "any", 1
 "openssl", "read_key", 2, 0, 0, "logical", 1
-"openssl", "read_pubkey", -1, 0, 0, "(class<`ecdsa`, `pubkey`> | class<`ed25519`, `pubkey`> | class<`pubkey`, `rsa`> | class<`pubkey`, `x25519`>)", 1
+"openssl", "read_pubkey", -1, 0, 0, "class<`ecdsa`, `pubkey`>", 1
+"openssl", "read_pubkey", -1, 0, 1, "class<`ed25519`, `pubkey`>", 1
+"openssl", "read_pubkey", -1, 0, 2, "class<`pubkey`, `rsa`>", 1
+"openssl", "read_pubkey", -1, 0, 3, "class<`pubkey`, `x25519`>", 1
 "openssl", "read_pubkey", 0, 0, 0, "character", 1
 "openssl", "read_pubkey", 0, 0, 1, "class<`ecdsa`, `pubkey`>", 1
 "openssl", "read_pubkey", 0, 0, 2, "raw[]", 1
@@ -487,12 +529,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "rsa_encrypt", 1, 0, 0, "class<`pubkey`, `rsa`>", 1
 "openssl", "rsa_keygen", -1, 0, 0, "class<`key`, `rsa`>", 1
 "openssl", "rsa_keygen", 0, 0, 0, "double", 1
-"openssl", "sha1", -1, 0, 0, "(class<`hash`, `hmac`, `sha1`> | class<`hash`, `sha1`>)", 1
+"openssl", "sha1", -1, 0, 0, "class<`hash`, `hmac`, `sha1`>", 1
+"openssl", "sha1", -1, 0, 1, "class<`hash`, `sha1`>", 1
 "openssl", "sha1", 0, 0, 0, "character", 1
 "openssl", "sha1", 0, 0, 1, "class<`cert`>", 1
 "openssl", "sha1", 1, 0, 0, "character", 1
 "openssl", "sha1", 1, 0, 1, "null", 1
-"openssl", "sha256", -1, 0, 0, "(class<`hash`, `hmac`, `sha256`> | class<`hash`, `sha256`>)", 1
+"openssl", "sha256", -1, 0, 0, "class<`hash`, `hmac`, `sha256`>", 1
+"openssl", "sha256", -1, 0, 1, "class<`hash`, `sha256`>", 1
 "openssl", "sha256", 0, 0, 0, "character[]", 1
 "openssl", "sha256", 0, 0, 1, "raw[]", 1
 "openssl", "sha256", 1, 0, 0, "character", 1

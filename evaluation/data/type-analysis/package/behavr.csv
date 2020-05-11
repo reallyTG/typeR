@@ -4,7 +4,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "behavr", "behavr", -1, 0, 0, "class<`behavr`, `data.frame`, `data.table`>", 1
 "behavr", "behavr", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
 "behavr", "behavr", 1, 0, 0, "class<`data.frame`, `data.table`>", 1
-"behavr", "[.behavr", -1, 0, 0, "(class<`behavr`, `data.frame`, `data.table`> | class<`data.frame`, `data.table`> | double)", 1
+"behavr", "[.behavr", -1, 0, 0, "class<`behavr`, `data.frame`, `data.table`>", 1
+"behavr", "[.behavr", -1, 0, 1, "class<`data.frame`, `data.table`>", 1
+"behavr", "[.behavr", -1, 0, 2, "double", 1
 "behavr", "[.behavr", 0, 0, 0, "class<`behavr`, `data.frame`, `data.table`>", 1
 "behavr", "[.behavr", 1, 0, 0, "...", 1
 "behavr", "[.behavr", 2, 0, 0, "logical", 1
@@ -91,5 +93,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "behavr", "velocityFromMovement", 0, 0, 0, "class<`behavr`, `data.frame`, `data.table`>", 1
 "behavr", "velocityFromMovement", 1, 0, 0, "double", 1
 "behavr", "within_data_table", -1, 0, 0, "logical", 1
-"behavr", "xmv", -1, 0, 0, "(character[] | double[])", 1
+"behavr", "xmv", -1, 0, 0, "character[]", 1
+"behavr", "xmv", -1, 0, 1, "double[]", 1
 "behavr", "xmv", 0, 0, 0, "any", 1

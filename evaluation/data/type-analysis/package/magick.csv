@@ -1,6 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
 "magick", "::", -1, 0, 0, "list<class<`numeric_version`> | logical>", 1
-"magick", "::", -1, 1, 0, "(character | raw[])", 1
+"magick", "::", -1, 1, 0, "character", 1
+"magick", "::", -1, 1, 1, "raw[]", 1
 "magick", "::", 0, 1, 0, "class<`magick-image`>", 1
 "magick", "::", 1, 1, 0, "character", 1
 "magick", "::", 1, 1, 1, "null", 1
@@ -379,7 +380,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "magick", "image_trim", -1, 0, 0, "class<`magick-image`>", 1
 "magick", "image_trim", 0, 0, 0, "class<`magick-image`>", 1
 "magick", "image_trim", 1, 0, 0, "double", 1
-"magick", "image_write", -1, 0, 0, "(character | raw[])", 1
+"magick", "image_write", -1, 0, 0, "character", 1
+"magick", "image_write", -1, 0, 1, "raw[]", 1
 "magick", "image_write", 0, 0, 0, "class<`magick-image`>", 1
 "magick", "image_write", 1, 0, 0, "character", 1
 "magick", "image_write", 1, 0, 1, "null", 1
@@ -419,7 +421,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "magick", "magick_device_internal", 5, 0, 0, "logical", 1
 "magick", "magick_device_internal", 6, 0, 0, "logical", 1
 "magick", "magick_device_internal", 7, 0, 0, "logical", 1
-"magick", "magick_device_pop", -1, 0, 0, "(class<`magick-device`, `magick-image`> | null)", 1
+"magick", "magick_device_pop", -1, 0, 0, "class<`magick-device`, `magick-image`>", 1
+"magick", "magick_device_pop", -1, 0, 1, "null", 1
 "magick", "[.magick-image", -1, 0, 0, "class<`magick-image`>", 1
 "magick", "[.magick-image", 0, 0, 0, "class<`magick-image`>", 1
 "magick", "[.magick-image", 1, 0, 0, "double[]", 1

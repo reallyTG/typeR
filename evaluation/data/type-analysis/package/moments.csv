@@ -2,10 +2,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "moments", "agostino.test", -1, 0, 0, "class<`htest`>", 1
 "moments", "agostino.test", 0, 0, 0, "double[]", 1
 "moments", "agostino.test", 1, 0, 0, "character[]", 1
-"moments", "all.cumulants", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"moments", "all.cumulants", -1, 0, 0, "class<`matrix`>", 1
+"moments", "all.cumulants", -1, 0, 1, "double[]", 1
 "moments", "all.cumulants", 0, 0, 0, "class<`matrix`>", 1
 "moments", "all.cumulants", 0, 0, 1, "double[]", 1
-"moments", "all.moments", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"moments", "all.moments", -1, 0, 0, "class<`matrix`>", 1
+"moments", "all.moments", -1, 0, 1, "double[]", 1
 "moments", "all.moments", 0, 0, 0, "class<`data.frame`>", 1
 "moments", "all.moments", 0, 0, 1, "class<`matrix`>", 1
 "moments", "all.moments", 0, 0, 2, "double[]", 1
@@ -19,7 +21,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "moments", "bonett.test", -1, 0, 0, "class<`htest`>", 1
 "moments", "bonett.test", 0, 0, 0, "double[]", 1
 "moments", "bonett.test", 1, 0, 0, "character[]", 1
-"moments", "central2raw", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"moments", "central2raw", -1, 0, 0, "class<`matrix`>", 1
+"moments", "central2raw", -1, 0, 1, "double[]", 1
 "moments", "central2raw", 0, 0, 0, "class<`matrix`>", 1
 "moments", "central2raw", 0, 0, 1, "double[]", 1
 "moments", "central2raw", 1, 0, 0, "double[]", 1
@@ -31,7 +34,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "moments", "FUN", 2, 0, 0, "logical", 1
 "moments", "FUN", 3, 0, 0, "logical", 1
 "moments", "FUN", 4, 0, 0, "logical", 1
-"moments", "FUN", -1, 1, 0, "(double[] | class<`matrix`>)", 1
+"moments", "FUN", -1, 1, 0, "double[]", 1
+"moments", "FUN", -1, 1, 1, "class<`matrix`>", 1
 "moments", "FUN", 0, 1, 0, "double[]", 1
 "moments", "FUN", 0, 1, 1, "class<`matrix`>", 1
 "moments", "geary", -1, 0, 0, "double", 1
@@ -50,7 +54,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "moments", "moment", 2, 0, 0, "logical", 1
 "moments", "moment", 3, 0, 0, "logical", 1
 "moments", "moment", 4, 0, 0, "logical", 1
-"moments", "raw2central", -1, 0, 0, "(double[] | class<`matrix`>)", 1
+"moments", "raw2central", -1, 0, 0, "double[]", 1
+"moments", "raw2central", -1, 0, 1, "class<`matrix`>", 1
 "moments", "raw2central", 0, 0, 0, "double[]", 1
 "moments", "raw2central", 0, 0, 1, "class<`matrix`>", 1
 "moments", "skewness", -1, 0, 0, "double", 1

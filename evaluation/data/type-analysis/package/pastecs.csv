@@ -97,7 +97,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pastecs", "escouf", 0, 0, 0, "class<`data.frame`>", 1
 "pastecs", "escouf", 1, 0, 0, "double", 1
 "pastecs", "escouf", 2, 0, 0, "logical", 1
-"pastecs", "extract", -1, 0, 0, "(class<`data.frame`> | class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"pastecs", "extract", -1, 0, 0, "class<`data.frame`>", 1
+"pastecs", "extract", -1, 0, 1, "class<`matrix`, `mts`, `ts`>", 1
+"pastecs", "extract", -1, 0, 2, "class<`ts`>", 1
 "pastecs", "extract", 0, 0, 0, "class<`abund`>", 1
 "pastecs", "extract", 0, 0, 1, "class<`escouf`>", 1
 "pastecs", "extract", 0, 0, 2, "class<`tsd`>", 1
@@ -134,7 +136,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pastecs", "extract.turnogram", 3, 0, 0, "character", 1
 "pastecs", "extract.turnogram", 4, 0, 0, "double", 1
 "pastecs", "extract.turnogram", 5, 0, 0, "...", 1
-"pastecs", "first", -1, 0, 0, "(double | null)", 1
+"pastecs", "first", -1, 0, 0, "double", 1
+"pastecs", "first", -1, 0, 1, "null", 1
 "pastecs", "first", 0, 0, 0, "^double[]", 1
 "pastecs", "first", 1, 0, 0, "logical", 1
 "pastecs", "GetUnitText", -1, 0, 0, "character", 1
@@ -145,7 +148,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pastecs", "is.tseries", 0, 0, 1, "class<`regul`>", 1
 "pastecs", "is.tseries", 0, 0, 2, "class<`ts`>", 1
 "pastecs", "is.tseries", 0, 0, 3, "double[]", 1
-"pastecs", "last", -1, 0, 0, "(double | null)", 1
+"pastecs", "last", -1, 0, 0, "double", 1
+"pastecs", "last", -1, 0, 1, "null", 1
 "pastecs", "last", 0, 0, 0, "^double[]", 1
 "pastecs", "last", 1, 0, 0, "logical", 1
 "pastecs", "lines.abund", -1, 0, 0, "double[]", 1
@@ -252,7 +256,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pastecs", "plot.regul", 9, 0, 0, "character", 1
 "pastecs", "plot.regul", 10, 0, 0, "character", 1
 "pastecs", "plot.regul", 11, 0, 0, "...", 1
-"pastecs", "plot.stat.slide", -1, 0, 0, "(null | list<list<double[]>>)", 1
+"pastecs", "plot.stat.slide", -1, 0, 0, "null", 1
+"pastecs", "plot.stat.slide", -1, 0, 1, "list<list<double[]>>", 1
 "pastecs", "plot.stat.slide", 0, 0, 0, "class<`stat.slide`>", 1
 "pastecs", "plot.stat.slide", 1, 0, 0, "character", 1
 "pastecs", "plot.stat.slide", 2, 0, 0, "double[]", 1
@@ -409,7 +414,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pastecs", "summary.turnpoints", -1, 0, 0, "class<`summary.turnpoints`, `turnpoints`>", 1
 "pastecs", "summary.turnpoints", 0, 0, 0, "class<`turnpoints`>", 1
 "pastecs", "summary.turnpoints", 1, 0, 0, "...", 1
-"pastecs", "trend.test", -1, 0, 0, "(class<`boot`> | class<`htest`>)", 1
+"pastecs", "trend.test", -1, 0, 0, "class<`boot`>", 1
+"pastecs", "trend.test", -1, 0, 1, "class<`htest`>", 1
 "pastecs", "trend.test", 0, 0, 0, "double[]", 1
 "pastecs", "trend.test", 1, 0, 0, "double", 1
 "pastecs", "tsd", -1, 0, 0, "class<`tsd`>", 1
@@ -432,7 +438,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pastecs", "tsd", 15, 0, 0, "logical", 1
 "pastecs", "tsd", 16, 0, 0, "logical", 1
 "pastecs", "tsd", 17, 0, 0, "null", 1
-"pastecs", "tseries", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`ts`>)", 1
+"pastecs", "tseries", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"pastecs", "tseries", -1, 0, 1, "class<`ts`>", 1
 "pastecs", "tseries", 0, 0, 0, "class<`regul`>", 1
 "pastecs", "turnogram", -1, 0, 0, "class<`turnogram`>", 1
 "pastecs", "turnogram", 0, 0, 0, "class<`ts`>", 1

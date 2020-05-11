@@ -39,7 +39,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "bmstep", 3, 0, 0, "double[]", 1
 "optimx", "bmstep", 4, 0, 0, "double[]", 1
 "optimx", "bmstep", 5, 0, 0, "double", 1
-"optimx", "checksolver", -1, 0, 0, "(character | null)", 1
+"optimx", "checksolver", -1, 0, 0, "character", 1
+"optimx", "checksolver", -1, 0, 1, "null", 1
 "optimx", "checksolver", 0, 0, 0, "character", 1
 "optimx", "checksolver", 1, 0, 0, "character[]", 1
 "optimx", "checksolver", 2, 0, 0, "any", 1
@@ -253,7 +254,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "opm", 7, 0, 0, "logical", 1
 "optimx", "opm", 8, 0, 0, "list<any>", 1
 "optimx", "opm", 9, 0, 0, "...", 1
-"optimx", "[.opm", -1, 0, 0, "(class<`data.frame`, `opm`> | class<`data.frame`, `optimx`> | ^double[])", 1
+"optimx", "[.opm", -1, 0, 0, "class<`data.frame`, `opm`>", 1
+"optimx", "[.opm", -1, 0, 1, "class<`data.frame`, `optimx`>", 1
+"optimx", "[.opm", -1, 0, 2, "^double[]", 1
 "optimx", "[.opm", 0, 0, 0, "class<`data.frame`, `opm`>", 1
 "optimx", "[.opm", 0, 0, 1, "class<`data.frame`, `optimx`>", 1
 "optimx", "[.opm", 1, 0, 0, "...", 1
@@ -266,7 +269,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "optchk", 5, 0, 0, "double[]", 1
 "optimx", "optchk", 6, 0, 0, "list<character[] | double[]>", 1
 "optimx", "optchk", 7, 0, 0, "...", 1
-"optimx", "optimr", -1, 0, 0, "(class<`try-error`> | list<any>)", 1
+"optimx", "optimr", -1, 0, 0, "class<`try-error`>", 1
+"optimx", "optimr", -1, 0, 1, "list<any>", 1
 "optimx", "optimr", 0, 0, 0, "double[]", 1
 "optimx", "optimr", 1, 0, 0, "class<`function`>", 1
 "optimx", "optimr", 2, 0, 0, "null", 1
@@ -294,7 +298,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "optimx", 8, 0, 0, "logical", 1
 "optimx", "optimx", 9, 0, 0, "list<any>", 1
 "optimx", "optimx", 10, 0, 0, "...", 1
-"optimx", "[.optimx", -1, 0, 0, "(class<`data.frame`, `opm`> | class<`data.frame`, `optimx`> | ^double[])", 1
+"optimx", "[.optimx", -1, 0, 0, "class<`data.frame`, `opm`>", 1
+"optimx", "[.optimx", -1, 0, 1, "class<`data.frame`, `optimx`>", 1
+"optimx", "[.optimx", -1, 0, 2, "^double[]", 1
 "optimx", "[.optimx", 0, 0, 0, "class<`data.frame`, `opm`>", 1
 "optimx", "[.optimx", 0, 0, 1, "class<`data.frame`, `optimx`>", 1
 "optimx", "[.optimx", 1, 0, 0, "...", 1
@@ -459,14 +465,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "stpmax", 4, 0, 0, "double[]", 1
 "optimx", "stpmax", 5, 0, 0, "any", 1
 "optimx", "stpmax", 6, 0, 0, "any", 1
-"optimx", "summary.opm", -1, 0, 0, "(class<`data.frame`, `opm`> | class<`data.frame`, `optimx`>)", 1
+"optimx", "summary.opm", -1, 0, 0, "class<`data.frame`, `opm`>", 1
+"optimx", "summary.opm", -1, 0, 1, "class<`data.frame`, `optimx`>", 1
 "optimx", "summary.opm", 0, 0, 0, "class<`data.frame`, `opm`>", 1
 "optimx", "summary.opm", 0, 0, 1, "class<`data.frame`, `optimx`>", 1
 "optimx", "summary.opm", 1, 0, 0, "any", 1
 "optimx", "summary.opm", 2, 0, 0, "double", 1
 "optimx", "summary.opm", 2, 0, 1, "integer[]", 1
 "optimx", "summary.opm", 3, 0, 0, "...", 1
-"optimx", "summary.optimx", -1, 0, 0, "(class<`data.frame`, `opm`> | class<`data.frame`, `optimx`>)", 1
+"optimx", "summary.optimx", -1, 0, 0, "class<`data.frame`, `opm`>", 1
+"optimx", "summary.optimx", -1, 0, 1, "class<`data.frame`, `optimx`>", 1
 "optimx", "summary.optimx", 0, 0, 0, "class<`data.frame`, `opm`>", 1
 "optimx", "summary.optimx", 0, 0, 1, "class<`data.frame`, `optimx`>", 1
 "optimx", "summary.optimx", 1, 0, 0, "any", 1

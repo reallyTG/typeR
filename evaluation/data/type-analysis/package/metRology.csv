@@ -137,7 +137,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "buildCov", 2, 0, 0, "double[]", 1
 "metRology", "buildCov", 3, 0, 0, "class<`matrix`>", 1
 "metRology", "buildCov", 4, 0, 0, "any", 1
-"metRology", "cbind", -1, 0, 0, "(class<`data.frame`> | class<`matrix`>)", 1
+"metRology", "cbind", -1, 0, 0, "class<`data.frame`>", 1
+"metRology", "cbind", -1, 0, 1, "class<`matrix`>", 1
 "metRology", "cbind", 0, 0, 0, "...", 1
 "metRology", "cbind", 1, 0, 0, "double", 1
 "metRology", "cbind.default", -1, 0, 0, "class<`matrix`>", 1
@@ -215,7 +216,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", ".construct.uncert", 18, 0, 1, "double", 1
 "metRology", ".construct.uncert", 19, 0, 0, "null", 1
 "metRology", ".construct.uncert", 19, 0, 1, "list<double[] | class<`data.frame`>>", 1
-"metRology", "contribs", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"metRology", "contribs", -1, 0, 0, "class<`matrix`>", 1
+"metRology", "contribs", -1, 0, 1, "double[]", 1
 "metRology", "contribs", 0, 0, 0, "class<`list`, `uncert`>", 1
 "metRology", "contribs", 1, 0, 0, "any", 1
 "metRology", "contribs", 2, 0, 0, "logical", 1
@@ -253,7 +255,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "data.ellipse", 2, 0, 0, "logical", 1
 "metRology", "data.ellipse", 3, 0, 0, "double", 1
 "metRology", "data.ellipse", 4, 0, 0, "...", 1
-"metRology", "drop1.uncert", -1, 0, 0, "(class<`data.frame`, `drop1.uncert`> | double[])", 1
+"metRology", "drop1.uncert", -1, 0, 0, "class<`data.frame`, `drop1.uncert`>", 1
+"metRology", "drop1.uncert", -1, 0, 1, "double[]", 1
 "metRology", "drop1.uncert", 0, 0, 0, "class<`list`, `uncert`>", 1
 "metRology", "drop1.uncert", 1, 0, 0, "any", 1
 "metRology", "drop1.uncert", 2, 0, 0, "logical", 1
@@ -720,7 +723,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "qt.scaled", 4, 0, 0, "any", 1
 "metRology", "qt.scaled", 5, 0, 0, "logical", 1
 "metRology", "qt.scaled", 6, 0, 0, "logical", 1
-"metRology", "rbind", -1, 0, 0, "(class<`data.frame`> | class<`ilab`> | class<`matrix`>)", 1
+"metRology", "rbind", -1, 0, 0, "class<`data.frame`>", 1
+"metRology", "rbind", -1, 0, 1, "class<`ilab`>", 1
+"metRology", "rbind", -1, 0, 2, "class<`matrix`>", 1
 "metRology", "rbind", 0, 0, 0, "...", 1
 "metRology", "rbind", 1, 0, 0, "any", 1
 "metRology", "rbind.default", -1, 0, 0, "class<`matrix`>", 1
@@ -765,7 +770,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", ".to.wide", 0, 0, 0, "^double[]", 1
 "metRology", ".to.wide", 1, 0, 0, "class<`factor`>", 1
 "metRology", ".to.wide", 2, 0, 0, "class<`factor`>", 1
-"metRology", "uncert", -1, 0, 0, "(class<`list`, `uncert`> | class<`list`, `uncert`, `uncertMC`>)", 1
+"metRology", "uncert", -1, 0, 0, "class<`list`, `uncert`>", 1
+"metRology", "uncert", -1, 0, 1, "class<`list`, `uncert`, `uncertMC`>", 1
 "metRology", "uncert", 0, 0, 0, "any", 1
 "metRology", "uncert", 1, 0, 0, "...", 1
 "metRology", "uncert.default", -1, 0, 0, "class<`list`, `uncert`>", 1
@@ -781,7 +787,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "uncert.default", 9, 0, 0, "logical", 1
 "metRology", "uncert.default", 10, 0, 0, "double[]", 1
 "metRology", "uncert.default", 11, 0, 0, "...", 1
-"metRology", "uncert.expression", -1, 0, 0, "(class<`list`, `uncert`> | class<`list`, `uncert`, `uncertMC`>)", 1
+"metRology", "uncert.expression", -1, 0, 0, "class<`list`, `uncert`>", 1
+"metRology", "uncert.expression", -1, 0, 1, "class<`list`, `uncert`, `uncertMC`>", 1
 "metRology", "uncert.expression", 0, 0, 0, "expression", 1
 "metRology", "uncert.expression", 1, 0, 0, "list<double>", 1
 "metRology", "uncert.expression", 2, 0, 0, "list<double>", 1
@@ -794,7 +801,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "uncert.expression", 9, 0, 0, "double", 1
 "metRology", "uncert.expression", 10, 0, 0, "logical", 1
 "metRology", "uncert.expression", 11, 0, 0, "...", 1
-"metRology", "uncert.formula", -1, 0, 0, "(class<`list`, `uncert`> | class<`list`, `uncert`, `uncertMC`>)", 1
+"metRology", "uncert.formula", -1, 0, 0, "class<`list`, `uncert`>", 1
+"metRology", "uncert.formula", -1, 0, 1, "class<`list`, `uncert`, `uncertMC`>", 1
 "metRology", "uncert.formula", 0, 0, 0, "class<`formula`>", 1
 "metRology", "uncert.formula", 1, 0, 0, "list<double>", 1
 "metRology", "uncert.formula", 2, 0, 0, "list<double>", 1
@@ -840,7 +848,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "updateCor", 0, 0, 0, "class<`matrix`>", 1
 "metRology", "updateCor", 1, 0, 0, "double[]", 1
 "metRology", "updateCor", 2, 0, 0, "any", 1
-"metRology", "update.uncert", -1, 0, 0, "(class<`list`, `uncert`> | class<`list`, `uncert`, `uncertMC`>)", 1
+"metRology", "update.uncert", -1, 0, 0, "class<`list`, `uncert`>", 1
+"metRology", "update.uncert", -1, 0, 1, "class<`list`, `uncert`, `uncertMC`>", 1
 "metRology", "update.uncert", 0, 0, 0, "class<`list`, `uncert`>", 1
 "metRology", "update.uncert", 1, 0, 0, "null", 1
 "metRology", "update.uncert", 2, 0, 0, "null", 1

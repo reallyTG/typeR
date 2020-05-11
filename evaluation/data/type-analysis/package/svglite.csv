@@ -3,10 +3,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "svglite", "%||%", 0, 0, 0, "null", 1
 "svglite", "%||%", 1, 0, 0, "integer[]", 1
 "svglite", "alias_lookup", -1, 0, 0, "character[]", 1
-"svglite", "compact", -1, 0, 0, "(character | list<any>)", 1
+"svglite", "compact", -1, 0, 0, "character", 1
+"svglite", "compact", -1, 0, 1, "list<any>", 1
 "svglite", "compact", 0, 0, 0, "character", 1
 "svglite", "compact", 0, 0, 1, "list<any>", 1
-"svglite", "FUN", -1, 0, 0, "(character | list<any>)", 1
+"svglite", "FUN", -1, 0, 0, "character", 1
+"svglite", "FUN", -1, 0, 1, "list<any>", 1
 "svglite", "FUN", 0, 0, 0, "character", 1
 "svglite", "FUN", 0, 0, 1, "list<any>", 1
 "svglite", "get_svg_content", -1, 0, 0, "character", 1

@@ -11,7 +11,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "converg", 6, 0, 0, "any", 1
 "mc2d", "converg", 7, 0, 0, "null", 1
 "mc2d", "converg", 8, 0, 0, "logical", 1
-"mc2d", "cornode", -1, 0, 0, "(class<`matrix`> | list<class<`mcnode`>>)", 1
+"mc2d", "cornode", -1, 0, 0, "class<`matrix`>", 1
+"mc2d", "cornode", -1, 0, 1, "list<class<`mcnode`>>", 1
 "mc2d", "cornode", 0, 0, 0, "...", 1
 "mc2d", "cornode", 1, 0, 0, "class<`matrix`>", 1
 "mc2d", "cornode", 2, 0, 0, "logical", 1
@@ -55,7 +56,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "dmultinomial", 2, 0, 0, "class<`matrix`>", 1
 "mc2d", "dmultinomial", 2, 0, 1, "double[]", 1
 "mc2d", "dmultinomial", 3, 0, 0, "logical", 1
-"mc2d", "dmultinormal", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"mc2d", "dmultinormal", -1, 0, 0, "class<`matrix`>", 1
+"mc2d", "dmultinormal", -1, 0, 1, "double[]", 1
 "mc2d", "dmultinormal", 0, 0, 0, "class<`matrix`>", 1
 "mc2d", "dmultinormal", 1, 0, 0, "class<`matrix`>", 1
 "mc2d", "dmultinormal", 1, 0, 1, "double[]", 1
@@ -292,7 +294,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "rtrunc", 2, 0, 0, "double", 1
 "mc2d", "rtrunc", 3, 0, 0, "double", 1
 "mc2d", "rtrunc", 4, 0, 0, "...", 1
-"mc2d", "summary.mc", -1, 0, 0, "(class<`listof`, `summary.mc`> | null)", 1
+"mc2d", "summary.mc", -1, 0, 0, "class<`listof`, `summary.mc`>", 1
+"mc2d", "summary.mc", -1, 0, 1, "null", 1
 "mc2d", "summary.mc", 0, 0, 0, "class<`mc`>", 1
 "mc2d", "summary.mc", 0, 0, 1, "list<class<`mcnode`>>", 1
 "mc2d", "summary.mc", 1, 0, 0, "double[]", 1
@@ -302,7 +305,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "summary.mccut", 0, 0, 0, "class<`mccut`>", 1
 "mc2d", "summary.mccut", 1, 0, 0, "double[]", 1
 "mc2d", "summary.mccut", 2, 0, 0, "...", 1
-"mc2d", "summary.mcnode", -1, 0, 0, "(class<`listof`, `summary.mc`> | null)", 1
+"mc2d", "summary.mcnode", -1, 0, 0, "class<`listof`, `summary.mc`>", 1
+"mc2d", "summary.mcnode", -1, 0, 1, "null", 1
 "mc2d", "summary.mcnode", 0, 0, 0, "class<`mcnode`>", 1
 "mc2d", "summary.mcnode", 1, 0, 0, "double[]", 1
 "mc2d", "summary.mcnode", 2, 0, 0, "double[]", 1
@@ -317,6 +321,7 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "typemcnode", -1, 0, 0, "character", 1
 "mc2d", "typemcnode", 0, 0, 0, "class<`mcnode`>", 1
 "mc2d", "typemcnode", 1, 0, 0, "logical", 1
-"mc2d", "unmc", -1, 0, 0, "(class<`array`> | double[])", 1
+"mc2d", "unmc", -1, 0, 0, "class<`array`>", 1
+"mc2d", "unmc", -1, 0, 1, "double[]", 1
 "mc2d", "unmc", 0, 0, 0, "class<`mcnode`>", 1
 "mc2d", "unmc", 1, 0, 0, "logical", 1

@@ -28,7 +28,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "PolynomF", "c.polylist", 1, 0, 0, "logical", 1
 "PolynomF", ".degree", -1, 0, 0, "double", 1
 "PolynomF", ".degree", 0, 0, 0, "class<`polynom`>", 1
-"PolynomF", "deriv", -1, 0, 0, "(class<`polynom`> | double[])", 1
+"PolynomF", "deriv", -1, 0, 0, "class<`polynom`>", 1
+"PolynomF", "deriv", -1, 0, 1, "double[]", 1
 "PolynomF", "deriv", 0, 0, 0, "class<`polynom`>", 1
 "PolynomF", "deriv", 0, 0, 1, "double[]", 1
 "PolynomF", "deriv.polynom", -1, 0, 0, "class<`polynom`>", 1
@@ -93,10 +94,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "PolynomF", "inner_product", -1, 2, 0, "double", 1
 "PolynomF", "inner_product", 0, 2, 0, "class<`polynom`>", 1
 "PolynomF", "inner_product", 1, 2, 0, "class<`polynom`>", 1
-"PolynomF", "integral", -1, 0, 0, "(class<`polynom`> | double)", 1
+"PolynomF", "integral", -1, 0, 0, "class<`polynom`>", 1
+"PolynomF", "integral", -1, 0, 1, "double", 1
 "PolynomF", "integral", 0, 0, 0, "class<`polynom`>", 1
 "PolynomF", "integral", 1, 0, 0, "...", 1
-"PolynomF", "integral.polynom", -1, 0, 0, "(class<`polynom`> | double)", 1
+"PolynomF", "integral.polynom", -1, 0, 0, "class<`polynom`>", 1
+"PolynomF", "integral.polynom", -1, 0, 1, "double", 1
 "PolynomF", "integral.polynom", 0, 0, 0, "class<`polynom`>", 1
 "PolynomF", "integral.polynom", 1, 0, 0, "null", 1
 "PolynomF", "integral.polynom", 1, 0, 1, "double[]", 1
@@ -135,7 +138,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "PolynomF", "Ops.polynom", 0, 0, 1, "double", 1
 "PolynomF", "Ops.polynom", 1, 0, 0, "class<`polynom`>", 1
 "PolynomF", "Ops.polynom", 1, 0, 1, "double", 1
-"PolynomF", "p", -1, 0, 0, "(class<`polynom`> | double[])", 1
+"PolynomF", "p", -1, 0, 0, "class<`polynom`>", 1
+"PolynomF", "p", -1, 0, 1, "double[]", 1
 "PolynomF", "p", 0, 0, 0, "class<`polynom`>", 1
 "PolynomF", "p", 0, 0, 1, "double[]", 1
 "PolynomF", "p", -1, 1, 0, "double[]", 1
@@ -151,7 +155,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "PolynomF", "Pf", -1, 0, 0, "class<`matrix`>", 1
 "PolynomF", "Pf", 0, 0, 0, "double[]", 1
 "PolynomF", "Pf", 1, 0, 0, "...", 1
-"PolynomF", "Pi", -1, 0, 0, "(class<`polynom`> | double[])", 1
+"PolynomF", "Pi", -1, 0, 0, "class<`polynom`>", 1
+"PolynomF", "Pi", -1, 0, 1, "double[]", 1
 "PolynomF", "Pi", 0, 0, 0, "class<`polynom`>", 1
 "PolynomF", "Pi", 0, 0, 1, "double[]", 1
 "PolynomF", "plot.polylist", -1, 0, 0, "null", 1
@@ -222,7 +227,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "PolynomF", ".poly.rem", -1, 0, 0, "double[]", 1
 "PolynomF", ".poly.rem", 0, 0, 0, "double[]", 1
 "PolynomF", ".poly.rem", 1, 0, 0, "double[]", 1
-"PolynomF", "q", -1, 0, 0, "(class<`polynom`> | double[])", 1
+"PolynomF", "q", -1, 0, 0, "class<`polynom`>", 1
+"PolynomF", "q", -1, 0, 1, "double[]", 1
 "PolynomF", "q", 0, 0, 0, "class<`polynom`>", 1
 "PolynomF", "q", 0, 0, 1, "double[]", 1
 "PolynomF", "solve.polynom", -1, 0, 0, "complex[]", 1
@@ -241,7 +247,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "PolynomF", "w", -1, 0, 0, "double", 1
 "PolynomF", "w", 0, 0, 0, "any", 1
 "PolynomF", "w", 1, 0, 0, "...", 1
-"PolynomF", "zap", -1, 0, 0, "(class<`matrix`> | class<`polylist`>)", 1
+"PolynomF", "zap", -1, 0, 0, "class<`matrix`>", 1
+"PolynomF", "zap", -1, 0, 1, "class<`polylist`>", 1
 "PolynomF", "zap", 0, 0, 0, "class<`matrix`>", 1
 "PolynomF", "zap", 0, 0, 1, "class<`polylist`>", 1
 "PolynomF", "zap", 1, 0, 0, "any", 1

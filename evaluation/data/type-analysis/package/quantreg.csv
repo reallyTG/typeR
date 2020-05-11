@@ -110,7 +110,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "dither", 0, 0, 0, "integer[]", 1
 "quantreg", "dither", 1, 0, 0, "character", 1
 "quantreg", "dither", 2, 0, 0, "double", 1
-"quantreg", "dynrq", -1, 0, 0, "(class<`dynrq`, `rq`> | class<`dynrqs`, `rqs`>)", 1
+"quantreg", "dynrq", -1, 0, 0, "class<`dynrq`, `rq`>", 1
+"quantreg", "dynrq", -1, 0, 1, "class<`dynrqs`, `rqs`>", 1
 "quantreg", "dynrq", 0, 0, 0, "class<`formula`>", 1
 "quantreg", "dynrq", 1, 0, 0, "double[]", 1
 "quantreg", "dynrq", 2, 0, 0, "any", 1
@@ -128,7 +129,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "formula.rq", 0, 0, 0, "class<`dynrq`, `rq`>", 1
 "quantreg", "formula.rq", 0, 0, 1, "class<`rq`>", 1
 "quantreg", "formula.rq", 1, 0, 0, "...", 1
-"quantreg", "FUN", -1, 0, 0, "(class<`function`, `stepfun`> | list<class<`function`, `stepfun`>>)", 1
+"quantreg", "FUN", -1, 0, 0, "class<`function`, `stepfun`>", 1
+"quantreg", "FUN", -1, 0, 1, "list<class<`function`, `stepfun`>>", 1
 "quantreg", "FUN", 0, 0, 0, "class<`function`, `stepfun`>", 1
 "quantreg", "FUN", 0, 0, 1, "list<class<`function`, `stepfun`>>", 1
 "quantreg", "FUN", 1, 0, 0, "any", 1
@@ -331,12 +333,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "ranks", 1, 0, 0, "character", 1
 "quantreg", "ranks", 2, 0, 0, "double", 1
 "quantreg", "ranks", 3, 0, 0, "null", 1
-"quantreg", "rearrange", -1, 0, 0, "(class<`function`, `stepfun`> | list<class<`function`, `stepfun`>>)", 1
+"quantreg", "rearrange", -1, 0, 0, "class<`function`, `stepfun`>", 1
+"quantreg", "rearrange", -1, 0, 1, "list<class<`function`, `stepfun`>>", 1
 "quantreg", "rearrange", 0, 0, 0, "class<`function`, `stepfun`>", 1
 "quantreg", "rearrange", 0, 0, 1, "list<class<`function`, `stepfun`>>", 1
 "quantreg", "rearrange", 1, 0, 0, "any", 1
 "quantreg", "rearrange", 2, 0, 0, "any", 1
-"quantreg", "rq", -1, 0, 0, "(class<`lassorq`, `rq`> | class<`rq`> | class<`rq.process`> | class<`rqs`> | class<`rq`, `scadrq`>)", 1
+"quantreg", "rq", -1, 0, 0, "class<`lassorq`, `rq`>", 1
+"quantreg", "rq", -1, 0, 1, "class<`rq`>", 1
+"quantreg", "rq", -1, 0, 2, "class<`rq.process`>", 1
+"quantreg", "rq", -1, 0, 3, "class<`rqs`>", 1
+"quantreg", "rq", -1, 0, 4, "class<`rq`, `scadrq`>", 1
 "quantreg", "rq", 0, 0, 0, "class<`formula`>", 1
 "quantreg", "rq", 1, 0, 0, "double[]", 1
 "quantreg", "rq", 2, 0, 0, "any", 1
@@ -495,7 +502,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "summary.rq", 4, 0, 0, "any", 1
 "quantreg", "summary.rq", 5, 0, 0, "double", 1
 "quantreg", "summary.rq", 6, 0, 0, "...", 1
-"quantreg", "summary.rqs", -1, 0, 0, "(class<`summary.dynrqs`, `summary.rqs`> | class<`summary.rqs`>)", 1
+"quantreg", "summary.rqs", -1, 0, 0, "class<`summary.dynrqs`, `summary.rqs`>", 1
+"quantreg", "summary.rqs", -1, 0, 1, "class<`summary.rqs`>", 1
 "quantreg", "summary.rqs", 0, 0, 0, "class<`dynrqs`, `rqs`>", 1
 "quantreg", "summary.rqs", 0, 0, 1, "class<`rqs`>", 1
 "quantreg", "summary.rqs", 1, 0, 0, "...", 1

@@ -16,14 +16,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gsubfn", "gsubfn", 6, 0, 1, "character", 1
 "gsubfn", "gsubfn", 7, 0, 0, "environment", 1
 "gsubfn", "gsubfn", 8, 0, 0, "...", 1
-"gsubfn", "match.funfn", -1, 0, 0, "(class<`function`> | class<`protoMethod`>)", 1
+"gsubfn", "match.funfn", -1, 0, 0, "class<`function`>", 1
+"gsubfn", "match.funfn", -1, 0, 1, "class<`protoMethod`>", 1
 "gsubfn", "match.funfn", 0, 0, 0, "character", 1
 "gsubfn", "match.funfn", 0, 0, 1, "class<`formula`>", 1
 "gsubfn", "match.funfn", 0, 0, 2, "class<`function`>", 1
 "gsubfn", "match.funfn", 0, 0, 3, "class<`result`>", 1
 "gsubfn", "match.funfn", 0, 0, 4, "class<`protoMethod`>", 1
 "gsubfn", "match.funfn", 1, 0, 0, "logical", 1
-"gsubfn", "ostrapply", -1, 0, 0, "(class<`matrix`> | list<character[]>)", 1
+"gsubfn", "ostrapply", -1, 0, 0, "class<`matrix`>", 1
+"gsubfn", "ostrapply", -1, 0, 1, "list<character[]>", 1
 "gsubfn", "ostrapply", 0, 0, 0, "character[]", 1
 "gsubfn", "ostrapply", 1, 0, 0, "character", 1
 "gsubfn", "ostrapply", 2, 0, 0, "class<`environment`, `proto`>", 1
@@ -51,7 +53,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gsubfn", "[<-.result", 2, 0, 2, "class<`matrix`>", 1
 "gsubfn", "[<-.result", 2, 0, 3, "class<`qr`>", 1
 "gsubfn", "[<-.result", 2, 0, 4, "list<double>", 1
-"gsubfn", "strapply", -1, 0, 0, "(character[] | class<`matrix`> | list<character[] | list<character[]>>)", 1
+"gsubfn", "strapply", -1, 0, 0, "character[]", 1
+"gsubfn", "strapply", -1, 0, 1, "class<`matrix`>", 1
+"gsubfn", "strapply", -1, 0, 2, "list<character[] | list<character[]>>", 1
 "gsubfn", "strapply", 0, 0, 0, "character[]", 1
 "gsubfn", "strapply", 1, 0, 0, "character", 1
 "gsubfn", "strapply", 2, 0, 0, "class<`function`>", 1

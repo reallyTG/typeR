@@ -43,7 +43,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "GGally", "as.character.ggmatrix_plot_obj", -1, 0, 0, "character", 1
 "GGally", "as.character.ggmatrix_plot_obj", 0, 0, 0, "class<`ggmatrix_plot_obj`>", 1
 "GGally", "as.character.ggmatrix_plot_obj", 1, 0, 0, "...", 1
-"GGally", "as_ggmatrix_progress", -1, 0, 0, "(class<`function`> | logical)", 1
+"GGally", "as_ggmatrix_progress", -1, 0, 0, "class<`function`>", 1
+"GGally", "as_ggmatrix_progress", -1, 0, 1, "logical", 1
 "GGally", "as_ggmatrix_progress", 0, 0, 0, "class<`function`>", 1
 "GGally", "as_ggmatrix_progress", 0, 0, 1, "null", 1
 "GGally", "as_ggmatrix_progress", 1, 0, 0, "any", 1
@@ -92,7 +93,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "GGally", "column_is_character", 0, 0, 0, "class<`data.frame`>", 1
 "GGally", "column_is_factor", -1, 0, 0, "character[]", 1
 "GGally", "column_is_factor", 0, 0, 0, "class<`data.frame`>", 1
-"GGally", "eval_data_col", -1, 0, 0, "(class<`factor`> | double[] | null)", 1
+"GGally", "eval_data_col", -1, 0, 0, "class<`factor`>", 1
+"GGally", "eval_data_col", -1, 0, 1, "double[]", 1
+"GGally", "eval_data_col", -1, 0, 2, "null", 1
 "GGally", "eval_data_col", 0, 0, 0, "class<`data.frame`>", 1
 "GGally", "eval_data_col", 0, 0, 1, "class<`broomify`, `data.frame`, `tbl`, `tbl_df`>", 1
 "GGally", "eval_data_col", 1, 0, 0, "class<`formula`, `quosure`>", 1
@@ -150,7 +153,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "GGally", "get_x_axis_labels", -1, 0, 0, "class<`data.frame`>", 1
 "GGally", "get_x_axis_labels", 0, 0, 0, "class<`gg`, `ggplot`>", 1
 "GGally", "get_x_axis_labels", 1, 0, 0, "double[]", 1
-"GGally", "+.gg", -1, 0, 0, "(class<`gg`, `ggmatrix`> | class<`gg`, `ggplot`>)", 1
+"GGally", "+.gg", -1, 0, 0, "class<`gg`, `ggmatrix`>", 1
+"GGally", "+.gg", -1, 0, 1, "class<`gg`, `ggplot`>", 1
 "GGally", "+.gg", 0, 0, 0, "class<`gg`, `ggmatrix`>", 1
 "GGally", "+.gg", 0, 0, 1, "class<`gg`, `ggplot`>", 1
 "GGally", "+.gg", 1, 0, 0, "class<`gg`, `theme`>", 1
@@ -673,7 +677,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "GGally", "glyphs", 9, 0, 0, "class<`function`>", 1
 "GGally", "grab_legend", -1, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`, `legend_guide_box`>", 1
 "GGally", "grab_legend", 0, 0, 0, "class<`gg`, `ggplot`>", 1
-"GGally", "ifnull", -1, 0, 0, "(character[] | list<any>)", 1
+"GGally", "ifnull", -1, 0, 0, "character[]", 1
+"GGally", "ifnull", -1, 0, 1, "list<any>", 1
 "GGally", "ifnull", 0, 0, 0, "character[]", 1
 "GGally", "ifnull", 0, 0, 1, "null", 1
 "GGally", "ifnull", 0, 0, 2, "list<double | double | character>", 1

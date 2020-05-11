@@ -22,7 +22,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pkgload", "comp_lang", 2, 0, 0, "any", 1
 "pkgload", "dir.exists", -1, 0, 0, "logical[]", 1
 "pkgload", "dir.exists", 0, 0, 0, "character[]", 1
-"pkgload", "extract_lang", -1, 0, 0, "(class<`<-`> | class<`for`> | class<`if`> | null)", 1
+"pkgload", "extract_lang", -1, 0, 0, "class<`<-`>", 1
+"pkgload", "extract_lang", -1, 0, 1, "class<`for`>", 1
+"pkgload", "extract_lang", -1, 0, 2, "class<`if`>", 1
+"pkgload", "extract_lang", -1, 0, 3, "null", 1
 "pkgload", "extract_lang", 0, 0, 0, "class<`{`>", 1
 "pkgload", "extract_lang", 0, 0, 1, "class<`<-`>", 1
 "pkgload", "extract_lang", 0, 0, 2, "class<`if`>", 1
@@ -53,7 +56,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pkgload", "f", 1, 0, 2, "class<`for`>", 1
 "pkgload", "f", 1, 0, 3, "class<`if`>", 1
 "pkgload", "f", 2, 0, 0, "any", 1
-"pkgload", "f", -1, 1, 0, "(character | class<`<-`> | class<`(`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`> | double | null | pairlist)", 1
+"pkgload", "f", -1, 1, 0, "character", 1
+"pkgload", "f", -1, 1, 1, "class<`<-`>", 1
+"pkgload", "f", -1, 1, 2, "class<`(`>", 1
+"pkgload", "f", -1, 1, 3, "class<`{`>", 1
+"pkgload", "f", -1, 1, 4, "class<`call`>", 1
+"pkgload", "f", -1, 1, 5, "class<`for`>", 1
+"pkgload", "f", -1, 1, 6, "class<`if`>", 1
+"pkgload", "f", -1, 1, 7, "class<`name`>", 1
+"pkgload", "f", -1, 1, 8, "double", 1
+"pkgload", "f", -1, 1, 9, "null", 1
+"pkgload", "f", -1, 1, 10, "pairlist", 1
 "pkgload", "f", 0, 1, 0, "character", 1
 "pkgload", "f", 0, 1, 1, "class<`<-`>", 1
 "pkgload", "f", 0, 1, 2, "class<`(`>", 1
@@ -66,7 +79,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pkgload", "f", 0, 1, 9, "null", 1
 "pkgload", "f", 0, 1, 10, "pairlist", 1
 "pkgload", "f", 1, 1, 0, "character", 1
-"pkgload", "f", -1, 2, 0, "(character | class<`<-`> | class<`{`> | class<`call`> | class<`name`> | integer | null | pairlist)", 1
+"pkgload", "f", -1, 2, 0, "character", 1
+"pkgload", "f", -1, 2, 1, "class<`<-`>", 1
+"pkgload", "f", -1, 2, 2, "class<`{`>", 1
+"pkgload", "f", -1, 2, 3, "class<`call`>", 1
+"pkgload", "f", -1, 2, 4, "class<`name`>", 1
+"pkgload", "f", -1, 2, 5, "integer", 1
+"pkgload", "f", -1, 2, 6, "null", 1
+"pkgload", "f", -1, 2, 7, "pairlist", 1
 "pkgload", "f", 0, 2, 0, "character", 1
 "pkgload", "f", 0, 2, 1, "class<`<-`>", 1
 "pkgload", "f", 0, 2, 2, "class<`{`>", 1
@@ -75,7 +95,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pkgload", "f", 0, 2, 5, "integer", 1
 "pkgload", "f", 0, 2, 6, "null", 1
 "pkgload", "f", 0, 2, 7, "pairlist", 1
-"pkgload", "f", -1, 3, 0, "(character | class<`<-`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`>)", 1
+"pkgload", "f", -1, 3, 0, "character", 1
+"pkgload", "f", -1, 3, 1, "class<`<-`>", 1
+"pkgload", "f", -1, 3, 2, "class<`{`>", 1
+"pkgload", "f", -1, 3, 3, "class<`call`>", 1
+"pkgload", "f", -1, 3, 4, "class<`for`>", 1
+"pkgload", "f", -1, 3, 5, "class<`if`>", 1
+"pkgload", "f", -1, 3, 6, "class<`name`>", 1
 "pkgload", "f", 0, 3, 0, "character", 1
 "pkgload", "f", 0, 3, 1, "class<`<-`>", 1
 "pkgload", "f", 0, 3, 2, "class<`{`>", 1
@@ -83,7 +109,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pkgload", "f", 0, 3, 4, "class<`for`>", 1
 "pkgload", "f", 0, 3, 5, "class<`if`>", 1
 "pkgload", "f", 0, 3, 6, "class<`name`>", 1
-"pkgload", "FUN", -1, 0, 0, "(class<`<-`> | class<`for`> | class<`if`> | null)", 1
+"pkgload", "FUN", -1, 0, 0, "class<`<-`>", 1
+"pkgload", "FUN", -1, 0, 1, "class<`for`>", 1
+"pkgload", "FUN", -1, 0, 2, "class<`if`>", 1
+"pkgload", "FUN", -1, 0, 3, "null", 1
 "pkgload", "FUN", 0, 0, 0, "class<`{`>", 1
 "pkgload", "FUN", 0, 0, 1, "class<`<-`>", 1
 "pkgload", "FUN", 0, 0, 2, "class<`if`>", 1
@@ -97,7 +126,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pkgload", "FUN", 0, 0, 10, "pairlist", 1
 "pkgload", "FUN", 1, 0, 0, "class<`function`>", 1
 "pkgload", "FUN", 2, 0, 0, "...", 1
-"pkgload", "FUN", -1, 1, 0, "(character | class<`<-`> | class<`(`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`> | double | null | pairlist)", 1
+"pkgload", "FUN", -1, 1, 0, "character", 1
+"pkgload", "FUN", -1, 1, 1, "class<`<-`>", 1
+"pkgload", "FUN", -1, 1, 2, "class<`(`>", 1
+"pkgload", "FUN", -1, 1, 3, "class<`{`>", 1
+"pkgload", "FUN", -1, 1, 4, "class<`call`>", 1
+"pkgload", "FUN", -1, 1, 5, "class<`for`>", 1
+"pkgload", "FUN", -1, 1, 6, "class<`if`>", 1
+"pkgload", "FUN", -1, 1, 7, "class<`name`>", 1
+"pkgload", "FUN", -1, 1, 8, "double", 1
+"pkgload", "FUN", -1, 1, 9, "null", 1
+"pkgload", "FUN", -1, 1, 10, "pairlist", 1
 "pkgload", "FUN", 0, 1, 0, "character", 1
 "pkgload", "FUN", 0, 1, 1, "class<`<-`>", 1
 "pkgload", "FUN", 0, 1, 2, "class<`(`>", 1
@@ -124,7 +163,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pkgload", "make_function", 0, 0, 0, "list<class<`name`>>", 1
 "pkgload", "make_function", 1, 0, 0, "class<`{`>", 1
 "pkgload", "make_function", 2, 0, 0, "environment", 1
-"pkgload", "modify_lang", -1, 0, 0, "(character | class<`<-`> | class<`(`> | class<`{`> | class<`call`> | class<`for`> | class<`if`> | class<`name`> | double | null | pairlist)", 1
+"pkgload", "modify_lang", -1, 0, 0, "character", 1
+"pkgload", "modify_lang", -1, 0, 1, "class<`<-`>", 1
+"pkgload", "modify_lang", -1, 0, 2, "class<`(`>", 1
+"pkgload", "modify_lang", -1, 0, 3, "class<`{`>", 1
+"pkgload", "modify_lang", -1, 0, 4, "class<`call`>", 1
+"pkgload", "modify_lang", -1, 0, 5, "class<`for`>", 1
+"pkgload", "modify_lang", -1, 0, 6, "class<`if`>", 1
+"pkgload", "modify_lang", -1, 0, 7, "class<`name`>", 1
+"pkgload", "modify_lang", -1, 0, 8, "double", 1
+"pkgload", "modify_lang", -1, 0, 9, "null", 1
+"pkgload", "modify_lang", -1, 0, 10, "pairlist", 1
 "pkgload", "modify_lang", 0, 0, 0, "character", 1
 "pkgload", "modify_lang", 0, 0, 1, "class<`<-`>", 1
 "pkgload", "modify_lang", 0, 0, 2, "class<`(`>", 1

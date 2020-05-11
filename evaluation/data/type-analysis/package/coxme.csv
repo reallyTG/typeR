@@ -83,7 +83,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "formula1", 0, 0, 3, "class<`(`>", 1
 "coxme", "formula2", -1, 0, 0, "list<any>", 1
 "coxme", "formula2", 0, 0, 0, "class<`(`>", 1
-"coxme", "getblock", -1, 0, 0, "(class<`dsCMatrix`> | double)", 1
+"coxme", "getblock", -1, 0, 0, "class<`dsCMatrix`>", 1
+"coxme", "getblock", -1, 0, 1, "double", 1
 "coxme", "getblock", 0, 0, 0, "class<`dsCMatrix`>", 1
 "coxme", "getblock", 1, 0, 0, "integer", 1
 "coxme", "getblock", 2, 0, 0, "double", 1
@@ -128,7 +129,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "residuals.lmekin", -1, 0, 0, "double[]", 1
 "coxme", "residuals.lmekin", 0, 0, 0, "class<`lmekin`>", 1
 "coxme", "residuals.lmekin", 1, 0, 0, "...", 1
-"coxme", "subbar", -1, 0, 0, "(class<`(`> | class<`call`> | class<`formula`> | class<`name`>)", 1
+"coxme", "subbar", -1, 0, 0, "class<`(`>", 1
+"coxme", "subbar", -1, 0, 1, "class<`call`>", 1
+"coxme", "subbar", -1, 0, 2, "class<`formula`>", 1
+"coxme", "subbar", -1, 0, 3, "class<`name`>", 1
 "coxme", "subbar", 0, 0, 0, "class<`(`>", 1
 "coxme", "subbar", 0, 0, 1, "class<`call`>", 1
 "coxme", "subbar", 0, 0, 2, "class<`formula`>", 1

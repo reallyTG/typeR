@@ -23,7 +23,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "numbers", "collatz", 2, 0, 0, "double", 1
 "numbers", "collatz", 3, 0, 0, "logical", 1
 "numbers", "collatz", 4, 0, 0, "logical", 1
-"numbers", "contFrac", -1, 0, 0, "(double | list<double[]>)", 1
+"numbers", "contFrac", -1, 0, 0, "double", 1
+"numbers", "contFrac", -1, 0, 1, "list<double[]>", 1
 "numbers", "contFrac", 0, 0, 0, "double[]", 1
 "numbers", "contFrac", 1, 0, 0, "double", 1
 "numbers", "coprime", -1, 0, 0, "logical", 1
@@ -69,7 +70,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "numbers", "isIntpower", 0, 0, 0, "double", 1
 "numbers", "isNatural", -1, 0, 0, "logical[]", 1
 "numbers", "isNatural", 0, 0, 0, "double[]", 1
-"numbers", "isPrime", -1, 0, 0, "(class<`matrix`> | logical[])", 1
+"numbers", "isPrime", -1, 0, 0, "class<`matrix`>", 1
+"numbers", "isPrime", -1, 0, 1, "logical[]", 1
 "numbers", "isPrime", 0, 0, 0, "class<`matrix`>", 1
 "numbers", "isPrime", 0, 0, 1, "double[]", 1
 "numbers", "isPrimroot", -1, 0, 0, "logical", 1
@@ -100,7 +102,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "numbers", "modinv", -1, 0, 0, "double", 1
 "numbers", "modinv", 0, 0, 0, "double", 1
 "numbers", "modinv", 1, 0, 0, "double", 1
-"numbers", "modlin", -1, 0, 0, "(double[] | null)", 1
+"numbers", "modlin", -1, 0, 0, "double[]", 1
+"numbers", "modlin", -1, 0, 1, "null", 1
 "numbers", "modlin", 0, 0, 0, "double", 1
 "numbers", "modlin", 1, 0, 0, "double", 1
 "numbers", "modlin", 2, 0, 0, "double", 1

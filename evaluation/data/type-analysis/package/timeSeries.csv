@@ -3,7 +3,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", "::", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "::", 1, 0, 0, "class<`matrix`>", 1
 "timeSeries", "::", 2, 0, 0, "logical", 1
-"timeSeries", "%||%", -1, 0, 0, "(character[] | double[])", 1
+"timeSeries", "%||%", -1, 0, 0, "character[]", 1
+"timeSeries", "%||%", -1, 0, 1, "double[]", 1
 "timeSeries", "%||%", 0, 0, 0, "character[]", 1
 "timeSeries", "%||%", 0, 0, 1, "null", 1
 "timeSeries", "%||%", 0, 0, 2, "double[]", 1
@@ -35,7 +36,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", ".appendList", 0, 0, 0, "null", 1
 "timeSeries", ".appendList", 0, 0, 1, "list<any>", 1
 "timeSeries", ".appendList", 1, 0, 0, "null", 1
-"timeSeries", "apply", -1, 0, 0, "(class<`matrix`> | class<`timeSeries`>)", 1
+"timeSeries", "apply", -1, 0, 0, "class<`matrix`>", 1
+"timeSeries", "apply", -1, 0, 1, "class<`timeSeries`>", 1
 "timeSeries", "apply", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "apply", 1, 0, 0, "double", 1
 "timeSeries", "apply", 2, 0, 0, "class<`function`>", 1
@@ -111,7 +113,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", ".axTicksByTime2", 6, 0, 0, "double", 1
 "timeSeries", ".axTicksByTime2", 7, 0, 0, "double", 1
 "timeSeries", ".axTicksByTime2", 8, 0, 0, "character", 1
-"timeSeries", "colCummaxs", -1, 0, 0, "(class<`matrix`> | class<`timeSeries`>)", 1
+"timeSeries", "colCummaxs", -1, 0, 0, "class<`matrix`>", 1
+"timeSeries", "colCummaxs", -1, 0, 1, "class<`timeSeries`>", 1
 "timeSeries", "colCummaxs", 0, 0, 0, "class<`matrix`>", 1
 "timeSeries", "colCummaxs", 0, 0, 1, "class<`timeSeries`>", 1
 "timeSeries", "colCummaxs", 1, 0, 0, "logical", 1
@@ -132,7 +135,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", "colCumprods", 0, 1, 0, "class<`timeSeries`>", 1
 "timeSeries", "colCumprods", 1, 1, 0, "logical", 1
 "timeSeries", "colCumprods", 2, 1, 0, "...", 1
-"timeSeries", "colCumprods", -1, 2, 0, "(class<`matrix`> | class<`timeSeries`>)", 1
+"timeSeries", "colCumprods", -1, 2, 0, "class<`matrix`>", 1
+"timeSeries", "colCumprods", -1, 2, 1, "class<`timeSeries`>", 1
 "timeSeries", "colCumprods", 0, 2, 0, "class<`matrix`>", 1
 "timeSeries", "colCumprods", 0, 2, 1, "class<`timeSeries`>", 1
 "timeSeries", "colCumprods", 1, 2, 0, "logical", 1
@@ -145,7 +149,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", "colCumsums", 0, 1, 0, "class<`matrix`>", 1
 "timeSeries", "colCumsums", 1, 1, 0, "logical", 1
 "timeSeries", "colCumsums", 2, 1, 0, "...", 1
-"timeSeries", "colCumsums", -1, 2, 0, "(class<`matrix`> | class<`timeSeries`>)", 1
+"timeSeries", "colCumsums", -1, 2, 0, "class<`matrix`>", 1
+"timeSeries", "colCumsums", -1, 2, 1, "class<`timeSeries`>", 1
 "timeSeries", "colCumsums", 0, 2, 0, "class<`matrix`>", 1
 "timeSeries", "colCumsums", 0, 2, 1, "class<`timeSeries`>", 1
 "timeSeries", "colCumsums", 1, 2, 0, "logical", 1
@@ -260,7 +265,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", "FUN", 0, 1, 0, "class<`timeSeries`>", 1
 "timeSeries", "FUN", 1, 1, 0, "logical", 1
 "timeSeries", "FUN", 2, 1, 0, "...", 1
-"timeSeries", "getAttributes", -1, 0, 0, "(null | list<list<character>>)", 1
+"timeSeries", "getAttributes", -1, 0, 0, "null", 1
+"timeSeries", "getAttributes", -1, 0, 1, "list<list<character>>", 1
 "timeSeries", "getAttributes", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "getFinCenter", -1, 0, 0, "character", 1
 "timeSeries", "getFinCenter", 0, 0, 0, "class<`timeSeries`>", 1
@@ -413,7 +419,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", ".points.timeSeries", 1, 0, 0, "character", 1
 "timeSeries", ".points.timeSeries", 1, 0, 1, "null", 1
 "timeSeries", ".points.timeSeries", 2, 0, 0, "...", 1
-"timeSeries", "pretty.timeSeries", -1, 0, 0, "(class<`timeDate`> | double[])", 1
+"timeSeries", "pretty.timeSeries", -1, 0, 0, "class<`timeDate`>", 1
+"timeSeries", "pretty.timeSeries", -1, 0, 1, "double[]", 1
 "timeSeries", "pretty.timeSeries", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "pretty.timeSeries", 1, 0, 0, "double", 1
 "timeSeries", "pretty.timeSeries", 2, 0, 0, "any", 1
@@ -435,7 +442,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", "returns", -1, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "returns", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "returns", 1, 0, 0, "...", 1
-"timeSeries", "returns", -1, 1, 0, "(class<`matrix`> | class<`timeSeries`>)", 1
+"timeSeries", "returns", -1, 1, 0, "class<`matrix`>", 1
+"timeSeries", "returns", -1, 1, 1, "class<`timeSeries`>", 1
 "timeSeries", "returns", 0, 1, 0, "class<`matrix`>", 1
 "timeSeries", "returns", 0, 1, 1, "class<`timeSeries`>", 1
 "timeSeries", "returns", 1, 1, 0, "...", 1
@@ -473,7 +481,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", "rowCumsums", 0, 1, 0, "class<`matrix`>", 1
 "timeSeries", "rowCumsums", 1, 1, 0, "logical", 1
 "timeSeries", "rowCumsums", 2, 1, 0, "...", 1
-"timeSeries", "rownames", -1, 0, 0, "(character[] | null)", 1
+"timeSeries", "rownames", -1, 0, 0, "character[]", 1
+"timeSeries", "rownames", -1, 0, 1, "null", 1
 "timeSeries", "rownames", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "rownames", 1, 0, 0, "logical", 1
 "timeSeries", "rownames", 2, 0, 0, "character", 1
@@ -590,7 +599,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", ".summary.turnpointsPastecs", 1, 0, 0, "...", 1
 "timeSeries", "t", -1, 0, 0, "class<`matrix`>", 1
 "timeSeries", "t", 0, 0, 0, "class<`timeSeries`>", 1
-"timeSeries", "time", -1, 0, 0, "(class<`timeDate`> | integer[])", 1
+"timeSeries", "time", -1, 0, 0, "class<`timeDate`>", 1
+"timeSeries", "time", -1, 0, 1, "integer[]", 1
 "timeSeries", "time", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", "time", 1, 0, 0, "...", 1
 "timeSeries", "time<-", -1, 0, 0, "class<`timeSeries`>", 1
@@ -779,7 +789,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "timeSeries", ".timeSeries", 8, 0, 0, "null", 1
 "timeSeries", ".timeSeries", 8, 0, 1, "character", 1
 "timeSeries", ".timeSeries", 9, 0, 0, "...", 1
-"timeSeries", ".time.timeSeries", -1, 0, 0, "(class<`timeDate`> | integer[])", 1
+"timeSeries", ".time.timeSeries", -1, 0, 0, "class<`timeDate`>", 1
+"timeSeries", ".time.timeSeries", -1, 0, 1, "integer[]", 1
 "timeSeries", ".time.timeSeries", 0, 0, 0, "class<`timeSeries`>", 1
 "timeSeries", ".time.timeSeries", 1, 0, 0, "...", 1
 "timeSeries", "time<-.timeSeries", -1, 0, 0, "class<`timeSeries`>", 1

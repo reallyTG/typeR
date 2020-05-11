@@ -40,7 +40,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "proxy", "dimnames<-.dist", 1, 0, 0, "character[]", 1
 "proxy", "dimnames.dist", -1, 0, 0, "character[]", 1
 "proxy", "dimnames.dist", 0, 0, 0, "class<`dist`>", 1
-"proxy", "dist", -1, 0, 0, "(class<`crossdist`> | class<`dist`> | class<`pairdist`>)", 1
+"proxy", "dist", -1, 0, 0, "class<`crossdist`>", 1
+"proxy", "dist", -1, 0, 1, "class<`dist`>", 1
+"proxy", "dist", -1, 0, 2, "class<`pairdist`>", 1
 "proxy", "dist", 0, 0, 0, "character[]", 1
 "proxy", "dist", 0, 0, 1, "class<`matrix`>", 1
 "proxy", "dist", 0, 0, 2, "class<`data.frame`>", 1
@@ -66,7 +68,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "proxy", "[[.dist", 2, 0, 0, "...", 1
 "proxy", ".FUNCall", -1, 0, 0, "class<`function`>", 1
 "proxy", ".FUNCall", 0, 0, 0, "any", 1
-"proxy", ".functions_to_characters", -1, 0, 0, "(class<`proxy_registry_entry`, `registry_entry`> | class<`registry_entry`, `simple.list`>)", 1
+"proxy", ".functions_to_characters", -1, 0, 0, "class<`proxy_registry_entry`, `registry_entry`>", 1
+"proxy", ".functions_to_characters", -1, 0, 1, "class<`registry_entry`, `simple.list`>", 1
 "proxy", ".functions_to_characters", 0, 0, 0, "class<`proxy_registry_entry`, `registry_entry`>", 1
 "proxy", ".functions_to_characters", 0, 0, 1, "class<`registry_entry`, `simple.list`>", 1
 "proxy", "length.proxy_registry", -1, 0, 0, "integer", 1
@@ -162,11 +165,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "proxy", "pr_Minkowski_prefun", 2, 0, 0, "logical", 1
 "proxy", "pr_Minkowski_prefun", 3, 0, 0, "list<double>", 1
 "proxy", "pr_Minkowski_prefun", 4, 0, 0, "class<`proxy_registry_entry`, `registry_entry`>", 1
-"proxy", "[[.proxy_registry", -1, 0, 0, "(class<`proxy_registry_entry`, `registry_entry`> | class<`registry_entry`, `simple.list`>)", 1
+"proxy", "[[.proxy_registry", -1, 0, 0, "class<`proxy_registry_entry`, `registry_entry`>", 1
+"proxy", "[[.proxy_registry", -1, 0, 1, "class<`registry_entry`, `simple.list`>", 1
 "proxy", "[[.proxy_registry", 0, 0, 0, "class<`pr_DB`, `proxy_registry`>", 1
 "proxy", "[[.proxy_registry", 0, 0, 1, "class<`proxy_registry`>", 1
 "proxy", "[[.proxy_registry", 1, 0, 0, "character", 1
-"proxy", "pr_simil2dist", -1, 0, 0, "(class<`dist`> | class<`matrix`> | double[])", 1
+"proxy", "pr_simil2dist", -1, 0, 0, "class<`dist`>", 1
+"proxy", "pr_simil2dist", -1, 0, 1, "class<`matrix`>", 1
+"proxy", "pr_simil2dist", -1, 0, 2, "double[]", 1
 "proxy", "pr_simil2dist", 0, 0, 0, "class<`dist`>", 1
 "proxy", "pr_simil2dist", 0, 0, 1, "class<`matrix`>", 1
 "proxy", "pr_simil2dist", 0, 0, 2, "double[]", 1

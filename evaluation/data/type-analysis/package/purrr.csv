@@ -11,7 +11,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "accum_init", 0, 0, 1, "integer", 1
 "purrr", "accum_init", 1, 0, 0, "integer[]", 1
 "purrr", "accum_init", 2, 0, 0, "logical", 1
-"purrr", "accumulate", -1, 0, 0, "(character[] | integer[])", 1
+"purrr", "accumulate", -1, 0, 0, "character[]", 1
+"purrr", "accumulate", -1, 0, 1, "integer[]", 1
 "purrr", "accumulate", 0, 0, 0, "character[]", 1
 "purrr", "accumulate", 0, 0, 1, "integer[]", 1
 "purrr", "accumulate", 1, 0, 0, "class<`function`>", 1
@@ -40,10 +41,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "array_tree", 0, 0, 2, "class<`matrix`>", 1
 "purrr", "array_tree", 1, 0, 0, "double[]", 1
 "purrr", "array_tree", 1, 0, 1, "null", 1
-"purrr", "as_invoke_function", -1, 0, 0, "(character[] | list<class<`function`>>)", 1
+"purrr", "as_invoke_function", -1, 0, 0, "character[]", 1
+"purrr", "as_invoke_function", -1, 0, 1, "list<class<`function`>>", 1
 "purrr", "as_invoke_function", 0, 0, 0, "character[]", 1
 "purrr", "as_invoke_function", 0, 0, 1, "list<class<`function`>>", 1
-"purrr", "as_mapper", -1, 0, 0, "(class<`function`> | class<`function`, `purrr_function_compose`> | class<`function`, `purrr_function_partial`> | class<`function`, `rlang_lambda_function`>)", 1
+"purrr", "as_mapper", -1, 0, 0, "class<`function`>", 1
+"purrr", "as_mapper", -1, 0, 1, "class<`function`, `purrr_function_compose`>", 1
+"purrr", "as_mapper", -1, 0, 2, "class<`function`, `purrr_function_partial`>", 1
+"purrr", "as_mapper", -1, 0, 3, "class<`function`, `rlang_lambda_function`>", 1
 "purrr", "as_mapper", 0, 0, 0, "character[]", 1
 "purrr", "as_mapper", 0, 0, 1, "class<`function`>", 1
 "purrr", "as_mapper", 0, 0, 2, "double[]", 1
@@ -60,7 +65,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "as_mapper.character", 2, 0, 0, "any", 1
 "purrr", "as_mapper.character", 3, 0, 0, "null", 1
 "purrr", "as_mapper.character", 3, 0, 1, "character", 1
-"purrr", "as_mapper.default", -1, 0, 0, "(class<`function`> | class<`function`, `purrr_function_compose`> | class<`function`, `purrr_function_partial`> | class<`function`, `rlang_lambda_function`>)", 1
+"purrr", "as_mapper.default", -1, 0, 0, "class<`function`>", 1
+"purrr", "as_mapper.default", -1, 0, 1, "class<`function`, `purrr_function_compose`>", 1
+"purrr", "as_mapper.default", -1, 0, 2, "class<`function`, `purrr_function_partial`>", 1
+"purrr", "as_mapper.default", -1, 0, 3, "class<`function`, `rlang_lambda_function`>", 1
 "purrr", "as_mapper.default", 0, 0, 0, "class<`function`>", 1
 "purrr", "as_mapper.default", 0, 0, 1, "class<`function`, `purrr_function_compose`>", 1
 "purrr", "as_mapper.default", 0, 0, 2, "class<`function`, `purrr_function_partial`>", 1
@@ -94,12 +102,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "assign_in", 1, 0, 0, "list<double | character>", 1
 "purrr", "assign_in", 2, 0, 0, "character", 1
 "purrr", "assign_in", 2, 0, 1, "double", 1
-"purrr", "as_vector", -1, 0, 0, "(character[] | double[])", 1
+"purrr", "as_vector", -1, 0, 0, "character[]", 1
+"purrr", "as_vector", -1, 0, 1, "double[]", 1
 "purrr", "as_vector", 0, 0, 0, "list<character | double | integer[]>", 1
 "purrr", "as_vector", 1, 0, 0, "character", 1
 "purrr", "as_vector", 1, 0, 1, "null", 1
 "purrr", "as_vector", 1, 0, 2, "integer[]", 1
-"purrr", "at_selection", -1, 0, 0, "(character[] | double[])", 1
+"purrr", "at_selection", -1, 0, 0, "character[]", 1
+"purrr", "at_selection", -1, 0, 1, "double[]", 1
 "purrr", "at_selection", 0, 0, 0, "any", 1
 "purrr", "at_selection", 1, 0, 0, "character[]", 1
 "purrr", "at_selection", 1, 0, 1, "double[]", 1
@@ -140,9 +150,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "cross_df", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "purrr", "cross_df", 0, 0, 0, "list<character[]>", 1
 "purrr", "cross_df", 1, 0, 0, "null", 1
-"purrr", "cross_dots", -1, 0, 0, "(double | list<list<integer | character | integer>>)", 1
+"purrr", "cross_dots", -1, 0, 0, "double", 1
+"purrr", "cross_dots", -1, 0, 1, "list<list<integer | character | integer>>", 1
 "purrr", "cross_dots", 0, 0, 0, "...", 1
-"purrr", "detect", -1, 0, 0, "(integer | list<double>)", 1
+"purrr", "detect", -1, 0, 0, "integer", 1
+"purrr", "detect", -1, 0, 1, "list<double>", 1
 "purrr", "detect", 0, 0, 0, "integer[]", 1
 "purrr", "detect", 0, 0, 1, "list<list<double>>", 1
 "purrr", "detect", 1, 0, 0, "class<`function`>", 1
@@ -172,7 +184,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", ".f", -1, 0, 0, "any", 1
 "purrr", ".f", 0, 0, 0, "list<character | list<double | character> | list<character | list<double | character> | double>>", 1
 "purrr", ".f", 1, 0, 0, "...", 1
-"purrr", ".f", -1, 1, 0, "(double | list<list<integer | character | integer>>)", 1
+"purrr", ".f", -1, 1, 0, "double", 1
+"purrr", ".f", -1, 1, 1, "list<list<integer | character | integer>>", 1
 "purrr", ".f", 0, 1, 0, "...", 1
 "purrr", ".f", -1, 2, 0, "any", 1
 "purrr", ".f", 0, 2, 0, "double[]", 1
@@ -186,7 +199,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", ".f", 1, 2, 4, "class<`function`, `rlang_lambda_function`>", 1
 "purrr", ".f", 1, 2, 5, "list<double | character | character | double>", 1
 "purrr", ".f", 2, 2, 0, "...", 1
-"purrr", ".f", -1, 3, 0, "(double[] | character)", 1
+"purrr", ".f", -1, 3, 0, "double[]", 1
+"purrr", ".f", -1, 3, 1, "character", 1
 "purrr", ".f", 0, 3, 0, "character", 1
 "purrr", ".f", 0, 3, 1, "class<`function`>", 1
 "purrr", ".f", 1, 3, 0, "null", 1
@@ -197,9 +211,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", ".f", -1, 4, 0, "integer", 1
 "purrr", ".f", 0, 4, 0, "double", 1
 "purrr", ".f", 0, 4, 1, "list<any>", 1
-"purrr", ".f", -1, 5, 0, "(double | character[])", 1
+"purrr", ".f", -1, 5, 0, "double", 1
+"purrr", ".f", -1, 5, 1, "character[]", 1
 "purrr", ".f", 0, 5, 0, "...", 1
-"purrr", ".f", -1, 6, 0, "(character | double | integer[] | null | list<character | list<double | character> | double | character>)", 1
+"purrr", ".f", -1, 6, 0, "character", 1
+"purrr", ".f", -1, 6, 1, "double", 1
+"purrr", ".f", -1, 6, 2, "integer[]", 1
+"purrr", ".f", -1, 6, 3, "null", 1
+"purrr", ".f", -1, 6, 4, "list<character | list<double | character> | double | character>", 1
 "purrr", ".f", 0, 6, 0, "character[]", 1
 "purrr", ".f", 0, 6, 1, "class<`summary.lm`>", 1
 "purrr", ".f", 0, 6, 2, "integer[]", 1
@@ -215,7 +234,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "..f", 0, 1, 0, "class<`data.frame`>", 1
 "purrr", "..f", 0, 1, 1, "list<any>", 1
 "purrr", "..f", 1, 1, 0, "...", 1
-"purrr", "find_extract_default", -1, 0, 0, "(character | null)", 1
+"purrr", "find_extract_default", -1, 0, 0, "character", 1
+"purrr", "find_extract_default", -1, 0, 1, "null", 1
 "purrr", "find_extract_default", 0, 0, 0, "any", 1
 "purrr", "find_extract_default", 1, 0, 0, "character", 1
 "purrr", "find_extract_default", 1, 0, 1, "null", 1
@@ -235,7 +255,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "FUN", 0, 0, 2, "class<`matrix`>", 1
 "purrr", "FUN", 1, 0, 0, "double[]", 1
 "purrr", "FUN", 1, 0, 1, "null", 1
-"purrr", "fun2", -1, 0, 0, "(double | list<list<integer | character | integer>>)", 1
+"purrr", "fun2", -1, 0, 0, "double", 1
+"purrr", "fun2", -1, 0, 1, "list<list<integer | character | integer>>", 1
 "purrr", "fun2", 0, 0, 0, "...", 1
 "purrr", "has_element", -1, 0, 0, "logical", 1
 "purrr", "has_element", 0, 0, 0, "list<integer[] | double>", 1
@@ -262,7 +283,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "insistently", 1, 0, 0, "class<`purrr_rate`, `purrr_rate_backoff`>", 1
 "purrr", "insistently", 1, 0, 1, "class<`purrr_rate`, `purrr_rate_delay`>", 1
 "purrr", "insistently", 2, 0, 0, "logical", 1
-"purrr", "invoke", -1, 0, 0, "(double[] | character)", 1
+"purrr", "invoke", -1, 0, 0, "double[]", 1
+"purrr", "invoke", -1, 0, 1, "character", 1
 "purrr", "invoke", 0, 0, 0, "character", 1
 "purrr", "invoke", 0, 0, 1, "class<`function`>", 1
 "purrr", "invoke", 1, 0, 0, "null", 1
@@ -334,7 +356,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "lifted_identical", 0, 0, 0, "class<`data.frame`>", 1
 "purrr", "lifted_identical", 0, 0, 1, "list<any>", 1
 "purrr", "lifted_identical", 1, 0, 0, "...", 1
-"purrr", "lift_ld", -1, 0, 0, "(double | list<list<integer | character | integer>>)", 1
+"purrr", "lift_ld", -1, 0, 0, "double", 1
+"purrr", "lift_ld", -1, 0, 1, "list<list<integer | character | integer>>", 1
 "purrr", "lift_ld", 0, 0, 0, "...", 1
 "purrr", "lift_ld", -1, 1, 0, "class<`function`>", 1
 "purrr", "lift_ld", 0, 1, 0, "class<`function`>", 1
@@ -345,7 +368,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "lift_lv", -1, 1, 0, "class<`function`>", 1
 "purrr", "lift_lv", 0, 1, 0, "class<`function`>", 1
 "purrr", "lift_lv", 1, 1, 0, "...", 1
-"purrr", "lift_vd", -1, 0, 0, "(double | character[])", 1
+"purrr", "lift_vd", -1, 0, 0, "double", 1
+"purrr", "lift_vd", -1, 0, 1, "character[]", 1
 "purrr", "lift_vd", 0, 0, 0, "...", 1
 "purrr", "lift_vd", -1, 1, 0, "class<`function`>", 1
 "purrr", "lift_vd", 0, 1, 0, "class<`function`>", 1
@@ -370,14 +394,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "lmap", 0, 0, 0, "list<integer[] | character[]>", 1
 "purrr", "lmap", 1, 0, 0, "class<`function`>", 1
 "purrr", "lmap", 2, 0, 0, "...", 1
-"purrr", "lmap_at", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | list<integer[] | character[]>)", 1
+"purrr", "lmap_at", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"purrr", "lmap_at", -1, 0, 1, "list<integer[] | character[]>", 1
 "purrr", "lmap_at", 0, 0, 0, "class<`data.frame`>", 1
 "purrr", "lmap_at", 0, 0, 1, "list<integer[] | character[]>", 1
 "purrr", "lmap_at", 1, 0, 0, "character[]", 1
 "purrr", "lmap_at", 1, 0, 1, "integer[]", 1
 "purrr", "lmap_at", 2, 0, 0, "class<`function`>", 1
 "purrr", "lmap_at", 3, 0, 0, "...", 1
-"purrr", "lmap_if", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | list<integer[] | character[]>)", 1
+"purrr", "lmap_if", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"purrr", "lmap_if", -1, 0, 1, "list<integer[] | character[]>", 1
 "purrr", "lmap_if", 0, 0, 0, "class<`data.frame`>", 1
 "purrr", "lmap_if", 0, 0, 1, "list<integer[] | character[]>", 1
 "purrr", "lmap_if", 1, 0, 0, "class<`function`>", 1
@@ -491,14 +517,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "map_lgl", 1, 0, 0, "class<`function`>", 1
 "purrr", "map_lgl", 1, 0, 1, "character", 1
 "purrr", "map_lgl", 2, 0, 0, "...", 1
-"purrr", "maybe_as_data_frame", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | list<integer[] | character[]>)", 1
+"purrr", "maybe_as_data_frame", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"purrr", "maybe_as_data_frame", -1, 0, 1, "list<integer[] | character[]>", 1
 "purrr", "maybe_as_data_frame", 0, 0, 0, "list<double[] | integer[] | character[]>", 1
 "purrr", "maybe_as_data_frame", 1, 0, 0, "class<`data.frame`>", 1
 "purrr", "maybe_as_data_frame", 1, 0, 1, "list<integer[] | character[]>", 1
-"purrr", "maybe_zap", -1, 0, 0, "(double[] | null)", 1
+"purrr", "maybe_zap", -1, 0, 0, "double[]", 1
+"purrr", "maybe_zap", -1, 0, 1, "null", 1
 "purrr", "maybe_zap", 0, 0, 0, "double[]", 1
 "purrr", "maybe_zap", 0, 0, 1, "class<`rlang_zap`>", 1
-"purrr", "modify", -1, 0, 0, "(integer[] | list<integer[] | list<integer[] | character | list<character | integer[]>>>)", 1
+"purrr", "modify", -1, 0, 0, "integer[]", 1
+"purrr", "modify", -1, 0, 1, "list<integer[] | list<integer[] | character | list<character | integer[]>>>", 1
 "purrr", "modify", 0, 0, 0, "integer[]", 1
 "purrr", "modify", 0, 0, 1, "list<integer[] | list<integer[] | list<integer[]>>>", 1
 "purrr", "modify", 1, 0, 0, "class<`function`>", 1
@@ -555,7 +584,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "modify_depth.default", 2, 0, 2, "class<`function`>", 1
 "purrr", "modify_depth.default", 3, 0, 0, "...", 1
 "purrr", "modify_depth.default", 4, 0, 0, "logical", 1
-"purrr", "modify_depth_rec", -1, 0, 0, "(integer[] | list<integer[] | list<integer[] | character | list<character | integer[]>>>)", 1
+"purrr", "modify_depth_rec", -1, 0, 0, "integer[]", 1
+"purrr", "modify_depth_rec", -1, 0, 1, "list<integer[] | list<integer[] | character | list<character | integer[]>>>", 1
 "purrr", "modify_depth_rec", 0, 0, 0, "integer[]", 1
 "purrr", "modify_depth_rec", 0, 0, 1, "list<integer[] | list<integer[] | list<integer[]>>>", 1
 "purrr", "modify_depth_rec", 1, 0, 0, "double", 1
@@ -564,7 +594,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "modify_depth_rec", 3, 0, 0, "...", 1
 "purrr", "modify_depth_rec", 4, 0, 0, "any", 1
 "purrr", "modify_depth_rec", 5, 0, 0, "logical", 1
-"purrr", "modify_if", -1, 0, 0, "(class<`data.frame`> | list<list<double | character[]>>)", 1
+"purrr", "modify_if", -1, 0, 0, "class<`data.frame`>", 1
+"purrr", "modify_if", -1, 0, 1, "list<list<double | character[]>>", 1
 "purrr", "modify_if", 0, 0, 0, "class<`data.frame`>", 1
 "purrr", "modify_if", 0, 0, 1, "list<character[] | list<character> | list<integer>>", 1
 "purrr", "modify_if", 1, 0, 0, "class<`function`>", 1
@@ -575,7 +606,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "modify_if", 3, 0, 0, "...", 1
 "purrr", "modify_if", 4, 0, 0, "class<`function`>", 1
 "purrr", "modify_if", 4, 0, 1, "null", 1
-"purrr", "modify_if.default", -1, 0, 0, "(class<`data.frame`> | list<list<double | character[]>>)", 1
+"purrr", "modify_if.default", -1, 0, 0, "class<`data.frame`>", 1
+"purrr", "modify_if.default", -1, 0, 1, "list<list<double | character[]>>", 1
 "purrr", "modify_if.default", 0, 0, 0, "class<`data.frame`>", 1
 "purrr", "modify_if.default", 0, 0, 1, "list<character[] | list<character> | list<integer>>", 1
 "purrr", "modify_if.default", 1, 0, 0, "class<`function`>", 1
@@ -601,7 +633,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "negate", 0, 0, 1, "class<`formula`>", 1
 "purrr", "negate", 0, 0, 2, "class<`function`>", 1
 "purrr", "negate", 0, 0, 3, "class<`function`, `purrr_function_compose`>", 1
-"purrr", "new_rate", -1, 0, 0, "(class<`purrr_rate`, `purrr_rate_backoff`> | class<`purrr_rate`, `purrr_rate_delay`>)", 1
+"purrr", "new_rate", -1, 0, 0, "class<`purrr_rate`, `purrr_rate_backoff`>", 1
+"purrr", "new_rate", -1, 0, 1, "class<`purrr_rate`, `purrr_rate_delay`>", 1
 "purrr", "new_rate", 0, 0, 0, "character", 1
 "purrr", "new_rate", 1, 0, 0, "...", 1
 "purrr", "new_rate", 2, 0, 0, "logical", 1
@@ -618,7 +651,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "partial", 4, 0, 0, "null", 1
 "purrr", "paste_line", -1, 0, 0, "character", 1
 "purrr", "paste_line", 0, 0, 0, "...", 1
-"purrr", "pluck", -1, 0, 0, "(character | double | integer[] | null | list<character | list<double | character> | double | character>)", 1
+"purrr", "pluck", -1, 0, 0, "character", 1
+"purrr", "pluck", -1, 0, 1, "double", 1
+"purrr", "pluck", -1, 0, 2, "integer[]", 1
+"purrr", "pluck", -1, 0, 3, "null", 1
+"purrr", "pluck", -1, 0, 4, "list<character | list<double | character> | double | character>", 1
 "purrr", "pluck", 0, 0, 0, "character[]", 1
 "purrr", "pluck", 0, 0, 1, "class<`summary.lm`>", 1
 "purrr", "pluck", 0, 0, 2, "integer[]", 1
@@ -677,7 +714,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "rate_backoff", 2, 0, 0, "double", 1
 "purrr", "rate_backoff", 3, 0, 0, "double", 1
 "purrr", "rate_backoff", 4, 0, 0, "logical", 1
-"purrr", "rate_bump_count", -1, 0, 0, "(class<`purrr_rate`, `purrr_rate_backoff`> | class<`purrr_rate`, `purrr_rate_delay`>)", 1
+"purrr", "rate_bump_count", -1, 0, 0, "class<`purrr_rate`, `purrr_rate_backoff`>", 1
+"purrr", "rate_bump_count", -1, 0, 1, "class<`purrr_rate`, `purrr_rate_delay`>", 1
 "purrr", "rate_bump_count", 0, 0, 0, "class<`purrr_rate`, `purrr_rate_backoff`>", 1
 "purrr", "rate_bump_count", 0, 0, 1, "class<`purrr_rate`, `purrr_rate_delay`>", 1
 "purrr", "rate_bump_count", 1, 0, 0, "integer", 1
@@ -687,7 +725,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "rate_delay", -1, 0, 0, "class<`purrr_rate`, `purrr_rate_delay`>", 1
 "purrr", "rate_delay", 0, 0, 0, "double", 1
 "purrr", "rate_delay", 1, 0, 0, "double", 1
-"purrr", "rate_reset", -1, 0, 0, "(class<`purrr_rate`, `purrr_rate_backoff`> | class<`purrr_rate`, `purrr_rate_delay`>)", 1
+"purrr", "rate_reset", -1, 0, 0, "class<`purrr_rate`, `purrr_rate_backoff`>", 1
+"purrr", "rate_reset", -1, 0, 1, "class<`purrr_rate`, `purrr_rate_delay`>", 1
 "purrr", "rate_reset", 0, 0, 0, "class<`purrr_rate`, `purrr_rate_backoff`>", 1
 "purrr", "rate_reset", 0, 0, 1, "class<`purrr_rate`, `purrr_rate_delay`>", 1
 "purrr", "rate_sleep", -1, 0, 0, "any", 1
@@ -714,7 +753,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "rdunif", 2, 0, 0, "double", 1
 "purrr", "recycle_args", -1, 0, 0, "list<integer[]>", 1
 "purrr", "recycle_args", 0, 0, 0, "list<integer[]>", 1
-"purrr", "reduce", -1, 0, 0, "(character[] | class<`call`> | integer | list<integer | list<integer | list<integer>>>)", 1
+"purrr", "reduce", -1, 0, 0, "character[]", 1
+"purrr", "reduce", -1, 0, 1, "class<`call`>", 1
+"purrr", "reduce", -1, 0, 2, "integer", 1
+"purrr", "reduce", -1, 0, 3, "list<integer | list<integer | list<integer>>>", 1
 "purrr", "reduce", 0, 0, 0, "character[]", 1
 "purrr", "reduce", 0, 0, 1, "integer[]", 1
 "purrr", "reduce", 0, 0, 2, "list<character[] | double | character>", 1
@@ -730,7 +772,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "reduce2", 2, 0, 0, "class<`function`>", 1
 "purrr", "reduce2", 3, 0, 0, "...", 1
 "purrr", "reduce2", 4, 0, 0, "any", 1
-"purrr", "reduce2_impl", -1, 0, 0, "(character[] | list<character>)", 1
+"purrr", "reduce2_impl", -1, 0, 0, "character[]", 1
+"purrr", "reduce2_impl", -1, 0, 1, "list<character>", 1
 "purrr", "reduce2_impl", 0, 0, 0, "character[]", 1
 "purrr", "reduce2_impl", 0, 0, 1, "list<double[]>", 1
 "purrr", "reduce2_impl", 1, 0, 0, "character[]", 1
@@ -740,14 +783,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "reduce2_impl", 4, 0, 0, "any", 1
 "purrr", "reduce2_impl", 5, 0, 0, "logical", 1
 "purrr", "reduce2_impl", 6, 0, 0, "logical", 1
-"purrr", "reduce_early", -1, 0, 0, "(character | list<character>)", 1
+"purrr", "reduce_early", -1, 0, 0, "character", 1
+"purrr", "reduce_early", -1, 0, 1, "list<character>", 1
 "purrr", "reduce_early", 0, 0, 0, "class<`rlang_box`, `rlang_box_done`>", 1
 "purrr", "reduce_early", 1, 0, 0, "any", 1
 "purrr", "reduce_early", 2, 0, 0, "logical", 1
 "purrr", "reduce_early", 3, 0, 0, "any", 1
 "purrr", "reduce_early", 4, 0, 0, "any", 1
 "purrr", "reduce_early", 5, 0, 0, "any", 1
-"purrr", "reduce_impl", -1, 0, 0, "(character[] | class<`call`> | integer | list<character | integer | integer | list<integer | list<integer>>>)", 1
+"purrr", "reduce_impl", -1, 0, 0, "character[]", 1
+"purrr", "reduce_impl", -1, 0, 1, "class<`call`>", 1
+"purrr", "reduce_impl", -1, 0, 2, "integer", 1
+"purrr", "reduce_impl", -1, 0, 3, "list<character | integer | integer | list<integer | list<integer>>>", 1
 "purrr", "reduce_impl", 0, 0, 0, "character[]", 1
 "purrr", "reduce_impl", 0, 0, 1, "integer[]", 1
 "purrr", "reduce_impl", 0, 0, 2, "list<character[] | double | character>", 1
@@ -762,7 +809,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "reduce_index", 0, 0, 2, "list<double | character | double[] | character[]>", 1
 "purrr", "reduce_index", 1, 0, 0, "any", 1
 "purrr", "reduce_index", 2, 0, 0, "logical", 1
-"purrr", "reduce_init", -1, 0, 0, "(character[] | class<`name`> | double[])", 1
+"purrr", "reduce_init", -1, 0, 0, "character[]", 1
+"purrr", "reduce_init", -1, 0, 1, "class<`name`>", 1
+"purrr", "reduce_init", -1, 0, 2, "double[]", 1
 "purrr", "reduce_init", 0, 0, 0, "any", 1
 "purrr", "reduce_init", 1, 0, 0, "any", 1
 "purrr", "reduce_init", 2, 0, 0, "any", 1
@@ -828,7 +877,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "vec_depth", -1, 0, 0, "integer", 1
 "purrr", "vec_depth", 0, 0, 0, "double", 1
 "purrr", "vec_depth", 0, 0, 1, "list<any>", 1
-"purrr", "vec_index", -1, 0, 0, "(character[] | integer[])", 1
+"purrr", "vec_index", -1, 0, 0, "character[]", 1
+"purrr", "vec_index", -1, 0, 1, "integer[]", 1
 "purrr", "vec_index", 0, 0, 0, "class<`data.frame`>", 1
 "purrr", "vec_index", 0, 0, 1, "integer[]", 1
 "purrr", "walk2", -1, 0, 0, "class<`data.frame`>", 1
@@ -836,10 +886,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "purrr", "walk2", 1, 0, 0, "character[]", 1
 "purrr", "walk2", 2, 0, 0, "class<`function`, `rlang_lambda_function`>", 1
 "purrr", "walk2", 3, 0, 0, "...", 1
-"purrr", "warn_deprecated", -1, 0, 0, "(character | null)", 1
+"purrr", "warn_deprecated", -1, 0, 0, "character", 1
+"purrr", "warn_deprecated", -1, 0, 1, "null", 1
 "purrr", "warn_deprecated", 0, 0, 0, "any", 1
 "purrr", "warn_deprecated", 1, 0, 0, "character", 1
-"purrr", "when", -1, 0, 0, "(class<`data.frame`> | double)", 1
+"purrr", "when", -1, 0, 0, "class<`data.frame`>", 1
+"purrr", "when", -1, 0, 1, "double", 1
 "purrr", "when", 0, 0, 0, "class<`data.frame`>", 1
 "purrr", "when", 0, 0, 1, "integer[]", 1
 "purrr", "when", 1, 0, 0, "...", 1

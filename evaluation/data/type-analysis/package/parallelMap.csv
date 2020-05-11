@@ -9,7 +9,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "parallelMap", "getExtraPackages", 0, 0, 0, "character", 1
 "parallelMap", "getPMDefOptCpus", -1, 0, 0, "null", 1
 "parallelMap", "getPMDefOptCpus", 0, 0, 0, "any", 1
-"parallelMap", "getPMDefOption", -1, 0, 0, "(character | logical | null)", 1
+"parallelMap", "getPMDefOption", -1, 0, 0, "character", 1
+"parallelMap", "getPMDefOption", -1, 0, 1, "logical", 1
+"parallelMap", "getPMDefOption", -1, 0, 2, "null", 1
 "parallelMap", "getPMDefOption", 0, 0, 0, "character", 1
 "parallelMap", "getPMDefOption", 1, 0, 0, "character", 1
 "parallelMap", "getPMDefOption", 1, 0, 1, "logical", 1
@@ -27,7 +29,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "parallelMap", "getPMDefOptStorageDir", -1, 0, 0, "character", 1
 "parallelMap", "getPMDefOptStorageDir", 0, 0, 0, "any", 1
 "parallelMap", "getPMOptCpus", -1, 0, 0, "null", 1
-"parallelMap", "getPMOption", -1, 0, 0, "(character | integer | null | list<any>)", 1
+"parallelMap", "getPMOption", -1, 0, 0, "character", 1
+"parallelMap", "getPMOption", -1, 0, 1, "integer", 1
+"parallelMap", "getPMOption", -1, 0, 2, "null", 1
+"parallelMap", "getPMOption", -1, 0, 3, "list<any>", 1
 "parallelMap", "getPMOption", 0, 0, 0, "character", 1
 "parallelMap", "getPMOption", 1, 0, 0, "any", 1
 "parallelMap", "getPMOptLoadBalancing", -1, 0, 0, "logical", 1

@@ -4,7 +4,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "cc_and", 0, 0, 1, "double[]", 1
 "checkr", "cc_or", -1, 0, 0, "character", 1
 "checkr", "cc_or", 0, 0, 0, "character[]", 1
-"checkr", "check_attributes", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`> | double | integer[])", 1
+"checkr", "check_attributes", -1, 0, 0, "class<`Date`>", 1
+"checkr", "check_attributes", -1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
+"checkr", "check_attributes", -1, 0, 2, "double", 1
+"checkr", "check_attributes", -1, 0, 3, "integer[]", 1
 "checkr", "check_attributes", 0, 0, 0, "class<`Date`>", 1
 "checkr", "check_attributes", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "checkr", "check_attributes", 0, 0, 2, "double", 1
@@ -18,14 +21,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_attributes", 6, 0, 0, "character", 1
 "checkr", "check_attributes", 6, 0, 1, "class<`name`>", 1
 "checkr", "check_attributes", 7, 0, 0, "logical", 1
-"checkr", "check_character", -1, 0, 0, "(character[] | integer[])", 1
+"checkr", "check_character", -1, 0, 0, "character[]", 1
+"checkr", "check_character", -1, 0, 1, "integer[]", 1
 "checkr", "check_character", 0, 0, 0, "character[]", 1
 "checkr", "check_character", 0, 0, 1, "integer[]", 1
 "checkr", "check_character", 1, 0, 0, "logical", 1
 "checkr", "check_character", 2, 0, 0, "character", 1
 "checkr", "check_character", 2, 0, 1, "class<`call`>", 1
 "checkr", "check_character", 3, 0, 0, "logical", 1
-"checkr", "check_chr", -1, 0, 0, "(character[] | double)", 1
+"checkr", "check_chr", -1, 0, 0, "character[]", 1
+"checkr", "check_chr", -1, 0, 1, "double", 1
 "checkr", "check_chr", 0, 0, 0, "character[]", 1
 "checkr", "check_chr", 0, 0, 1, "double", 1
 "checkr", "check_chr", 1, 0, 0, "logical", 1
@@ -40,7 +45,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_classes", 3, 0, 0, "logical", 1
 "checkr", "check_classes", 4, 0, 0, "class<`call`>", 1
 "checkr", "check_classes", 5, 0, 0, "logical", 1
-"checkr", "check_class_internal", -1, 0, 0, "(character[] | class<`Date`> | class<`POSIXct`, `POSIXt`> | double[] | ^integer[])", 1
+"checkr", "check_class_internal", -1, 0, 0, "character[]", 1
+"checkr", "check_class_internal", -1, 0, 1, "class<`Date`>", 1
+"checkr", "check_class_internal", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"checkr", "check_class_internal", -1, 0, 3, "double[]", 1
+"checkr", "check_class_internal", -1, 0, 4, "^integer[]", 1
 "checkr", "check_class_internal", 0, 0, 0, "character[]", 1
 "checkr", "check_class_internal", 0, 0, 1, "class<`Date`>", 1
 "checkr", "check_class_internal", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
@@ -79,7 +88,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_data", 6, 0, 0, "character", 1
 "checkr", "check_data", 6, 0, 1, "class<`name`>", 1
 "checkr", "check_data", 7, 0, 0, "logical", 1
-"checkr", "check_date", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"checkr", "check_date", -1, 0, 0, "class<`Date`>", 1
+"checkr", "check_date", -1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "checkr", "check_date", 0, 0, 0, "class<`Date`>", 1
 "checkr", "check_date", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "checkr", "check_date", 1, 0, 0, "logical", 1
@@ -91,14 +101,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_dbl", 2, 0, 0, "class<`call`>", 1
 "checkr", "check_dbl", 2, 0, 1, "double", 1
 "checkr", "check_dbl", 3, 0, 0, "logical", 1
-"checkr", "check_dttm", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"checkr", "check_dttm", -1, 0, 0, "class<`Date`>", 1
+"checkr", "check_dttm", -1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "checkr", "check_dttm", 0, 0, 0, "class<`Date`>", 1
 "checkr", "check_dttm", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "checkr", "check_dttm", 1, 0, 0, "logical", 1
 "checkr", "check_dttm", 2, 0, 0, "character", 1
 "checkr", "check_dttm", 3, 0, 0, "class<`call`>", 1
 "checkr", "check_dttm", 4, 0, 0, "logical", 1
-"checkr", "check_environment", -1, 0, 0, "(double | environment)", 1
+"checkr", "check_environment", -1, 0, 0, "double", 1
+"checkr", "check_environment", -1, 0, 1, "environment", 1
 "checkr", "check_environment", 0, 0, 0, "double", 1
 "checkr", "check_environment", 0, 0, 1, "environment", 1
 "checkr", "check_environment", 1, 0, 0, "double", 1
@@ -123,28 +135,32 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_grepl", 2, 0, 0, "any", 1
 "checkr", "check_grepl", 3, 0, 0, "character", 1
 "checkr", "check_grepl", 4, 0, 0, "logical", 1
-"checkr", "check_homogenous", -1, 0, 0, "(integer[] | list<double>)", 1
+"checkr", "check_homogenous", -1, 0, 0, "integer[]", 1
+"checkr", "check_homogenous", -1, 0, 1, "list<double>", 1
 "checkr", "check_homogenous", 0, 0, 0, "integer[]", 1
 "checkr", "check_homogenous", 0, 0, 1, "list<double>", 1
 "checkr", "check_homogenous", 1, 0, 0, "logical", 1
 "checkr", "check_homogenous", 2, 0, 0, "logical", 1
 "checkr", "check_homogenous", 3, 0, 0, "class<`call`>", 1
 "checkr", "check_homogenous", 4, 0, 0, "logical", 1
-"checkr", "check_inherits", -1, 0, 0, "(class<`data.frame`> | list<any>)", 1
+"checkr", "check_inherits", -1, 0, 0, "class<`data.frame`>", 1
+"checkr", "check_inherits", -1, 0, 1, "list<any>", 1
 "checkr", "check_inherits", 0, 0, 0, "class<`data.frame`>", 1
 "checkr", "check_inherits", 0, 0, 1, "list<any>", 1
 "checkr", "check_inherits", 1, 0, 0, "character", 1
 "checkr", "check_inherits", 2, 0, 0, "character", 1
 "checkr", "check_inherits", 2, 0, 1, "class<`call`>", 1
 "checkr", "check_inherits", 3, 0, 0, "logical", 1
-"checkr", "check_int", -1, 0, 0, "(double | integer[])", 1
+"checkr", "check_int", -1, 0, 0, "double", 1
+"checkr", "check_int", -1, 0, 1, "integer[]", 1
 "checkr", "check_int", 0, 0, 0, "double", 1
 "checkr", "check_int", 0, 0, 1, "integer[]", 1
 "checkr", "check_int", 1, 0, 0, "logical", 1
 "checkr", "check_int", 2, 0, 0, "double", 1
 "checkr", "check_int", 2, 0, 1, "class<`call`>", 1
 "checkr", "check_int", 3, 0, 0, "logical", 1
-"checkr", "check_integer", -1, 0, 0, "(double | integer[])", 1
+"checkr", "check_integer", -1, 0, 0, "double", 1
+"checkr", "check_integer", -1, 0, 1, "integer[]", 1
 "checkr", "check_integer", 0, 0, 0, "double", 1
 "checkr", "check_integer", 0, 0, 1, "integer[]", 1
 "checkr", "check_integer", 1, 0, 0, "logical", 1
@@ -189,7 +205,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_length", 2, 0, 2, "double", 1
 "checkr", "check_length", 2, 0, 3, "null", 1
 "checkr", "check_length", 3, 0, 0, "logical", 1
-"checkr", "check_length1", -1, 0, 0, "(double | integer[] | null | list<any>)", 1
+"checkr", "check_length1", -1, 0, 0, "double", 1
+"checkr", "check_length1", -1, 0, 1, "integer[]", 1
+"checkr", "check_length1", -1, 0, 2, "null", 1
+"checkr", "check_length1", -1, 0, 3, "list<any>", 1
 "checkr", "check_length1", 0, 0, 0, "double", 1
 "checkr", "check_length1", 0, 0, 1, "integer[]", 1
 "checkr", "check_length1", 0, 0, 2, "null", 1
@@ -202,7 +221,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_length_internal", 0, 0, 0, "double", 1
 "checkr", "check_length_internal", 0, 0, 1, "integer[]", 1
 "checkr", "check_length_internal", 0, 0, 2, "null", 1
-"checkr", "check_levels", -1, 0, 0, "(class<`factor`> | double)", 1
+"checkr", "check_levels", -1, 0, 0, "class<`factor`>", 1
+"checkr", "check_levels", -1, 0, 1, "double", 1
 "checkr", "check_levels", 0, 0, 0, "class<`factor`>", 1
 "checkr", "check_levels", 0, 0, 1, "double", 1
 "checkr", "check_levels", 1, 0, 0, "character[]", 1
@@ -211,7 +231,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_levels", 4, 0, 0, "class<`call`>", 1
 "checkr", "check_levels", 4, 0, 1, "double", 1
 "checkr", "check_levels", 5, 0, 0, "logical", 1
-"checkr", "check_lgl", -1, 0, 0, "(double | logical[])", 1
+"checkr", "check_lgl", -1, 0, 0, "double", 1
+"checkr", "check_lgl", -1, 0, 1, "logical[]", 1
 "checkr", "check_lgl", 0, 0, 0, "double", 1
 "checkr", "check_lgl", 0, 0, 1, "logical[]", 1
 "checkr", "check_lgl", 1, 0, 0, "logical", 1
@@ -231,7 +252,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_list", 7, 0, 0, "class<`call`>", 1
 "checkr", "check_list", 7, 0, 1, "character", 1
 "checkr", "check_list", 8, 0, 0, "logical", 1
-"checkr", "check_logical", -1, 0, 0, "(double | logical[])", 1
+"checkr", "check_logical", -1, 0, 0, "double", 1
+"checkr", "check_logical", -1, 0, 1, "logical[]", 1
 "checkr", "check_logical", 0, 0, 0, "double", 1
 "checkr", "check_logical", 0, 0, 1, "logical[]", 1
 "checkr", "check_logical", 1, 0, 0, "logical", 1
@@ -262,7 +284,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_name", 1, 0, 0, "class<`name`>", 1
 "checkr", "check_name", 2, 0, 0, "logical", 1
 "checkr", "check_name", 3, 0, 0, "logical", 1
-"checkr", "check_named", -1, 0, 0, "(double[] | list<double | integer[] | double | integer[]>)", 1
+"checkr", "check_named", -1, 0, 0, "double[]", 1
+"checkr", "check_named", -1, 0, 1, "list<double | integer[] | double | integer[]>", 1
 "checkr", "check_named", 0, 0, 0, "double[]", 1
 "checkr", "check_named", 0, 0, 1, "list<double | integer[] | double | integer[]>", 1
 "checkr", "check_named", 1, 0, 0, "any", 1
@@ -273,7 +296,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_named", 5, 0, 1, "character", 1
 "checkr", "check_named", 5, 0, 2, "class<`name`>", 1
 "checkr", "check_named", 6, 0, 0, "logical", 1
-"checkr", "check_names", -1, 0, 0, "(double[] | list<double | integer[] | integer>)", 1
+"checkr", "check_names", -1, 0, 0, "double[]", 1
+"checkr", "check_names", -1, 0, 1, "list<double | integer[] | integer>", 1
 "checkr", "check_names", 0, 0, 0, "double[]", 1
 "checkr", "check_names", 0, 0, 1, "list<double | integer[] | integer>", 1
 "checkr", "check_names", 1, 0, 0, "character[]", 1
@@ -283,7 +307,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_names", 5, 0, 0, "logical", 1
 "checkr", "check_names", 6, 0, 0, "class<`name`>", 1
 "checkr", "check_names", 7, 0, 0, "logical", 1
-"checkr", "check_nas", -1, 0, 0, "(character[] | class<`Date`> | class<`POSIXct`, `POSIXt`> | double[] | ^integer[])", 1
+"checkr", "check_nas", -1, 0, 0, "character[]", 1
+"checkr", "check_nas", -1, 0, 1, "class<`Date`>", 1
+"checkr", "check_nas", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"checkr", "check_nas", -1, 0, 3, "double[]", 1
+"checkr", "check_nas", -1, 0, 4, "^integer[]", 1
 "checkr", "check_nas", 0, 0, 0, "character[]", 1
 "checkr", "check_nas", 0, 0, 1, "class<`Date`>", 1
 "checkr", "check_nas", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
@@ -324,7 +352,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_nlevels", 1, 0, 0, "double", 1
 "checkr", "check_nlevels", 2, 0, 0, "class<`call`>", 1
 "checkr", "check_nlevels", 3, 0, 0, "logical", 1
-"checkr", "check_no_attributes", -1, 0, 0, "(character[] | double[])", 1
+"checkr", "check_no_attributes", -1, 0, 0, "character[]", 1
+"checkr", "check_no_attributes", -1, 0, 1, "double[]", 1
 "checkr", "check_no_attributes", 0, 0, 0, "character[]", 1
 "checkr", "check_no_attributes", 0, 0, 1, "double[]", 1
 "checkr", "check_no_attributes", 1, 0, 0, "logical", 1
@@ -358,7 +387,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_null", 1, 0, 1, "class<`name`>", 1
 "checkr", "check_null", 1, 0, 2, "null", 1
 "checkr", "check_null", 2, 0, 0, "logical", 1
-"checkr", "check_numeric", -1, 0, 0, "(double | integer[])", 1
+"checkr", "check_numeric", -1, 0, 0, "double", 1
+"checkr", "check_numeric", -1, 0, 1, "integer[]", 1
 "checkr", "check_numeric", 0, 0, 0, "double", 1
 "checkr", "check_numeric", 0, 0, 1, "integer[]", 1
 "checkr", "check_numeric", 1, 0, 0, "logical", 1
@@ -373,7 +403,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_pos_dbl", 1, 0, 0, "logical", 1
 "checkr", "check_pos_dbl", 2, 0, 0, "double", 1
 "checkr", "check_pos_dbl", 3, 0, 0, "logical", 1
-"checkr", "check_pos_int", -1, 0, 0, "(double | integer[])", 1
+"checkr", "check_pos_int", -1, 0, 0, "double", 1
+"checkr", "check_pos_int", -1, 0, 1, "integer[]", 1
 "checkr", "check_pos_int", 0, 0, 0, "double", 1
 "checkr", "check_pos_int", 0, 0, 1, "integer[]", 1
 "checkr", "check_pos_int", 1, 0, 0, "logical", 1
@@ -394,7 +425,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_rbind", 4, 0, 0, "class<`call`>", 1
 "checkr", "check_rbind", 5, 0, 0, "class<`call`>", 1
 "checkr", "check_rbind", 6, 0, 0, "logical", 1
-"checkr", "check_scalar", -1, 0, 0, "(character[] | class<`Date`> | class<`POSIXct`, `POSIXt`> | double[])", 1
+"checkr", "check_scalar", -1, 0, 0, "character[]", 1
+"checkr", "check_scalar", -1, 0, 1, "class<`Date`>", 1
+"checkr", "check_scalar", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"checkr", "check_scalar", -1, 0, 3, "double[]", 1
 "checkr", "check_scalar", 0, 0, 0, "character[]", 1
 "checkr", "check_scalar", 0, 0, 1, "class<`Date`>", 1
 "checkr", "check_scalar", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
@@ -423,14 +457,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_string", 3, 0, 0, "logical", 1
 "checkr", "check_string_internal", -1, 0, 0, "null", 1
 "checkr", "check_string_internal", 0, 0, 0, "character", 1
-"checkr", "check_tzone", -1, 0, 0, "(class<`Date`> | class<`POSIXct`, `POSIXt`>)", 1
+"checkr", "check_tzone", -1, 0, 0, "class<`Date`>", 1
+"checkr", "check_tzone", -1, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "checkr", "check_tzone", 0, 0, 0, "class<`Date`>", 1
 "checkr", "check_tzone", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
 "checkr", "check_tzone", 1, 0, 0, "character", 1
 "checkr", "check_tzone", 2, 0, 0, "class<`call`>", 1
 "checkr", "check_tzone", 2, 0, 1, "class<`name`>", 1
 "checkr", "check_tzone", 3, 0, 0, "logical", 1
-"checkr", "check_unique", -1, 0, 0, "(character[] | double[] | null | list<any>)", 1
+"checkr", "check_unique", -1, 0, 0, "character[]", 1
+"checkr", "check_unique", -1, 0, 1, "double[]", 1
+"checkr", "check_unique", -1, 0, 2, "null", 1
+"checkr", "check_unique", -1, 0, 3, "list<any>", 1
 "checkr", "check_unique", 0, 0, 0, "character[]", 1
 "checkr", "check_unique", 0, 0, 1, "double[]", 1
 "checkr", "check_unique", 0, 0, 2, "null", 1
@@ -440,7 +478,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_unique", 1, 0, 2, "double", 1
 "checkr", "check_unique", 1, 0, 3, "null", 1
 "checkr", "check_unique", 2, 0, 0, "logical", 1
-"checkr", "check_unnamed", -1, 0, 0, "(character[] | class<`Date`> | class<`POSIXct`, `POSIXt`> | double[])", 1
+"checkr", "check_unnamed", -1, 0, 0, "character[]", 1
+"checkr", "check_unnamed", -1, 0, 1, "class<`Date`>", 1
+"checkr", "check_unnamed", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"checkr", "check_unnamed", -1, 0, 3, "double[]", 1
 "checkr", "check_unnamed", 0, 0, 0, "character[]", 1
 "checkr", "check_unnamed", 0, 0, 1, "class<`Date`>", 1
 "checkr", "check_unnamed", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
@@ -449,11 +490,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_unnamed", 1, 0, 1, "double", 1
 "checkr", "check_unnamed", 1, 0, 2, "class<`name`>", 1
 "checkr", "check_unnamed", 2, 0, 0, "logical", 1
-"checkr", "check_unused", -1, 0, 0, "(double | null)", 1
+"checkr", "check_unused", -1, 0, 0, "double", 1
+"checkr", "check_unused", -1, 0, 1, "null", 1
 "checkr", "check_unused", 0, 0, 0, "...", 1
 "checkr", "check_unused", 1, 0, 0, "character", 1
 "checkr", "check_unused", 2, 0, 0, "logical", 1
-"checkr", "check_values", -1, 0, 0, "(character[] | class<`Date`> | class<`POSIXct`, `POSIXt`> | double[] | ^integer[])", 1
+"checkr", "check_values", -1, 0, 0, "character[]", 1
+"checkr", "check_values", -1, 0, 1, "class<`Date`>", 1
+"checkr", "check_values", -1, 0, 2, "class<`POSIXct`, `POSIXt`>", 1
+"checkr", "check_values", -1, 0, 3, "double[]", 1
+"checkr", "check_values", -1, 0, 4, "^integer[]", 1
 "checkr", "check_values", 0, 0, 0, "character[]", 1
 "checkr", "check_values", 0, 0, 1, "class<`Date`>", 1
 "checkr", "check_values", 0, 0, 2, "class<`POSIXct`, `POSIXt`>", 1

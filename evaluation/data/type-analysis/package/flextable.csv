@@ -60,7 +60,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "add_parstyle_column", 3, 0, 0, "any", 1
 "flextable", "add_raster_as_filecolumn", -1, 0, 0, "class<`data.frame`>", 1
 "flextable", "add_raster_as_filecolumn", 0, 0, 0, "class<`data.frame`>", 1
-"flextable", "add_rows", -1, 0, 0, "(class<`cell_struct`> | class<`chunkset_struct`> | class<`complex_tabpart`> | class<`fpstruct`> | class<`par_struct`> | class<`text_struct`>)", 1
+"flextable", "add_rows", -1, 0, 0, "class<`cell_struct`>", 1
+"flextable", "add_rows", -1, 0, 1, "class<`chunkset_struct`>", 1
+"flextable", "add_rows", -1, 0, 2, "class<`complex_tabpart`>", 1
+"flextable", "add_rows", -1, 0, 3, "class<`fpstruct`>", 1
+"flextable", "add_rows", -1, 0, 4, "class<`par_struct`>", 1
+"flextable", "add_rows", -1, 0, 5, "class<`text_struct`>", 1
 "flextable", "add_rows", 0, 0, 0, "class<`cell_struct`>", 1
 "flextable", "add_rows", 0, 0, 1, "class<`chunkset_struct`>", 1
 "flextable", "add_rows", 0, 0, 2, "class<`complex_tabpart`>", 1
@@ -92,13 +97,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "add_rows.fpstruct", 3, 0, 2, "double", 1
 "flextable", "add_rows.fpstruct", 3, 0, 3, "null", 1
 "flextable", "add_rows.fpstruct", 4, 0, 0, "...", 1
-"flextable", "add_rows.par_struct", -1, 0, 0, "(class<`par_struct`> | class<`text_struct`>)", 1
+"flextable", "add_rows.par_struct", -1, 0, 0, "class<`par_struct`>", 1
+"flextable", "add_rows.par_struct", -1, 0, 1, "class<`text_struct`>", 1
 "flextable", "add_rows.par_struct", 0, 0, 0, "class<`par_struct`>", 1
 "flextable", "add_rows.par_struct", 0, 0, 1, "class<`text_struct`>", 1
 "flextable", "add_rows.par_struct", 1, 0, 0, "integer", 1
 "flextable", "add_rows.par_struct", 2, 0, 0, "logical", 1
 "flextable", "add_rows.par_struct", 3, 0, 0, "...", 1
-"flextable", "add_rows.text_struct", -1, 0, 0, "(class<`par_struct`> | class<`text_struct`>)", 1
+"flextable", "add_rows.text_struct", -1, 0, 0, "class<`par_struct`>", 1
+"flextable", "add_rows.text_struct", -1, 0, 1, "class<`text_struct`>", 1
 "flextable", "add_rows.text_struct", 0, 0, 0, "class<`par_struct`>", 1
 "flextable", "add_rows.text_struct", 0, 0, 1, "class<`text_struct`>", 1
 "flextable", "add_rows.text_struct", 1, 0, 0, "integer", 1
@@ -176,7 +183,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "as_paragraph", -1, 0, 0, "class<`paragraph`>", 1
 "flextable", "as_paragraph", 0, 0, 0, "...", 1
 "flextable", "as_paragraph", 1, 0, 0, "null", 1
-"flextable", "as_struct", -1, 0, 0, "(class<`cell_struct`> | class<`par_struct`> | class<`text_struct`>)", 1
+"flextable", "as_struct", -1, 0, 0, "class<`cell_struct`>", 1
+"flextable", "as_struct", -1, 0, 1, "class<`par_struct`>", 1
+"flextable", "as_struct", -1, 0, 2, "class<`text_struct`>", 1
 "flextable", "as_struct", 0, 0, 0, "integer", 1
 "flextable", "as_struct", 1, 0, 0, "character[]", 1
 "flextable", "as_struct", 2, 0, 0, "class<`fp_cell`>", 1
@@ -278,7 +287,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "[<-.cell_struct", 4, 0, 0, "class<`fp_cell`>", 1
 "flextable", "[<-.cell_struct", 4, 0, 1, "character[]", 1
 "flextable", "[<-.cell_struct", 4, 0, 2, "double[]", 1
-"flextable", "[.cell_struct", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"flextable", "[.cell_struct", -1, 0, 0, "class<`matrix`>", 1
+"flextable", "[.cell_struct", -1, 0, 1, "double[]", 1
 "flextable", "[.cell_struct", 0, 0, 0, "class<`cell_struct`>", 1
 "flextable", "[.cell_struct", 0, 0, 1, "class<`par_struct`>", 1
 "flextable", "[.cell_struct", 1, 0, 0, "any", 1
@@ -543,7 +553,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "[<-.fpstruct", 3, 0, 1, "double[]", 1
 "flextable", "[<-.fpstruct", 3, 0, 2, "class<`paragraph`>", 1
 "flextable", "[<-.fpstruct", 3, 0, 3, "list<class<`chunk`, `data.frame`>>", 1
-"flextable", "[.fpstruct", -1, 0, 0, "(character[] | class<`matrix`> | double[] | list<class<`chunk`, `data.frame`>>)", 1
+"flextable", "[.fpstruct", -1, 0, 0, "character[]", 1
+"flextable", "[.fpstruct", -1, 0, 1, "class<`matrix`>", 1
+"flextable", "[.fpstruct", -1, 0, 2, "double[]", 1
+"flextable", "[.fpstruct", -1, 0, 3, "list<class<`chunk`, `data.frame`>>", 1
 "flextable", "[.fpstruct", 0, 0, 0, "class<`fpstruct`>", 1
 "flextable", "[.fpstruct", 1, 0, 0, "any", 1
 "flextable", "[.fpstruct", 2, 0, 0, "any", 1
@@ -554,7 +567,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "get_columns_id", 1, 0, 1, "character[]", 1
 "flextable", "get_columns_id", 1, 0, 2, "class<`formula`>", 1
 "flextable", "get_columns_id", 1, 0, 3, "null", 1
-"flextable", "get_dataset_columns_id", -1, 0, 0, "(double | integer[])", 1
+"flextable", "get_dataset_columns_id", -1, 0, 0, "double", 1
+"flextable", "get_dataset_columns_id", -1, 0, 1, "integer[]", 1
 "flextable", "get_dataset_columns_id", 0, 0, 0, "class<`complex_tabpart`>", 1
 "flextable", "get_dataset_columns_id", 1, 0, 0, "double", 1
 "flextable", "get_dataset_columns_id", 1, 0, 1, "character[]", 1
@@ -575,7 +589,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "get_xtable_widths", -1, 0, 0, "^double[]", 1
 "flextable", "get_xtable_widths", 0, 0, 0, "character[]", 1
 "flextable", "get_xtable_widths", 1, 0, 0, "double", 1
-"flextable", "height", -1, 0, 0, "(class<`data.frame`> | class<`flextable`>)", 1
+"flextable", "height", -1, 0, 0, "class<`data.frame`>", 1
+"flextable", "height", -1, 0, 1, "class<`flextable`>", 1
 "flextable", "height", 0, 0, 0, "class<`data.frame`>", 1
 "flextable", "height", 0, 0, 1, "class<`flextable`>", 1
 "flextable", "height", 1, 0, 0, "null", 1
@@ -602,7 +617,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "hline_top", 1, 0, 0, "any", 1
 "flextable", "hline_top", 2, 0, 0, "any", 1
 "flextable", "hline_top", 3, 0, 0, "character", 1
-"flextable", "hrule", -1, 0, 0, "(class<`data.frame`> | class<`flextable`>)", 1
+"flextable", "hrule", -1, 0, 0, "class<`data.frame`>", 1
+"flextable", "hrule", -1, 0, 1, "class<`flextable`>", 1
 "flextable", "hrule", 0, 0, 0, "class<`data.frame`>", 1
 "flextable", "hrule", 0, 0, 1, "class<`flextable`>", 1
 "flextable", "hrule", 1, 0, 0, "null", 1
@@ -728,7 +744,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "[<-.par_struct", 4, 0, 0, "character", 1
 "flextable", "[<-.par_struct", 4, 0, 1, "double", 1
 "flextable", "[<-.par_struct", 4, 0, 2, "class<`fp_par`>", 1
-"flextable", "[.par_struct", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"flextable", "[.par_struct", -1, 0, 0, "class<`matrix`>", 1
+"flextable", "[.par_struct", -1, 0, 1, "double[]", 1
 "flextable", "[.par_struct", 0, 0, 0, "class<`cell_struct`>", 1
 "flextable", "[.par_struct", 0, 0, 1, "class<`par_struct`>", 1
 "flextable", "[.par_struct", 1, 0, 0, "any", 1
@@ -766,7 +783,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "proc_freq", 10, 0, 1, "null", 1
 "flextable", "qflextable", -1, 0, 0, "class<`flextable`>", 1
 "flextable", "qflextable", 0, 0, 0, "class<`data.frame`>", 1
-"flextable", "rbind.match.columns", -1, 0, 0, "(class<`chunk`, `data.frame`> | class<`chunk`, `data.frame`, `img_chunk`> | class<`chunk`, `data.frame`, `img_src`> | class<`data.frame`>)", 1
+"flextable", "rbind.match.columns", -1, 0, 0, "class<`chunk`, `data.frame`>", 1
+"flextable", "rbind.match.columns", -1, 0, 1, "class<`chunk`, `data.frame`, `img_chunk`>", 1
+"flextable", "rbind.match.columns", -1, 0, 2, "class<`chunk`, `data.frame`, `img_src`>", 1
+"flextable", "rbind.match.columns", -1, 0, 3, "class<`data.frame`>", 1
 "flextable", "rbind.match.columns", 0, 0, 0, "list<any>", 1
 "flextable", "replace_missing_fptext_by_default", -1, 0, 0, "class<`data.frame`>", 1
 "flextable", "replace_missing_fptext_by_default", 0, 0, 0, "class<`data.frame`>", 1
@@ -830,7 +850,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "span_columns", 0, 0, 0, "class<`complex_tabpart`>", 1
 "flextable", "span_columns", 1, 0, 0, "character[]", 1
 "flextable", "span_columns", 2, 0, 0, "character[]", 1
-"flextable", "span_free", -1, 0, 0, "(class<`complex_tabpart`> | list<list<double[]>>)", 1
+"flextable", "span_free", -1, 0, 0, "class<`complex_tabpart`>", 1
+"flextable", "span_free", -1, 0, 1, "list<list<double[]>>", 1
 "flextable", "span_free", 0, 0, 0, "class<`complex_tabpart`>", 1
 "flextable", "span_free", 0, 0, 1, "null", 1
 "flextable", "span_rows", -1, 0, 0, "class<`complex_tabpart`>", 1
@@ -912,7 +933,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flextable", "void", 0, 0, 0, "class<`flextable`>", 1
 "flextable", "void", 1, 0, 0, "any", 1
 "flextable", "void", 2, 0, 0, "character", 1
-"flextable", "width", -1, 0, 0, "(class<`data.frame`> | class<`flextable`>)", 1
+"flextable", "width", -1, 0, 0, "class<`data.frame`>", 1
+"flextable", "width", -1, 0, 1, "class<`flextable`>", 1
 "flextable", "width", 0, 0, 0, "class<`data.frame`>", 1
 "flextable", "width", 0, 0, 1, "class<`flextable`>", 1
 "flextable", "width", 1, 0, 0, "null", 1

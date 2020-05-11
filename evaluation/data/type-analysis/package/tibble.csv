@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"tibble", "add_column", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"tibble", "add_column", -1, 0, 0, "class<`data.frame`>", 1
+"tibble", "add_column", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "add_column", 0, 0, 0, "class<`data.frame`>", 1
 "tibble", "add_column", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "add_column", 1, 0, 0, "...", 1
@@ -58,7 +59,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "cat_line", 0, 0, 0, "...", 1
 "tibble", "check_minimal", -1, 0, 0, "character[]", 1
 "tibble", "check_minimal", 0, 0, 0, "character[]", 1
-"tibble", "check_names_before_after", -1, 0, 0, "(double | null)", 1
+"tibble", "check_names_before_after", -1, 0, 0, "double", 1
+"tibble", "check_names_before_after", -1, 0, 1, "null", 1
 "tibble", "check_names_before_after", 0, 0, 0, "double", 1
 "tibble", "check_names_before_after", 0, 0, 1, "null", 1
 "tibble", "check_names_before_after", 1, 0, 0, "any", 1
@@ -94,7 +96,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "compat_name_repair", -1, 0, 0, "character[]", 1
 "tibble", "compat_name_repair", 0, 0, 0, "character[]", 1
 "tibble", "compat_name_repair", 1, 0, 0, "null", 1
-"tibble", "deframe", -1, 0, 0, "(integer[] | list<integer>)", 1
+"tibble", "deframe", -1, 0, 0, "integer[]", 1
+"tibble", "deframe", -1, 0, 1, "list<integer>", 1
 "tibble", "deframe", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "describe_repair", -1, 0, 0, "null", 1
 "tibble", "describe_repair", 0, 0, 0, "character[]", 1
@@ -136,10 +139,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "format_footer", -1, 0, 0, "character[]", 1
 "tibble", "format_footer", 0, 0, 0, "class<`trunc_mat`, `trunc_mat_data.frame`, `trunc_mat_tbl`, `trunc_mat_tbl_df`>", 1
 "tibble", "format_footer", 1, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
-"tibble", "format_footer_cols", -1, 0, 0, "(character | null)", 1
+"tibble", "format_footer_cols", -1, 0, 0, "character", 1
+"tibble", "format_footer_cols", -1, 0, 1, "null", 1
 "tibble", "format_footer_cols", 0, 0, 0, "any", 1
 "tibble", "format_footer_cols", 1, 0, 0, "^character[]", 1
-"tibble", "format_footer_rows", -1, 0, 0, "(character | null)", 1
+"tibble", "format_footer_rows", -1, 0, 0, "character", 1
+"tibble", "format_footer_rows", -1, 0, 1, "null", 1
 "tibble", "format_footer_rows", 0, 0, 0, "class<`trunc_mat`, `trunc_mat_data.frame`, `trunc_mat_tbl`, `trunc_mat_tbl_df`>", 1
 "tibble", "format_header", -1, 0, 0, "character", 1
 "tibble", "format_header", 0, 0, 0, "class<`trunc_mat`, `trunc_mat_data.frame`, `trunc_mat_tbl`, `trunc_mat_tbl_df`>", 1
@@ -170,17 +175,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "FUN", -1, 0, 0, "character", 1
 "tibble", "FUN", 0, 0, 0, "double", 1
 "tibble", "FUN", 1, 0, 0, "...", 1
-"tibble", "glimpse", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"tibble", "glimpse", -1, 0, 0, "class<`data.frame`>", 1
+"tibble", "glimpse", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "glimpse", 0, 0, 0, "class<`data.frame`>", 1
 "tibble", "glimpse", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "glimpse", 1, 0, 0, "null", 1
 "tibble", "glimpse", 2, 0, 0, "...", 1
-"tibble", "glimpse.data.frame", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"tibble", "glimpse.data.frame", -1, 0, 0, "class<`data.frame`>", 1
+"tibble", "glimpse.data.frame", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "glimpse.data.frame", 0, 0, 0, "class<`data.frame`>", 1
 "tibble", "glimpse.data.frame", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "glimpse.data.frame", 1, 0, 0, "null", 1
 "tibble", "glimpse.data.frame", 2, 0, 0, "...", 1
-"tibble", "glimpse.tbl", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"tibble", "glimpse.tbl", -1, 0, 0, "class<`data.frame`>", 1
+"tibble", "glimpse.tbl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "glimpse.tbl", 0, 0, 0, "class<`data.frame`>", 1
 "tibble", "glimpse.tbl", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "glimpse.tbl", 1, 0, 0, "null", 1
@@ -268,7 +276,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "map_lgl", 0, 0, 0, "list<any>", 1
 "tibble", "map_lgl", 1, 0, 0, "class<`function`>", 1
 "tibble", "map_lgl", 2, 0, 0, "...", 1
-"tibble", "map_mold", -1, 0, 0, "(character[] | integer[])", 1
+"tibble", "map_mold", -1, 0, 0, "character[]", 1
+"tibble", "map_mold", -1, 0, 1, "integer[]", 1
 "tibble", "map_mold", 0, 0, 0, "character[]", 1
 "tibble", "map_mold", 0, 0, 1, "integer[]", 1
 "tibble", "map_mold", 0, 0, 2, "class<`data.frame`>", 1
@@ -333,7 +342,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "print.tbl", 3, 0, 1, "double", 1
 "tibble", "print.tbl", 4, 0, 0, "double", 1
 "tibble", "print.tbl", 4, 0, 1, "null", 1
-"tibble", "raw_rownames", -1, 0, 0, "(character[] | ^integer[])", 1
+"tibble", "raw_rownames", -1, 0, 0, "character[]", 1
+"tibble", "raw_rownames", -1, 0, 1, "^integer[]", 1
 "tibble", "raw_rownames", 0, 0, 0, "class<`data.frame`>", 1
 "tibble", "rbind_at", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "rbind_at", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -349,7 +359,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "re_match", 1, 0, 0, "character", 1
 "tibble", "re_match", 2, 0, 0, "logical", 1
 "tibble", "re_match", 3, 0, 0, "...", 1
-"tibble", "remove_rownames", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `tbl`, `tbl_df`>)", 1
+"tibble", "remove_rownames", -1, 0, 0, "class<`data.frame`>", 1
+"tibble", "remove_rownames", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "remove_rownames", 0, 0, 0, "class<`data.frame`>", 1
 "tibble", "remove_rownames", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "repaired_names", -1, 0, 0, "any", 1
@@ -401,19 +412,27 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "strwrap2", 0, 0, 0, "character", 1
 "tibble", "strwrap2", 1, 0, 0, "double", 1
 "tibble", "strwrap2", 2, 0, 0, "double", 1
-"tibble", "[.tbl_df", -1, 0, 0, "(class<`data.frame`, `tbl`, `tbl_df`> | integer[])", 1
+"tibble", "[.tbl_df", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"tibble", "[.tbl_df", -1, 0, 1, "integer[]", 1
 "tibble", "[.tbl_df", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "[.tbl_df", 1, 0, 0, "any", 1
 "tibble", "[.tbl_df", 2, 0, 0, "any", 1
 "tibble", "[.tbl_df", 3, 0, 0, "logical", 1
-"tibble", "[[.tbl_df", -1, 0, 0, "(character[] | double | integer[] | null | list<class<`matrix`> | integer>)", 1
+"tibble", "[[.tbl_df", -1, 0, 0, "character[]", 1
+"tibble", "[[.tbl_df", -1, 0, 1, "double", 1
+"tibble", "[[.tbl_df", -1, 0, 2, "integer[]", 1
+"tibble", "[[.tbl_df", -1, 0, 3, "null", 1
+"tibble", "[[.tbl_df", -1, 0, 4, "list<class<`matrix`> | integer>", 1
 "tibble", "[[.tbl_df", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "[[.tbl_df", 1, 0, 0, "character", 1
 "tibble", "[[.tbl_df", 1, 0, 1, "double", 1
 "tibble", "[[.tbl_df", 2, 0, 0, "any", 1
 "tibble", "[[.tbl_df", 3, 0, 0, "...", 1
 "tibble", "[[.tbl_df", 4, 0, 0, "logical", 1
-"tibble", "$.tbl_df", -1, 0, 0, "(class<`latlon`> | double | integer[] | null)", 1
+"tibble", "$.tbl_df", -1, 0, 0, "class<`latlon`>", 1
+"tibble", "$.tbl_df", -1, 0, 1, "double", 1
+"tibble", "$.tbl_df", -1, 0, 2, "integer[]", 1
+"tibble", "$.tbl_df", -1, 0, 3, "null", 1
 "tibble", "$.tbl_df", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "$.tbl_df", 1, 0, 0, "character", 1
 "tibble", "tbl_sum", -1, 0, 0, "character", 1
@@ -432,12 +451,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "tibble", 2, 0, 2, "class<`function`>", 1
 "tibble", "tibble_glimpse_width", -1, 0, 0, "integer", 1
 "tibble", "tibble_glimpse_width", 0, 0, 0, "null", 1
-"tibble", "tibble_opt", -1, 0, 0, "(integer | null)", 1
+"tibble", "tibble_opt", -1, 0, 0, "integer", 1
+"tibble", "tibble_opt", -1, 0, 1, "null", 1
 "tibble", "tibble_opt", 0, 0, 0, "character", 1
 "tibble", "tibble_width", -1, 0, 0, "double", 1
 "tibble", "tibble_width", 0, 0, 0, "double", 1
 "tibble", "tibble_width", 0, 0, 1, "null", 1
-"tibble", "tick", -1, 0, 0, "(character[] | logical[])", 1
+"tibble", "tick", -1, 0, 0, "character[]", 1
+"tibble", "tick", -1, 0, 1, "logical[]", 1
 "tibble", "tick", 0, 0, 0, "character[]", 1
 "tibble", "tick_if_needed", -1, 0, 0, "character[]", 1
 "tibble", "tick_if_needed", 0, 0, 0, "character[]", 1
@@ -445,7 +466,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tibble", "transform", 0, 0, 0, "character[]", 1
 "tibble", "tribble", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "tribble", 0, 0, 0, "...", 1
-"tibble", "trunc_mat", -1, 0, 0, "(class<`trunc_mat`, `trunc_mat_data.frame`> | class<`trunc_mat`, `trunc_mat_data.frame`, `trunc_mat_tbl`, `trunc_mat_tbl_df`>)", 1
+"tibble", "trunc_mat", -1, 0, 0, "class<`trunc_mat`, `trunc_mat_data.frame`>", 1
+"tibble", "trunc_mat", -1, 0, 1, "class<`trunc_mat`, `trunc_mat_data.frame`, `trunc_mat_tbl`, `trunc_mat_tbl_df`>", 1
 "tibble", "trunc_mat", 0, 0, 0, "class<`data.frame`>", 1
 "tibble", "trunc_mat", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "tibble", "trunc_mat", 1, 0, 0, "null", 1

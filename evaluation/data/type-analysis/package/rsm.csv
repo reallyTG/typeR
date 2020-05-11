@@ -52,11 +52,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsm", "ccd.pick", 8, 0, 0, "double", 1
 "rsm", "ccd.pick", 9, 0, 0, "character[]", 1
 "rsm", "ccd.pick", 10, 0, 0, "any", 1
-"rsm", "code2val", -1, 0, 0, "(class<`data.frame`> | double[])", 1
+"rsm", "code2val", -1, 0, 0, "class<`data.frame`>", 1
+"rsm", "code2val", -1, 0, 1, "double[]", 1
 "rsm", "code2val", 0, 0, 0, "class<`data.frame`>", 1
 "rsm", "code2val", 0, 0, 1, "double[]", 1
 "rsm", "code2val", 1, 0, 0, "list<class<`formula`>>", 1
-"rsm", "[.coded.data", -1, 0, 0, "(class<`coded.data`, `data.frame`> | class<`data.frame`>)", 1
+"rsm", "[.coded.data", -1, 0, 0, "class<`coded.data`, `data.frame`>", 1
+"rsm", "[.coded.data", -1, 0, 1, "class<`data.frame`>", 1
 "rsm", "[.coded.data", 0, 0, 0, "class<`coded.data`, `data.frame`>", 1
 "rsm", "[.coded.data", 0, 0, 1, "class<`data.frame`>", 1
 "rsm", "[.coded.data", 1, 0, 0, "...", 1
@@ -127,7 +129,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsm", "is.coded.data", 0, 0, 1, "class<`data.frame`>", 1
 "rsm", "loftest", -1, 0, 0, "class<`anova`, `data.frame`>", 1
 "rsm", "loftest", 0, 0, 0, "class<`lm`, `rsm`>", 1
-"rsm", "model.data", -1, 0, 0, "(class<`coded.data`, `data.frame`> | class<`data.frame`>)", 1
+"rsm", "model.data", -1, 0, 0, "class<`coded.data`, `data.frame`>", 1
+"rsm", "model.data", -1, 0, 1, "class<`data.frame`>", 1
 "rsm", "model.data", 0, 0, 0, "class<`lm`, `rsm`>", 1
 "rsm", "model.data", 0, 0, 1, "class<`lm`>", 1
 "rsm", "model.data", 1, 0, 0, "logical", 1
@@ -146,7 +149,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsm", "print.coded.data", 0, 0, 0, "class<`coded.data`, `data.frame`>", 1
 "rsm", "print.coded.data", 1, 0, 0, "...", 1
 "rsm", "print.coded.data", 2, 0, 0, "logical", 1
-"rsm", ".randomize", -1, 0, 0, "(class<`coded.data`, `data.frame`> | class<`data.frame`>)", 1
+"rsm", ".randomize", -1, 0, 0, "class<`coded.data`, `data.frame`>", 1
+"rsm", ".randomize", -1, 0, 1, "class<`data.frame`>", 1
 "rsm", ".randomize", 0, 0, 0, "class<`coded.data`, `data.frame`>", 1
 "rsm", ".randomize", 0, 0, 1, "class<`data.frame`>", 1
 "rsm", ".randomize", 1, 0, 0, "logical", 1
@@ -172,7 +176,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsm", "rsm", 2, 0, 0, "...", 1
 "rsm", "SO", -1, 0, 0, "class<`matrix`>", 1
 "rsm", "SO", 0, 0, 0, "...", 1
-"rsm", "star", -1, 0, 0, "(class<`call`> | class<`coded.data`, `data.frame`>)", 1
+"rsm", "star", -1, 0, 0, "class<`call`>", 1
+"rsm", "star", -1, 0, 1, "class<`coded.data`, `data.frame`>", 1
 "rsm", "star", 0, 0, 0, "any", 1
 "rsm", "star", 1, 0, 0, "double", 1
 "rsm", "star", 2, 0, 0, "character", 1

@@ -39,7 +39,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "asJSON", -1, 6, 0, "character[]", 1
 "jsonlite", "asJSON", 0, 6, 0, "double[]", 1
 "jsonlite", "asJSON", 1, 6, 0, "...", 1
-"jsonlite", "as.scalar", -1, 0, 0, "(class<`character`, `scalar`> | class<`data.frame`, `scalar`> | class<`numeric`, `scalar`>)", 1
+"jsonlite", "as.scalar", -1, 0, 0, "class<`character`, `scalar`>", 1
+"jsonlite", "as.scalar", -1, 0, 1, "class<`data.frame`, `scalar`>", 1
+"jsonlite", "as.scalar", -1, 0, 2, "class<`numeric`, `scalar`>", 1
 "jsonlite", "as.scalar", 0, 0, 0, "character", 1
 "jsonlite", "as.scalar", 0, 0, 1, "class<`data.frame`>", 1
 "jsonlite", "as.scalar", 0, 0, 2, "double", 1
@@ -64,7 +66,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "flatten", -1, 0, 0, "class<`data.frame`>", 1
 "jsonlite", "flatten", 0, 0, 0, "class<`data.frame`>", 1
 "jsonlite", "flatten", 1, 0, 0, "logical", 1
-"jsonlite", "fromJSON", -1, 0, 0, "(^character[] | class<`array`> | class<`data.frame`> | class<`matrix`> | list<any>)", 1
+"jsonlite", "fromJSON", -1, 0, 0, "^character[]", 1
+"jsonlite", "fromJSON", -1, 0, 1, "class<`array`>", 1
+"jsonlite", "fromJSON", -1, 0, 2, "class<`data.frame`>", 1
+"jsonlite", "fromJSON", -1, 0, 3, "class<`matrix`>", 1
+"jsonlite", "fromJSON", -1, 0, 4, "list<any>", 1
 "jsonlite", "fromJSON", 0, 0, 0, "character", 1
 "jsonlite", "fromJSON", 0, 0, 1, "class<`json`>", 1
 "jsonlite", "fromJSON", 1, 0, 0, "logical", 1
@@ -113,7 +119,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "FUN", 0, 7, 6, "class<`data.frame`>", 1
 "jsonlite", "FUN", 0, 7, 7, "list<any>", 1
 "jsonlite", "FUN", 1, 7, 0, "...", 1
-"jsonlite", "FUN", -1, 8, 0, "(^character[] | class<`data.frame`> | class<`matrix`> | double[] | ^integer[] | null | class<`array`> | list<any>)", 1
+"jsonlite", "FUN", -1, 8, 0, "^character[]", 1
+"jsonlite", "FUN", -1, 8, 1, "class<`data.frame`>", 1
+"jsonlite", "FUN", -1, 8, 2, "class<`matrix`>", 1
+"jsonlite", "FUN", -1, 8, 3, "double[]", 1
+"jsonlite", "FUN", -1, 8, 4, "^integer[]", 1
+"jsonlite", "FUN", -1, 8, 5, "null", 1
+"jsonlite", "FUN", -1, 8, 6, "class<`array`>", 1
+"jsonlite", "FUN", -1, 8, 7, "list<any>", 1
 "jsonlite", "FUN", 0, 8, 0, "character", 1
 "jsonlite", "FUN", 0, 8, 1, "integer", 1
 "jsonlite", "FUN", 0, 8, 2, "null", 1
@@ -128,7 +141,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "FUN", 8, 8, 0, "any", 1
 "jsonlite", "FUN", -1, 9, 0, "logical", 1
 "jsonlite", "FUN", 0, 9, 0, "list<any>", 1
-"jsonlite", "FUN", -1, 10, 0, "(^character[] | class<`data.frame`> | class<`matrix`> | complex[] | ^double[] | null | raw[] | list<any>)", 1
+"jsonlite", "FUN", -1, 10, 0, "^character[]", 1
+"jsonlite", "FUN", -1, 10, 1, "class<`data.frame`>", 1
+"jsonlite", "FUN", -1, 10, 2, "class<`matrix`>", 1
+"jsonlite", "FUN", -1, 10, 3, "complex[]", 1
+"jsonlite", "FUN", -1, 10, 4, "^double[]", 1
+"jsonlite", "FUN", -1, 10, 5, "null", 1
+"jsonlite", "FUN", -1, 10, 6, "raw[]", 1
+"jsonlite", "FUN", -1, 10, 7, "list<any>", 1
 "jsonlite", "FUN", 0, 10, 0, "list<any>", 1
 "jsonlite", "givename", -1, 0, 0, "list<any>", 1
 "jsonlite", "givename", 0, 0, 0, "list<any>", 1
@@ -148,7 +168,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "is.recordlist", 0, 0, 0, "list<any>", 1
 "jsonlite", "is.scalarlist", -1, 0, 0, "logical", 1
 "jsonlite", "is.scalarlist", 0, 0, 0, "list<any>", 1
-"jsonlite", "list_to_vec", -1, 0, 0, "(^character[] | ^double[] | null)", 1
+"jsonlite", "list_to_vec", -1, 0, 0, "^character[]", 1
+"jsonlite", "list_to_vec", -1, 0, 1, "^double[]", 1
+"jsonlite", "list_to_vec", -1, 0, 2, "null", 1
 "jsonlite", "list_to_vec", 0, 0, 0, "list<any>", 1
 "jsonlite", "loadpkg", -1, 0, 0, "environment", 1
 "jsonlite", "loadpkg", 0, 0, 0, "character", 1
@@ -174,7 +196,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "pack", 0, 0, 6, "class<`data.frame`>", 1
 "jsonlite", "pack", 0, 0, 7, "list<any>", 1
 "jsonlite", "pack", 1, 0, 0, "...", 1
-"jsonlite", "parse_and_simplify", -1, 0, 0, "(^character[] | class<`array`> | class<`data.frame`> | class<`matrix`> | list<any>)", 1
+"jsonlite", "parse_and_simplify", -1, 0, 0, "^character[]", 1
+"jsonlite", "parse_and_simplify", -1, 0, 1, "class<`array`>", 1
+"jsonlite", "parse_and_simplify", -1, 0, 2, "class<`data.frame`>", 1
+"jsonlite", "parse_and_simplify", -1, 0, 3, "class<`matrix`>", 1
+"jsonlite", "parse_and_simplify", -1, 0, 4, "list<any>", 1
 "jsonlite", "parse_and_simplify", 0, 0, 0, "character", 1
 "jsonlite", "parse_and_simplify", 0, 0, 1, "class<`connection`, `file`>", 1
 "jsonlite", "parse_and_simplify", 0, 0, 2, "class<`json`>", 1
@@ -191,7 +217,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "parse_con", 0, 0, 0, "class<`connection`, `file`>", 1
 "jsonlite", "parse_con", 0, 0, 1, "class<`connection`, `curl`>", 1
 "jsonlite", "parse_con", 1, 0, 0, "logical", 1
-"jsonlite", "parse_json", -1, 0, 0, "(class<`data.frame`> | list<list<double | character>>)", 1
+"jsonlite", "parse_json", -1, 0, 0, "class<`data.frame`>", 1
+"jsonlite", "parse_json", -1, 0, 1, "list<list<double | character>>", 1
 "jsonlite", "parse_json", 0, 0, 0, "class<`connection`, `file`>", 1
 "jsonlite", "parse_json", 1, 0, 0, "logical", 1
 "jsonlite", "parse_json", 2, 0, 0, "...", 1
@@ -216,7 +243,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "prettify", 1, 0, 0, "double", 1
 "jsonlite", "rbind_pages", -1, 0, 0, "class<`data.frame`>", 1
 "jsonlite", "rbind_pages", 0, 0, 0, "list<class<`data.frame`>>", 1
-"jsonlite", "read_json", -1, 0, 0, "(class<`data.frame`> | list<list<double | character>>)", 1
+"jsonlite", "read_json", -1, 0, 0, "class<`data.frame`>", 1
+"jsonlite", "read_json", -1, 0, 1, "list<list<double | character>>", 1
 "jsonlite", "read_json", 0, 0, 0, "character", 1
 "jsonlite", "read_json", 1, 0, 0, "logical", 1
 "jsonlite", "read_json", 2, 0, 0, "...", 1
@@ -237,7 +265,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "serializeJSON", 0, 0, 1, "list<any>", 1
 "jsonlite", "serializeJSON", 1, 0, 0, "double", 1
 "jsonlite", "serializeJSON", 2, 0, 0, "logical", 1
-"jsonlite", "simplify", -1, 0, 0, "(^character[] | class<`data.frame`> | class<`matrix`> | double[] | ^integer[] | null | class<`array`> | list<any>)", 1
+"jsonlite", "simplify", -1, 0, 0, "^character[]", 1
+"jsonlite", "simplify", -1, 0, 1, "class<`data.frame`>", 1
+"jsonlite", "simplify", -1, 0, 2, "class<`matrix`>", 1
+"jsonlite", "simplify", -1, 0, 3, "double[]", 1
+"jsonlite", "simplify", -1, 0, 4, "^integer[]", 1
+"jsonlite", "simplify", -1, 0, 5, "null", 1
+"jsonlite", "simplify", -1, 0, 6, "class<`array`>", 1
+"jsonlite", "simplify", -1, 0, 7, "list<any>", 1
 "jsonlite", "simplify", 0, 0, 0, "character", 1
 "jsonlite", "simplify", 0, 0, 1, "integer", 1
 "jsonlite", "simplify", 0, 0, 2, "null", 1
@@ -291,12 +326,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "jsonlite", "transpose_list", -1, 0, 0, "list<list<any>>", 1
 "jsonlite", "transpose_list", 0, 0, 0, "list<list<any>>", 1
 "jsonlite", "transpose_list", 1, 0, 0, "character[]", 1
-"jsonlite", "unbox", -1, 0, 0, "(class<`data.frame`, `scalar`> | class<`numeric`, `scalar`>)", 1
+"jsonlite", "unbox", -1, 0, 0, "class<`data.frame`, `scalar`>", 1
+"jsonlite", "unbox", -1, 0, 1, "class<`numeric`, `scalar`>", 1
 "jsonlite", "unbox", 0, 0, 0, "class<`data.frame`>", 1
 "jsonlite", "unbox", 0, 0, 1, "double", 1
-"jsonlite", "unpack", -1, 0, 0, "(^character[] | class<`data.frame`> | class<`matrix`> | complex[] | ^double[] | null | raw[] | list<any>)", 1
+"jsonlite", "unpack", -1, 0, 0, "^character[]", 1
+"jsonlite", "unpack", -1, 0, 1, "class<`data.frame`>", 1
+"jsonlite", "unpack", -1, 0, 2, "class<`matrix`>", 1
+"jsonlite", "unpack", -1, 0, 3, "complex[]", 1
+"jsonlite", "unpack", -1, 0, 4, "^double[]", 1
+"jsonlite", "unpack", -1, 0, 5, "null", 1
+"jsonlite", "unpack", -1, 0, 6, "raw[]", 1
+"jsonlite", "unpack", -1, 0, 7, "list<any>", 1
 "jsonlite", "unpack", 0, 0, 0, "list<any>", 1
-"jsonlite", "unserializeJSON", -1, 0, 0, "(class<`data.frame`> | list<any>)", 1
+"jsonlite", "unserializeJSON", -1, 0, 0, "class<`data.frame`>", 1
+"jsonlite", "unserializeJSON", -1, 0, 1, "list<any>", 1
 "jsonlite", "unserializeJSON", 0, 0, 0, "class<`json`>", 1
 "jsonlite", "validate", -1, 0, 0, "logical", 1
 "jsonlite", "validate", 0, 0, 0, "character", 1

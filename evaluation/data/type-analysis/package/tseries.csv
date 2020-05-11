@@ -52,7 +52,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "garch.control", 6, 0, 0, "double", 1
 "tseries", "garch.control", 7, 0, 0, "double", 1
 "tseries", "garch.control", 8, 0, 0, "...", 1
-"tseries", "get.hist.quote", -1, 0, 0, "(class<`matrix`, `mts`, `ts`> | class<`zoo`>)", 1
+"tseries", "get.hist.quote", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
+"tseries", "get.hist.quote", -1, 0, 1, "class<`zoo`>", 1
 "tseries", "get.hist.quote", 0, 0, 0, "character", 1
 "tseries", "get.hist.quote", 1, 0, 0, "any", 1
 "tseries", "get.hist.quote", 2, 0, 0, "any", 1
@@ -173,7 +174,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "quadmap", 0, 0, 0, "double", 1
 "tseries", "quadmap", 1, 0, 0, "double", 1
 "tseries", "quadmap", 2, 0, 0, "double", 1
-"tseries", "read.matrix", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"tseries", "read.matrix", -1, 0, 0, "class<`matrix`>", 1
+"tseries", "read.matrix", -1, 0, 1, "double[]", 1
 "tseries", "read.matrix", 0, 0, 0, "character", 1
 "tseries", "read.matrix", 1, 0, 0, "logical", 1
 "tseries", "read.matrix", 2, 0, 0, "character", 1
@@ -218,7 +220,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "summary.garch", -1, 0, 0, "class<`summary.garch`>", 1
 "tseries", "summary.garch", 0, 0, 0, "class<`garch`>", 1
 "tseries", "summary.garch", 1, 0, 0, "...", 1
-"tseries", "surrogate", -1, 0, 0, "(class<`resample.statistic`> | integer[])", 1
+"tseries", "surrogate", -1, 0, 0, "class<`resample.statistic`>", 1
+"tseries", "surrogate", -1, 0, 1, "integer[]", 1
 "tseries", "surrogate", 0, 0, 0, "class<`ts`>", 1
 "tseries", "surrogate", 0, 0, 1, "integer[]", 1
 "tseries", "surrogate", 1, 0, 0, "double", 1
@@ -256,10 +259,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "tsbootstrap", 4, 0, 0, "null", 1
 "tseries", "tsbootstrap", 5, 0, 0, "character[]", 1
 "tseries", "tsbootstrap", 6, 0, 0, "...", 1
-"tseries", "value", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"tseries", "value", -1, 0, 0, "class<`matrix`>", 1
+"tseries", "value", -1, 0, 1, "double[]", 1
 "tseries", "value", 0, 0, 0, "class<`irts`>", 1
 "tseries", "value", 1, 0, 0, "...", 1
-"tseries", "value.irts", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"tseries", "value.irts", -1, 0, 0, "class<`matrix`>", 1
+"tseries", "value.irts", -1, 0, 1, "double[]", 1
 "tseries", "value.irts", 0, 0, 0, "class<`irts`>", 1
 "tseries", "value.irts", 1, 0, 0, "...", 1
 "tseries", "weekday", -1, 0, 0, "integer[]", 1

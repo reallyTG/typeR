@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"listenv", "all.equal.listenv", -1, 0, 0, "(character[] | logical)", 1
+"listenv", "all.equal.listenv", -1, 0, 0, "character[]", 1
+"listenv", "all.equal.listenv", -1, 0, 1, "logical", 1
 "listenv", "all.equal.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "all.equal.listenv", 1, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "all.equal.listenv", 1, 0, 1, "class<`array`>", 1
@@ -25,7 +26,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "listenv", "as.listenv.listenv", -1, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "as.listenv.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "as.listenv.listenv", 1, 0, 0, "...", 1
-"listenv", "as.list.listenv", -1, 0, 0, "(class<`array`> | class<`matrix`> | list<any>)", 1
+"listenv", "as.list.listenv", -1, 0, 0, "class<`array`>", 1
+"listenv", "as.list.listenv", -1, 0, 1, "class<`matrix`>", 1
+"listenv", "as.list.listenv", -1, 0, 2, "list<any>", 1
 "listenv", "as.list.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "as.list.listenv", 1, 0, 0, "logical", 1
 "listenv", "as.list.listenv", 2, 0, 0, "logical", 1
@@ -44,16 +47,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "listenv", "assign_by_name", 0, 0, 0, "any", 1
 "listenv", "assign_by_name", 1, 0, 0, "character[]", 1
 "listenv", "assign_by_name", 2, 0, 0, "any", 1
-"listenv", "as.vector.listenv", -1, 0, 0, "(character[] | class<`array`> | class<`matrix`> | complex[] | raw[] | list<integer>)", 1
+"listenv", "as.vector.listenv", -1, 0, 0, "character[]", 1
+"listenv", "as.vector.listenv", -1, 0, 1, "class<`array`>", 1
+"listenv", "as.vector.listenv", -1, 0, 2, "class<`matrix`>", 1
+"listenv", "as.vector.listenv", -1, 0, 3, "complex[]", 1
+"listenv", "as.vector.listenv", -1, 0, 4, "raw[]", 1
+"listenv", "as.vector.listenv", -1, 0, 5, "list<integer>", 1
 "listenv", "as.vector.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "as.vector.listenv", 1, 0, 0, "character", 1
 "listenv", "dim<-.listenv", -1, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "dim<-.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "dim<-.listenv", 1, 0, 0, "null", 1
 "listenv", "dim<-.listenv", 1, 0, 1, "double[]", 1
-"listenv", "dim.listenv", -1, 0, 0, "(integer[] | null)", 1
+"listenv", "dim.listenv", -1, 0, 0, "integer[]", 1
+"listenv", "dim.listenv", -1, 0, 1, "null", 1
 "listenv", "dim.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
-"listenv", "dim_na<-", -1, 0, 0, "(class<`environment`, `listenv`> | class<`matrix`>)", 1
+"listenv", "dim_na<-", -1, 0, 0, "class<`environment`, `listenv`>", 1
+"listenv", "dim_na<-", -1, 0, 1, "class<`matrix`>", 1
 "listenv", "dim_na<-", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "dim_na<-", 0, 0, 1, "integer[]", 1
 "listenv", "dim_na<-", 1, 0, 0, "^double[]", 1
@@ -61,7 +71,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "listenv", "dimnames<-.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "dimnames<-.listenv", 1, 0, 0, "null", 1
 "listenv", "dimnames<-.listenv", 1, 0, 1, "list<any>", 1
-"listenv", "dimnames.listenv", -1, 0, 0, "(null | list<any>)", 1
+"listenv", "dimnames.listenv", -1, 0, 0, "null", 1
+"listenv", "dimnames.listenv", -1, 0, 1, "list<any>", 1
 "listenv", "dimnames.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "filter", -1, 0, 0, "logical[]", 1
 "listenv", "filter", 0, 0, 0, "character[]", 1
@@ -140,10 +151,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "listenv", "$<-.listenv", 2, 0, 2, "integer[]", 1
 "listenv", "$<-.listenv", 2, 0, 3, "null", 1
 "listenv", "$<-.listenv", 2, 0, 4, "list<integer[]>", 1
-"listenv", "$.listenv", -1, 0, 0, "(character | double | integer[] | null)", 1
+"listenv", "$.listenv", -1, 0, 0, "character", 1
+"listenv", "$.listenv", -1, 0, 1, "double", 1
+"listenv", "$.listenv", -1, 0, 2, "integer[]", 1
+"listenv", "$.listenv", -1, 0, 3, "null", 1
 "listenv", "$.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "$.listenv", 1, 0, 0, "character", 1
-"listenv", "mapping", -1, 0, 0, "(^character[] | null)", 1
+"listenv", "mapping", -1, 0, 0, "^character[]", 1
+"listenv", "mapping", -1, 0, 1, "null", 1
 "listenv", "mapping", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "mapping", 1, 0, 0, "...", 1
 "listenv", "mapping<-", -1, 0, 0, "class<`environment`, `listenv`>", 1
@@ -154,7 +169,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "listenv", "names<-.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "names<-.listenv", 1, 0, 0, "character[]", 1
 "listenv", "names<-.listenv", 1, 0, 1, "null", 1
-"listenv", "names.listenv", -1, 0, 0, "(character[] | null)", 1
+"listenv", "names.listenv", -1, 0, 0, "character[]", 1
+"listenv", "names.listenv", -1, 0, 1, "null", 1
 "listenv", "names.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "new_variable", -1, 0, 0, "character", 1
 "listenv", "new_variable", 0, 0, 0, "class<`environment`, `listenv`>", 1
@@ -188,18 +204,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "listenv", "to_index", -1, 0, 0, "any", 1
 "listenv", "to_index", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "to_index", 1, 0, 0, "list<any>", 1
-"listenv", "undim", -1, 0, 0, "(class<`environment`, `listenv`> | double[] | list<double>)", 1
+"listenv", "undim", -1, 0, 0, "class<`environment`, `listenv`>", 1
+"listenv", "undim", -1, 0, 1, "double[]", 1
+"listenv", "undim", -1, 0, 2, "list<double>", 1
 "listenv", "undim", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "undim", 0, 0, 1, "class<`matrix`>", 1
 "listenv", "undim", 1, 0, 0, "...", 1
-"listenv", "undim.default", -1, 0, 0, "(class<`environment`, `listenv`> | double[] | list<double>)", 1
+"listenv", "undim.default", -1, 0, 0, "class<`environment`, `listenv`>", 1
+"listenv", "undim.default", -1, 0, 1, "double[]", 1
+"listenv", "undim.default", -1, 0, 2, "list<double>", 1
 "listenv", "undim.default", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "undim.default", 0, 0, 1, "class<`matrix`>", 1
 "listenv", "undim.default", 1, 0, 0, "...", 1
 "listenv", "undim.listenv", -1, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "undim.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "undim.listenv", 1, 0, 0, "...", 1
-"listenv", "unlist.listenv", -1, 0, 0, "(integer[] | null | list<integer[]>)", 1
+"listenv", "unlist.listenv", -1, 0, 0, "integer[]", 1
+"listenv", "unlist.listenv", -1, 0, 1, "null", 1
+"listenv", "unlist.listenv", -1, 0, 2, "list<integer[]>", 1
 "listenv", "unlist.listenv", 0, 0, 0, "class<`environment`, `listenv`>", 1
 "listenv", "unlist.listenv", 1, 0, 0, "logical", 1
 "listenv", "unlist.listenv", 2, 0, 0, "logical", 1

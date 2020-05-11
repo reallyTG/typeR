@@ -80,15 +80,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "entropy", "entropy.shrink", 1, 0, 0, "any", 1
 "entropy", "entropy.shrink", 2, 0, 0, "character[]", 1
 "entropy", "entropy.shrink", 3, 0, 0, "logical", 1
-"entropy", "freqs.Dirichlet", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"entropy", "freqs.Dirichlet", -1, 0, 0, "class<`matrix`>", 1
+"entropy", "freqs.Dirichlet", -1, 0, 1, "double[]", 1
 "entropy", "freqs.Dirichlet", 0, 0, 0, "class<`matrix`>", 1
 "entropy", "freqs.Dirichlet", 0, 0, 1, "double[]", 1
 "entropy", "freqs.Dirichlet", 1, 0, 0, "double", 1
-"entropy", "freqs.empirical", -1, 0, 0, "(class<`matrix`> | class<`table`> | double[])", 1
+"entropy", "freqs.empirical", -1, 0, 0, "class<`matrix`>", 1
+"entropy", "freqs.empirical", -1, 0, 1, "class<`table`>", 1
+"entropy", "freqs.empirical", -1, 0, 2, "double[]", 1
 "entropy", "freqs.empirical", 0, 0, 0, "class<`matrix`>", 1
 "entropy", "freqs.empirical", 0, 0, 1, "class<`table`>", 1
 "entropy", "freqs.empirical", 0, 0, 2, "double[]", 1
-"entropy", "freqs.shrink", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"entropy", "freqs.shrink", -1, 0, 0, "class<`matrix`>", 1
+"entropy", "freqs.shrink", -1, 0, 1, "double[]", 1
 "entropy", "freqs.shrink", 0, 0, 0, "class<`matrix`>", 1
 "entropy", "freqs.shrink", 0, 0, 1, "double[]", 1
 "entropy", "freqs.shrink", 1, 0, 0, "any", 1

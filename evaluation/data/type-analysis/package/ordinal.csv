@@ -69,7 +69,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "clm", 12, 0, 0, "character[]", 1
 "ordinal", "clm", 13, 0, 0, "character[]", 1
 "ordinal", "clm", 14, 0, 0, "...", 1
-"ordinal", "clm2", -1, 0, 0, "(class<`clm2`> | environment)", 1
+"ordinal", "clm2", -1, 0, 0, "class<`clm2`>", 1
+"ordinal", "clm2", -1, 0, 1, "environment", 1
 "ordinal", "clm2", 0, 0, 0, "any", 1
 "ordinal", "clm2", 1, 0, 0, "any", 1
 "ordinal", "clm2", 2, 0, 0, "any", 1
@@ -117,7 +118,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "clm.fit", 0, 0, 0, "class<`factor`, `ordered`>", 1
 "ordinal", "clm.fit", 0, 0, 1, "list<any>", 1
 "ordinal", "clm.fit", 1, 0, 0, "...", 1
-"ordinal", "clm.fit.default", -1, 0, 0, "(class<`clm.fit`> | environment)", 1
+"ordinal", "clm.fit.default", -1, 0, 0, "class<`clm.fit`>", 1
+"ordinal", "clm.fit.default", -1, 0, 1, "environment", 1
 "ordinal", "clm.fit.default", 0, 0, 0, "list<any>", 1
 "ordinal", "clm.fit.default", 1, 0, 0, "...", 1
 "ordinal", "clm.fit.factor", -1, 0, 0, "class<`clm.fit`>", 1
@@ -407,7 +409,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "finalizeRho", 0, 0, 0, "environment", 1
 "ordinal", "finalizeRhoM", -1, 0, 0, "list<any>", 1
 "ordinal", "finalizeRhoM", 0, 0, 0, "environment", 1
-"ordinal", "findbars", -1, 0, 0, "(class<`call`> | null | list<class<`call`>>)", 1
+"ordinal", "findbars", -1, 0, 0, "class<`call`>", 1
+"ordinal", "findbars", -1, 0, 1, "null", 1
+"ordinal", "findbars", -1, 0, 2, "list<class<`call`>>", 1
 "ordinal", "findbars", 0, 0, 0, "class<`(`>", 1
 "ordinal", "findbars", 0, 0, 1, "class<`call`>", 1
 "ordinal", "findbars", 0, 0, 2, "class<`name`>", 1
@@ -491,7 +495,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "get_contrast_coding", -1, 0, 0, "list<character>", 1
 "ordinal", "get_contrast_coding", 0, 0, 0, "class<`clm`>", 1
 "ordinal", "get_contrast_coding", 1, 0, 0, "character", 1
-"ordinal", "getContrasts", -1, 0, 0, "(character[] | null | list<any>)", 1
+"ordinal", "getContrasts", -1, 0, 0, "character[]", 1
+"ordinal", "getContrasts", -1, 0, 1, "null", 1
+"ordinal", "getContrasts", -1, 0, 2, "list<any>", 1
 "ordinal", "getContrasts", 0, 0, 0, "any", 1
 "ordinal", "getContrasts", 1, 0, 0, "character[]", 1
 "ordinal", "getContrasts", 1, 0, 1, "null", 1
@@ -661,7 +667,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "nllFast.u", 0, 0, 0, "environment", 1
 "ordinal", "nll.u", -1, 0, 0, "double", 1
 "ordinal", "nll.u", 0, 0, 0, "environment", 1
-"ordinal", "nobars", -1, 0, 0, "(class<`call`> | class<`formula`> | class<`name`> | null)", 1
+"ordinal", "nobars", -1, 0, 0, "class<`call`>", 1
+"ordinal", "nobars", -1, 0, 1, "class<`formula`>", 1
+"ordinal", "nobars", -1, 0, 2, "class<`name`>", 1
+"ordinal", "nobars", -1, 0, 3, "null", 1
 "ordinal", "nobars", 0, 0, 0, "class<`call`>", 1
 "ordinal", "nobars", 0, 0, 1, "class<`formula`>", 1
 "ordinal", "nobars", 0, 0, 2, "class<`name`>", 1
@@ -720,7 +729,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "plot.profile.clm", 9, 0, 0, "logical", 1
 "ordinal", "plot.profile.clm", 10, 0, 0, "...", 1
 "ordinal", "plot.profile.clm", 11, 0, 0, "null", 1
-"ordinal", "plot.profile.clm2", -1, 0, 0, "(class<`profile`, `profile.clmm2`> | class<`profile`, `profile.clm2`>)", 1
+"ordinal", "plot.profile.clm2", -1, 0, 0, "class<`profile`, `profile.clmm2`>", 1
+"ordinal", "plot.profile.clm2", -1, 0, 1, "class<`profile`, `profile.clm2`>", 1
 "ordinal", "plot.profile.clm2", 0, 0, 0, "class<`profile`, `profile.clmm2`>", 1
 "ordinal", "plot.profile.clm2", 0, 0, 1, "class<`profile`, `profile.clm2`>", 1
 "ordinal", "plot.profile.clm2", 1, 0, 0, "integer[]", 1
@@ -763,7 +773,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "predict.clm2", 0, 0, 0, "class<`clm2`, `clmm2`>", 1
 "ordinal", "predict.clm2", 1, 0, 0, "class<`data.frame`>", 1
 "ordinal", "predict.clm2", 2, 0, 0, "...", 1
-"ordinal", "print.conv.check", -1, 0, 0, "(character | null)", 1
+"ordinal", "print.conv.check", -1, 0, 0, "character", 1
+"ordinal", "print.conv.check", -1, 0, 1, "null", 1
 "ordinal", "print.conv.check", 0, 0, 0, "list<any>", 1
 "ordinal", "print.conv.check", 1, 0, 0, "character", 1
 "ordinal", "print.conv.check", 2, 0, 0, "...", 1
@@ -872,7 +883,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "set.AGQ", 1, 0, 0, "integer", 1
 "ordinal", "set.AGQ", 2, 0, 0, "any", 1
 "ordinal", "set.AGQ", 3, 0, 0, "any", 1
-"ordinal", "setLinks", -1, 0, 0, "(double | null)", 1
+"ordinal", "setLinks", -1, 0, 0, "double", 1
+"ordinal", "setLinks", -1, 0, 1, "null", 1
 "ordinal", "setLinks", 0, 0, 0, "environment", 1
 "ordinal", "setLinks", 1, 0, 0, "character", 1
 "ordinal", "setPar.clmm", -1, 0, 0, "list<class<`matrix`>>", 1
@@ -895,7 +907,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "single_anova", 0, 0, 0, "class<`clm`>", 1
 "ordinal", "single_anova", 1, 0, 0, "character[]", 1
 "ordinal", "single_anova", 1, 0, 1, "double", 1
-"ordinal", "slashTerms", -1, 0, 0, "(class<`call`> | class<`name`>)", 1
+"ordinal", "slashTerms", -1, 0, 0, "class<`call`>", 1
+"ordinal", "slashTerms", -1, 0, 1, "class<`name`>", 1
 "ordinal", "slashTerms", 0, 0, 0, "class<`call`>", 1
 "ordinal", "slashTerms", 0, 0, 1, "class<`name`>", 1
 "ordinal", "slice", -1, 0, 0, "class<`slice.clm`>", 1
@@ -920,7 +933,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "STconstraints", 0, 0, 0, "list<class<`matrix`>>", 1
 "ordinal", "STstart", -1, 0, 0, "list<class<`matrix`>>", 1
 "ordinal", "STstart", 0, 0, 0, "list<class<`matrix`>>", 1
-"ordinal", "subbars", -1, 0, 0, "(class<`(`> | class<`call`> | class<`formula`> | class<`name`> | double)", 1
+"ordinal", "subbars", -1, 0, 0, "class<`(`>", 1
+"ordinal", "subbars", -1, 0, 1, "class<`call`>", 1
+"ordinal", "subbars", -1, 0, 2, "class<`formula`>", 1
+"ordinal", "subbars", -1, 0, 3, "class<`name`>", 1
+"ordinal", "subbars", -1, 0, 4, "double", 1
 "ordinal", "subbars", 0, 0, 0, "class<`(`>", 1
 "ordinal", "subbars", 0, 0, 1, "class<`call`>", 1
 "ordinal", "subbars", 0, 0, 2, "class<`formula`>", 1
@@ -952,7 +969,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "term_contain", 1, 0, 0, "class<`matrix`>", 1
 "ordinal", "term_contain", 2, 0, 0, "character[]", 1
 "ordinal", "term_contain", 3, 0, 0, "character[]", 1
-"ordinal", "terms.clm", -1, 0, 0, "(class<`formula`, `terms`> | list<class<`formula`, `terms`>>)", 1
+"ordinal", "terms.clm", -1, 0, 0, "class<`formula`, `terms`>", 1
+"ordinal", "terms.clm", -1, 0, 1, "list<class<`formula`, `terms`>>", 1
 "ordinal", "terms.clm", 0, 0, 0, "class<`clm`>", 1
 "ordinal", "terms.clm", 1, 0, 0, "character[]", 1
 "ordinal", "terms.clm", 2, 0, 0, "...", 1
@@ -960,7 +978,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ordinal", "test_no_ranef", 0, 0, 0, "list<list<class<`dgCMatrix`> | class<`matrix`>>>", 1
 "ordinal", "test_no_ranef", 1, 0, 0, "list<any>", 1
 "ordinal", "test_no_ranef", 2, 0, 0, "character", 1
-"ordinal", "update.clm2", -1, 0, 0, "(class<`clm2`> | environment)", 1
+"ordinal", "update.clm2", -1, 0, 0, "class<`clm2`>", 1
+"ordinal", "update.clm2", -1, 0, 1, "environment", 1
 "ordinal", "update.clm2", 0, 0, 0, "class<`clm2`>", 1
 "ordinal", "update.clm2", 1, 0, 0, "any", 1
 "ordinal", "update.clm2", 2, 0, 0, "any", 1

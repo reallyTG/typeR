@@ -54,14 +54,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "expm", "expm.AlMoHi09", 0, 0, 0, "class<`matrix`>", 1
 "expm", "expm.AlMoHi09", 0, 0, 1, "class<`dgeMatrix`>", 1
 "expm", "expm.AlMoHi09", 1, 0, 0, "double", 1
-"expm", "expmCond", -1, 0, 0, "(double | list<double | class<`matrix`>>)", 1
+"expm", "expmCond", -1, 0, 0, "double", 1
+"expm", "expmCond", -1, 0, 1, "list<double | class<`matrix`>>", 1
 "expm", "expmCond", 0, 0, 0, "class<`matrix`>", 1
 "expm", "expmCond", 1, 0, 0, "character", 1
 "expm", "expmCond", 2, 0, 0, "logical", 1
 "expm", "expmCond", 3, 0, 0, "double", 1
 "expm", "expmCond", 4, 0, 0, "double", 1
 "expm", "expmCond", 5, 0, 0, "character[]", 1
-"expm", ".expmCond.1", -1, 0, 0, "(double | list<double | class<`matrix`>>)", 1
+"expm", ".expmCond.1", -1, 0, 0, "double", 1
+"expm", ".expmCond.1", -1, 0, 1, "list<double | class<`matrix`>>", 1
 "expm", ".expmCond.1", 0, 0, 0, "class<`matrix`>", 1
 "expm", ".expmCond.1", 1, 0, 0, "logical", 1
 "expm", ".expmCond.F", -1, 0, 0, "list<double | class<`matrix`>>", 1
@@ -88,7 +90,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "expm", "expm.Higham08", 0, 0, 1, "class<`dgCMatrix`>", 1
 "expm", "expm.Higham08", 0, 0, 2, "class<`dgeMatrix`>", 1
 "expm", "expm.Higham08", 1, 0, 0, "logical", 1
-"expm", "expm.s.Pade.s", -1, 0, 0, "(class<`dgeMatrix`> | class<`matrix`>)", 1
+"expm", "expm.s.Pade.s", -1, 0, 0, "class<`dgeMatrix`>", 1
+"expm", "expm.s.Pade.s", -1, 0, 1, "class<`matrix`>", 1
 "expm", "expm.s.Pade.s", 0, 0, 0, "class<`dgCMatrix`>", 1
 "expm", "expm.s.Pade.s", 0, 0, 1, "class<`matrix`>", 1
 "expm", "expm.s.Pade.s", 1, 0, 0, "double", 1

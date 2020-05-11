@@ -20,7 +20,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pixmap", "getChannels", -1, 0, 0, "class<`array`>", 1
 "pixmap", "getChannels", 0, 0, 0, "class<`pixmapRGB`>", 1
 "pixmap", "getChannels", 1, 0, 0, "character[]", 1
-"pixmap", "getChannels", -1, 1, 0, "(class<`array`> | class<`matrix`>)", 1
+"pixmap", "getChannels", -1, 1, 0, "class<`array`>", 1
+"pixmap", "getChannels", -1, 1, 1, "class<`matrix`>", 1
 "pixmap", "getChannels", 0, 1, 0, "class<`pixmapRGB`>", 1
 "pixmap", "getChannels", 0, 1, 1, "class<`pixmapGrey`>", 1
 "pixmap", "getChannels", 1, 1, 0, "character[]", 1
@@ -60,10 +61,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pixmap", "plot", 0, 2, 0, "class<`pixmapIndexed`>", 1
 "pixmap", "plot", 1, 2, 0, "any", 1
 "pixmap", "plot", 2, 2, 0, "...", 1
-"pixmap", "read.pnm", -1, 0, 0, "(class<`pixmapGrey`> | class<`pixmapRGB`>)", 1
+"pixmap", "read.pnm", -1, 0, 0, "class<`pixmapGrey`>", 1
+"pixmap", "read.pnm", -1, 0, 1, "class<`pixmapRGB`>", 1
 "pixmap", "read.pnm", 0, 0, 0, "character", 1
 "pixmap", "read.pnm", 1, 0, 0, "...", 1
-"pixmap", "read.pnmdata", -1, 0, 0, "(class<`pixmapGrey`> | class<`pixmapRGB`>)", 1
+"pixmap", "read.pnmdata", -1, 0, 0, "class<`pixmapGrey`>", 1
+"pixmap", "read.pnmdata", -1, 0, 1, "class<`pixmapRGB`>", 1
 "pixmap", "read.pnmdata", 0, 0, 0, "class<`connection`, `file`>", 1
 "pixmap", "read.pnmdata", 1, 0, 0, "list<double | character>", 1
 "pixmap", "read.pnmdata", 2, 0, 0, "...", 1

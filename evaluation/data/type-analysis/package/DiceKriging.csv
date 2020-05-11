@@ -137,7 +137,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DiceKriging", "covParametersBounds", -1, 2, 0, "list<double[]>", 1
 "DiceKriging", "covParametersBounds", 0, 2, 0, "class<`covTensorProduct`>", 1
 "DiceKriging", "covParametersBounds", 1, 2, 0, "class<`data.frame`>", 1
-"DiceKriging", "covStruct.create", -1, 0, 0, "(class<`covScaling`> | class<`covTensorProduct`> | class<`covUser`>)", 1
+"DiceKriging", "covStruct.create", -1, 0, 0, "class<`covScaling`>", 1
+"DiceKriging", "covStruct.create", -1, 0, 1, "class<`covTensorProduct`>", 1
+"DiceKriging", "covStruct.create", -1, 0, 2, "class<`covUser`>", 1
 "DiceKriging", "covStruct.create", 0, 0, 0, "character", 1
 "DiceKriging", "covStruct.create", 1, 0, 0, "any", 1
 "DiceKriging", "covStruct.create", 2, 0, 0, "any", 1
@@ -305,7 +307,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DiceKriging", "vect2covparam", -1, 1, 0, "class<`covTensorProduct`>", 1
 "DiceKriging", "vect2covparam", 0, 1, 0, "class<`covTensorProduct`>", 1
 "DiceKriging", "vect2covparam", 1, 1, 0, "double[]", 1
-"DiceKriging", "vect2covparam", -1, 2, 0, "(class<`covScaling`> | class<`covTensorProduct`>)", 1
+"DiceKriging", "vect2covparam", -1, 2, 0, "class<`covScaling`>", 1
+"DiceKriging", "vect2covparam", -1, 2, 1, "class<`covTensorProduct`>", 1
 "DiceKriging", "vect2covparam", 0, 2, 0, "class<`covScaling`>", 1
 "DiceKriging", "vect2covparam", 0, 2, 1, "class<`covTensorProduct`>", 1
 "DiceKriging", "vect2covparam", 1, 2, 0, "double[]", 1

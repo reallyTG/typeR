@@ -10,7 +10,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "[[", 0, 0, 1, "^integer[]", 1
 "coin", "[[", 1, 0, 0, "character[]", 1
 "coin", "@", -1, 0, 0, "double[]", 1
-"coin", "@", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"coin", "@", -1, 1, 0, "class<`matrix`>", 1
+"coin", "@", -1, 1, 1, "double[]", 1
 "coin", "@", 0, 1, 0, "logical", 1
 "coin", "@", -1, 2, 0, "double[]", 1
 "coin", "@", 0, 2, 0, "logical", 1
@@ -84,24 +85,29 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "check_trafo", -1, 0, 0, "any", 1
 "coin", "check_trafo", 0, 0, 0, "any", 1
 "coin", "check_trafo", 1, 0, 0, "any", 1
-"coin", "chisq_test", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "chisq_test", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "chisq_test", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "chisq_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "chisq_test", 0, 0, 1, "class<`IndependenceProblem`>", 1
 "coin", "chisq_test", 0, 0, 2, "class<`table`>", 1
 "coin", "chisq_test", 1, 0, 0, "...", 1
-"coin", "chisq_test.formula", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "chisq_test.formula", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "chisq_test.formula", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "chisq_test.formula", 0, 0, 0, "class<`formula`>", 1
 "coin", "chisq_test.formula", 1, 0, 0, "class<`data.frame`>", 1
 "coin", "chisq_test.formula", 2, 0, 0, "null", 1
 "coin", "chisq_test.formula", 3, 0, 0, "null", 1
 "coin", "chisq_test.formula", 4, 0, 0, "...", 1
-"coin", "chisq_test.IndependenceProblem", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "chisq_test.IndependenceProblem", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "chisq_test.IndependenceProblem", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "chisq_test.IndependenceProblem", 0, 0, 0, "class<`IndependenceProblem`>", 1
 "coin", "chisq_test.IndependenceProblem", 1, 0, 0, "...", 1
-"coin", "chisq_test.table", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "chisq_test.table", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "chisq_test.table", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "chisq_test.table", 0, 0, 0, "class<`table`>", 1
 "coin", "chisq_test.table", 1, 0, 0, "...", 1
-"coin", "cmh_test", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "cmh_test", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "cmh_test", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "cmh_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "cmh_test", 0, 0, 1, "class<`IndependenceProblem`>", 1
 "coin", "cmh_test", 0, 0, 2, "class<`table`>", 1
@@ -112,10 +118,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "cmh_test.formula", 2, 0, 0, "null", 1
 "coin", "cmh_test.formula", 3, 0, 0, "null", 1
 "coin", "cmh_test.formula", 4, 0, 0, "...", 1
-"coin", "cmh_test.IndependenceProblem", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "cmh_test.IndependenceProblem", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "cmh_test.IndependenceProblem", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "cmh_test.IndependenceProblem", 0, 0, 0, "class<`IndependenceProblem`>", 1
 "coin", "cmh_test.IndependenceProblem", 1, 0, 0, "...", 1
-"coin", "cmh_test.table", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "cmh_test.table", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "cmh_test.table", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "cmh_test.table", 0, 0, 0, "class<`table`>", 1
 "coin", "cmh_test.table", 1, 0, 0, "...", 1
 "coin", ".confint", -1, 0, 0, "list<double[]>", 1
@@ -161,12 +169,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "conover_test.IndependenceProblem", 1, 0, 0, "logical", 1
 "coin", "conover_test.IndependenceProblem", 2, 0, 0, "double", 1
 "coin", "conover_test.IndependenceProblem", 3, 0, 0, "...", 1
-"coin", "consal_trafo", -1, 0, 0, "(class<`matrix`> | ^double[])", 1
+"coin", "consal_trafo", -1, 0, 0, "class<`matrix`>", 1
+"coin", "consal_trafo", -1, 0, 1, "^double[]", 1
 "coin", "consal_trafo", 0, 0, 0, "double[]", 1
 "coin", "consal_trafo", 0, 0, 1, "^integer[]", 1
 "coin", "consal_trafo", 1, 0, 0, "character[]", 1
 "coin", "consal_trafo", 2, 0, 0, "double[]", 1
-"coin", "copyslots", -1, 0, 0, "(class<`IndependenceLinearStatistic`> | class<`IndependenceTestProblem`> | class<`MaxTypeIndependenceTestStatistic`> | class<`QuadTypeIndependenceTestStatistic`> | class<`ScalarIndependenceTestStatistic`>)", 1
+"coin", "copyslots", -1, 0, 0, "class<`IndependenceLinearStatistic`>", 1
+"coin", "copyslots", -1, 0, 1, "class<`IndependenceTestProblem`>", 1
+"coin", "copyslots", -1, 0, 2, "class<`MaxTypeIndependenceTestStatistic`>", 1
+"coin", "copyslots", -1, 0, 3, "class<`QuadTypeIndependenceTestStatistic`>", 1
+"coin", "copyslots", -1, 0, 4, "class<`ScalarIndependenceTestStatistic`>", 1
 "coin", "copyslots", 0, 0, 0, "class<`IndependenceLinearStatistic`>", 1
 "coin", "copyslots", 0, 0, 1, "class<`IndependenceTestProblem`>", 1
 "coin", "copyslots", 0, 0, 2, "class<`MaxTypeIndependenceTestStatistic`>", 1
@@ -221,7 +234,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "cSR_shift_2sample", 0, 0, 0, "double[]", 1
 "coin", "cSR_shift_2sample", 1, 0, 0, "integer", 1
 "coin", "cSR_shift_2sample", 2, 0, 0, "double", 1
-"coin", "dperm", -1, 0, 0, "(class<`matrix`> | double[] | null)", 1
+"coin", "dperm", -1, 0, 0, "class<`matrix`>", 1
+"coin", "dperm", -1, 0, 1, "double[]", 1
+"coin", "dperm", -1, 0, 2, "null", 1
 "coin", "dperm", 0, 0, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "dperm", 0, 0, 1, "class<`AsymptNullDistribution`>", 1
 "coin", "dperm", 0, 0, 2, "class<`ExactNullDistribution`>", 1
@@ -230,36 +245,45 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "dperm", 0, 0, 5, "class<`ScalarIndependenceTest`>", 1
 "coin", "dperm", 1, 0, 0, "any", 1
 "coin", "dperm", 2, 0, 0, "...", 1
-"coin", "dperm", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"coin", "dperm", -1, 1, 0, "class<`matrix`>", 1
+"coin", "dperm", -1, 1, 1, "double[]", 1
 "coin", "dperm", 0, 1, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "dperm", 1, 1, 0, "class<`matrix`>", 1
 "coin", "dperm", 1, 1, 1, "double[]", 1
 "coin", "dperm", 2, 1, 0, "...", 1
-"coin", "dperm", -1, 2, 0, "(class<`matrix`> | double[])", 1
+"coin", "dperm", -1, 2, 0, "class<`matrix`>", 1
+"coin", "dperm", -1, 2, 1, "double[]", 1
 "coin", "dperm", 0, 2, 0, "class<`QuadTypeIndependenceTest`>", 1
 "coin", "dperm", 1, 2, 0, "class<`matrix`>", 1
 "coin", "dperm", 1, 2, 1, "integer[]", 1
 "coin", "dperm", 1, 2, 2, "double", 1
 "coin", "dperm", 2, 2, 0, "...", 1
-"coin", "dperm", -1, 3, 0, "(class<`matrix`> | double[])", 1
+"coin", "dperm", -1, 3, 0, "class<`matrix`>", 1
+"coin", "dperm", -1, 3, 1, "double[]", 1
 "coin", "dperm", 0, 3, 0, "class<`ExactNullDistribution`>", 1
 "coin", "dperm", 1, 3, 0, "class<`matrix`>", 1
 "coin", "dperm", 1, 3, 1, "double[]", 1
 "coin", "dperm", 2, 3, 0, "...", 1
-"coin", "dperm", -1, 4, 0, "(class<`matrix`> | double[] | null)", 1
+"coin", "dperm", -1, 4, 0, "class<`matrix`>", 1
+"coin", "dperm", -1, 4, 1, "double[]", 1
+"coin", "dperm", -1, 4, 2, "null", 1
 "coin", "dperm", 0, 4, 0, "class<`AsymptNullDistribution`>", 1
 "coin", "dperm", 1, 4, 0, "any", 1
 "coin", "dperm", 2, 4, 0, "...", 1
-"coin", "dperm", -1, 5, 0, "(class<`matrix`> | double[])", 1
+"coin", "dperm", -1, 5, 0, "class<`matrix`>", 1
+"coin", "dperm", -1, 5, 1, "double[]", 1
 "coin", "dperm", 0, 5, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "dperm", 1, 5, 0, "class<`matrix`>", 1
 "coin", "dperm", 1, 5, 1, "double[]", 1
 "coin", "dperm", 2, 5, 0, "...", 1
-"coin", "dperm", -1, 6, 0, "(class<`matrix`> | double[] | null)", 1
+"coin", "dperm", -1, 6, 0, "class<`matrix`>", 1
+"coin", "dperm", -1, 6, 1, "double[]", 1
+"coin", "dperm", -1, 6, 2, "null", 1
 "coin", "dperm", 0, 6, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "dperm", 1, 6, 0, "any", 1
 "coin", "dperm", 2, 6, 0, "...", 1
-"coin", "%EQ%", -1, 0, 0, "(class<`matrix`> | ^logical[])", 1
+"coin", "%EQ%", -1, 0, 0, "class<`matrix`>", 1
+"coin", "%EQ%", -1, 0, 1, "^logical[]", 1
 "coin", "%EQ%", 0, 0, 0, "class<`matrix`>", 1
 "coin", "%EQ%", 0, 0, 1, "^double[]", 1
 "coin", "%EQ%", 1, 0, 0, "double", 1
@@ -391,13 +415,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "ft", 6, 0, 0, "...", 1
 "coin", "f_trafo", -1, 0, 0, "class<`matrix`>", 1
 "coin", "f_trafo", 0, 0, 0, "class<`factor`>", 1
-"coin", "%GE%", -1, 0, 0, "(class<`matrix`> | logical[])", 1
+"coin", "%GE%", -1, 0, 0, "class<`matrix`>", 1
+"coin", "%GE%", -1, 0, 1, "logical[]", 1
 "coin", "%GE%", 0, 0, 0, "class<`matrix`>", 1
 "coin", "%GE%", 0, 0, 1, "class<`matrix`, `pvalue`>", 1
 "coin", "%GE%", 0, 0, 2, "double[]", 1
 "coin", "%GE%", 1, 0, 0, "double[]", 1
 "coin", "%GE%", 1, 0, 1, "class<`matrix`, `pvalue`>", 1
-"coin", "%GT%", -1, 0, 0, "(class<`array`> | logical[])", 1
+"coin", "%GT%", -1, 0, 0, "class<`array`>", 1
+"coin", "%GT%", -1, 0, 1, "logical[]", 1
 "coin", "%GT%", 0, 0, 0, "class<`array`>", 1
 "coin", "%GT%", 0, 0, 1, "double[]", 1
 "coin", "%GT%", 1, 0, 0, "double", 1
@@ -432,7 +458,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "independence_test.IndependenceProblem", 7, 0, 0, "null", 1
 "coin", "independence_test.IndependenceProblem", 7, 0, 1, "class<`function`>", 1
 "coin", "independence_test.IndependenceProblem", 8, 0, 0, "...", 1
-"coin", "independence_test.table", -1, 0, 0, "(class<`MaxTypeIndependenceTest`> | class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "independence_test.table", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
+"coin", "independence_test.table", -1, 0, 1, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "independence_test.table", -1, 0, 2, "class<`ScalarIndependenceTest`>", 1
 "coin", "independence_test.table", 0, 0, 0, "class<`table`>", 1
 "coin", "independence_test.table", 1, 0, 0, "...", 1
 "coin", "is_2sample", -1, 0, 0, "logical", 1
@@ -639,22 +667,27 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "lbl_test.table", -1, 0, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "lbl_test.table", 0, 0, 0, "class<`table`>", 1
 "coin", "lbl_test.table", 1, 0, 0, "...", 1
-"coin", "%LE%", -1, 0, 0, "(class<`array`> | class<`matrix`> | logical[])", 1
+"coin", "%LE%", -1, 0, 0, "class<`array`>", 1
+"coin", "%LE%", -1, 0, 1, "class<`matrix`>", 1
+"coin", "%LE%", -1, 0, 2, "logical[]", 1
 "coin", "%LE%", 0, 0, 0, "class<`array`>", 1
 "coin", "%LE%", 0, 0, 1, "class<`matrix`>", 1
 "coin", "%LE%", 0, 0, 2, "double[]", 1
 "coin", "%LE%", 1, 0, 0, "double[]", 1
-"coin", "logrank_test", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "logrank_test", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "logrank_test", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "logrank_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "logrank_test", 0, 0, 1, "class<`IndependenceProblem`>", 1
 "coin", "logrank_test", 1, 0, 0, "...", 1
-"coin", "logrank_test.formula", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "logrank_test.formula", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "logrank_test.formula", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "logrank_test.formula", 0, 0, 0, "class<`formula`>", 1
 "coin", "logrank_test.formula", 1, 0, 0, "class<`data.frame`>", 1
 "coin", "logrank_test.formula", 2, 0, 0, "null", 1
 "coin", "logrank_test.formula", 3, 0, 0, "null", 1
 "coin", "logrank_test.formula", 4, 0, 0, "...", 1
-"coin", "logrank_test.IndependenceProblem", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "logrank_test.IndependenceProblem", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "logrank_test.IndependenceProblem", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "logrank_test.IndependenceProblem", 0, 0, 0, "class<`IndependenceProblem`>", 1
 "coin", "logrank_test.IndependenceProblem", 1, 0, 0, "character[]", 1
 "coin", "logrank_test.IndependenceProblem", 2, 0, 0, "character[]", 1
@@ -667,7 +700,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "logrank_trafo", 1, 0, 0, "character[]", 1
 "coin", "logrank_trafo", 2, 0, 0, "any", 1
 "coin", "logrank_trafo", 3, 0, 0, "...", 1
-"coin", "%LT%", -1, 0, 0, "(class<`array`> | logical[])", 1
+"coin", "%LT%", -1, 0, 0, "class<`array`>", 1
+"coin", "%LT%", -1, 0, 1, "logical[]", 1
 "coin", "%LT%", 0, 0, 0, "class<`array`>", 1
 "coin", "%LT%", 0, 0, 1, "double[]", 1
 "coin", "%LT%", 1, 0, 0, "double", 1
@@ -688,19 +722,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "marginal", 0, 3, 0, "class<`MaxTypeIndependenceTestStatistic`>", 1
 "coin", "marginal", 1, 3, 0, "class<`AsymptNullDistribution`>", 1
 "coin", "marginal", 2, 3, 0, "...", 1
-"coin", "maxstat_test", -1, 0, 0, "(class<`MaxTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "maxstat_test", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
+"coin", "maxstat_test", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "maxstat_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "maxstat_test", 0, 0, 1, "class<`IndependenceProblem`>", 1
 "coin", "maxstat_test", 0, 0, 2, "class<`table`>", 1
 "coin", "maxstat_test", 1, 0, 0, "...", 1
-"coin", "maxstat_test.formula", -1, 0, 0, "(class<`MaxTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "maxstat_test.formula", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
+"coin", "maxstat_test.formula", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "maxstat_test.formula", 0, 0, 0, "class<`formula`>", 1
 "coin", "maxstat_test.formula", 1, 0, 0, "class<`data.frame`>", 1
 "coin", "maxstat_test.formula", 1, 0, 1, "list<any>", 1
 "coin", "maxstat_test.formula", 2, 0, 0, "null", 1
 "coin", "maxstat_test.formula", 3, 0, 0, "null", 1
 "coin", "maxstat_test.formula", 4, 0, 0, "...", 1
-"coin", "maxstat_test.IndependenceProblem", -1, 0, 0, "(class<`MaxTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "maxstat_test.IndependenceProblem", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
+"coin", "maxstat_test.IndependenceProblem", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "maxstat_test.IndependenceProblem", 0, 0, 0, "class<`IndependenceProblem`>", 1
 "coin", "maxstat_test.IndependenceProblem", 1, 0, 0, "character[]", 1
 "coin", "maxstat_test.IndependenceProblem", 2, 0, 0, "character[]", 1
@@ -708,7 +745,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "maxstat_test.IndependenceProblem", 3, 0, 0, "double", 1
 "coin", "maxstat_test.IndependenceProblem", 4, 0, 0, "double", 1
 "coin", "maxstat_test.IndependenceProblem", 5, 0, 0, "...", 1
-"coin", "maxstat_test.table", -1, 0, 0, "(class<`MaxTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "maxstat_test.table", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
+"coin", "maxstat_test.table", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "maxstat_test.table", 0, 0, 0, "class<`table`>", 1
 "coin", "maxstat_test.table", 1, 0, 0, "...", 1
 "coin", "maxstat_trafo", -1, 0, 0, "class<`matrix`>", 1
@@ -742,7 +780,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "median_trafo", 0, 0, 0, "^integer[]", 1
 "coin", "median_trafo", 0, 0, 1, "double[]", 1
 "coin", "median_trafo", 1, 0, 0, "character[]", 1
-"coin", "mh_test", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "mh_test", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "mh_test", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "mh_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "mh_test", 0, 0, 1, "class<`SymmetryProblem`>", 1
 "coin", "mh_test", 0, 0, 2, "class<`table`>", 1
@@ -752,10 +791,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "mh_test.formula", 1, 0, 0, "class<`data.frame`>", 1
 "coin", "mh_test.formula", 2, 0, 0, "null", 1
 "coin", "mh_test.formula", 3, 0, 0, "...", 1
-"coin", "mh_test.SymmetryProblem", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "mh_test.SymmetryProblem", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "mh_test.SymmetryProblem", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "mh_test.SymmetryProblem", 0, 0, 0, "class<`SymmetryProblem`>", 1
 "coin", "mh_test.SymmetryProblem", 1, 0, 0, "...", 1
-"coin", "mh_test.table", -1, 0, 0, "(class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "mh_test.table", -1, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "mh_test.table", -1, 0, 1, "class<`ScalarIndependenceTest`>", 1
 "coin", "mh_test.table", 0, 0, 0, "class<`table`>", 1
 "coin", "mh_test.table", 1, 0, 0, "...", 1
 "coin", "midpvalue", -1, 0, 0, "class<`numeric`, `pvalue`>", 1
@@ -850,7 +891,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "numeric_trafo", 0, 1, 0, "^integer[]", 1
 "coin", "numeric_trafo", 0, 1, 1, "double[]", 1
 "coin", "numeric_trafo", 1, 1, 0, "character[]", 1
-"coin", "numeric_trafo", -1, 2, 0, "(class<`matrix`> | ^double[])", 1
+"coin", "numeric_trafo", -1, 2, 0, "class<`matrix`>", 1
+"coin", "numeric_trafo", -1, 2, 1, "^double[]", 1
 "coin", "numeric_trafo", 0, 2, 0, "double[]", 1
 "coin", "numeric_trafo", 0, 2, 1, "^integer[]", 1
 "coin", "numeric_trafo", 1, 2, 0, "character[]", 1
@@ -908,40 +950,47 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "pmvn", 3, 0, 0, "class<`matrix`>", 1
 "coin", "pmvn", 4, 0, 0, "logical", 1
 "coin", "pmvn", 5, 0, 0, "...", 1
-"coin", "pperm", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"coin", "pperm", -1, 0, 0, "class<`matrix`>", 1
+"coin", "pperm", -1, 0, 1, "double[]", 1
 "coin", "pperm", 0, 0, 0, "class<`QuadTypeIndependenceTest`>", 1
 "coin", "pperm", 1, 0, 0, "class<`matrix`>", 1
 "coin", "pperm", 1, 0, 1, "integer[]", 1
 "coin", "pperm", 1, 0, 2, "double", 1
 "coin", "pperm", 2, 0, 0, "...", 1
-"coin", "pperm", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"coin", "pperm", -1, 1, 0, "class<`matrix`>", 1
+"coin", "pperm", -1, 1, 1, "double[]", 1
 "coin", "pperm", 0, 1, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "pperm", 1, 1, 0, "class<`matrix`>", 1
 "coin", "pperm", 1, 1, 1, "double[]", 1
 "coin", "pperm", 2, 1, 0, "...", 1
-"coin", "pperm", -1, 2, 0, "(class<`matrix`> | double[])", 1
+"coin", "pperm", -1, 2, 0, "class<`matrix`>", 1
+"coin", "pperm", -1, 2, 1, "double[]", 1
 "coin", "pperm", 0, 2, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "pperm", 1, 2, 0, "class<`matrix`>", 1
 "coin", "pperm", 1, 2, 1, "integer[]", 1
 "coin", "pperm", 1, 2, 2, "double", 1
 "coin", "pperm", 2, 2, 0, "...", 1
-"coin", "pperm", -1, 3, 0, "(class<`matrix`> | double[])", 1
+"coin", "pperm", -1, 3, 0, "class<`matrix`>", 1
+"coin", "pperm", -1, 3, 1, "double[]", 1
 "coin", "pperm", 0, 3, 0, "class<`AsymptNullDistribution`>", 1
 "coin", "pperm", 1, 3, 0, "class<`matrix`>", 1
 "coin", "pperm", 1, 3, 1, "integer[]", 1
 "coin", "pperm", 1, 3, 2, "double", 1
 "coin", "pperm", 2, 3, 0, "...", 1
-"coin", "pperm", -1, 4, 0, "(class<`matrix`> | double[])", 1
+"coin", "pperm", -1, 4, 0, "class<`matrix`>", 1
+"coin", "pperm", -1, 4, 1, "double[]", 1
 "coin", "pperm", 0, 4, 0, "class<`ExactNullDistribution`>", 1
 "coin", "pperm", 1, 4, 0, "class<`matrix`>", 1
 "coin", "pperm", 1, 4, 1, "double[]", 1
 "coin", "pperm", 2, 4, 0, "...", 1
-"coin", "pperm", -1, 5, 0, "(class<`matrix`> | double[])", 1
+"coin", "pperm", -1, 5, 0, "class<`matrix`>", 1
+"coin", "pperm", -1, 5, 1, "double[]", 1
 "coin", "pperm", 0, 5, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "pperm", 1, 5, 0, "class<`matrix`>", 1
 "coin", "pperm", 1, 5, 1, "double[]", 1
 "coin", "pperm", 2, 5, 0, "...", 1
-"coin", "pperm", -1, 6, 0, "(class<`matrix`> | double[])", 1
+"coin", "pperm", -1, 6, 0, "class<`matrix`>", 1
+"coin", "pperm", -1, 6, 1, "double[]", 1
 "coin", "pperm", 0, 6, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "pperm", 0, 6, 1, "class<`AsymptNullDistribution`>", 1
 "coin", "pperm", 0, 6, 2, "class<`ExactNullDistribution`>", 1
@@ -957,7 +1006,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "pvalue", -1, 1, 0, "class<`numeric`, `pvalue`>", 1
 "coin", "pvalue", 0, 1, 0, "class<`ExactNullDistribution`>", 1
 "coin", "pvalue", 1, 1, 0, "...", 1
-"coin", "pvalue", -1, 2, 0, "(class<`matrix`, `pvalue`> | class<`numeric`, `pvalue`>)", 1
+"coin", "pvalue", -1, 2, 0, "class<`matrix`, `pvalue`>", 1
+"coin", "pvalue", -1, 2, 1, "class<`numeric`, `pvalue`>", 1
 "coin", "pvalue", 0, 2, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "pvalue", 0, 2, 1, "class<`AsymptNullDistribution`>", 1
 "coin", "pvalue", 0, 2, 2, "class<`ExactNullDistribution`>", 1
@@ -969,7 +1019,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "pvalue", -1, 3, 0, "class<`numeric`, `pvalue`>", 1
 "coin", "pvalue", 0, 3, 0, "class<`AsymptNullDistribution`>", 1
 "coin", "pvalue", 1, 3, 0, "...", 1
-"coin", "pvalue", -1, 4, 0, "(class<`matrix`, `pvalue`> | class<`numeric`, `pvalue`>)", 1
+"coin", "pvalue", -1, 4, 0, "class<`matrix`, `pvalue`>", 1
+"coin", "pvalue", -1, 4, 1, "class<`numeric`, `pvalue`>", 1
 "coin", "pvalue", 0, 4, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "pvalue", 1, 4, 0, "...", 1
 "coin", "pvalue", -1, 5, 0, "class<`numeric`, `pvalue`>", 1
@@ -978,7 +1029,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "pvalue", -1, 6, 0, "class<`numeric`, `pvalue`>", 1
 "coin", "pvalue", 0, 6, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "pvalue", 1, 6, 0, "...", 1
-"coin", "pvalue", -1, 7, 0, "(class<`matrix`, `pvalue`> | class<`numeric`, `pvalue`>)", 1
+"coin", "pvalue", -1, 7, 0, "class<`matrix`, `pvalue`>", 1
+"coin", "pvalue", -1, 7, 1, "class<`numeric`, `pvalue`>", 1
 "coin", "pvalue", 0, 7, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "pvalue", 1, 7, 0, "...", 1
 "coin", "pvalue", -1, 8, 0, "class<`numeric`, `pvalue`>", 1
@@ -993,16 +1045,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "pvalue_interval", -1, 1, 0, "double[]", 1
 "coin", "pvalue_interval", 0, 1, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "pvalue_interval", 1, 1, 0, "...", 1
-"coin", "pvalue_interval", -1, 2, 0, "(double[] | null)", 1
+"coin", "pvalue_interval", -1, 2, 0, "double[]", 1
+"coin", "pvalue_interval", -1, 2, 1, "null", 1
 "coin", "pvalue_interval", 0, 2, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "pvalue_interval", 1, 2, 0, "...", 1
-"coin", "pvalue_interval", -1, 3, 0, "(class<`matrix`> | double[])", 1
+"coin", "pvalue_interval", -1, 3, 0, "class<`matrix`>", 1
+"coin", "pvalue_interval", -1, 3, 1, "double[]", 1
 "coin", "pvalue_interval", 0, 3, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "pvalue_interval", 1, 3, 0, "...", 1
-"coin", "pvalue_interval", -1, 4, 0, "(class<`matrix`> | double[] | null)", 1
+"coin", "pvalue_interval", -1, 4, 0, "class<`matrix`>", 1
+"coin", "pvalue_interval", -1, 4, 1, "double[]", 1
+"coin", "pvalue_interval", -1, 4, 2, "null", 1
 "coin", "pvalue_interval", 0, 4, 0, "class<`ExactNullDistribution`>", 1
 "coin", "pvalue_interval", 1, 4, 0, "...", 1
-"coin", "pvalue_interval", -1, 5, 0, "(class<`matrix`> | double[] | null)", 1
+"coin", "pvalue_interval", -1, 5, 0, "class<`matrix`>", 1
+"coin", "pvalue_interval", -1, 5, 1, "double[]", 1
+"coin", "pvalue_interval", -1, 5, 2, "null", 1
 "coin", "pvalue_interval", 0, 5, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "pvalue_interval", 0, 5, 1, "class<`ExactNullDistribution`>", 1
 "coin", "pvalue_interval", 0, 5, 2, "class<`MaxTypeIndependenceTest`>", 1
@@ -1014,7 +1072,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "qmvn", 1, 0, 0, "double[]", 1
 "coin", "qmvn", 2, 0, 0, "class<`matrix`>", 1
 "coin", "qmvn", 3, 0, 0, "...", 1
-"coin", "qperm", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"coin", "qperm", -1, 0, 0, "class<`matrix`>", 1
+"coin", "qperm", -1, 0, 1, "double[]", 1
 "coin", "qperm", 0, 0, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "qperm", 0, 0, 1, "class<`AsymptNullDistribution`>", 1
 "coin", "qperm", 0, 0, 2, "class<`ExactNullDistribution`>", 1
@@ -1024,32 +1083,38 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "qperm", 1, 0, 0, "class<`matrix`>", 1
 "coin", "qperm", 1, 0, 1, "double[]", 1
 "coin", "qperm", 2, 0, 0, "...", 1
-"coin", "qperm", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"coin", "qperm", -1, 1, 0, "class<`matrix`>", 1
+"coin", "qperm", -1, 1, 1, "double[]", 1
 "coin", "qperm", 0, 1, 0, "class<`ExactNullDistribution`>", 1
 "coin", "qperm", 1, 1, 0, "class<`matrix`>", 1
 "coin", "qperm", 1, 1, 1, "double[]", 1
 "coin", "qperm", 2, 1, 0, "...", 1
-"coin", "qperm", -1, 2, 0, "(class<`matrix`> | double[])", 1
+"coin", "qperm", -1, 2, 0, "class<`matrix`>", 1
+"coin", "qperm", -1, 2, 1, "double[]", 1
 "coin", "qperm", 0, 2, 0, "class<`AsymptNullDistribution`>", 1
 "coin", "qperm", 1, 2, 0, "class<`matrix`>", 1
 "coin", "qperm", 1, 2, 1, "double[]", 1
 "coin", "qperm", 2, 2, 0, "...", 1
-"coin", "qperm", -1, 3, 0, "(class<`matrix`> | double[])", 1
+"coin", "qperm", -1, 3, 0, "class<`matrix`>", 1
+"coin", "qperm", -1, 3, 1, "double[]", 1
 "coin", "qperm", 0, 3, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "qperm", 1, 3, 0, "class<`matrix`>", 1
 "coin", "qperm", 1, 3, 1, "double[]", 1
 "coin", "qperm", 2, 3, 0, "...", 1
-"coin", "qperm", -1, 4, 0, "(class<`matrix`> | double[])", 1
+"coin", "qperm", -1, 4, 0, "class<`matrix`>", 1
+"coin", "qperm", -1, 4, 1, "double[]", 1
 "coin", "qperm", 0, 4, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "qperm", 1, 4, 0, "class<`matrix`>", 1
 "coin", "qperm", 1, 4, 1, "double[]", 1
 "coin", "qperm", 2, 4, 0, "...", 1
-"coin", "qperm", -1, 5, 0, "(class<`matrix`> | double[])", 1
+"coin", "qperm", -1, 5, 0, "class<`matrix`>", 1
+"coin", "qperm", -1, 5, 1, "double[]", 1
 "coin", "qperm", 0, 5, 0, "class<`QuadTypeIndependenceTest`>", 1
 "coin", "qperm", 1, 5, 0, "class<`matrix`>", 1
 "coin", "qperm", 1, 5, 1, "double[]", 1
 "coin", "qperm", 2, 5, 0, "...", 1
-"coin", "qperm", -1, 6, 0, "(class<`matrix`> | double[])", 1
+"coin", "qperm", -1, 6, 0, "class<`matrix`>", 1
+"coin", "qperm", -1, 6, 1, "double[]", 1
 "coin", "qperm", 0, 6, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "qperm", 1, 6, 0, "class<`matrix`>", 1
 "coin", "qperm", 1, 6, 1, "double[]", 1
@@ -1142,7 +1207,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "savage_trafo", 0, 0, 0, "^integer[]", 1
 "coin", "savage_trafo", 0, 0, 1, "double[]", 1
 "coin", "savage_trafo", 1, 0, 0, "character[]", 1
-"coin", "setAttributes", -1, 0, 0, "(class<`matrix`> | double[])", 1
+"coin", "setAttributes", -1, 0, 0, "class<`matrix`>", 1
+"coin", "setAttributes", -1, 0, 1, "double[]", 1
 "coin", "setAttributes", 0, 0, 0, "double[]", 1
 "coin", "setAttributes", 1, 0, 0, "null", 1
 "coin", "setAttributes", 1, 0, 1, "list<integer[] | integer[] | list<character | null> | character>", 1
@@ -1155,7 +1221,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "setRownames", -1, 0, 0, "class<`matrix`>", 1
 "coin", "setRownames", 0, 0, 0, "class<`matrix`>", 1
 "coin", "setRownames", 1, 0, 0, "integer[]", 1
-"coin", "setscores", -1, 0, 0, "(class<`IndependenceProblem`> | class<`SymmetryProblem`>)", 1
+"coin", "setscores", -1, 0, 0, "class<`IndependenceProblem`>", 1
+"coin", "setscores", -1, 0, 1, "class<`SymmetryProblem`>", 1
 "coin", "setscores", 0, 0, 0, "class<`IndependenceProblem`>", 1
 "coin", "setscores", 0, 0, 1, "class<`SymmetryProblem`>", 1
 "coin", "setscores", 1, 0, 0, "list<double[]>", 1
@@ -1218,7 +1285,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "SR_shift_2sample", 0, 0, 0, "class<`QuadTypeIndependenceTestStatistic`>", 1
 "coin", "SR_shift_2sample", 0, 0, 1, "class<`ScalarIndependenceTestStatistic`>", 1
 "coin", "SR_shift_2sample", 1, 0, 0, "double", 1
-"coin", "statistic", -1, 0, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 0, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 0, 1, "double", 1
 "coin", "statistic", 0, 0, 0, "class<`IndependenceLinearStatistic`>", 1
 "coin", "statistic", 0, 0, 1, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "statistic", 0, 0, 2, "class<`MaxTypeIndependenceTestStatistic`>", 1
@@ -1228,34 +1296,43 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "statistic", 0, 0, 6, "class<`ScalarIndependenceTestConfint`>", 1
 "coin", "statistic", 0, 0, 7, "class<`ScalarIndependenceTestStatistic`>", 1
 "coin", "statistic", 1, 0, 0, "...", 1
-"coin", "statistic", -1, 1, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 1, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 1, 1, "double", 1
 "coin", "statistic", 0, 1, 0, "class<`QuadTypeIndependenceTestStatistic`>", 1
 "coin", "statistic", 1, 1, 0, "...", 1
-"coin", "statistic", -1, 2, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 2, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 2, 1, "double", 1
 "coin", "statistic", 0, 2, 0, "class<`QuadTypeIndependenceTest`>", 1
 "coin", "statistic", 1, 2, 0, "...", 1
 "coin", "statistic", -1, 3, 0, "class<`matrix`>", 1
 "coin", "statistic", 0, 3, 0, "class<`ScalarIndependenceTestConfint`>", 1
 "coin", "statistic", 1, 3, 0, "...", 1
-"coin", "statistic", -1, 4, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 4, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 4, 1, "double", 1
 "coin", "statistic", 0, 4, 0, "class<`QuadTypeIndependenceTestStatistic`>", 1
 "coin", "statistic", 1, 4, 0, "...", 1
-"coin", "statistic", -1, 5, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 5, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 5, 1, "double", 1
 "coin", "statistic", 0, 5, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "statistic", 1, 5, 0, "...", 1
-"coin", "statistic", -1, 6, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 6, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 6, 1, "double", 1
 "coin", "statistic", 0, 6, 0, "class<`ScalarIndependenceTestStatistic`>", 1
 "coin", "statistic", 1, 6, 0, "...", 1
-"coin", "statistic", -1, 7, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 7, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 7, 1, "double", 1
 "coin", "statistic", 0, 7, 0, "class<`MaxTypeIndependenceTestStatistic`>", 1
 "coin", "statistic", 1, 7, 0, "...", 1
-"coin", "statistic", -1, 8, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 8, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 8, 1, "double", 1
 "coin", "statistic", 0, 8, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "statistic", 1, 8, 0, "...", 1
-"coin", "statistic", -1, 9, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 9, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 9, 1, "double", 1
 "coin", "statistic", 0, 9, 0, "class<`ScalarIndependenceTestStatistic`>", 1
 "coin", "statistic", 1, 9, 0, "...", 1
-"coin", "statistic", -1, 10, 0, "(class<`matrix`> | double)", 1
+"coin", "statistic", -1, 10, 0, "class<`matrix`>", 1
+"coin", "statistic", -1, 10, 1, "double", 1
 "coin", "statistic", 0, 10, 0, "class<`MaxTypeIndependenceTestStatistic`>", 1
 "coin", "statistic", 1, 10, 0, "...", 1
 "coin", "statistic", -1, 11, 0, "class<`matrix`>", 1
@@ -1270,17 +1347,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "str2lang", -1, 0, 0, "class<`<-`>", 1
 "coin", "str2lang", 0, 0, 0, "character", 1
 "coin", "support", -1, 0, 0, "double[]", 1
-"coin", "support", -1, 1, 0, "(class<`matrix`> | double[])", 1
+"coin", "support", -1, 1, 0, "class<`matrix`>", 1
+"coin", "support", -1, 1, 1, "double[]", 1
 "coin", "support", 0, 1, 0, "logical", 1
 "coin", "support", -1, 2, 0, "double[]", 1
 "coin", "support", 0, 2, 0, "logical", 1
-"coin", "support", -1, 3, 0, "(double[] | null)", 1
+"coin", "support", -1, 3, 0, "double[]", 1
+"coin", "support", -1, 3, 1, "null", 1
 "coin", "support", 0, 3, 0, "class<`ScalarIndependenceTest`>", 1
 "coin", "support", 1, 3, 0, "...", 1
-"coin", "support", -1, 4, 0, "(class<`matrix`> | double[])", 1
+"coin", "support", -1, 4, 0, "class<`matrix`>", 1
+"coin", "support", -1, 4, 1, "double[]", 1
 "coin", "support", 0, 4, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "support", 1, 4, 0, "...", 1
-"coin", "support", -1, 5, 0, "(class<`matrix`> | double[] | null)", 1
+"coin", "support", -1, 5, 0, "class<`matrix`>", 1
+"coin", "support", -1, 5, 1, "double[]", 1
+"coin", "support", -1, 5, 2, "null", 1
 "coin", "support", 0, 5, 0, "class<`ApproxNullDistribution`>", 1
 "coin", "support", 0, 5, 1, "class<`ExactNullDistribution`>", 1
 "coin", "support", 0, 5, 2, "class<`MaxTypeIndependenceTest`>", 1
@@ -1288,7 +1370,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "support", 0, 5, 4, "class<`ScalarIndependenceTest`>", 1
 "coin", "support", 0, 5, 5, "class<`AsymptNullDistribution`>", 1
 "coin", "support", 1, 5, 0, "...", 1
-"coin", "support", -1, 6, 0, "(double[] | null)", 1
+"coin", "support", -1, 6, 0, "double[]", 1
+"coin", "support", -1, 6, 1, "null", 1
 "coin", "support", 0, 6, 0, "class<`QuadTypeIndependenceTest`>", 1
 "coin", "support", 1, 6, 0, "...", 1
 "coin", "support", -1, 7, 0, "double[]", 1
@@ -1331,7 +1414,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "symmetry_test.SymmetryProblem", 7, 0, 1, "class<`function`>", 1
 "coin", "symmetry_test.SymmetryProblem", 8, 0, 0, "logical", 1
 "coin", "symmetry_test.SymmetryProblem", 9, 0, 0, "...", 1
-"coin", "symmetry_test.table", -1, 0, 0, "(class<`MaxTypeIndependenceTest`> | class<`QuadTypeIndependenceTest`> | class<`ScalarIndependenceTest`>)", 1
+"coin", "symmetry_test.table", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
+"coin", "symmetry_test.table", -1, 0, 1, "class<`QuadTypeIndependenceTest`>", 1
+"coin", "symmetry_test.table", -1, 0, 2, "class<`ScalarIndependenceTest`>", 1
 "coin", "symmetry_test.table", 0, 0, 0, "class<`table`>", 1
 "coin", "symmetry_test.table", 1, 0, 0, "...", 1
 "coin", "table2IndependenceProblem", -1, 0, 0, "class<`IndependenceProblem`>", 1

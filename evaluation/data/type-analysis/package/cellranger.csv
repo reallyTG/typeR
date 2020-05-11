@@ -3,7 +3,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cellranger", "%||%", 0, 0, 0, "logical", 1
 "cellranger", "%||%", 0, 0, 1, "null", 1
 "cellranger", "%||%", 1, 0, 0, "any", 1
-"cellranger", "A1_to_R1C1", -1, 0, 0, "(^character[] | null)", 1
+"cellranger", "A1_to_R1C1", -1, 0, 0, "^character[]", 1
+"cellranger", "A1_to_R1C1", -1, 0, 1, "null", 1
 "cellranger", "A1_to_R1C1", 0, 0, 0, "character[]", 1
 "cellranger", "A1_to_R1C1", 1, 0, 0, "logical", 1
 "cellranger", "A1_to_ra_ref", -1, 0, 0, "list<class<`list`, `ra_ref`>>", 1
@@ -18,10 +19,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cellranger", "addr_row", -1, 0, 0, "integer[]", 1
 "cellranger", "addr_row", 0, 0, 0, "class<`cell_addr`>", 1
 "cellranger", "addr_row", 1, 0, 0, "...", 1
-"cellranger", "addr_row.cell_addr", -1, 0, 0, "(integer[] | null)", 1
+"cellranger", "addr_row.cell_addr", -1, 0, 0, "integer[]", 1
+"cellranger", "addr_row.cell_addr", -1, 0, 1, "null", 1
 "cellranger", "addr_row.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
 "cellranger", "addr_row.cell_addr", 1, 0, 0, "...", 1
-"cellranger", "add_single_quotes", -1, 0, 0, "(character | null)", 1
+"cellranger", "add_single_quotes", -1, 0, 0, "character", 1
+"cellranger", "add_single_quotes", -1, 0, 1, "null", 1
 "cellranger", "add_single_quotes", 0, 0, 0, "character", 1
 "cellranger", "add_single_quotes", 0, 0, 1, "null", 1
 "cellranger", "anchored", -1, 0, 0, "class<`cell_limits`, `list`>", 1
@@ -119,7 +122,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cellranger", "FUN", 0, 0, 0, "character[]", 1
 "cellranger", "FUN", 0, 0, 1, "class<`list`, `ra_ref`>", 1
 "cellranger", "FUN", 1, 0, 0, "...", 1
-"cellranger", "FUN", -1, 1, 0, "(character[] | null)", 1
+"cellranger", "FUN", -1, 1, 0, "character[]", 1
+"cellranger", "FUN", -1, 1, 1, "null", 1
 "cellranger", "FUN", 0, 1, 0, "class<`list`, `ra_ref`>", 1
 "cellranger", "FUN", 0, 1, 1, "class<`cell_addr`>", 1
 "cellranger", "FUN", 1, 1, 0, "any", 1
@@ -127,7 +131,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cellranger", "FUN", 3, 1, 0, "null", 1
 "cellranger", "FUN", 3, 1, 1, "logical", 1
 "cellranger", "FUN", 4, 1, 0, "...", 1
-"cellranger", "guess_fo", -1, 0, 0, "(character[] | null)", 1
+"cellranger", "guess_fo", -1, 0, 0, "character[]", 1
+"cellranger", "guess_fo", -1, 0, 1, "null", 1
 "cellranger", "guess_fo", 0, 0, 0, "character[]", 1
 "cellranger", "guess_fo", 0, 0, 1, "double", 1
 "cellranger", "guess_fo", 1, 0, 0, "character[]", 1
@@ -147,7 +152,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cellranger", "isTRUE_v", 0, 0, 1, "null", 1
 "cellranger", "length.cell_addr", -1, 0, 0, "integer", 1
 "cellranger", "length.cell_addr", 0, 0, 0, "class<`cell_addr`>", 1
-"cellranger", "letter_to_num", -1, 0, 0, "(^integer[] | null)", 1
+"cellranger", "letter_to_num", -1, 0, 0, "^integer[]", 1
+"cellranger", "letter_to_num", -1, 0, 1, "null", 1
 "cellranger", "letter_to_num", 0, 0, 0, "^character[]", 1
 "cellranger", "letter_to_num", 0, 0, 1, "null", 1
 "cellranger", "num_to_letter", -1, 0, 0, "^character[]", 1
@@ -178,13 +184,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cellranger", "ra_ref", 4, 0, 0, "character", 1
 "cellranger", "ra_ref", 4, 0, 1, "null", 1
 "cellranger", "ra_ref", 5, 0, 0, "null", 1
-"cellranger", "rel_abs_format", -1, 0, 0, "(character | integer)", 1
+"cellranger", "rel_abs_format", -1, 0, 0, "character", 1
+"cellranger", "rel_abs_format", -1, 0, 1, "integer", 1
 "cellranger", "rel_abs_format", 0, 0, 0, "logical", 1
 "cellranger", "rel_abs_format", 1, 0, 0, "any", 1
 "cellranger", "rel_abs_format", 2, 0, 0, "character[]", 1
 "cellranger", "relativize", -1, 0, 0, "class<`list`, `ra_ref`>", 1
 "cellranger", "relativize", 0, 0, 0, "class<`list`, `ra_ref`>", 1
-"cellranger", "to_string", -1, 0, 0, "(character[] | null)", 1
+"cellranger", "to_string", -1, 0, 0, "character[]", 1
+"cellranger", "to_string", -1, 0, 1, "null", 1
 "cellranger", "to_string", 0, 0, 0, "class<`list`, `ra_ref`>", 1
 "cellranger", "to_string", 0, 0, 1, "class<`cell_addr`>", 1
 "cellranger", "to_string", 1, 0, 0, "any", 1
@@ -198,7 +206,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cellranger", "to_string.cell_addr", 2, 0, 0, "any", 1
 "cellranger", "to_string.cell_addr", 3, 0, 0, "logical", 1
 "cellranger", "to_string.cell_addr", 4, 0, 0, "...", 1
-"cellranger", "to_string.ra_ref", -1, 0, 0, "(character | null)", 1
+"cellranger", "to_string.ra_ref", -1, 0, 0, "character", 1
+"cellranger", "to_string.ra_ref", -1, 0, 1, "null", 1
 "cellranger", "to_string.ra_ref", 0, 0, 0, "class<`list`, `ra_ref`>", 1
 "cellranger", "to_string.ra_ref", 1, 0, 0, "any", 1
 "cellranger", "to_string.ra_ref", 2, 0, 0, "any", 1

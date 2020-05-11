@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"roxygen2", "%||%", -1, 0, 0, "(character | null)", 1
+"roxygen2", "%||%", -1, 0, 0, "character", 1
+"roxygen2", "%||%", -1, 0, 1, "null", 1
 "roxygen2", "%||%", 0, 0, 0, "character", 1
 "roxygen2", "%||%", 0, 0, 1, "null", 1
 "roxygen2", "%||%", 1, 0, 0, "any", 1
@@ -204,7 +205,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "roxygen2", "rdComplete", 0, 0, 0, "character", 1
 "roxygen2", "rdComplete", 1, 0, 0, "logical", 1
 "roxygen2", "rd_roclet", -1, 0, 0, "class<`roclet`, `roclet_rd`>", 1
-"roxygen2", "rd_section", -1, 0, 0, "(class<`rd_section`, `rd_section_alias`> | class<`rd_section`, `rd_section_backref`> | class<`rd_section`, `rd_section_description`> | class<`rd_section`, `rd_section_formals`> | class<`rd_section`, `rd_section_name`> | class<`rd_section`, `rd_section_tip`> | class<`rd_section`, `rd_section_title`> | class<`rd_section`, `rd_section_usage`> | null)", 1
+"roxygen2", "rd_section", -1, 0, 0, "class<`rd_section`, `rd_section_alias`>", 1
+"roxygen2", "rd_section", -1, 0, 1, "class<`rd_section`, `rd_section_backref`>", 1
+"roxygen2", "rd_section", -1, 0, 2, "class<`rd_section`, `rd_section_description`>", 1
+"roxygen2", "rd_section", -1, 0, 3, "class<`rd_section`, `rd_section_formals`>", 1
+"roxygen2", "rd_section", -1, 0, 4, "class<`rd_section`, `rd_section_name`>", 1
+"roxygen2", "rd_section", -1, 0, 5, "class<`rd_section`, `rd_section_tip`>", 1
+"roxygen2", "rd_section", -1, 0, 6, "class<`rd_section`, `rd_section_title`>", 1
+"roxygen2", "rd_section", -1, 0, 7, "class<`rd_section`, `rd_section_usage`>", 1
+"roxygen2", "rd_section", -1, 0, 8, "null", 1
 "roxygen2", "rd_section", 0, 0, 0, "character", 1
 "roxygen2", "rd_section", 1, 0, 0, "character[]", 1
 "roxygen2", "rd_section", 1, 0, 1, "class<`rd`>", 1
@@ -212,7 +221,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "roxygen2", "read_lines", -1, 0, 0, "character[]", 1
 "roxygen2", "read_lines", 0, 0, 0, "character", 1
 "roxygen2", "read_lines", 1, 0, 0, "integer", 1
-"roxygen2", "roclet", -1, 0, 0, "(class<`roclet`, `roclet_memo`> | class<`roclet`, `roclet_rd`>)", 1
+"roxygen2", "roclet", -1, 0, 0, "class<`roclet`, `roclet_memo`>", 1
+"roxygen2", "roclet", -1, 0, 1, "class<`roclet`, `roclet_rd`>", 1
 "roxygen2", "roclet", 0, 0, 0, "character", 1
 "roxygen2", "roclet", 1, 0, 0, "...", 1
 "roxygen2", "roclet_find", -1, 0, 0, "class<`roclet`, `roclet_rd`>", 1
@@ -243,15 +253,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "roxygen2", "roxy_block", 2, 0, 0, "integer", 1
 "roxygen2", "roxy_block", 3, 0, 0, "class<`<-`>", 1
 "roxygen2", "roxy_block", 4, 0, 0, "null", 1
-"roxygen2", "roxy_meta_get", -1, 0, 0, "(logical | null)", 1
+"roxygen2", "roxy_meta_get", -1, 0, 0, "logical", 1
+"roxygen2", "roxy_meta_get", -1, 0, 1, "null", 1
 "roxygen2", "roxy_meta_get", 0, 0, 0, "character", 1
 "roxygen2", "roxy_meta_get", 1, 0, 0, "logical", 1
 "roxygen2", "roxy_meta_get", 1, 0, 1, "null", 1
-"roxygen2", "roxy_meta_set", -1, 0, 0, "(class<`rlang_zap`> | environment | null)", 1
+"roxygen2", "roxy_meta_set", -1, 0, 0, "class<`rlang_zap`>", 1
+"roxygen2", "roxy_meta_set", -1, 0, 1, "environment", 1
+"roxygen2", "roxy_meta_set", -1, 0, 2, "null", 1
 "roxygen2", "roxy_meta_set", 0, 0, 0, "character", 1
 "roxygen2", "roxy_meta_set", 1, 0, 0, "environment", 1
 "roxygen2", "roxy_meta_set", 1, 0, 1, "null", 1
-"roxygen2", "roxy_tag", -1, 0, 0, "(class<`roxy_tag`, `roxy_tag_backref`> | class<`roxy_tag`, `roxy_tag_description`> | class<`roxy_tag`, `roxy_tag_.formals`> | class<`roxy_tag`, `roxy_tag_name`> | class<`roxy_tag`, `roxy_tag_title`> | class<`roxy_tag`, `roxy_tag_usage`>)", 1
+"roxygen2", "roxy_tag", -1, 0, 0, "class<`roxy_tag`, `roxy_tag_backref`>", 1
+"roxygen2", "roxy_tag", -1, 0, 1, "class<`roxy_tag`, `roxy_tag_description`>", 1
+"roxygen2", "roxy_tag", -1, 0, 2, "class<`roxy_tag`, `roxy_tag_.formals`>", 1
+"roxygen2", "roxy_tag", -1, 0, 3, "class<`roxy_tag`, `roxy_tag_name`>", 1
+"roxygen2", "roxy_tag", -1, 0, 4, "class<`roxy_tag`, `roxy_tag_title`>", 1
+"roxygen2", "roxy_tag", -1, 0, 5, "class<`roxy_tag`, `roxy_tag_usage`>", 1
 "roxygen2", "roxy_tag", 0, 0, 0, "character", 1
 "roxygen2", "roxy_tag", 1, 0, 0, "character", 1
 "roxygen2", "roxy_tag", 1, 0, 1, "null", 1
@@ -272,7 +290,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "roxygen2", "roxy_tag_parse.roxy_tag_param", 0, 0, 0, "class<`roxy_tag`, `roxy_tag_param`>", 1
 "roxygen2", "roxy_tag_parse.roxy_tag_title", -1, 0, 0, "class<`roxy_tag`, `roxy_tag_title`>", 1
 "roxygen2", "roxy_tag_parse.roxy_tag_title", 0, 0, 0, "class<`roxy_tag`, `roxy_tag_title`>", 1
-"roxygen2", "roxy_tag_rd", -1, 0, 0, "(class<`rd_section`, `rd_section_backref`> | class<`rd_section`, `rd_section_formals`> | class<`rd_section`, `rd_section_tip`> | class<`rd_section`, `rd_section_title`> | class<`rd_section`, `rd_section_usage`> | null)", 1
+"roxygen2", "roxy_tag_rd", -1, 0, 0, "class<`rd_section`, `rd_section_backref`>", 1
+"roxygen2", "roxy_tag_rd", -1, 0, 1, "class<`rd_section`, `rd_section_formals`>", 1
+"roxygen2", "roxy_tag_rd", -1, 0, 2, "class<`rd_section`, `rd_section_tip`>", 1
+"roxygen2", "roxy_tag_rd", -1, 0, 3, "class<`rd_section`, `rd_section_title`>", 1
+"roxygen2", "roxy_tag_rd", -1, 0, 4, "class<`rd_section`, `rd_section_usage`>", 1
+"roxygen2", "roxy_tag_rd", -1, 0, 5, "null", 1
 "roxygen2", "roxy_tag_rd", 0, 0, 0, "class<`roxy_tag`, `roxy_tag_backref`>", 1
 "roxygen2", "roxy_tag_rd", 0, 0, 1, "class<`roxy_tag`, `roxy_tag_.formals`>", 1
 "roxygen2", "roxy_tag_rd", 0, 0, 2, "class<`roxy_tag`, `roxy_tag_tip`>", 1
@@ -307,7 +330,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "roxygen2", "str_sub_same", 0, 0, 0, "character", 1
 "roxygen2", "str_sub_same", 1, 0, 0, "class<`data.frame`>", 1
 "roxygen2", "str_sub_same", 2, 0, 0, "any", 1
-"roxygen2", "tag_markdown", -1, 0, 0, "(class<`roxy_tag`, `roxy_tag_tip`> | class<`roxy_tag`, `roxy_tag_title`>)", 1
+"roxygen2", "tag_markdown", -1, 0, 0, "class<`roxy_tag`, `roxy_tag_tip`>", 1
+"roxygen2", "tag_markdown", -1, 0, 1, "class<`roxy_tag`, `roxy_tag_title`>", 1
 "roxygen2", "tag_markdown", 0, 0, 0, "class<`roxy_tag`, `roxy_tag_tip`>", 1
 "roxygen2", "tag_markdown", 0, 0, 1, "class<`roxy_tag`, `roxy_tag_title`>", 1
 "roxygen2", "tag_markdown_with_sections", -1, 0, 0, "class<`roxy_tag`, `roxy_tag_description`>", 1

@@ -53,7 +53,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "compact.rle", 0, 0, 0, "class<`rle`>", 1
 "statnet.common", "compress.data.frame", -1, 0, 0, "list<class<`data.frame`> | double[] | character[]>", 1
 "statnet.common", "compress.data.frame", 0, 0, 0, "class<`data.frame`>", 1
-"statnet.common", "compress_rows", -1, 0, 0, "(class<`linwmatrix`, `matrix`, `wmatrix`> | class<`logwmatrix`, `matrix`, `wmatrix`>)", 1
+"statnet.common", "compress_rows", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "compress_rows", -1, 0, 1, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
 "statnet.common", "compress_rows", 0, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
 "statnet.common", "compress_rows", 0, 0, 1, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
 "statnet.common", "compress_rows", 1, 0, 0, "...", 1
@@ -71,10 +72,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "c.rle", 0, 0, 0, "...", 1
 "statnet.common", "decompress.data.frame", -1, 0, 0, "class<`data.frame`>", 1
 "statnet.common", "decompress.data.frame", 0, 0, 0, "list<class<`data.frame`> | double[] | character[]>", 1
-"statnet.common", ".Deprecate_method", -1, 0, 0, "(character | null)", 1
+"statnet.common", ".Deprecate_method", -1, 0, 0, "character", 1
+"statnet.common", ".Deprecate_method", -1, 0, 1, "null", 1
 "statnet.common", ".Deprecate_method", 0, 0, 0, "character", 1
 "statnet.common", ".Deprecate_method", 1, 0, 0, "character", 1
-"statnet.common", ".Deprecate_once", -1, 0, 0, "(character | null)", 1
+"statnet.common", ".Deprecate_once", -1, 0, 0, "character", 1
+"statnet.common", ".Deprecate_once", -1, 0, 1, "null", 1
 "statnet.common", ".Deprecate_once", 0, 0, 0, "...", 1
 "statnet.common", "despace", -1, 0, 0, "character", 1
 "statnet.common", "despace", 0, 0, 0, "character", 1
@@ -88,7 +91,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "filter_rhs.formula", 0, 0, 0, "class<`formula`>", 1
 "statnet.common", "filter_rhs.formula", 1, 0, 0, "class<`function`>", 1
 "statnet.common", "filter_rhs.formula", 2, 0, 0, "...", 1
-"statnet.common", "forkTimeout", -1, 0, 0, "(logical | null)", 1
+"statnet.common", "forkTimeout", -1, 0, 0, "logical", 1
+"statnet.common", "forkTimeout", -1, 0, 1, "null", 1
 "statnet.common", "forkTimeout", 0, 0, 0, "any", 1
 "statnet.common", "forkTimeout", 1, 0, 0, "double", 1
 "statnet.common", "forkTimeout", 2, 0, 0, "any", 1
@@ -115,7 +119,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "lweighted.mean", 0, 0, 0, "class<`matrix`>", 1
 "statnet.common", "lweighted.mean", 0, 0, 1, "double[]", 1
 "statnet.common", "lweighted.mean", 1, 0, 0, "double[]", 1
-"statnet.common", "lweighted.var", -1, 0, 0, "(class<`matrix`> | double)", 1
+"statnet.common", "lweighted.var", -1, 0, 0, "class<`matrix`>", 1
+"statnet.common", "lweighted.var", -1, 0, 1, "double", 1
 "statnet.common", "lweighted.var", 0, 0, 0, "class<`matrix`>", 1
 "statnet.common", "lweighted.var", 0, 0, 1, "double[]", 1
 "statnet.common", "lweighted.var", 1, 0, 0, "double[]", 1
@@ -126,7 +131,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "message_print", -1, 0, 0, "null", 1
 "statnet.common", "message_print", 0, 0, 0, "...", 1
 "statnet.common", "message_print", 1, 0, 0, "null", 1
-"statnet.common", "NVL", -1, 0, 0, "(class<`name`> | double[] | null)", 1
+"statnet.common", "NVL", -1, 0, 0, "class<`name`>", 1
+"statnet.common", "NVL", -1, 0, 1, "double[]", 1
+"statnet.common", "NVL", -1, 0, 2, "null", 1
 "statnet.common", "NVL", 0, 0, 0, "...", 1
 "statnet.common", "NVL<-", -1, 0, 0, "double", 1
 "statnet.common", "NVL<-", 0, 0, 0, "double", 1
@@ -137,7 +144,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "NVL2", 0, 0, 1, "null", 1
 "statnet.common", "NVL2", 1, 0, 0, "character", 1
 "statnet.common", "NVL2", 2, 0, 0, "character", 1
-"statnet.common", "NVL3", -1, 0, 0, "(character | double)", 1
+"statnet.common", "NVL3", -1, 0, 0, "character", 1
+"statnet.common", "NVL3", -1, 0, 1, "double", 1
 "statnet.common", "NVL3", 0, 0, 0, "null", 1
 "statnet.common", "NVL3", 0, 0, 1, "double", 1
 "statnet.common", "NVL3", 1, 0, 0, "any", 1
@@ -278,12 +286,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "sweep.mcmc.list", 2, 0, 0, "character", 1
 "statnet.common", "sweep.mcmc.list", 3, 0, 0, "logical", 1
 "statnet.common", "sweep.mcmc.list", 4, 0, 0, "...", 1
-"statnet.common", "ult", -1, 0, 0, "(character | class<`call`> | integer)", 1
+"statnet.common", "ult", -1, 0, 0, "character", 1
+"statnet.common", "ult", -1, 0, 1, "class<`call`>", 1
+"statnet.common", "ult", -1, 0, 2, "integer", 1
 "statnet.common", "ult", 0, 0, 0, "character[]", 1
 "statnet.common", "ult", 0, 0, 1, "class<`formula`>", 1
 "statnet.common", "ult", 0, 0, 2, "integer[]", 1
 "statnet.common", "ult", 1, 0, 0, "double", 1
-"statnet.common", "ult<-", -1, 0, 0, "(class<`formula`> | double[])", 1
+"statnet.common", "ult<-", -1, 0, 0, "class<`formula`>", 1
+"statnet.common", "ult<-", -1, 0, 1, "double[]", 1
 "statnet.common", "ult<-", 0, 0, 0, "class<`formula`>", 1
 "statnet.common", "ult<-", 0, 0, 1, "double[]", 1
 "statnet.common", "ult<-", 1, 0, 0, "double", 1
@@ -302,7 +313,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "statnet.common", "[<-.wmatrix", 2, 0, 0, "any", 1
 "statnet.common", "[<-.wmatrix", 3, 0, 0, "...", 1
 "statnet.common", "[<-.wmatrix", 4, 0, 0, "integer[]", 1
-"statnet.common", "[.wmatrix", -1, 0, 0, "(class<`linwmatrix`, `matrix`, `wmatrix`> | class<`logwmatrix`, `matrix`, `wmatrix`>)", 1
+"statnet.common", "[.wmatrix", -1, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
+"statnet.common", "[.wmatrix", -1, 0, 1, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
 "statnet.common", "[.wmatrix", 0, 0, 0, "class<`linwmatrix`, `matrix`, `wmatrix`>", 1
 "statnet.common", "[.wmatrix", 0, 0, 1, "class<`logwmatrix`, `matrix`, `wmatrix`>", 1
 "statnet.common", "[.wmatrix", 1, 0, 0, "any", 1

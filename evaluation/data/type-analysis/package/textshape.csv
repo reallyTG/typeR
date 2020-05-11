@@ -16,7 +16,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "column_to_rownames", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "column_to_rownames", 1, 0, 0, "character", 1
 "textshape", "column_to_rownames", 1, 0, 1, "double", 1
-"textshape", "combine", -1, 0, 0, "(character[] | class<`data.frame`, `data.table`>)", 1
+"textshape", "combine", -1, 0, 0, "character[]", 1
+"textshape", "combine", -1, 0, 1, "class<`data.frame`, `data.table`>", 1
 "textshape", "combine", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
 "textshape", "combine", 0, 0, 1, "list<character[]>", 1
 "textshape", "combine", 1, 0, 0, "...", 1
@@ -32,7 +33,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "detect_text_column", 0, 0, 0, "any", 1
 "textshape", "detect_text_column", 1, 0, 0, "character", 1
 "textshape", "detect_text_column", 1, 0, 1, "logical", 1
-"textshape", "duration", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `data.table`>)", 1
+"textshape", "duration", -1, 0, 0, "class<`data.frame`>", 1
+"textshape", "duration", -1, 0, 1, "class<`data.frame`, `data.table`>", 1
 "textshape", "duration", 0, 0, 0, "integer[]", 1
 "textshape", "duration", 0, 0, 1, "character[]", 1
 "textshape", "duration", 0, 0, 2, "class<`data.frame`>", 1
@@ -56,7 +58,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "ends", -1, 0, 0, "integer[]", 1
 "textshape", "ends", 0, 0, 0, "integer[]", 1
 "textshape", "ends", 1, 0, 0, "...", 1
-"textshape", "fix_names", -1, 0, 0, "(character[] | null | list<any>)", 1
+"textshape", "fix_names", -1, 0, 0, "character[]", 1
+"textshape", "fix_names", -1, 0, 1, "null", 1
+"textshape", "fix_names", -1, 0, 2, "list<any>", 1
 "textshape", "fix_names", 0, 0, 0, "character[]", 1
 "textshape", "fix_names", 0, 0, 1, "null", 1
 "textshape", "fix_names", 0, 0, 2, "list<any>", 1
@@ -66,7 +70,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "flatten", 2, 0, 0, "...", 1
 "textshape", "flatten_h", -1, 0, 0, "list<character[] | null>", 1
 "textshape", "flatten_h", 0, 0, 0, "list<any>", 1
-"textshape", "from_to", -1, 0, 0, "(class<`data.frame`, `data.table`> | class<`factor`>)", 1
+"textshape", "from_to", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"textshape", "from_to", -1, 0, 1, "class<`factor`>", 1
 "textshape", "from_to", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "from_to", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
 "textshape", "from_to", 0, 0, 2, "class<`factor`>", 1
@@ -88,7 +93,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "from_to_summarize", 2, 0, 1, "null", 1
 "textshape", "from_to_summarize", 3, 0, 0, "logical", 1
 "textshape", "from_to_summarize", 4, 0, 0, "...", 1
-"textshape", "FUN", -1, 0, 0, "(character[] | null | list<any>)", 1
+"textshape", "FUN", -1, 0, 0, "character[]", 1
+"textshape", "FUN", -1, 0, 1, "null", 1
+"textshape", "FUN", -1, 0, 2, "list<any>", 1
 "textshape", "FUN", 0, 0, 0, "character[]", 1
 "textshape", "FUN", 0, 0, 1, "null", 1
 "textshape", "FUN", 0, 0, 2, "list<any>", 1
@@ -108,7 +115,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "mtabulate", 0, 0, 1, "class<`factor`, `ordered`>", 1
 "textshape", "mtabulate", 0, 0, 2, "double[]", 1
 "textshape", "mtabulate", 0, 0, 3, "list<double[] | character[]>", 1
-"textshape", "name_len_check", -1, 0, 0, "(character[] | null)", 1
+"textshape", "name_len_check", -1, 0, 0, "character[]", 1
+"textshape", "name_len_check", -1, 0, 1, "null", 1
 "textshape", "name_len_check", 0, 0, 0, "any", 1
 "textshape", "name_len_check", 1, 0, 0, "character[]", 1
 "textshape", "name_len_check", 1, 0, 1, "null", 1
@@ -117,7 +125,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "paste2", 1, 0, 0, "character", 1
 "textshape", "paste2", 2, 0, 0, "logical", 1
 "textshape", "paste2", 3, 0, 0, "logical", 1
-"textshape", "sapply2", -1, 0, 0, "(character[] | integer[] | null)", 1
+"textshape", "sapply2", -1, 0, 0, "character[]", 1
+"textshape", "sapply2", -1, 0, 1, "integer[]", 1
+"textshape", "sapply2", -1, 0, 2, "null", 1
 "textshape", "sapply2", 0, 0, 0, "list<any>", 1
 "textshape", "sapply2", 1, 0, 0, "class<`function`>", 1
 "textshape", "sapply2", 2, 0, 0, "...", 1
@@ -188,7 +198,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "split_match", 2, 0, 0, "double", 1
 "textshape", "split_match", 3, 0, 0, "logical", 1
 "textshape", "split_match", 4, 0, 0, "...", 1
-"textshape", "split_portion", -1, 0, 0, "(class<`data.frame`, `data.table`> | list<list<character[]>>)", 1
+"textshape", "split_portion", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"textshape", "split_portion", -1, 0, 1, "list<list<character[]>>", 1
 "textshape", "split_portion", 0, 0, 0, "^character[]", 1
 "textshape", "split_portion", 1, 0, 0, "character[]", 1
 "textshape", "split_portion", 1, 0, 1, "class<`factor`>", 1
@@ -200,7 +211,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "split_portion", 5, 0, 0, "logical", 1
 "textshape", "split_portion", 6, 0, 0, "logical", 1
 "textshape", "split_portion", 7, 0, 0, "...", 1
-"textshape", "split_run", -1, 0, 0, "(class<`data.frame`, `data.table`> | list<character[] | null>)", 1
+"textshape", "split_run", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"textshape", "split_run", -1, 0, 1, "list<character[] | null>", 1
 "textshape", "split_run", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "split_run", 0, 0, 1, "^character[]", 1
 "textshape", "split_run", 1, 0, 0, "...", 1
@@ -211,7 +223,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "split_run.default", -1, 0, 0, "list<character[] | null>", 1
 "textshape", "split_run.default", 0, 0, 0, "^character[]", 1
 "textshape", "split_run.default", 1, 0, 0, "...", 1
-"textshape", "split_sentence", -1, 0, 0, "(class<`data.frame`, `data.table`> | list<character[]>)", 1
+"textshape", "split_sentence", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"textshape", "split_sentence", -1, 0, 1, "list<character[]>", 1
 "textshape", "split_sentence", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "split_sentence", 0, 0, 1, "character[]", 1
 "textshape", "split_sentence", 1, 0, 0, "...", 1
@@ -235,7 +248,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "split_sentence_token.default", 0, 0, 0, "character[]", 1
 "textshape", "split_sentence_token.default", 1, 0, 0, "logical", 1
 "textshape", "split_sentence_token.default", 2, 0, 0, "...", 1
-"textshape", "split_token", -1, 0, 0, "(class<`data.frame`, `data.table`> | list<character[]>)", 1
+"textshape", "split_token", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"textshape", "split_token", -1, 0, 1, "list<character[]>", 1
 "textshape", "split_token", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "split_token", 0, 0, 1, "class<`data.frame`, `qdap_df`, `sent_split`, `sent_split_text_var:dialogue`>", 1
 "textshape", "split_token", 0, 0, 2, "character[]", 1
@@ -256,7 +270,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "split_transcript", 2, 0, 0, "character[]", 1
 "textshape", "split_transcript", 3, 0, 0, "double", 1
 "textshape", "split_transcript", 4, 0, 0, "...", 1
-"textshape", "split_word", -1, 0, 0, "(class<`data.frame`, `data.table`> | list<character[]>)", 1
+"textshape", "split_word", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
+"textshape", "split_word", -1, 0, 1, "list<character[]>", 1
 "textshape", "split_word", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "split_word", 0, 0, 1, "class<`data.frame`, `qdap_df`, `sent_split`, `sent_split_text_var:dialogue`>", 1
 "textshape", "split_word", 0, 0, 2, "character[]", 1
@@ -311,7 +326,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "tidy_vector", 1, 0, 0, "character", 1
 "textshape", "tidy_vector", 2, 0, 0, "character", 1
 "textshape", "tidy_vector", 3, 0, 0, "...", 1
-"textshape", "unique_pairs", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `data.table`>)", 1
+"textshape", "unique_pairs", -1, 0, 0, "class<`data.frame`>", 1
+"textshape", "unique_pairs", -1, 0, 1, "class<`data.frame`, `data.table`>", 1
 "textshape", "unique_pairs", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "unique_pairs", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
 "textshape", "unique_pairs", 1, 0, 0, "character", 1
@@ -327,7 +343,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "textshape", "unique_pairs.default", 1, 0, 0, "character", 1
 "textshape", "unique_pairs.default", 2, 0, 0, "character", 1
 "textshape", "unique_pairs.default", 3, 0, 0, "...", 1
-"textshape", "unnest_text", -1, 0, 0, "(class<`data.frame`> | class<`data.frame`, `data.table`>)", 1
+"textshape", "unnest_text", -1, 0, 0, "class<`data.frame`>", 1
+"textshape", "unnest_text", -1, 0, 1, "class<`data.frame`, `data.table`>", 1
 "textshape", "unnest_text", 0, 0, 0, "class<`data.frame`>", 1
 "textshape", "unnest_text", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
 "textshape", "unnest_text", 1, 0, 0, "any", 1
