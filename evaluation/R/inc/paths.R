@@ -19,7 +19,9 @@ PLOT_DIR <- path(PAPER_DIR, "plots")
 TAGS_DIR <- PAPER_DIR
 
 ## all packages
-ALL_PACKAGES_DETAILS <- path(EVALUATION_DIR, "all-packages.csv")
+CRAN_PACKAGES_FILE <- path(EVALUATION_DIR, "cran.txt")
+CRAN_PACKAGES_DETAILS <- path(EVALUATION_DIR, "cran-details.csv")
+CRAN_REVDEPS <- path(EVALUATION_DIR, "cran-revdeps.csv")
 
 ## corpus related
 CORPUS_FILE           <- path(EVALUATION_DIR, "corpus.txt")
