@@ -137,7 +137,7 @@ class TypeSize final: public tastr::visitor::ConstNodeVisitor {
         update_counter_(node);
     }
 
-    virtual void visit(const tastr::ast::DataFrameTypeNode& node) {
+    virtual void visit(const tastr::ast::ClassTypeNode& node) {
         ++size_;
         update_counter_(node);
     }
@@ -188,6 +188,11 @@ class TypeSize final: public tastr::visitor::ConstNodeVisitor {
     }
 
     virtual void visit(const tastr::ast::UnionTypeNode& node) {
+        ++size_;
+        update_counter_(node);
+    }
+
+    virtual void visit(const tastr::ast::IntersectionTypeNode& node) {
         ++size_;
         update_counter_(node);
     }
