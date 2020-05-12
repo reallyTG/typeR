@@ -831,20 +831,51 @@ To combat this, we introduce a modifier on primitive types: the type \code{^T} s
 If the \code{binom} developers were to annotate arguments \code{x} and \code{n} with such an NA-free type, \contractr will notify users when \code{binom.profile} is called with NA-full values, rather than just quietly ignoring them.
 \AT{Gather usage statistics.}
 
+Note that when combining call traces involving \code{^T} and \code{T} types, we subsume \code{T} types into \code{^T} types: if NA-free and NA-full vectors are passed to an argument, then we say that the argument can handle NA-full vectors.
+This is equivalent to \code{T <: ^T}. 
+
 %
 %
 \subsubsection{Scalar Primitives}
 
-\AT{Maybe we combine the next 3 subsections into one on dimensionality?
-  There are overlapping arguments.}  Initial analyses of our data revealed
-that programmers \AT{often} use scalars (as explicitly as they can, anyway).
-For example, consider the code in \AT{do a scalar example}.
+Initial analyses of our data revealed that programmers \AT{often} use scalars (as explicitly as they can, anyway), and often do high-level dimensionality checks on their data.
+To illustrate, consider the code in Figure~\ref{fig:scalar-vector-example}.
 
-We found that scalars occurred more often than vectors, and chose the scalar
-type syntax as the default.  The syntax for primitive scalars and vectors is
-as follows:
+\begin{figure}[htbp]
+\begin{center}
 
-\AT{syntax...}
+\begin{lstlisting}
+hankel.matrix <- function( n, x ) { 
+### arguments
+### n = a positive integer value for the order of the Hankel matrix
+### x = an order 2 * n + 1 vector of numeric values
+    ...
+    if ( n != trunc( n ) )
+        stop( "argument n ix not an integer" )
+    if ( !is.vector( x ) )
+        stop( "argument x is not a vector" )
+    m <- length( x )
+    if ( m < n )
+        stop( "length of argument x is less than n" )
+    ...
+\end{lstlisting}
+
+\caption{Scalar/vector example from the \code{matrixcalc} package.}
+\label{fig:scalar-vector-example}
+\end{center}
+\end{figure}
+
+The \code{hankel.matrix} function takes two arguments (as described in the comment in the code), and returns a Hankel matrix, which essentially is a matrix where the skew-diagonals have a desirable property.
+The function body has a number of interesting checks:
+on lines 6-7, \code{n} undergoes an integer ``type check'';
+on lines 8-9, \code{x} undergoes a vector ``type check'';
+on lines 11-12, \code{n} is assumed to be a scalar (if it were a vector, R would generate a warning, as \code{m < n} would return a vector of logicals obtained from checking if \code{m} were less than each element of \code{n} \AT{do we want to put the warning here?}).
+These checks exemplify behaviour we would like to capture with our annotation language, as we would like to differentiate between scalars and vectors in addition to checking for the basic type of a value (e.g. integer vs double), 
+
+To that end, we introduce the following types into our type language:
+for some primitive type \code{T}, the user may modify \code{T} with a modifier \code{[]} to indicate that it is a vector of \code{T}.
+Perhaps surprisingly, we found that scalars occurred more often than vectors, and chose the scalar type syntax as the default. 
+The NA-free modifier works as expected: \code{^T[]} indicates a vector of \code{T} that is free of NAs, while \code{^T} indicates a scalar which is not NA.
  
 %
 %
