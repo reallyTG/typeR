@@ -915,25 +915,40 @@ This function exhibits good practice in type checking arguments, rightly produci
 
 To capture cases like this, we include a \code{class<matrix>} type in our type annotation language.
 If \code{rowWeightedMeans} were outfitted with such a type, \contractr can perform the check present in this code automatically.
-That said, we don't' intend to subsume all validation code, a topic we discuss next.
+That said, we don't intend to subsume all argument validation code, discussed next.
  
 %
 %
 \subsubsection{Forgoing Dimensionality} 
 
+Given the discussion of scalars, vectors, and matrices, it might be tempting to consider factoring dimensionality into types.
+The primary drawback of this would be rendering our type annotation language into a language of dependent types, which we believe too complex to retrofit onto a dynamic data science language such as R.  
+This does mean our types cannot subsume all validation code, such as some later code from the aforementioned \code{rowWeightedMeans} function, shown in Figure~\ref{fig:general-validation-example}.
 
+\begin{figure}[htbp]
+\begin{center}
 
-\AT{Will revisit to tighten discussion, need to think about best way to
-  phrase this.  Perhaps "dependent type system bad" is enough?}  Including
-data dimensions in types would make our type system a dependent type system,
-which we believe is too complex to retrofit onto a dynamic data science
-language such as R.  The simplest way to include dimensions would be to
-explicitly specify the dimensions of an argument (e.g. specifying that a
-function should always be called with a double vector of length 10), which
-is not particularly useful, and a pattern which \AT{rarely appeared in our
-  analysis}.
+\begin{lstlisting}
+rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
+                             na.rm = FALSE, ...) {
+  ...
+  n <- ncol(x)
+  if (length(w) != n) {
+    stop("The length of argument 'w' is does not match the number of column in 'x': ", 
+    length(w), " != ", n)
+  }
+  ...
+\end{lstlisting}
 
+\caption{General dimensionality check example from the \code{matrixStats} package.}
+\label{fig:general-validation-example}
+\end{center}
+\end{figure}
 
+Here, the length of the weights vector \code{w} is being checked for equality with the number of columns in the matrix \code{x}. 
+Ultimately, we decided to leave these kinds of checks up to the programmer.
+\AT{I feel like we might want a better argument to not make our type language dependent (better than lol pls no dependent types), but I could be wrong.
+Maybe reviewers would be ok with a simple argument.}
 
 %
 %
@@ -941,21 +956,27 @@ is not particularly useful, and a pattern which \AT{rarely appeared in our
 %
 \subsection{Lists}
 
-\AT{List rehash.}  Separate from the vectorized primitives in R are lists:
-Whereas vectors are homogeneous and restricted to primitive types, lists can
-contain arbitrarily-typed data.  R even builds on lists to create a more
-complex data structure known as the {\it data frame}, an essential data
-structure to R's functionality \AT{maybe too aggressively worded, but we can
-  back this up with data, e.g. how many functions take data frames?}.
+Separate from the vectorized primitives in R are lists:
+Whereas vectors are homogeneous and restricted to primitive types, lists can contain arbitrarily-typed data.  
+Further, lists and vectors have a different syntax for accessing elements, where lists are indexed using \code{[[} and vectors using \code{[}.
+R even builds on lists to create a more complex data structure known as the {\it data frame}, an essential data structure to R's functionality.
 
-\AT{Outline concerns for typing.}  We are faced with several possible
-designs for list types.  Chief concerns include the heterogeneity of list
-elements, and the presence of a \code{names} attribute, allowing list
-elements to be accessed in a struct-like manner.  \AT{Rarely?}, programmers
-even write code expecting lists of a particular pre-defined length.  The
-next sections highlight some important design decisions for our list types.
+We are faced with several possible designs for list types.  
+Chief concerns include the heterogeneity of list elements, and the presence of a \code{names} attribute, allowing list elements to be accessed in a struct-like manner.  
+\AT{Rarely?}, programmers even write code expecting lists of a particular pre-defined length.  
+The next sections highlight some important design decisions for our list types.
 
-\AT{Dig into concerns for typing.}
+%
+%
+\subsubsection{Relationship Between Lists and Vectors}
+
+The ease with which vectors may be transformed into lists is perhaps indicative of a relationship between the two.
+In R, all vectors can be converted to lists with a simple call to \code{as.list}, and lists to vectors with \code{unlist}, though care must be taken when unlisting a non-homogeneous list, as coercions will be performed where possible, and the function will simply do nothing if coercion is impossible.
+That said, lists and vectors have different access syntax, so vectors cannot stand-in for lists without the \code{as.list} call above.
+
+In sum, we opted not to include a subtyping relationship between vectors and lists, keeping both types separate.
+In practice, \AT{how often do \code{T[] | list<T>} types occur?}.
+During our evaluation we also found it rare that programmers would attempt to pass list-typed values to vector-typed arguments and vice versa, and we will discuss this further in Section~\ref{sec:evaluation}.
 
 %
 %
