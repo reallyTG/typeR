@@ -1078,10 +1078,72 @@ proposed design.
 \section{Evaluation Results}
 \label{sec:evaluation}
 
-\AT{The decisions we made when coming up with the types will be validated in
-  the last section.  This section is for determining how effective the type
-  system is.  We have two evaluation strategies currently: comparing against
-  reverse dependencies, and comparing against the Kaggle programs.}
+We contended with multiple type language designs, and in this section we will explore in more detail how we compared our candidate designs.
+We will also discuss a large-scale evaluation of our final set of type annotations.
+
+%
+%
+%
+%
+\subsection{Comparative Analyses}
+
+\AT{We compared different designs: with/out structs and tuples, with/out classes, with/out primitive subtyping. We looked at type sizes and determined that e.g. \code{? T} is a good type.}
+
+%
+%
+\subsubsection{Analysis of Polymorphism}
+
+\AT{How many arguments, functions are polymorphic? How many packages? Are there pathologically polymorphic packages? Why didn't you handle those?}
+
+%
+%
+\subsubsection{Use of \code{any}}
+
+\AT{When is any introduced? Why? How does it affect the results? What if missing/unused isn't any, do the results change substantially?}
+
+%
+%
+%
+%
+\subsection{Large-Scale Evaluation}
+
+Now that we have settled on a language design, we endeavour to evaluate it against a representative subset of existing R code.
+To this end, we took the detailed type information we collected from \AT{corpus} popular R packages, inferred types for the functions exposed by those packages, and ran the test, example, and vignette code of each of their reverse dependencies.
+
+%
+%
+\subsubsection{Experiment Setup}
+
+\AT{What is the design of the experiment? The setup? How much code was ran? What does this evaluate? Why does it mean anything for the annotation framework?}
+
+\typetracer is capable of inferring type signatures based on the call traces it has collected.
+These call traces were consolidated into a single function type for each package function:
+\typetracer employs unification strategies discussed in Section~\ref{sec:typesystemdesign} to keep the size of signatures in check and only generates an \code{any} type under extenuating circumstances: when inner list types got too big (we decided to cap the union type in lists to 5), when missing and unused arguments were recored, and finally when a longjump caused function execution to abort prematurely.
+Finally, we loaded each of these inferred types into \contractr, and ran all example code from the reverse dependencies of these popular packages.
+
+%
+%
+\subsubsection{Results}
+
+\AT{How many failing assertions? How many functions had these failed assertions? Which packages? How was the coverage? What are patterns in the actual types of the failed assertions? In the expected types? How many times did the code trigger the contracts?}
+
+Overall, we found that only \AT{2\%} of contract assertions failed.
+\AT{What does this indicate? One thought:}
+This indicates two things: firstly, the corpus of packages we selected is quite well-tested, and much of the intended function behaviour is exemplified in the package example code. 
+Secondly, and more importantly, this success indicates that our analysis framework is able to generate function types which accurately capture the behaviour of the function. 
+\AT{It kind of feels like these need to simultaneously be true. Maybe we pull in the fact that coverage is good?}
+
+Of the \AT{2\%} of failing contract assertions, we picked up on a few significant patterns.
+Firstly, we found that \AT{10\%} of the failing assertions were due to \code{double}-typed values being passed to function arguments expecting an \code{integer}.
+While we cannot say for sure that {\it all} of these cases could be handled by coercion, it is worth noting that coercion from doubles to integers is exceedingly common in R: the practice is not codified in the language spec, but many of R's internal C functions explicitly perform this coercion.
+\AT{We can put an example, e.g. nrow(df) is an integer but 5 is not. Also list access coerces the double to an int.}
+
+Next, \AT{30\%} of failing assertions were due to vector-typed primitive values being passed to function arguments expecting a \code{class<matrix>}.
+This case exemplifies something we have touched on earlier, namely that vectors can be readily considered to be unidimensional matrices.
+\AT{Is this coercion automatic? I've seen it mentioned often in the documentation.}
+
+Separately, we investigated the effect of running reverse dependency code on the code coverage of the packages in our corpus.
+We found that \AT{in many cases}. the reverse dependencies increased the code coverage (this aligns with findings in \AT{cite genthat}), and this was especially true for the functions for which contract assertions failed.
 
 %
 %
