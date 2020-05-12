@@ -30,7 +30,8 @@
   emphstyle=,
   keywordstyle=,
   commentstyle=\color{Gray}\em,
-  stringstyle=\color{Gray}
+  stringstyle=\color{Gray},
+  numbers=left
 }
 \lstdefinestyle{R}{ %
   language=R,
@@ -532,16 +533,6 @@ The code coverage was computed for each package using
 tool.  The reverse package dependencies were extracted from the package
 metadata using builtin function.
 
-% %
-% %
-% \subsubsection{Cross-Validation Against Kaggle}
-
-% Kaggle is a website offering an environment for hosting Jupyter notebooks, and importantly provides access to a large number of open-source data sets and R and Python code.
-% This solved a major issue with R programs hosted on e.g. Github, where often the data is not made available.
-% Our aim is to run R programs hosted on Kaggle to validate the type signatures we generated for popular R packages.
-
-% \AT{Anything else to say on Kaggle, here? We will probably talk more about the corpus we analyzed later.}
-
 %
 %
 %
@@ -555,12 +546,6 @@ metadata using builtin function.
 %
 %
 \subsection{typetracer and Initial Analysis}
-
-\AT{So, we understand that we iterated on our type system design.
-  Subsequently, the analysis has undergone many iterations, but essentially
-  it collects the most detailed information possible.  Do we want to mention
-  all of that information, and how we ignore it later?  Or do we just want
-  to focus on the relevant information for our final types?}
 
 To help inform the design of our type system, and to ensure that it aligns
 with the day-to-day usage of R, we performed a corpus analysis of some of
@@ -772,86 +757,19 @@ more detail, highlighting the reasoning behind our type system design.
 %
 %
 %
-\section{Type System Design}
+\section{Type Language Design}
 \label{sec:typesystemdesign}
 
 Our corpora analysis reported \AT{number} call traces for over \AT{number}
 functions.  We distilled these call traces into function types which
 captured the dynamic behaviour of the functions.  We emphasize that this was
 an iterative process: initial analysis suggested a certain set of types,
-which we tried and implemented, and further analysis suggested improvements,
-and so on.  In this section, we will present the final type system that we
-designed, which we believe captures the essence of R.  Throughout, we will
+which we tried and implemented, and reanalysis suggested improvements,
+and so on.  In this section, we will present the final type annotation language design, 
+which we believe captures the essence of R.  Throughout, we will
 touch on design decisions and weigh our choices against alternatives,
 speaking to the strengths and weaknesses of our chosen design.
-
-\subsection{Type Grammar}
-\label{subsec:typegrammar}
-
-\begin{figure}          % Types
-    \noindent           % Collapse for readability.
-    \centering
-    \begin{minipage}{.45\linewidth}
-    \begin{flushleft}
-    % Types
-      $ \begin{array}{lclr}
-    D & ::= & {\bf type} \; ID \; T {\bf ;}  & \text{\it type declaration}\\
-    T & ::= & {\bf null} & \text{\it unit type} \\
-      & |   & {\bf any} & \text{\it top type} \\
-      & |   & {\bf environment} & \text{\it environment type} \\
-      & |   & {\bf expression} & \text{\it expression type} \\
-      & |   & {\bf language} & \text{\it language type} \\
-      & |   & {\bf symbol} & \text{\it symbol type} \\
-      & |   & {\bf externalptr} & \text{\it externalptr type} \\
-      & |   & {\bf pairlist} & \text{\it pairlist type} \\
-      & |   & {\bf s4} & \text{\it S4 type} \\
-      & |   & {\bf weakref} & \text{\it weakref type} \\
-      & |   & S & \text{\it scalar type} \\
-      & |   & V & \text{\it vector type} \\
-      & |   & \left( T \right) & \text{\it group type} \\
-      & |   & T_1 \; {\bf |} \; T_2 & \text{\it union type} \\
-      & |   & \langle A_1 , ..., A_n\rangle \Rightarrow T & \text{\it function type} \\
-      & |   & {\bf struct}\langle F_1, ..., F_n \rangle & \text{\it struct type} \\
-      & |   & {\bf list} \langle T \rangle & \text{\it list type}\\
-      & |   & {\bf class}\langle ID_1, ..., ID_n \rangle & \text{\it class type}\vspace{5pt}\\
-    \end{array} $
-    \end{flushleft}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{.45\linewidth}
-    \begin{flushright}
-    $ \begin{array}{lclr}
-    % Argument Types
-    A & ::= & T & \text{\it argument type} \\
-      & |   & {\bf ...} \vspace{5pt} \\
-    % Field Types
-    F & ::= & ID : T & \text{\it struct field}\vspace{5pt}\\
-    % Scalar Types
-    S & ::= & B & \text{\it scalar types} \\
-      & |   & N \vspace{5pt}\\
-    % Vector Types
-    V & ::= & S \lbrack \rbrack & \text{\it vector types} \vspace{5pt}\\
-    % Base Types
-    B & ::= & {\bf int} & \text{\it base types} \\
-      & |   & {\bf chr} \\
-      & |   & {\bf dbl} \\
-      & |   & {\bf lgl} \\
-      & |   & {\bf clx} \\
-      & |   & {\bf raw} \vspace{5pt}\\
-    % NA Types
-    N & ::= & {\bf \string^int} & \text{\it na types} \\
-      & |   & {\bf \string^chr} \\
-      & |   & {\bf \string^dbl} \\
-      & |   & {\bf \string^lgl} \\
-      & |   & {\bf \string^clx} \\
-\end{array} $
-    \end{flushright}
-    \end{minipage}
-    \caption{The R type system.}
-    \label{fig:types}
-\end{figure}
-
-
+We begin with basic, primitive types.
 
 %
 %
@@ -883,10 +801,35 @@ We will now discuss our design decisions relating to the vectorized primitives.
 
 A common primitive usage pattern is related to the presence of NAs:
 \AT{often}, programmers explicitly check for NAs in primitive vectors,
-possibly sanitizing them if they are present.  For instance, consider the
-code in \AT{do an NA example}.  NAs complicate practically every computation
+possibly sanitizing them if they are present.  NAs complicate practically every computation
 using primitive vectors, a fact that many programmers appear to be acutely
-aware of.
+aware of. For instance, consider the code in Figure~\ref{fig:na-example}.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+binom.profile <- function(x, n, ...) {
+  xn <- cbind(x = x, n = n)
+  ok <- !is.na(xn[, 1]) & !is.na(xn[, 2])
+  x <- xn[ok, "x"]
+  n <- xn[ok, "n"]
+  ...
+\end{lstlisting}
+
+\caption{NA checking example from the \code{binom} package.}
+\label{fig:na-example}
+\end{center}
+\end{figure}
+
+The \code{binom} package is a popular package \AT{do we want e.g. \# revdeps?} for computing confidence intervals for binomial experiments, and the \code{binom.profile} function does so using the profile likelihood, the details of which are not relevant here.
+Here, we highlighted a relevant snippet of code, which appears at the beginning of the function: the programmer first binds the vectors into a matrix (line 2), with one column for each of \code{x} and \code{n}, then finds rows where both columns are not NA (line 3), then extracts non-NA values and stores them into \code{x} and \code{n} respectively (lines 4-5).
+Importantly, this process is entirely quiet, and the user of \code{binom.profile} will not be notified if their data happens to contain NAs, and the NAs will be silently ignored. 
+In reality, the presence of NAs in data could signify some sort of data corruption, and quietly ignoring issues in data could lead users (read: statisticians) to draw flawed conclusions from erroneous data.
+
+To combat this, we introduce a modifier on primitive types: the type \code{^T} signifies that primitive type \code{T} might contain an NA value, while \code{T} signifies that \code{T} is NA-free. 
+If the \code{binom} developers were to annotate arguments \code{x} and \code{n} with such an NA-free type, \contractr will notify users when \code{binom.profile} is called with NA-full values, rather than just quietly ignoring them.
+\AT{Gather usage statistics.}
 
 %
 %
@@ -1068,6 +1011,75 @@ suffice: S3 is the most common object system in R, with no sophisticated
 hierarchies, and its semantics are simple enough to be captured by our
 proposed design.
 
+%
+%
+%
+%
+\subsection{Final Type Grammar}
+\label{subsec:typegrammar}
+
+\begin{figure}          % Types
+    \noindent           % Collapse for readability.
+    \centering
+    \begin{minipage}{.45\linewidth}
+    \begin{flushleft}
+    % Types
+      $ \begin{array}{lclr}
+    D & ::= & {\bf type} \; ID \; T {\bf ;}  & \text{\it type declaration}\\
+    T & ::= & {\bf null} & \text{\it unit type} \\
+      & |   & {\bf any} & \text{\it top type} \\
+      & |   & {\bf environment} & \text{\it environment type} \\
+      & |   & {\bf expression} & \text{\it expression type} \\
+      & |   & {\bf language} & \text{\it language type} \\
+      & |   & {\bf symbol} & \text{\it symbol type} \\
+      & |   & {\bf externalptr} & \text{\it externalptr type} \\
+      & |   & {\bf pairlist} & \text{\it pairlist type} \\
+      & |   & {\bf s4} & \text{\it S4 type} \\
+      & |   & {\bf weakref} & \text{\it weakref type} \\
+      & |   & S & \text{\it scalar type} \\
+      & |   & V & \text{\it vector type} \\
+      & |   & \left( T \right) & \text{\it group type} \\
+      & |   & T_1 \; {\bf |} \; T_2 & \text{\it union type} \\
+      & |   & \langle A_1 , ..., A_n\rangle \Rightarrow T & \text{\it function type} \\
+      & |   & {\bf struct}\langle F_1, ..., F_n \rangle & \text{\it struct type} \\
+      & |   & {\bf list} \langle T \rangle & \text{\it list type}\\
+      & |   & {\bf class}\langle ID_1, ..., ID_n \rangle & \text{\it class type}\vspace{5pt}\\
+    \end{array} $
+    \end{flushleft}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.45\linewidth}
+    \begin{flushright}
+    $ \begin{array}{lclr}
+    % Argument Types
+    A & ::= & T & \text{\it argument type} \\
+      & |   & {\bf ...} \vspace{5pt} \\
+    % Field Types
+    F & ::= & ID : T & \text{\it struct field}\vspace{5pt}\\
+    % Scalar Types
+    S & ::= & B & \text{\it scalar types} \\
+      & |   & N \vspace{5pt}\\
+    % Vector Types
+    V & ::= & S \lbrack \rbrack & \text{\it vector types} \vspace{5pt}\\
+    % Base Types
+    B & ::= & {\bf int} & \text{\it base types} \\
+      & |   & {\bf chr} \\
+      & |   & {\bf dbl} \\
+      & |   & {\bf lgl} \\
+      & |   & {\bf clx} \\
+      & |   & {\bf raw} \vspace{5pt}\\
+    % NA Types
+    N & ::= & {\bf \string^int} & \text{\it na types} \\
+      & |   & {\bf \string^chr} \\
+      & |   & {\bf \string^dbl} \\
+      & |   & {\bf \string^lgl} \\
+      & |   & {\bf \string^clx} \\
+\end{array} $
+    \end{flushright}
+    \end{minipage}
+    \caption{The R type system.}
+    \label{fig:types}
+\end{figure}
 
 %
 %
