@@ -981,6 +981,20 @@ During our evaluation we also found it rare that programmers would attempt to pa
 
 %
 %
+\subsubsection{Environments}
+
+Environments in R are essentially lists with reference semantics: mutating a value in an environment is performed in-place, and that mutation can thus be shared with other code holding a reference to the environment.
+They are used primarily by the R runtime to store variables (their primary function is that of an execution environment), though they also often used by programmers either to themselves reflect on local, previous, or global scope, or simply because of their reference semantics.
+Environments are comprised of name, value pairs, and each environment has a reference to its parent environment.
+
+We thought to include detailed environment types in our type language by way of allowing environment types to define names and types of values in the environment.
+Unfortunately, this led to an undue explosion in the ``size'' of our types: 
+often, environments had hundreds of values, particularly those which were obtained from R (by e.g. passing a reference to a local scope).
+These types were difficult to parse visually and did not feel informative.
+Further, environments \AT{did not occur often}, and giving them a richer type was not worth the increase in the visual complexity of our types.
+
+%
+%
 \subsubsection{Forgoing Tuples, or Short, Constant Length Lists}
 
 We briefly entertained the possibility of including a \code{tuple} type, which would have looked like e.g. \code{tuple<int, int>} for a list of two integers.  
@@ -993,6 +1007,8 @@ Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{t
 %
 %
 \subsubsection{Structs}
+
+\AT{Do we want to talk about how list names are not unique?}
 
 Another pattern that we observed was the use of consistently-named lists.
 In R, ``fields'' of named lists can be accessed using the \code{$} operator, as illustrated in the code snippet in Figure~\ref{fig:struct-ex}.
@@ -1163,13 +1179,44 @@ We aim to extend our type annotation framework with parametric, higher-order, an
 %
 \subsection{Nullable Types}
 
+One final, common pattern that we would like to highlight is the co-occurrence of \code{NULL} with other types of values.
+In Section~\ref{subsec:basictypes} we discussed NA, and how NAs represent missing data for the primitive types, and more generally R provides a \code{NULL} value that programmers use to represent missing data for other types.
+Programmers often use \code{NULL} as a default value for function arguments, and the code snippet in Figure~\ref{fig:null} exemplifies this.
 
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+# NULL default argument example. 
+\end{lstlisting}
+
+\caption{Idiomatic NULL usage in R.}
+\label{fig:null}
+\end{center}
+\end{figure}
+
+To capture this behaviour, we introduce a nullable type \code{? T} into our type language and contract checking framework.
+That way, programmers can succinctly ascribe types to null-by-default arguments (such as in the example in Figure~\ref{fig:null}).
+This also served to reduce the number of polymorphic arguments we detected:
+Without this type, \AT{X\%} of polymorphic argument positions were of the form \code{null | T}.
+Including a nullable type served to reduce observed polymorphism by \AT{Y\%}. 
 
 %
 %
 %
 %
 \subsection{Final Type Grammar}
+
+Finally, Figure~\ref{fig:types} presents our final type language design, and the grammar of types that \contractr is equipped to handle.
+\contractr will look for a top-level type declaration file in a package, with function types having the form $type \; ID \; T$, where $ID$ is the function name and $T$ is a function type.
+These function types have the form $\langle A_1 , ..., A_n\rangle \Rightarrow T$, where each of the $A_i$ arguments are either some type $T_i$, or the vararg type $...$.
+Recall that functions with a vararg parameter (\code{...}) can be called with arbitrarily many values, and extra values are lumped together in the vararg $...$ value.
+Internally, the type $...$ is implemented as a ${\bf list} \langle any \rangle$ type.
+
+We did not discuss ${\bf expression}$, ${\bf language}$, ${\bf symbol}$, ${\bf externalptr}$, ${\bf pairlist}$, ${\bf S4}$, and ${\bf weakref}$ types throughout this section.
+They occur \AT{rarely}, and are by-and-large uninteresting to most R programmers.
+\AT{Fill in...}
+
 \label{subsec:typegrammar}
 
 \begin{figure}          % Types
@@ -1194,6 +1241,7 @@ We aim to extend our type annotation framework with parametric, higher-order, an
       & |   & V & \text{\it vector type} \\
       & |   & \left( T \right) & \text{\it group type} \\
       & |   & T_1 \; {\bf |} \; T_2 & \text{\it union type} \\
+      & |   & ? \; T & \text{\it nullable type} \\
       & |   & \langle A_1 , ..., A_n\rangle \Rightarrow T & \text{\it function type} \\
       & |   & {\bf struct}\langle F_1, ..., F_n \rangle & \text{\it struct type} \\
       & |   & {\bf list} \langle T \rangle & \text{\it list type}\\
@@ -1231,7 +1279,7 @@ We aim to extend our type annotation framework with parametric, higher-order, an
 \end{array} $
     \end{flushright}
     \end{minipage}
-    \caption{The R type system.}
+    \caption{The R type annotation language.}
     \label{fig:types}
 \end{figure}
 
