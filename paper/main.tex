@@ -982,39 +982,49 @@ During our evaluation we also found it rare that programmers would attempt to pa
 %
 \subsubsection{Forgoing Tuples, or Short, Constant Length Lists}
 
-We briefly entertained the possibility of including a \code{tuple} type,
-which would have looked like e.g. \code{tuple<int, int>} for a list of two
-integers.  When configured to detect tuples, our analysis did indeed pick up
-\AT{a number}, but post-processing and simplification revealed that in
-\AT{many} cases, they would be subsumed by co-occurring \code{list} types.
-In other words, it just so happened that functions were being called with
-short lists.  Of the cases that tuples were not subsumed by lists,
-\AT{often} there were \AT{tuples of different lengths}, implying that the
-shape of the argument was not essential.  \AT{Wording...}
+We briefly entertained the possibility of including a \code{tuple} type, which would have looked like e.g. \code{tuple<int, int>} for a list of two integers.  
+When configured to detect tuples, our analysis did indeed pick up \AT{a number}, but post-processing and simplification revealed that in \AT{many} cases, they would be subsumed by co-occurring \code{list} types.
+In other words, more often than not it just so happened that functions were being called with short lists.  
+Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{tuples of different lengths}, implying that the shape of the argument was not essential.
+
+\AT{I feel like this is the least important of the design decisions we made, so I'm leaving it for the end, we might not even want it.}
 
 %
 %
-\subsubsection{Forgoing Structs}
+\subsubsection{Structs}
 
 Another pattern that we observed was the use of consistently-named lists.
-In R, ``fields'' of named lists can be accessed using the \code{$} operator,
-such as:
+In R, ``fields'' of named lists can be accessed using the \code{$} operator, as illustrated in the code snippet in Figure~\ref{fig:struct-ex}.
+
+\begin{figure}[htbp]
+\begin{center}
+
 \begin{lstlisting}
-p <- list(x=1, y=2)
-p$x + p$y
+calculate.neuralnet <- function (data, model.list, hidden, rep,
+            startweights, exclude, constant.weights) {
+    result <- generate.startweights(model.list, hidden, startweights,
+                                    rep, exclude, constant.weights)
+    weights <- result$weights
+    exclude <- result$exclude
+    ...
 \end{lstlisting}
-We thought to capture this type of behaviour with a {\it struct} type, such
-as \code{struct<x: integer, y: integer>}.  Initial analyses suggested that
-structs were very common, but further inspection revealed that they failed
-to tell the full story.  For instance, \AT{many} structs were merely
-representing list-typed values with a {\it class}, and we could capture
-these types more succinctly with a class-based type.  Further, it is common
-in R example code to use some built-in data sets, such as \AT{mention some}.
-These caused undue noise, as even with our struct name unification strategy,
-poorly tested functions appeared to operate on e.g. \AT{funny struct type
-  from the previous data set}.  Ultimately, we found that sticking to list
-types and adding a class-based was the wisest course of action.  We will
-discuss class types shortly.
+
+\caption{Struct example from the \code{neuralnet} package.}
+\label{fig:general-validation-example}
+\end{center}
+\end{figure}
+
+In the code snippet, the function \code{generate.startweights} return a list with (at least) two named elements: \code{weights} and \code{exclude}, which are accessed through \code{result$weights} and \code{result$exclude} respectively.
+We include a struct type in our language to capture this behaviour: we would encode the return type of \code{generate.startweights} as e.g. \code{struct<x: double[], y: logical[]>}.  
+We also thought to encode data frames as structs, as they are essentially lists with named columns of homogeneous values, but it was difficult to draw any meaningful conclusions from the data as unfortunately structs introduced a lot of noise into our analysis.
+
+It is common for R example code to use some built-in data sets, such as \code{mtcars}, a data set extracted from a Motor Trends US magazine in 1974.
+These data sets are used to show off some package functionality with ``real data'', and when \typetracer is configured to detect structs we saw a marked increase in misrepresentative types.
+We implemented a unification strategy for struct types, removing them if they co-occurred with list types, and turning them into lists if two co-occurring struct types shared no common names, but even so we found ourselves with function signatures that were full of noise introduced by the struct names.
+
+We still believe struct types to be useful to R programmers, and so our language supports the type and \contractr will check them, though we configured \typetracer to ignore them as they made the data substantially less useful.
+On the positive side, we found that \AT{get the number, but often} structs-typed values had a {\it class}, and so we decided to include class-based types.
+Classes are discussed in more detail in the next section, though we will quickly discuss data frames before focusing on them. 
 
 %
 %
