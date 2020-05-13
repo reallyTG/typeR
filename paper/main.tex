@@ -1066,22 +1066,42 @@ A more in-depth discussion of class types follows.
 %
 \subsection{Classes in R}
 
-As discussed in Section~\ref{sec:R}, the R runtime has more than one notion
-of type.  The {\it class} (rather, the {\it classes}, as values can have
-multiple!) of function arguments are used by R to {\it dispatch} the correct
-function call for the argument \AT{$\leftarrow$ wording}.  This is best
-served with an example: \AT{Example, unless we talked about this earlier, in
-  which case refer reader back.}
+As discussed in Section~\ref{sec:R}, the R runtime has more than one notion of type.  
+The classes of function arguments are used by R as part of its dispatch mechanism, the most prevalent of which (\AT{we have that number, too!}) is S3 dispatch, in which R dispatches on the (S3) class of the first argument to a function, selecting the appropriate method to call for the class.
+To quickly illustrate, consider the code snippet in Figure~\ref{fig:dispatch-ex}.
 
-%
-%
-\subsubsection{Class Types}
+\begin{figure}[htbp]
+\begin{center}
 
-The class of a value suggest a shape for the value, and we felt class to be a more succinct way of capturing struct-like types. 
+\begin{lstlisting}
+# Quick example of S3 dispatch.
+\end{lstlisting}
 
-\AT{We used classes to stand-in for structs.  The discussion here is
-  naturally tied with the discussion of structs, so we need to make sure to
-  divide the discussion appropriately.}
+\caption{S3 dispatch in R.}
+\label{fig:dispatch-ex}
+\end{center}
+\end{figure}
+
+Classes are very prevalent in R \AT{number}, and so we include a \code{class<class-name>} ... \AT{todo}
+\typetracer was outfit to report the class of values, but some care needed to be taken so as to not overreport class types, as {\it all} values have a class in R.
+The main classes we were interested in were matrix, array (higher dimensional matrices), and data.frames, in addition to any user-defined classes.
+In many cases \AT{number?}, values with a user-defined class are in reality lists with named elements, or structs.
+Including class types, and having \typetracer report them in place of structs, significantly reduced the noise in the analysis and allowed us to gather more focused data.
+To get a sense for this difference, consider the code in Figure~\ref{fig:class-vs-struct}.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+# Example of gross struct that turns into class.
+\end{lstlisting}
+
+\caption{S3 dispatch in R.}
+\label{fig:class-vs-struct}
+\end{center}
+\end{figure}
+
+When set to ignore classes, \typetracer reports \AT{type} as the type of the function, as compared with \AT{other type} when configured to report classes.
 
 %
 %
