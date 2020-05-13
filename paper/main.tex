@@ -1010,7 +1010,7 @@ calculate.neuralnet <- function (data, model.list, hidden, rep,
 \end{lstlisting}
 
 \caption{Struct example from the \code{neuralnet} package.}
-\label{fig:general-validation-example}
+\label{fig:struct-ex}
 \end{center}
 \end{figure}
 
@@ -1028,19 +1028,37 @@ Classes are discussed in more detail in the next section, though we will quickly
 
 %
 %
-\subsubsection{Forgoing Data Frames}
+\subsubsection{Data Frames}
 
-Speaking of classes, an important classful value in R is the data frame.
-Data frames underpin nearly all idiomatic use of the language, and even
-popular \code{tibble} (from the \code{tidyverse} ecosystem) and
-\code{data.table} (from the \code{data.table} package) build on the
-essential type.  We entertained the possibility of including data frame
-types, but \AT{found them to be clunky? Question mark?}  Consider:
-\AT{example of why data.frame types would be bad atm.}
+One of the most popular classes in R is the \code{data.frame} class \AT{we have numbers here, grab em}.
+Data frames and the derivative \code{tibble} (from the \code{tidyverse} ecosystem) and \code{data.table} (from the \code{data.table} package) types underpin a huge amount of data analysis in R.
 
-Data frames do have a type, through the \code{class<data.frame>} type, and
-future work will expand on this type, discussed further in
-Section~\ref{sec:futurework}.
+One way to deal with data frames is through the struct type, with a named field for each column of the data frame, but as mentioned previously structs introduced undue noise into \typetracer's analysis results. 
+Further complicated issues for data frames is that many functions built to operate on them operate in a name-agnostic way.
+For instance, the \code{tidyverse} package ecosystem allows programmers to pass column names to functions which operate on their data frames.
+In base R, idiomatic data frame use is to use string column names to select rows from the frame (unless only a single column is of interest, wherein the \code{$} syntax is appropriate). 
+We include some examples in Figure~\ref{fig:data-frames-bad} to illustrate the complexities.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+# Let's put some examples showing that data frames can get out of hand, and that
+# structs are inadequate.
+\end{lstlisting}
+
+\caption{Select examples of idiomatic \code{data.frame} use.}
+\label{fig:data-frames-bad}
+\end{center}
+\end{figure}
+
+Doing justice to this type will be an endeavour in and of itself, requiring reconciliation of base R's \code{data.frame}, \code{tidyverse}'s \code{tibble}, and \code{data.table}'s \code{data.table}.
+\AT{We could talk about how metaprogramming is pervasive in dplyr, and how we would need to capture that, too, which is a huge undertaking.}
+It will also require proper treatment of function types, and perhaps even parametric types, which dynamic analyses such as \typetracer are unable to discern soundly.
+\AT{General words to convince the reader that data frames are, in fact, hard, and worthy of their own paper.}
+
+In the context of our type annotation language, we will ascribe the type \code{class<data.frame>} to \code{data.frame}-typed values.
+A more in-depth discussion of class types follows.
 
 %
 %
