@@ -6,7 +6,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gridExtra", "align_2", 3, 0, 0, "character", 1
 "gridExtra", "arrangeGrob", -1, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
 "gridExtra", "arrangeGrob", 0, 0, 0, "...", 1
-"gridExtra", "arrangeGrob", 1, 0, 0, "list<class<`gDesc`, `grob`, `rect`> | class<`gDesc`, `gTree`, `grob`> | class<`gDesc`, `gTree`, `grob`, `gtable`>>", 1
+"gridExtra", "arrangeGrob", 1, 0, 0, "list<class<`gDesc`, `grob`, `rect`>>", 1
+"gridExtra", "arrangeGrob", 1, 0, 1, "list<class<`gDesc`, `gTree`, `grob`>>", 1
+"gridExtra", "arrangeGrob", 1, 0, 2, "list<class<`gDesc`, `gTree`, `grob`, `gtable`>>", 1
 "gridExtra", "arrangeGrob", 2, 0, 0, "any", 1
 "gridExtra", "arrangeGrob", 3, 0, 0, "null", 1
 "gridExtra", "arrangeGrob", 4, 0, 0, "character", 1
@@ -27,7 +29,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gridExtra", "arrangeGrob", 14, 0, 1, "character", 1
 "gridExtra", "arrangeGrob", 15, 0, 0, "null", 1
 "gridExtra", "arrangeGrob", 15, 0, 1, "character", 1
-"gridExtra", "arrangeGrob", 16, 0, 0, "any", 1
 "gridExtra", "cbind_2", -1, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
 "gridExtra", "cbind_2", 0, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
 "gridExtra", "cbind_2", 1, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
@@ -73,9 +74,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gridExtra", "gtable_table", 1, 0, 0, "any", 1
 "gridExtra", "gtable_table", 2, 0, 0, "any", 1
 "gridExtra", "gtable_table", 3, 0, 0, "class<`function`>", 1
-"gridExtra", "gtable_table", 4, 0, 0, "list<character | double | double | character[]>", 1
+"gridExtra", "gtable_table", 4, 0, 0, "list<character | double>", 1
+"gridExtra", "gtable_table", 4, 0, 1, "list<double | character[]>", 1
 "gridExtra", "gtable_table", 5, 0, 0, "class<`function`>", 1
-"gridExtra", "gtable_table", 6, 0, 0, "list<any>", 1
+"gridExtra", "gtable_table", 6, 0, 0, "list<null>", 1
+"gridExtra", "gtable_table", 6, 0, 1, "list<null | double | character>", 1
+"gridExtra", "gtable_table", 6, 0, 2, "list<character[] | double[]>", 1
+"gridExtra", "gtable_table", 6, 0, 3, "list<character[] | null>", 1
+"gridExtra", "gtable_table", 6, 0, 4, "list<character[] | double>", 1
+"gridExtra", "gtable_table", 6, 0, 5, "list<character | double>", 1
 "gridExtra", "gtable_table", 7, 0, 0, "class<`unit`>", 1
 "gridExtra", "gtable_table", 8, 0, 0, "character", 1
 "gridExtra", "gtable_table", 9, 0, 0, "null", 1
@@ -116,17 +123,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gridExtra", "tableGrob", 1, 0, 1, "null", 1
 "gridExtra", "tableGrob", 2, 0, 0, "character[]", 1
 "gridExtra", "tableGrob", 2, 0, 1, "null", 1
-"gridExtra", "tableGrob", 3, 0, 0, "list<list<any>>", 1
+"gridExtra", "tableGrob", 3, 0, 0, "list<list<class<`function`> | class<`unit`> | list<double | character[] | character[] | double[]> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character>>>", 1
+"gridExtra", "tableGrob", 3, 0, 1, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | null> | class<`function`> | class<`unit`> | list<character | double | null>>>", 1
+"gridExtra", "tableGrob", 3, 0, 2, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | double> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character>>>", 1
+"gridExtra", "tableGrob", 3, 0, 3, "list<list<class<`function`> | class<`unit`> | list<character | double | null>>>", 1
 "gridExtra", "tableGrob", 4, 0, 0, "null", 1
 "gridExtra", "tableGrob", 5, 0, 0, "...", 1
-"gridExtra", "ttheme_default", -1, 0, 0, "list<list<class<`function`> | class<`unit`> | list<double | character[] | character[] | double[]> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character> | class<`function`> | class<`unit`> | list<character | double | character[] | double> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character>>>", 1
+"gridExtra", "ttheme_default", -1, 0, 0, "list<list<class<`function`> | class<`unit`> | list<double | character[] | character[] | double[]> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character>>>", 1
+"gridExtra", "ttheme_default", -1, 0, 1, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | double> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character>>>", 1
 "gridExtra", "ttheme_default", 0, 0, 0, "double", 1
 "gridExtra", "ttheme_default", 1, 0, 0, "character", 1
 "gridExtra", "ttheme_default", 2, 0, 0, "character", 1
 "gridExtra", "ttheme_default", 3, 0, 0, "logical", 1
 "gridExtra", "ttheme_default", 4, 0, 0, "class<`unit`>", 1
 "gridExtra", "ttheme_default", 5, 0, 0, "...", 1
-"gridExtra", "ttheme_minimal", -1, 0, 0, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | null> | class<`function`> | class<`unit`> | list<character | double | null> | class<`function`> | class<`unit`> | list<character | double | null>>>", 1
+"gridExtra", "ttheme_minimal", -1, 0, 0, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | null> | class<`function`> | class<`unit`> | list<character | double | null>>>", 1
+"gridExtra", "ttheme_minimal", -1, 0, 1, "list<list<class<`function`> | class<`unit`> | list<character | double | null>>>", 1
 "gridExtra", "ttheme_minimal", 0, 0, 0, "double", 1
 "gridExtra", "ttheme_minimal", 1, 0, 0, "character", 1
 "gridExtra", "ttheme_minimal", 2, 0, 0, "character", 1

@@ -27,11 +27,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "selectr", "match_whitespace", 0, 0, 0, "character", 1
 "selectr", "parse", -1, 0, 0, "list<class<`R6`, `Selector`>>", 1
 "selectr", "parse", 0, 0, 0, "character", 1
-"selectr", "parse_selector", -1, 0, 0, "list<any>", 1
+"selectr", "parse_selector", -1, 0, 0, "list<class<`ClassSelector`, `R6`> | null>", 1
+"selectr", "parse_selector", -1, 0, 1, "list<class<`CombinedSelector`, `R6`> | null>", 1
+"selectr", "parse_selector", -1, 0, 2, "list<class<`Element`, `R6`> | null>", 1
+"selectr", "parse_selector", -1, 0, 3, "list<class<`Pseudo`, `R6`> | null>", 1
 "selectr", "parse_selector", 0, 0, 0, "class<`R6`, `TokenStream`>", 1
 "selectr", "parse_selector_group", -1, 0, 0, "list<class<`R6`, `Selector`>>", 1
 "selectr", "parse_selector_group", 0, 0, 0, "class<`R6`, `TokenStream`>", 1
-"selectr", "parse_simple_selector", -1, 0, 0, "list<any>", 1
+"selectr", "parse_simple_selector", -1, 0, 0, "list<class<`ClassSelector`, `R6`> | null>", 1
+"selectr", "parse_simple_selector", -1, 0, 1, "list<class<`Element`, `R6`> | null>", 1
+"selectr", "parse_simple_selector", -1, 0, 2, "list<class<`Hash`, `R6`> | null>", 1
+"selectr", "parse_simple_selector", -1, 0, 3, "list<class<`Pseudo`, `R6`> | null>", 1
 "selectr", "parse_simple_selector", 0, 0, 0, "class<`R6`, `TokenStream`>", 1
 "selectr", "parse_simple_selector", 1, 0, 0, "logical", 1
 "selectr", "querySelector", -1, 0, 0, "class<`XMLAbstractNode`, `XMLInternalElementNode`, `XMLInternalNode`>", 1

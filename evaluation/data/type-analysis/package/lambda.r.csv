@@ -7,7 +7,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "%::%", 1, 0, 0, "any", 1
 "lambda.r", "add_type", -1, 0, 0, "null", 1
 "lambda.r", "add_type", 0, 0, 0, "character", 1
-"lambda.r", "add_type", 1, 0, 0, "list<class<`data.frame`> | character | null | class<`data.frame`> | character>", 1
+"lambda.r", "add_type", 1, 0, 0, "list<class<`data.frame`> | character>", 1
+"lambda.r", "add_type", 1, 0, 1, "list<null | class<`data.frame`> | character>", 1
 "lambda.r", "add_variant", -1, 0, 0, "null", 1
 "lambda.r", "add_variant", 0, 0, 0, "character", 1
 "lambda.r", "add_variant", 1, 0, 0, "list<any>", 1
@@ -38,8 +39,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "fast_forward", -1, 0, 0, "class<`data.frame`>", 1
 "lambda.r", "fast_forward", 0, 0, 0, "class<`function`>", 1
 "lambda.r", "fast_forward", 1, 0, 0, "character[]", 1
-"lambda.r", "fill_args", -1, 0, 0, "null", 1
-"lambda.r", "fill_args", -1, 0, 1, "list<any>", 1
+"lambda.r", "fill_args", -1, 0, 0, "list<any>", 1
+"lambda.r", "fill_args", -1, 0, 1, "null", 1
 "lambda.r", "fill_args", 0, 0, 0, "list<any>", 1
 "lambda.r", "fill_args", 1, 0, 0, "null", 1
 "lambda.r", "fill_args", 1, 0, 1, "character[]", 1
@@ -77,14 +78,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "has_ellipsis", -1, 0, 0, "integer[]", 1
 "lambda.r", "has_ellipsis", 0, 0, 0, "character[]", 1
 "lambda.r", "has_variant", -1, 0, 0, "integer", 1
-"lambda.r", "has_variant", -1, 0, 1, "logical[]", 1
-"lambda.r", "has_variant", -1, 0, 2, "list<any>", 1
+"lambda.r", "has_variant", -1, 0, 1, "list<any>", 1
+"lambda.r", "has_variant", -1, 0, 2, "logical[]", 1
 "lambda.r", "has_variant", 0, 0, 0, "list<any>", 1
 "lambda.r", "has_variant", 1, 0, 0, "any", 1
 "lambda.r", "has_variant", 2, 0, 0, "any", 1
 "lambda.r", "has_variant", 3, 0, 0, "any", 1
 "lambda.r", "idx_ellipsis", -1, 0, 0, "integer[]", 1
-"lambda.r", "idx_ellipsis", 0, 0, 0, "list<any>", 1
+"lambda.r", "idx_ellipsis", 0, 0, 0, "list<class<`data.frame`> | character[]>", 1
+"lambda.r", "idx_ellipsis", 0, 0, 1, "list<class<`data.frame`> | class<`function`> | character>", 1
+"lambda.r", "idx_ellipsis", 0, 0, 2, "list<null | character[]>", 1
+"lambda.r", "idx_ellipsis", 0, 0, 3, "list<null | class<`function`> | character>", 1
 "lambda.r", "init_function", -1, 0, 0, "class<`function`, `lambdar.fun`>", 1
 "lambda.r", "init_function", -1, 0, 1, "class<`function`, `lambdar.type`>", 1
 "lambda.r", "init_function", 0, 0, 0, "character", 1
@@ -133,7 +137,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "print.lambdar.fun", 1, 0, 0, "...", 1
 "lambda.r", "return_type", -1, 0, 0, "character", 1
 "lambda.r", "return_type", 0, 0, 0, "list<class<`data.frame`> | character | integer[]>", 1
-"lambda.r", "return_type", 1, 0, 0, "list<any>", 1
+"lambda.r", "return_type", 1, 0, 0, "list<character>", 1
+"lambda.r", "return_type", 1, 0, 1, "list<double>", 1
+"lambda.r", "return_type", 1, 0, 2, "list<class<`function`> | double>", 1
+"lambda.r", "return_type", 1, 0, 3, "list<class<`Integer`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 4, "list<class<`WholeNumber`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 5, "list<character | double>", 1
+"lambda.r", "return_type", 1, 0, 6, "list<class<`A`, `Base`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 7, "list<class<`A`, `Base`, `numeric`> | class<`A`, `B`, `Base`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 8, "list<class<`A`, `B`, `Base`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 9, "list<class<`Base`, `E`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 10, "list<class<`Base`, `E`, `numeric`> | class<`A`, `B`, `Base`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 11, "list<class<`function`>>", 1
+"lambda.r", "return_type", 1, 0, 12, "list<class<`Temperature`, `numeric`>>", 1
+"lambda.r", "return_type", 1, 0, 13, "list<double | class<`GradientDescent`, `list`>>", 1
+"lambda.r", "return_type", 1, 0, 14, "list<double | class<`NewtonRaphson`, `list`>>", 1
+"lambda.r", "return_type", 1, 0, 15, "list<double | class<`function`>>", 1
 "lambda.r", "return_type", 2, 0, 0, "any", 1
 "lambda.r", "seal", -1, 0, 0, "null", 1
 "lambda.r", "seal", 0, 0, 0, "class<`function`, `lambdar.fun`>", 1
@@ -161,7 +180,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lambda.r", "use_error", -1, 0, 0, "character", 1
 "lambda.r", "use_error", 0, 0, 0, "character", 1
 "lambda.r", "use_error", 1, 0, 0, "character", 1
-"lambda.r", "use_error", 2, 0, 0, "list<any>", 1
+"lambda.r", "use_error", 2, 0, 0, "list<character>", 1
+"lambda.r", "use_error", 2, 0, 1, "list<class<`matrix`>>", 1
+"lambda.r", "use_error", 2, 0, 2, "list<class<`Prices`, `numeric`>>", 1
+"lambda.r", "use_error", 2, 0, 3, "list<double>", 1
 "lambda.r", "UseFunction", -1, 0, 0, "any", 1
 "lambda.r", "UseFunction", 0, 0, 0, "any", 1
 "lambda.r", "UseFunction", 1, 0, 0, "character", 1

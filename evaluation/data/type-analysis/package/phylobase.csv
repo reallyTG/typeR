@@ -154,14 +154,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "formatData", 5, 0, 0, "any", 1
 "phylobase", "formatData", 6, 0, 0, "double", 1
 "phylobase", "formatData", 7, 0, 0, "any", 1
-"phylobase", "formatData", 8, 0, 0, "any", 1
-"phylobase", "formatData", 9, 0, 0, "logical", 1
-"phylobase", "FUN", -1, 0, 0, "integer[]", 1
-"phylobase", "FUN", 0, 0, 0, "class<`phylo4d`>", 1
-"phylobase", "FUN", 0, 0, 1, "class<`phylo4`>", 1
-"phylobase", "FUN", 1, 0, 0, "character", 1
-"phylobase", "FUN", 1, 0, 1, "double", 1
-"phylobase", "FUN", 2, 0, 0, "character[]", 1
 "phylobase", ".genlab", -1, 0, 0, "character[]", 1
 "phylobase", ".genlab", 0, 0, 0, "character", 1
 "phylobase", ".genlab", 1, 0, 0, "integer", 1
@@ -467,12 +459,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "phylobubbles", 5, 0, 0, "character", 1
 "phylobase", "phylobubbles", 6, 0, 0, "any", 1
 "phylobase", "phylobubbles", 7, 0, 0, "double", 1
-"phylobase", "phylobubbles", 8, 0, 0, "logical", 1
-"phylobase", "phylobubbles", 9, 0, 0, "...", 1
-"phylobase", "phylobubbles", 10, 0, 0, "list<double[] | class<`phylo4d`> | list<^double[]>>", 1
-"phylobase", "phylobubbles", 11, 0, 0, "logical", 1
-"phylobase", "phylobubbles", 12, 0, 0, "logical", 1
-"phylobase", "phyloXXYY", -1, 0, 0, "list<double[] | class<`phylo4d`> | list<^double[]> | double[] | class<`phylo4`> | list<^double[]>>", 1
+"phylobase", "phyloXXYY", -1, 0, 0, "list<double[] | class<`phylo4d`> | list<^double[]>>", 1
+"phylobase", "phyloXXYY", -1, 0, 1, "list<double[] | class<`phylo4`> | list<^double[]>>", 1
 "phylobase", "phyloXXYY", 0, 0, 0, "class<`phylo4d`>", 1
 "phylobase", "phyloXXYY", 0, 0, 1, "class<`phylo4`>", 1
 "phylobase", "phyloXXYY", 1, 0, 0, "null", 1
@@ -485,7 +473,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "plot", 1, 1, 0, "any", 1
 "phylobase", "plot", 2, 1, 0, "...", 1
 "phylobase", "plotOneTree", -1, 0, 0, "class<`path`, `vpPath`>", 1
-"phylobase", "plotOneTree", 0, 0, 0, "list<double[] | class<`phylo4d`> | list<^double[]> | double[] | class<`phylo4`> | list<^double[]>>", 1
+"phylobase", "plotOneTree", 0, 0, 0, "list<double[] | class<`phylo4d`> | list<^double[]>>", 1
+"phylobase", "plotOneTree", 0, 0, 1, "list<double[] | class<`phylo4`> | list<^double[]>>", 1
 "phylobase", "plotOneTree", 1, 0, 0, "character", 1
 "phylobase", "plotOneTree", 2, 0, 0, "logical", 1
 "phylobase", "plotOneTree", 3, 0, 0, "logical", 1
@@ -493,7 +482,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "plotOneTree", 5, 0, 0, "character", 1
 "phylobase", "plotOneTree", 6, 0, 0, "any", 1
 "phylobase", "plotOneTree", 7, 0, 0, "double", 1
-"phylobase", "plotOneTree", 8, 0, 0, "double", 1
 "phylobase", "print", -1, 0, 0, "class<`data.frame`>", 1
 "phylobase", "print", 0, 0, 0, "class<`phylo4d`>", 1
 "phylobase", "print", 1, 0, 0, "...", 1
@@ -559,7 +547,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "sumEdgeLength", 0, 2, 0, "class<`phylo4`>", 1
 "phylobase", "sumEdgeLength", 0, 2, 1, "class<`phylo4d`>", 1
 "phylobase", "sumEdgeLength", 1, 2, 0, "integer[]", 1
-"phylobase", "summary", -1, 0, 0, "list<^integer[] | character[] | character | double | class<`summaryDefault`, `table`>>", 1
+"phylobase", "summary", -1, 0, 0, "list<^integer[] | character[]>", 1
+"phylobase", "summary", -1, 0, 1, "list<character | double | class<`summaryDefault`, `table`>>", 1
 "phylobase", "summary", 0, 0, 0, "class<`phylo4`>", 1
 "phylobase", "summary", 1, 0, 0, "...", 1
 "phylobase", "summary", -1, 1, 0, "list<any>", 1
@@ -612,9 +601,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "tip.data.plot", 5, 0, 0, "class<`function`>", 1
 "phylobase", "tip.data.plot", 6, 0, 0, "character", 1
 "phylobase", "tip.data.plot", 7, 0, 0, "character", 1
-"phylobase", "tip.data.plot", 8, 0, 0, "character", 1
-"phylobase", "tip.data.plot", 9, 0, 0, "double", 1
-"phylobase", "tip.data.plot", 10, 0, 0, "...", 1
 "phylobase", "tipLabels", -1, 0, 0, "character[]", 1
 "phylobase", "tipLabels", 0, 0, 0, "class<`phylo4d`>", 1
 "phylobase", "tipLabels", -1, 1, 0, "character[]", 1
@@ -649,11 +635,3 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "phylobase", "treePlot", 6, 0, 0, "double", 1
 "phylobase", "treePlot", 7, 0, 0, "character", 1
 "phylobase", "treePlot", 7, 0, 1, "class<`function`>", 1
-"phylobase", "treePlot", 8, 0, 0, "logical", 1
-"phylobase", "treePlot", 9, 0, 0, "character", 1
-"phylobase", "treePlot", 10, 0, 0, "character", 1
-"phylobase", "treePlot", 11, 0, 0, "character", 1
-"phylobase", "treePlot", 12, 0, 0, "double", 1
-"phylobase", "treePlot", 13, 0, 0, "logical", 1
-"phylobase", "treePlot", 14, 0, 0, "any", 1
-"phylobase", "treePlot", 15, 0, 0, "...", 1

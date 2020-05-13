@@ -16,8 +16,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "%||%", -1, 0, 14, "class<`ts`>", 1
 "plotly", "%||%", -1, 0, 15, "class<`unit`>", 1
 "plotly", "%||%", -1, 0, 16, "double[]", 1
-"plotly", "%||%", -1, 0, 17, "null", 1
-"plotly", "%||%", -1, 0, 18, "list<any>", 1
+"plotly", "%||%", -1, 0, 17, "list<any>", 1
+"plotly", "%||%", -1, 0, 18, "null", 1
 "plotly", "%||%", 0, 0, 0, "character[]", 1
 "plotly", "%||%", 0, 0, 1, "null", 1
 "plotly", "%||%", 0, 0, 2, "class<`waiver`>", 1
@@ -133,13 +133,25 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "arrange_safe", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "plotly", "arrange_safe", 1, 0, 0, "character[]", 1
 "plotly", "as_widget", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
-"plotly", "as_widget", 0, 0, 0, "list<any>", 1
+"plotly", "as_widget", 0, 0, 0, "list<character | list<any>>", 1
+"plotly", "as_widget", 0, 0, 1, "list<character | logical | list<any>>", 1
+"plotly", "as_widget", 0, 0, 2, "list<list<character | list<double>>>", 1
+"plotly", "as_widget", 0, 0, 3, "list<character | list<class<`function`> | null | list<double> | list<double[]>>>", 1
+"plotly", "as_widget", 0, 0, 4, "list<character | list<class<`function`> | null | list<double> | list<class<`formula`> | double[]>>>", 1
+"plotly", "as_widget", 0, 0, 5, "list<character | list<class<`function`> | null | list<double> | list<class<`formula`> | class<`AsIs`> | double[]>>>", 1
+"plotly", "as_widget", 0, 0, 6, "list<character | list<class<`function`> | null | list<double> | list<character[] | class<`matrix`> | double[]>>>", 1
+"plotly", "as_widget", 0, 0, 7, "list<character | list<class<`function`> | null | list<double> | list<class<`Date`> | double[]>>>", 1
+"plotly", "as_widget", 0, 0, 8, "list<character | list<class<`function`> | null | list<double> | list<class<`formula`> | character | double[]>>>", 1
+"plotly", "as_widget", 0, 0, 9, "list<character | list<class<`function`> | null | list<double> | list<class<`ts`> | double[]>>>", 1
+"plotly", "as_widget", 0, 0, 10, "list<character | list<class<`function`> | null | list<double> | list<double[] | list<character | list<double | character>>>>>", 1
+"plotly", "as_widget", 0, 0, 11, "list<character | list<class<`function`> | null | list<double> | list<double[] | list<character | list<character | double>>>>>", 1
 "plotly", "as_widget", 1, 0, 0, "...", 1
 "plotly", "attrs_name_check", -1, 0, 0, "character[]", 1
 "plotly", "attrs_name_check", 0, 0, 0, "character[]", 1
 "plotly", "attrs_name_check", 1, 0, 0, "character[]", 1
 "plotly", "attrs_name_check", 2, 0, 0, "any", 1
-"plotly", "attrs_selected", -1, 0, 0, "list<double | character | double | list<character>>", 1
+"plotly", "attrs_selected", -1, 0, 0, "list<double>", 1
+"plotly", "attrs_selected", -1, 0, 1, "list<character | double | list<character>>", 1
 "plotly", "attrs_selected", 0, 0, 0, "double", 1
 "plotly", "attrs_selected", 1, 0, 0, "...", 1
 "plotly", "bbox", -1, 0, 0, "list<double>", 1
@@ -154,10 +166,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "cartesian2geo", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "coerce_attr_defaults", -1, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "coerce_attr_defaults", -1, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "coerce_attr_defaults", -1, 0, 2, "list<any>", 1
+"plotly", "coerce_attr_defaults", -1, 0, 2, "list<double[] | character>", 1
+"plotly", "coerce_attr_defaults", -1, 0, 3, "list<class<`Date`> | double[] | character>", 1
+"plotly", "coerce_attr_defaults", -1, 0, 4, "list<character[] | double[]>", 1
+"plotly", "coerce_attr_defaults", -1, 0, 5, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "coerce_attr_defaults", 0, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "coerce_attr_defaults", 0, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "coerce_attr_defaults", 0, 0, 2, "list<any>", 1
+"plotly", "coerce_attr_defaults", 0, 0, 2, "list<double[] | character>", 1
+"plotly", "coerce_attr_defaults", 0, 0, 3, "list<class<`Date`> | double[] | character>", 1
+"plotly", "coerce_attr_defaults", 0, 0, 4, "list<character[] | double[]>", 1
+"plotly", "coerce_attr_defaults", 0, 0, 5, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "coerce_attr_defaults", 1, 0, 0, "any", 1
 "plotly", "colorbar", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "colorbar", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
@@ -193,20 +211,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "config", 4, 0, 1, "null", 1
 "plotly", "config", 5, 0, 0, "null", 1
 "plotly", "config", 5, 0, 1, "character", 1
-"plotly", "converter", -1, 0, 0, "character[]", 1
-"plotly", "converter", 0, 0, 0, "double", 1
-"plotly", "converter", 0, 0, 1, "null", 1
-"plotly", "converter", -1, 1, 0, "double[]", 1
-"plotly", "converter", 0, 1, 0, "double", 1
-"plotly", "converter", 0, 1, 1, "class<`unit`>", 1
-"plotly", "converter", -1, 2, 0, "character[]", 1
-"plotly", "converter", -1, 2, 1, "null", 1
-"plotly", "converter", 0, 2, 0, "null", 1
-"plotly", "converter", 0, 2, 1, "character[]", 1
-"plotly", "converter", 0, 2, 2, "class<`colorway`, `plotly_default`>", 1
-"plotly", "converter", 0, 2, 3, "class<`AsIs`>", 1
-"plotly", "converter", 0, 2, 4, "class<`colorway`>", 1
-"plotly", "converter", 1, 2, 0, "any", 1
 "plotly", "crosstalk_key", -1, 0, 0, "character", 1
 "plotly", "%|D|%", -1, 0, 0, "class<`character`, `plotly_default`>", 1
 "plotly", "%|D|%", -1, 0, 1, "class<`logical`, `plotly_default`>", 1
@@ -228,17 +232,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "default", 0, 0, 2, "null", 1
 "plotly", "default", 0, 0, 3, "class<`matrix`>", 1
 "plotly", "default", 0, 0, 4, "double[]", 1
-"plotly", "default_", -1, 0, 0, "class<`character`, `plotly_default`>", 1
-"plotly", "default_", -1, 0, 1, "class<`colorway`, `plotly_default`>", 1
-"plotly", "default_", -1, 0, 2, "class<`list`, `plotly_default`>", 1
-"plotly", "default_", -1, 0, 3, "class<`logical`, `plotly_default`>", 1
-"plotly", "default_", -1, 0, 4, "class<`matrix`, `plotly_default`>", 1
-"plotly", "default_", -1, 0, 5, "class<`numeric`, `plotly_default`>", 1
-"plotly", "default_", 0, 0, 0, "character", 1
-"plotly", "default_", 0, 0, 1, "class<`colorway`>", 1
-"plotly", "default_", 0, 0, 2, "null", 1
-"plotly", "default_", 0, 0, 3, "class<`matrix`>", 1
-"plotly", "default_", 0, 0, 4, "double[]", 1
 "plotly", "deparse2", -1, 0, 0, "character", 1
 "plotly", "deparse2", -1, 0, 1, "null", 1
 "plotly", "deparse2", 0, 0, 0, "class<`formula`>", 1
@@ -253,30 +246,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "dots2plots", 0, 0, 0, "...", 1
 "plotly", "easingOpts", -1, 0, 0, "character[]", 1
 "plotly", "ensure_one", -1, 0, 0, "character", 1
-"plotly", "ensure_one", -1, 0, 1, "list<character | double | list<double> | logical>", 1
+"plotly", "ensure_one", -1, 0, 1, "list<character | double | list<double>>", 1
+"plotly", "ensure_one", -1, 0, 2, "list<logical>", 1
 "plotly", "ensure_one", 0, 0, 0, "list<list<character[] | list<any>>>", 1
 "plotly", "ensure_one", 1, 0, 0, "character", 1
-"plotly", "f", -1, 0, 0, "class<`matrix`, `plotly_default`>", 1
-"plotly", "f", -1, 0, 1, "double[]", 1
-"plotly", "f", -1, 0, 2, "null", 1
-"plotly", "f", -1, 0, 3, "class<`matrix`>", 1
-"plotly", "f", -1, 0, 4, "^character[]", 1
-"plotly", "f", 0, 0, 0, "class<`character`, `colorway`, `plotly_default`>", 1
-"plotly", "f", 0, 0, 1, "class<`character`, `plotly_default`>", 1
-"plotly", "f", 0, 0, 2, "class<`matrix`, `plotly_default`>", 1
-"plotly", "f", 0, 0, 3, "class<`numeric`, `plotly_default`>", 1
-"plotly", "f", 0, 0, 4, "class<`logical`, `plotly_default`>", 1
-"plotly", "f", 0, 0, 5, "null", 1
-"plotly", "f", 0, 0, 6, "class<`AsIs`>", 1
-"plotly", "f", 0, 0, 7, "class<`matrix`>", 1
-"plotly", "f", 0, 0, 8, "^character[]", 1
-"plotly", "f", 0, 0, 9, "^double[]", 1
-"plotly", "f", -1, 1, 0, "list<any>", 1
-"plotly", "f", 0, 1, 0, "null", 1
-"plotly", "f", 0, 1, 1, "list<any>", 1
-"plotly", "f", 1, 1, 0, "null", 1
-"plotly", "f", 1, 1, 1, "list<any>", 1
-"plotly", "f", 2, 1, 0, "...", 1
 "plotly", "faced", -1, 0, 0, "character", 1
 "plotly", "faced", 0, 0, 0, "character", 1
 "plotly", "faced", 1, 0, 0, "character", 1
@@ -290,58 +263,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "fortify.SharedData", 0, 0, 0, "class<`R6`, `SharedData`>", 1
 "plotly", "fortify.SharedData", 1, 0, 0, "any", 1
 "plotly", "fortify.SharedData", 2, 0, 0, "...", 1
-"plotly", "FUN", -1, 0, 0, "class<`character`, `plotly_default`>", 1
-"plotly", "FUN", -1, 0, 1, "class<`colorway`, `plotly_default`>", 1
-"plotly", "FUN", -1, 0, 2, "class<`list`, `plotly_default`>", 1
-"plotly", "FUN", -1, 0, 3, "class<`logical`, `plotly_default`>", 1
-"plotly", "FUN", -1, 0, 4, "class<`matrix`, `plotly_default`>", 1
-"plotly", "FUN", -1, 0, 5, "class<`numeric`, `plotly_default`>", 1
-"plotly", "FUN", 0, 0, 0, "character", 1
-"plotly", "FUN", 0, 0, 1, "class<`colorway`>", 1
-"plotly", "FUN", 0, 0, 2, "null", 1
-"plotly", "FUN", 0, 0, 3, "class<`matrix`>", 1
-"plotly", "FUN", 0, 0, 4, "double[]", 1
-"plotly", "FUN", -1, 1, 0, "class<`matrix`, `plotly_default`>", 1
-"plotly", "FUN", -1, 1, 1, "double[]", 1
-"plotly", "FUN", -1, 1, 2, "null", 1
-"plotly", "FUN", -1, 1, 3, "class<`matrix`>", 1
-"plotly", "FUN", -1, 1, 4, "^character[]", 1
-"plotly", "FUN", 0, 1, 0, "class<`character`, `colorway`, `plotly_default`>", 1
-"plotly", "FUN", 0, 1, 1, "class<`character`, `plotly_default`>", 1
-"plotly", "FUN", 0, 1, 2, "class<`matrix`, `plotly_default`>", 1
-"plotly", "FUN", 0, 1, 3, "class<`numeric`, `plotly_default`>", 1
-"plotly", "FUN", 0, 1, 4, "class<`logical`, `plotly_default`>", 1
-"plotly", "FUN", 0, 1, 5, "null", 1
-"plotly", "FUN", 0, 1, 6, "class<`AsIs`>", 1
-"plotly", "FUN", 0, 1, 7, "class<`matrix`>", 1
-"plotly", "FUN", 0, 1, 8, "^character[]", 1
-"plotly", "FUN", 0, 1, 9, "^double[]", 1
-"plotly", "FUN", -1, 2, 0, "^character[]", 1
-"plotly", "FUN", -1, 2, 1, "^double[]", 1
-"plotly", "FUN", -1, 2, 2, "null", 1
-"plotly", "FUN", -1, 2, 3, "list<any>", 1
-"plotly", "FUN", 0, 2, 0, "^character[]", 1
-"plotly", "FUN", 0, 2, 1, "^double[]", 1
-"plotly", "FUN", 0, 2, 2, "null", 1
-"plotly", "FUN", 0, 2, 3, "list<any>", 1
-"plotly", "FUN", -1, 3, 0, "logical", 1
-"plotly", "FUN", 0, 3, 0, "class<`plotly_colorbar`>", 1
-"plotly", "FUN", 0, 3, 1, "class<`plotly_colorbar`, `zcolor`>", 1
-"plotly", "FUN", 0, 3, 2, "list<any>", 1
-"plotly", "FUN", -1, 4, 0, "logical", 1
-"plotly", "FUN", 0, 4, 0, "character[]", 1
-"plotly", "FUN", 0, 4, 1, "class<`AsIs`>", 1
-"plotly", "FUN", 0, 4, 2, "class<`Date`>", 1
-"plotly", "FUN", 0, 4, 3, "class<`matrix`>", 1
-"plotly", "FUN", 0, 4, 4, "double[]", 1
-"plotly", "FUN", 0, 4, 5, "null", 1
 "plotly", "geo2cartesian", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "geo2cartesian", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "geom2trace.GeomBar", -1, 0, 0, "list<double[] | character[] | list<logical | character | list<double | character>>>", 1
 "plotly", "geom2trace.GeomBar", 0, 0, 0, "class<`GeomBar`, `data.frame`>", 1
 "plotly", "geom2trace.GeomBar", 1, 0, 0, "list<any>", 1
 "plotly", "geom2trace.GeomBar", 2, 0, 0, "class<`gg`, `ggplot`>", 1
-"plotly", "geom2trace.GeomPath", -1, 0, 0, "list<double[] | character[] | list<double | character> | ^double[] | ^character[] | list<double | character>>", 1
+"plotly", "geom2trace.GeomPath", -1, 0, 0, "list<double[] | character[] | list<double | character>>", 1
+"plotly", "geom2trace.GeomPath", -1, 0, 1, "list<^double[] | ^character[] | list<double | character>>", 1
 "plotly", "geom2trace.GeomPath", 0, 0, 0, "class<`GeomPath`, `GeomSmooth`, `data.frame`>", 1
 "plotly", "geom2trace.GeomPath", 0, 0, 1, "class<`GeomLine`, `GeomPath`, `data.frame`>", 1
 "plotly", "geom2trace.GeomPath", 1, 0, 0, "list<any>", 1
@@ -376,7 +305,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "gg2list", 5, 0, 0, "double", 1
 "plotly", "gg2list", 6, 0, 0, "logical", 1
 "plotly", "gg2list", 7, 0, 0, "character", 1
-"plotly", "gg2list", 8, 0, 0, "...", 1
 "plotly", "ggfun", -1, 0, 0, "class<`function`>", 1
 "plotly", "ggfun", -1, 0, 1, "class<`Geom`, `GeomBar`, `GeomRect`, `gg`, `ggproto`>", 1
 "plotly", "ggfun", -1, 0, 2, "class<`Geom`, `GeomPath`, `gg`, `ggproto`>", 1
@@ -392,7 +320,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "ggplotly", 5, 0, 0, "double", 1
 "plotly", "ggplotly", 6, 0, 0, "logical", 1
 "plotly", "ggplotly", 7, 0, 0, "character", 1
-"plotly", "ggplotly", 8, 0, 0, "...", 1
 "plotly", "ggplotly.ggplot", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "ggplotly.ggplot", 0, 0, 0, "class<`gg`, `ggplot`>", 1
 "plotly", "ggplotly.ggplot", 1, 0, 0, "null", 1
@@ -402,7 +329,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "ggplotly.ggplot", 5, 0, 0, "double", 1
 "plotly", "ggplotly.ggplot", 6, 0, 0, "logical", 1
 "plotly", "ggplotly.ggplot", 7, 0, 0, "character", 1
-"plotly", "ggplotly.ggplot", 8, 0, 0, "...", 1
 "plotly", "ggtype", -1, 0, 0, "character", 1
 "plotly", "ggtype", 0, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "plotly", "ggtype", 1, 0, 0, "character", 1
@@ -464,10 +390,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "highlight", 5, 0, 1, "null", 1
 "plotly", "highlight", 6, 0, 0, "logical", 1
 "plotly", "highlight", 7, 0, 0, "null", 1
-"plotly", "highlight", 8, 0, 0, "double", 1
-"plotly", "highlight", 9, 0, 0, "list<double | character | double | list<character>>", 1
-"plotly", "highlight", 10, 0, 0, "double", 1
-"plotly", "highlight", 11, 0, 0, "...", 1
 "plotly", "highlight_defaults", -1, 0, 0, "list<character | double | list<double>>", 1
 "plotly", "highlight_key", -1, 0, 0, "class<`R6`, `SharedData`>", 1
 "plotly", "highlight_key", 0, 0, 0, "...", 1
@@ -497,8 +419,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "is_blank", 0, 0, 2, "class<`element`, `element_line`>", 1
 "plotly", "is_blank", 0, 0, 3, "class<`element`, `element_text`>", 1
 "plotly", "is_blank", 0, 0, 4, "class<`waiver`>", 1
-"plotly", "is_blank", 0, 0, 5, "null", 1
-"plotly", "is_blank", 0, 0, 6, "list<any>", 1
+"plotly", "is_blank", 0, 0, 5, "list<any>", 1
+"plotly", "is_blank", 0, 0, 6, "null", 1
 "plotly", "is.colorbar", -1, 0, 0, "logical", 1
 "plotly", "is.colorbar", 0, 0, 0, "class<`plotly_colorbar`>", 1
 "plotly", "is.colorbar", 0, 0, 1, "class<`plotly_colorbar`, `zcolor`>", 1
@@ -540,7 +462,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "is_tidy", -1, 0, 0, "logical", 1
 "plotly", "is_tidy", 0, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "is_tidy", 0, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "is_tidy", 0, 0, 2, "list<any>", 1
+"plotly", "is_tidy", 0, 0, 2, "list<double[] | character>", 1
+"plotly", "is_tidy", 0, 0, 3, "list<class<`Date`> | double[] | character>", 1
+"plotly", "is_tidy", 0, 0, 4, "list<character[] | double[]>", 1
+"plotly", "is_tidy", 0, 0, 5, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "is_type", -1, 0, 0, "logical", 1
 "plotly", "is_type", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "is_type", 1, 0, 0, "character", 1
@@ -548,7 +473,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "layers2layout", 0, 0, 0, "list<character | list<double | character | double>>", 1
 "plotly", "layers2layout", 1, 0, 0, "list<class<`Layer`, `LayerInstance`, `gg`, `ggproto`>>", 1
 "plotly", "layers2layout", 2, 0, 0, "any", 1
-"plotly", "layers2traces", -1, 0, 0, "list<list<any>>", 1
+"plotly", "layers2traces", -1, 0, 0, "list<list<double[] | character[] | list<logical | character | list<double | character>>>>", 1
+"plotly", "layers2traces", -1, 0, 1, "list<list<double[] | character[] | list<character | double | list<double | character>> | double[] | character[] | list<double | character>>>", 1
+"plotly", "layers2traces", -1, 0, 2, "list<list<double[] | character[] | list<character | double | list<double | character>>>>", 1
+"plotly", "layers2traces", -1, 0, 3, "list<list<^double[] | ^character[] | list<double | character>>>", 1
 "plotly", "layers2traces", 0, 0, 0, "list<class<`data.frame`>>", 1
 "plotly", "layers2traces", 1, 0, 0, "any", 1
 "plotly", "layers2traces", 2, 0, 0, "class<`Layout`, `gg`, `ggproto`>", 1
@@ -573,8 +501,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "make_panel_border", 0, 0, 0, "double[]", 1
 "plotly", "make_panel_border", 1, 0, 0, "double[]", 1
 "plotly", "make_panel_border", 2, 0, 0, "list<any>", 1
-"plotly", "map_color", -1, 0, 0, "list<class<`plotly_colorbar`, `zcolor`> | class<`plotly_colorbar`> | list<any> | list<any>>", 1
-"plotly", "map_color", 0, 0, 0, "list<class<`plotly_colorbar`, `zcolor`> | class<`plotly_colorbar`> | list<any> | list<any>>", 1
+"plotly", "map_color", -1, 0, 0, "list<class<`plotly_colorbar`, `zcolor`>>", 1
+"plotly", "map_color", -1, 0, 1, "list<list<any>>", 1
+"plotly", "map_color", -1, 0, 2, "list<class<`plotly_colorbar`> | list<any>>", 1
+"plotly", "map_color", 0, 0, 0, "list<class<`plotly_colorbar`, `zcolor`>>", 1
+"plotly", "map_color", 0, 0, 1, "list<list<any>>", 1
+"plotly", "map_color", 0, 0, 2, "list<class<`plotly_colorbar`> | list<any>>", 1
 "plotly", "map_color", 1, 0, 0, "logical", 1
 "plotly", "map_color", 2, 0, 0, "any", 1
 "plotly", "map_color", 3, 0, 0, "any", 1
@@ -593,16 +525,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "modify_list", -1, 0, 0, "list<any>", 1
 "plotly", "modify_list", 0, 0, 0, "null", 1
 "plotly", "modify_list", 0, 0, 1, "list<any>", 1
-"plotly", "modify_list", 1, 0, 0, "null", 1
-"plotly", "modify_list", 1, 0, 1, "list<any>", 1
+"plotly", "modify_list", 1, 0, 0, "list<any>", 1
+"plotly", "modify_list", 1, 0, 1, "null", 1
 "plotly", "modify_list", 2, 0, 0, "...", 1
 "plotly", "mutate_.plotly", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "mutate_.plotly", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "mutate_.plotly", 1, 0, 0, "...", 1
 "plotly", "mutate_.plotly", 2, 0, 0, "class<`lazy_dots`>", 1
 "plotly", "names2", -1, 0, 0, "character[]", 1
-"plotly", "names2", 0, 0, 0, "null", 1
-"plotly", "names2", 0, 0, 1, "list<any>", 1
+"plotly", "names2", 0, 0, 0, "list<any>", 1
+"plotly", "names2", 0, 0, 1, "null", 1
 "plotly", "new_id", -1, 0, 0, "character", 1
 "plotly", "npscales", -1, 0, 0, "character[]", 1
 "plotly", "plot_geo", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
@@ -621,18 +553,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "plot_ly", 5, 0, 0, "null", 1
 "plotly", "plot_ly", 6, 0, 0, "null", 1
 "plotly", "plot_ly", 7, 0, 0, "any", 1
-"plotly", "plot_ly", 8, 0, 0, "null", 1
-"plotly", "plot_ly", 9, 0, 0, "double", 1
-"plotly", "plot_ly", 10, 0, 0, "any", 1
-"plotly", "plot_ly", 11, 0, 0, "double[]", 1
-"plotly", "plot_ly", 12, 0, 0, "any", 1
-"plotly", "plot_ly", 13, 0, 0, "double[]", 1
-"plotly", "plot_ly", 14, 0, 0, "any", 1
-"plotly", "plot_ly", 15, 0, 0, "null", 1
-"plotly", "plot_ly", 16, 0, 0, "any", 1
-"plotly", "plot_ly", 17, 0, 0, "null", 1
-"plotly", "plot_ly", 18, 0, 0, "any", 1
-"plotly", "plot_ly", 19, 0, 0, "any", 1
 "plotly", "plotly_build", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "plotly_build", 0, 0, 0, "class<`gg`, `ggplot`>", 1
 "plotly", "plotly_build", 0, 0, 1, "class<`htmlwidget`, `plotly`>", 1
@@ -696,10 +616,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "prefix_class", 0, 0, 8, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "plotly", "prefix_class", 0, 0, 9, "class<`GeomLine`, `data.frame`>", 1
 "plotly", "prefix_class", 0, 0, 10, "class<`GeomSmooth`, `data.frame`>", 1
-"plotly", "prefix_class", 0, 0, 11, "null", 1
-"plotly", "prefix_class", 0, 0, 12, "class<`matrix`>", 1
-"plotly", "prefix_class", 0, 0, 13, "double[]", 1
-"plotly", "prefix_class", 0, 0, 14, "list<any>", 1
+"plotly", "prefix_class", 0, 0, 11, "list<any>", 1
+"plotly", "prefix_class", 0, 0, 12, "null", 1
+"plotly", "prefix_class", 0, 0, 13, "class<`matrix`>", 1
+"plotly", "prefix_class", 0, 0, 14, "double[]", 1
 "plotly", "prefix_class", 1, 0, 0, "character[]", 1
 "plotly", "rangeslider", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "rangeslider", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
@@ -766,7 +686,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "special_attrs", -1, 0, 0, "null", 1
 "plotly", "special_attrs", 0, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "special_attrs", 0, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "special_attrs", 0, 0, 2, "list<any>", 1
+"plotly", "special_attrs", 0, 0, 2, "list<double[] | character>", 1
+"plotly", "special_attrs", 0, 0, 3, "list<class<`Date`> | double[] | character>", 1
+"plotly", "special_attrs", 0, 0, 4, "list<character[] | double[]>", 1
+"plotly", "special_attrs", 0, 0, 5, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "split_on", -1, 0, 0, "character[]", 1
 "plotly", "split_on", -1, 0, 1, "null", 1
 "plotly", "split_on", 0, 0, 0, "class<`GeomBar`, `data.frame`>", 1
@@ -788,8 +711,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "subplot", 5, 0, 0, "logical", 1
 "plotly", "subplot", 6, 0, 0, "logical", 1
 "plotly", "subplot", 7, 0, 0, "logical", 1
-"plotly", "subplot", 8, 0, 0, "logical", 1
-"plotly", "subplot", 9, 0, 0, "character", 1
 "plotly", "supply_defaults", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "supply_defaults", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "supply_highlight_attrs", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
@@ -860,12 +781,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "trace_replace", 0, 0, 0, "list<any>", 1
 "plotly", "trace_replace", 1, 0, 0, "character[]", 1
 "plotly", "trace_replace", 2, 0, 0, "character", 1
-"plotly", "trace_replace", 2, 0, 1, "double", 1
-"plotly", "trace_replace", 2, 0, 2, "list<double | list<character>>", 1
+"plotly", "trace_replace", 2, 0, 1, "list<double>", 1
+"plotly", "trace_replace", 2, 0, 2, "double", 1
+"plotly", "trace_replace", 2, 0, 3, "list<list<character>>", 1
 "plotly", "train_data", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "plotly", "train_data", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "plotly", "train_data", 1, 0, 0, "class<`list`, `plotly_line`>", 1
-"plotly", "train_data", 1, 0, 1, "list<any>", 1
+"plotly", "train_data", 1, 0, 1, "list<class<`Date`> | double[] | character>", 1
+"plotly", "train_data", 1, 0, 2, "list<double[] | character>", 1
+"plotly", "train_data", 1, 0, 3, "list<character[] | double[]>", 1
+"plotly", "train_data", 1, 0, 4, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "translate_linebreaks", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "translate_linebreaks", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "tryFALSE", -1, 0, 0, "logical", 1
@@ -936,10 +861,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "verify_mode", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "verify_orientation", -1, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "verify_orientation", -1, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "verify_orientation", -1, 0, 2, "list<any>", 1
+"plotly", "verify_orientation", -1, 0, 2, "list<double[] | character>", 1
+"plotly", "verify_orientation", -1, 0, 3, "list<class<`Date`> | double[] | character>", 1
+"plotly", "verify_orientation", -1, 0, 4, "list<character[] | double[]>", 1
+"plotly", "verify_orientation", -1, 0, 5, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "verify_orientation", 0, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "verify_orientation", 0, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "verify_orientation", 0, 0, 2, "list<any>", 1
+"plotly", "verify_orientation", 0, 0, 2, "list<double[] | character>", 1
+"plotly", "verify_orientation", 0, 0, 3, "list<class<`Date`> | double[] | character>", 1
+"plotly", "verify_orientation", 0, 0, 4, "list<character[] | double[]>", 1
+"plotly", "verify_orientation", 0, 0, 5, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "verify_partial_bundle", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "verify_partial_bundle", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "verify_scattergl_platform", -1, 0, 0, "class<`htmlwidget`, `plotly`>", 1
@@ -948,10 +879,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "plotly", "verify_showlegend", 0, 0, 0, "class<`htmlwidget`, `plotly`>", 1
 "plotly", "verify_type", -1, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "verify_type", -1, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "verify_type", -1, 0, 2, "list<any>", 1
+"plotly", "verify_type", -1, 0, 2, "list<double[] | character>", 1
+"plotly", "verify_type", -1, 0, 3, "list<class<`Date`> | double[] | character>", 1
+"plotly", "verify_type", -1, 0, 4, "list<character[] | double[]>", 1
+"plotly", "verify_type", -1, 0, 5, "list<double[] | character | list<character | list<double | character>>>", 1
 "plotly", "verify_type", 0, 0, 0, "class<`list`, `plotly_heatmap`>", 1
 "plotly", "verify_type", 0, 0, 1, "class<`list`, `plotly_line`>", 1
-"plotly", "verify_type", 0, 0, 2, "list<any>", 1
+"plotly", "verify_type", 0, 0, 2, "list<double[]>", 1
+"plotly", "verify_type", 0, 0, 3, "list<class<`Date`> | double[]>", 1
+"plotly", "verify_type", 0, 0, 4, "list<character[] | double[]>", 1
+"plotly", "verify_type", 0, 0, 5, "list<double[] | list<character | list<double | character>>>", 1
 "plotly", "verifyUnit", -1, 0, 0, "class<`margin`, `unit`>", 1
 "plotly", "verifyUnit", -1, 0, 1, "class<`unit`>", 1
 "plotly", "verifyUnit", 0, 0, 0, "class<`margin`, `unit`>", 1

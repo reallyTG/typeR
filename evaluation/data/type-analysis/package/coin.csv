@@ -1,20 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"coin", ":::", -1, 0, 0, "double[]", 1
-"coin", ":::", 0, 0, 0, "double", 1
-"coin", ":::", 1, 0, 0, "double", 1
-"coin", ":::", 2, 0, 0, "double", 1
-"coin", ":::", 3, 0, 0, "character", 1
-"coin", ":::", 4, 0, 0, "any", 1
-"coin", "[[", -1, 0, 0, "^double[]", 1
-"coin", "[[", 0, 0, 0, "double[]", 1
-"coin", "[[", 0, 0, 1, "^integer[]", 1
-"coin", "[[", 1, 0, 0, "character[]", 1
-"coin", "@", -1, 0, 0, "double[]", 1
-"coin", "@", -1, 1, 0, "class<`matrix`>", 1
-"coin", "@", -1, 1, 1, "double[]", 1
-"coin", "@", 0, 1, 0, "logical", 1
-"coin", "@", -1, 2, 0, "double[]", 1
-"coin", "@", 0, 2, 0, "logical", 1
 "coin", "ansari_test", -1, 0, 0, "any", 1
 "coin", "ansari_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "ansari_test", 0, 0, 1, "class<`IndependenceProblem`>", 1
@@ -335,8 +319,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "expectation", -1, 8, 0, "double", 1
 "coin", "expectation", 0, 8, 0, "class<`ScalarIndependenceTestStatistic`>", 1
 "coin", "expectation", 1, 8, 0, "...", 1
-"coin", "factor_trafo", -1, 0, 0, "class<`matrix`>", 1
-"coin", "factor_trafo", 0, 0, 0, "class<`factor`>", 1
 "coin", "fisyat_test", -1, 0, 0, "any", 1
 "coin", "fisyat_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "fisyat_test", 0, 0, 1, "class<`IndependenceProblem`>", 1
@@ -378,7 +360,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "fmaxstat_trafo", 0, 0, 0, "class<`factor`>", 1
 "coin", "fmaxstat_trafo", 1, 0, 0, "double", 1
 "coin", "fmaxstat_trafo", 2, 0, 0, "double", 1
-"coin", "formula2data", -1, 0, 0, "list<any>", 1
+"coin", "formula2data", -1, 0, 0, "list<class<`data.frame`> | class<`factor`> | double[]>", 1
+"coin", "formula2data", -1, 0, 1, "list<class<`data.frame`> | class<`factor`> | null>", 1
+"coin", "formula2data", -1, 0, 2, "list<class<`data.frame`> | double[] | null>", 1
+"coin", "formula2data", -1, 0, 3, "list<class<`data.frame`> | null | double[]>", 1
+"coin", "formula2data", -1, 0, 4, "list<class<`data.frame`> | null | integer[]>", 1
+"coin", "formula2data", -1, 0, 5, "list<class<`data.frame`> | null>", 1
 "coin", "formula2data", 0, 0, 0, "class<`formula`>", 1
 "coin", "formula2data", 1, 0, 0, "class<`data.frame`>", 1
 "coin", "formula2data", 1, 0, 1, "list<any>", 1
@@ -428,7 +415,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "%GT%", 0, 0, 1, "double[]", 1
 "coin", "%GT%", 1, 0, 0, "double", 1
 "coin", "has_distribution", -1, 0, 0, "logical", 1
-"coin", "has_distribution", 0, 0, 0, "list<character[] | class<`function`> | null | character | class<`function`> | null | class<`function`> | character[] | null>", 1
+"coin", "has_distribution", 0, 0, 0, "list<character[] | class<`function`> | null>", 1
+"coin", "has_distribution", 0, 0, 1, "list<character | class<`function`> | null>", 1
+"coin", "has_distribution", 0, 0, 2, "list<class<`function`> | character[] | null>", 1
 "coin", "id_trafo", -1, 0, 0, "^integer[]", 1
 "coin", "id_trafo", 0, 0, 0, "^integer[]", 1
 "coin", "independence_test", -1, 0, 0, "any", 1
@@ -457,7 +446,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "independence_test.IndependenceProblem", 6, 0, 1, "list<double[]>", 1
 "coin", "independence_test.IndependenceProblem", 7, 0, 0, "null", 1
 "coin", "independence_test.IndependenceProblem", 7, 0, 1, "class<`function`>", 1
-"coin", "independence_test.IndependenceProblem", 8, 0, 0, "...", 1
 "coin", "independence_test.table", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "independence_test.table", -1, 0, 1, "class<`QuadTypeIndependenceTest`>", 1
 "coin", "independence_test.table", -1, 0, 2, "class<`ScalarIndependenceTest`>", 1
@@ -883,31 +871,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "normal_trafo", 0, 0, 0, "double[]", 1
 "coin", "normal_trafo", 0, 0, 1, "^integer[]", 1
 "coin", "normal_trafo", 1, 0, 0, "character[]", 1
-"coin", "numeric_trafo", -1, 0, 0, "^double[]", 1
-"coin", "numeric_trafo", 0, 0, 0, "double[]", 1
-"coin", "numeric_trafo", 0, 0, 1, "^integer[]", 1
-"coin", "numeric_trafo", 1, 0, 0, "character[]", 1
-"coin", "numeric_trafo", -1, 1, 0, "^double[]", 1
-"coin", "numeric_trafo", 0, 1, 0, "^integer[]", 1
-"coin", "numeric_trafo", 0, 1, 1, "double[]", 1
-"coin", "numeric_trafo", 1, 1, 0, "character[]", 1
-"coin", "numeric_trafo", -1, 2, 0, "class<`matrix`>", 1
-"coin", "numeric_trafo", -1, 2, 1, "^double[]", 1
-"coin", "numeric_trafo", 0, 2, 0, "double[]", 1
-"coin", "numeric_trafo", 0, 2, 1, "^integer[]", 1
-"coin", "numeric_trafo", 1, 2, 0, "character[]", 1
-"coin", "numeric_trafo", 2, 2, 0, "double[]", 1
-"coin", "numeric_trafo", -1, 3, 0, "^double[]", 1
-"coin", "numeric_trafo", 0, 3, 0, "^integer[]", 1
-"coin", "numeric_trafo", 0, 3, 1, "class<`array`>", 1
-"coin", "numeric_trafo", 0, 3, 2, "double[]", 1
-"coin", "numeric_trafo", 1, 3, 0, "character[]", 1
-"coin", "numeric_trafo", -1, 4, 0, "^double[]", 1
-"coin", "numeric_trafo", 0, 4, 0, "double[]", 1
-"coin", "numeric_trafo", 0, 4, 1, "^integer[]", 1
-"coin", "numeric_trafo", 0, 4, 2, "class<`array`>", 1
-"coin", "numeric_trafo", 0, 4, 3, "class<`data.frame`>", 1
-"coin", "numeric_trafo", 1, 4, 0, "character[]", 1
 "coin", "ofmaxstat_trafo", -1, 0, 0, "class<`matrix`>", 1
 "coin", "ofmaxstat_trafo", 0, 0, 0, "double[]", 1
 "coin", "ofmaxstat_trafo", 0, 0, 1, "^integer[]", 1
@@ -937,12 +900,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "ordered_scores", -1, 0, 0, "class<`matrix`>", 1
 "coin", "ordered_scores", 0, 0, 0, "double", 1
 "coin", "ordered_scores", 1, 0, 0, "double[]", 1
-"coin", "ordered_trafo", -1, 0, 0, "class<`matrix`>", 1
-"coin", "ordered_trafo", 0, 0, 0, "class<`factor`>", 1
-"coin", "ordered_trafo", 0, 0, 1, "class<`factor`, `ordered`>", 1
-"coin", "ordered_trafo", 1, 0, 0, "null", 1
-"coin", "ordered_trafo", 1, 0, 1, "double[]", 1
-"coin", "ordered_trafo", 1, 0, 2, "list<double[]>", 1
 "coin", "pmvn", -1, 0, 0, "double", 1
 "coin", "pmvn", 0, 0, 0, "double", 1
 "coin", "pmvn", 1, 0, 0, "double", 1
@@ -1210,8 +1167,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "setAttributes", -1, 0, 0, "class<`matrix`>", 1
 "coin", "setAttributes", -1, 0, 1, "double[]", 1
 "coin", "setAttributes", 0, 0, 0, "double[]", 1
-"coin", "setAttributes", 1, 0, 0, "null", 1
-"coin", "setAttributes", 1, 0, 1, "list<integer[] | integer[] | list<character | null> | character>", 1
+"coin", "setAttributes", 1, 0, 0, "list<integer[]>", 1
+"coin", "setAttributes", 1, 0, 1, "list<integer[] | list<character | null>>", 1
+"coin", "setAttributes", 1, 0, 2, "null", 1
+"coin", "setAttributes", 1, 0, 3, "list<character>", 1
 "coin", "setColnames", -1, 0, 0, "class<`matrix`>", 1
 "coin", "setColnames", 0, 0, 0, "class<`matrix`>", 1
 "coin", "setColnames", 1, 0, 0, "character[]", 1
@@ -1338,7 +1297,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "statistic", -1, 11, 0, "class<`matrix`>", 1
 "coin", "statistic", 0, 11, 0, "class<`IndependenceLinearStatistic`>", 1
 "coin", "statistic", 1, 11, 0, "...", 1
-"coin", "statnames", -1, 0, 0, "list<character[] | list<character[]> | character | list<character>>", 1
+"coin", "statnames", -1, 0, 0, "list<character[] | list<character[]>>", 1
+"coin", "statnames", -1, 0, 1, "list<character | list<character>>", 1
 "coin", "statnames", 0, 0, 0, "class<`IndependenceLinearStatistic`>", 1
 "coin", "statnames", 0, 0, 1, "class<`IndependenceTestProblem`>", 1
 "coin", "statnames", 0, 0, 2, "class<`MaxTypeIndependenceTestStatistic`>", 1
@@ -1383,11 +1343,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "support", -1, 9, 0, "double[]", 1
 "coin", "support", 0, 9, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "support", 1, 9, 0, "...", 1
-"coin", "surv_trafo", -1, 0, 0, "any", 1
-"coin", "surv_trafo", 0, 0, 0, "class<`Surv`>", 1
-"coin", "surv_trafo", 1, 0, 0, "character[]", 1
-"coin", "surv_trafo", 2, 0, 0, "any", 1
-"coin", "surv_trafo", 3, 0, 0, "...", 1
 "coin", "symmetry_test", -1, 0, 0, "any", 1
 "coin", "symmetry_test", 0, 0, 0, "class<`formula`>", 1
 "coin", "symmetry_test", 0, 0, 1, "class<`SymmetryProblem`>", 1
@@ -1412,8 +1367,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "symmetry_test.SymmetryProblem", 6, 0, 1, "list<integer[]>", 1
 "coin", "symmetry_test.SymmetryProblem", 7, 0, 0, "null", 1
 "coin", "symmetry_test.SymmetryProblem", 7, 0, 1, "class<`function`>", 1
-"coin", "symmetry_test.SymmetryProblem", 8, 0, 0, "logical", 1
-"coin", "symmetry_test.SymmetryProblem", 9, 0, 0, "...", 1
 "coin", "symmetry_test.table", -1, 0, 0, "class<`MaxTypeIndependenceTest`>", 1
 "coin", "symmetry_test.table", -1, 0, 1, "class<`QuadTypeIndependenceTest`>", 1
 "coin", "symmetry_test.table", -1, 0, 2, "class<`ScalarIndependenceTest`>", 1
@@ -1537,32 +1490,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coin", "wilcox_test.IndependenceProblem", 1, 0, 0, "logical", 1
 "coin", "wilcox_test.IndependenceProblem", 2, 0, 0, "double", 1
 "coin", "wilcox_test.IndependenceProblem", 3, 0, 0, "...", 1
-"coin", "xtrafo", -1, 0, 0, "any", 1
-"coin", "xtrafo", 0, 0, 0, "class<`data.frame`>", 1
-"coin", "xtrafo", 1, 0, 0, "any", 1
-"coin", "xtrafo", 2, 0, 0, "any", 1
-"coin", "xtrafo", 3, 0, 0, "any", 1
-"coin", "xtrafo", 4, 0, 0, "any", 1
-"coin", "xtrafo", 5, 0, 0, "null", 1
-"coin", "xtrafo", 5, 0, 1, "list<class<`function`>>", 1
-"coin", "xtrafo", 6, 0, 0, "class<`factor`>", 1
-"coin", "xtrafo", 6, 0, 1, "null", 1
-"coin", "ytrafo", -1, 0, 0, "^double[]", 1
-"coin", "ytrafo", 0, 0, 0, "double[]", 1
-"coin", "ytrafo", 0, 0, 1, "^integer[]", 1
-"coin", "ytrafo", 0, 0, 2, "class<`array`>", 1
-"coin", "ytrafo", 0, 0, 3, "class<`data.frame`>", 1
-"coin", "ytrafo", 1, 0, 0, "character[]", 1
-"coin", "ytrafo", -1, 1, 0, "any", 1
-"coin", "ytrafo", 0, 1, 0, "class<`data.frame`>", 1
-"coin", "ytrafo", 1, 1, 0, "any", 1
-"coin", "ytrafo", 2, 1, 0, "any", 1
-"coin", "ytrafo", 3, 1, 0, "any", 1
-"coin", "ytrafo", 4, 1, 0, "any", 1
-"coin", "ytrafo", 5, 1, 0, "null", 1
-"coin", "ytrafo", 5, 1, 1, "list<class<`function`>>", 1
-"coin", "ytrafo", 6, 1, 0, "class<`factor`>", 1
-"coin", "ytrafo", 6, 1, 1, "null", 1
 "coin", "zheng_trafo", -1, 0, 0, "class<`matrix`>", 1
 "coin", "zheng_trafo", 0, 0, 0, "class<`factor`>", 1
 "coin", "zheng_trafo", 0, 0, 1, "class<`factor`, `ordered`>", 1

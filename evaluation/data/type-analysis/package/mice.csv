@@ -10,12 +10,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "ampute", 5, 0, 0, "null", 1
 "mice", "ampute", 6, 0, 0, "logical", 1
 "mice", "ampute", 7, 0, 0, "logical", 1
-"mice", "ampute", 8, 0, 0, "null", 1
-"mice", "ampute", 8, 0, 1, "character[]", 1
-"mice", "ampute", 9, 0, 0, "class<`matrix`>", 1
-"mice", "ampute", 9, 0, 1, "null", 1
-"mice", "ampute", 10, 0, 0, "logical", 1
-"mice", "ampute", 11, 0, 0, "logical", 1
 "mice", "ampute.continuous", -1, 0, 0, "list<double[]>", 1
 "mice", "ampute.continuous", 0, 0, 0, "double[]", 1
 "mice", "ampute.continuous", 1, 0, 0, "list<class<`matrix`>>", 1
@@ -72,11 +66,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "bwplot.mids", 5, 0, 0, "list<any>", 1
 "mice", "bwplot.mids", 6, 0, 0, "logical", 1
 "mice", "bwplot.mids", 7, 0, 0, "logical", 1
-"mice", "bwplot.mids", 8, 0, 0, "logical", 1
-"mice", "bwplot.mids", 9, 0, 0, "list<logical>", 1
-"mice", "bwplot.mids", 10, 0, 0, "...", 1
-"mice", "bwplot.mids", 11, 0, 0, "logical", 1
-"mice", "bwplot.mids", 12, 0, 0, "logical", 1
 "mice", "cbind", -1, 0, 0, "class<`data.frame`>", 1
 "mice", "cbind", -1, 0, 1, "class<`matrix`>", 1
 "mice", "cbind", -1, 0, 2, "class<`mids`>", 1
@@ -104,7 +93,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "check.blocks", 2, 0, 0, "character", 1
 "mice", "check.blots", -1, 0, 0, "list<list<any>>", 1
 "mice", "check.blots", 0, 0, 0, "null", 1
-"mice", "check.blots", 0, 0, 1, "list<list<character | character | character | class<`matrix`>>>", 1
+"mice", "check.blots", 0, 0, 1, "list<list<character>>", 1
+"mice", "check.blots", 0, 0, 2, "list<list<character | character | class<`matrix`>>>", 1
 "mice", "check.blots", 1, 0, 0, "class<`data.frame`>", 1
 "mice", "check.blots", 2, 0, 0, "list<character[]>", 1
 "mice", "check.cluster", -1, 0, 0, "logical", 1
@@ -176,18 +166,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "densityplot.mids", 5, 0, 0, "logical", 1
 "mice", "densityplot.mids", 6, 0, 0, "list<list<character[] | double | character[] | logical>>", 1
 "mice", "densityplot.mids", 7, 0, 0, "logical", 1
-"mice", "densityplot.mids", 8, 0, 0, "double", 1
-"mice", "densityplot.mids", 9, 0, 0, "logical", 1
-"mice", "densityplot.mids", 10, 0, 0, "logical", 1
-"mice", "densityplot.mids", 11, 0, 0, "list<logical>", 1
-"mice", "densityplot.mids", 12, 0, 0, "character", 1
-"mice", "densityplot.mids", 13, 0, 0, "character", 1
-"mice", "densityplot.mids", 14, 0, 0, "...", 1
-"mice", "densityplot.mids", 15, 0, 0, "logical", 1
-"mice", "densityplot.mids", 16, 0, 0, "logical", 1
-"mice", "edit.setup", -1, 0, 0, "list<character[] | class<`matrix`> | class<`matrix`> | character[]>", 1
+"mice", "edit.setup", -1, 0, 0, "list<character[] | class<`matrix`>>", 1
+"mice", "edit.setup", -1, 0, 1, "list<class<`matrix`> | character[]>", 1
 "mice", "edit.setup", 0, 0, 0, "any", 1
-"mice", "edit.setup", 1, 0, 0, "list<character[] | class<`matrix`> | class<`matrix`> | character[]>", 1
+"mice", "edit.setup", 1, 0, 0, "list<character[] | class<`matrix`>>", 1
+"mice", "edit.setup", 1, 0, 1, "list<class<`matrix`> | character[]>", 1
 "mice", "edit.setup", 2, 0, 0, "logical", 1
 "mice", "edit.setup", 3, 0, 0, "logical", 1
 "mice", "edit.setup", 4, 0, 0, "logical", 1
@@ -221,20 +204,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "fluxplot", 5, 0, 0, "double[]", 1
 "mice", "fluxplot", 6, 0, 0, "double", 1
 "mice", "fluxplot", 7, 0, 0, "character", 1
-"mice", "fluxplot", 8, 0, 0, "character", 1
-"mice", "fluxplot", 9, 0, 0, "character", 1
-"mice", "fluxplot", 10, 0, 0, "logical", 1
-"mice", "fluxplot", 11, 0, 0, "character", 1
-"mice", "fluxplot", 12, 0, 0, "double", 1
-"mice", "fluxplot", 13, 0, 0, "...", 1
-"mice", "FUN", -1, 0, 0, "logical", 1
-"mice", "FUN", 0, 0, 0, "class<`formula`>", 1
-"mice", "FUN", -1, 1, 0, "character[]", 1
-"mice", "FUN", 0, 1, 0, "class<`formula`>", 1
-"mice", "FUN", -1, 2, 0, "logical", 1
-"mice", "FUN", 0, 2, 0, "class<`call`>", 1
-"mice", "FUN", 0, 2, 1, "class<`name`>", 1
-"mice", "FUN", 0, 2, 2, "class<`formula`>", 1
 "mice", "getfit", -1, 0, 0, "class<`glm`, `lm`>", 1
 "mice", "getfit", -1, 0, 1, "class<`list`, `mira`>", 1
 "mice", "getfit", -1, 0, 2, "class<`lm`>", 1
@@ -285,7 +254,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "initialize.chain", 0, 0, 0, "list<character[]>", 1
 "mice", "initialize.chain", 1, 0, 0, "double", 1
 "mice", "initialize.chain", 2, 0, 0, "double", 1
-"mice", "initialize.imp", -1, 0, 0, "list<class<`data.frame`> | null | class<`data.frame`>>", 1
+"mice", "initialize.imp", -1, 0, 0, "list<class<`data.frame`>>", 1
+"mice", "initialize.imp", -1, 0, 1, "list<null | class<`data.frame`>>", 1
 "mice", "initialize.imp", 0, 0, 0, "class<`data.frame`>", 1
 "mice", "initialize.imp", 1, 0, 0, "double", 1
 "mice", "initialize.imp", 2, 0, 0, "class<`matrix`>", 1
@@ -319,7 +289,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "lm.mids", 0, 0, 0, "class<`formula`>", 1
 "mice", "lm.mids", 1, 0, 0, "class<`mids`>", 1
 "mice", "lm.mids", 2, 0, 0, "...", 1
-"mice", "ma_exists", -1, 0, 0, "list<logical | class<`data.frame`> | environment | logical | environment | list<double | character> | logical | environment | list<integer | character>>", 1
+"mice", "ma_exists", -1, 0, 0, "list<logical | class<`data.frame`> | environment>", 1
+"mice", "ma_exists", -1, 0, 1, "list<logical | environment | list<double | character>>", 1
+"mice", "ma_exists", -1, 0, 2, "list<logical | environment | list<integer | character>>", 1
 "mice", "ma_exists", 0, 0, 0, "character", 1
 "mice", "ma_exists", 1, 0, 0, "double", 1
 "mice", "ma_exists", 2, 0, 0, "integer[]", 1
@@ -349,8 +321,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "make.predictorMatrix", 1, 0, 0, "list<character[]>", 1
 "mice", "make.visitSequence", -1, 0, 0, "character[]", 1
 "mice", "make.visitSequence", 0, 0, 0, "any", 1
-"mice", "make.visitSequence", 1, 0, 0, "null", 1
-"mice", "make.visitSequence", 1, 0, 1, "list<character[]>", 1
+"mice", "make.visitSequence", 1, 0, 0, "list<character[]>", 1
+"mice", "make.visitSequence", 1, 0, 1, "null", 1
 "mice", "make.where", -1, 0, 0, "class<`matrix`>", 1
 "mice", "make.where", 0, 0, 0, "class<`data.frame`>", 1
 "mice", "make.where", 1, 0, 0, "character[]", 1
@@ -369,7 +341,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "mdc", 5, 0, 0, "character", 1
 "mice", "mdc", 6, 0, 0, "character", 1
 "mice", "mdc", 7, 0, 0, "character", 1
-"mice", "mdc", 8, 0, 0, "character", 1
 "mice", "md.pairs", -1, 0, 0, "list<class<`matrix`>>", 1
 "mice", "md.pairs", 0, 0, 0, "class<`data.frame`>", 1
 "mice", "md.pattern", -1, 0, 0, "class<`matrix`>", 1
@@ -388,16 +359,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "mice", 5, 0, 0, "any", 1
 "mice", "mice", 6, 0, 0, "null", 1
 "mice", "mice", 7, 0, 0, "any", 1
-"mice", "mice", 8, 0, 0, "null", 1
-"mice", "mice", 8, 0, 1, "list<list<character | character | character | class<`matrix`>>>", 1
-"mice", "mice", 9, 0, 0, "null", 1
-"mice", "mice", 10, 0, 0, "any", 1
-"mice", "mice", 11, 0, 0, "double", 1
-"mice", "mice", 12, 0, 0, "logical", 1
-"mice", "mice", 13, 0, 0, "null", 1
-"mice", "mice", 13, 0, 1, "double", 1
-"mice", "mice", 14, 0, 0, "null", 1
-"mice", "mice", 15, 0, 0, "...", 1
 "mice", "mice.impute.2lonly.norm", -1, 0, 0, "double[]", 1
 "mice", "mice.impute.2lonly.norm", 0, 0, 0, "double[]", 1
 "mice", "mice.impute.2lonly.norm", 1, 0, 0, "logical[]", 1
@@ -445,8 +406,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "mice.impute.midastouch", 5, 0, 0, "null", 1
 "mice", "mice.impute.midastouch", 6, 0, 0, "logical", 1
 "mice", "mice.impute.midastouch", 7, 0, 0, "null", 1
-"mice", "mice.impute.midastouch", 8, 0, 0, "null", 1
-"mice", "mice.impute.midastouch", 9, 0, 0, "...", 1
 "mice", "mice.impute.mnar.logreg", -1, 0, 0, "class<`factor`>", 1
 "mice", "mice.impute.mnar.logreg", 0, 0, 0, "class<`factor`>", 1
 "mice", "mice.impute.mnar.logreg", 1, 0, 0, "logical[]", 1
@@ -493,7 +452,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "mice.impute.polr", 5, 0, 0, "logical", 1
 "mice", "mice.impute.polr", 6, 0, 0, "double", 1
 "mice", "mice.impute.polr", 7, 0, 0, "logical", 1
-"mice", "mice.impute.polr", 8, 0, 0, "...", 1
 "mice", "mice.impute.polyreg", -1, 0, 0, "character[]", 1
 "mice", "mice.impute.polyreg", 0, 0, 0, "class<`factor`>", 1
 "mice", "mice.impute.polyreg", 1, 0, 0, "logical[]", 1
@@ -542,9 +500,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "minmax", 0, 0, 1, "double[]", 1
 "mice", "minmax", 1, 0, 0, "logical", 1
 "mice", "minmax", 2, 0, 0, "logical", 1
-"mice", "name.blocks", -1, 0, 0, "list<character[] | class<`formula`>>", 1
+"mice", "name.blocks", -1, 0, 0, "list<character[]>", 1
+"mice", "name.blocks", -1, 0, 1, "list<class<`formula`>>", 1
 "mice", "name.blocks", 0, 0, 0, "character[]", 1
-"mice", "name.blocks", 0, 0, 1, "list<character[] | class<`formula`>>", 1
+"mice", "name.blocks", 0, 0, 1, "list<character[]>", 1
+"mice", "name.blocks", 0, 0, 2, "list<class<`formula`>>", 1
 "mice", "name.blocks", 1, 0, 0, "character", 1
 "mice", "name.formulas", -1, 0, 0, "list<class<`formula`>>", 1
 "mice", "name.formulas", 0, 0, 0, "list<class<`formula`>>", 1
@@ -571,7 +531,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "obtain.design", -1, 0, 0, "class<`matrix`>", 1
 "mice", "obtain.design", 0, 0, 0, "class<`data.frame`>", 1
 "mice", "obtain.design", 1, 0, 0, "class<`formula`>", 1
-"mice", "parse.ums", -1, 0, 0, "list<double[] | class<`matrix`> | double | class<`matrix`>>", 1
+"mice", "parse.ums", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"mice", "parse.ums", -1, 0, 1, "list<double | class<`matrix`>>", 1
 "mice", "parse.ums", 0, 0, 0, "class<`matrix`>", 1
 "mice", "parse.ums", 1, 0, 0, "character", 1
 "mice", "parse.ums", 2, 0, 0, "class<`matrix`>", 1
@@ -639,21 +600,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "remove.lindep", 5, 0, 0, "logical", 1
 "mice", "remove.lindep", 6, 0, 0, "double", 1
 "mice", "remove.lindep", 7, 0, 0, "...", 1
-"mice", "sampler", -1, 0, 0, "list<double | class<`array`> | list<class<`data.frame`>> | double | class<`array`> | list<null | class<`data.frame`>>>", 1
+"mice", "sampler", -1, 0, 0, "list<double | class<`array`> | list<class<`data.frame`>>>", 1
+"mice", "sampler", -1, 0, 1, "list<double | class<`array`> | list<null | class<`data.frame`>>>", 1
 "mice", "sampler", 0, 0, 0, "class<`data.frame`>", 1
 "mice", "sampler", 1, 0, 0, "double", 1
 "mice", "sampler", 2, 0, 0, "any", 1
-"mice", "sampler", 3, 0, 0, "list<class<`data.frame`> | null | class<`data.frame`>>", 1
+"mice", "sampler", 3, 0, 0, "list<class<`data.frame`>>", 1
+"mice", "sampler", 3, 0, 1, "list<null | class<`data.frame`>>", 1
 "mice", "sampler", 4, 0, 0, "list<character[]>", 1
 "mice", "sampler", 5, 0, 0, "any", 1
 "mice", "sampler", 6, 0, 0, "any", 1
 "mice", "sampler", 7, 0, 0, "any", 1
-"mice", "sampler", 8, 0, 0, "any", 1
-"mice", "sampler", 9, 0, 0, "any", 1
-"mice", "sampler", 10, 0, 0, "any", 1
-"mice", "sampler", 11, 0, 0, "double[]", 1
-"mice", "sampler", 12, 0, 0, "any", 1
-"mice", "sampler", 13, 0, 0, "...", 1
 "mice", "sampler.univ", -1, 0, 0, "class<`factor`>", 1
 "mice", "sampler.univ", -1, 0, 1, "class<`factor`, `ordered`>", 1
 "mice", "sampler.univ", -1, 0, 2, "double[]", 1
@@ -665,9 +622,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "sampler.univ", 5, 0, 0, "character", 1
 "mice", "sampler.univ", 6, 0, 0, "character", 1
 "mice", "sampler.univ", 7, 0, 0, "integer", 1
-"mice", "sampler.univ", 8, 0, 0, "character", 1
-"mice", "sampler.univ", 9, 0, 0, "list<any>", 1
-"mice", "sampler.univ", 10, 0, 0, "...", 1
 "mice", "single2imputes", -1, 0, 0, "list<^double[]>", 1
 "mice", "single2imputes", 0, 0, 0, "class<`data.frame`>", 1
 "mice", "single2imputes", 1, 0, 0, "class<`matrix`>", 1
@@ -685,14 +639,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "stripplot.mids", 5, 0, 0, "list<list<character[] | double | character[] | logical>>", 1
 "mice", "stripplot.mids", 6, 0, 0, "logical", 1
 "mice", "stripplot.mids", 7, 0, 0, "logical", 1
-"mice", "stripplot.mids", 8, 0, 0, "list<logical>", 1
-"mice", "stripplot.mids", 9, 0, 0, "character", 1
-"mice", "stripplot.mids", 10, 0, 0, "null", 1
-"mice", "stripplot.mids", 11, 0, 0, "logical", 1
-"mice", "stripplot.mids", 12, 0, 0, "logical", 1
-"mice", "stripplot.mids", 13, 0, 0, "...", 1
-"mice", "stripplot.mids", 14, 0, 0, "logical", 1
-"mice", "stripplot.mids", 15, 0, 0, "logical", 1
 "mice", "summary.mipo", -1, 0, 0, "class<`data.frame`, `mipo.summary`>", 1
 "mice", "summary.mipo", 0, 0, 0, "class<`data.frame`, `mipo`>", 1
 "mice", "summary.mipo", 1, 0, 0, "character[]", 1
@@ -729,7 +675,3 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mice", "xyplot.mids", 5, 0, 0, "list<list<character[] | double | character[] | logical>>", 1
 "mice", "xyplot.mids", 6, 0, 0, "logical", 1
 "mice", "xyplot.mids", 7, 0, 0, "logical", 1
-"mice", "xyplot.mids", 8, 0, 0, "list<logical>", 1
-"mice", "xyplot.mids", 9, 0, 0, "...", 1
-"mice", "xyplot.mids", 10, 0, 0, "logical", 1
-"mice", "xyplot.mids", 11, 0, 0, "logical", 1

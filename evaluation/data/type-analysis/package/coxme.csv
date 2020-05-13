@@ -8,16 +8,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "coxme", 5, 0, 0, "any", 1
 "coxme", "coxme", 6, 0, 0, "any", 1
 "coxme", "coxme", 7, 0, 0, "character[]", 1
-"coxme", "coxme", 8, 0, 0, "any", 1
-"coxme", "coxme", 9, 0, 0, "any", 1
-"coxme", "coxme", 10, 0, 0, "any", 1
-"coxme", "coxme", 11, 0, 0, "logical", 1
-"coxme", "coxme", 12, 0, 0, "logical", 1
-"coxme", "coxme", 13, 0, 0, "double", 1
-"coxme", "coxme", 14, 0, 0, "any", 1
-"coxme", "coxme", 15, 0, 0, "any", 1
-"coxme", "coxme", 16, 0, 0, "any", 1
-"coxme", "coxme", 17, 0, 0, "...", 1
 "coxme", "coxme.control", -1, 0, 0, "list<any>", 1
 "coxme", "coxme.control", 0, 0, 0, "double", 1
 "coxme", "coxme.control", 1, 0, 0, "double", 1
@@ -28,10 +18,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "coxme.control", 5, 0, 0, "list<character | list<double>>", 1
 "coxme", "coxme.control", 6, 0, 0, "double", 1
 "coxme", "coxme.control", 7, 0, 0, "logical", 1
-"coxme", "coxme.control", 8, 0, 0, "character", 1
-"coxme", "coxme.control", 9, 0, 0, "double[]", 1
-"coxme", "coxme.control", 10, 0, 0, "double[]", 1
-"coxme", "coxme.control", 11, 0, 0, "double[]", 1
 "coxme", "coxme.fit", -1, 0, 0, "list<any>", 1
 "coxme", "coxme.fit", 0, 0, 0, "class<`matrix`>", 1
 "coxme", "coxme.fit", 1, 0, 0, "class<`Surv`>", 1
@@ -43,24 +29,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "coxme.fit", 5, 0, 0, "list<any>", 1
 "coxme", "coxme.fit", 6, 0, 0, "double[]", 1
 "coxme", "coxme.fit", 7, 0, 0, "character", 1
-"coxme", "coxme.fit", 8, 0, 0, "any", 1
-"coxme", "coxme.fit", 9, 0, 0, "class<`matrix`>", 1
-"coxme", "coxme.fit", 10, 0, 0, "class<`matrix`>", 1
-"coxme", "coxme.fit", 11, 0, 0, "list<class<`coxmevar`>>", 1
-"coxme", "coxme.fit", 12, 0, 0, "list<list<any>>", 1
-"coxme", "coxme.fit", 13, 0, 0, "double[]", 1
-"coxme", "coxme.fit", 13, 0, 1, "null", 1
-"coxme", "coxme.fit", 13, 0, 2, "list<any>", 1
-"coxme", "coxme.fit", 14, 0, 0, "integer[]", 1
-"coxme", "coxme.fit", 15, 0, 0, "class<`matrix`>", 1
-"coxme", "coxme.fit", 16, 0, 0, "double", 1
-"coxme", "coxme.fit", 17, 0, 0, "logical", 1
 "coxme", "coxmeFull", -1, 0, 0, "class<`coxmevar`>", 1
 "coxme", "coxmeFull", 0, 0, 0, "logical", 1
 "coxme", "coxmeMlist", -1, 0, 0, "class<`coxmevar`>", 1
 "coxme", "coxmeMlist", 0, 0, 0, "class<`dsCMatrix`>", 1
 "coxme", "coxmeMlist", 0, 0, 1, "class<`matrix`>", 1
-"coxme", "coxmeMlist", 0, 0, 2, "list<any>", 1
+"coxme", "coxmeMlist", 0, 0, 2, "list<class<`bdsmatrix`> | class<`matrix`>>", 1
+"coxme", "coxmeMlist", 0, 0, 3, "list<class<`bdsmatrix`>>", 1
+"coxme", "coxmeMlist", 0, 0, 4, "list<class<`matrix`> | class<`bdsmatrix`>>", 1
+"coxme", "coxmeMlist", 0, 0, 5, "list<class<`matrix`>>", 1
 "coxme", "coxmeMlist", 1, 0, 0, "logical", 1
 "coxme", "coxmeMlist", 2, 0, 0, "logical", 1
 "coxme", "coxmeMlist", 3, 0, 0, "logical", 1
@@ -76,12 +53,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "fixef.lmekin", -1, 0, 0, "double[]", 1
 "coxme", "fixef.lmekin", 0, 0, 0, "class<`lmekin`>", 1
 "coxme", "fixef.lmekin", 1, 0, 0, "...", 1
-"coxme", "formula1", -1, 0, 0, "list<any>", 1
+"coxme", "formula1", -1, 0, 0, "list<class<`call`>>", 1
+"coxme", "formula1", -1, 0, 1, "list<class<`call`> | list<class<`(`>>>", 1
+"coxme", "formula1", -1, 0, 2, "list<class<`call`> | null>", 1
+"coxme", "formula1", -1, 0, 3, "list<class<`formula`> | list<class<`(`>>>", 1
+"coxme", "formula1", -1, 0, 4, "list<class<`name`>>", 1
+"coxme", "formula1", -1, 0, 5, "list<class<`name`> | list<class<`(`>>>", 1
+"coxme", "formula1", -1, 0, 6, "list<list<class<`(`>>>", 1
 "coxme", "formula1", 0, 0, 0, "class<`call`>", 1
 "coxme", "formula1", 0, 0, 1, "class<`formula`>", 1
 "coxme", "formula1", 0, 0, 2, "class<`name`>", 1
 "coxme", "formula1", 0, 0, 3, "class<`(`>", 1
-"coxme", "formula2", -1, 0, 0, "list<any>", 1
+"coxme", "formula2", -1, 0, 0, "list<class<`call`> | double>", 1
+"coxme", "formula2", -1, 0, 1, "list<logical | class<`name`> | class<`call`>>", 1
+"coxme", "formula2", -1, 0, 2, "list<logical | class<`name`>>", 1
+"coxme", "formula2", -1, 0, 3, "list<class<`name`> | double>", 1
+"coxme", "formula2", -1, 0, 4, "list<double | class<`call`>>", 1
+"coxme", "formula2", -1, 0, 5, "list<double | class<`name`>>", 1
 "coxme", "formula2", 0, 0, 0, "class<`(`>", 1
 "coxme", "getblock", -1, 0, 0, "class<`dsCMatrix`>", 1
 "coxme", "getblock", -1, 0, 1, "double", 1
@@ -99,15 +87,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "lmekin", 5, 0, 0, "any", 1
 "coxme", "lmekin", 6, 0, 0, "any", 1
 "coxme", "lmekin", 7, 0, 0, "any", 1
-"coxme", "lmekin", 8, 0, 0, "any", 1
-"coxme", "lmekin", 9, 0, 0, "character[]", 1
-"coxme", "lmekin", 10, 0, 0, "logical", 1
-"coxme", "lmekin", 11, 0, 0, "logical", 1
-"coxme", "lmekin", 12, 0, 0, "logical", 1
-"coxme", "lmekin", 13, 0, 0, "any", 1
-"coxme", "lmekin", 14, 0, 0, "any", 1
-"coxme", "lmekin", 15, 0, 0, "any", 1
-"coxme", "lmekin", 16, 0, 0, "...", 1
 "coxme", "lmekin.control", -1, 0, 0, "list<double[] | list<character | list<double>>>", 1
 "coxme", "lmekin.control", 0, 0, 0, "list<character | list<double>>", 1
 "coxme", "lmekin.control", 1, 0, 0, "double[]", 1
@@ -120,7 +99,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "print.lmekin", -1, 0, 0, "class<`lmekin`>", 1
 "coxme", "print.lmekin", 0, 0, 0, "class<`lmekin`>", 1
 "coxme", "print.lmekin", 1, 0, 0, "...", 1
-"coxme", "ranef.coxme", -1, 0, 0, "list<double[] | class<`matrix`> | double[] | class<`matrix`>>", 1
+"coxme", "ranef.coxme", -1, 0, 0, "list<double[]>", 1
+"coxme", "ranef.coxme", -1, 0, 1, "list<class<`matrix`>>", 1
+"coxme", "ranef.coxme", -1, 0, 2, "list<double[] | class<`matrix`>>", 1
 "coxme", "ranef.coxme", 0, 0, 0, "class<`coxme`>", 1
 "coxme", "ranef.coxme", 1, 0, 0, "...", 1
 "coxme", "ranef.lmekin", -1, 0, 0, "list<double[]>", 1
@@ -137,11 +118,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "coxme", "subbar", 0, 0, 1, "class<`call`>", 1
 "coxme", "subbar", 0, 0, 2, "class<`formula`>", 1
 "coxme", "subbar", 0, 0, 3, "class<`name`>", 1
-"coxme", "VarCorr.coxme", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"coxme", "VarCorr.coxme", -1, 0, 0, "list<class<`matrix`>>", 1
+"coxme", "VarCorr.coxme", -1, 0, 1, "list<double[]>", 1
 "coxme", "VarCorr.coxme", 0, 0, 0, "class<`coxme`>", 1
 "coxme", "VarCorr.coxme", 0, 0, 1, "class<`lmekin`>", 1
 "coxme", "VarCorr.coxme", 1, 0, 0, "...", 1
-"coxme", "VarCorr.lmekin", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"coxme", "VarCorr.lmekin", -1, 0, 0, "list<class<`matrix`>>", 1
+"coxme", "VarCorr.lmekin", -1, 0, 1, "list<double[]>", 1
 "coxme", "VarCorr.lmekin", 0, 0, 0, "class<`coxme`>", 1
 "coxme", "VarCorr.lmekin", 0, 0, 1, "class<`lmekin`>", 1
 "coxme", "VarCorr.lmekin", 1, 0, 0, "...", 1

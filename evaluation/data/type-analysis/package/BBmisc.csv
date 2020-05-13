@@ -74,12 +74,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "extractSubList", 2, 0, 0, "any", 1
 "BBmisc", "extractSubList", 3, 0, 0, "logical", 1
 "BBmisc", "extractSubList", 4, 0, 0, "logical", 1
-"BBmisc", "FUN", -1, 0, 0, "^character[]", 1
-"BBmisc", "FUN", -1, 0, 1, "null", 1
-"BBmisc", "FUN", 0, 0, 0, "integer[]", 1
-"BBmisc", "FUN", 0, 0, 1, "list<any>", 1
-"BBmisc", "FUN", 1, 0, 0, "null", 1
-"BBmisc", "FUN", 1, 0, 1, "character", 1
 "BBmisc", "getClass1", -1, 0, 0, "character", 1
 "BBmisc", "getClass1", 0, 0, 0, "character", 1
 "BBmisc", "getClass1", 0, 0, 1, "double", 1
@@ -161,7 +155,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "mapValues", 4, 0, 0, "logical", 1
 "BBmisc", "mapValues", 5, 0, 0, "logical", 1
 "BBmisc", "mapValues", 6, 0, 0, "logical", 1
-"BBmisc", "namedList", -1, 0, 0, "list<double | null>", 1
+"BBmisc", "namedList", -1, 0, 0, "list<double>", 1
+"BBmisc", "namedList", -1, 0, 1, "list<null>", 1
 "BBmisc", "namedList", 0, 0, 0, "character[]", 1
 "BBmisc", "namedList", 1, 0, 0, "any", 1
 "BBmisc", "names2", -1, 0, 0, "^character[]", 1
@@ -234,13 +229,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "BBmisc", "toRangeStr", 1, 0, 0, "character", 1
 "BBmisc", "toRangeStr", 2, 0, 0, "character", 1
 "BBmisc", "viapply", -1, 0, 0, "^integer[]", 1
-"BBmisc", "viapply", 0, 0, 0, "^double[]", 1
-"BBmisc", "viapply", 0, 0, 1, "list<character | double>", 1
+"BBmisc", "viapply", 0, 0, 0, "list<character>", 1
+"BBmisc", "viapply", 0, 0, 1, "list<double>", 1
+"BBmisc", "viapply", 0, 0, 2, "^double[]", 1
 "BBmisc", "viapply", 1, 0, 0, "class<`function`>", 1
 "BBmisc", "viapply", 2, 0, 0, "...", 1
 "BBmisc", "viapply", 3, 0, 0, "logical", 1
 "BBmisc", "vlapply", -1, 0, 0, "logical[]", 1
-"BBmisc", "vlapply", 0, 0, 0, "list<character | double>", 1
+"BBmisc", "vlapply", 0, 0, 0, "list<character>", 1
+"BBmisc", "vlapply", 0, 0, 1, "list<double>", 1
 "BBmisc", "vlapply", 1, 0, 0, "class<`function`>", 1
 "BBmisc", "vlapply", 2, 0, 0, "...", 1
 "BBmisc", "vlapply", 3, 0, 0, "logical", 1

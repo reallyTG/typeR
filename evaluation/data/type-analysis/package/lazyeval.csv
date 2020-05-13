@@ -3,7 +3,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "%||%", 0, 0, 0, "character[]", 1
 "lazyeval", "%||%", 0, 0, 1, "null", 1
 "lazyeval", "%||%", 1, 0, 0, "any", 1
-"lazyeval", "all_values", -1, 0, 0, "list<any>", 1
+"lazyeval", "all_values", -1, 0, 0, "list<class<`name`>>", 1
+"lazyeval", "all_values", -1, 0, 1, "list<double | character[]>", 1
+"lazyeval", "all_values", -1, 0, 2, "list<class<`name`> | double>", 1
+"lazyeval", "all_values", -1, 0, 3, "list<double>", 1
 "lazyeval", "all_values", 0, 0, 0, "any", 1
 "lazyeval", "all_values", 1, 0, 0, "...", 1
 "lazyeval", "as_call", -1, 0, 0, "class<`call`>", 1
@@ -38,7 +41,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "as.lazy_dots", 0, 0, 3, "class<`lazy`>", 1
 "lazyeval", "as.lazy_dots", 0, 0, 4, "class<`lazy_dots`>", 1
 "lazyeval", "as.lazy_dots", 0, 0, 5, "class<`name`>", 1
-"lazyeval", "as.lazy_dots", 0, 0, 6, "list<class<`formula`> | class<`formula`> | class<`name`> | double | class<`formula`>>", 1
+"lazyeval", "as.lazy_dots", 0, 0, 6, "list<class<`formula`>>", 1
+"lazyeval", "as.lazy_dots", 0, 0, 7, "list<class<`formula`> | class<`name`>>", 1
+"lazyeval", "as.lazy_dots", 0, 0, 8, "list<double | class<`formula`>>", 1
 "lazyeval", "as.lazy_dots", 1, 0, 0, "any", 1
 "lazyeval", "as.lazy_dots.call", -1, 0, 0, "class<`lazy_dots`>", 1
 "lazyeval", "as.lazy_dots.call", 0, 0, 0, "class<`call`>", 1
@@ -47,7 +52,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "as.lazy_dots.call", 1, 0, 0, "any", 1
 "lazyeval", "as.lazy_dots.character", -1, 0, 0, "class<`lazy_dots`>", 1
 "lazyeval", "as.lazy_dots.character", 0, 0, 0, "character[]", 1
-"lazyeval", "as.lazy_dots.character", 0, 0, 1, "list<class<`formula`> | class<`formula`> | class<`name`> | double | class<`formula`>>", 1
+"lazyeval", "as.lazy_dots.character", 0, 0, 1, "list<class<`formula`>>", 1
+"lazyeval", "as.lazy_dots.character", 0, 0, 2, "list<class<`formula`> | class<`name`>>", 1
+"lazyeval", "as.lazy_dots.character", 0, 0, 3, "list<double | class<`formula`>>", 1
 "lazyeval", "as.lazy_dots.character", 1, 0, 0, "any", 1
 "lazyeval", "as.lazy_dots.formula", -1, 0, 0, "class<`lazy_dots`>", 1
 "lazyeval", "as.lazy_dots.formula", 0, 0, 0, "class<`call`>", 1
@@ -62,7 +69,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "as.lazy_dots.lazy_dots", 1, 0, 0, "any", 1
 "lazyeval", "as.lazy_dots.list", -1, 0, 0, "class<`lazy_dots`>", 1
 "lazyeval", "as.lazy_dots.list", 0, 0, 0, "character[]", 1
-"lazyeval", "as.lazy_dots.list", 0, 0, 1, "list<class<`formula`> | class<`formula`> | class<`name`> | double | class<`formula`>>", 1
+"lazyeval", "as.lazy_dots.list", 0, 0, 1, "list<class<`formula`>>", 1
+"lazyeval", "as.lazy_dots.list", 0, 0, 2, "list<class<`formula`> | class<`name`>>", 1
+"lazyeval", "as.lazy_dots.list", 0, 0, 3, "list<double | class<`formula`>>", 1
 "lazyeval", "as.lazy_dots.list", 1, 0, 0, "any", 1
 "lazyeval", "as.lazy_dots.name", -1, 0, 0, "class<`lazy_dots`>", 1
 "lazyeval", "as.lazy_dots.name", 0, 0, 0, "class<`call`>", 1
@@ -110,7 +119,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "auto_names", 1, 0, 0, "any", 1
 "lazyeval", "call_modify", -1, 0, 0, "class<`call`>", 1
 "lazyeval", "call_modify", 0, 0, 0, "class<`call`>", 1
-"lazyeval", "call_modify", 1, 0, 0, "list<class<`name`> | null | double>", 1
+"lazyeval", "call_modify", 1, 0, 0, "list<class<`name`>>", 1
+"lazyeval", "call_modify", 1, 0, 1, "list<null>", 1
+"lazyeval", "call_modify", 1, 0, 2, "list<double>", 1
 "lazyeval", "call_modify", 2, 0, 0, "environment", 1
 "lazyeval", "call_new", -1, 0, 0, "class<`call`>", 1
 "lazyeval", "call_new", 0, 0, 0, "character", 1
@@ -154,7 +165,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "eval_expr", 1, 0, 0, "environment", 1
 "lazyeval", "eval_expr", 2, 0, 0, "class<`data.frame`>", 1
 "lazyeval", "eval_expr", 2, 0, 1, "null", 1
-"lazyeval", "eval_expr", 2, 0, 2, "list<class<`function`> | double>", 1
+"lazyeval", "eval_expr", 2, 0, 2, "list<class<`function`>>", 1
+"lazyeval", "eval_expr", 2, 0, 3, "list<double>", 1
 "lazyeval", "expr_find", -1, 0, 0, "character", 1
 "lazyeval", "expr_find", -1, 0, 1, "class<`{`>", 1
 "lazyeval", "expr_find", -1, 0, 2, "class<`call`>", 1
@@ -186,27 +198,34 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "f_eval", 0, 0, 0, "class<`formula`>", 1
 "lazyeval", "f_eval", 1, 0, 0, "class<`data.frame`>", 1
 "lazyeval", "f_eval", 1, 0, 1, "null", 1
-"lazyeval", "f_eval", 1, 0, 2, "list<class<`function`> | double>", 1
+"lazyeval", "f_eval", 1, 0, 2, "list<class<`function`>>", 1
+"lazyeval", "f_eval", 1, 0, 3, "list<double>", 1
 "lazyeval", "find_data", -1, 0, 0, "class<`data.frame`>", 1
 "lazyeval", "find_data", -1, 0, 1, "list<any>", 1
 "lazyeval", "find_data", 0, 0, 0, "class<`data.frame`>", 1
 "lazyeval", "find_data", 0, 0, 1, "null", 1
-"lazyeval", "find_data", 0, 0, 2, "list<class<`function`> | double>", 1
+"lazyeval", "find_data", 0, 0, 2, "list<class<`function`>>", 1
+"lazyeval", "find_data", 0, 0, 3, "list<double>", 1
 "lazyeval", "find_data.data.frame", -1, 0, 0, "class<`data.frame`>", 1
-"lazyeval", "find_data.data.frame", -1, 0, 1, "list<class<`function`> | double>", 1
+"lazyeval", "find_data.data.frame", -1, 0, 1, "list<class<`function`>>", 1
+"lazyeval", "find_data.data.frame", -1, 0, 2, "list<double>", 1
 "lazyeval", "find_data.data.frame", 0, 0, 0, "class<`data.frame`>", 1
-"lazyeval", "find_data.data.frame", 0, 0, 1, "list<class<`function`> | double>", 1
+"lazyeval", "find_data.data.frame", 0, 0, 1, "list<class<`function`>>", 1
+"lazyeval", "find_data.data.frame", 0, 0, 2, "list<double>", 1
 "lazyeval", "find_data.list", -1, 0, 0, "class<`data.frame`>", 1
-"lazyeval", "find_data.list", -1, 0, 1, "list<class<`function`> | double>", 1
+"lazyeval", "find_data.list", -1, 0, 1, "list<class<`function`>>", 1
+"lazyeval", "find_data.list", -1, 0, 2, "list<double>", 1
 "lazyeval", "find_data.list", 0, 0, 0, "class<`data.frame`>", 1
-"lazyeval", "find_data.list", 0, 0, 1, "list<class<`function`> | double>", 1
+"lazyeval", "find_data.list", 0, 0, 1, "list<class<`function`>>", 1
+"lazyeval", "find_data.list", 0, 0, 2, "list<double>", 1
 "lazyeval", "find_data.NULL", -1, 0, 0, "list<any>", 1
 "lazyeval", "find_data.NULL", 0, 0, 0, "null", 1
 "lazyeval", "f_interp", -1, 0, 0, "class<`formula`>", 1
 "lazyeval", "f_interp", 0, 0, 0, "class<`formula`>", 1
 "lazyeval", "f_interp", 1, 0, 0, "class<`data.frame`>", 1
 "lazyeval", "f_interp", 1, 0, 1, "null", 1
-"lazyeval", "f_interp", 1, 0, 2, "list<class<`function`> | double>", 1
+"lazyeval", "f_interp", 1, 0, 2, "list<class<`function`>>", 1
+"lazyeval", "f_interp", 1, 0, 3, "list<double>", 1
 "lazyeval", "f_label", -1, 0, 0, "character", 1
 "lazyeval", "f_label", 0, 0, 0, "class<`formula`>", 1
 "lazyeval", "f_lhs", -1, 0, 0, "class<`name`>", 1
@@ -233,36 +252,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "f_text", 0, 0, 0, "class<`formula`>", 1
 "lazyeval", "f_text", 1, 0, 0, "integer", 1
 "lazyeval", "f_text", 2, 0, 0, "double", 1
-"lazyeval", "FUN", -1, 0, 0, "class<`lazy`>", 1
-"lazyeval", "FUN", 0, 0, 0, "character", 1
-"lazyeval", "FUN", 0, 0, 1, "class<`call`>", 1
-"lazyeval", "FUN", 0, 0, 2, "class<`formula`>", 1
-"lazyeval", "FUN", 0, 0, 3, "class<`lazy`>", 1
-"lazyeval", "FUN", 0, 0, 4, "class<`name`>", 1
-"lazyeval", "FUN", 0, 0, 5, "double", 1
-"lazyeval", "FUN", 1, 0, 0, "any", 1
-"lazyeval", "FUN", -1, 1, 0, "double", 1
-"lazyeval", "FUN", -1, 1, 1, "logical[]", 1
-"lazyeval", "FUN", -1, 1, 2, "list<double>", 1
-"lazyeval", "FUN", 0, 1, 0, "class<`lazy`>", 1
-"lazyeval", "FUN", 0, 1, 1, "class<`formula`>", 1
-"lazyeval", "FUN", 0, 1, 2, "character", 1
-"lazyeval", "FUN", 0, 1, 3, "class<`call`>", 1
-"lazyeval", "FUN", 0, 1, 4, "class<`lazy_dots`>", 1
-"lazyeval", "FUN", 1, 1, 0, "null", 1
-"lazyeval", "FUN", 1, 1, 1, "class<`data.frame`>", 1
-"lazyeval", "FUN", 1, 1, 2, "list<double>", 1
-"lazyeval", "FUN", -1, 2, 0, "character", 1
-"lazyeval", "FUN", 0, 2, 0, "class<`{`>", 1
-"lazyeval", "FUN", 0, 2, 1, "class<`call`>", 1
-"lazyeval", "FUN", 0, 2, 2, "class<`name`>", 1
-"lazyeval", "FUN", 0, 2, 3, "double", 1
-"lazyeval", "FUN", 0, 2, 4, "null", 1
-"lazyeval", "FUN", 0, 2, 5, "pairlist", 1
-"lazyeval", "FUN", 0, 2, 6, "class<`if`>", 1
-"lazyeval", "FUN", 1, 2, 0, "double", 1
-"lazyeval", "FUN", 2, 2, 0, "double", 1
-"lazyeval", "FUN", 3, 2, 0, "character", 1
 "lazyeval", "function_new", -1, 0, 0, "class<`function`>", 1
 "lazyeval", "function_new", 0, 0, 0, "list<class<`name`>>", 1
 "lazyeval", "function_new", 1, 0, 0, "class<`call`>", 1
@@ -280,7 +269,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "has_name.environment", 0, 0, 0, "class<`complain`, `environment`>", 1
 "lazyeval", "has_name.environment", 1, 0, 0, "character", 1
 "lazyeval", "has_names", -1, 0, 0, "logical", 1
-"lazyeval", "has_names", 0, 0, 0, "list<class<`name`> | null | double>", 1
+"lazyeval", "has_names", 0, 0, 0, "list<class<`name`>>", 1
+"lazyeval", "has_names", 0, 0, 1, "list<null>", 1
+"lazyeval", "has_names", 0, 0, 2, "list<double>", 1
 "lazyeval", "interp", -1, 0, 0, "character", 1
 "lazyeval", "interp", -1, 0, 1, "class<`call`>", 1
 "lazyeval", "interp", -1, 0, 2, "class<`formula`>", 1
@@ -315,7 +306,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "is_atomic", 0, 0, 4, "double", 1
 "lazyeval", "is_atomic", 0, 0, 5, "null", 1
 "lazyeval", "is_atomic", 0, 0, 6, "pairlist", 1
-"lazyeval", "is_atomic", 0, 0, 7, "list<integer[] | double>", 1
+"lazyeval", "is_atomic", 0, 0, 7, "list<integer[]>", 1
+"lazyeval", "is_atomic", 0, 0, 8, "list<double>", 1
 "lazyeval", "is_call", -1, 0, 0, "logical", 1
 "lazyeval", "is_call", 0, 0, 0, "class<`{`>", 1
 "lazyeval", "is_call", 0, 0, 1, "class<`call`>", 1
@@ -349,7 +341,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "is_pairlist", 0, 0, 2, "null", 1
 "lazyeval", "is_pairlist", 0, 0, 3, "pairlist", 1
 "lazyeval", "is_vector", -1, 0, 0, "logical", 1
-"lazyeval", "is_vector", 0, 0, 0, "list<integer[] | double>", 1
+"lazyeval", "is_vector", 0, 0, 0, "list<integer[]>", 1
+"lazyeval", "is_vector", 0, 0, 1, "list<double>", 1
 "lazyeval", "lazy", -1, 0, 0, "class<`lazy`>", 1
 "lazyeval", "lazy", 0, 0, 0, "any", 1
 "lazyeval", "lazy", 1, 0, 0, "any", 1
@@ -383,9 +376,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "lazy_eval", 0, 0, 2, "character", 1
 "lazyeval", "lazy_eval", 0, 0, 3, "class<`call`>", 1
 "lazyeval", "lazy_eval", 0, 0, 4, "class<`lazy_dots`>", 1
-"lazyeval", "lazy_eval", 1, 0, 0, "null", 1
-"lazyeval", "lazy_eval", 1, 0, 1, "class<`data.frame`>", 1
-"lazyeval", "lazy_eval", 1, 0, 2, "list<double>", 1
+"lazyeval", "lazy_eval", 1, 0, 0, "list<double>", 1
+"lazyeval", "lazy_eval", 1, 0, 1, "null", 1
+"lazyeval", "lazy_eval", 1, 0, 2, "class<`data.frame`>", 1
 "lazyeval", "make_call", -1, 0, 0, "class<`lazy`>", 1
 "lazyeval", "make_call", 0, 0, 0, "class<`name`>", 1
 "lazyeval", "make_call", 1, 0, 0, "class<`formula`>", 1
@@ -402,7 +395,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "substitute_", -1, 0, 0, "class<`call`>", 1
 "lazyeval", "substitute_", 0, 0, 0, "class<`call`>", 1
 "lazyeval", "substitute_", 1, 0, 0, "environment", 1
-"lazyeval", "substitute_", 1, 0, 1, "list<any>", 1
+"lazyeval", "substitute_", 1, 0, 1, "list<class<`name`>>", 1
+"lazyeval", "substitute_", 1, 0, 2, "list<double | character[]>", 1
+"lazyeval", "substitute_", 1, 0, 3, "list<class<`name`> | double>", 1
+"lazyeval", "substitute_", 1, 0, 4, "list<double>", 1
 "lazyeval", "tree", -1, 0, 0, "character", 1
 "lazyeval", "tree", 0, 0, 0, "class<`{`>", 1
 "lazyeval", "tree", 0, 0, 1, "class<`call`>", 1
@@ -419,4 +415,5 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lazyeval", "uq", 1, 0, 0, "null", 1
 "lazyeval", "uq", 1, 0, 1, "class<`data.frame`>", 1
 "lazyeval", "uqs", -1, 0, 0, "pairlist", 1
-"lazyeval", "uqs", 0, 0, 0, "list<integer[] | double>", 1
+"lazyeval", "uqs", 0, 0, 0, "list<integer[]>", 1
+"lazyeval", "uqs", 0, 0, 1, "list<double>", 1

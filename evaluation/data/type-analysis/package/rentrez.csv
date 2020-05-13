@@ -96,16 +96,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rentrez", "parse_esearch.XMLInternalDocument", 0, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
 "rentrez", "parse_esearch.XMLInternalDocument", 1, 0, 0, "logical", 1
 "rentrez", "parse_esummary", -1, 0, 0, "class<`esummary_list`, `list`>", 1
-"rentrez", "parse_esummary", 0, 0, 0, "list<list<character | character[] | list<any> | character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
+"rentrez", "parse_esummary", 0, 0, 0, "list<list<character | character[] | list<any>>>", 1
+"rentrez", "parse_esummary", 0, 0, 1, "list<list<character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
 "rentrez", "parse_esummary", 1, 0, 0, "any", 1
 "rentrez", "parse_esummary", 2, 0, 0, "logical", 1
 "rentrez", "parse_esummary.list", -1, 0, 0, "class<`esummary_list`, `list`>", 1
-"rentrez", "parse_esummary.list", 0, 0, 0, "list<list<character | character[] | list<any> | character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
+"rentrez", "parse_esummary.list", 0, 0, 0, "list<list<character | character[] | list<any>>>", 1
+"rentrez", "parse_esummary.list", 0, 0, 1, "list<list<character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
 "rentrez", "parse_esummary.list", 1, 0, 0, "any", 1
 "rentrez", "parse_esummary.list", 2, 0, 0, "logical", 1
 "rentrez", "parse_response", -1, 0, 0, "class<`XMLAbstractDocument`, `XMLInternalDocument`>", 1
-"rentrez", "parse_response", -1, 0, 1, "list<list<character | character[] | list<any> | character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
+"rentrez", "parse_response", -1, 0, 1, "list<list<character | character[] | list<any>>>", 1
+"rentrez", "parse_response", -1, 0, 2, "list<list<character | character[] | list<character | class<`data.frame`> | list<character>>>>", 1
 "rentrez", "parse_response", 0, 0, 0, "character", 1
 "rentrez", "parse_response", 1, 0, 0, "character", 1
 "rentrez", "sleep_time", -1, 0, 0, "double", 1
-"rentrez", "sleep_time", 0, 0, 0, "list<character | character | double | null | character>", 1
+"rentrez", "sleep_time", 0, 0, 0, "list<character>", 1
+"rentrez", "sleep_time", 0, 0, 1, "list<character | double>", 1
+"rentrez", "sleep_time", 0, 0, 2, "list<null | character>", 1

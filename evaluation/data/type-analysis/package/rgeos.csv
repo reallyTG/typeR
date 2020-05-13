@@ -1,8 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"rgeos", "::", -1, 0, 0, "any", 1
-"rgeos", "::", 0, 0, 0, "character", 1
-"rgeos", "::", 1, 0, 0, "null", 1
-"rgeos", "::", 2, 0, 0, "null", 1
 "rgeos", "append.poly", -1, 0, 0, "class<`gpc.poly`>", 1
 "rgeos", "append.poly", 0, 0, 0, "class<`gpc.poly.nohole`>", 1
 "rgeos", "append.poly", 1, 0, 0, "class<`gpc.poly.nohole`>", 1
@@ -44,7 +40,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gArea", 0, 0, 2, "class<`SpatialPolygons`>", 1
 "rgeos", "gArea", 0, 0, 3, "class<`SpatialRings`>", 1
 "rgeos", "gArea", 1, 0, 0, "logical", 1
-"rgeos", "gBinarySTRtreeQuery", -1, 0, 0, "list<integer[] | null | integer[]>", 1
+"rgeos", "gBinarySTRtreeQuery", -1, 0, 0, "list<integer[]>", 1
+"rgeos", "gBinarySTRtreeQuery", -1, 0, 1, "list<null | integer[]>", 1
 "rgeos", "gBinarySTRtreeQuery", 0, 0, 0, "class<`SpatialPolygonsDataFrame`>", 1
 "rgeos", "gBinarySTRtreeQuery", 0, 0, 1, "class<`SpatialLinesDataFrame`>", 1
 "rgeos", "gBinarySTRtreeQuery", 1, 0, 0, "class<`SpatialPoints`>", 1
@@ -283,8 +280,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gPolygonize", -1, 0, 0, "class<`SpatialLines`>", 1
 "rgeos", "gPolygonize", -1, 0, 1, "class<`SpatialPolygons`>", 1
 "rgeos", "gPolygonize", -1, 0, 2, "null", 1
-"rgeos", "gPolygonize", 0, 0, 0, "class<`SpatialLines`>", 1
-"rgeos", "gPolygonize", 0, 0, 1, "list<class<`SpatialLines`>>", 1
+"rgeos", "gPolygonize", 0, 0, 0, "list<class<`SpatialLines`>>", 1
+"rgeos", "gPolygonize", 0, 0, 1, "class<`SpatialLines`>", 1
 "rgeos", "gPolygonize", 1, 0, 0, "logical", 1
 "rgeos", "gProject", -1, 0, 0, "any", 1
 "rgeos", "gProject", 0, 0, 0, "class<`SpatialLines`>", 1
@@ -326,7 +323,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rgeos", "gTouches", 2, 0, 0, "logical", 1
 "rgeos", "gTouches", 3, 0, 0, "logical", 1
 "rgeos", "gTouches", 4, 0, 0, "logical", 1
-"rgeos", "gUnarySTRtreeQuery", -1, 0, 0, "list<integer[] | null | null | integer[]>", 1
+"rgeos", "gUnarySTRtreeQuery", -1, 0, 0, "list<integer[] | null>", 1
+"rgeos", "gUnarySTRtreeQuery", -1, 0, 1, "list<null | integer[]>", 1
 "rgeos", "gUnarySTRtreeQuery", 0, 0, 0, "class<`SpatialPolygonsDataFrame`>", 1
 "rgeos", "gUnarySTRtreeQuery", 0, 0, 1, "class<`Polygons`>", 1
 "rgeos", "gUnarySTRtreeQuery", 0, 0, 2, "class<`SpatialLinesDataFrame`>", 1

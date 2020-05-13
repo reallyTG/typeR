@@ -20,8 +20,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lars", "cv.lars", 5, 0, 0, "logical", 1
 "lars", "cv.lars", 6, 0, 0, "logical", 1
 "lars", "cv.lars", 7, 0, 0, "character[]", 1
-"lars", "cv.lars", 8, 0, 0, "any", 1
-"lars", "cv.lars", 9, 0, 0, "...", 1
 "lars", "delcol", -1, 0, 0, "list<class<`matrix`>>", 1
 "lars", "delcol", 0, 0, 0, "class<`matrix`>", 1
 "lars", "delcol", 1, 0, 0, "double[]", 1
@@ -44,8 +42,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lars", "lars", 5, 0, 0, "logical", 1
 "lars", "lars", 6, 0, 0, "any", 1
 "lars", "lars", 7, 0, 0, "double", 1
-"lars", "lars", 8, 0, 0, "any", 1
-"lars", "lars", 9, 0, 0, "logical", 1
 "lars", "nnls.lars", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
 "lars", "nnls.lars", 0, 0, 0, "integer[]", 1
 "lars", "nnls.lars", 1, 0, 0, "double[]", 1
@@ -66,7 +62,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lars", "plot.lars", 4, 0, 0, "logical", 1
 "lars", "plot.lars", 5, 0, 0, "double", 1
 "lars", "plot.lars", 6, 0, 0, "...", 1
-"lars", "predict.lars", -1, 0, 0, "list<double[] | character | class<`matrix`> | character | double[]>", 1
+"lars", "predict.lars", -1, 0, 0, "list<double[] | character | class<`matrix`>>", 1
+"lars", "predict.lars", -1, 0, 1, "list<character | double[]>", 1
 "lars", "predict.lars", 0, 0, 0, "class<`lars`>", 1
 "lars", "predict.lars", 1, 0, 0, "any", 1
 "lars", "predict.lars", 2, 0, 0, "any", 1

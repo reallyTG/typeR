@@ -4,7 +4,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "polyclip", "ensuredouble", -1, 0, 0, "list<list<double[]>>", 1
 "polyclip", "ensuredouble", 0, 0, 0, "list<list<double[]>>", 1
 "polyclip", "ensurexydouble", -1, 0, 0, "list<double[]>", 1
-"polyclip", "ensurexydouble", 0, 0, 0, "list<integer[] | double>", 1
+"polyclip", "ensurexydouble", 0, 0, 0, "list<integer[]>", 1
+"polyclip", "ensurexydouble", 0, 0, 1, "list<double>", 1
 "polyclip", "pointinpolygon", -1, 0, 0, "integer", 1
 "polyclip", "pointinpolygon", 0, 0, 0, "list<double>", 1
 "polyclip", "pointinpolygon", 1, 0, 0, "list<integer[]>", 1
@@ -61,7 +62,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "polyclip", "validpoly", -1, 0, 0, "logical", 1
 "polyclip", "validpoly", 0, 0, 0, "list<list<double[]>>", 1
 "polyclip", "validxy", -1, 0, 0, "logical", 1
-"polyclip", "validxy", 0, 0, 0, "list<double | integer[]>", 1
+"polyclip", "validxy", 0, 0, 0, "list<double>", 1
+"polyclip", "validxy", 0, 0, 1, "list<integer[]>", 1
 "polyclip", "xrange", -1, 0, 0, "integer[]", 1
 "polyclip", "xrange", 0, 0, 0, "list<integer[]>", 1
 "polyclip", "yrange", -1, 0, 0, "integer[]", 1

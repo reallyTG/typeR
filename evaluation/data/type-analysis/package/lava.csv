@@ -1,22 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"lava", "::", -1, 0, 0, "null", 1
-"lava", "::", -1, 0, 1, "list<any>", 1
-"lava", "::", 0, 0, 0, "class<`lvm`>", 1
-"lava", "::", 0, 0, 1, "class<`lvmfit`>", 1
-"lava", "::", 1, 0, 0, "...", 1
-"lava", "::", -1, 1, 0, "character[]", 1
-"lava", "::", 0, 1, 0, "class<`lvm`>", 1
-"lava", "::", 0, 1, 1, "class<`lvmfit`>", 1
-"lava", "::", 0, 1, 2, "class<`lm`>", 1
-"lava", "::", 0, 1, 3, "class<`lvmfit`, `multigroupfit`>", 1
-"lava", "::", 0, 1, 4, "class<`multigroup`>", 1
-"lava", "::", 0, 1, 5, "list<class<`lvm`>>", 1
-"lava", "::", 1, 1, 0, "...", 1
-"lava", "::", -1, 2, 0, "class<`ordinal.lvm`>", 1
-"lava", "::", -1, 2, 1, "null", 1
-"lava", "::", -1, 2, 2, "class<`lvm`>", 1
-"lava", "::", 0, 2, 0, "class<`lvm`>", 1
-"lava", "::", 1, 2, 0, "...", 1
 "lava", "%++%", -1, 0, 0, "character", 1
 "lava", "%++%", -1, 0, 1, "class<`function`>", 1
 "lava", "%++%", -1, 0, 2, "class<`matrix`>", 1
@@ -110,12 +92,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "bootstrap.lvm", 5, 0, 0, "any", 1
 "lava", "bootstrap.lvm", 6, 0, 0, "logical", 1
 "lava", "bootstrap.lvm", 7, 0, 0, "logical", 1
-"lava", "bootstrap.lvm", 8, 0, 0, "logical", 1
-"lava", "bootstrap.lvm", 9, 0, 0, "logical", 1
-"lava", "bootstrap.lvm", 10, 0, 0, "double", 1
-"lava", "bootstrap.lvm", 11, 0, 0, "logical", 1
-"lava", "bootstrap.lvm", 12, 0, 0, "null", 1
-"lava", "bootstrap.lvm", 13, 0, 0, "...", 1
 "lava", "bootstrap.lvmfit", -1, 0, 0, "class<`bootstrap.lvm`>", 1
 "lava", "bootstrap.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "bootstrap.lvmfit", 1, 0, 0, "double", 1
@@ -125,8 +101,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "bootstrap.lvmfit", 5, 0, 0, "logical", 1
 "lava", "bootstrap.lvmfit", 6, 0, 0, "logical", 1
 "lava", "bootstrap.lvmfit", 7, 0, 0, "character", 1
-"lava", "bootstrap.lvmfit", 8, 0, 0, "null", 1
-"lava", "bootstrap.lvmfit", 9, 0, 0, "...", 1
 "lava", "By", -1, 0, 0, "class<`by`>", 1
 "lava", "By", -1, 0, 1, "class<`matrix`>", 1
 "lava", "By", 0, 0, 0, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
@@ -163,12 +137,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "categorical", 5, 0, 0, "logical", 1
 "lava", "categorical", 6, 0, 0, "logical", 1
 "lava", "categorical", 7, 0, 0, "logical", 1
-"lava", "categorical", 8, 0, 0, "...", 1
 "lava", "categorical<-", -1, 0, 0, "class<`lvm`>", 1
 "lava", "categorical<-", 0, 0, 0, "class<`lvm`>", 1
 "lava", "categorical<-", 1, 0, 0, "...", 1
 "lava", "categorical<-", 2, 0, 0, "character", 1
-"lava", "categorical2dummy", -1, 0, 0, "list<class<`lvm`> | class<`data.frame`> | class<`lvm`> | list<class<`matrix`> | double[]>>", 1
+"lava", "categorical2dummy", -1, 0, 0, "list<class<`lvm`> | class<`data.frame`>>", 1
+"lava", "categorical2dummy", -1, 0, 1, "list<class<`lvm`> | list<class<`matrix`> | double[]>>", 1
 "lava", "categorical2dummy", 0, 0, 0, "class<`lvm`>", 1
 "lava", "categorical2dummy", 1, 0, 0, "class<`data.frame`>", 1
 "lava", "categorical2dummy", 1, 0, 1, "list<class<`matrix`> | double[]>", 1
@@ -178,8 +152,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "char2num", -1, 0, 1, "null", 1
 "lava", "char2num", 0, 0, 0, "character[]", 1
 "lava", "char2num", 0, 0, 1, "double[]", 1
-"lava", "char2num", 0, 0, 2, "null", 1
-"lava", "char2num", 0, 0, 3, "list<character>", 1
+"lava", "char2num", 0, 0, 2, "list<character>", 1
+"lava", "char2num", 0, 0, 3, "null", 1
 "lava", "char2num", 1, 0, 0, "...", 1
 "lava", "%++%.character", -1, 0, 0, "character", 1
 "lava", "%++%.character", 0, 0, 0, "character", 1
@@ -226,9 +200,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "coef.lvm", 5, 0, 0, "any", 1
 "lava", "coef.lvm", 6, 0, 0, "any", 1
 "lava", "coef.lvm", 7, 0, 0, "any", 1
-"lava", "coef.lvm", 8, 0, 0, "double", 1
-"lava", "coef.lvm", 9, 0, 0, "logical", 1
-"lava", "coef.lvm", 10, 0, 0, "...", 1
 "lava", "coef.lvmfit", -1, 0, 0, "class<`matrix`>", 1
 "lava", "coef.lvmfit", -1, 0, 1, "double[]", 1
 "lava", "coef.lvmfit", 0, 0, 0, "class<`lvm`>", 1
@@ -242,9 +213,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "coef.lvmfit", 5, 0, 0, "any", 1
 "lava", "coef.lvmfit", 6, 0, 0, "any", 1
 "lava", "coef.lvmfit", 7, 0, 0, "any", 1
-"lava", "coef.lvmfit", 8, 0, 0, "logical", 1
-"lava", "coef.lvmfit", 9, 0, 0, "logical", 1
-"lava", "coef.lvmfit", 10, 0, 0, "...", 1
 "lava", "coef.lvm.mixture", -1, 0, 0, "double[]", 1
 "lava", "coef.lvm.mixture", 0, 0, 0, "class<`lvm.mixture`, `mvn.mixture`>", 1
 "lava", "coef.lvm.mixture", 1, 0, 0, "any", 1
@@ -280,7 +248,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "coef.multigroupfit", 6, 0, 0, "null", 1
 "lava", "coef.multigroupfit", 7, 0, 0, "null", 1
 "lava", "coef.multigroupfit", 7, 0, 1, "integer[]", 1
-"lava", "coef.multigroupfit", 8, 0, 0, "...", 1
 "lava", "coef.multinomial", -1, 0, 0, "double[]", 1
 "lava", "coef.multinomial", 0, 0, 0, "class<`multinomial`>", 1
 "lava", "coef.multinomial", 1, 0, 0, "...", 1
@@ -314,7 +281,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "compare.default", 5, 0, 0, "any", 1
 "lava", "compare.default", 6, 0, 0, "any", 1
 "lava", "compare.default", 7, 0, 0, "double", 1
-"lava", "compare.default", 8, 0, 0, "null", 1
 "lava", "comparepair", -1, 0, 0, "class<`htest`>", 1
 "lava", "comparepair", 0, 0, 0, "class<`glm`, `lm`>", 1
 "lava", "comparepair", 0, 0, 1, "class<`lvmfit`>", 1
@@ -344,12 +310,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "confband", 5, 0, 0, "double", 1
 "lava", "confband", 6, 0, 0, "double", 1
 "lava", "confband", 7, 0, 0, "any", 1
-"lava", "confband", 8, 0, 0, "logical", 1
-"lava", "confband", 9, 0, 0, "logical", 1
-"lava", "confband", 10, 0, 0, "logical", 1
-"lava", "confband", 10, 0, 1, "character", 1
-"lava", "confband", 11, 0, 0, "logical", 1
-"lava", "confband", 12, 0, 0, "...", 1
 "lava", "confint.lvmfit", -1, 0, 0, "class<`matrix`>", 1
 "lava", "confint.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "confint.lvmfit", 1, 0, 0, "double", 1
@@ -359,8 +319,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "confint.lvmfit", 5, 0, 0, "double", 1
 "lava", "confint.lvmfit", 6, 0, 0, "null", 1
 "lava", "confint.lvmfit", 7, 0, 0, "logical", 1
-"lava", "confint.lvmfit", 8, 0, 0, "logical", 1
-"lava", "confint.lvmfit", 9, 0, 0, "...", 1
 "lava", "confpred", -1, 0, 0, "class<`data.frame`>", 1
 "lava", "confpred", 0, 0, 0, "class<`lm`>", 1
 "lava", "confpred", 1, 0, 0, "class<`data.frame`>", 1
@@ -482,7 +440,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "coxWeibull.lvm", 0, 0, 0, "double", 1
 "lava", "coxWeibull.lvm", 1, 0, 0, "class<`formula`>", 1
 "lava", "coxWeibull.lvm", 1, 0, 1, "double", 1
-"lava", "csplit", -1, 0, 0, "list<class<`data.frame`> | integer[]>", 1
+"lava", "csplit", -1, 0, 0, "list<class<`data.frame`>>", 1
+"lava", "csplit", -1, 0, 1, "list<integer[]>", 1
 "lava", "csplit", 0, 0, 0, "class<`data.frame`>", 1
 "lava", "csplit", 0, 0, 1, "double", 1
 "lava", "csplit", 1, 0, 0, "double", 1
@@ -492,7 +451,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "csplit", 4, 0, 0, "double", 1
 "lava", "csplit", 5, 0, 0, "...", 1
 "lava", "cv", -1, 0, 0, "class<`CrossValidated`>", 1
-"lava", "cv", 0, 0, 0, "list<class<`lm`> | class<`function`>>", 1
+"lava", "cv", 0, 0, 0, "list<class<`lm`>>", 1
+"lava", "cv", 0, 0, 1, "list<class<`function`>>", 1
 "lava", "cv", 1, 0, 0, "class<`data.frame`>", 1
 "lava", "cv", 2, 0, 0, "double", 1
 "lava", "cv", 3, 0, 0, "double", 1
@@ -500,7 +460,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "cv", 5, 0, 0, "null", 1
 "lava", "cv", 6, 0, 0, "double", 1
 "lava", "cv", 7, 0, 0, "null", 1
-"lava", "cv", 8, 0, 0, "...", 1
 "lava", "Debug", -1, 0, 0, "null", 1
 "lava", "Debug", 0, 0, 0, "any", 1
 "lava", "Debug", 1, 0, 0, "logical", 1
@@ -532,9 +491,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "deriv.lvm", 5, 0, 1, "null", 1
 "lava", "deriv.lvm", 6, 0, 0, "null", 1
 "lava", "deriv.lvm", 7, 0, 0, "logical", 1
-"lava", "deriv.lvm", 8, 0, 0, "logical", 1
-"lava", "deriv.lvm", 9, 0, 0, "any", 1
-"lava", "deriv.lvm", 10, 0, 0, "...", 1
 "lava", "descendants", -1, 0, 0, "character[]", 1
 "lava", "descendants", 0, 0, 0, "class<`lvm`>", 1
 "lava", "descendants", 1, 0, 0, "...", 1
@@ -560,8 +516,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "diagtest", 3, 0, 0, "null", 1
 "lava", "diagtest", 4, 0, 0, "character[]", 1
 "lava", "diagtest", 5, 0, 0, "...", 1
-"lava", "distribution", -1, 0, 0, "null", 1
-"lava", "distribution", -1, 0, 1, "list<any>", 1
+"lava", "distribution", -1, 0, 0, "list<any>", 1
+"lava", "distribution", -1, 0, 1, "null", 1
 "lava", "distribution", 0, 0, 0, "class<`lvm`>", 1
 "lava", "distribution", 1, 0, 0, "...", 1
 "lava", "distribution", 2, 0, 0, "any", 1
@@ -581,11 +537,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "distribution<-.lvm", 3, 0, 0, "any", 1
 "lava", "distribution<-.lvm", 4, 0, 0, "logical", 1
 "lava", "distribution<-.lvm", 5, 0, 0, "...", 1
-"lava", "distribution<-.lvm", 6, 0, 0, "class<`function`>", 1
-"lava", "distribution<-.lvm", 6, 0, 1, "double", 1
-"lava", "distribution<-.lvm", 6, 0, 2, "list<class<`function`>>", 1
-"lava", "distribution.lvm", -1, 0, 0, "null", 1
-"lava", "distribution.lvm", -1, 0, 1, "list<any>", 1
+"lava", "distribution<-.lvm", 6, 0, 0, "list<class<`function`>>", 1
+"lava", "distribution<-.lvm", 6, 0, 1, "class<`function`>", 1
+"lava", "distribution<-.lvm", 6, 0, 2, "double", 1
+"lava", "distribution.lvm", -1, 0, 0, "list<any>", 1
+"lava", "distribution.lvm", -1, 0, 1, "null", 1
 "lava", "distribution.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "distribution.lvm", 1, 0, 0, "any", 1
 "lava", "distribution.lvm", 2, 0, 0, "any", 1
@@ -626,11 +582,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "edgelabels.lvm", 5, 0, 0, "double[]", 1
 "lava", "edgelabels.lvm", 6, 0, 0, "double", 1
 "lava", "edgelabels.lvm", 7, 0, 0, "character[]", 1
-"lava", "edgelabels.lvm", 8, 0, 0, "character", 1
-"lava", "edgelabels.lvm", 9, 0, 0, "character[]", 1
-"lava", "edgelabels.lvm", 10, 0, 0, "logical", 1
-"lava", "edgelabels.lvm", 11, 0, 0, "logical", 1
-"lava", "edgelabels.lvm", 12, 0, 0, "...", 1
 "lava", "effects.lvmfit", -1, 0, 0, "class<`effects`>", 1
 "lava", "effects.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "effects.lvmfit", 1, 0, 0, "class<`formula`>", 1
@@ -680,18 +631,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "estimate.default", 5, 0, 0, "any", 1
 "lava", "estimate.default", 6, 0, 0, "logical", 1
 "lava", "estimate.default", 7, 0, 0, "logical", 1
-"lava", "estimate.default", 8, 0, 0, "any", 1
-"lava", "estimate.default", 9, 0, 0, "any", 1
-"lava", "estimate.default", 10, 0, 0, "double", 1
-"lava", "estimate.default", 11, 0, 0, "any", 1
-"lava", "estimate.default", 12, 0, 0, "any", 1
-"lava", "estimate.default", 13, 0, 0, "any", 1
-"lava", "estimate.default", 14, 0, 0, "any", 1
-"lava", "estimate.default", 15, 0, 0, "logical", 1
-"lava", "estimate.default", 16, 0, 0, "any", 1
-"lava", "estimate.default", 17, 0, 0, "any", 1
-"lava", "estimate.default", 18, 0, 0, "any", 1
-"lava", "estimate.default", 19, 0, 0, "any", 1
 "lava", "estimate.formula", -1, 0, 0, "class<`glm`, `lm`>", 1
 "lava", "estimate.formula", 0, 0, 0, "class<`formula`>", 1
 "lava", "estimate.formula", 1, 0, 0, "class<`data.frame`>", 1
@@ -704,7 +643,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "estimate.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
 "lava", "estimate.glm", 1, 0, 0, "...", 1
 "lava", "estimate.list", -1, 0, 0, "any", 1
-"lava", "estimate.list", 0, 0, 0, "list<class<`lvm`> | double[]>", 1
+"lava", "estimate.list", 0, 0, 0, "list<class<`lvm`>>", 1
+"lava", "estimate.list", 0, 0, 1, "list<double[]>", 1
 "lava", "estimate.list", 1, 0, 0, "...", 1
 "lava", "estimate.lvm", -1, 0, 0, "class<`lvmfit`>", 1
 "lava", "estimate.lvm", -1, 0, 1, "class<`lvm.missing`, `lvmfit`>", 1
@@ -719,17 +659,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "estimate.lvm", 5, 0, 0, "any", 1
 "lava", "estimate.lvm", 6, 0, 0, "any", 1
 "lava", "estimate.lvm", 7, 0, 0, "any", 1
-"lava", "estimate.lvm", 8, 0, 0, "any", 1
-"lava", "estimate.lvm", 9, 0, 0, "any", 1
-"lava", "estimate.lvm", 10, 0, 0, "logical", 1
-"lava", "estimate.lvm", 11, 0, 0, "logical", 1
-"lava", "estimate.lvm", 12, 0, 0, "double", 1
-"lava", "estimate.lvm", 13, 0, 0, "logical", 1
-"lava", "estimate.lvm", 14, 0, 0, "any", 1
-"lava", "estimate.lvm", 15, 0, 0, "any", 1
-"lava", "estimate.lvm", 16, 0, 0, "any", 1
-"lava", "estimate.lvm", 17, 0, 0, "any", 1
-"lava", "estimate.lvm", 18, 0, 0, "...", 1
 "lava", "estimate.lvmlist", -1, 0, 0, "class<`lvmfit`, `multigroupfit`>", 1
 "lava", "estimate.lvmlist", 0, 0, 0, "list<class<`lvm`>>", 1
 "lava", "estimate.lvmlist", 1, 0, 0, "list<class<`data.frame`>>", 1
@@ -746,14 +675,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "estimate.MAR", 5, 0, 0, "logical", 1
 "lava", "estimate.MAR", 6, 0, 0, "list<character | double[]>", 1
 "lava", "estimate.MAR", 7, 0, 0, "double", 1
-"lava", "estimate.MAR", 8, 0, 0, "any", 1
-"lava", "estimate.MAR", 9, 0, 0, "any", 1
-"lava", "estimate.MAR", 10, 0, 0, "null", 1
-"lava", "estimate.MAR", 11, 0, 0, "logical", 1
-"lava", "estimate.MAR", 12, 0, 0, "character", 1
-"lava", "estimate.MAR", 13, 0, 0, "logical", 1
-"lava", "estimate.MAR", 14, 0, 0, "null", 1
-"lava", "estimate.MAR", 15, 0, 0, "...", 1
 "lava", "estimate.multigroup", -1, 0, 0, "class<`lvmfit`, `multigroupfit`>", 1
 "lava", "estimate.multigroup", 0, 0, 0, "class<`multigroup`>", 1
 "lava", "estimate.multigroup", 1, 0, 0, "list<any>", 1
@@ -764,10 +685,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "estimate.multigroup", 5, 0, 0, "any", 1
 "lava", "estimate.multigroup", 6, 0, 0, "null", 1
 "lava", "estimate.multigroup", 7, 0, 0, "double", 1
-"lava", "estimate.multigroup", 8, 0, 0, "logical", 1
-"lava", "estimate.multigroup", 9, 0, 0, "any", 1
-"lava", "estimate.multigroup", 10, 0, 0, "any", 1
-"lava", "estimate.multigroup", 11, 0, 0, "...", 1
 "lava", "eventTime", -1, 0, 0, "class<`lvm`>", 1
 "lava", "eventTime", -1, 0, 1, "null", 1
 "lava", "eventTime", 0, 0, 0, "class<`lvm`>", 1
@@ -781,8 +698,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "exogenous", -1, 0, 0, "character[]", 1
 "lava", "exogenous", -1, 0, 1, "null", 1
 "lava", "exogenous", 0, 0, 0, "class<`lvm`>", 1
-"lava", "exogenous", 0, 0, 1, "class<`lvmfit`>", 1
-"lava", "exogenous", 0, 0, 2, "list<class<`lvm`>>", 1
+"lava", "exogenous", 0, 0, 1, "list<class<`lvm`>>", 1
+"lava", "exogenous", 0, 0, 2, "class<`lvmfit`>", 1
 "lava", "exogenous", 1, 0, 0, "...", 1
 "lava", "exogenous<-", -1, 0, 0, "class<`lvm`>", 1
 "lava", "exogenous<-", 0, 0, 0, "class<`lvm`>", 1
@@ -813,11 +730,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "Expand", 1, 0, 0, "...", 1
 "lava", "extractvar", -1, 0, 0, "list<character[]>", 1
 "lava", "extractvar", 0, 0, 0, "class<`formula`>", 1
-"lava", "f", -1, 0, 0, "double[]", 1
-"lava", "f", -1, 0, 1, "class<`lvm`>", 1
-"lava", "f", 0, 0, 0, "double[]", 1
-"lava", "f", 0, 0, 1, "class<`lvm`>", 1
-"lava", "f", 1, 0, 0, "...", 1
 "lava", "family.zibreg", -1, 0, 0, "class<`family`>", 1
 "lava", "family.zibreg", 0, 0, 0, "class<`zibreg`>", 1
 "lava", "family.zibreg", 1, 0, 0, "...", 1
@@ -830,9 +742,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "fixsome", 5, 0, 0, "any", 1
 "lava", "fixsome", 6, 0, 0, "any", 1
 "lava", "fixsome", 7, 0, 0, "logical", 1
-"lava", "fixsome", 8, 0, 0, "character", 1
-"lava", "fixsome", 9, 0, 0, "character", 1
-"lava", "fixsome", 10, 0, 0, "...", 1
 "lava", "foldr", -1, 0, 0, "list<list<integer[]>>", 1
 "lava", "foldr", 0, 0, 0, "double", 1
 "lava", "foldr", 1, 0, 0, "double", 1
@@ -846,19 +755,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "forestplot", 5, 0, 0, "logical", 1
 "lava", "forestplot", 6, 0, 0, "logical", 1
 "lava", "forestplot", 7, 0, 0, "null", 1
-"lava", "forestplot", 8, 0, 0, "logical", 1
-"lava", "forestplot", 9, 0, 0, "null", 1
-"lava", "forestplot", 10, 0, 0, "double", 1
-"lava", "forestplot", 11, 0, 0, "logical", 1
-"lava", "forestplot", 12, 0, 0, "double", 1
-"lava", "forestplot", 13, 0, 0, "double", 1
-"lava", "forestplot", 13, 0, 1, "null", 1
-"lava", "forestplot", 14, 0, 0, "character", 1
-"lava", "forestplot", 15, 0, 0, "character", 1
-"lava", "forestplot", 16, 0, 0, "any", 1
-"lava", "forestplot", 17, 0, 0, "any", 1
-"lava", "forestplot", 18, 0, 0, "any", 1
-"lava", "forestplot", 19, 0, 0, "any", 1
 "lava", "forwardsearch", -1, 0, 0, "class<`modelsearch`>", 1
 "lava", "forwardsearch", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "forwardsearch", 1, 0, 0, "double", 1
@@ -866,19 +762,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "forwardsearch", 3, 0, 0, "character", 1
 "lava", "forwardsearch", 4, 0, 0, "null", 1
 "lava", "forwardsearch", 5, 0, 0, "...", 1
-"lava", "FUN", -1, 0, 0, "character[]", 1
-"lava", "FUN", 0, 0, 0, "character", 1
-"lava", "FUN", 0, 0, 1, "list<character>", 1
-"lava", "FUN", 1, 0, 0, "null", 1
-"lava", "FUN", 1, 0, 1, "character", 1
-"lava", "FUN", 2, 0, 0, "character", 1
-"lava", "FUN", 2, 0, 1, "null", 1
-"lava", "FUN", 3, 0, 0, "null", 1
-"lava", "FUN", 3, 0, 1, "character", 1
-"lava", "FUN", 4, 0, 0, "character", 1
-"lava", "FUN", 5, 0, 0, "logical", 1
-"lava", "FUN", 6, 0, 0, "logical", 1
-"lava", "FUN", 7, 0, 0, "...", 1
 "lava", "%++%.function", -1, 0, 0, "class<`function`>", 1
 "lava", "%++%.function", 0, 0, 0, "any", 1
 "lava", "%++%.function", 1, 0, 0, "class<`function`>", 1
@@ -944,16 +827,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "gaussian_score.lvm", 5, 0, 1, "null", 1
 "lava", "gaussian_score.lvm", 6, 0, 0, "any", 1
 "lava", "gaussian_score.lvm", 7, 0, 0, "logical", 1
-"lava", "gaussian_score.lvm", 8, 0, 0, "logical", 1
-"lava", "gaussian_score.lvm", 9, 0, 0, "logical", 1
-"lava", "gaussian_score.lvm", 10, 0, 0, "logical", 1
-"lava", "gaussian_score.lvm", 11, 0, 0, "logical", 1
-"lava", "gaussian_score.lvm", 12, 0, 0, "...", 1
 "lava", "gethook", -1, 0, 0, "character[]", 1
 "lava", "gethook", -1, 0, 1, "null", 1
 "lava", "gethook", 0, 0, 0, "character", 1
 "lava", "gethook", 1, 0, 0, "...", 1
-"lava", "getMeanVar", -1, 0, 0, "list<list<double[] | class<`matrix`> | double | class<`matrix`>>>", 1
+"lava", "getMeanVar", -1, 0, 0, "list<list<double[] | class<`matrix`>>>", 1
+"lava", "getMeanVar", -1, 0, 1, "list<list<double | class<`matrix`>>>", 1
 "lava", "getMeanVar", 0, 0, 0, "class<`lvm.mixture`, `mvn.mixture`>", 1
 "lava", "getMeanVar", 1, 0, 0, "any", 1
 "lava", "getMeanVar", 2, 0, 0, "any", 1
@@ -1089,15 +968,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "images", 5, 0, 0, "double", 1
 "lava", "images", 6, 0, 0, "double", 1
 "lava", "images", 7, 0, 0, "logical", 1
-"lava", "images", 8, 0, 0, "double", 1
-"lava", "images", 9, 0, 0, "any", 1
-"lava", "images", 10, 0, 0, "logical", 1
-"lava", "images", 11, 0, 0, "null", 1
-"lava", "images", 12, 0, 0, "any", 1
-"lava", "images", 13, 0, 0, "any", 1
-"lava", "images", 14, 0, 0, "any", 1
-"lava", "images", 15, 0, 0, "list<character[]>", 1
-"lava", "images", 16, 0, 0, "...", 1
 "lava", "img", -1, 0, 0, "null", 1
 "lava", "img", 0, 0, 0, "class<`matrix`>", 1
 "lava", "img", 1, 0, 0, "list<integer[]>", 1
@@ -1107,13 +977,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "img", 5, 0, 0, "logical", 1
 "lava", "img", 6, 0, 0, "double", 1
 "lava", "img", 7, 0, 0, "logical", 1
-"lava", "img", 8, 0, 0, "null", 1
-"lava", "img", 9, 0, 0, "logical", 1
-"lava", "img", 10, 0, 0, "logical", 1
-"lava", "img", 11, 0, 0, "character", 1
-"lava", "img", 12, 0, 0, "character", 1
-"lava", "img", 13, 0, 0, "double", 1
-"lava", "img", 14, 0, 0, "...", 1
 "lava", "impute0", -1, 0, 0, "class<`matrix`>", 1
 "lava", "impute0", -1, 0, 1, "double[]", 1
 "lava", "impute0", 0, 0, 0, "class<`matrix`>", 1
@@ -1124,8 +987,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "impute0", 3, 0, 0, "any", 1
 "lava", "impute0", 4, 0, 0, "any", 1
 "lava", "impute0", 5, 0, 0, "...", 1
-"lava", "index", -1, 0, 0, "null", 1
-"lava", "index", -1, 0, 1, "list<any>", 1
+"lava", "index", -1, 0, 0, "list<any>", 1
+"lava", "index", -1, 0, 1, "null", 1
 "lava", "index", 0, 0, 0, "class<`lvm`>", 1
 "lava", "index", 0, 0, 1, "class<`lvmfit`>", 1
 "lava", "index", 1, 0, 0, "...", 1
@@ -1161,11 +1024,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "information.lvm", 5, 0, 0, "null", 1
 "lava", "information.lvm", 6, 0, 0, "null", 1
 "lava", "information.lvm", 7, 0, 0, "character", 1
-"lava", "information.lvm", 8, 0, 0, "any", 1
-"lava", "information.lvm", 9, 0, 0, "logical", 1
-"lava", "information.lvm", 10, 0, 0, "logical", 1
-"lava", "information.lvm", 11, 0, 0, "logical", 1
-"lava", "information.lvm", 12, 0, 0, "...", 1
 "lava", "information.lvm.missing", -1, 0, 0, "class<`matrix`>", 1
 "lava", "information.lvm.missing", 0, 0, 0, "class<`lvm.missing`, `lvmfit`>", 1
 "lava", "information.lvm.missing", 1, 0, 0, "double[]", 1
@@ -1199,17 +1057,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "intercept<-", 2, 0, 0, "character", 1
 "lava", "intercept<-", 2, 0, 1, "class<`formula`>", 1
 "lava", "intercept<-", 2, 0, 2, "double[]", 1
-"lava", "intercept<-", 2, 0, 3, "null", 1
-"lava", "intercept<-", 2, 0, 4, "list<any>", 1
+"lava", "intercept<-", 2, 0, 3, "list<double | character>", 1
+"lava", "intercept<-", 2, 0, 4, "null", 1
+"lava", "intercept<-", 2, 0, 5, "list<null>", 1
+"lava", "intercept<-", 2, 0, 6, "list<double>", 1
+"lava", "intercept<-", 2, 0, 7, "list<double | null>", 1
 "lava", "intercept<-.lvm", -1, 0, 0, "class<`lvm`>", 1
 "lava", "intercept<-.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "intercept<-.lvm", 1, 0, 0, "any", 1
 "lava", "intercept<-.lvm", 2, 0, 0, "...", 1
-"lava", "intercept<-.lvm", 3, 0, 0, "null", 1
-"lava", "intercept<-.lvm", 3, 0, 1, "character", 1
-"lava", "intercept<-.lvm", 3, 0, 2, "double[]", 1
-"lava", "intercept<-.lvm", 3, 0, 3, "class<`formula`>", 1
-"lava", "intercept<-.lvm", 3, 0, 4, "list<any>", 1
+"lava", "intercept<-.lvm", 3, 0, 0, "list<null>", 1
+"lava", "intercept<-.lvm", 3, 0, 1, "list<double>", 1
+"lava", "intercept<-.lvm", 3, 0, 2, "list<double | null>", 1
+"lava", "intercept<-.lvm", 3, 0, 3, "null", 1
+"lava", "intercept<-.lvm", 3, 0, 4, "character", 1
+"lava", "intercept<-.lvm", 3, 0, 5, "double[]", 1
+"lava", "intercept<-.lvm", 3, 0, 6, "list<double | character>", 1
+"lava", "intercept<-.lvm", 3, 0, 7, "class<`formula`>", 1
 "lava", "intercept.lvm", -1, 0, 0, "class<`fix`>", 1
 "lava", "intercept.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "intercept.lvm", 1, 0, 0, "any", 1
@@ -1227,11 +1091,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "intfix<-.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "intfix<-.lvm", 1, 0, 0, "any", 1
 "lava", "intfix<-.lvm", 2, 0, 0, "...", 1
-"lava", "intfix<-.lvm", 3, 0, 0, "null", 1
-"lava", "intfix<-.lvm", 3, 0, 1, "character", 1
-"lava", "intfix<-.lvm", 3, 0, 2, "double[]", 1
-"lava", "intfix<-.lvm", 3, 0, 3, "class<`formula`>", 1
-"lava", "intfix<-.lvm", 3, 0, 4, "list<any>", 1
+"lava", "intfix<-.lvm", 3, 0, 0, "list<null>", 1
+"lava", "intfix<-.lvm", 3, 0, 1, "list<double>", 1
+"lava", "intfix<-.lvm", 3, 0, 2, "list<double | null>", 1
+"lava", "intfix<-.lvm", 3, 0, 3, "null", 1
+"lava", "intfix<-.lvm", 3, 0, 4, "character", 1
+"lava", "intfix<-.lvm", 3, 0, 5, "double[]", 1
+"lava", "intfix<-.lvm", 3, 0, 6, "list<double | character>", 1
+"lava", "intfix<-.lvm", 3, 0, 7, "class<`formula`>", 1
 "lava", "intfix.lvm", -1, 0, 0, "class<`fix`>", 1
 "lava", "intfix.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "intfix.lvm", 1, 0, 0, "any", 1
@@ -1268,7 +1135,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "kronprod", 0, 0, 0, "class<`matrix`>", 1
 "lava", "kronprod", 1, 0, 0, "class<`matrix`>", 1
 "lava", "kronprod", 2, 0, 0, "any", 1
-"lava", "ksmooth2", -1, 0, 0, "list<double[] | double[] | class<`matrix`>>", 1
+"lava", "ksmooth2", -1, 0, 0, "list<double[]>", 1
+"lava", "ksmooth2", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
 "lava", "ksmooth2", 0, 0, 0, "class<`function`>", 1
 "lava", "ksmooth2", 0, 0, 1, "class<`matrix`>", 1
 "lava", "ksmooth2", 1, 0, 0, "any", 1
@@ -1332,7 +1200,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "lava", 5, 0, 0, "double", 1
 "lava", "lava", 6, 0, 0, "double", 1
 "lava", "lava", 7, 0, 0, "character[]", 1
-"lava", "lava", 8, 0, 0, "...", 1
 "lava", "lava.options", -1, 0, 0, "list<double | character[]>", 1
 "lava", "lava.options", 0, 0, 0, "...", 1
 "lava", "loggamma.lvm", -1, 0, 0, "class<`function`>", 1
@@ -1346,10 +1213,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "logLik.lvm", 5, 0, 0, "any", 1
 "lava", "logLik.lvm", 6, 0, 0, "any", 1
 "lava", "logLik.lvm", 7, 0, 0, "any", 1
-"lava", "logLik.lvm", 8, 0, 0, "logical", 1
-"lava", "logLik.lvm", 9, 0, 0, "any", 1
-"lava", "logLik.lvm", 10, 0, 0, "any", 1
-"lava", "logLik.lvm", 11, 0, 0, "...", 1
 "lava", "logLik.lvmfit", -1, 0, 0, "class<`logLik`>", 1
 "lava", "logLik.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "logLik.lvmfit", 1, 0, 0, "double[]", 1
@@ -1382,8 +1245,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "lvm", -1, 0, 0, "class<`lvm`>", 1
 "lava", "lvm", 0, 0, 0, "character[]", 1
 "lava", "lvm", 0, 0, 1, "class<`formula`>", 1
-"lava", "lvm", 0, 0, 2, "null", 1
-"lava", "lvm", 0, 0, 3, "list<class<`formula`>>", 1
+"lava", "lvm", 0, 0, 2, "list<class<`formula`>>", 1
+"lava", "lvm", 0, 0, 3, "null", 1
 "lava", "lvm", 1, 0, 0, "...", 1
 "lava", "lvm", 2, 0, 0, "null", 1
 "lava", "lvm", 2, 0, 1, "class<`formula`>", 1
@@ -1418,7 +1281,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "manifest.multigroup", 0, 0, 1, "class<`lvmfit`, `multigroupfit`>", 1
 "lava", "manifest.multigroup", 0, 0, 2, "class<`multigroup`>", 1
 "lava", "manifest.multigroup", 1, 0, 0, "...", 1
-"lava", "mat.lvm", -1, 0, 0, "list<any>", 1
+"lava", "mat.lvm", -1, 0, 0, "list<class<`matrix`> | null | list<any>>", 1
+"lava", "mat.lvm", -1, 0, 1, "list<class<`matrix`> | null | list<double[]>>", 1
+"lava", "mat.lvm", -1, 0, 2, "list<class<`matrix`> | list<double[] | list<integer | null>>>", 1
+"lava", "mat.lvm", -1, 0, 3, "list<class<`matrix`> | list<double[] | list<null | integer[]>>>", 1
 "lava", "mat.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "mat.lvm", 1, 0, 0, "list<any>", 1
 "lava", "mat.lvm", 2, 0, 0, "...", 1
@@ -1499,8 +1365,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "missingModel", 5, 0, 0, "character[]", 1
 "lava", "missingModel", 6, 0, 0, "any", 1
 "lava", "missingModel", 7, 0, 0, "any", 1
-"lava", "missingModel", 8, 0, 0, "null", 1
-"lava", "missingModel", 9, 0, 0, "...", 1
 "lava", "Model", -1, 0, 0, "class<`lvm`>", 1
 "lava", "Model", -1, 0, 1, "class<`multigroup`>", 1
 "lava", "Model", -1, 0, 2, "list<class<`lvm`>>", 1
@@ -1548,12 +1412,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "Model.multigroupfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "Model.multigroupfit", 0, 0, 1, "class<`lvmfit`, `multigroupfit`>", 1
 "lava", "Model.multigroupfit", 1, 0, 0, "...", 1
-"lava", "modelPar", -1, 0, 0, "list<any>", 1
+"lava", "modelPar", -1, 0, 0, "list<double[]>", 1
+"lava", "modelPar", -1, 0, 1, "list<double[] | null>", 1
+"lava", "modelPar", -1, 0, 2, "list<null | double[]>", 1
+"lava", "modelPar", -1, 0, 3, "list<list<double[]>>", 1
 "lava", "modelPar", 0, 0, 0, "class<`lvm`>", 1
 "lava", "modelPar", 0, 0, 1, "class<`multigroup`>", 1
 "lava", "modelPar", 1, 0, 0, "double[]", 1
 "lava", "modelPar", 2, 0, 0, "...", 1
-"lava", "modelPar.lvm", -1, 0, 0, "list<double[] | double[] | null | null | double[]>", 1
+"lava", "modelPar.lvm", -1, 0, 0, "list<double[]>", 1
+"lava", "modelPar.lvm", -1, 0, 1, "list<double[] | null>", 1
+"lava", "modelPar.lvm", -1, 0, 2, "list<null | double[]>", 1
 "lava", "modelPar.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "modelPar.lvm", 1, 0, 0, "double[]", 1
 "lava", "modelPar.lvm", 2, 0, 0, "...", 1
@@ -1623,19 +1492,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "mvnmix", 5, 0, 0, "double", 1
 "lava", "mvnmix", 6, 0, 0, "null", 1
 "lava", "mvnmix", 7, 0, 0, "logical", 1
-"lava", "mvnmix", 8, 0, 0, "logical", 1
-"lava", "mvnmix", 9, 0, 0, "double", 1
-"lava", "mvnmix", 10, 0, 0, "character", 1
-"lava", "mvnmix", 11, 0, 0, "...", 1
-"lava", "mygrad", -1, 0, 0, "class<`matrix`>", 1
-"lava", "mygrad", -1, 0, 1, "double[]", 1
-"lava", "mygrad", 0, 0, 0, "class<`lvm`>", 1
-"lava", "mygrad", 1, 0, 0, "double[]", 1
-"lava", "mygrad", 2, 0, 0, "class<`data.frame`>", 1
-"lava", "mygrad", 3, 0, 0, "null", 1
-"lava", "mygrad", 4, 0, 0, "null", 1
-"lava", "mygrad", 5, 0, 0, "logical", 1
-"lava", "mygrad", 6, 0, 0, "...", 1
 "lava", "NA2x", -1, 0, 0, "double[]", 1
 "lava", "NA2x", 0, 0, 0, "^integer[]", 1
 "lava", "NA2x", 1, 0, 0, "double", 1
@@ -1716,7 +1572,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "normal_objective.lvm", 4, 0, 0, "null", 1
 "lava", "normal_objective.lvm", 5, 0, 0, "logical", 1
 "lava", "normal_objective.lvm", 6, 0, 0, "...", 1
-"lava", "NR", -1, 0, 0, "list<double[] | character | class<`matrix`> | double | character | class<`matrix`>>", 1
+"lava", "NR", -1, 0, 0, "list<double[] | character | class<`matrix`>>", 1
+"lava", "NR", -1, 0, 1, "list<double | character | class<`matrix`>>", 1
 "lava", "NR", 0, 0, 0, "double[]", 1
 "lava", "NR", 1, 0, 0, "class<`function`>", 1
 "lava", "NR", 1, 0, 1, "null", 1
@@ -1753,8 +1610,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "ordinal.estimate.hook", -1, 0, 0, "null", 1
 "lava", "ordinal.estimate.hook", -1, 0, 1, "list<any>", 1
 "lava", "ordinal.estimate.hook", 0, 0, 0, "class<`lvm`>", 1
-"lava", "ordinal.estimate.hook", 1, 0, 0, "class<`data.frame`>", 1
-"lava", "ordinal.estimate.hook", 1, 0, 1, "list<class<`matrix`> | double[]>", 1
+"lava", "ordinal.estimate.hook", 1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"lava", "ordinal.estimate.hook", 1, 0, 1, "class<`data.frame`>", 1
 "lava", "ordinal.estimate.hook", 2, 0, 0, "null", 1
 "lava", "ordinal.estimate.hook", 3, 0, 0, "null", 1
 "lava", "ordinal.estimate.hook", 4, 0, 0, "null", 1
@@ -1779,8 +1636,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "ordinal.lvm", 5, 0, 0, "any", 1
 "lava", "ordinal.lvm", 6, 0, 0, "logical", 1
 "lava", "ordinal.lvm", 7, 0, 0, "any", 1
-"lava", "ordinal.lvm", 8, 0, 0, "logical", 1
-"lava", "ordinal.lvm", 9, 0, 0, "...", 1
 "lava", "ordinal.remove.hook", -1, 0, 0, "class<`lvm`>", 1
 "lava", "ordinal.remove.hook", 0, 0, 0, "class<`lvm`>", 1
 "lava", "ordinal.remove.hook", 1, 0, 0, "character[]", 1
@@ -1926,7 +1781,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "partialcorpair", 1, 0, 0, "class<`data.frame`>", 1
 "lava", "partialcorpair", 2, 0, 0, "double", 1
 "lava", "partialcorpair", 3, 0, 0, "...", 1
-"lava", "path", -1, 0, 0, "list<character[] | list<double | class<`matrix`> | double[] | character[]>>", 1
+"lava", "path", -1, 0, 0, "list<character[]>", 1
+"lava", "path", -1, 0, 1, "list<list<double | class<`matrix`> | double[] | character[]>>", 1
 "lava", "path", 0, 0, 0, "class<`lvm`>", 1
 "lava", "path", 0, 0, 1, "class<`lvmfit`>", 1
 "lava", "path", 1, 0, 0, "...", 1
@@ -1962,8 +1818,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "PD", 5, 0, 0, "double", 1
 "lava", "PD", 6, 0, 0, "double", 1
 "lava", "PD", 7, 0, 0, "any", 1
-"lava", "PD", 8, 0, 0, "any", 1
-"lava", "PD", 9, 0, 0, "null", 1
 "lava", "plotConf", -1, 0, 0, "list<any>", 1
 "lava", "plotConf", 0, 0, 0, "class<`lm`>", 1
 "lava", "plotConf", 1, 0, 0, "null", 1
@@ -1974,18 +1828,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "plotConf", 5, 0, 0, "logical", 1
 "lava", "plotConf", 6, 0, 0, "double", 1
 "lava", "plotConf", 7, 0, 0, "double", 1
-"lava", "plotConf", 8, 0, 0, "double", 1
-"lava", "plotConf", 9, 0, 0, "double", 1
-"lava", "plotConf", 10, 0, 0, "double", 1
-"lava", "plotConf", 11, 0, 0, "any", 1
-"lava", "plotConf", 12, 0, 0, "null", 1
-"lava", "plotConf", 13, 0, 0, "any", 1
-"lava", "plotConf", 14, 0, 0, "double", 1
-"lava", "plotConf", 15, 0, 0, "double", 1
-"lava", "plotConf", 16, 0, 0, "double", 1
-"lava", "plotConf", 17, 0, 0, "double", 1
-"lava", "plotConf", 18, 0, 0, "double", 1
-"lava", "plotConf", 19, 0, 0, "logical", 1
 "lava", "plot.sim", -1, 0, 0, "null", 1
 "lava", "plot.sim", -1, 0, 1, "list<list<double[]>>", 1
 "lava", "plot.sim", 0, 0, 0, "class<`matrix`>", 1
@@ -1998,18 +1840,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "plot.sim", 5, 0, 0, "logical", 1
 "lava", "plot.sim", 6, 0, 0, "logical", 1
 "lava", "plot.sim", 7, 0, 0, "character", 1
-"lava", "plot.sim", 8, 0, 0, "any", 1
-"lava", "plot.sim", 9, 0, 0, "character[]", 1
-"lava", "plot.sim", 10, 0, 0, "double", 1
-"lava", "plot.sim", 11, 0, 0, "double", 1
-"lava", "plot.sim", 12, 0, 0, "double", 1
-"lava", "plot.sim", 13, 0, 0, "double", 1
-"lava", "plot.sim", 14, 0, 0, "any", 1
-"lava", "plot.sim", 15, 0, 0, "character", 1
-"lava", "plot.sim", 16, 0, 0, "double", 1
-"lava", "plot.sim", 17, 0, 0, "character[]", 1
-"lava", "plot.sim", 18, 0, 0, "logical", 1
-"lava", "plot.sim", 19, 0, 0, "double[]", 1
 "lava", "poisson.lvm", -1, 0, 0, "class<`function`>", 1
 "lava", "poisson.lvm", 0, 0, 0, "character", 1
 "lava", "poisson.lvm", 1, 0, 0, "any", 1
@@ -2031,7 +1861,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "predict.lvm", 5, 0, 0, "class<`data.frame`>", 1
 "lava", "predict.lvm", 6, 0, 0, "logical", 1
 "lava", "predict.lvm", 7, 0, 0, "logical", 1
-"lava", "predict.lvm", 8, 0, 0, "...", 1
 "lava", "predict.lvmfit", -1, 0, 0, "class<`matrix`>", 1
 "lava", "predict.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "predict.lvmfit", 1, 0, 0, "character[]", 1
@@ -2049,7 +1878,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "predict.zibreg", 4, 0, 0, "logical", 1
 "lava", "predict.zibreg", 5, 0, 0, "logical", 1
 "lava", "predict.zibreg", 6, 0, 0, "...", 1
-"lava", "procdata.lvm", -1, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double>", 1
+"lava", "procdata.lvm", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"lava", "procdata.lvm", -1, 0, 1, "list<class<`matrix`> | double>", 1
 "lava", "procdata.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "procdata.lvm", 1, 0, 0, "class<`data.frame`>", 1
 "lava", "procdata.lvm", 1, 0, 1, "list<class<`matrix`> | double[]>", 1
@@ -2065,7 +1895,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "procrandomslope", 0, 0, 0, "class<`multigroup`>", 1
 "lava", "procrandomslope", 1, 0, 0, "list<class<`data.frame`>>", 1
 "lava", "procrandomslope", 2, 0, 0, "...", 1
-"lava", "prodsumdelta", -1, 0, 0, "list<class<`matrix`> | double[] | double | class<`matrix`>>", 1
+"lava", "prodsumdelta", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"lava", "prodsumdelta", -1, 0, 1, "list<double | class<`matrix`>>", 1
 "lava", "prodsumdelta", 0, 0, 0, "double[]", 1
 "lava", "prodsumdelta", 1, 0, 0, "list<double[]>", 1
 "lava", "prodsumdelta", 2, 0, 0, "class<`matrix`>", 1
@@ -2081,7 +1912,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "profci.lvmfit", 5, 0, 0, "any", 1
 "lava", "profci.lvmfit", 6, 0, 0, "logical", 1
 "lava", "profci.lvmfit", 7, 0, 0, "logical", 1
-"lava", "profci.lvmfit", 8, 0, 0, "...", 1
 "lava", "profile.lvmfit", -1, 0, 0, "double", 1
 "lava", "profile.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "profile.lvmfit", 1, 0, 0, "double", 1
@@ -2102,7 +1932,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "randomslope.lvm", 5, 0, 0, "any", 1
 "lava", "randomslope.lvm", 6, 0, 0, "logical", 1
 "lava", "randomslope.lvm", 7, 0, 0, "logical", 1
-"lava", "randomslope.lvm", 8, 0, 0, "...", 1
 "lava", "regfix", -1, 0, 0, "class<`fix`>", 1
 "lava", "regfix", 0, 0, 0, "class<`lvm`>", 1
 "lava", "regfix", 1, 0, 0, "...", 1
@@ -2111,8 +1940,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "regfix<-", 1, 0, 0, "...", 1
 "lava", "regfix<-", 2, 0, 0, "character", 1
 "lava", "regfix<-", 2, 0, 1, "double[]", 1
-"lava", "regfix<-", 2, 0, 2, "null", 1
-"lava", "regfix<-", 2, 0, 3, "list<null | character>", 1
+"lava", "regfix<-", 2, 0, 2, "list<null | character>", 1
+"lava", "regfix<-", 2, 0, 3, "null", 1
 "lava", "regfix<-.lvm", -1, 0, 0, "class<`lvm`>", 1
 "lava", "regfix<-.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "regfix<-.lvm", 1, 0, 0, "character[]", 1
@@ -2123,10 +1952,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "regfix<-.lvm", 5, 0, 0, "any", 1
 "lava", "regfix<-.lvm", 6, 0, 0, "any", 1
 "lava", "regfix<-.lvm", 7, 0, 0, "...", 1
-"lava", "regfix<-.lvm", 8, 0, 0, "character", 1
-"lava", "regfix<-.lvm", 8, 0, 1, "double[]", 1
-"lava", "regfix<-.lvm", 8, 0, 2, "null", 1
-"lava", "regfix<-.lvm", 8, 0, 3, "list<null | character>", 1
 "lava", "regfix.lvm", -1, 0, 0, "class<`fix`>", 1
 "lava", "regfix.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "regfix.lvm", 1, 0, 0, "...", 1
@@ -2142,8 +1967,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "regression<-", 2, 0, 0, "character", 1
 "lava", "regression<-", 2, 0, 1, "class<`formula`>", 1
 "lava", "regression<-", 2, 0, 2, "double[]", 1
-"lava", "regression<-", 2, 0, 3, "null", 1
-"lava", "regression<-", 2, 0, 4, "list<null | character>", 1
+"lava", "regression<-", 2, 0, 3, "list<null | character>", 1
+"lava", "regression<-", 2, 0, 4, "null", 1
 "lava", "regression<-.lvm", -1, 0, 0, "class<`lvm`>", 1
 "lava", "regression<-.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "regression<-.lvm", 1, 0, 0, "character[]", 1
@@ -2153,9 +1978,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "regression<-.lvm", 3, 0, 0, "...", 1
 "lava", "regression<-.lvm", 4, 0, 0, "character", 1
 "lava", "regression<-.lvm", 4, 0, 1, "double[]", 1
-"lava", "regression<-.lvm", 4, 0, 2, "null", 1
-"lava", "regression<-.lvm", 4, 0, 3, "class<`formula`>", 1
-"lava", "regression<-.lvm", 4, 0, 4, "list<null | character>", 1
+"lava", "regression<-.lvm", 4, 0, 2, "list<null | character>", 1
+"lava", "regression<-.lvm", 4, 0, 3, "null", 1
+"lava", "regression<-.lvm", 4, 0, 4, "class<`formula`>", 1
 "lava", "regression.lvm", -1, 0, 0, "class<`fix`>", 1
 "lava", "regression.lvm", -1, 0, 1, "class<`lvm`>", 1
 "lava", "regression.lvm", 0, 0, 0, "class<`lvm`>", 1
@@ -2166,8 +1991,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "regression.lvm", 5, 0, 0, "logical", 1
 "lava", "regression.lvm", 6, 0, 0, "any", 1
 "lava", "regression.lvm", 7, 0, 0, "any", 1
-"lava", "regression.lvm", 8, 0, 0, "any", 1
-"lava", "regression.lvm", 9, 0, 0, "...", 1
 "lava", "reindex", -1, 0, 0, "list<any>", 1
 "lava", "reindex", 0, 0, 0, "class<`lvm`>", 1
 "lava", "reindex", 1, 0, 0, "logical", 1
@@ -2221,7 +2044,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "satmodel", 5, 0, 0, "any", 1
 "lava", "satmodel", 6, 0, 0, "logical", 1
 "lava", "satmodel", 7, 0, 0, "logical", 1
-"lava", "satmodel", 8, 0, 0, "...", 1
 "lava", "scheffe", -1, 0, 0, "class<`matrix`>", 1
 "lava", "scheffe", 0, 0, 0, "class<`lm`>", 1
 "lava", "scheffe", 1, 0, 0, "class<`data.frame`>", 1
@@ -2246,10 +2068,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "score.glm", 5, 0, 0, "any", 1
 "lava", "score.glm", 6, 0, 0, "any", 1
 "lava", "score.glm", 7, 0, 0, "any", 1
-"lava", "score.glm", 8, 0, 0, "any", 1
-"lava", "score.glm", 9, 0, 0, "null", 1
-"lava", "score.glm", 10, 0, 0, "null", 1
-"lava", "score.glm", 11, 0, 0, "...", 1
 "lava", "score.lm", -1, 0, 0, "class<`matrix`>", 1
 "lava", "score.lm", 0, 0, 0, "class<`lm`>", 1
 "lava", "score.lm", 1, 0, 0, "double[]", 1
@@ -2259,8 +2077,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "score.lm", 5, 0, 0, "any", 1
 "lava", "score.lm", 6, 0, 0, "null", 1
 "lava", "score.lm", 7, 0, 0, "null", 1
-"lava", "score.lm", 8, 0, 0, "logical", 1
-"lava", "score.lm", 9, 0, 0, "...", 1
 "lava", "score.lvm", -1, 0, 0, "class<`matrix`>", 1
 "lava", "score.lvm", 0, 0, 0, "class<`lvm`>", 1
 "lava", "score.lvm", 1, 0, 0, "class<`data.frame`>", 1
@@ -2271,13 +2087,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "score.lvm", 5, 0, 0, "any", 1
 "lava", "score.lvm", 6, 0, 0, "any", 1
 "lava", "score.lvm", 7, 0, 0, "any", 1
-"lava", "score.lvm", 8, 0, 0, "any", 1
-"lava", "score.lvm", 9, 0, 0, "logical", 1
-"lava", "score.lvm", 10, 0, 0, "logical", 1
-"lava", "score.lvm", 11, 0, 0, "logical", 1
-"lava", "score.lvm", 12, 0, 0, "logical", 1
-"lava", "score.lvm", 13, 0, 0, "any", 1
-"lava", "score.lvm", 14, 0, 0, "...", 1
 "lava", "score.lvmfit", -1, 0, 0, "class<`matrix`>", 1
 "lava", "score.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "score.lvmfit", 1, 0, 0, "class<`data.frame`>", 1
@@ -2347,12 +2156,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "sim.default", 5, 0, 0, "any", 1
 "lava", "sim.default", 6, 0, 0, "any", 1
 "lava", "sim.default", 7, 0, 0, "any", 1
-"lava", "sim.default", 8, 0, 0, "double", 1
-"lava", "sim.default", 9, 0, 0, "null", 1
-"lava", "sim.default", 10, 0, 0, "double[]", 1
-"lava", "sim.default", 10, 0, 1, "list<any>", 1
-"lava", "sim.default", 11, 0, 0, "logical", 1
-"lava", "sim.default", 12, 0, 0, "...", 1
 "lava", "sim.lvm", -1, 0, 0, "class<`data.frame`>", 1
 "lava", "sim.lvm", -1, 0, 1, "class<`lvm`>", 1
 "lava", "sim.lvm", 0, 0, 0, "class<`lvm`>", 1
@@ -2365,12 +2168,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "sim.lvm", 5, 0, 0, "double", 1
 "lava", "sim.lvm", 6, 0, 0, "double", 1
 "lava", "sim.lvm", 7, 0, 0, "null", 1
-"lava", "sim.lvm", 8, 0, 0, "logical", 1
-"lava", "sim.lvm", 9, 0, 0, "logical", 1
-"lava", "sim.lvm", 10, 0, 0, "logical", 1
-"lava", "sim.lvm", 11, 0, 0, "null", 1
-"lava", "sim.lvm", 11, 0, 1, "double", 1
-"lava", "sim.lvm", 12, 0, 0, "...", 1
 "lava", "sim.lvmfit", -1, 0, 0, "class<`data.frame`>", 1
 "lava", "sim.lvmfit", 0, 0, 0, "class<`lvmfit`>", 1
 "lava", "sim.lvmfit", 1, 0, 0, "double", 1
@@ -2409,10 +2206,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "stack.estimate", 5, 0, 0, "any", 1
 "lava", "stack.estimate", 6, 0, 0, "any", 1
 "lava", "stack.estimate", 7, 0, 0, "logical", 1
-"lava", "stack.estimate", 8, 0, 0, "any", 1
-"lava", "stack.estimate", 9, 0, 0, "any", 1
-"lava", "stack.estimate", 10, 0, 0, "any", 1
-"lava", "stack.estimate", 11, 0, 0, "...", 1
 "lava", "stack.glm", -1, 0, 0, "class<`estimate`>", 1
 "lava", "stack.glm", 0, 0, 0, "class<`glm`, `lm`>", 1
 "lava", "stack.glm", 1, 0, 0, "class<`glm`, `lm`>", 1
@@ -2469,10 +2262,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "summary.sim", 6, 0, 0, "null", 1
 "lava", "summary.sim", 6, 0, 1, "character[]", 1
 "lava", "summary.sim", 7, 0, 0, "logical", 1
-"lava", "summary.sim", 8, 0, 0, "logical", 1
-"lava", "summary.sim", 9, 0, 0, "double", 1
-"lava", "summary.sim", 10, 0, 0, "double[]", 1
-"lava", "summary.sim", 11, 0, 0, "...", 1
 "lava", "summary.zibreg", -1, 0, 0, "class<`summary.zibreg`>", 1
 "lava", "summary.zibreg", 0, 0, 0, "class<`zibreg`>", 1
 "lava", "summary.zibreg", 1, 0, 0, "double", 1
@@ -2491,16 +2280,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "surface", 5, 0, 0, "character", 1
 "lava", "surface", 6, 0, 0, "any", 1
 "lava", "surface", 7, 0, 0, "any", 1
-"lava", "surface", 8, 0, 0, "any", 1
-"lava", "surface", 9, 0, 0, "logical", 1
-"lava", "surface", 10, 0, 0, "double", 1
-"lava", "surface", 11, 0, 0, "double", 1
-"lava", "surface", 12, 0, 0, "character", 1
-"lava", "surface", 13, 0, 0, "logical", 1
-"lava", "surface", 14, 0, 0, "logical", 1
-"lava", "surface", 15, 0, 0, "character", 1
-"lava", "surface", 15, 0, 1, "class<`function`>", 1
-"lava", "surface", 16, 0, 0, "...", 1
 "lava", "timedep", -1, 0, 0, "class<`lvm`>", 1
 "lava", "timedep", 0, 0, 0, "class<`lvm`>", 1
 "lava", "timedep", 1, 0, 0, "class<`formula`>", 1
@@ -2640,7 +2419,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "zibreg_information", 5, 0, 0, "null", 1
 "lava", "zibreg_information", 6, 0, 0, "class<`family`>", 1
 "lava", "zibreg_information", 7, 0, 0, "character", 1
-"lava", "zibreg_information", 8, 0, 0, "...", 1
 "lava", "zibreg_logL", -1, 0, 0, "class<`logLik`>", 1
 "lava", "zibreg_logL", 0, 0, 0, "double[]", 1
 "lava", "zibreg_logL", 1, 0, 0, "double[]", 1
@@ -2650,7 +2428,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "zibreg_logL", 5, 0, 0, "null", 1
 "lava", "zibreg_logL", 6, 0, 0, "class<`family`>", 1
 "lava", "zibreg_logL", 7, 0, 0, "logical", 1
-"lava", "zibreg_logL", 8, 0, 0, "...", 1
 "lava", "zibreg_score", -1, 0, 0, "double[]", 1
 "lava", "zibreg_score", 0, 0, 0, "double[]", 1
 "lava", "zibreg_score", 1, 0, 0, "double[]", 1
@@ -2660,4 +2437,3 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lava", "zibreg_score", 5, 0, 0, "null", 1
 "lava", "zibreg_score", 6, 0, 0, "class<`family`>", 1
 "lava", "zibreg_score", 7, 0, 0, "logical", 1
-"lava", "zibreg_score", 8, 0, 0, "...", 1

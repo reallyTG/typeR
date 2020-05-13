@@ -29,7 +29,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "reshape2", "all_identical", 0, 0, 0, "list<null>", 1
 "reshape2", "array_names", -1, 0, 0, "character[]", 1
 "reshape2", "array_names", 0, 0, 0, "class<`data.frame`>", 1
-"reshape2", "cast", -1, 0, 0, "list<class<`array`> | list<class<`data.frame`>> | class<`matrix`> | list<class<`data.frame`>>>", 1
+"reshape2", "cast", -1, 0, 0, "list<class<`array`> | list<class<`data.frame`>>>", 1
+"reshape2", "cast", -1, 0, 1, "list<class<`matrix`> | list<class<`data.frame`>>>", 1
 "reshape2", "cast", 0, 0, 0, "class<`data.frame`>", 1
 "reshape2", "cast", 1, 0, 0, "list<class<`quoted`>>", 1
 "reshape2", "cast", 2, 0, 0, "null", 1
@@ -60,20 +61,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "reshape2", "dcast", 6, 0, 0, "null", 1
 "reshape2", "dcast", 7, 0, 0, "logical", 1
 "reshape2", "dcast", 8, 0, 0, "character", 1
-"reshape2", "FUN", -1, 0, 0, "character[]", 1
-"reshape2", "FUN", 0, 0, 0, "class<`data.frame`>", 1
-"reshape2", "FUN", -1, 1, 0, "class<`data.frame`>", 1
-"reshape2", "FUN", 0, 1, 0, "class<`array`>", 1
-"reshape2", "FUN", 0, 1, 1, "class<`matrix`>", 1
-"reshape2", "FUN", 0, 1, 2, "double", 1
-"reshape2", "FUN", 0, 1, 3, "integer[]", 1
-"reshape2", "FUN", 0, 1, 4, "null", 1
-"reshape2", "FUN", 0, 1, 5, "class<`data.frame`>", 1
-"reshape2", "FUN", 0, 1, 6, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
-"reshape2", "FUN", 0, 1, 7, "list<any>", 1
-"reshape2", "FUN", 1, 1, 0, "...", 1
-"reshape2", "FUN", 2, 1, 0, "logical", 1
-"reshape2", "FUN", 3, 1, 0, "character", 1
 "reshape2", "guess_value", -1, 0, 0, "character", 1
 "reshape2", "guess_value", 0, 0, 0, "class<`data.frame`>", 1
 "reshape2", "is.string", -1, 0, 0, "logical", 1
@@ -88,9 +75,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "reshape2", "melt", 0, 0, 2, "double", 1
 "reshape2", "melt", 0, 0, 3, "integer[]", 1
 "reshape2", "melt", 0, 0, 4, "null", 1
-"reshape2", "melt", 0, 0, 5, "class<`data.frame`>", 1
-"reshape2", "melt", 0, 0, 6, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
-"reshape2", "melt", 0, 0, 7, "list<any>", 1
+"reshape2", "melt", 0, 0, 5, "list<integer[]>", 1
+"reshape2", "melt", 0, 0, 6, "list<list<integer>>", 1
+"reshape2", "melt", 0, 0, 7, "class<`data.frame`>", 1
+"reshape2", "melt", 0, 0, 8, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
+"reshape2", "melt", 0, 0, 9, "list<class<`matrix`> | class<`array`>>", 1
+"reshape2", "melt", 0, 0, 10, "list<class<`matrix`>>", 1
+"reshape2", "melt", 0, 0, 11, "list<integer[] | class<`matrix`>>", 1
+"reshape2", "melt", 0, 0, 12, "list<integer | null>", 1
+"reshape2", "melt", 0, 0, 13, "list<double | list<integer[] | list<integer>>>", 1
 "reshape2", "melt", 1, 0, 0, "...", 1
 "reshape2", "melt", 2, 0, 0, "logical", 1
 "reshape2", "melt", 3, 0, 0, "character", 1
@@ -138,7 +131,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "reshape2", "melt.default", 2, 0, 0, "logical", 1
 "reshape2", "melt.default", 3, 0, 0, "character", 1
 "reshape2", "melt.list", -1, 0, 0, "class<`data.frame`>", 1
-"reshape2", "melt.list", 0, 0, 0, "list<any>", 1
+"reshape2", "melt.list", 0, 0, 0, "list<class<`matrix`> | class<`array`>>", 1
+"reshape2", "melt.list", 0, 0, 1, "list<class<`matrix`>>", 1
+"reshape2", "melt.list", 0, 0, 2, "list<integer[] | class<`matrix`>>", 1
+"reshape2", "melt.list", 0, 0, 3, "list<integer | null>", 1
+"reshape2", "melt.list", 0, 0, 4, "list<integer[]>", 1
+"reshape2", "melt.list", 0, 0, 5, "list<list<integer>>", 1
+"reshape2", "melt.list", 0, 0, 6, "list<double | list<integer[] | list<integer>>>", 1
 "reshape2", "melt.list", 1, 0, 0, "...", 1
 "reshape2", "melt.list", 2, 0, 0, "double", 1
 "reshape2", "melt.matrix", -1, 0, 0, "class<`data.frame`>", 1

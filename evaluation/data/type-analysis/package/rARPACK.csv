@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"rARPACK", "eigs", -1, 0, 0, "list<complex[] | class<`matrix`> | complex[] | null>", 1
+"rARPACK", "eigs", -1, 0, 0, "list<complex[] | class<`matrix`>>", 1
+"rARPACK", "eigs", -1, 0, 1, "list<complex[] | null>", 1
 "rARPACK", "eigs", 0, 0, 0, "class<`dgCMatrix`>", 1
 "rARPACK", "eigs", 0, 0, 1, "class<`dgRMatrix`>", 1
 "rARPACK", "eigs", 0, 0, 2, "class<`function`>", 1
@@ -19,7 +20,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rARPACK", "eigs_sym", 4, 0, 0, "list<any>", 1
 "rARPACK", "eigs_sym", 5, 0, 0, "logical", 1
 "rARPACK", "eigs_sym", 6, 0, 0, "...", 1
-"rARPACK", "svds", -1, 0, 0, "list<double[] | class<`matrix`> | double[] | null | class<`matrix`> | double[] | null>", 1
+"rARPACK", "svds", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"rARPACK", "svds", -1, 0, 1, "list<double[] | null | class<`matrix`>>", 1
+"rARPACK", "svds", -1, 0, 2, "list<double[] | null>", 1
 "rARPACK", "svds", 0, 0, 0, "class<`dgCMatrix`>", 1
 "rARPACK", "svds", 0, 0, 1, "class<`matrix`>", 1
 "rARPACK", "svds", 0, 0, 2, "class<`dgRMatrix`>", 1

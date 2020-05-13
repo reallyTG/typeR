@@ -20,8 +20,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "awcoord", 5, 0, 0, "logical", 1
 "fpc", "awcoord", 6, 0, 0, "double", 1
 "fpc", "awcoord", 7, 0, 0, "double", 1
-"fpc", "awcoord", 8, 0, 0, "double", 1
-"fpc", "awcoord", 9, 0, 0, "...", 1
 "fpc", "batcoord", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
 "fpc", "batcoord", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "batcoord", 1, 0, 0, "integer[]", 1
@@ -39,8 +37,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "bhattacharyya.matrix", -1, 0, 0, "class<`matrix`>", 1
 "fpc", "bhattacharyya.matrix", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "bhattacharyya.matrix", 1, 0, 0, "class<`array`>", 1
-"fpc", "bhattacharyya.matrix", 2, 0, 0, "character", 1
-"fpc", "bhattacharyya.matrix", 2, 0, 1, "list<double[]>", 1
+"fpc", "bhattacharyya.matrix", 2, 0, 0, "list<double[]>", 1
+"fpc", "bhattacharyya.matrix", 2, 0, 1, "character", 1
 "fpc", "bhattacharyya.matrix", 3, 0, 0, "logical", 1
 "fpc", "calinhara", -1, 0, 0, "double", 1
 "fpc", "calinhara", 0, 0, 0, "class<`data.frame`>", 1
@@ -50,7 +48,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "can", -1, 0, 0, "double", 1
 "fpc", "can", 0, 0, 0, "double", 1
 "fpc", "can", 1, 0, 0, "double", 1
-"fpc", "cat2bin", -1, 0, 0, "list<class<`matrix`> | list<list<character[] | integer[] | character | double>> | class<`matrix`> | list<list<character | double | character[] | integer[]>>>", 1
+"fpc", "cat2bin", -1, 0, 0, "list<class<`matrix`> | list<list<character[] | integer[] | character | double>>>", 1
+"fpc", "cat2bin", -1, 0, 1, "list<class<`matrix`> | list<list<character | double | character[] | integer[]>>>", 1
 "fpc", "cat2bin", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "cat2bin", 1, 0, 0, "double", 1
 "fpc", "cat2bin", 1, 0, 1, "integer[]", 1
@@ -124,18 +123,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "clusterbenchstats", 5, 0, 0, "character[]", 1
 "fpc", "clusterbenchstats", 6, 0, 0, "logical[]", 1
 "fpc", "clusterbenchstats", 7, 0, 0, "logical[]", 1
-"fpc", "clusterbenchstats", 8, 0, 0, "list<null | list<character> | list<any>>", 1
-"fpc", "clusterbenchstats", 9, 0, 0, "logical", 1
-"fpc", "clusterbenchstats", 10, 0, 0, "logical", 1
-"fpc", "clusterbenchstats", 11, 0, 0, "logical", 1
-"fpc", "clusterbenchstats", 12, 0, 0, "double", 1
-"fpc", "clusterbenchstats", 13, 0, 0, "double", 1
-"fpc", "clusterbenchstats", 14, 0, 0, "double", 1
-"fpc", "clusterbenchstats", 15, 0, 0, "double", 1
-"fpc", "clusterbenchstats", 16, 0, 0, "double", 1
-"fpc", "clusterbenchstats", 17, 0, 0, "double", 1
-"fpc", "clusterbenchstats", 18, 0, 0, "logical", 1
-"fpc", "clusterbenchstats", 19, 0, 0, "any", 1
 "fpc", "clusterboot", -1, 0, 0, "class<`clboot`>", 1
 "fpc", "clusterboot", 0, 0, 0, "class<`data.frame`>", 1
 "fpc", "clusterboot", 0, 0, 1, "class<`dist`>", 1
@@ -147,17 +134,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "clusterboot", 5, 0, 0, "logical", 1
 "fpc", "clusterboot", 6, 0, 0, "double", 1
 "fpc", "clusterboot", 7, 0, 0, "any", 1
-"fpc", "clusterboot", 8, 0, 0, "any", 1
-"fpc", "clusterboot", 9, 0, 0, "class<`function`>", 1
-"fpc", "clusterboot", 10, 0, 0, "logical", 1
-"fpc", "clusterboot", 11, 0, 0, "logical", 1
-"fpc", "clusterboot", 12, 0, 0, "logical", 1
-"fpc", "clusterboot", 13, 0, 0, "double", 1
-"fpc", "clusterboot", 14, 0, 0, "double", 1
-"fpc", "clusterboot", 15, 0, 0, "null", 1
-"fpc", "clusterboot", 15, 0, 1, "double", 1
-"fpc", "clusterboot", 16, 0, 0, "logical", 1
-"fpc", "clusterboot", 17, 0, 0, "...", 1
 "fpc", "cluster.magazine", -1, 0, 0, "list<list<any>>", 1
 "fpc", "cluster.magazine", 0, 0, 0, "double[]", 1
 "fpc", "cluster.magazine", 0, 0, 1, "class<`matrix`>", 1
@@ -168,18 +144,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "cluster.magazine", 4, 0, 0, "character[]", 1
 "fpc", "cluster.magazine", 5, 0, 0, "logical[]", 1
 "fpc", "cluster.magazine", 6, 0, 0, "logical[]", 1
-"fpc", "cluster.magazine", 7, 0, 0, "list<null | list<character> | list<any>>", 1
-"fpc", "cluster.magazine", 8, 0, 0, "logical", 1
-"fpc", "clustermethod", -1, 0, 0, "list<any>", 1
-"fpc", "clustermethod", 0, 0, 0, "class<`matrix`>", 1
-"fpc", "clustermethod", 1, 0, 0, "integer[]", 1
-"fpc", "clustermethod", 2, 0, 0, "null", 1
-"fpc", "clustermethod", 3, 0, 0, "null", 1
-"fpc", "clustermethod", 4, 0, 0, "double", 1
-"fpc", "clustermethod", 5, 0, 0, "null", 1
-"fpc", "clustermethod", 6, 0, 0, "null", 1
-"fpc", "clustermethod", 7, 0, 0, "logical", 1
-"fpc", "clustermethod", 8, 0, 0, "...", 1
+"fpc", "cluster.magazine", 7, 0, 0, "list<list<any>>", 1
+"fpc", "cluster.magazine", 7, 0, 1, "list<null | list<character>>", 1
 "fpc", "cluster.stats", -1, 0, 0, "list<any>", 1
 "fpc", "cluster.stats", 0, 0, 0, "class<`dist`>", 1
 "fpc", "cluster.stats", 1, 0, 0, "integer[]", 1
@@ -190,11 +156,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "cluster.stats", 5, 0, 0, "logical", 1
 "fpc", "cluster.stats", 6, 0, 0, "logical", 1
 "fpc", "cluster.stats", 7, 0, 0, "logical", 1
-"fpc", "cluster.stats", 8, 0, 0, "logical", 1
-"fpc", "cluster.stats", 9, 0, 0, "double", 1
-"fpc", "cluster.stats", 10, 0, 0, "logical", 1
-"fpc", "cluster.stats", 11, 0, 0, "logical", 1
-"fpc", "cluster.stats", 12, 0, 0, "logical", 1
 "fpc", "cluster.varstats", -1, 0, 0, "class<`varwisetables`>", 1
 "fpc", "cluster.varstats", 0, 0, 0, "integer[]", 1
 "fpc", "cluster.varstats", 1, 0, 0, "class<`data.frame`>", 1
@@ -204,11 +165,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "cluster.varstats", 5, 0, 0, "double[]", 1
 "fpc", "cluster.varstats", 6, 0, 0, "double[]", 1
 "fpc", "cluster.varstats", 7, 0, 0, "double", 1
-"fpc", "cluster.varstats", 8, 0, 0, "logical", 1
-"fpc", "cluster.varstats", 9, 0, 0, "character", 1
-"fpc", "cluster.varstats", 10, 0, 0, "double", 1
-"fpc", "cluster.varstats", 11, 0, 0, "logical", 1
-"fpc", "cluster.varstats", 12, 0, 0, "double", 1
 "fpc", "cmahal", -1, 0, 0, "double[]", 1
 "fpc", "cmahal", 0, 0, 0, "double", 1
 "fpc", "cmahal", 1, 0, 0, "double", 1
@@ -240,18 +196,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "cqcluster.stats", 5, 0, 0, "logical", 1
 "fpc", "cqcluster.stats", 6, 0, 0, "logical", 1
 "fpc", "cqcluster.stats", 7, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 8, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 9, 0, 0, "double", 1
-"fpc", "cqcluster.stats", 10, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 11, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 12, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 13, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 14, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 15, 0, 0, "double", 1
-"fpc", "cqcluster.stats", 16, 0, 0, "logical", 1
-"fpc", "cqcluster.stats", 17, 0, 0, "double", 1
-"fpc", "cqcluster.stats", 18, 0, 0, "character", 1
-"fpc", "cqcluster.stats", 19, 0, 0, "logical", 1
 "fpc", "cvnn", -1, 0, 0, "list<double[]>", 1
 "fpc", "cvnn", 0, 0, 0, "class<`dist`>", 1
 "fpc", "cvnn", 1, 0, 0, "list<double[]>", 1
@@ -317,9 +261,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "distcritmulti", 5, 0, 0, "character", 1
 "fpc", "distcritmulti", 6, 0, 0, "character", 1
 "fpc", "distcritmulti", 7, 0, 0, "logical", 1
-"fpc", "distcritmulti", 8, 0, 0, "double", 1
-"fpc", "distcritmulti", 8, 0, 1, "null", 1
-"fpc", "distcritmulti", 9, 0, 0, "...", 1
 "fpc", "disthclustCBI", -1, 0, 0, "list<any>", 1
 "fpc", "disthclustCBI", 0, 0, 0, "class<`dist`>", 1
 "fpc", "disthclustCBI", 1, 0, 0, "double", 1
@@ -341,10 +282,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "distnoisemclustCBI", 5, 0, 0, "null", 1
 "fpc", "distnoisemclustCBI", 6, 0, 0, "null", 1
 "fpc", "distnoisemclustCBI", 7, 0, 0, "character", 1
-"fpc", "distnoisemclustCBI", 8, 0, 0, "double", 1
-"fpc", "distnoisemclustCBI", 9, 0, 0, "logical", 1
-"fpc", "distnoisemclustCBI", 10, 0, 0, "logical", 1
-"fpc", "distnoisemclustCBI", 11, 0, 0, "...", 1
 "fpc", "distrsimilarity", -1, 0, 0, "list<double[]>", 1
 "fpc", "distrsimilarity", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "distrsimilarity", 1, 0, 0, "double[]", 1
@@ -367,7 +304,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "dudahart2", 0, 0, 1, "class<`matrix`>", 1
 "fpc", "dudahart2", 1, 0, 0, "integer[]", 1
 "fpc", "dudahart2", 2, 0, 0, "double", 1
-"fpc", "extract.mixturepars", -1, 0, 0, "list<double[] | class<`matrix`> | list<any> | double[] | list<character | integer | class<`matrix`>> | double[] | list<character | class<`matrix`> | double[]>>", 1
+"fpc", "extract.mixturepars", -1, 0, 0, "list<double[] | class<`matrix`> | list<any>>", 1
+"fpc", "extract.mixturepars", -1, 0, 1, "list<double[] | list<character | integer | class<`matrix`>>>", 1
+"fpc", "extract.mixturepars", -1, 0, 2, "list<double[] | list<character | class<`matrix`> | double[]>>", 1
 "fpc", "extract.mixturepars", 0, 0, 0, "class<`summary.mclustBIC`>", 1
 "fpc", "extract.mixturepars", 1, 0, 0, "integer[]", 1
 "fpc", "extract.mixturepars", 1, 0, 1, "double", 1
@@ -391,18 +330,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "fixmahal", 5, 0, 0, "null", 1
 "fpc", "fixmahal", 6, 0, 0, "null", 1
 "fpc", "fixmahal", 7, 0, 0, "double", 1
-"fpc", "fixmahal", 8, 0, 0, "double", 1
-"fpc", "fixmahal", 9, 0, 0, "logical", 1
-"fpc", "fixmahal", 10, 0, 0, "integer", 1
-"fpc", "fixmahal", 11, 0, 0, "any", 1
-"fpc", "fixmahal", 12, 0, 0, "double", 1
-"fpc", "fixmahal", 13, 0, 0, "double", 1
-"fpc", "fixmahal", 14, 0, 0, "double", 1
-"fpc", "fixmahal", 15, 0, 0, "double", 1
-"fpc", "fixmahal", 16, 0, 0, "double", 1
-"fpc", "fixmahal", 17, 0, 0, "double", 1
-"fpc", "fixmahal", 18, 0, 0, "list<any>", 1
-"fpc", "fixmahal", 19, 0, 0, "logical", 1
 "fpc", "fixreg", -1, 0, 0, "class<`rfpc`>", 1
 "fpc", "fixreg", 0, 0, 0, "double[]", 1
 "fpc", "fixreg", 1, 0, 0, "double[]", 1
@@ -412,16 +339,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "fixreg", 5, 0, 0, "null", 1
 "fpc", "fixreg", 6, 0, 0, "double", 1
 "fpc", "fixreg", 7, 0, 0, "double", 1
-"fpc", "fixreg", 8, 0, 0, "null", 1
-"fpc", "fixreg", 9, 0, 0, "double", 1
-"fpc", "fixreg", 10, 0, 0, "double", 1
-"fpc", "fixreg", 11, 0, 0, "double", 1
-"fpc", "fixreg", 12, 0, 0, "double", 1
-"fpc", "fixreg", 13, 0, 0, "double", 1
-"fpc", "fixreg", 14, 0, 0, "list<any>", 1
-"fpc", "fixreg", 15, 0, 0, "logical", 1
-"fpc", "fixreg", 16, 0, 0, "double", 1
-"fpc", "fixreg", 17, 0, 0, "logical", 1
 "fpc", "flexmixedruns", -1, 0, 0, "list<any>", 1
 "fpc", "flexmixedruns", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "flexmixedruns", 1, 0, 0, "logical", 1
@@ -431,12 +348,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "flexmixedruns", 5, 0, 0, "null", 1
 "fpc", "flexmixedruns", 6, 0, 0, "double[]", 1
 "fpc", "flexmixedruns", 7, 0, 0, "double", 1
-"fpc", "flexmixedruns", 8, 0, 0, "double", 1
-"fpc", "flexmixedruns", 9, 0, 0, "logical", 1
-"fpc", "flexmixedruns", 10, 0, 0, "logical", 1
-"fpc", "flexmixedruns", 11, 0, 0, "logical", 1
-"fpc", "flexmixedruns", 12, 0, 0, "list<double>", 1
-"fpc", "flexmixedruns", 13, 0, 0, "logical", 1
 "fpc", "fpclusters", -1, 0, 0, "list<double[]>", 1
 "fpc", "fpclusters", 0, 0, 0, "class<`mfpc`>", 1
 "fpc", "fpclusters", 1, 0, 0, "...", 1
@@ -446,7 +357,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "fpclusters.mfpc", 2, 0, 0, "any", 1
 "fpc", "fpclusters.mfpc", 3, 0, 0, "any", 1
 "fpc", "fpclusters.mfpc", 4, 0, 0, "...", 1
-"fpc", "fpmi", -1, 0, 0, "list<double[] | class<`matrix`> | character | class<`matrix`> | double[] | character>", 1
+"fpc", "fpmi", -1, 0, 0, "list<double[] | class<`matrix`> | character>", 1
+"fpc", "fpmi", -1, 0, 1, "list<class<`matrix`> | double[] | character>", 1
 "fpc", "fpmi", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "fpmi", 1, 0, 0, "integer", 1
 "fpc", "fpmi", 2, 0, 0, "any", 1
@@ -455,8 +367,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "fpmi", 5, 0, 0, "double", 1
 "fpc", "fpmi", 6, 0, 0, "character", 1
 "fpc", "fpmi", 7, 0, 0, "character", 1
-"fpc", "fpmi", 8, 0, 0, "double", 1
-"fpc", "fpmi", 9, 0, 0, "double", 1
 "fpc", "hclusttreeCBI", -1, 0, 0, "list<any>", 1
 "fpc", "hclusttreeCBI", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "hclusttreeCBI", 1, 0, 0, "double", 1
@@ -492,8 +402,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "kmeansruns", 5, 0, 0, "logical", 1
 "fpc", "kmeansruns", 6, 0, 0, "double", 1
 "fpc", "kmeansruns", 7, 0, 0, "logical", 1
-"fpc", "kmeansruns", 8, 0, 0, "logical", 1
-"fpc", "kmeansruns", 9, 0, 0, "...", 1
 "fpc", "lcmixed", -1, 0, 0, "class<`FLXMC`>", 1
 "fpc", "lcmixed", 0, 0, 0, "class<`formula`>", 1
 "fpc", "lcmixed", 1, 0, 0, "any", 1
@@ -545,14 +453,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "mergenormals", 5, 0, 0, "any", 1
 "fpc", "mergenormals", 6, 0, 0, "any", 1
 "fpc", "mergenormals", 7, 0, 0, "character", 1
-"fpc", "mergenormals", 8, 0, 0, "null", 1
-"fpc", "mergenormals", 8, 0, 1, "double", 1
-"fpc", "mergenormals", 9, 0, 0, "double", 1
-"fpc", "mergenormals", 10, 0, 0, "double", 1
-"fpc", "mergenormals", 10, 0, 1, "null", 1
-"fpc", "mergenormals", 11, 0, 0, "logical", 1
-"fpc", "mergenormals", 12, 0, 0, "double", 1
-"fpc", "mergenormals", 13, 0, 0, "...", 1
 "fpc", "mergenormCBI", -1, 0, 0, "list<any>", 1
 "fpc", "mergenormCBI", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "mergenormCBI", 1, 0, 0, "double", 1
@@ -562,8 +462,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "mergenormCBI", 5, 0, 0, "null", 1
 "fpc", "mergenormCBI", 6, 0, 0, "null", 1
 "fpc", "mergenormCBI", 7, 0, 0, "character", 1
-"fpc", "mergenormCBI", 8, 0, 0, "double", 1
-"fpc", "mergenormCBI", 9, 0, 0, "...", 1
 "fpc", "mergeparameters", -1, 0, 0, "list<double[] | class<`matrix`> | class<`array`>>", 1
 "fpc", "mergeparameters", 0, 0, 0, "class<`data.frame`>", 1
 "fpc", "mergeparameters", 0, 0, 1, "class<`matrix`>", 1
@@ -617,7 +515,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "noisemclustCBI", 5, 0, 0, "null", 1
 "fpc", "noisemclustCBI", 6, 0, 0, "null", 1
 "fpc", "noisemclustCBI", 7, 0, 0, "logical", 1
-"fpc", "noisemclustCBI", 8, 0, 0, "...", 1
 "fpc", "nselectboot", -1, 0, 0, "list<^double[] | class<`matrix`>>", 1
 "fpc", "nselectboot", 0, 0, 0, "class<`dist`>", 1
 "fpc", "nselectboot", 0, 0, 1, "class<`matrix`>", 1
@@ -628,8 +525,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "nselectboot", 5, 0, 0, "integer[]", 1
 "fpc", "nselectboot", 6, 0, 0, "logical", 1
 "fpc", "nselectboot", 7, 0, 0, "double", 1
-"fpc", "nselectboot", 8, 0, 0, "...", 1
-"fpc", "pamk", -1, 0, 0, "list<class<`clara`, `partition`> | double[] | class<`pam`, `partition`> | double[]>", 1
+"fpc", "pamk", -1, 0, 0, "list<class<`clara`, `partition`> | double[]>", 1
+"fpc", "pamk", -1, 0, 1, "list<class<`pam`, `partition`> | double[]>", 1
 "fpc", "pamk", 0, 0, 0, "class<`matrix`>", 1
 "fpc", "pamk", 0, 0, 1, "class<`dist`>", 1
 "fpc", "pamk", 1, 0, 0, "integer[]", 1
@@ -639,9 +536,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "pamk", 5, 0, 0, "double", 1
 "fpc", "pamk", 6, 0, 0, "logical", 1
 "fpc", "pamk", 7, 0, 0, "logical", 1
-"fpc", "pamk", 8, 0, 0, "double", 1
-"fpc", "pamk", 9, 0, 0, "null", 1
-"fpc", "pamk", 10, 0, 0, "...", 1
 "fpc", "piridge", -1, 0, 0, "double[]", 1
 "fpc", "piridge", 0, 0, 0, "double[]", 1
 "fpc", "piridge", 1, 0, 0, "double[]", 1
@@ -673,11 +567,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "plotcluster", 5, 0, 0, "logical", 1
 "fpc", "plotcluster", 6, 0, 0, "double", 1
 "fpc", "plotcluster", 7, 0, 0, "logical", 1
-"fpc", "plotcluster", 8, 0, 0, "null", 1
-"fpc", "plotcluster", 9, 0, 0, "null", 1
-"fpc", "plotcluster", 10, 0, 0, "null", 1
-"fpc", "plotcluster", 11, 0, 0, "null", 1
-"fpc", "plotcluster", 12, 0, 0, "...", 1
 "fpc", "plot.dbscan", -1, 0, 0, "null", 1
 "fpc", "plot.dbscan", 0, 0, 0, "class<`dbscan`>", 1
 "fpc", "plot.dbscan", 1, 0, 0, "class<`matrix`>", 1
@@ -691,8 +580,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "plot.mfpc", 5, 0, 0, "null", 1
 "fpc", "plot.mfpc", 6, 0, 0, "null", 1
 "fpc", "plot.mfpc", 7, 0, 0, "null", 1
-"fpc", "plot.mfpc", 8, 0, 0, "null", 1
-"fpc", "plot.mfpc", 9, 0, 0, "...", 1
 "fpc", "plot.valstat", -1, 0, 0, "null", 1
 "fpc", "plot.valstat", 0, 0, 0, "class<`valstat`>", 1
 "fpc", "plot.valstat", 1, 0, 0, "list<double | list<null | class<`data.frame`>>>", 1
@@ -702,11 +589,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "plot.valstat", 5, 0, 0, "double", 1
 "fpc", "plot.valstat", 6, 0, 0, "integer[]", 1
 "fpc", "plot.valstat", 7, 0, 0, "double", 1
-"fpc", "plot.valstat", 8, 0, 0, "character[]", 1
-"fpc", "plot.valstat", 9, 0, 0, "character[]", 1
-"fpc", "plot.valstat", 10, 0, 0, "double[]", 1
-"fpc", "plot.valstat", 11, 0, 0, "null", 1
-"fpc", "plot.valstat", 12, 0, 0, "...", 1
 "fpc", "predict.dbscan", -1, 0, 0, "double[]", 1
 "fpc", "predict.dbscan", 0, 0, 0, "class<`dbscan`>", 1
 "fpc", "predict.dbscan", 1, 0, 0, "class<`matrix`>", 1
@@ -724,9 +606,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "prediction.strength", 5, 0, 0, "character", 1
 "fpc", "prediction.strength", 6, 0, 0, "double", 1
 "fpc", "prediction.strength", 7, 0, 0, "double", 1
-"fpc", "prediction.strength", 8, 0, 0, "logical", 1
-"fpc", "prediction.strength", 9, 0, 0, "logical", 1
-"fpc", "prediction.strength", 10, 0, 0, "...", 1
 "fpc", "print.clboot", -1, 0, 0, "class<`clboot`>", 1
 "fpc", "print.clboot", 0, 0, 0, "class<`clboot`>", 1
 "fpc", "print.clboot", 1, 0, 0, "character[]", 1
@@ -741,8 +620,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "print.valstat", 3, 0, 0, "logical", 1
 "fpc", "print.valstat", 4, 0, 0, "double[]", 1
 "fpc", "print.valstat", 5, 0, 0, "double", 1
-"fpc", "print.valstat", 6, 0, 0, "null", 1
-"fpc", "print.valstat", 6, 0, 1, "list<double[]>", 1
+"fpc", "print.valstat", 6, 0, 0, "list<double[]>", 1
+"fpc", "print.valstat", 6, 0, 1, "null", 1
 "fpc", "print.valstat", 7, 0, 0, "...", 1
 "fpc", "print.varwisetables", -1, 0, 0, "class<`varwisetables`>", 1
 "fpc", "print.varwisetables", 0, 0, 0, "class<`varwisetables`>", 1
@@ -765,12 +644,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "randomclustersim", 5, 0, 0, "double", 1
 "fpc", "randomclustersim", 6, 0, 0, "double", 1
 "fpc", "randomclustersim", 7, 0, 0, "double", 1
-"fpc", "randomclustersim", 8, 0, 0, "double", 1
-"fpc", "randomclustersim", 9, 0, 0, "any", 1
-"fpc", "randomclustersim", 10, 0, 0, "logical", 1
-"fpc", "randomclustersim", 11, 0, 0, "logical", 1
-"fpc", "randomclustersim", 12, 0, 0, "any", 1
-"fpc", "randomclustersim", 13, 0, 0, "logical", 1
 "fpc", "rFace", -1, 0, 0, "class<`matrix`>", 1
 "fpc", "rFace", 0, 0, 0, "double", 1
 "fpc", "rFace", 1, 0, 0, "double", 1
@@ -792,7 +665,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "ridgeline", 2, 0, 0, "double[]", 1
 "fpc", "ridgeline", 3, 0, 0, "class<`matrix`>", 1
 "fpc", "ridgeline", 4, 0, 0, "class<`matrix`>", 1
-"fpc", "ridgeline.diagnosis", -1, 0, 0, "list<double[] | class<`matrix`> | double[] | class<`matrix`> | null>", 1
+"fpc", "ridgeline.diagnosis", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"fpc", "ridgeline.diagnosis", -1, 0, 1, "list<double[] | class<`matrix`> | null>", 1
 "fpc", "ridgeline.diagnosis", 0, 0, 0, "double[]", 1
 "fpc", "ridgeline.diagnosis", 1, 0, 0, "class<`matrix`>", 1
 "fpc", "ridgeline.diagnosis", 2, 0, 0, "class<`array`>", 1
@@ -803,7 +677,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "ridgeline.diagnosis", 6, 0, 0, "double", 1
 "fpc", "ridgeline.diagnosis", 7, 0, 0, "null", 1
 "fpc", "ridgeline.diagnosis", 7, 0, 1, "double", 1
-"fpc", "ridgeline.diagnosis", 8, 0, 0, "character", 1
 "fpc", "simmatrix", -1, 0, 0, "double[]", 1
 "fpc", "simmatrix", 0, 0, 0, "class<`mfpc`>", 1
 "fpc", "simmatrix", 0, 0, 1, "class<`rfpc`>", 1
@@ -859,8 +732,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fpc", "weightplots", 6, 0, 0, "character", 1
 "fpc", "weightplots", 6, 0, 1, "double[]", 1
 "fpc", "weightplots", 7, 0, 0, "double", 1
-"fpc", "weightplots", 8, 0, 0, "logical", 1
-"fpc", "weightplots", 9, 0, 0, "...", 1
 "fpc", "wfu", -1, 0, 0, "double[]", 1
 "fpc", "wfu", 0, 0, 0, "double[]", 1
 "fpc", "wfu", 1, 0, 0, "double", 1

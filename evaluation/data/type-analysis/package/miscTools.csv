@@ -33,10 +33,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "miscTools", "insertRow", 3, 0, 0, "character", 1
 "miscTools", "isSemidefinite", -1, 0, 0, "any", 1
 "miscTools", "isSemidefinite", 0, 0, 0, "class<`matrix`>", 1
-"miscTools", "isSemidefinite", 0, 0, 1, "list<class<`matrix`> | class<`matrix`> | double[]>", 1
+"miscTools", "isSemidefinite", 0, 0, 1, "list<class<`matrix`>>", 1
+"miscTools", "isSemidefinite", 0, 0, 2, "list<class<`matrix`> | double[]>", 1
 "miscTools", "isSemidefinite", 1, 0, 0, "...", 1
 "miscTools", "isSemidefinite.list", -1, 0, 0, "any", 1
-"miscTools", "isSemidefinite.list", 0, 0, 0, "list<class<`matrix`> | class<`matrix`> | double[]>", 1
+"miscTools", "isSemidefinite.list", 0, 0, 0, "list<class<`matrix`>>", 1
+"miscTools", "isSemidefinite.list", 0, 0, 1, "list<class<`matrix`> | double[]>", 1
 "miscTools", "isSemidefinite.list", 1, 0, 0, "...", 1
 "miscTools", "isSemidefinite.matrix", -1, 0, 0, "any", 1
 "miscTools", "isSemidefinite.matrix", 0, 0, 0, "class<`matrix`>", 1
@@ -64,12 +66,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "miscTools", "nParam.lm", 0, 0, 0, "class<`lm`>", 1
 "miscTools", "nParam.lm", 1, 0, 0, "...", 1
 "miscTools", "quasiconcavity", -1, 0, 0, "logical[]", 1
-"miscTools", "quasiconcavity", 0, 0, 0, "class<`matrix`>", 1
-"miscTools", "quasiconcavity", 0, 0, 1, "list<class<`matrix`>>", 1
+"miscTools", "quasiconcavity", 0, 0, 0, "list<class<`matrix`>>", 1
+"miscTools", "quasiconcavity", 0, 0, 1, "class<`matrix`>", 1
 "miscTools", "quasiconcavity", 1, 0, 0, "any", 1
 "miscTools", "quasiconvexity", -1, 0, 0, "logical[]", 1
-"miscTools", "quasiconvexity", 0, 0, 0, "class<`matrix`>", 1
-"miscTools", "quasiconvexity", 0, 0, 1, "list<class<`matrix`>>", 1
+"miscTools", "quasiconvexity", 0, 0, 0, "list<class<`matrix`>>", 1
+"miscTools", "quasiconvexity", 0, 0, 1, "class<`matrix`>", 1
 "miscTools", "quasiconvexity", 1, 0, 0, "any", 1
 "miscTools", "rowMedians", -1, 0, 0, "class<`array`>", 1
 "miscTools", "rowMedians", 0, 0, 0, "class<`matrix`>", 1
@@ -80,7 +82,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "miscTools", "rSquared", 1, 0, 0, "double[]", 1
 "miscTools", "semidefiniteness", -1, 0, 0, "any", 1
 "miscTools", "semidefiniteness", 0, 0, 0, "class<`matrix`>", 1
-"miscTools", "semidefiniteness", 0, 0, 1, "list<class<`matrix`> | class<`matrix`> | double[]>", 1
+"miscTools", "semidefiniteness", 0, 0, 1, "list<class<`matrix`>>", 1
+"miscTools", "semidefiniteness", 0, 0, 2, "list<class<`matrix`> | double[]>", 1
 "miscTools", "semidefiniteness", 1, 0, 0, "...", 1
 "miscTools", "stdEr", -1, 0, 0, "double[]", 1
 "miscTools", "stdEr", 0, 0, 0, "class<`nls`>", 1

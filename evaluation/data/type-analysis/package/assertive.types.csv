@@ -117,8 +117,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "assertive.types", "assert_is_numeric", 0, 0, 0, "integer[]", 1
 "assertive.types", "assert_is_numeric", 1, 0, 0, "character", 1
 "assertive.types", "assert_is_pairlist", -1, 0, 0, "any", 1
-"assertive.types", "assert_is_pairlist", 0, 0, 0, "pairlist", 1
-"assertive.types", "assert_is_pairlist", 0, 0, 1, "list<any>", 1
+"assertive.types", "assert_is_pairlist", 0, 0, 0, "list<any>", 1
+"assertive.types", "assert_is_pairlist", 0, 0, 1, "pairlist", 1
 "assertive.types", "assert_is_pairlist", 1, 0, 0, "character", 1
 "assertive.types", "assert_is_qr", -1, 0, 0, "class<`qr`>", 1
 "assertive.types", "assert_is_qr", 0, 0, 0, "class<`qr`>", 1
@@ -183,10 +183,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "assertive.types", "is_complex", 1, 0, 0, "any", 1
 "assertive.types", "is_data.frame", -1, 0, 0, "class<`logical`, `scalar_with_cause`>", 1
 "assertive.types", "is_data.frame", -1, 0, 1, "logical", 1
-"assertive.types", "is_data.frame", 0, 0, 0, "class<`data.frame`>", 1
-"assertive.types", "is_data.frame", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
-"assertive.types", "is_data.frame", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"assertive.types", "is_data.frame", 0, 0, 3, "list<double>", 1
+"assertive.types", "is_data.frame", 0, 0, 0, "list<double>", 1
+"assertive.types", "is_data.frame", 0, 0, 1, "class<`data.frame`>", 1
+"assertive.types", "is_data.frame", 0, 0, 2, "class<`data.frame`, `data.table`>", 1
+"assertive.types", "is_data.frame", 0, 0, 3, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "assertive.types", "is_data.frame", 1, 0, 0, "any", 1
 "assertive.types", "is_date", -1, 0, 0, "logical", 1
 "assertive.types", "is_date", -1, 0, 1, "class<`logical`, `scalar_with_cause`>", 1
@@ -302,72 +302,3 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "assertive.types", "is_warning", -1, 0, 0, "logical", 1
 "assertive.types", "is_warning", 0, 0, 0, "class<`condition`, `simpleWarning`, `warning`>", 1
 "assertive.types", "is_warning", 1, 0, 0, "any", 1
-"assertive.types", "predicate", -1, 0, 0, "logical", 1
-"assertive.types", "predicate", -1, 0, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 0, 0, "class<`function`>", 1
-"assertive.types", "predicate", 0, 0, 1, "character", 1
-"assertive.types", "predicate", 1, 0, 0, "any", 1
-"assertive.types", "predicate", -1, 1, 0, "logical", 1
-"assertive.types", "predicate", -1, 1, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 1, 0, "complex[]", 1
-"assertive.types", "predicate", 0, 1, 1, "null", 1
-"assertive.types", "predicate", 1, 1, 0, "any", 1
-"assertive.types", "predicate", -1, 2, 0, "logical", 1
-"assertive.types", "predicate", -1, 2, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 2, 0, "class<`Date`>", 1
-"assertive.types", "predicate", 0, 2, 1, "class<`POSIXct`, `POSIXt`>", 1
-"assertive.types", "predicate", 1, 2, 0, "any", 1
-"assertive.types", "predicate", -1, 3, 0, "logical", 1
-"assertive.types", "predicate", -1, 3, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 3, 0, "double", 1
-"assertive.types", "predicate", 0, 3, 1, "integer[]", 1
-"assertive.types", "predicate", 1, 3, 0, "any", 1
-"assertive.types", "predicate", -1, 4, 0, "logical", 1
-"assertive.types", "predicate", -1, 4, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 4, 0, "double[]", 1
-"assertive.types", "predicate", 1, 4, 0, "any", 1
-"assertive.types", "predicate", -1, 5, 0, "logical", 1
-"assertive.types", "predicate", -1, 5, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 5, 0, "class<`function`>", 1
-"assertive.types", "predicate", 0, 5, 1, "character", 1
-"assertive.types", "predicate", 1, 5, 0, "any", 1
-"assertive.types", "predicate", -1, 6, 0, "logical", 1
-"assertive.types", "predicate", -1, 6, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 6, 0, "logical[]", 1
-"assertive.types", "predicate", 0, 6, 1, "null", 1
-"assertive.types", "predicate", 0, 6, 2, "double", 1
-"assertive.types", "predicate", 1, 6, 0, "any", 1
-"assertive.types", "predicate", -1, 7, 0, "logical", 1
-"assertive.types", "predicate", -1, 7, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 7, 0, "double[]", 1
-"assertive.types", "predicate", 0, 7, 1, "null", 1
-"assertive.types", "predicate", 1, 7, 0, "any", 1
-"assertive.types", "predicate", -1, 8, 0, "logical", 1
-"assertive.types", "predicate", -1, 8, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 8, 0, "raw[]", 1
-"assertive.types", "predicate", 0, 8, 1, "logical[]", 1
-"assertive.types", "predicate", 1, 8, 0, "any", 1
-"assertive.types", "predicate", -1, 9, 0, "logical", 1
-"assertive.types", "predicate", -1, 9, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 9, 0, "class<`function`>", 1
-"assertive.types", "predicate", 1, 9, 0, "any", 1
-"assertive.types", "predicate", -1, 10, 0, "logical", 1
-"assertive.types", "predicate", -1, 10, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 10, 0, "class<`function`>", 1
-"assertive.types", "predicate", 1, 10, 0, "character[]", 1
-"assertive.types", "predicate", 2, 10, 0, "any", 1
-"assertive.types", "predicate", -1, 11, 0, "logical", 1
-"assertive.types", "predicate", -1, 11, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 11, 0, "class<`condition`, `error`, `simpleError`>", 1
-"assertive.types", "predicate", 0, 11, 1, "class<`try-error`>", 1
-"assertive.types", "predicate", 1, 11, 0, "any", 1
-"assertive.types", "predicate", -1, 12, 0, "logical", 1
-"assertive.types", "predicate", -1, 12, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 12, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"assertive.types", "predicate", 0, 12, 1, "class<`data.frame`>", 1
-"assertive.types", "predicate", 1, 12, 0, "any", 1
-"assertive.types", "predicate", -1, 13, 0, "logical", 1
-"assertive.types", "predicate", -1, 13, 1, "class<`logical`, `scalar_with_cause`>", 1
-"assertive.types", "predicate", 0, 13, 0, "class<`try-error`>", 1
-"assertive.types", "predicate", 0, 13, 1, "class<`condition`, `error`, `simpleError`>", 1
-"assertive.types", "predicate", 1, 13, 0, "any", 1

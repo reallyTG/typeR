@@ -93,14 +93,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "extractvar", -1, 0, 0, "class<`mcnode`>", 1
 "mc2d", "extractvar", 0, 0, 0, "class<`mcnode`>", 1
 "mc2d", "extractvar", 1, 0, 0, "double[]", 1
-"mc2d", "FUN", -1, 0, 0, "integer[]", 1
-"mc2d", "FUN", 0, 0, 0, "class<`mcnode`>", 1
-"mc2d", "FUN", -1, 1, 0, "logical", 1
-"mc2d", "FUN", 0, 1, 0, "class<`mcnode`>", 1
-"mc2d", "FUN", 0, 1, 1, "class<`mc`>", 1
 "mc2d", "hist.mc", -1, 0, 0, "null", 1
-"mc2d", "hist.mc", 0, 0, 0, "class<`mc`>", 1
-"mc2d", "hist.mc", 0, 0, 1, "list<class<`mcnode`>>", 1
+"mc2d", "hist.mc", 0, 0, 0, "list<class<`mcnode`>>", 1
+"mc2d", "hist.mc", 0, 0, 1, "class<`mc`>", 1
 "mc2d", "hist.mc", 1, 0, 0, "null", 1
 "mc2d", "hist.mc", 2, 0, 0, "character[]", 1
 "mc2d", "hist.mc", 3, 0, 0, "character", 1
@@ -252,7 +247,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "qempiricalD", 2, 0, 0, "double[]", 1
 "mc2d", "qempiricalD", 3, 0, 0, "logical", 1
 "mc2d", "qempiricalD", 4, 0, 0, "logical", 1
-"mc2d", "quantile.mc", -1, 0, 0, "list<class<`matrix`> | class<`matrix`> | list<class<`matrix`>> | list<class<`matrix`>>>", 1
+"mc2d", "quantile.mc", -1, 0, 0, "list<class<`matrix`>>", 1
+"mc2d", "quantile.mc", -1, 0, 1, "list<list<class<`matrix`>>>", 1
+"mc2d", "quantile.mc", -1, 0, 2, "list<class<`matrix`> | list<class<`matrix`>>>", 1
 "mc2d", "quantile.mc", 0, 0, 0, "class<`mc`>", 1
 "mc2d", "quantile.mc", 0, 0, 1, "list<class<`mcnode`>>", 1
 "mc2d", "quantile.mc", 1, 0, 0, "double[]", 1
@@ -296,8 +293,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mc2d", "rtrunc", 4, 0, 0, "...", 1
 "mc2d", "summary.mc", -1, 0, 0, "class<`listof`, `summary.mc`>", 1
 "mc2d", "summary.mc", -1, 0, 1, "null", 1
-"mc2d", "summary.mc", 0, 0, 0, "class<`mc`>", 1
-"mc2d", "summary.mc", 0, 0, 1, "list<class<`mcnode`>>", 1
+"mc2d", "summary.mc", 0, 0, 0, "list<class<`mcnode`>>", 1
+"mc2d", "summary.mc", 0, 0, 1, "class<`mc`>", 1
 "mc2d", "summary.mc", 1, 0, 0, "double[]", 1
 "mc2d", "summary.mc", 2, 0, 0, "double[]", 1
 "mc2d", "summary.mc", 3, 0, 0, "...", 1

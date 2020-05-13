@@ -1,4 +1,5 @@
 MKDIR := mkdir -p
+RM := rm
 
 CXX := g++
 CXXFLAGS := --std=c++17 -O2 -ggdb3
@@ -39,13 +40,16 @@ typedeclaration-location:
 	@R --slave -q -e "cat(system.file('TYPEDECLARATION', package='contractr'))"
 
 analyze-package-types: type-analyzer
+	$(RM) -f $(PACKAGE_TYPE_ANALYSIS_DIRPATH)/*
 	$(MKDIR) $(PACKAGE_TYPE_ANALYSIS_DIRPATH)
 	@for file in `$(TYPEDECLARATION_COMMAND)`/*;                                         \
 	do                                                                                   \
+	    echo "Analyzing '$$file'";                                                       \
 	    $(TYPE_ANALYZER) $$file $(PACKAGE_TYPE_ANALYSIS_DIRPATH)/`basename $$file`.csv;  \
 	done
 
 merge-package-type-analysis:
+	$(RM) -f $(MERGED_TYPE_ANALYSIS_DIRPATH)/*
 	$(MKDIR) $(MERGED_TYPE_ANALYSIS_DIRPATH)
 	$(R) --slave -q --file=$(MERGE_TYPE_ANALYSIS_SCRIPT) --args $(PACKAGE_TYPE_ANALYSIS_DIRPATH) $(MERGED_TYPE_ANALYSIS_FILEPATH)
 

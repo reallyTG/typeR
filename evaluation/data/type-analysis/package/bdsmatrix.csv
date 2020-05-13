@@ -34,12 +34,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "bdsmatrix", "bdsmatrix", 0, 0, 0, "double[]", 1
 "bdsmatrix", "bdsmatrix", 1, 0, 0, "double[]", 1
 "bdsmatrix", "bdsmatrix", 2, 0, 0, "any", 1
-"bdsmatrix", "bdsmatrix", 3, 0, 0, "null", 1
-"bdsmatrix", "bdsmatrix", 3, 0, 1, "list<null | character[] | character[] | integer[]>", 1
+"bdsmatrix", "bdsmatrix", 3, 0, 0, "list<null | character[]>", 1
+"bdsmatrix", "bdsmatrix", 3, 0, 1, "null", 1
+"bdsmatrix", "bdsmatrix", 3, 0, 2, "list<character[]>", 1
+"bdsmatrix", "bdsmatrix", 3, 0, 3, "list<integer[]>", 1
 "bdsmatrix", "bdsmatrix.reconcile", -1, 0, 0, "class<`bdsmatrix`>", 1
 "bdsmatrix", "bdsmatrix.reconcile", -1, 0, 1, "list<class<`bdsmatrix`>>", 1
 "bdsmatrix", "bdsmatrix.reconcile", 0, 0, 0, "class<`function`>", 1
-"bdsmatrix", "bdsmatrix.reconcile", 0, 0, 1, "list<any>", 1
+"bdsmatrix", "bdsmatrix.reconcile", 0, 0, 1, "list<class<`matrix`> | class<`function`> | class<`bdsmatrix`>>", 1
+"bdsmatrix", "bdsmatrix.reconcile", 0, 0, 2, "list<class<`bdsmatrix`>>", 1
+"bdsmatrix", "bdsmatrix.reconcile", 0, 0, 3, "list<class<`bdsmatrix`> | class<`function`>>", 1
+"bdsmatrix", "bdsmatrix.reconcile", 0, 0, 4, "list<class<`bdsmatrix`> | class<`matrix`>>", 1
 "bdsmatrix", "bdsmatrix.reconcile", 1, 0, 0, "character[]", 1
 "bdsmatrix", "diag", -1, 0, 0, "double[]", 1
 "bdsmatrix", "diag", 0, 0, 0, "class<`bdsmatrix`>", 1

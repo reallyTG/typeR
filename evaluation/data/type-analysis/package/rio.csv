@@ -40,8 +40,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", ".export", 0, 0, 7, "class<`character`, `rio_rds`>", 1
 "rio", ".export", 0, 0, 8, "class<`character`, `rio_tsv`>", 1
 "rio", ".export", 1, 0, 0, "class<`data.frame`>", 1
-"rio", ".export", 1, 0, 1, "character[]", 1
-"rio", ".export", 1, 0, 2, "list<class<`data.frame`>>", 1
+"rio", ".export", 1, 0, 1, "list<class<`data.frame`>>", 1
+"rio", ".export", 1, 0, 2, "character[]", 1
 "rio", ".export", 2, 0, 0, "...", 1
 "rio", "export_delim", -1, 0, 0, "null", 1
 "rio", "export_delim", 0, 0, 0, "class<`character`, `rio_csv`>", 1
@@ -103,18 +103,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rio", "factorize.default", -1, 0, 0, "class<`factor`>", 1
 "rio", "factorize.default", 0, 0, 0, "double[]", 1
 "rio", "factorize.default", 1, 0, 0, "...", 1
-"rio", "find_compress", -1, 0, 0, "list<character | character | null>", 1
+"rio", "find_compress", -1, 0, 0, "list<character>", 1
+"rio", "find_compress", -1, 0, 1, "list<character | null>", 1
 "rio", "find_compress", 0, 0, 0, "character", 1
-"rio", "FUN", -1, 0, 0, "^character[]", 1
-"rio", "FUN", -1, 0, 1, "class<`data.frame`>", 1
-"rio", "FUN", 0, 0, 0, "class<`data.frame`>", 1
-"rio", "FUN", 0, 0, 1, "double[]", 1
-"rio", "FUN", 1, 0, 0, "...", 1
-"rio", "FUN", -1, 1, 0, "class<`data.frame`>", 1
-"rio", "FUN", -1, 1, 1, "class<`factor`>", 1
-"rio", "FUN", 0, 1, 0, "class<`data.frame`>", 1
-"rio", "FUN", 0, 1, 1, "double[]", 1
-"rio", "FUN", 1, 1, 0, "...", 1
 "rio", "gather_attrs", -1, 0, 0, "class<`data.frame`>", 1
 "rio", "gather_attrs", 0, 0, 0, "class<`data.frame`>", 1
 "rio", "get_ext", -1, 0, 0, "character", 1

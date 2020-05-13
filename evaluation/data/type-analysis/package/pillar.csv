@@ -20,14 +20,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "check_sigfig", -1, 0, 0, "integer", 1
 "pillar", "check_sigfig", 0, 0, 0, "double", 1
 "pillar", "colonnade", -1, 0, 0, "class<`pillar_colonnade`>", 1
-"pillar", "colonnade", 0, 0, 0, "class<`data.frame`>", 1
-"pillar", "colonnade", 0, 0, 1, "list<character | integer[] | character[] | integer[]>", 1
+"pillar", "colonnade", 0, 0, 0, "list<character>", 1
+"pillar", "colonnade", 0, 0, 1, "class<`data.frame`>", 1
+"pillar", "colonnade", 0, 0, 2, "list<integer[] | character[]>", 1
+"pillar", "colonnade", 0, 0, 3, "list<integer[]>", 1
 "pillar", "colonnade", 1, 0, 0, "logical", 1
 "pillar", "colonnade", 2, 0, 0, "null", 1
 "pillar", "colonnade", 2, 0, 1, "double", 1
 "pillar", "colonnade", 3, 0, 0, "...", 1
 "pillar", "colonnade_compute_tiered_col_widths", -1, 0, 0, "class<`data.frame`>", 1
-"pillar", "colonnade_compute_tiered_col_widths", 0, 0, 0, "list<class<`pillar_capital`> | class<`pillar`>>", 1
+"pillar", "colonnade_compute_tiered_col_widths", 0, 0, 0, "list<class<`pillar_capital`>>", 1
+"pillar", "colonnade_compute_tiered_col_widths", 0, 0, 1, "list<class<`pillar`>>", 1
 "pillar", "colonnade_compute_tiered_col_widths", 1, 0, 0, "double", 1
 "pillar", "colonnade_compute_tiered_col_widths_df", -1, 0, 0, "class<`data.frame`>", 1
 "pillar", "colonnade_compute_tiered_col_widths_df", 0, 0, 0, "class<`data.frame`>", 1
@@ -91,12 +94,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "extra_cols.pillar_squeezed_colonnade", 0, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
 "pillar", "extra_cols.pillar_squeezed_colonnade", 1, 0, 0, "...", 1
 "pillar", "extra_cols.pillar_squeezed_colonnade", 2, 0, 0, "double", 1
-"pillar", "flatten_colonnade", -1, 0, 0, "list<any>", 1
-"pillar", "flatten_colonnade", 0, 0, 0, "class<`data.frame`>", 1
-"pillar", "flatten_colonnade", 0, 0, 1, "list<character | integer[] | character[] | integer[]>", 1
+"pillar", "flatten_colonnade", -1, 0, 0, "list<character>", 1
+"pillar", "flatten_colonnade", -1, 0, 1, "list<integer[] | character[]>", 1
+"pillar", "flatten_colonnade", -1, 0, 2, "list<integer[]>", 1
+"pillar", "flatten_colonnade", -1, 0, 3, "list<double[] | class<`factor`>>", 1
+"pillar", "flatten_colonnade", 0, 0, 0, "list<character>", 1
+"pillar", "flatten_colonnade", 0, 0, 1, "list<integer[] | character[]>", 1
+"pillar", "flatten_colonnade", 0, 0, 2, "list<integer[]>", 1
+"pillar", "flatten_colonnade", 0, 0, 3, "class<`data.frame`>", 1
 "pillar", "format_dec", -1, 0, 0, "character[]", 1
 "pillar", "format_dec", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
-"pillar", "format_decimal", -1, 0, 0, "list<character[] | double[] | ^integer[] | character | double | null | character[] | ^double[]>", 1
+"pillar", "format_decimal", -1, 0, 0, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "format_decimal", -1, 0, 1, "list<character | double | null>", 1
+"pillar", "format_decimal", -1, 0, 2, "list<character[] | ^double[]>", 1
 "pillar", "format_decimal", 0, 0, 0, "^double[]", 1
 "pillar", "format_decimal", 1, 0, 0, "double", 1
 "pillar", "format_decimal", 2, 0, 0, "...", 1
@@ -157,7 +167,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "format.pillar_type", 2, 0, 0, "...", 1
 "pillar", "format_rhs", -1, 0, 0, "character[]", 1
 "pillar", "format_rhs", 0, 0, 0, "list<character[] | double[] | ^integer[]>", 1
-"pillar", "format_scientific", -1, 0, 0, "list<character[] | double[] | character | double | character[] | ^double[]>", 1
+"pillar", "format_scientific", -1, 0, 0, "list<character[] | double[]>", 1
+"pillar", "format_scientific", -1, 0, 1, "list<character | double>", 1
+"pillar", "format_scientific", -1, 0, 2, "list<character[] | ^double[]>", 1
 "pillar", "format_scientific", 0, 0, 0, "^double[]", 1
 "pillar", "format_scientific", 1, 0, 0, "double", 1
 "pillar", "format_title", -1, 0, 0, "character[]", 1
@@ -176,48 +188,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "format_type_sum.default", 1, 0, 0, "double", 1
 "pillar", "format_type_sum.default", 1, 0, 1, "null", 1
 "pillar", "format_type_sum.default", 2, 0, 0, "...", 1
-"pillar", "FUN", -1, 0, 0, "integer[]", 1
-"pillar", "FUN", 0, 0, 0, "class<`pillar`>", 1
-"pillar", "FUN", 0, 0, 1, "class<`pillar_capital`>", 1
-"pillar", "FUN", -1, 1, 0, "integer[]", 1
-"pillar", "FUN", 0, 1, 0, "class<`pillar`>", 1
-"pillar", "FUN", 0, 1, 1, "class<`pillar_capital`>", 1
-"pillar", "FUN", 0, 1, 2, "list<list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
-"pillar", "FUN", -1, 2, 0, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
-"pillar", "FUN", -1, 2, 1, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
-"pillar", "FUN", 0, 2, 0, "^double[]", 1
-"pillar", "FUN", 0, 2, 1, "class<`Date`>", 1
-"pillar", "FUN", 0, 2, 2, "class<`POSIXct`, `POSIXt`>", 1
-"pillar", "FUN", 0, 2, 3, "null", 1
-"pillar", "FUN", 0, 2, 4, "^character[]", 1
-"pillar", "FUN", 0, 2, 5, "class<`accel`>", 1
-"pillar", "FUN", 0, 2, 6, "class<`factor`>", 1
-"pillar", "FUN", 0, 2, 7, "class<`pillar_vertical`>", 1
-"pillar", "FUN", 1, 2, 0, "...", 1
-"pillar", "FUN", -1, 3, 0, "integer", 1
-"pillar", "FUN", 0, 3, 0, "class<`pillar_capital`>", 1
-"pillar", "FUN", 0, 3, 1, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
-"pillar", "FUN", 0, 3, 2, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
-"pillar", "FUN", 0, 3, 3, "class<`pillar_title`>", 1
-"pillar", "FUN", 0, 3, 4, "class<`pillar_type`>", 1
-"pillar", "FUN", 0, 3, 5, "class<`pillar_rif_title`>", 1
-"pillar", "FUN", 0, 3, 6, "class<`pillar_rif_type`>", 1
-"pillar", "FUN", 0, 3, 7, "list<any>", 1
-"pillar", "FUN", -1, 4, 0, "integer", 1
-"pillar", "FUN", -1, 4, 1, "null", 1
-"pillar", "FUN", 0, 4, 0, "class<`pillar_capital`>", 1
-"pillar", "FUN", 0, 4, 1, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
-"pillar", "FUN", 0, 4, 2, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
-"pillar", "FUN", 0, 4, 3, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
-"pillar", "FUN", 0, 4, 4, "class<`pillar_title`>", 1
-"pillar", "FUN", 0, 4, 5, "class<`pillar_type`>", 1
-"pillar", "FUN", 0, 4, 6, "class<`pillar_colonnade`>", 1
-"pillar", "FUN", 0, 4, 7, "class<`pillar_rif_title`>", 1
-"pillar", "FUN", 0, 4, 8, "class<`pillar_rif_type`>", 1
-"pillar", "FUN", 0, 4, 9, "class<`pillar`>", 1
-"pillar", "FUN", 0, 4, 10, "list<any>", 1
 "pillar", "get_decimal_width", -1, 0, 0, "double", 1
-"pillar", "get_decimal_width", 0, 0, 0, "list<any>", 1
+"pillar", "get_decimal_width", 0, 0, 0, "list<character[] | double[]>", 1
+"pillar", "get_decimal_width", 0, 0, 1, "list<character | double>", 1
+"pillar", "get_decimal_width", 0, 0, 2, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "get_decimal_width", 0, 0, 3, "list<character | double | null>", 1
+"pillar", "get_decimal_width", 0, 0, 4, "list<character[] | ^double[]>", 1
 "pillar", "get_ellipsis", -1, 0, 0, "character", 1
 "pillar", "get_extent", -1, 0, 0, "integer[]", 1
 "pillar", "get_extent", 0, 0, 0, "character[]", 1
@@ -234,13 +210,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "get_min_width", 0, 0, 2, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
 "pillar", "get_min_width", 0, 0, 3, "class<`pillar_title`>", 1
 "pillar", "get_min_width", 0, 0, 4, "class<`pillar_type`>", 1
-"pillar", "get_min_width", 0, 0, 5, "class<`pillar_rif_title`>", 1
-"pillar", "get_min_width", 0, 0, 6, "class<`pillar_rif_type`>", 1
-"pillar", "get_min_width", 0, 0, 7, "list<any>", 1
+"pillar", "get_min_width", 0, 0, 5, "list<character[] | double[]>", 1
+"pillar", "get_min_width", 0, 0, 6, "list<character | double>", 1
+"pillar", "get_min_width", 0, 0, 7, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "get_min_width", 0, 0, 8, "list<character | double | null>", 1
+"pillar", "get_min_width", 0, 0, 9, "list<character[] | ^double[]>", 1
+"pillar", "get_min_width", 0, 0, 10, "class<`pillar_rif_title`>", 1
+"pillar", "get_min_width", 0, 0, 11, "class<`pillar_rif_type`>", 1
 "pillar", "get_min_widths", -1, 0, 0, "integer[]", 1
 "pillar", "get_min_widths", 0, 0, 0, "class<`pillar`>", 1
 "pillar", "get_min_widths", 0, 0, 1, "class<`pillar_capital`>", 1
-"pillar", "get_min_widths", 0, 0, 2, "list<list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
+"pillar", "get_min_widths", 0, 0, 2, "list<list<character[] | double[] | ^integer[] | character[] | double[]>>", 1
+"pillar", "get_min_widths", 0, 0, 3, "list<list<character | double | null | character | double>>", 1
+"pillar", "get_min_widths", 0, 0, 4, "list<list<character[] | ^double[]>>", 1
 "pillar", "get_pillar_type", -1, 0, 0, "character", 1
 "pillar", "get_pillar_type", -1, 0, 1, "class<`type_sum_accel`>", 1
 "pillar", "get_pillar_type", 0, 0, 0, "^character[]", 1
@@ -267,8 +249,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "get_width", 0, 0, 6, "class<`pillar_colonnade`>", 1
 "pillar", "get_width", 0, 0, 7, "class<`pillar_rif_title`>", 1
 "pillar", "get_width", 0, 0, 8, "class<`pillar_rif_type`>", 1
-"pillar", "get_width", 0, 0, 9, "class<`pillar`>", 1
-"pillar", "get_width", 0, 0, 10, "list<any>", 1
+"pillar", "get_width", 0, 0, 9, "list<character[] | double[]>", 1
+"pillar", "get_width", 0, 0, 10, "list<character | double>", 1
+"pillar", "get_width", 0, 0, 11, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "get_width", 0, 0, 12, "list<character | double | null>", 1
+"pillar", "get_width", 0, 0, 13, "list<character[] | ^double[]>", 1
+"pillar", "get_width", 0, 0, 14, "class<`pillar`>", 1
 "pillar", "get_widths", -1, 0, 0, "integer[]", 1
 "pillar", "get_widths", 0, 0, 0, "class<`pillar`>", 1
 "pillar", "get_widths", 0, 0, 1, "class<`pillar_capital`>", 1
@@ -299,19 +285,46 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "make_style_fast", 0, 0, 0, "...", 1
 "pillar", "make_style_fast_16", -1, 0, 0, "class<`function`>", 1
 "pillar", "make_style_fast_16", 0, 0, 0, "...", 1
-"pillar", "map", -1, 0, 0, "list<any>", 1
-"pillar", "map", 0, 0, 0, "double[]", 1
-"pillar", "map", 0, 0, 1, "class<`pillar_squeezed_colonnade`>", 1
-"pillar", "map", 0, 0, 2, "list<any>", 1
+"pillar", "map", -1, 0, 0, "list<character[]>", 1
+"pillar", "map", -1, 0, 1, "list<class<`pillar_capital`>>", 1
+"pillar", "map", -1, 0, 2, "list<class<`pillar_shaft`, `pillar_shaft_simple`>>", 1
+"pillar", "map", -1, 0, 3, "list<integer[]>", 1
+"pillar", "map", -1, 0, 4, "list<list<list<character[]>>>", 1
+"pillar", "map", -1, 0, 5, "list<class<`pillar_shaft`, `pillar_shaft_decimal`>>", 1
+"pillar", "map", 0, 0, 0, "list<character[]>", 1
+"pillar", "map", 0, 0, 1, "list<list<character>>", 1
+"pillar", "map", 0, 0, 2, "double[]", 1
+"pillar", "map", 0, 0, 3, "list<class<`pillar`>>", 1
+"pillar", "map", 0, 0, 4, "list<class<`pillar_capital`>>", 1
+"pillar", "map", 0, 0, 5, "class<`pillar_squeezed_colonnade`>", 1
+"pillar", "map", 0, 0, 6, "list<class<`data.frame`>>", 1
+"pillar", "map", 0, 0, 7, "list<list<list<character[]>>>", 1
+"pillar", "map", 0, 0, 8, "list<integer[]>", 1
 "pillar", "map", 1, 0, 0, "class<`function`>", 1
 "pillar", "map", 2, 0, 0, "...", 1
-"pillar", "map2", -1, 0, 0, "list<any>", 1
-"pillar", "map2", 0, 0, 0, "double[]", 1
-"pillar", "map2", 0, 0, 1, "class<`data.frame`>", 1
-"pillar", "map2", 0, 0, 2, "list<any>", 1
-"pillar", "map2", 1, 0, 0, "double[]", 1
-"pillar", "map2", 1, 0, 1, "character[]", 1
-"pillar", "map2", 1, 0, 2, "list<any>", 1
+"pillar", "map2", -1, 0, 0, "list<character[]>", 1
+"pillar", "map2", -1, 0, 1, "list<class<`pillar`>>", 1
+"pillar", "map2", -1, 0, 2, "list<integer[]>", 1
+"pillar", "map2", -1, 0, 3, "list<list<integer[] | character[]>>", 1
+"pillar", "map2", -1, 0, 4, "list<list<integer[]>>", 1
+"pillar", "map2", -1, 0, 5, "list<list<double[] | class<`factor`>>>", 1
+"pillar", "map2", -1, 0, 6, "list<class<`data.frame`>>", 1
+"pillar", "map2", -1, 0, 7, "list<class<`pillar_capital`>>", 1
+"pillar", "map2", -1, 0, 8, "list<list<character[]>>", 1
+"pillar", "map2", 0, 0, 0, "list<character[]>", 1
+"pillar", "map2", 0, 0, 1, "list<class<`pillar_capital`>>", 1
+"pillar", "map2", 0, 0, 2, "double[]", 1
+"pillar", "map2", 0, 0, 3, "list<integer[] | character[]>", 1
+"pillar", "map2", 0, 0, 4, "list<integer[]>", 1
+"pillar", "map2", 0, 0, 5, "list<class<`pillar`>>", 1
+"pillar", "map2", 0, 0, 6, "class<`data.frame`>", 1
+"pillar", "map2", 0, 0, 7, "list<class<`data.frame`>>", 1
+"pillar", "map2", 1, 0, 0, "list<integer[]>", 1
+"pillar", "map2", 1, 0, 1, "list<class<`pillar_shaft`, `pillar_shaft_simple`>>", 1
+"pillar", "map2", 1, 0, 2, "double[]", 1
+"pillar", "map2", 1, 0, 3, "list<null>", 1
+"pillar", "map2", 1, 0, 4, "character[]", 1
+"pillar", "map2", 1, 0, 5, "list<class<`pillar_shaft`, `pillar_shaft_decimal`>>", 1
 "pillar", "map2", 2, 0, 0, "class<`function`>", 1
 "pillar", "map2", 3, 0, 0, "...", 1
 "pillar", "map2_chr", -1, 0, 0, "character", 1
@@ -327,22 +340,30 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "map_chr_named", 0, 0, 0, "list<integer[]>", 1
 "pillar", "map_chr_named", 1, 0, 0, "class<`function`>", 1
 "pillar", "map_int", -1, 0, 0, "integer[]", 1
-"pillar", "map_int", 0, 0, 0, "class<`pillar`>", 1
-"pillar", "map_int", 0, 0, 1, "class<`pillar_capital`>", 1
-"pillar", "map_int", 0, 0, 2, "list<integer[] | list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
+"pillar", "map_int", 0, 0, 0, "list<integer[]>", 1
+"pillar", "map_int", 0, 0, 1, "class<`pillar`>", 1
+"pillar", "map_int", 0, 0, 2, "list<list<character[] | double[] | ^integer[] | character[] | double[]>>", 1
+"pillar", "map_int", 0, 0, 3, "list<list<character | double | null | character | double>>", 1
+"pillar", "map_int", 0, 0, 4, "list<list<character[] | ^double[]>>", 1
+"pillar", "map_int", 0, 0, 5, "class<`pillar_capital`>", 1
 "pillar", "map_int", 1, 0, 0, "class<`function`>", 1
 "pillar", "map_int", 2, 0, 0, "...", 1
 "pillar", "map_mold", -1, 0, 0, "character[]", 1
 "pillar", "map_mold", -1, 0, 1, "integer[]", 1
-"pillar", "map_mold", 0, 0, 0, "class<`pillar`>", 1
-"pillar", "map_mold", 0, 0, 1, "class<`pillar_capital`>", 1
-"pillar", "map_mold", 0, 0, 2, "list<character[] | integer[] | list<character[] | double[] | ^integer[] | character[] | double[] | character | double | null | character | double | character[] | ^double[]>>", 1
+"pillar", "map_mold", 0, 0, 0, "list<character[]>", 1
+"pillar", "map_mold", 0, 0, 1, "list<integer[]>", 1
+"pillar", "map_mold", 0, 0, 2, "class<`pillar`>", 1
+"pillar", "map_mold", 0, 0, 3, "list<list<character[] | double[] | ^integer[] | character[] | double[]>>", 1
+"pillar", "map_mold", 0, 0, 4, "list<list<character | double | null | character | double>>", 1
+"pillar", "map_mold", 0, 0, 5, "list<list<character[] | ^double[]>>", 1
+"pillar", "map_mold", 0, 0, 6, "class<`pillar_capital`>", 1
 "pillar", "map_mold", 1, 0, 0, "class<`function`>", 1
 "pillar", "map_mold", 2, 0, 0, "character", 1
 "pillar", "map_mold", 2, 0, 1, "integer", 1
 "pillar", "map_mold", 3, 0, 0, "...", 1
 "pillar", "map_named", -1, 0, 0, "list<class<`pillar_capital`>>", 1
-"pillar", "map_named", 0, 0, 0, "list<character | integer[]>", 1
+"pillar", "map_named", 0, 0, 0, "list<character>", 1
+"pillar", "map_named", 0, 0, 1, "list<integer[]>", 1
 "pillar", "map_named", 1, 0, 0, "class<`function`>", 1
 "pillar", "mult_sign", -1, 0, 0, "character", 1
 "pillar", "new_colonnade_sqeezed", -1, 0, 0, "class<`pillar_squeezed_colonnade`>", 1
@@ -369,7 +390,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "new_pillar_shaft", -1, 0, 0, "class<`pillar_rif_shaft`, `pillar_shaft`>", 1
 "pillar", "new_pillar_shaft", -1, 0, 1, "class<`pillar_shaft`, `pillar_shaft_decimal`>", 1
 "pillar", "new_pillar_shaft", -1, 0, 2, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
-"pillar", "new_pillar_shaft", 0, 0, 0, "list<any>", 1
+"pillar", "new_pillar_shaft", 0, 0, 0, "list<integer>", 1
+"pillar", "new_pillar_shaft", 0, 0, 1, "list<list<character[] | double[] | ^integer[] | character[] | double[]>>", 1
+"pillar", "new_pillar_shaft", 0, 0, 2, "list<list<character | double | null | character | double>>", 1
+"pillar", "new_pillar_shaft", 0, 0, 3, "list<list<character[] | ^double[]>>", 1
+"pillar", "new_pillar_shaft", 0, 0, 4, "list<^character[]>", 1
+"pillar", "new_pillar_shaft", 0, 0, 5, "list<null>", 1
+"pillar", "new_pillar_shaft", 0, 0, 6, "list<class<`pillar_vertical`>>", 1
 "pillar", "new_pillar_shaft", 1, 0, 0, "...", 1
 "pillar", "new_pillar_shaft", 2, 0, 0, "double", 1
 "pillar", "new_pillar_shaft", 3, 0, 0, "integer", 1
@@ -549,7 +576,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "set_width", -1, 0, 8, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
 "pillar", "set_width", -1, 0, 9, "class<`pillar_title`>", 1
 "pillar", "set_width", -1, 0, 10, "class<`pillar_type`>", 1
-"pillar", "set_width", -1, 0, 11, "list<any>", 1
+"pillar", "set_width", -1, 0, 11, "list<character[] | double[]>", 1
+"pillar", "set_width", -1, 0, 12, "list<character | double>", 1
+"pillar", "set_width", -1, 0, 13, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "set_width", -1, 0, 14, "list<character | double | null>", 1
+"pillar", "set_width", -1, 0, 15, "list<character[] | ^double[]>", 1
 "pillar", "set_width", 0, 0, 0, "class<`pillar`>", 1
 "pillar", "set_width", 0, 0, 1, "class<`pillar_capital`>", 1
 "pillar", "set_width", 0, 0, 2, "class<`pillar_colonnade`>", 1
@@ -561,7 +592,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "set_width", 0, 0, 8, "class<`pillar_shaft`, `pillar_shaft_simple`>", 1
 "pillar", "set_width", 0, 0, 9, "class<`pillar_title`>", 1
 "pillar", "set_width", 0, 0, 10, "class<`pillar_type`>", 1
-"pillar", "set_width", 0, 0, 11, "list<any>", 1
+"pillar", "set_width", 0, 0, 11, "list<character[] | double[]>", 1
+"pillar", "set_width", 0, 0, 12, "list<character | double>", 1
+"pillar", "set_width", 0, 0, 13, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "set_width", 0, 0, 14, "list<character | double | null>", 1
+"pillar", "set_width", 0, 0, 15, "list<character[] | ^double[]>", 1
 "pillar", "set_width", 1, 0, 0, "null", 1
 "pillar", "set_width", 1, 0, 1, "double", 1
 "pillar", "size_sum", -1, 0, 0, "character", 1
@@ -572,7 +607,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pillar", "size_sum", 0, 0, 4, "integer[]", 1
 "pillar", "spaces_around", -1, 0, 0, "character", 1
 "pillar", "spaces_around", 0, 0, 0, "character", 1
-"pillar", "split_decimal", -1, 0, 0, "list<any>", 1
+"pillar", "split_decimal", -1, 0, 0, "list<character[] | double[]>", 1
+"pillar", "split_decimal", -1, 0, 1, "list<character | double>", 1
+"pillar", "split_decimal", -1, 0, 2, "list<character[] | double[] | ^integer[]>", 1
+"pillar", "split_decimal", -1, 0, 3, "list<character | double | null>", 1
+"pillar", "split_decimal", -1, 0, 4, "list<character[] | ^double[]>", 1
 "pillar", "split_decimal", 0, 0, 0, "^double[]", 1
 "pillar", "split_decimal", 1, 0, 0, "double", 1
 "pillar", "split_decimal", 2, 0, 0, "logical", 1

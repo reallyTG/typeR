@@ -330,12 +330,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "frequency.portfolio", 3, 0, 0, "character", 1
 "actuar", "frequency.portfolio", 3, 0, 1, "null", 1
 "actuar", "frequency.portfolio", 4, 0, 0, "...", 1
-"actuar", "FUN", -1, 0, 0, "double[]", 1
-"actuar", "FUN", 0, 0, 0, "integer[]", 1
-"actuar", "FUN", 1, 0, 0, "double", 1
-"actuar", "FUN", 2, 0, 0, "double", 1
-"actuar", "FUN", 3, 0, 0, "double", 1
-"actuar", "FUN", 4, 0, 0, "logical", 1
 "actuar", "[<-.grouped.data", -1, 0, 0, "class<`data.frame`, `grouped.data`>", 1
 "actuar", "[<-.grouped.data", 0, 0, 0, "class<`data.frame`, `grouped.data`>", 1
 "actuar", "[<-.grouped.data", 1, 0, 0, "any", 1
@@ -1288,8 +1282,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "qztpois", 2, 0, 0, "logical", 1
 "actuar", "qztpois", 3, 0, 0, "logical", 1
 "actuar", "rcomphierarc", -1, 0, 0, "class<`portfolio`>", 1
-"actuar", "rcomphierarc", 0, 0, 0, "double", 1
-"actuar", "rcomphierarc", 0, 0, 1, "list<double[]>", 1
+"actuar", "rcomphierarc", 0, 0, 0, "list<double[]>", 1
+"actuar", "rcomphierarc", 0, 0, 1, "double", 1
 "actuar", "rcomphierarc", 1, 0, 0, "expression", 1
 "actuar", "rcomphierarc", 2, 0, 0, "expression", 1
 "actuar", "rcomphierarc", 2, 0, 1, "null", 1
@@ -1324,7 +1318,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "rpoisinvgauss", 3, 0, 0, "double", 1
 "actuar", "ruin", -1, 0, 0, "class<`function`, `ruin`>", 1
 "actuar", "ruin", 0, 0, 0, "character", 1
-"actuar", "ruin", 1, 0, 0, "list<double[] | class<`matrix`> | double[]>", 1
+"actuar", "ruin", 1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"actuar", "ruin", 1, 0, 1, "list<double[]>", 1
 "actuar", "ruin", 2, 0, 0, "character", 1
 "actuar", "ruin", 3, 0, 0, "list<double[]>", 1
 "actuar", "ruin", 4, 0, 0, "double", 1
@@ -1336,7 +1331,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "rztnbinom", 1, 0, 0, "double", 1
 "actuar", "rztnbinom", 2, 0, 0, "double", 1
 "actuar", "severity", -1, 0, 0, "class<`matrix`>", 1
-"actuar", "severity", -1, 0, 1, "list<class<`matrix`> | class<`matrix`> | null>", 1
+"actuar", "severity", -1, 0, 1, "list<class<`matrix`>>", 1
+"actuar", "severity", -1, 0, 2, "list<class<`matrix`> | null>", 1
 "actuar", "severity", 0, 0, 0, "class<`matrix`>", 1
 "actuar", "severity", 0, 0, 1, "class<`portfolio`>", 1
 "actuar", "severity", 1, 0, 0, "...", 1
@@ -1345,7 +1341,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "severity.default", 1, 0, 0, "logical", 1
 "actuar", "severity.default", 2, 0, 0, "logical", 1
 "actuar", "severity.default", 3, 0, 0, "...", 1
-"actuar", "severity.portfolio", -1, 0, 0, "list<class<`matrix`> | class<`matrix`> | null>", 1
+"actuar", "severity.portfolio", -1, 0, 0, "list<class<`matrix`>>", 1
+"actuar", "severity.portfolio", -1, 0, 1, "list<class<`matrix`> | null>", 1
 "actuar", "severity.portfolio", 0, 0, 0, "class<`portfolio`>", 1
 "actuar", "severity.portfolio", 1, 0, 0, "character[]", 1
 "actuar", "severity.portfolio", 2, 0, 0, "character", 1
@@ -1360,8 +1357,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "actuar", "simS", 1, 0, 0, "expression", 1
 "actuar", "simS", 2, 0, 0, "expression", 1
 "actuar", "simul", -1, 0, 0, "class<`portfolio`>", 1
-"actuar", "simul", 0, 0, 0, "double", 1
-"actuar", "simul", 0, 0, 1, "list<double[]>", 1
+"actuar", "simul", 0, 0, 0, "list<double[]>", 1
+"actuar", "simul", 0, 0, 1, "double", 1
 "actuar", "simul", 1, 0, 0, "expression", 1
 "actuar", "simul", 2, 0, 0, "expression", 1
 "actuar", "simul", 2, 0, 1, "null", 1

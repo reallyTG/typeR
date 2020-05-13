@@ -28,11 +28,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "bFitMod", 6, 0, 0, "any", 1
 "DoseFinding", "bFitMod", 7, 0, 0, "null", 1
 "DoseFinding", "bFitMod", 7, 0, 1, "list<double[]>", 1
-"DoseFinding", "bFitMod", 8, 0, 0, "double", 1
-"DoseFinding", "bFitMod", 9, 0, 0, "any", 1
-"DoseFinding", "bFitMod", 10, 0, 0, "null", 1
-"DoseFinding", "bFitMod", 11, 0, 0, "any", 1
-"DoseFinding", "bFitMod", 12, 0, 0, "null", 1
 "DoseFinding", "bFitMod.Bayes", -1, 0, 0, "double[]", 1
 "DoseFinding", "bFitMod.Bayes", 0, 0, 0, "double[]", 1
 "DoseFinding", "bFitMod.Bayes", 1, 0, 0, "double[]", 1
@@ -43,11 +38,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "bFitMod.Bayes", 5, 0, 1, "null", 1
 "DoseFinding", "bFitMod.Bayes", 6, 0, 0, "list<double[]>", 1
 "DoseFinding", "bFitMod.Bayes", 7, 0, 0, "double", 1
-"DoseFinding", "bFitMod.Bayes", 8, 0, 0, "list<any>", 1
-"DoseFinding", "bFitMod.Bayes", 9, 0, 0, "any", 1
-"DoseFinding", "bFitMod.Bayes", 10, 0, 0, "any", 1
-"DoseFinding", "bFitMod.Bayes", 11, 0, 0, "integer", 1
-"DoseFinding", "bFitMod.Bayes", 12, 0, 0, "integer", 1
 "DoseFinding", "bFitMod.bootstrap", -1, 0, 0, "class<`matrix`>", 1
 "DoseFinding", "bFitMod.bootstrap", 0, 0, 0, "double[]", 1
 "DoseFinding", "bFitMod.bootstrap", 1, 0, 0, "double[]", 1
@@ -57,10 +47,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "bFitMod.bootstrap", 5, 0, 0, "double", 1
 "DoseFinding", "bFitMod.bootstrap", 6, 0, 0, "any", 1
 "DoseFinding", "bFitMod.bootstrap", 7, 0, 0, "any", 1
-"DoseFinding", "bFitMod.bootstrap", 8, 0, 0, "null", 1
-"DoseFinding", "bFitMod.bootstrap", 9, 0, 0, "null", 1
-"DoseFinding", "bFitMod.bootstrap", 10, 0, 0, "null", 1
-"DoseFinding", "bFitMod.bootstrap", 10, 0, 1, "double[]", 1
 "DoseFinding", "calcCrit", -1, 0, 0, "^double[]", 1
 "DoseFinding", "calcCrit", 0, 0, 0, "class<`matrix`>", 1
 "DoseFinding", "calcCrit", 0, 0, 1, "double[]", 1
@@ -71,8 +57,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "calcCrit", 5, 0, 0, "any", 1
 "DoseFinding", "calcCrit", 6, 0, 0, "logical", 1
 "DoseFinding", "calcCrit", 7, 0, 0, "any", 1
-"DoseFinding", "calcCrit", 8, 0, 0, "double[]", 1
-"DoseFinding", "calcCrit", 9, 0, 0, "any", 1
 "DoseFinding", "calcED", -1, 0, 0, "double", 1
 "DoseFinding", "calcED", -1, 0, 1, "null", 1
 "DoseFinding", "calcED", 0, 0, 0, "character", 1
@@ -83,8 +67,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "calcED", 5, 0, 0, "any", 1
 "DoseFinding", "calcED", 6, 0, 0, "any", 1
 "DoseFinding", "calcED", 7, 0, 0, "any", 1
-"DoseFinding", "calcED", 8, 0, 0, "any", 1
-"DoseFinding", "calcGrads", -1, 0, 0, "list<double[] | double[] | null>", 1
+"DoseFinding", "calcGrads", -1, 0, 0, "list<double[]>", 1
+"DoseFinding", "calcGrads", -1, 0, 1, "list<double[] | null>", 1
 "DoseFinding", "calcGrads", 0, 0, 0, "class<`Mods`>", 1
 "DoseFinding", "calcGrads", 1, 0, 0, "double[]", 1
 "DoseFinding", "calcGrads", 2, 0, 0, "double[]", 1
@@ -110,7 +94,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "calcTD", 5, 0, 0, "any", 1
 "DoseFinding", "calcTD", 6, 0, 0, "any", 1
 "DoseFinding", "calcTD", 7, 0, 0, "any", 1
-"DoseFinding", "calcTD", 8, 0, 0, "any", 1
 "DoseFinding", "calcTDgrad", -1, 0, 0, "double[]", 1
 "DoseFinding", "calcTDgrad", 0, 0, 0, "character", 1
 "DoseFinding", "calcTDgrad", 1, 0, 0, "double[]", 1
@@ -137,9 +120,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "checkAnalyArgs", 5, 0, 0, "class<`formula`>", 1
 "DoseFinding", "checkAnalyArgs", 6, 0, 0, "logical", 1
 "DoseFinding", "checkAnalyArgs", 7, 0, 0, "class<`function`>", 1
-"DoseFinding", "checkAnalyArgs", 8, 0, 0, "character[]", 1
 "DoseFinding", "checkEntries", -1, 0, 0, "list<null>", 1
-"DoseFinding", "checkEntries", 0, 0, 0, "list<any>", 1
+"DoseFinding", "checkEntries", 0, 0, 0, "list<class<`matrix`>>", 1
+"DoseFinding", "checkEntries", 0, 0, 1, "list<double[]>", 1
+"DoseFinding", "checkEntries", 0, 0, 2, "list<null>", 1
+"DoseFinding", "checkEntries", 0, 0, 3, "list<class<`matrix`> | null>", 1
+"DoseFinding", "checkEntries", 0, 0, 4, "list<double[] | class<`matrix`>>", 1
+"DoseFinding", "checkEntries", 0, 0, 5, "list<null | double[]>", 1
+"DoseFinding", "checkEntries", 0, 0, 6, "list<null | double>", 1
+"DoseFinding", "checkEntries", 0, 0, 7, "list<double[] | null>", 1
+"DoseFinding", "checkEntries", 0, 0, 8, "list<null | class<`matrix`> | double>", 1
+"DoseFinding", "checkEntries", 0, 0, 9, "list<null | double[] | class<`matrix`>>", 1
 "DoseFinding", "checkEntries", 1, 0, 0, "any", 1
 "DoseFinding", "checkEntries", 2, 0, 0, "logical", 1
 "DoseFinding", "checkPrior", -1, 0, 0, "null", 1
@@ -201,13 +192,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "fitMod", 5, 0, 0, "character[]", 1
 "DoseFinding", "fitMod", 6, 0, 0, "class<`formula`>", 1
 "DoseFinding", "fitMod", 7, 0, 0, "logical", 1
-"DoseFinding", "fitMod", 8, 0, 0, "any", 1
-"DoseFinding", "fitMod", 9, 0, 0, "any", 1
-"DoseFinding", "fitMod", 10, 0, 0, "null", 1
-"DoseFinding", "fitMod", 10, 0, 1, "double[]", 1
-"DoseFinding", "fitMod", 11, 0, 0, "class<`function`>", 1
-"DoseFinding", "fitMod", 12, 0, 0, "any", 1
-"DoseFinding", "fitMod", 13, 0, 0, "any", 1
 "DoseFinding", "fitModel.bndnls", -1, 0, 0, "list<double[]>", 1
 "DoseFinding", "fitModel.bndnls", 0, 0, 0, "class<`data.frame`>", 1
 "DoseFinding", "fitModel.bndnls", 1, 0, 0, "character", 1
@@ -219,10 +203,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "fitModel.bndnls", 6, 0, 0, "null", 1
 "DoseFinding", "fitModel.bndnls", 6, 0, 1, "double[]", 1
 "DoseFinding", "fitModel.bndnls", 7, 0, 0, "any", 1
-"DoseFinding", "fitModel.bndnls", 8, 0, 0, "any", 1
-"DoseFinding", "fitModel.bndnls", 9, 0, 0, "logical", 1
-"DoseFinding", "fitModel.bndnls", 10, 0, 0, "any", 1
-"DoseFinding", "fitModel.lin", -1, 0, 0, "list<double[] | null | double[] | double | null>", 1
+"DoseFinding", "fitModel.lin", -1, 0, 0, "list<double[] | null>", 1
+"DoseFinding", "fitModel.lin", -1, 0, 1, "list<double[]>", 1
+"DoseFinding", "fitModel.lin", -1, 0, 2, "list<double | null>", 1
 "DoseFinding", "fitModel.lin", 0, 0, 0, "class<`data.frame`>", 1
 "DoseFinding", "fitModel.lin", 1, 0, 0, "character", 1
 "DoseFinding", "fitModel.lin", 2, 0, 0, "class<`formula`>", 1
@@ -240,22 +223,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "fitMod.raw", 5, 0, 0, "character", 1
 "DoseFinding", "fitMod.raw", 6, 0, 0, "class<`formula`>", 1
 "DoseFinding", "fitMod.raw", 7, 0, 0, "logical", 1
-"DoseFinding", "fitMod.raw", 8, 0, 0, "any", 1
-"DoseFinding", "fitMod.raw", 9, 0, 0, "any", 1
-"DoseFinding", "fitMod.raw", 10, 0, 0, "any", 1
-"DoseFinding", "fitMod.raw", 11, 0, 0, "any", 1
-"DoseFinding", "fitMod.raw", 12, 0, 0, "any", 1
-"DoseFinding", "fitMod.raw", 13, 0, 0, "character", 1
-"DoseFinding", "fitMod.raw", 14, 0, 0, "character", 1
-"DoseFinding", "fitMod.raw", 15, 0, 0, "null", 1
-"DoseFinding", "fitMod.raw", 15, 0, 1, "double", 1
-"DoseFinding", "fitMod.raw", 16, 0, 0, "null", 1
-"DoseFinding", "fitMod.raw", 16, 0, 1, "double", 1
-"DoseFinding", "fitMod.raw", 17, 0, 0, "null", 1
-"DoseFinding", "fitMod.raw", 17, 0, 1, "double[]", 1
-"DoseFinding", "fitMod.raw", 18, 0, 0, "logical", 1
-"DoseFinding", "fullMod", -1, 0, 0, "list<any>", 1
-"DoseFinding", "fullMod", 0, 0, 0, "list<any>", 1
+"DoseFinding", "fullMod", -1, 0, 0, "list<class<`matrix`>>", 1
+"DoseFinding", "fullMod", -1, 0, 1, "list<double[]>", 1
+"DoseFinding", "fullMod", -1, 0, 2, "list<class<`matrix`> | double[]>", 1
+"DoseFinding", "fullMod", -1, 0, 3, "list<double[] | class<`matrix`>>", 1
+"DoseFinding", "fullMod", 0, 0, 0, "list<class<`matrix`>>", 1
+"DoseFinding", "fullMod", 0, 0, 1, "list<double[]>", 1
+"DoseFinding", "fullMod", 0, 0, 2, "list<double[] | null>", 1
+"DoseFinding", "fullMod", 0, 0, 3, "list<null | double[]>", 1
+"DoseFinding", "fullMod", 0, 0, 4, "list<null | double[] | class<`matrix`>>", 1
+"DoseFinding", "fullMod", 0, 0, 5, "list<null | double>", 1
+"DoseFinding", "fullMod", 0, 0, 6, "list<null>", 1
+"DoseFinding", "fullMod", 0, 0, 7, "list<null | class<`matrix`> | double>", 1
+"DoseFinding", "fullMod", 0, 0, 8, "list<class<`matrix`> | null>", 1
 "DoseFinding", "fullMod", 1, 0, 0, "double[]", 1
 "DoseFinding", "fullMod", 2, 0, 0, "double", 1
 "DoseFinding", "fullMod", 3, 0, 0, "double", 1
@@ -389,20 +369,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "MCPMod", 5, 0, 0, "character[]", 1
 "DoseFinding", "MCPMod", 6, 0, 0, "class<`formula`>", 1
 "DoseFinding", "MCPMod", 7, 0, 0, "logical", 1
-"DoseFinding", "MCPMod", 8, 0, 0, "character[]", 1
-"DoseFinding", "MCPMod", 9, 0, 0, "double", 1
-"DoseFinding", "MCPMod", 10, 0, 0, "null", 1
-"DoseFinding", "MCPMod", 10, 0, 1, "double", 1
-"DoseFinding", "MCPMod", 11, 0, 0, "double", 1
-"DoseFinding", "MCPMod", 11, 0, 1, "null", 1
-"DoseFinding", "MCPMod", 12, 0, 0, "character[]", 1
-"DoseFinding", "MCPMod", 13, 0, 0, "double", 1
-"DoseFinding", "MCPMod", 14, 0, 0, "any", 1
-"DoseFinding", "MCPMod", 15, 0, 0, "logical", 1
-"DoseFinding", "MCPMod", 16, 0, 0, "character[]", 1
-"DoseFinding", "MCPMod", 17, 0, 0, "class<`function`>", 1
-"DoseFinding", "MCPMod", 18, 0, 0, "class<`GenzBretz`>", 1
-"DoseFinding", "MCPMod", 19, 0, 0, "any", 1
 "DoseFinding", "MCTtest", -1, 0, 0, "class<`MCTtest`>", 1
 "DoseFinding", "MCTtest", 0, 0, 0, "any", 1
 "DoseFinding", "MCTtest", 1, 0, 0, "any", 1
@@ -414,17 +380,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "MCTtest", 5, 0, 0, "character[]", 1
 "DoseFinding", "MCTtest", 6, 0, 0, "class<`formula`>", 1
 "DoseFinding", "MCTtest", 7, 0, 0, "logical", 1
-"DoseFinding", "MCTtest", 8, 0, 0, "double", 1
-"DoseFinding", "MCTtest", 9, 0, 0, "any", 1
-"DoseFinding", "MCTtest", 10, 0, 0, "double", 1
-"DoseFinding", "MCTtest", 10, 0, 1, "null", 1
-"DoseFinding", "MCTtest", 11, 0, 0, "logical", 1
-"DoseFinding", "MCTtest", 12, 0, 0, "character[]", 1
-"DoseFinding", "MCTtest", 13, 0, 0, "class<`function`>", 1
-"DoseFinding", "MCTtest", 14, 0, 0, "any", 1
-"DoseFinding", "MCTtest", 15, 0, 0, "null", 1
-"DoseFinding", "MCTtest", 15, 0, 1, "class<`matrix`>", 1
-"DoseFinding", "MCTtest", 15, 0, 2, "class<`optContr`>", 1
 "DoseFinding", "modContr", -1, 0, 0, "class<`matrix`>", 1
 "DoseFinding", "modContr", 0, 0, 0, "class<`matrix`>", 1
 "DoseFinding", "modContr", 1, 0, 0, "null", 1
@@ -434,7 +389,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "modContr", 5, 0, 0, "any", 1
 "DoseFinding", "modCount", -1, 0, 0, "double", 1
 "DoseFinding", "modCount", 0, 0, 0, "class<`Mods`>", 1
-"DoseFinding", "modCount", 0, 0, 1, "list<any>", 1
+"DoseFinding", "modCount", 0, 0, 1, "list<class<`matrix`>>", 1
+"DoseFinding", "modCount", 0, 0, 2, "list<double[]>", 1
+"DoseFinding", "modCount", 0, 0, 3, "list<double[] | class<`matrix`>>", 1
+"DoseFinding", "modCount", 0, 0, 4, "list<null | double[]>", 1
+"DoseFinding", "modCount", 0, 0, 5, "list<double[] | null>", 1
+"DoseFinding", "modCount", 0, 0, 6, "list<null>", 1
+"DoseFinding", "modCount", 0, 0, 7, "list<null | double[] | class<`matrix`>>", 1
+"DoseFinding", "modCount", 0, 0, 8, "list<null | double>", 1
+"DoseFinding", "modCount", 0, 0, 9, "list<null | class<`matrix`> | double>", 1
+"DoseFinding", "modCount", 0, 0, 10, "list<class<`matrix`> | null>", 1
 "DoseFinding", "modCount", 1, 0, 0, "logical", 1
 "DoseFinding", "Mods", -1, 0, 0, "class<`Mods`>", 1
 "DoseFinding", "Mods", 0, 0, 0, "...", 1
@@ -468,13 +432,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "optDesign", 5, 0, 0, "logical", 1
 "DoseFinding", "optDesign", 6, 0, 0, "any", 1
 "DoseFinding", "optDesign", 7, 0, 0, "double[]", 1
-"DoseFinding", "optDesign", 8, 0, 0, "any", 1
-"DoseFinding", "optDesign", 9, 0, 0, "list<any>", 1
-"DoseFinding", "optDesign", 10, 0, 0, "character[]", 1
-"DoseFinding", "optDesign", 11, 0, 0, "double[]", 1
-"DoseFinding", "optDesign", 12, 0, 0, "double[]", 1
-"DoseFinding", "optDesign", 13, 0, 0, "any", 1
-"DoseFinding", "optDesign", 14, 0, 0, "...", 1
 "DoseFinding", "optFunc", -1, 0, 0, "double", 1
 "DoseFinding", "optFunc", 0, 0, 0, "double[]", 1
 "DoseFinding", "optFunc", 1, 0, 0, "double[]", 1
@@ -484,10 +441,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "optFunc", 5, 0, 0, "integer", 1
 "DoseFinding", "optFunc", 6, 0, 0, "double", 1
 "DoseFinding", "optFunc", 7, 0, 0, "double[]", 1
-"DoseFinding", "optFunc", 8, 0, 0, "double[]", 1
-"DoseFinding", "optFunc", 9, 0, 0, "integer", 1
-"DoseFinding", "optFunc", 10, 0, 0, "class<`function`>", 1
-"DoseFinding", "optFunc", 11, 0, 0, "integer", 1
 "DoseFinding", "optGrid", -1, 0, 0, "list<double[]>", 1
 "DoseFinding", "optGrid", 0, 0, 0, "character", 1
 "DoseFinding", "optGrid", 1, 0, 0, "double", 1
@@ -497,10 +450,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "optGrid", 5, 0, 0, "character", 1
 "DoseFinding", "optGrid", 6, 0, 0, "any", 1
 "DoseFinding", "optGrid", 7, 0, 0, "double[]", 1
-"DoseFinding", "optGrid", 8, 0, 0, "class<`matrix`>", 1
-"DoseFinding", "optGrid", 8, 0, 1, "null", 1
-"DoseFinding", "optGrid", 9, 0, 0, "any", 1
-"DoseFinding", "optGrid", 10, 0, 0, "any", 1
 "DoseFinding", "optLoc", -1, 0, 0, "list<double[]>", 1
 "DoseFinding", "optLoc", 0, 0, 0, "character", 1
 "DoseFinding", "optLoc", 1, 0, 0, "double", 1
@@ -510,12 +459,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "optLoc", 5, 0, 0, "double[]", 1
 "DoseFinding", "optLoc", 6, 0, 0, "any", 1
 "DoseFinding", "optLoc", 7, 0, 0, "any", 1
-"DoseFinding", "optLoc", 8, 0, 0, "logical", 1
-"DoseFinding", "optLoc", 9, 0, 0, "character", 1
-"DoseFinding", "optLoc", 10, 0, 0, "any", 1
-"DoseFinding", "optLoc", 11, 0, 0, "any", 1
-"DoseFinding", "optLoc", 12, 0, 0, "class<`matrix`>", 1
-"DoseFinding", "optLoc", 12, 0, 1, "null", 1
 "DoseFinding", "plot.bFitMod", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
 "DoseFinding", "plot.bFitMod", 0, 0, 0, "class<`bFitMod`>", 1
 "DoseFinding", "plot.bFitMod", 1, 0, 0, "character[]", 1
@@ -568,7 +511,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "plotModels", 5, 0, 1, "null", 1
 "DoseFinding", "plotModels", 6, 0, 0, "logical", 1
 "DoseFinding", "plotModels", 7, 0, 0, "any", 1
-"DoseFinding", "plotModels", 8, 0, 0, "...", 1
 "DoseFinding", "plot.Mods", -1, 0, 0, "class<`trellis`>", 1
 "DoseFinding", "plot.Mods", 0, 0, 0, "class<`Mods`>", 1
 "DoseFinding", "plot.Mods", 1, 0, 0, "double", 1
@@ -579,7 +521,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "plot.Mods", 5, 0, 1, "null", 1
 "DoseFinding", "plot.Mods", 6, 0, 0, "logical", 1
 "DoseFinding", "plot.Mods", 7, 0, 0, "any", 1
-"DoseFinding", "plot.Mods", 8, 0, 0, "...", 1
 "DoseFinding", "plot.optContr", -1, 0, 0, "class<`trellis`>", 1
 "DoseFinding", "plot.optContr", 0, 0, 0, "class<`optContr`>", 1
 "DoseFinding", "plot.optContr", 1, 0, 0, "logical", 1
@@ -603,9 +544,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "powMCT", 5, 0, 0, "any", 1
 "DoseFinding", "powMCT", 6, 0, 0, "logical", 1
 "DoseFinding", "powMCT", 7, 0, 0, "character[]", 1
-"DoseFinding", "powMCT", 8, 0, 0, "any", 1
-"DoseFinding", "powMCT", 9, 0, 0, "logical", 1
-"DoseFinding", "powMCT", 10, 0, 0, "class<`GenzBretz`>", 1
 "DoseFinding", "predict.bFitMod", -1, 0, 0, "class<`matrix`>", 1
 "DoseFinding", "predict.bFitMod", 0, 0, 0, "class<`bFitMod`>", 1
 "DoseFinding", "predict.bFitMod", 1, 0, 0, "character[]", 1
@@ -624,7 +562,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "predict.DRMod", 3, 0, 1, "double[]", 1
 "DoseFinding", "predict.DRMod", 4, 0, 0, "logical", 1
 "DoseFinding", "predict.DRMod", 5, 0, 0, "...", 1
-"DoseFinding", "predict.MCPMod", -1, 0, 0, "list<double[] | list<double[]>>", 1
+"DoseFinding", "predict.MCPMod", -1, 0, 0, "list<double[]>", 1
+"DoseFinding", "predict.MCPMod", -1, 0, 1, "list<list<double[]>>", 1
 "DoseFinding", "predict.MCPMod", 0, 0, 0, "class<`MCPMod`>", 1
 "DoseFinding", "predict.MCPMod", 1, 0, 0, "character", 1
 "DoseFinding", "predict.MCPMod", 2, 0, 0, "null", 1
@@ -709,12 +648,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "DoseFinding", "TD", 2, 0, 0, "character[]", 1
 "DoseFinding", "TD", 3, 0, 0, "character[]", 1
 "DoseFinding", "TD", 4, 0, 0, "any", 1
-"DoseFinding", "trans", -1, 0, 0, "double[]", 1
-"DoseFinding", "trans", 0, 0, 0, "double[]", 1
-"DoseFinding", "trans", 1, 0, 0, "integer", 1
-"DoseFinding", "transform", -1, 0, 0, "double[]", 1
-"DoseFinding", "transform", 0, 0, 0, "double[]", 1
-"DoseFinding", "transform", 1, 0, 0, "integer", 1
 "DoseFinding", "transTrig", -1, 0, 0, "double[]", 1
 "DoseFinding", "transTrig", 0, 0, 0, "double[]", 1
 "DoseFinding", "transTrig", 1, 0, 0, "integer", 1

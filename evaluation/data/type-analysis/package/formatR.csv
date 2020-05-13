@@ -1,7 +1,10 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
 "formatR", "count_tokens", -1, 0, 0, "integer[]", 1
 "formatR", "count_tokens", 0, 0, 0, "class<`call`>", 1
-"formatR", "find_breaks", -1, 0, 0, "list<any>", 1
+"formatR", "find_breaks", -1, 0, 0, "list<integer | null>", 1
+"formatR", "find_breaks", -1, 0, 1, "list<integer[] | null>", 1
+"formatR", "find_breaks", -1, 0, 2, "list<integer[]>", 1
+"formatR", "find_breaks", -1, 0, 3, "list<null>", 1
 "formatR", "find_breaks", 0, 0, 0, "integer[]", 1
 "formatR", "find_breaks", 1, 0, 0, "any", 1
 "formatR", "find_breaks", 2, 0, 0, "any", 1

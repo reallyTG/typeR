@@ -29,8 +29,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Formula", "formula.Formula", 4, 0, 0, "logical", 1
 "Formula", "formula.Formula", 5, 0, 0, "logical", 1
 "Formula", "formula.Formula", 6, 0, 0, "...", 1
-"Formula", "FUN", -1, 0, 0, "list<null | list<class<`call`>> | null | list<class<`name`>> | list<any>>", 1
-"Formula", "FUN", 0, 0, 0, "class<`formula`>", 1
 "Formula", "has_dot", -1, 0, 0, "logical", 1
 "Formula", "has_dot", 0, 0, 0, "class<`formula`>", 1
 "Formula", "has_dot", 0, 0, 1, "class<`Formula`, `formula`>", 1
@@ -67,8 +65,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Formula", "model.part.Formula", 7, 0, 0, "...", 1
 "Formula", "paste_formula", -1, 0, 0, "class<`formula`>", 1
 "Formula", "paste_formula", 0, 0, 0, "class<`call`>", 1
-"Formula", "paste_formula", 0, 0, 1, "null", 1
-"Formula", "paste_formula", 0, 0, 2, "list<any>", 1
+"Formula", "paste_formula", 0, 0, 1, "list<any>", 1
+"Formula", "paste_formula", 0, 0, 2, "null", 1
 "Formula", "paste_formula", 1, 0, 0, "class<`call`>", 1
 "Formula", "paste_formula", 1, 0, 1, "class<`name`>", 1
 "Formula", "paste_formula", 1, 0, 2, "list<any>", 1
@@ -81,7 +79,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Formula", "simplify_to_formula", 1, 0, 2, "null", 1
 "Formula", "simplify_to_formula", 2, 0, 0, "double", 1
 "Formula", "simplify_to_formula", 2, 0, 1, "null", 1
-"Formula", "split_formula", -1, 0, 0, "list<null | list<class<`call`>> | null | list<class<`name`>> | list<any>>", 1
+"Formula", "split_formula", -1, 0, 0, "list<list<class<`name`> | class<`call`>>>", 1
+"Formula", "split_formula", -1, 0, 1, "list<list<class<`name`>>>", 1
+"Formula", "split_formula", -1, 0, 2, "list<null | list<class<`call`>>>", 1
+"Formula", "split_formula", -1, 0, 3, "list<null | list<class<`name`>>>", 1
+"Formula", "split_formula", -1, 0, 4, "list<list<class<`call`>>>", 1
+"Formula", "split_formula", -1, 0, 5, "list<list<class<`call`> | class<`name`> | class<`call`>>>", 1
+"Formula", "split_formula", -1, 0, 6, "list<list<class<`call`> | class<`name`> | class<`name`>>>", 1
+"Formula", "split_formula", -1, 0, 7, "list<list<class<`call`> | class<`name`>>>", 1
+"Formula", "split_formula", -1, 0, 8, "list<list<class<`call`> | double>>", 1
+"Formula", "split_formula", -1, 0, 9, "list<list<class<`name`> | class<`call`> | class<`call`>>>", 1
+"Formula", "split_formula", -1, 0, 10, "list<list<class<`name`> | class<`call`> | class<`name`>>>", 1
+"Formula", "split_formula", -1, 0, 11, "list<list<class<`name`> | class<`call`> | class<`call`> | class<`name`>>>", 1
 "Formula", "split_formula", 0, 0, 0, "class<`formula`>", 1
 "Formula", "terms.Formula", -1, 0, 0, "any", 1
 "Formula", "terms.Formula", 0, 0, 0, "class<`Formula`, `formula`>", 1

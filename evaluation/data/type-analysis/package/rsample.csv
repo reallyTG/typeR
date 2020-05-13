@@ -105,11 +105,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "complement.vfold_split", 0, 0, 1, "class<`mc_split`, `rsplit`>", 1
 "rsample", "complement.vfold_split", 0, 0, 2, "class<`rsplit`, `vfold_split`>", 1
 "rsample", "complement.vfold_split", 1, 0, 0, "...", 1
-"rsample", ".f", -1, 0, 0, "class<`rsplit`, `vfold_split`>", 1
-"rsample", ".f", -1, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
-"rsample", ".f", 0, 0, 0, "class<`rsplit`, `vfold_split`>", 1
-"rsample", ".f", 0, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
-"rsample", ".f", 1, 0, 0, "...", 1
 "rsample", "form_pred", -1, 0, 0, "character[]", 1
 "rsample", "form_pred", 0, 0, 0, "class<`formula`>", 1
 "rsample", "form_pred", 0, 0, 1, "class<`formula`, `terms`>", 1
@@ -176,7 +171,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "mc_cv", 3, 0, 0, "any", 1
 "rsample", "mc_cv", 4, 0, 0, "any", 1
 "rsample", "mc_cv", 5, 0, 0, "...", 1
-"rsample", "mc_splits", -1, 0, 0, "list<character[] | list<class<`mc_split`, `rsplit`>> | character | list<class<`mc_split`, `rsplit`>>>", 1
+"rsample", "mc_splits", -1, 0, 0, "list<character[] | list<class<`mc_split`, `rsplit`>>>", 1
+"rsample", "mc_splits", -1, 0, 1, "list<character | list<class<`mc_split`, `rsplit`>>>", 1
 "rsample", "mc_splits", 0, 0, 0, "class<`data.frame`>", 1
 "rsample", "mc_splits", 1, 0, 0, "double", 1
 "rsample", "mc_splits", 2, 0, 0, "double", 1
@@ -197,11 +193,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rsample", "new_rset", -1, 0, 3, "class<`data.frame`, `mc_cv`, `rset`, `tbl`, `tbl_df`>", 1
 "rsample", "new_rset", -1, 0, 4, "class<`data.frame`, `rolling_origin`, `rset`, `tbl`, `tbl_df`>", 1
 "rsample", "new_rset", -1, 0, 5, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1
-"rsample", "new_rset", 0, 0, 0, "list<any>", 1
+"rsample", "new_rset", 0, 0, 0, "list<class<`boot_split`, `rsplit`> | class<`apparent_split`, `rsplit`>>", 1
+"rsample", "new_rset", 0, 0, 1, "list<class<`boot_split`, `rsplit`>>", 1
+"rsample", "new_rset", 0, 0, 2, "list<class<`group_vfold_split`, `rsplit`>>", 1
+"rsample", "new_rset", 0, 0, 3, "list<class<`loo_split`, `rsplit`>>", 1
+"rsample", "new_rset", 0, 0, 4, "list<class<`mc_split`, `rsplit`>>", 1
+"rsample", "new_rset", 0, 0, 5, "list<class<`rof_split`, `rsplit`>>", 1
+"rsample", "new_rset", 0, 0, 6, "list<class<`rsplit`, `vfold_split`>>", 1
 "rsample", "new_rset", 1, 0, 0, "character[]", 1
 "rsample", "new_rset", 1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"rsample", "new_rset", 2, 0, 0, "null", 1
-"rsample", "new_rset", 2, 0, 1, "list<double | null | character | double | character>", 1
+"rsample", "new_rset", 2, 0, 0, "list<double>", 1
+"rsample", "new_rset", 2, 0, 1, "list<null | character>", 1
+"rsample", "new_rset", 2, 0, 2, "list<double | character>", 1
+"rsample", "new_rset", 2, 0, 3, "null", 1
 "rsample", "new_rset", 3, 0, 0, "character[]", 1
 "rsample", "populate", -1, 0, 0, "class<`rsplit`, `vfold_split`>", 1
 "rsample", "populate", -1, 0, 1, "class<`data.frame`, `rset`, `tbl`, `tbl_df`, `vfold_cv`>", 1

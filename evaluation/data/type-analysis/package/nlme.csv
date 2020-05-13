@@ -1,15 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"nlme", "::", -1, 0, 0, "class<`anova.lme`, `data.frame`>", 1
-"nlme", "::", 0, 0, 0, "class<`gls`>", 1
-"nlme", "::", 0, 0, 1, "class<`lme`>", 1
-"nlme", "::", 0, 0, 2, "class<`lme`, `nlme`>", 1
-"nlme", "::", 1, 0, 0, "...", 1
-"nlme", "::", 2, 0, 0, "logical", 1
-"nlme", "::", 3, 0, 0, "any", 1
-"nlme", "::", 4, 0, 0, "logical", 1
-"nlme", "::", 5, 0, 0, "any", 1
-"nlme", "::", 6, 0, 0, "any", 1
-"nlme", "::", 7, 0, 0, "logical", 1
 "nlme", "%||%", -1, 0, 0, "character", 1
 "nlme", "%||%", -1, 0, 1, "class<`function`>", 1
 "nlme", "%||%", 0, 0, 0, "character", 1
@@ -39,13 +28,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "allCoef", 1, 0, 0, "class<`function`>", 1
 "nlme", "allVarsRec", -1, 0, 0, "character[]", 1
 "nlme", "allVarsRec", -1, 0, 1, "null", 1
-"nlme", "allVarsRec", 0, 0, 0, "class<`call`>", 1
-"nlme", "allVarsRec", 0, 0, 1, "class<`formula`>", 1
-"nlme", "allVarsRec", 0, 0, 2, "class<`formula`, `terms`>", 1
-"nlme", "allVarsRec", 0, 0, 3, "class<`listForm`>", 1
-"nlme", "allVarsRec", 0, 0, 4, "double", 1
-"nlme", "allVarsRec", 0, 0, 5, "null", 1
-"nlme", "allVarsRec", 0, 0, 6, "list<any>", 1
+"nlme", "allVarsRec", 0, 0, 0, "list<any>", 1
+"nlme", "allVarsRec", 0, 0, 1, "class<`call`>", 1
+"nlme", "allVarsRec", 0, 0, 2, "class<`formula`>", 1
+"nlme", "allVarsRec", 0, 0, 3, "class<`formula`, `terms`>", 1
+"nlme", "allVarsRec", 0, 0, 4, "class<`listForm`>", 1
+"nlme", "allVarsRec", 0, 0, 5, "double", 1
+"nlme", "allVarsRec", 0, 0, 6, "null", 1
 "nlme", "anova.gls", -1, 0, 0, "class<`anova.lme`, `data.frame`>", 1
 "nlme", "anova.gls", 0, 0, 0, "class<`gls`>", 1
 "nlme", "anova.gls", 0, 0, 1, "class<`gls`, `gnls`>", 1
@@ -281,7 +270,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "coef.lme", 5, 0, 0, "any", 1
 "nlme", "coef.lme", 6, 0, 0, "logical", 1
 "nlme", "coef.lme", 7, 0, 0, "null", 1
-"nlme", "coef.lme", 8, 0, 0, "...", 1
 "nlme", "coef.lmList", -1, 0, 0, "class<`coef.lmList`, `data.frame`, `ranef.lmList`>", 1
 "nlme", "coef.lmList", 0, 0, 0, "class<`lmList`, `nlsList`>", 1
 "nlme", "coef.lmList", 0, 0, 1, "class<`lmList`>", 1
@@ -430,7 +418,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "collapse.groupedData", 5, 0, 1, "null", 1
 "nlme", "collapse.groupedData", 6, 0, 0, "any", 1
 "nlme", "collapse.groupedData", 7, 0, 0, "null", 1
-"nlme", "collapse.groupedData", 8, 0, 0, "...", 1
 "nlme", "compareFits", -1, 0, 0, "class<`compareFits`>", 1
 "nlme", "compareFits", 0, 0, 0, "class<`coef.lmList`, `data.frame`, `ranef.lmList`>", 1
 "nlme", "compareFits", 1, 0, 0, "class<`coef.lme`, `data.frame`, `ranef.lme`>", 1
@@ -453,7 +440,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "comparePred.lme", 5, 0, 0, "double", 1
 "nlme", "comparePred.lme", 6, 0, 0, "null", 1
 "nlme", "comparePred.lme", 7, 0, 0, "...", 1
-"nlme", "confint.nlsList", -1, 0, 0, "list<class<`matrix`> | ^logical[] | class<`matrix`>>", 1
+"nlme", "confint.nlsList", -1, 0, 0, "list<class<`matrix`>>", 1
+"nlme", "confint.nlsList", -1, 0, 1, "list<^logical[] | class<`matrix`>>", 1
 "nlme", "confint.nlsList", 0, 0, 0, "class<`lmList`, `nlsList`>", 1
 "nlme", "confint.nlsList", 1, 0, 0, "...", 1
 "nlme", "corAR1", -1, 0, 0, "class<`corAR1`, `corStruct`>", 1
@@ -617,7 +605,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "deviance.lme", 0, 0, 1, "class<`lme`>", 1
 "nlme", "deviance.lme", 1, 0, 0, "...", 1
 "nlme", "Dim", -1, 0, 0, "double[]", 1
-"nlme", "Dim", -1, 0, 1, "list<double | class<`table`> | integer[] | double | class<`table`> | class<`table`> | double[]>", 1
+"nlme", "Dim", -1, 0, 1, "list<double | class<`table`> | integer[]>", 1
+"nlme", "Dim", -1, 0, 2, "list<double | class<`table`>>", 1
+"nlme", "Dim", -1, 0, 3, "list<class<`table`> | double[]>", 1
 "nlme", "Dim", 0, 0, 0, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
 "nlme", "Dim", 0, 0, 1, "class<`pdMat`, `pdNatural`>", 1
 "nlme", "Dim", 0, 0, 2, "class<`pdMat`, `pdSymm`>", 1
@@ -638,7 +628,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "Dim", 0, 0, 17, "class<`corRatio`, `corSpatial`, `corStruct`>", 1
 "nlme", "Dim", 0, 0, 18, "class<`corSpatial`, `corSpher`, `corStruct`>", 1
 "nlme", "Dim", 1, 0, 0, "...", 1
-"nlme", "Dim.corSpatial", -1, 0, 0, "list<class<`table`> | double[] | double | class<`table`>>", 1
+"nlme", "Dim.corSpatial", -1, 0, 0, "list<class<`table`> | double[]>", 1
+"nlme", "Dim.corSpatial", -1, 0, 1, "list<double | class<`table`>>", 1
 "nlme", "Dim.corSpatial", 0, 0, 0, "class<`corExp`, `corSpatial`, `corStruct`>", 1
 "nlme", "Dim.corSpatial", 0, 0, 1, "class<`corGaus`, `corSpatial`, `corStruct`>", 1
 "nlme", "Dim.corSpatial", 0, 0, 2, "class<`corLin`, `corSpatial`, `corStruct`>", 1
@@ -646,7 +637,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "Dim.corSpatial", 0, 0, 4, "class<`corSpatial`, `corSpher`, `corStruct`>", 1
 "nlme", "Dim.corSpatial", 1, 0, 0, "any", 1
 "nlme", "Dim.corSpatial", 2, 0, 0, "...", 1
-"nlme", "Dim.corStruct", -1, 0, 0, "list<double | class<`table`> | integer[] | double | class<`table`>>", 1
+"nlme", "Dim.corStruct", -1, 0, 0, "list<double | class<`table`> | integer[]>", 1
+"nlme", "Dim.corStruct", -1, 0, 1, "list<double | class<`table`>>", 1
 "nlme", "Dim.corStruct", 0, 0, 0, "any", 1
 "nlme", "Dim.corStruct", 1, 0, 0, "any", 1
 "nlme", "Dim.corStruct", 2, 0, 0, "...", 1
@@ -689,7 +681,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "extractAIC.lme", 1, 0, 0, "any", 1
 "nlme", "extractAIC.lme", 2, 0, 0, "double", 1
 "nlme", "extractAIC.lme", 3, 0, 0, "...", 1
-"nlme", "fdHess", -1, 0, 0, "list<double[] | class<`matrix`> | double | class<`matrix`>>", 1
+"nlme", "fdHess", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"nlme", "fdHess", -1, 0, 1, "list<double | class<`matrix`>>", 1
 "nlme", "fdHess", 0, 0, 0, "double[]", 1
 "nlme", "fdHess", 1, 0, 0, "class<`function`>", 1
 "nlme", "fdHess", 2, 0, 0, "...", 1
@@ -701,7 +694,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "fitted.gls", 1, 0, 0, "...", 1
 "nlme", "fitted.glsStruct", -1, 0, 0, "double[]", 1
 "nlme", "fitted.glsStruct", 0, 0, 0, "class<`glsStruct`, `modelStruct`>", 1
-"nlme", "fitted.glsStruct", 1, 0, 0, "list<double[] | class<`matrix`> | class<`logLik`> | double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"nlme", "fitted.glsStruct", 1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"nlme", "fitted.glsStruct", 1, 0, 1, "list<class<`logLik`> | double[] | class<`matrix`>>", 1
+"nlme", "fitted.glsStruct", 1, 0, 2, "list<class<`matrix`> | double[]>", 1
 "nlme", "fitted.glsStruct", 2, 0, 0, "...", 1
 "nlme", "fitted.gnls", -1, 0, 0, "^double[]", 1
 "nlme", "fitted.gnls", 0, 0, 0, "class<`gls`>", 1
@@ -723,7 +718,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "fitted.lmeStruct", 0, 0, 0, "class<`lmeStruct`, `lmeStructInt`, `modelStruct`>", 1
 "nlme", "fitted.lmeStruct", 0, 0, 1, "class<`lmeStruct`, `modelStruct`>", 1
 "nlme", "fitted.lmeStruct", 1, 0, 0, "integer[]", 1
-"nlme", "fitted.lmeStruct", 2, 0, 0, "list<class<`matrix`> | double | list<double[] | list<double[]>> | class<`matrix`> | list<double[] | list<double[]>> | class<`matrix`> | list<double[] | list<double>>>", 1
+"nlme", "fitted.lmeStruct", 2, 0, 0, "list<class<`matrix`> | double | list<double[] | list<double[]>>>", 1
+"nlme", "fitted.lmeStruct", 2, 0, 1, "list<class<`matrix`> | list<double[] | list<double[]>>>", 1
+"nlme", "fitted.lmeStruct", 2, 0, 2, "list<class<`matrix`> | list<double[] | list<double>>>", 1
 "nlme", "fitted.lmeStruct", 3, 0, 0, "list<any>", 1
 "nlme", "fitted.lmeStruct", 4, 0, 0, "...", 1
 "nlme", "fitted.lmList", -1, 0, 0, "double[]", 1
@@ -810,8 +807,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "formula.nlme", 0, 0, 1, "class<`lme`, `nlme`>", 1
 "nlme", "formula.nlme", 1, 0, 0, "...", 1
 "nlme", "formula.pdBlocked", -1, 0, 0, "class<`formula`>", 1
-"nlme", "formula.pdBlocked", -1, 0, 1, "null", 1
-"nlme", "formula.pdBlocked", -1, 0, 2, "list<class<`formula`>>", 1
+"nlme", "formula.pdBlocked", -1, 0, 1, "list<class<`formula`>>", 1
+"nlme", "formula.pdBlocked", -1, 0, 2, "null", 1
 "nlme", "formula.pdBlocked", 0, 0, 0, "class<`pdBlocked`, `pdMat`>", 1
 "nlme", "formula.pdBlocked", 1, 0, 0, "logical", 1
 "nlme", "formula.pdBlocked", 2, 0, 0, "...", 1
@@ -825,7 +822,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "formula.pdMat", 0, 0, 4, "class<`pdMat`, `pdSymm`>", 1
 "nlme", "formula.pdMat", 1, 0, 0, "any", 1
 "nlme", "formula.pdMat", 2, 0, 0, "...", 1
-"nlme", "formula.reStruct", -1, 0, 0, "list<class<`formula`> | class<`listForm`> | list<class<`formula`>>>", 1
+"nlme", "formula.reStruct", -1, 0, 0, "list<class<`formula`>>", 1
+"nlme", "formula.reStruct", -1, 0, 1, "list<class<`listForm`>>", 1
+"nlme", "formula.reStruct", -1, 0, 2, "list<list<class<`formula`>>>", 1
 "nlme", "formula.reStruct", 0, 0, 0, "class<`reStruct`>", 1
 "nlme", "formula.reStruct", 1, 0, 0, "logical", 1
 "nlme", "formula.reStruct", 2, 0, 0, "...", 1
@@ -847,151 +846,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "formula.varFunc", 0, 0, 14, "class<`varFunc`, `varIdent`>", 1
 "nlme", "formula.varFunc", 0, 0, 15, "class<`varFunc`, `varPower`>", 1
 "nlme", "formula.varFunc", 1, 0, 0, "...", 1
-"nlme", "FUN", -1, 0, 0, "character[]", 1
-"nlme", "FUN", -1, 0, 1, "null", 1
-"nlme", "FUN", 0, 0, 0, "class<`call`>", 1
-"nlme", "FUN", 0, 0, 1, "class<`formula`>", 1
-"nlme", "FUN", 0, 0, 2, "class<`formula`, `terms`>", 1
-"nlme", "FUN", 0, 0, 3, "class<`listForm`>", 1
-"nlme", "FUN", 0, 0, 4, "double", 1
-"nlme", "FUN", 0, 0, 5, "null", 1
-"nlme", "FUN", 0, 0, 6, "list<any>", 1
-"nlme", "FUN", -1, 1, 0, "character", 1
-"nlme", "FUN", 0, 1, 0, "...", 1
-"nlme", "FUN", -1, 2, 0, "class<`matrix`>", 1
-"nlme", "FUN", -1, 2, 1, "list<class<`matrix`>>", 1
-"nlme", "FUN", 0, 2, 0, "class<`corAR1`, `corStruct`>", 1
-"nlme", "FUN", 0, 2, 1, "class<`corExp`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 2, 2, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 2, 3, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 2, 4, "class<`pdCompSymm`, `pdMat`>", 1
-"nlme", "FUN", 0, 2, 5, "class<`reStruct`>", 1
-"nlme", "FUN", 0, 2, 6, "class<`corARMA`, `corStruct`>", 1
-"nlme", "FUN", 0, 2, 7, "class<`corCompSymm`, `corStruct`>", 1
-"nlme", "FUN", 0, 2, 8, "class<`corStruct`, `corSymm`>", 1
-"nlme", "FUN", 1, 2, 0, "...", 1
-"nlme", "FUN", -1, 3, 0, "list<class<`formula`>>", 1
-"nlme", "FUN", 0, 3, 0, "class<`call`>", 1
-"nlme", "FUN", 0, 3, 1, "class<`name`>", 1
-"nlme", "FUN", 0, 3, 2, "class<`formula`>", 1
-"nlme", "FUN", 1, 3, 0, "any", 1
-"nlme", "FUN", -1, 4, 0, "class<`matrix`>", 1
-"nlme", "FUN", -1, 4, 1, "double[]", 1
-"nlme", "FUN", 0, 4, 0, "class<`pdDiag`, `pdMat`>", 1
-"nlme", "FUN", 0, 4, 1, "class<`pdBlocked`, `pdMat`>", 1
-"nlme", "FUN", 0, 4, 2, "class<`pdCompSymm`, `pdMat`>", 1
-"nlme", "FUN", 0, 4, 3, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 4, 4, "class<`pdMat`, `pdNatural`>", 1
-"nlme", "FUN", 0, 4, 5, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 4, 6, "class<`reStruct`>", 1
-"nlme", "FUN", -1, 5, 0, "class<`matrix`>", 1
-"nlme", "FUN", -1, 5, 1, "class<`VarCorr.lme`>", 1
-"nlme", "FUN", 0, 5, 0, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 5, 1, "class<`lme`>", 1
-"nlme", "FUN", 0, 5, 2, "class<`lme`, `nlme`>", 1
-"nlme", "FUN", 1, 5, 0, "double", 1
-"nlme", "FUN", 2, 5, 0, "...", 1
-"nlme", "FUN", -1, 6, 0, "class<`corAR1`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 1, "class<`corARMA`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 2, "class<`corCAR1`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 3, "class<`corCompSymm`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 4, "class<`corExp`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 5, "class<`corGaus`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 6, "class<`corLin`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 7, "class<`corRatio`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 8, "class<`corSpatial`, `corSpher`, `corStruct`>", 1
-"nlme", "FUN", -1, 6, 9, "class<`corStruct`, `corSymm`>", 1
-"nlme", "FUN", -1, 6, 10, "class<`reStruct`>", 1
-"nlme", "FUN", -1, 6, 11, "class<`varFunc`, `varIdent`>", 1
-"nlme", "FUN", -1, 6, 12, "class<`varFunc`, `varPower`>", 1
-"nlme", "FUN", -1, 6, 13, "class<`glsStruct`, `gnlsStruct`, `modelStruct`>", 1
-"nlme", "FUN", -1, 6, 14, "class<`glsStruct`, `modelStruct`>", 1
-"nlme", "FUN", -1, 6, 15, "class<`lmeStruct`, `lmeStructInt`, `modelStruct`>", 1
-"nlme", "FUN", -1, 6, 16, "class<`lmeStruct`, `lmeStructInt`, `modelStruct`, `nlmeStruct`>", 1
-"nlme", "FUN", -1, 6, 17, "class<`lmeStruct`, `modelStruct`>", 1
-"nlme", "FUN", -1, 6, 18, "class<`lmeStruct`, `modelStruct`, `nlmeStruct`>", 1
-"nlme", "FUN", -1, 6, 19, "class<`varExp`, `varFunc`>", 1
-"nlme", "FUN", 0, 6, 0, "class<`corAR1`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 1, "class<`corARMA`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 2, "class<`corCAR1`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 3, "class<`corCompSymm`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 4, "class<`corExp`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 5, "class<`corGaus`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 6, "class<`corLin`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 7, "class<`corRatio`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 8, "class<`corSpatial`, `corSpher`, `corStruct`>", 1
-"nlme", "FUN", 0, 6, 9, "class<`corStruct`, `corSymm`>", 1
-"nlme", "FUN", 0, 6, 10, "class<`reStruct`>", 1
-"nlme", "FUN", 0, 6, 11, "class<`varFunc`, `varIdent`>", 1
-"nlme", "FUN", 0, 6, 12, "class<`varFunc`, `varPower`>", 1
-"nlme", "FUN", 0, 6, 13, "class<`glsStruct`, `gnlsStruct`, `modelStruct`>", 1
-"nlme", "FUN", 0, 6, 14, "class<`glsStruct`, `modelStruct`>", 1
-"nlme", "FUN", 0, 6, 15, "class<`lmeStruct`, `modelStruct`>", 1
-"nlme", "FUN", 0, 6, 16, "class<`lmeStruct`, `modelStruct`, `nlmeStruct`>", 1
-"nlme", "FUN", 0, 6, 17, "class<`varExp`, `varFunc`>", 1
-"nlme", "FUN", 1, 6, 0, "any", 1
-"nlme", "FUN", 2, 6, 0, "...", 1
-"nlme", "FUN", -1, 7, 0, "class<`matrix`>", 1
-"nlme", "FUN", -1, 7, 1, "list<class<`matrix`>>", 1
-"nlme", "FUN", 0, 7, 0, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 7, 1, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 7, 2, "class<`pdBlocked`, `pdMat`>", 1
-"nlme", "FUN", 0, 7, 3, "class<`pdCompSymm`, `pdMat`>", 1
-"nlme", "FUN", 0, 7, 4, "class<`pdDiag`, `pdMat`>", 1
-"nlme", "FUN", 0, 7, 5, "class<`pdIdent`, `pdMat`>", 1
-"nlme", "FUN", 0, 7, 6, "class<`pdMat`, `pdNatural`>", 1
-"nlme", "FUN", 0, 7, 7, "class<`reStruct`>", 1
-"nlme", "FUN", 1, 7, 0, "logical", 1
-"nlme", "FUN", -1, 8, 0, "double[]", 1
-"nlme", "FUN", 0, 8, 0, "class<`pdDiag`, `pdMat`>", 1
-"nlme", "FUN", 0, 8, 1, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 8, 2, "class<`corAR1`, `corStruct`>", 1
-"nlme", "FUN", 0, 8, 3, "class<`reStruct`>", 1
-"nlme", "FUN", 1, 8, 0, "...", 1
-"nlme", "FUN", -1, 9, 0, "logical", 1
-"nlme", "FUN", 0, 9, 0, "class<`corAR1`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 1, "class<`corARMA`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 2, "class<`corCAR1`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 3, "class<`corCompSymm`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 4, "class<`corExp`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 5, "class<`corGaus`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 6, "class<`corLin`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 7, "class<`corRatio`, `corSpatial`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 8, "class<`corSpatial`, `corSpher`, `corStruct`>", 1
-"nlme", "FUN", 0, 9, 9, "class<`corStruct`, `corSymm`>", 1
-"nlme", "FUN", 0, 9, 10, "class<`reStruct`>", 1
-"nlme", "FUN", 0, 9, 11, "class<`varFunc`, `varIdent`>", 1
-"nlme", "FUN", 0, 9, 12, "class<`varFunc`, `varPower`>", 1
-"nlme", "FUN", 0, 9, 13, "class<`glsStruct`, `gnlsStruct`, `modelStruct`>", 1
-"nlme", "FUN", 0, 9, 14, "class<`glsStruct`, `modelStruct`>", 1
-"nlme", "FUN", 0, 9, 15, "class<`lmeStruct`, `lmeStructInt`, `modelStruct`>", 1
-"nlme", "FUN", 0, 9, 16, "class<`lmeStruct`, `lmeStructInt`, `modelStruct`, `nlmeStruct`>", 1
-"nlme", "FUN", 0, 9, 17, "class<`lmeStruct`, `modelStruct`>", 1
-"nlme", "FUN", 0, 9, 18, "class<`lmeStruct`, `modelStruct`, `nlmeStruct`>", 1
-"nlme", "FUN", 0, 9, 19, "class<`varExp`, `varFunc`>", 1
-"nlme", "FUN", -1, 10, 0, "logical", 1
-"nlme", "FUN", 0, 10, 0, "class<`pdBlocked`, `pdMat`>", 1
-"nlme", "FUN", 0, 10, 1, "class<`pdCompSymm`, `pdMat`>", 1
-"nlme", "FUN", 0, 10, 2, "class<`pdDiag`, `pdMat`>", 1
-"nlme", "FUN", 0, 10, 3, "class<`pdIdent`, `pdMat`>", 1
-"nlme", "FUN", 0, 10, 4, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 10, 5, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 10, 6, "class<`pdMat`, `pdNatural`>", 1
-"nlme", "FUN", 0, 10, 7, "class<`reStruct`>", 1
-"nlme", "FUN", -1, 11, 0, "character[]", 1
-"nlme", "FUN", -1, 11, 1, "null", 1
-"nlme", "FUN", -1, 11, 2, "list<character[]>", 1
-"nlme", "FUN", 0, 11, 0, "class<`pdIdent`, `pdMat`>", 1
-"nlme", "FUN", 0, 11, 1, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 11, 2, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "FUN", 0, 11, 3, "class<`formula`>", 1
-"nlme", "FUN", 0, 11, 4, "class<`listForm`>", 1
-"nlme", "FUN", 0, 11, 5, "class<`pdBlocked`, `pdMat`>", 1
-"nlme", "FUN", 0, 11, 6, "class<`pdCompSymm`, `pdMat`>", 1
-"nlme", "FUN", 0, 11, 7, "class<`pdDiag`, `pdMat`>", 1
-"nlme", "FUN", 0, 11, 8, "class<`pdMat`, `pdNatural`>", 1
-"nlme", "FUN", 0, 11, 9, "class<`reStruct`>", 1
-"nlme", "FUN", 1, 11, 0, "...", 1
 "nlme", "gapply", -1, 0, 0, "integer[]", 1
 "nlme", "gapply", 0, 0, 0, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
 "nlme", "gapply", 1, 0, 0, "any", 1
@@ -1237,21 +1091,25 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "getGroups.varFunc", 3, 0, 0, "any", 1
 "nlme", "getGroups.varFunc", 4, 0, 0, "any", 1
 "nlme", "getParsGnls", -1, 0, 0, "class<`matrix`>", 1
-"nlme", "getParsGnls", 0, 0, 0, "list<class<`matrix`> | logical | logical>", 1
-"nlme", "getParsGnls", 1, 0, 0, "list<integer[] | double | double>", 1
+"nlme", "getParsGnls", 0, 0, 0, "list<class<`matrix`> | logical>", 1
+"nlme", "getParsGnls", 0, 0, 1, "list<logical>", 1
+"nlme", "getParsGnls", 1, 0, 0, "list<integer[] | double>", 1
+"nlme", "getParsGnls", 1, 0, 1, "list<double>", 1
 "nlme", "getParsGnls", 2, 0, 0, "double[]", 1
 "nlme", "getParsGnls", 3, 0, 0, "integer", 1
 "nlme", "getParsNlme", -1, 0, 0, "class<`matrix`>", 1
-"nlme", "getParsNlme", 0, 0, 0, "list<list<class<`matrix`> | list<logical> | logical | list<logical> | class<`matrix`> | list<logical> | logical | list<logical>>>", 1
-"nlme", "getParsNlme", 1, 0, 0, "list<integer[] | double | integer[] | double>", 1
+"nlme", "getParsNlme", 0, 0, 0, "list<list<class<`matrix`> | list<logical>>>", 1
+"nlme", "getParsNlme", 0, 0, 1, "list<list<logical | list<logical>>>", 1
+"nlme", "getParsNlme", 0, 0, 2, "list<list<class<`matrix`> | list<logical> | logical | list<logical>>>", 1
+"nlme", "getParsNlme", 1, 0, 0, "list<integer[]>", 1
+"nlme", "getParsNlme", 1, 0, 1, "list<double>", 1
+"nlme", "getParsNlme", 1, 0, 2, "list<integer[] | double>", 1
 "nlme", "getParsNlme", 2, 0, 0, "any", 1
 "nlme", "getParsNlme", 3, 0, 0, "any", 1
 "nlme", "getParsNlme", 4, 0, 0, "any", 1
 "nlme", "getParsNlme", 5, 0, 0, "double[]", 1
 "nlme", "getParsNlme", 6, 0, 0, "any", 1
 "nlme", "getParsNlme", 7, 0, 0, "any", 1
-"nlme", "getParsNlme", 8, 0, 0, "double", 1
-"nlme", "getParsNlme", 9, 0, 0, "integer", 1
 "nlme", "getResponse", -1, 0, 0, "^double[]", 1
 "nlme", "getResponse", 0, 0, 0, "class<`data.frame`>", 1
 "nlme", "getResponse", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nffGroupedData`>", 1
@@ -1314,7 +1172,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "gls", 5, 0, 0, "character[]", 1
 "nlme", "gls", 6, 0, 0, "class<`function`>", 1
 "nlme", "gls", 7, 0, 0, "any", 1
-"nlme", "gls", 8, 0, 0, "logical", 1
 "nlme", "glsApVar", -1, 0, 0, "class<`matrix`>", 1
 "nlme", "glsApVar", -1, 0, 1, "null", 1
 "nlme", "glsApVar", 0, 0, 0, "class<`glsStruct`, `modelStruct`>", 1
@@ -1332,14 +1189,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "glsControl", 5, 0, 0, "logical", 1
 "nlme", "glsControl", 6, 0, 0, "logical", 1
 "nlme", "glsControl", 7, 0, 0, "logical", 1
-"nlme", "glsControl", 8, 0, 0, "double", 1
-"nlme", "glsControl", 9, 0, 0, "character[]", 1
-"nlme", "glsControl", 10, 0, 0, "character", 1
-"nlme", "glsControl", 11, 0, 0, "double", 1
-"nlme", "glsControl", 12, 0, 0, "logical", 1
-"nlme", "glsControl", 13, 0, 0, "double", 1
-"nlme", "glsControl", 13, 0, 1, "null", 1
-"nlme", "glsEstimate", -1, 0, 0, "list<class<`logLik`> | double[] | class<`matrix`> | double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"nlme", "glsEstimate", -1, 0, 0, "list<class<`logLik`> | double[] | class<`matrix`>>", 1
+"nlme", "glsEstimate", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
+"nlme", "glsEstimate", -1, 0, 2, "list<class<`matrix`> | double[]>", 1
 "nlme", "glsEstimate", 0, 0, 0, "class<`glsStruct`, `modelStruct`>", 1
 "nlme", "glsEstimate", 1, 0, 0, "list<class<`matrix`> | double | list<integer>>", 1
 "nlme", "glsEstimate", 2, 0, 0, "list<logical>", 1
@@ -1364,9 +1216,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "gnls", 5, 0, 1, "null", 1
 "nlme", "gnls", 6, 0, 0, "any", 1
 "nlme", "gnls", 7, 0, 0, "class<`function`>", 1
-"nlme", "gnls", 8, 0, 0, "any", 1
-"nlme", "gnls", 9, 0, 0, "any", 1
-"nlme", "gnls", 10, 0, 0, "logical", 1
 "nlme", "gnlsApVar", -1, 0, 0, "class<`matrix`>", 1
 "nlme", "gnlsApVar", -1, 0, 1, "null", 1
 "nlme", "gnlsApVar", 0, 0, 0, "class<`glsStruct`, `gnlsStruct`, `modelStruct`>", 1
@@ -1384,14 +1233,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "gnlsControl", 5, 0, 0, "double", 1
 "nlme", "gnlsControl", 6, 0, 0, "double", 1
 "nlme", "gnlsControl", 7, 0, 0, "logical", 1
-"nlme", "gnlsControl", 8, 0, 0, "logical", 1
-"nlme", "gnlsControl", 9, 0, 0, "logical", 1
-"nlme", "gnlsControl", 10, 0, 0, "double", 1
-"nlme", "gnlsControl", 11, 0, 0, "character[]", 1
-"nlme", "gnlsControl", 12, 0, 0, "character", 1
-"nlme", "gnlsControl", 13, 0, 0, "double", 1
-"nlme", "gnlsControl", 14, 0, 0, "double", 1
-"nlme", "gnlsControl", 14, 0, 1, "null", 1
 "nlme", "gnlsStruct", -1, 0, 0, "class<`glsStruct`, `gnlsStruct`, `modelStruct`>", 1
 "nlme", "gnlsStruct", 0, 0, 0, "class<`corAR1`, `corStruct`>", 1
 "nlme", "gnlsStruct", 0, 0, 1, "null", 1
@@ -1657,9 +1498,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "lme", 5, 0, 0, "any", 1
 "nlme", "lme", 6, 0, 0, "any", 1
 "nlme", "lme", 7, 0, 0, "any", 1
-"nlme", "lme", 8, 0, 0, "any", 1
-"nlme", "lme", 9, 0, 0, "null", 1
-"nlme", "lme", 10, 0, 0, "logical", 1
 "nlme", "lmeApVar", -1, 0, 0, "character", 1
 "nlme", "lmeApVar", -1, 0, 1, "class<`matrix`>", 1
 "nlme", "lmeApVar", 0, 0, 0, "class<`lmeStruct`, `lmeStructInt`, `modelStruct`>", 1
@@ -1680,17 +1518,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "lmeControl", 5, 0, 0, "double", 1
 "nlme", "lmeControl", 6, 0, 0, "logical", 1
 "nlme", "lmeControl", 7, 0, 0, "logical", 1
-"nlme", "lmeControl", 8, 0, 0, "logical", 1
-"nlme", "lmeControl", 9, 0, 0, "logical", 1
-"nlme", "lmeControl", 10, 0, 0, "double", 1
-"nlme", "lmeControl", 11, 0, 0, "double", 1
-"nlme", "lmeControl", 12, 0, 0, "character[]", 1
-"nlme", "lmeControl", 13, 0, 0, "character", 1
-"nlme", "lmeControl", 14, 0, 0, "logical", 1
-"nlme", "lmeControl", 15, 0, 0, "double", 1
-"nlme", "lmeControl", 15, 0, 1, "null", 1
-"nlme", "lmeControl", 16, 0, 0, "logical", 1
-"nlme", "lmeControl", 17, 0, 0, "...", 1
 "nlme", "lme.formula", -1, 0, 0, "any", 1
 "nlme", "lme.formula", 0, 0, 0, "class<`formula`>", 1
 "nlme", "lme.formula", 1, 0, 0, "class<`data.frame`>", 1
@@ -1702,8 +1529,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "lme.formula", 2, 0, 2, "class<`pdCompSymm`, `pdMat`>", 1
 "nlme", "lme.formula", 2, 0, 3, "class<`pdDiag`, `pdMat`>", 1
 "nlme", "lme.formula", 2, 0, 4, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "lme.formula", 2, 0, 5, "class<`reStruct`>", 1
-"nlme", "lme.formula", 2, 0, 6, "list<class<`formula`> | class<`pdDiag`, `pdMat`>>", 1
+"nlme", "lme.formula", 2, 0, 5, "list<class<`formula`>>", 1
+"nlme", "lme.formula", 2, 0, 6, "list<class<`pdDiag`, `pdMat`>>", 1
+"nlme", "lme.formula", 2, 0, 7, "class<`reStruct`>", 1
 "nlme", "lme.formula", 3, 0, 0, "null", 1
 "nlme", "lme.formula", 3, 0, 1, "class<`corAR1`, `corStruct`>", 1
 "nlme", "lme.formula", 3, 0, 2, "class<`corARMA`, `corStruct`>", 1
@@ -1719,9 +1547,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "lme.formula", 5, 0, 0, "any", 1
 "nlme", "lme.formula", 6, 0, 0, "character[]", 1
 "nlme", "lme.formula", 7, 0, 0, "class<`function`>", 1
-"nlme", "lme.formula", 8, 0, 0, "any", 1
-"nlme", "lme.formula", 9, 0, 0, "null", 1
-"nlme", "lme.formula", 10, 0, 0, "logical", 1
 "nlme", "lme.groupedData", -1, 0, 0, "class<`lme`>", 1
 "nlme", "lme.groupedData", 0, 0, 0, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
 "nlme", "lme.groupedData", 1, 0, 0, "any", 1
@@ -1731,9 +1556,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "lme.groupedData", 5, 0, 0, "any", 1
 "nlme", "lme.groupedData", 6, 0, 0, "any", 1
 "nlme", "lme.groupedData", 7, 0, 0, "any", 1
-"nlme", "lme.groupedData", 8, 0, 0, "any", 1
-"nlme", "lme.groupedData", 9, 0, 0, "null", 1
-"nlme", "lme.groupedData", 10, 0, 0, "logical", 1
 "nlme", "lme.lmList", -1, 0, 0, "class<`lme`>", 1
 "nlme", "lme.lmList", 0, 0, 0, "class<`lmList`>", 1
 "nlme", "lme.lmList", 1, 0, 0, "any", 1
@@ -1743,9 +1565,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "lme.lmList", 5, 0, 0, "any", 1
 "nlme", "lme.lmList", 6, 0, 0, "any", 1
 "nlme", "lme.lmList", 7, 0, 0, "any", 1
-"nlme", "lme.lmList", 8, 0, 0, "any", 1
-"nlme", "lme.lmList", 9, 0, 0, "null", 1
-"nlme", "lme.lmList", 10, 0, 0, "logical", 1
 "nlme", "lmeStruct", -1, 0, 0, "class<`lmeStruct`, `modelStruct`>", 1
 "nlme", "lmeStruct", 0, 0, 0, "class<`reStruct`>", 1
 "nlme", "lmeStruct", 1, 0, 0, "null", 1
@@ -1898,7 +1717,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "matrix<-.reStruct", 1, 0, 1, "list<class<`matrix`> | double>", 1
 "nlme", "MEdecomp", -1, 0, 0, "list<class<`matrix`> | double | list<double[] | list<double[]>>>", 1
 "nlme", "MEdecomp", 0, 0, 0, "list<class<`matrix`> | double | list<double[] | list<double[]>>>", 1
-"nlme", "MEdims", -1, 0, 0, "list<double[] | list<double[]> | double[] | list<double>>", 1
+"nlme", "MEdims", -1, 0, 0, "list<double[] | list<double[]>>", 1
+"nlme", "MEdims", -1, 0, 1, "list<double[] | list<double>>", 1
 "nlme", "MEdims", 0, 0, 0, "class<`data.frame`>", 1
 "nlme", "MEdims", 1, 0, 0, "double[]", 1
 "nlme", "MEEM", -1, 0, 0, "class<`reStruct`>", 1
@@ -1920,8 +1740,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "model.matrix.reStruct", 2, 0, 0, "null", 1
 "nlme", "model.matrix.reStruct", 3, 0, 0, "...", 1
 "nlme", "Names", -1, 0, 0, "character[]", 1
-"nlme", "Names", -1, 0, 1, "null", 1
-"nlme", "Names", -1, 0, 2, "list<character[]>", 1
+"nlme", "Names", -1, 0, 1, "list<character[]>", 1
+"nlme", "Names", -1, 0, 2, "null", 1
 "nlme", "Names", 0, 0, 0, "class<`pdIdent`, `pdMat`>", 1
 "nlme", "Names", 0, 0, 1, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
 "nlme", "Names", 0, 0, 2, "class<`pdMat`, `pdSymm`>", 1
@@ -1954,10 +1774,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "Names.formula", 1, 0, 0, "class<`data.frame`>", 1
 "nlme", "Names.formula", 1, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
 "nlme", "Names.formula", 1, 0, 2, "class<`data.frame`, `groupedData`, `nmGroupedData`>", 1
-"nlme", "Names.formula", 1, 0, 3, "environment", 1
-"nlme", "Names.formula", 1, 0, 4, "integer", 1
-"nlme", "Names.formula", 1, 0, 5, "null", 1
-"nlme", "Names.formula", 1, 0, 6, "list<any>", 1
+"nlme", "Names.formula", 1, 0, 3, "list<any>", 1
+"nlme", "Names.formula", 1, 0, 4, "environment", 1
+"nlme", "Names.formula", 1, 0, 5, "integer", 1
+"nlme", "Names.formula", 1, 0, 6, "null", 1
 "nlme", "Names.formula", 2, 0, 0, "any", 1
 "nlme", "Names.formula", 3, 0, 0, "...", 1
 "nlme", "Names.listForm", -1, 0, 0, "character[]", 1
@@ -1974,8 +1794,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "Names<-.pdBlocked", 1, 0, 0, "...", 1
 "nlme", "Names<-.pdBlocked", 2, 0, 0, "character[]", 1
 "nlme", "Names.pdBlocked", -1, 0, 0, "character[]", 1
-"nlme", "Names.pdBlocked", -1, 0, 1, "null", 1
-"nlme", "Names.pdBlocked", -1, 0, 2, "list<character[]>", 1
+"nlme", "Names.pdBlocked", -1, 0, 1, "list<character[]>", 1
+"nlme", "Names.pdBlocked", -1, 0, 2, "null", 1
 "nlme", "Names.pdBlocked", 0, 0, 0, "class<`pdBlocked`, `pdMat`>", 1
 "nlme", "Names.pdBlocked", 1, 0, 0, "logical", 1
 "nlme", "Names.pdBlocked", 2, 0, 0, "...", 1
@@ -2094,12 +1914,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "nlme", 5, 0, 0, "any", 1
 "nlme", "nlme", 6, 0, 0, "null", 1
 "nlme", "nlme", 7, 0, 0, "null", 1
-"nlme", "nlme", 8, 0, 0, "any", 1
-"nlme", "nlme", 9, 0, 0, "any", 1
-"nlme", "nlme", 10, 0, 0, "any", 1
-"nlme", "nlme", 11, 0, 0, "any", 1
-"nlme", "nlme", 12, 0, 0, "any", 1
-"nlme", "nlme", 13, 0, 0, "logical", 1
 "nlme", "nlmeControl", -1, 0, 0, "list<double | character>", 1
 "nlme", "nlmeControl", 0, 0, 0, "double", 1
 "nlme", "nlmeControl", 1, 0, 0, "double", 1
@@ -2109,18 +1923,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "nlmeControl", 5, 0, 0, "double", 1
 "nlme", "nlmeControl", 6, 0, 0, "double", 1
 "nlme", "nlmeControl", 7, 0, 0, "double", 1
-"nlme", "nlmeControl", 8, 0, 0, "logical", 1
-"nlme", "nlmeControl", 9, 0, 0, "logical", 1
-"nlme", "nlmeControl", 10, 0, 0, "logical", 1
-"nlme", "nlmeControl", 11, 0, 0, "logical", 1
-"nlme", "nlmeControl", 12, 0, 0, "logical", 1
-"nlme", "nlmeControl", 13, 0, 0, "double", 1
-"nlme", "nlmeControl", 14, 0, 0, "double", 1
-"nlme", "nlmeControl", 15, 0, 0, "character[]", 1
-"nlme", "nlmeControl", 16, 0, 0, "logical", 1
-"nlme", "nlmeControl", 17, 0, 0, "double", 1
-"nlme", "nlmeControl", 17, 0, 1, "null", 1
-"nlme", "nlmeControl", 18, 0, 0, "...", 1
 "nlme", "nlme.formula", -1, 0, 0, "class<`lme`, `nlme`>", 1
 "nlme", "nlme.formula", 0, 0, 0, "class<`formula`>", 1
 "nlme", "nlme.formula", 1, 0, 0, "class<`data.frame`>", 1
@@ -2134,12 +1936,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "nlme.formula", 6, 0, 1, "class<`corAR1`, `corStruct`>", 1
 "nlme", "nlme.formula", 6, 0, 2, "class<`corARMA`, `corStruct`>", 1
 "nlme", "nlme.formula", 7, 0, 0, "null", 1
-"nlme", "nlme.formula", 8, 0, 0, "any", 1
-"nlme", "nlme.formula", 9, 0, 0, "character[]", 1
-"nlme", "nlme.formula", 10, 0, 0, "any", 1
-"nlme", "nlme.formula", 11, 0, 0, "any", 1
-"nlme", "nlme.formula", 12, 0, 0, "any", 1
-"nlme", "nlme.formula", 13, 0, 0, "logical", 1
 "nlme", "nlme.nlsList", -1, 0, 0, "class<`lme`, `nlme`>", 1
 "nlme", "nlme.nlsList", 0, 0, 0, "class<`lmList`, `nlsList`>", 1
 "nlme", "nlme.nlsList", 1, 0, 0, "any", 1
@@ -2149,12 +1945,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "nlme.nlsList", 5, 0, 0, "any", 1
 "nlme", "nlme.nlsList", 6, 0, 0, "null", 1
 "nlme", "nlme.nlsList", 7, 0, 0, "null", 1
-"nlme", "nlme.nlsList", 8, 0, 0, "any", 1
-"nlme", "nlme.nlsList", 9, 0, 0, "character[]", 1
-"nlme", "nlme.nlsList", 10, 0, 0, "any", 1
-"nlme", "nlme.nlsList", 11, 0, 0, "any", 1
-"nlme", "nlme.nlsList", 12, 0, 0, "list<any>", 1
-"nlme", "nlme.nlsList", 13, 0, 0, "logical", 1
 "nlme", "nlmeStruct", -1, 0, 0, "class<`lmeStruct`, `modelStruct`, `nlmeStruct`>", 1
 "nlme", "nlmeStruct", 0, 0, 0, "class<`reStruct`>", 1
 "nlme", "nlmeStruct", 1, 0, 0, "null", 1
@@ -2172,7 +1962,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "nlsList", 5, 0, 0, "any", 1
 "nlme", "nlsList", 6, 0, 0, "any", 1
 "nlme", "nlsList", 7, 0, 0, "logical", 1
-"nlme", "nlsList", 8, 0, 0, "null", 1
 "nlme", "nlsList.formula", -1, 0, 0, "class<`lmList`, `nlsList`>", 1
 "nlme", "nlsList.formula", 0, 0, 0, "class<`formula`>", 1
 "nlme", "nlsList.formula", 1, 0, 0, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
@@ -2183,7 +1972,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "nlsList.formula", 5, 0, 0, "any", 1
 "nlme", "nlsList.formula", 6, 0, 0, "class<`function`>", 1
 "nlme", "nlsList.formula", 7, 0, 0, "logical", 1
-"nlme", "nlsList.formula", 8, 0, 0, "null", 1
 "nlme", "nlsList.selfStart", -1, 0, 0, "class<`lmList`, `nlsList`>", 1
 "nlme", "nlsList.selfStart", 0, 0, 0, "class<`selfStart`>", 1
 "nlme", "nlsList.selfStart", 1, 0, 0, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
@@ -2193,7 +1981,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "nlsList.selfStart", 5, 0, 0, "any", 1
 "nlme", "nlsList.selfStart", 6, 0, 0, "any", 1
 "nlme", "nlsList.selfStart", 7, 0, 0, "logical", 1
-"nlme", "nlsList.selfStart", 8, 0, 0, "null", 1
 "nlme", "nobs.gls", -1, 0, 0, "integer", 1
 "nlme", "nobs.gls", 0, 0, 0, "class<`gls`>", 1
 "nlme", "nobs.gls", 0, 0, 1, "class<`lme`>", 1
@@ -2230,7 +2017,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "pairs.lmList", 5, 0, 0, "logical", 1
 "nlme", "pairs.lmList", 6, 0, 0, "...", 1
 "nlme", "pdBlocked", -1, 0, 0, "class<`pdBlocked`, `pdMat`>", 1
-"nlme", "pdBlocked", 0, 0, 0, "list<any>", 1
+"nlme", "pdBlocked", 0, 0, 0, "list<class<`formula`>>", 1
+"nlme", "pdBlocked", 0, 0, 1, "list<class<`pdIdent`, `pdMat`>>", 1
+"nlme", "pdBlocked", 0, 0, 2, "list<character[]>", 1
+"nlme", "pdBlocked", 0, 0, 3, "list<class<`matrix`>>", 1
 "nlme", "pdBlocked", 1, 0, 0, "null", 1
 "nlme", "pdBlocked", 2, 0, 0, "null", 1
 "nlme", "pdBlocked", 2, 0, 1, "list<character[]>", 1
@@ -2268,7 +2058,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "pdConstruct.pdBlocked", 0, 0, 0, "class<`pdBlocked`, `pdMat`>", 1
 "nlme", "pdConstruct.pdBlocked", 1, 0, 0, "class<`pdBlocked`, `pdMat`>", 1
 "nlme", "pdConstruct.pdBlocked", 1, 0, 1, "double[]", 1
-"nlme", "pdConstruct.pdBlocked", 1, 0, 2, "list<any>", 1
+"nlme", "pdConstruct.pdBlocked", 1, 0, 2, "list<class<`formula`>>", 1
+"nlme", "pdConstruct.pdBlocked", 1, 0, 3, "list<class<`pdIdent`, `pdMat`>>", 1
+"nlme", "pdConstruct.pdBlocked", 1, 0, 4, "list<character[]>", 1
+"nlme", "pdConstruct.pdBlocked", 1, 0, 5, "list<class<`matrix`>>", 1
 "nlme", "pdConstruct.pdBlocked", 2, 0, 0, "null", 1
 "nlme", "pdConstruct.pdBlocked", 2, 0, 1, "list<class<`formula`>>", 1
 "nlme", "pdConstruct.pdBlocked", 3, 0, 0, "null", 1
@@ -2301,10 +2094,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "pdConstruct.pdLogChol", 0, 0, 0, "class<`pdLogChol`, `pdMat`>", 1
 "nlme", "pdConstruct.pdLogChol", 0, 0, 1, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
 "nlme", "pdConstruct.pdLogChol", 1, 0, 0, "class<`formula`>", 1
-"nlme", "pdConstruct.pdLogChol", 1, 0, 1, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "pdConstruct.pdLogChol", 1, 0, 2, "double[]", 1
-"nlme", "pdConstruct.pdLogChol", 1, 0, 3, "class<`matrix`>", 1
-"nlme", "pdConstruct.pdLogChol", 1, 0, 4, "list<class<`formula`>>", 1
+"nlme", "pdConstruct.pdLogChol", 1, 0, 1, "list<class<`formula`>>", 1
+"nlme", "pdConstruct.pdLogChol", 1, 0, 2, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
+"nlme", "pdConstruct.pdLogChol", 1, 0, 3, "double[]", 1
+"nlme", "pdConstruct.pdLogChol", 1, 0, 4, "class<`matrix`>", 1
 "nlme", "pdConstruct.pdLogChol", 2, 0, 0, "null", 1
 "nlme", "pdConstruct.pdLogChol", 2, 0, 1, "class<`formula`>", 1
 "nlme", "pdConstruct.pdLogChol", 2, 0, 2, "class<`listForm`>", 1
@@ -2323,14 +2116,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "pdConstruct.pdMat", 0, 0, 0, "any", 1
 "nlme", "pdConstruct.pdMat", 1, 0, 0, "class<`matrix`>", 1
 "nlme", "pdConstruct.pdMat", 1, 0, 1, "class<`formula`>", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 2, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 3, "double[]", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 4, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 5, "class<`pdCompSymm`, `pdMat`>", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 6, "class<`pdDiag`, `pdMat`>", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 7, "class<`pdIdent`, `pdMat`>", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 8, "character[]", 1
-"nlme", "pdConstruct.pdMat", 1, 0, 9, "list<class<`formula`>>", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 2, "list<class<`formula`>>", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 3, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 4, "double[]", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 5, "class<`pdMat`, `pdSymm`>", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 6, "class<`pdCompSymm`, `pdMat`>", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 7, "class<`pdDiag`, `pdMat`>", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 8, "class<`pdIdent`, `pdMat`>", 1
+"nlme", "pdConstruct.pdMat", 1, 0, 9, "character[]", 1
 "nlme", "pdConstruct.pdMat", 2, 0, 0, "null", 1
 "nlme", "pdConstruct.pdMat", 2, 0, 1, "class<`formula`>", 1
 "nlme", "pdConstruct.pdMat", 2, 0, 2, "class<`listForm`>", 1
@@ -2416,9 +2209,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "pdMat", 0, 0, 5, "double[]", 1
 "nlme", "pdMat", 0, 0, 6, "class<`formula`>", 1
 "nlme", "pdMat", 0, 0, 7, "class<`pdLogChol`, `pdMat`, `pdSymm`>", 1
-"nlme", "pdMat", 0, 0, 8, "character[]", 1
-"nlme", "pdMat", 0, 0, 9, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "pdMat", 0, 0, 10, "list<class<`formula`>>", 1
+"nlme", "pdMat", 0, 0, 8, "list<class<`formula`>>", 1
+"nlme", "pdMat", 0, 0, 9, "character[]", 1
+"nlme", "pdMat", 0, 0, 10, "class<`pdMat`, `pdSymm`>", 1
 "nlme", "pdMat", 1, 0, 0, "null", 1
 "nlme", "pdMat", 1, 0, 1, "class<`formula`>", 1
 "nlme", "pdMat", 2, 0, 0, "null", 1
@@ -2552,9 +2345,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "plot.nffGroupedData", 5, 0, 0, "character", 1
 "nlme", "plot.nffGroupedData", 6, 0, 0, "class<`function`>", 1
 "nlme", "plot.nffGroupedData", 7, 0, 0, "class<`function`>", 1
-"nlme", "plot.nffGroupedData", 8, 0, 0, "logical", 1
-"nlme", "plot.nffGroupedData", 9, 0, 0, "any", 1
-"nlme", "plot.nffGroupedData", 10, 0, 0, "...", 1
 "nlme", "plot.nfnGroupedData", -1, 0, 0, "class<`trellis`>", 1
 "nlme", "plot.nfnGroupedData", 0, 0, 0, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
 "nlme", "plot.nfnGroupedData", 1, 0, 0, "null", 1
@@ -2567,10 +2357,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "plot.nfnGroupedData", 5, 0, 0, "character", 1
 "nlme", "plot.nfnGroupedData", 6, 0, 0, "class<`function`>", 1
 "nlme", "plot.nfnGroupedData", 7, 0, 0, "character", 1
-"nlme", "plot.nfnGroupedData", 8, 0, 0, "class<`function`>", 1
-"nlme", "plot.nfnGroupedData", 9, 0, 0, "logical", 1
-"nlme", "plot.nfnGroupedData", 10, 0, 0, "logical", 1
-"nlme", "plot.nfnGroupedData", 11, 0, 0, "...", 1
 "nlme", "plot.nmGroupedData", -1, 0, 0, "class<`trellis`>", 1
 "nlme", "plot.nmGroupedData", 0, 0, 0, "class<`data.frame`, `groupedData`, `nmGroupedData`>", 1
 "nlme", "plot.nmGroupedData", 1, 0, 0, "character", 1
@@ -2583,9 +2369,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "plot.nmGroupedData", 5, 0, 1, "null", 1
 "nlme", "plot.nmGroupedData", 6, 0, 0, "any", 1
 "nlme", "plot.nmGroupedData", 7, 0, 0, "null", 1
-"nlme", "plot.nmGroupedData", 8, 0, 0, "logical", 1
-"nlme", "plot.nmGroupedData", 9, 0, 0, "logical", 1
-"nlme", "plot.nmGroupedData", 10, 0, 0, "...", 1
 "nlme", "plot.ranef.lme", -1, 0, 0, "class<`trellis`>", 1
 "nlme", "plot.ranef.lme", 0, 0, 0, "class<`data.frame`, `ranef.lmList`>", 1
 "nlme", "plot.ranef.lme", 0, 0, 1, "class<`data.frame`, `ranef.lme`>", 1
@@ -2599,8 +2382,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "plot.ranef.lme", 6, 0, 1, "character", 1
 "nlme", "plot.ranef.lme", 7, 0, 0, "null", 1
 "nlme", "plot.ranef.lme", 7, 0, 1, "character", 1
-"nlme", "plot.ranef.lme", 8, 0, 0, "null", 1
-"nlme", "plot.ranef.lme", 9, 0, 0, "...", 1
 "nlme", "plot.ranef.lmList", -1, 0, 0, "class<`trellis`>", 1
 "nlme", "plot.ranef.lmList", 0, 0, 0, "class<`data.frame`, `ranef.lmList`>", 1
 "nlme", "plot.ranef.lmList", 1, 0, 0, "class<`formula`>", 1
@@ -2617,9 +2398,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "plot.Variogram", 5, 0, 0, "character", 1
 "nlme", "plot.Variogram", 6, 0, 0, "character", 1
 "nlme", "plot.Variogram", 7, 0, 0, "character", 1
-"nlme", "plot.Variogram", 8, 0, 0, "any", 1
-"nlme", "plot.Variogram", 9, 0, 0, "logical", 1
-"nlme", "plot.Variogram", 10, 0, 0, "...", 1
 "nlme", "pooledSD", -1, 0, 0, "double", 1
 "nlme", "pooledSD", 0, 0, 0, "class<`lmList`>", 1
 "nlme", "pooledSD", 0, 0, 1, "class<`lmList`, `nlsList`>", 1
@@ -2712,8 +2490,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "ranef.lme", 5, 0, 0, "any", 1
 "nlme", "ranef.lme", 6, 0, 0, "logical", 1
 "nlme", "ranef.lme", 7, 0, 0, "logical", 1
-"nlme", "ranef.lme", 8, 0, 0, "null", 1
-"nlme", "ranef.lme", 9, 0, 0, "...", 1
 "nlme", "ranef.lmList", -1, 0, 0, "class<`data.frame`, `ranef.lmList`>", 1
 "nlme", "ranef.lmList", 0, 0, 0, "class<`lmList`>", 1
 "nlme", "ranef.lmList", 1, 0, 0, "logical", 1
@@ -2785,7 +2561,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "recalc.modelStruct", 0, 0, 3, "class<`lmeStruct`, `lmeStructInt`, `modelStruct`, `nlmeStruct`>", 1
 "nlme", "recalc.modelStruct", 0, 0, 4, "class<`lmeStruct`, `modelStruct`, `nlmeStruct`>", 1
 "nlme", "recalc.modelStruct", 0, 0, 5, "class<`glsStruct`, `gnlsStruct`, `modelStruct`>", 1
-"nlme", "recalc.modelStruct", 1, 0, 0, "list<class<`matrix`> | double | list<integer> | class<`matrix`> | double | list<double[] | list<double[]>>>", 1
+"nlme", "recalc.modelStruct", 1, 0, 0, "list<class<`matrix`> | double | list<integer>>", 1
+"nlme", "recalc.modelStruct", 1, 0, 1, "list<class<`matrix`> | double | list<double[] | list<double[]>>>", 1
 "nlme", "recalc.modelStruct", 2, 0, 0, "...", 1
 "nlme", "recalc.reStruct", -1, 0, 0, "list<any>", 1
 "nlme", "recalc.reStruct", 0, 0, 0, "class<`reStruct`>", 1
@@ -2794,11 +2571,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "recalc.varFunc", -1, 0, 0, "list<any>", 1
 "nlme", "recalc.varFunc", 0, 0, 0, "class<`varFunc`, `varIdent`>", 1
 "nlme", "recalc.varFunc", 0, 0, 1, "class<`varFunc`, `varPower`>", 1
-"nlme", "recalc.varFunc", 1, 0, 0, "list<class<`matrix`> | double | list<integer> | class<`matrix`> | double | list<double[] | list<double[]>>>", 1
+"nlme", "recalc.varFunc", 1, 0, 0, "list<class<`matrix`> | double | list<integer>>", 1
+"nlme", "recalc.varFunc", 1, 0, 1, "list<class<`matrix`> | double | list<double[] | list<double[]>>>", 1
 "nlme", "recalc.varFunc", 2, 0, 0, "...", 1
 "nlme", "recalc.varIdent", -1, 0, 0, "list<any>", 1
 "nlme", "recalc.varIdent", 0, 0, 0, "class<`varFunc`, `varIdent`>", 1
-"nlme", "recalc.varIdent", 1, 0, 0, "list<class<`matrix`> | double | list<integer> | class<`matrix`> | double | list<double[] | list<double[]>>>", 1
+"nlme", "recalc.varIdent", 1, 0, 0, "list<class<`matrix`> | double | list<integer>>", 1
+"nlme", "recalc.varIdent", 1, 0, 1, "list<class<`matrix`> | double | list<double[] | list<double[]>>>", 1
 "nlme", "recalc.varIdent", 2, 0, 0, "...", 1
 "nlme", "residuals.gls", -1, 0, 0, "^double[]", 1
 "nlme", "residuals.gls", 0, 0, 0, "class<`gls`>", 1
@@ -2838,11 +2617,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "reStruct", -1, 0, 0, "class<`reStruct`>", 1
 "nlme", "reStruct", 0, 0, 0, "class<`formula`>", 1
 "nlme", "reStruct", 0, 0, 1, "class<`reStruct`>", 1
-"nlme", "reStruct", 0, 0, 2, "class<`pdBlocked`, `pdMat`>", 1
-"nlme", "reStruct", 0, 0, 3, "class<`pdCompSymm`, `pdMat`>", 1
-"nlme", "reStruct", 0, 0, 4, "class<`pdDiag`, `pdMat`>", 1
-"nlme", "reStruct", 0, 0, 5, "class<`pdMat`, `pdSymm`>", 1
-"nlme", "reStruct", 0, 0, 6, "list<any>", 1
+"nlme", "reStruct", 0, 0, 2, "list<class<`formula`>>", 1
+"nlme", "reStruct", 0, 0, 3, "list<class<`pdDiag`, `pdMat`> | class<`formula`>>", 1
+"nlme", "reStruct", 0, 0, 4, "list<class<`pdDiag`, `pdMat`>>", 1
+"nlme", "reStruct", 0, 0, 5, "list<class<`pdMat`, `pdSymm`> | class<`pdDiag`, `pdMat`>>", 1
+"nlme", "reStruct", 0, 0, 6, "class<`pdBlocked`, `pdMat`>", 1
+"nlme", "reStruct", 0, 0, 7, "class<`pdCompSymm`, `pdMat`>", 1
+"nlme", "reStruct", 0, 0, 8, "class<`pdDiag`, `pdMat`>", 1
+"nlme", "reStruct", 0, 0, 9, "class<`pdMat`, `pdSymm`>", 1
 "nlme", "reStruct", 1, 0, 0, "character", 1
 "nlme", "reStruct", 2, 0, 0, "logical", 1
 "nlme", "reStruct", 3, 0, 0, "null", 1
@@ -2863,8 +2645,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "sigma.lme", 0, 0, 2, "class<`lme`, `nlme`>", 1
 "nlme", "sigma.lme", 1, 0, 0, "...", 1
 "nlme", "simulate.lme", -1, 0, 0, "class<`simulate.lme`>", 1
-"nlme", "simulate.lme", 0, 0, 0, "class<`lme`>", 1
-"nlme", "simulate.lme", 0, 0, 1, "list<class<`formula`> | class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>>", 1
+"nlme", "simulate.lme", 0, 0, 0, "list<class<`formula`> | class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>>", 1
+"nlme", "simulate.lme", 0, 0, 1, "class<`lme`>", 1
 "nlme", "simulate.lme", 1, 0, 0, "double", 1
 "nlme", "simulate.lme", 2, 0, 0, "double", 1
 "nlme", "simulate.lme", 3, 0, 0, "any", 1
@@ -3022,8 +2804,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "update.groupedData", 5, 0, 0, "any", 1
 "nlme", "update.groupedData", 6, 0, 0, "any", 1
 "nlme", "update.groupedData", 7, 0, 0, "any", 1
-"nlme", "update.groupedData", 8, 0, 0, "any", 1
-"nlme", "update.groupedData", 9, 0, 0, "...", 1
 "nlme", "update.lme", -1, 0, 0, "class<`call`>", 1
 "nlme", "update.lme", -1, 0, 1, "class<`lme`>", 1
 "nlme", "update.lme", 0, 0, 0, "class<`lme`>", 1
@@ -3164,12 +2944,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "Variogram.gls", 5, 0, 0, "class<`function`>", 1
 "nlme", "Variogram.gls", 6, 0, 0, "any", 1
 "nlme", "Variogram.gls", 7, 0, 0, "double", 1
-"nlme", "Variogram.gls", 8, 0, 0, "character[]", 1
-"nlme", "Variogram.gls", 9, 0, 0, "double", 1
-"nlme", "Variogram.gls", 10, 0, 0, "any", 1
-"nlme", "Variogram.gls", 11, 0, 0, "logical", 1
-"nlme", "Variogram.gls", 12, 0, 0, "character[]", 1
-"nlme", "Variogram.gls", 13, 0, 0, "...", 1
 "nlme", "Variogram.lme", -1, 0, 0, "class<`Variogram`, `data.frame`>", 1
 "nlme", "Variogram.lme", 0, 0, 0, "class<`lme`>", 1
 "nlme", "Variogram.lme", 1, 0, 0, "any", 1
@@ -3179,12 +2953,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nlme", "Variogram.lme", 5, 0, 0, "class<`function`>", 1
 "nlme", "Variogram.lme", 6, 0, 0, "any", 1
 "nlme", "Variogram.lme", 7, 0, 0, "double", 1
-"nlme", "Variogram.lme", 8, 0, 0, "character[]", 1
-"nlme", "Variogram.lme", 9, 0, 0, "double", 1
-"nlme", "Variogram.lme", 10, 0, 0, "any", 1
-"nlme", "Variogram.lme", 11, 0, 0, "logical", 1
-"nlme", "Variogram.lme", 12, 0, 0, "character[]", 1
-"nlme", "Variogram.lme", 13, 0, 0, "...", 1
 "nlme", "varPower", -1, 0, 0, "class<`varFunc`, `varPower`>", 1
 "nlme", "varPower", 0, 0, 0, "double[]", 1
 "nlme", "varPower", 1, 0, 0, "class<`formula`>", 1

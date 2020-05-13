@@ -233,7 +233,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "formattable", "+.formattable", 1, 0, 1, "class<`formattable`, `numeric`>", 1
 "formattable", "format_table", -1, 0, 0, "class<`knitr_kable`>", 1
 "formattable", "format_table", 0, 0, 0, "class<`data.frame`>", 1
-"formattable", "format_table", 1, 0, 0, "list<class<`formula`> | class<`formatter`, `function`> | logical>", 1
+"formattable", "format_table", 1, 0, 0, "list<class<`formula`>>", 1
+"formattable", "format_table", 1, 0, 1, "list<class<`formatter`, `function`>>", 1
+"formattable", "format_table", 1, 0, 2, "list<logical>", 1
 "formattable", "format_table", 2, 0, 0, "character[]", 1
 "formattable", "format_table", 3, 0, 0, "character", 1
 "formattable", "format_table", 4, 0, 0, "...", 1
@@ -282,9 +284,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "formattable", "formattable.numeric", 3, 0, 0, "character", 1
 "formattable", "formattable.numeric", 3, 0, 1, "null", 1
 "formattable", "formattable.numeric", 4, 0, 0, "character", 1
-"formattable", "formattable.numeric", 4, 0, 1, "class<`function`>", 1
-"formattable", "formattable.numeric", 4, 0, 2, "null", 1
-"formattable", "formattable.numeric", 4, 0, 3, "list<class<`function`>>", 1
+"formattable", "formattable.numeric", 4, 0, 1, "list<class<`function`>>", 1
+"formattable", "formattable.numeric", 4, 0, 2, "class<`function`>", 1
+"formattable", "formattable.numeric", 4, 0, 3, "null", 1
 "formattable", "formattable.POSIXct", -1, 0, 0, "class<`POSIXct`, `POSIXt`, `formattable`>", 1
 "formattable", "formattable.POSIXct", 0, 0, 0, "class<`POSIXct`, `POSIXt`>", 1
 "formattable", "formattable.POSIXct", 1, 0, 0, "...", 1
@@ -294,10 +296,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "formattable", "formatter", -1, 0, 0, "class<`formatter`, `function`>", 1
 "formattable", "formatter", 0, 0, 0, "character", 1
 "formattable", "formatter", 1, 0, 0, "...", 1
-"formattable", "FUN", -1, 0, 0, "logical", 1
-"formattable", "FUN", 0, 0, 0, "class<`formatter`, `function`>", 1
-"formattable", "FUN", 0, 0, 1, "class<`formula`>", 1
-"formattable", "FUN", 0, 0, 2, "logical", 1
 "formattable", "get_digits", -1, 0, 0, "integer[]", 1
 "formattable", "get_digits", 0, 0, 0, "character[]", 1
 "formattable", "get_false_entries", -1, 0, 0, "character[]", 1
@@ -315,9 +313,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "formattable", "icontext", -1, 0, 1, "list<class<`list`, `shiny.tag.list`>>", 1
 "formattable", "icontext", 0, 0, 0, "character[]", 1
 "formattable", "icontext", 0, 0, 1, "list<character[]>", 1
-"formattable", "icontext", 1, 0, 0, "double[]", 1
-"formattable", "icontext", 1, 0, 1, "character[]", 1
-"formattable", "icontext", 1, 0, 2, "list<null>", 1
+"formattable", "icontext", 1, 0, 0, "list<null>", 1
+"formattable", "icontext", 1, 0, 1, "double[]", 1
+"formattable", "icontext", 1, 0, 2, "character[]", 1
 "formattable", "icontext", 2, 0, 0, "...", 1
 "formattable", "icontext", 3, 0, 0, "logical", 1
 "formattable", "icontext", 4, 0, 0, "character", 1
@@ -413,7 +411,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "formattable", "render_html_matrix", 1, 0, 0, "...", 1
 "formattable", "render_html_matrix.data.frame", -1, 0, 0, "class<`matrix`>", 1
 "formattable", "render_html_matrix.data.frame", 0, 0, 0, "class<`data.frame`>", 1
-"formattable", "render_html_matrix.data.frame", 1, 0, 0, "list<class<`formula`> | class<`formatter`, `function`> | logical>", 1
+"formattable", "render_html_matrix.data.frame", 1, 0, 0, "list<class<`formula`>>", 1
+"formattable", "render_html_matrix.data.frame", 1, 0, 1, "list<class<`formatter`, `function`>>", 1
+"formattable", "render_html_matrix.data.frame", 1, 0, 2, "list<logical>", 1
 "formattable", "render_html_matrix.data.frame", 2, 0, 0, "integer", 1
 "formattable", "render_html_matrix.data.frame", 3, 0, 0, "...", 1
 "formattable", "render_html_matrix.formattable", -1, 0, 0, "class<`matrix`>", 1

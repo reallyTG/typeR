@@ -32,14 +32,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "R.cache", "findCache", -1, 0, 0, "any", 1
 "R.cache", "findCache", 0, 0, 0, "...", 1
 "R.cache", "findCache.default", -1, 0, 0, "any", 1
-"R.cache", "findCache.default", 0, 0, 0, "null", 1
-"R.cache", "findCache.default", 0, 0, 1, "list<double | class<`{`> | integer | class<`{`>>", 1
+"R.cache", "findCache.default", 0, 0, 0, "list<double>", 1
+"R.cache", "findCache.default", 0, 0, 1, "list<class<`{`> | integer>", 1
+"R.cache", "findCache.default", 0, 0, 2, "list<class<`{`>>", 1
+"R.cache", "findCache.default", 0, 0, 3, "null", 1
 "R.cache", "findCache.default", 1, 0, 0, "...", 1
 "R.cache", "generateCache", -1, 0, 0, "any", 1
 "R.cache", "generateCache", 0, 0, 0, "...", 1
 "R.cache", "generateCache.default", -1, 0, 0, "any", 1
-"R.cache", "generateCache.default", 0, 0, 0, "null", 1
-"R.cache", "generateCache.default", 0, 0, 1, "list<any>", 1
+"R.cache", "generateCache.default", 0, 0, 0, "list<character>", 1
+"R.cache", "generateCache.default", 0, 0, 1, "list<double>", 1
+"R.cache", "generateCache.default", 0, 0, 2, "list<class<`{`> | integer>", 1
+"R.cache", "generateCache.default", 0, 0, 3, "list<class<`{`>>", 1
+"R.cache", "generateCache.default", 0, 0, 4, "list<class<`function`> | double>", 1
+"R.cache", "generateCache.default", 0, 0, 5, "null", 1
 "R.cache", "generateCache.default", 1, 0, 0, "character", 1
 "R.cache", "generateCache.default", 2, 0, 0, "...", 1
 "R.cache", "getCachePath", -1, 0, 0, "character", 1
@@ -61,7 +67,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "R.cache", "getChecksum", 0, 0, 0, "...", 1
 "R.cache", "getChecksum.default", -1, 0, 0, "character", 1
 "R.cache", "getChecksum.default", 0, 0, 0, "class<`Object`>", 1
-"R.cache", "getChecksum.default", 0, 0, 1, "list<any>", 1
+"R.cache", "getChecksum.default", 0, 0, 1, "list<character>", 1
+"R.cache", "getChecksum.default", 0, 0, 2, "list<double>", 1
+"R.cache", "getChecksum.default", 0, 0, 3, "list<class<`{`> | integer>", 1
+"R.cache", "getChecksum.default", 0, 0, 4, "list<class<`{`>>", 1
+"R.cache", "getChecksum.default", 0, 0, 5, "list<class<`function`> | double>", 1
 "R.cache", "getChecksum.default", 1, 0, 0, "...", 1
 "R.cache", "getChecksum.Object", -1, 0, 0, "character", 1
 "R.cache", "getChecksum.Object", 0, 0, 0, "class<`Object`>", 1
@@ -72,13 +82,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "R.cache", "inRCmdCheck", -1, 0, 0, "logical", 1
 "R.cache", "loadCache", -1, 0, 0, "double[]", 1
 "R.cache", "loadCache", -1, 0, 1, "null", 1
-"R.cache", "loadCache", -1, 0, 2, "list<environment | double | environment | integer>", 1
+"R.cache", "loadCache", -1, 0, 2, "list<environment | double>", 1
+"R.cache", "loadCache", -1, 0, 3, "list<environment | integer>", 1
 "R.cache", "loadCache", 0, 0, 0, "...", 1
 "R.cache", "loadCache.default", -1, 0, 0, "double[]", 1
 "R.cache", "loadCache.default", -1, 0, 1, "null", 1
-"R.cache", "loadCache.default", -1, 0, 2, "list<environment | double | environment | integer>", 1
-"R.cache", "loadCache.default", 0, 0, 0, "null", 1
-"R.cache", "loadCache.default", 0, 0, 1, "list<double | class<`{`> | class<`{`> | integer>", 1
+"R.cache", "loadCache.default", -1, 0, 2, "list<environment | double>", 1
+"R.cache", "loadCache.default", -1, 0, 3, "list<environment | integer>", 1
+"R.cache", "loadCache.default", 0, 0, 0, "list<double>", 1
+"R.cache", "loadCache.default", 0, 0, 1, "null", 1
+"R.cache", "loadCache.default", 0, 0, 2, "list<class<`{`>>", 1
+"R.cache", "loadCache.default", 0, 0, 3, "list<class<`{`> | integer>", 1
 "R.cache", "loadCache.default", 1, 0, 0, "any", 1
 "R.cache", "loadCache.default", 2, 0, 0, "character", 1
 "R.cache", "loadCache.default", 3, 0, 0, "logical", 1
@@ -109,8 +123,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "R.cache", "saveCache", 0, 0, 0, "...", 1
 "R.cache", "saveCache.default", -1, 0, 0, "character", 1
 "R.cache", "saveCache.default", 0, 0, 0, "double[]", 1
-"R.cache", "saveCache.default", 1, 0, 0, "null", 1
-"R.cache", "saveCache.default", 1, 0, 1, "list<double | character>", 1
+"R.cache", "saveCache.default", 1, 0, 0, "list<double>", 1
+"R.cache", "saveCache.default", 1, 0, 1, "list<character>", 1
+"R.cache", "saveCache.default", 1, 0, 2, "null", 1
 "R.cache", "saveCache.default", 2, 0, 0, "null", 1
 "R.cache", "saveCache.default", 3, 0, 0, "character", 1
 "R.cache", "saveCache.default", 4, 0, 0, "character", 1
@@ -128,9 +143,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "R.cache", "setCachePath.default", 0, 0, 0, "character[]", 1
 "R.cache", "setCachePath.default", 1, 0, 0, "character", 1
 "R.cache", "setCachePath.default", 2, 0, 0, "...", 1
-"R.cache", "setCacheRootPath", -1, 0, 0, "list<character | null>", 1
+"R.cache", "setCacheRootPath", -1, 0, 0, "list<character>", 1
+"R.cache", "setCacheRootPath", -1, 0, 1, "list<null>", 1
 "R.cache", "setCacheRootPath", 0, 0, 0, "...", 1
-"R.cache", "setCacheRootPath.default", -1, 0, 0, "list<character | null>", 1
+"R.cache", "setCacheRootPath.default", -1, 0, 0, "list<character>", 1
+"R.cache", "setCacheRootPath.default", -1, 0, 1, "list<null>", 1
 "R.cache", "setCacheRootPath.default", 0, 0, 0, "character", 1
 "R.cache", "setCacheRootPath.default", 1, 0, 0, "...", 1
 "R.cache", "setupCacheRootPath", -1, 0, 0, "character", 1

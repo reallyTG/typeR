@@ -1,5 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"mvtnorm", "checkmvArgs", -1, 0, 0, "list<double[] | class<`matrix`> | null | double[] | null | class<`matrix`> | double | null>", 1
+"mvtnorm", "checkmvArgs", -1, 0, 0, "list<double[] | class<`matrix`> | null>", 1
+"mvtnorm", "checkmvArgs", -1, 0, 1, "list<double[] | null | class<`matrix`>>", 1
+"mvtnorm", "checkmvArgs", -1, 0, 2, "list<double | null>", 1
 "mvtnorm", "checkmvArgs", 0, 0, 0, "double[]", 1
 "mvtnorm", "checkmvArgs", 1, 0, 0, "double[]", 1
 "mvtnorm", "checkmvArgs", 2, 0, 0, "double[]", 1
@@ -24,7 +26,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "dmvt", 3, 0, 0, "double", 1
 "mvtnorm", "dmvt", 4, 0, 0, "logical", 1
 "mvtnorm", "dmvt", 5, 0, 0, "character", 1
-"mvtnorm", "dots2GenzBretz", -1, 0, 0, "list<class<`GenzBretz`> | null | null>", 1
+"mvtnorm", "dots2GenzBretz", -1, 0, 0, "list<class<`GenzBretz`> | null>", 1
+"mvtnorm", "dots2GenzBretz", -1, 0, 1, "list<null>", 1
 "mvtnorm", "dots2GenzBretz", 0, 0, 0, "...", 1
 "mvtnorm", "fitlr", -1, 0, 0, "class<`glm`, `lm`>", 1
 "mvtnorm", "fitlr", 0, 0, 0, "double[]", 1
@@ -59,7 +62,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "get_quant_loclin", 5, 0, 0, "character", 1
 "mvtnorm", "get_quant_loclin", 6, 0, 0, "double", 1
 "mvtnorm", "get_quant_loclin", 7, 0, 0, "logical", 1
-"mvtnorm", "get_quant_loclin", 8, 0, 0, "...", 1
 "mvtnorm", "isInf", -1, 0, 0, "logical[]", 1
 "mvtnorm", "isInf", 0, 0, 0, "double[]", 1
 "mvtnorm", "isNInf", -1, 0, 0, "logical[]", 1
@@ -97,7 +99,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "pmvt", 5, 0, 2, "double", 1
 "mvtnorm", "pmvt", 6, 0, 0, "any", 1
 "mvtnorm", "pmvt", 7, 0, 0, "character[]", 1
-"mvtnorm", "pmvt", 8, 0, 0, "...", 1
 "mvtnorm", "predict_with_se", -1, 0, 0, "list<double>", 1
 "mvtnorm", "predict_with_se", 0, 0, 0, "class<`glm`, `lm`>", 1
 "mvtnorm", "predict_with_se", 1, 0, 0, "class<`data.frame`>", 1
@@ -115,7 +116,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "probval.GenzBretz", 5, 0, 0, "double[]", 1
 "mvtnorm", "probval.GenzBretz", 6, 0, 0, "any", 1
 "mvtnorm", "probval.GenzBretz", 7, 0, 0, "double[]", 1
-"mvtnorm", "probval.GenzBretz", 8, 0, 0, "double[]", 1
 "mvtnorm", "probval.Miwa", -1, 0, 0, "list<double | null>", 1
 "mvtnorm", "probval.Miwa", 0, 0, 0, "class<`Miwa`>", 1
 "mvtnorm", "probval.Miwa", 1, 0, 0, "integer", 1
@@ -125,7 +125,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "probval.Miwa", 5, 0, 0, "double[]", 1
 "mvtnorm", "probval.Miwa", 6, 0, 0, "class<`matrix`>", 1
 "mvtnorm", "probval.Miwa", 7, 0, 0, "any", 1
-"mvtnorm", "probval.Miwa", 8, 0, 0, "any", 1
 "mvtnorm", "probval.TVPACK", -1, 0, 0, "any", 1
 "mvtnorm", "probval.TVPACK", 0, 0, 0, "class<`TVPACK`>", 1
 "mvtnorm", "probval.TVPACK", 1, 0, 0, "integer", 1
@@ -135,7 +134,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "probval.TVPACK", 5, 0, 0, "any", 1
 "mvtnorm", "probval.TVPACK", 6, 0, 0, "any", 1
 "mvtnorm", "probval.TVPACK", 7, 0, 0, "any", 1
-"mvtnorm", "probval.TVPACK", 8, 0, 0, "double[]", 1
 "mvtnorm", "qmvnorm", -1, 0, 0, "list<double>", 1
 "mvtnorm", "qmvnorm", 0, 0, 0, "double", 1
 "mvtnorm", "qmvnorm", 1, 0, 0, "double[]", 1
@@ -148,9 +146,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "qmvnorm", 5, 0, 1, "class<`matrix`>", 1
 "mvtnorm", "qmvnorm", 6, 0, 0, "class<`GenzBretz`>", 1
 "mvtnorm", "qmvnorm", 7, 0, 0, "double", 1
-"mvtnorm", "qmvnorm", 8, 0, 0, "double", 1
-"mvtnorm", "qmvnorm", 9, 0, 0, "logical", 1
-"mvtnorm", "qmvnorm", 10, 0, 0, "...", 1
 "mvtnorm", "qmvt", -1, 0, 0, "list<double>", 1
 "mvtnorm", "qmvt", 0, 0, 0, "double", 1
 "mvtnorm", "qmvt", 1, 0, 0, "null", 1
@@ -165,11 +160,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mvtnorm", "qmvt", 6, 0, 1, "double", 1
 "mvtnorm", "qmvt", 6, 0, 2, "class<`matrix`>", 1
 "mvtnorm", "qmvt", 7, 0, 0, "any", 1
-"mvtnorm", "qmvt", 8, 0, 0, "character[]", 1
-"mvtnorm", "qmvt", 9, 0, 0, "double", 1
-"mvtnorm", "qmvt", 10, 0, 0, "double", 1
-"mvtnorm", "qmvt", 11, 0, 0, "logical", 1
-"mvtnorm", "qmvt", 12, 0, 0, "...", 1
 "mvtnorm", "rmvnorm", -1, 0, 0, "class<`matrix`>", 1
 "mvtnorm", "rmvnorm", 0, 0, 0, "double", 1
 "mvtnorm", "rmvnorm", 1, 0, 0, "double[]", 1

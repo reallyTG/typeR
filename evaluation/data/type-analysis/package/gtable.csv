@@ -14,8 +14,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gtable", "dim.gtable", 0, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
 "gtable", "dimnames<-.gtable", -1, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
 "gtable", "dimnames<-.gtable", 0, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
-"gtable", "dimnames<-.gtable", 1, 0, 0, "list<double[] | character[] | double[] | null | integer[] | null>", 1
-"gtable", "dimnames.gtable", -1, 0, 0, "list<any>", 1
+"gtable", "dimnames<-.gtable", 1, 0, 0, "list<double[] | character[]>", 1
+"gtable", "dimnames<-.gtable", 1, 0, 1, "list<double[] | null>", 1
+"gtable", "dimnames<-.gtable", 1, 0, 2, "list<integer[] | null>", 1
+"gtable", "dimnames.gtable", -1, 0, 0, "list<double[] | character[]>", 1
+"gtable", "dimnames.gtable", -1, 0, 1, "list<double[] | null>", 1
+"gtable", "dimnames.gtable", -1, 0, 2, "list<integer[] | null>", 1
+"gtable", "dimnames.gtable", -1, 0, 3, "list<null>", 1
 "gtable", "dimnames.gtable", 0, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
 "gtable", "dimnames.gtable", 1, 0, 0, "...", 1
 "gtable", "gtable", -1, 0, 0, "class<`gDesc`, `gTree`, `grob`, `gtable`>", 1
@@ -130,7 +135,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gtable", "neg_to_pos", 0, 0, 1, "integer[]", 1
 "gtable", "neg_to_pos", 1, 0, 0, "any", 1
 "gtable", "new_data_frame", -1, 0, 0, "class<`data.frame`>", 1
-"gtable", "new_data_frame", 0, 0, 0, "list<double[] | character[] | double | character>", 1
+"gtable", "new_data_frame", 0, 0, 0, "list<double[] | character[]>", 1
+"gtable", "new_data_frame", 0, 0, 1, "list<double | character>", 1
 "gtable", "new_data_frame", 1, 0, 0, "double", 1
 "gtable", "new_data_frame", 1, 0, 1, "null", 1
 "gtable", "plot.gtable", -1, 0, 0, "null", 1

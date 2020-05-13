@@ -89,7 +89,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "janitor", "compare_df_cols", 3, 0, 0, "logical", 1
 "janitor", "compare_df_cols_df_maker", -1, 0, 0, "class<`data.frame`>", 1
 "janitor", "compare_df_cols_df_maker", 0, 0, 0, "class<`data.frame`>", 1
-"janitor", "compare_df_cols_df_maker", 0, 0, 1, "list<class<`data.frame`> | class<`data.frame`> | list<class<`data.frame`>>>", 1
+"janitor", "compare_df_cols_df_maker", 0, 0, 1, "list<class<`data.frame`>>", 1
+"janitor", "compare_df_cols_df_maker", 0, 0, 2, "list<class<`data.frame`> | list<class<`data.frame`>>>", 1
 "janitor", "compare_df_cols_df_maker", 1, 0, 0, "character[]", 1
 "janitor", "compare_df_cols_df_maker", 1, 0, 1, "list<character[]>", 1
 "janitor", "compare_df_cols_df_maker", 2, 0, 0, "any", 1
@@ -98,7 +99,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "janitor", "compare_df_cols_df_maker.data.frame", 1, 0, 0, "character", 1
 "janitor", "compare_df_cols_df_maker.data.frame", 2, 0, 0, "any", 1
 "janitor", "compare_df_cols_df_maker.list", -1, 0, 0, "class<`data.frame`>", 1
-"janitor", "compare_df_cols_df_maker.list", 0, 0, 0, "list<class<`data.frame`> | class<`data.frame`> | list<class<`data.frame`>>>", 1
+"janitor", "compare_df_cols_df_maker.list", 0, 0, 0, "list<class<`data.frame`>>", 1
+"janitor", "compare_df_cols_df_maker.list", 0, 0, 1, "list<class<`data.frame`> | list<class<`data.frame`>>>", 1
 "janitor", "compare_df_cols_df_maker.list", 1, 0, 0, "character[]", 1
 "janitor", "compare_df_cols_df_maker.list", 1, 0, 1, "list<character[]>", 1
 "janitor", "compare_df_cols_df_maker.list", 2, 0, 0, "any", 1
@@ -126,60 +128,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "janitor", "excel_numeric_to_date", 2, 0, 0, "logical", 1
 "janitor", "excel_numeric_to_date", 3, 0, 0, "logical", 1
 "janitor", "excel_numeric_to_date", 4, 0, 0, "character", 1
-"janitor", ".f", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"janitor", ".f", -1, 0, 1, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", -1, 0, 2, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"janitor", ".f", 0, 0, 1, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", 0, 0, 2, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 1, 0, 0, "character", 1
-"janitor", ".f", 2, 0, 0, "any", 1
-"janitor", ".f", -1, 1, 0, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", -1, 1, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"janitor", ".f", -1, 1, 2, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 0, 1, 0, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", 0, 1, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"janitor", ".f", 0, 1, 2, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 1, 1, 0, "double", 1
-"janitor", ".f", 2, 1, 0, "character", 1
-"janitor", ".f", 3, 1, 0, "logical", 1
-"janitor", ".f", -1, 2, 0, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", -1, 2, 1, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 0, 2, 0, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", 0, 2, 1, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 1, 2, 0, "character", 1
-"janitor", ".f", 2, 2, 0, "any", 1
-"janitor", ".f", -1, 3, 0, "class<`data.frame`>", 1
-"janitor", ".f", -1, 3, 1, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", -1, 3, 2, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 0, 3, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"janitor", ".f", 0, 3, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"janitor", ".f", 0, 3, 2, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", 0, 3, 3, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 1, 3, 0, "character", 1
-"janitor", ".f", 2, 3, 0, "any", 1
-"janitor", ".f", 3, 3, 0, "any", 1
-"janitor", ".f", -1, 4, 0, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", -1, 4, 1, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 0, 4, 0, "class<`data.frame`>", 1
-"janitor", ".f", 0, 4, 1, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", 0, 4, 2, "list<class<`data.frame`, `tabyl`>>", 1
-"janitor", ".f", 1, 4, 0, "character[]", 1
-"janitor", ".f", 2, 4, 0, "character", 1
-"janitor", ".f", 3, 4, 0, "logical", 1
-"janitor", ".f", 4, 4, 0, "character", 1
-"janitor", ".f", -1, 5, 0, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", 0, 5, 0, "class<`data.frame`>", 1
-"janitor", ".f", 0, 5, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"janitor", ".f", 1, 5, 0, "class<`formula`, `quosure`>", 1
-"janitor", ".f", 2, 5, 0, "class<`formula`, `quosure`>", 1
-"janitor", ".f", 3, 5, 0, "logical", 1
-"janitor", ".f", 4, 5, 0, "logical", 1
-"janitor", ".f", -1, 6, 0, "class<`data.frame`>", 1
-"janitor", ".f", -1, 6, 1, "list<class<`data.frame`>>", 1
-"janitor", ".f", 0, 6, 0, "class<`data.frame`, `tabyl`>", 1
-"janitor", ".f", 0, 6, 1, "class<`data.frame`>", 1
-"janitor", ".f", 0, 6, 2, "list<class<`data.frame`, `tabyl`>>", 1
 "janitor", "fisher.test", -1, 0, 0, "class<`htest`>", 1
 "janitor", "fisher.test", 0, 0, 0, "class<`data.frame`, `tabyl`>", 1
 "janitor", "fisher.test", 1, 0, 0, "...", 1
@@ -211,9 +159,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "janitor", "remove_empty", -1, 0, 0, "class<`data.frame`>", 1
 "janitor", "remove_empty", 0, 0, 0, "class<`data.frame`>", 1
 "janitor", "remove_empty", 1, 0, 0, "character[]", 1
-"janitor", "repair_fun", -1, 0, 0, "character[]", 1
-"janitor", "repair_fun", 0, 0, 0, "character[]", 1
-"janitor", "repair_fun", 1, 0, 0, "character[]", 1
 "janitor", "round_half_up", -1, 0, 0, "double[]", 1
 "janitor", "round_half_up", 0, 0, 0, "double[]", 1
 "janitor", "round_half_up", 1, 0, 0, "double", 1

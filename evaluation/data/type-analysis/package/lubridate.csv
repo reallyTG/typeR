@@ -304,25 +304,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lubridate", "force_tzs", 1, 0, 0, "character[]", 1
 "lubridate", "force_tzs", 2, 0, 0, "character", 1
 "lubridate", "force_tzs", 3, 0, 0, "logical", 1
-"lubridate", "FUN", -1, 0, 0, "class<`Period`>", 1
-"lubridate", "FUN", 0, 0, 0, "character", 1
-"lubridate", "FUN", 0, 0, 1, "class<`Interval`>", 1
-"lubridate", "FUN", 0, 0, 2, "class<`Period`>", 1
-"lubridate", "FUN", 1, 0, 0, "any", 1
-"lubridate", "FUN", 2, 0, 0, "...", 1
-"lubridate", "FUN", -1, 1, 0, "character[]", 1
-"lubridate", "FUN", -1, 1, 1, "null", 1
-"lubridate", "FUN", 0, 1, 0, "character", 1
-"lubridate", "FUN", 1, 1, 0, "character[]", 1
-"lubridate", "FUN", 2, 1, 0, "logical", 1
-"lubridate", "FUN", -1, 2, 0, "character[]", 1
-"lubridate", "FUN", 0, 2, 0, "character[]", 1
-"lubridate", "FUN", 0, 2, 1, "double", 1
-"lubridate", "FUN", -1, 3, 0, "logical", 1
-"lubridate", "FUN", 0, 3, 0, "class<`Interval`>", 1
-"lubridate", "FUN", 0, 3, 1, "class<`Duration`>", 1
-"lubridate", "FUN", 0, 3, 2, "class<`Period`>", 1
-"lubridate", "FUN", 0, 3, 3, "double[]", 1
 "lubridate", ".get_locale_regs", -1, 0, 0, "list<character[] | list<character[]>>", 1
 "lubridate", ".get_locale_regs", 0, 0, 0, "character", 1
 "lubridate", ".get_train_set", -1, 0, 0, "character[]", 1
@@ -678,7 +659,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "lubridate", ".period_from_num", 0, 0, 0, "double[]", 1
 "lubridate", ".period_from_num", 1, 0, 0, "character[]", 1
 "lubridate", ".period_from_units", -1, 0, 0, "class<`Period`>", 1
-"lubridate", ".period_from_units", 0, 0, 0, "list<class<`difftime`> | double[]>", 1
+"lubridate", ".period_from_units", 0, 0, 0, "list<class<`difftime`>>", 1
+"lubridate", ".period_from_units", 0, 0, 1, "list<double[]>", 1
 "lubridate", "period_to_seconds", -1, 0, 0, "double", 1
 "lubridate", "period_to_seconds", 0, 0, 0, "class<`Period`>", 1
 "lubridate", "pm", -1, 0, 0, "logical", 1

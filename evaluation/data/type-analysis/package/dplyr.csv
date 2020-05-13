@@ -1,7 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dplyr", "::", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "::", -1, 0, 1, "class<`data.frame`>", 1
-"dplyr", "::", 0, 0, 0, "...", 1
 "dplyr", "add_computed_columns", -1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "add_computed_columns", -1, 0, 1, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "add_computed_columns", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -70,7 +67,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "anti_join.tbl_df", 4, 0, 0, "...", 1
 "dplyr", "anti_join.tbl_df", 5, 0, 0, "null", 1
 "dplyr", "any_apply", -1, 0, 0, "logical", 1
-"dplyr", "any_apply", 0, 0, 0, "list<character[] | class<`factor`, `ordered`> | class<`array`>>", 1
+"dplyr", "any_apply", 0, 0, 0, "list<character[]>", 1
+"dplyr", "any_apply", 0, 0, 1, "list<class<`factor`, `ordered`>>", 1
+"dplyr", "any_apply", 0, 0, 2, "list<class<`array`>>", 1
 "dplyr", "any_apply", 1, 0, 0, "class<`function`>", 1
 "dplyr", "any_vars", -1, 0, 0, "class<`any_vars`, `formula`, `quosure`>", 1
 "dplyr", "any_vars", 0, 0, 0, "any", 1
@@ -124,10 +123,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "as_fun", 1, 0, 0, "any", 1
 "dplyr", "as_fun", 2, 0, 0, "list<any>", 1
 "dplyr", "as_fun_list", -1, 0, 0, "list<any>", 1
-"dplyr", "as_fun_list", 0, 0, 0, "class<`function`>", 1
-"dplyr", "as_fun_list", 0, 0, 1, "character", 1
-"dplyr", "as_fun_list", 0, 0, 2, "class<`formula`>", 1
-"dplyr", "as_fun_list", 0, 0, 3, "list<any>", 1
+"dplyr", "as_fun_list", 0, 0, 0, "list<any>", 1
+"dplyr", "as_fun_list", 0, 0, 1, "class<`function`>", 1
+"dplyr", "as_fun_list", 0, 0, 2, "character", 1
+"dplyr", "as_fun_list", 0, 0, 3, "class<`formula`>", 1
 "dplyr", "as_fun_list", 1, 0, 0, "any", 1
 "dplyr", "as_fun_list", 2, 0, 0, "...", 1
 "dplyr", "as_group_map_function", -1, 0, 0, "class<`function`>", 1
@@ -178,8 +177,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "auto_copy", 1, 0, 2, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "auto_copy", 2, 0, 0, "any", 1
 "dplyr", "auto_copy", 3, 0, 0, "...", 1
-"dplyr", "auto_name_formulas", -1, 0, 0, "list<class<`function`> | class<`formula`>>", 1
-"dplyr", "auto_name_formulas", 0, 0, 0, "list<class<`function`> | class<`formula`>>", 1
+"dplyr", "auto_name_formulas", -1, 0, 0, "list<class<`function`>>", 1
+"dplyr", "auto_name_formulas", -1, 0, 1, "list<class<`formula`>>", 1
+"dplyr", "auto_name_formulas", 0, 0, 0, "list<class<`function`>>", 1
+"dplyr", "auto_name_formulas", 0, 0, 1, "list<class<`formula`>>", 1
 "dplyr", "between", -1, 0, 0, "logical[]", 1
 "dplyr", "between", 0, 0, 0, "double[]", 1
 "dplyr", "between", 1, 0, 0, "double", 1
@@ -197,7 +198,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "bind_rows", 1, 0, 1, "null", 1
 "dplyr", "bind_rows_", -1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "bind_rows_", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "bind_rows_", 0, 0, 0, "list<any>", 1
+"dplyr", "bind_rows_", 0, 0, 0, "list<class<`data.frame`>>", 1
+"dplyr", "bind_rows_", 0, 0, 1, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "bind_rows_", 0, 0, 2, "list<double[] | class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "bind_rows_", 0, 0, 3, "list<double[]>", 1
+"dplyr", "bind_rows_", 0, 0, 4, "list<list<double[]>>", 1
 "dplyr", "bind_rows_", 1, 0, 0, "null", 1
 "dplyr", "bind_rows_", 1, 0, 1, "character", 1
 "dplyr", "case_when", -1, 0, 0, "^character[]", 1
@@ -205,7 +210,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "case_when", 0, 0, 0, "...", 1
 "dplyr", "cbind_all", -1, 0, 0, "class<`data.frame`>", 1
 "dplyr", "cbind_all", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "cbind_all", 0, 0, 0, "list<any>", 1
+"dplyr", "cbind_all", 0, 0, 0, "list<class<`data.frame`>>", 1
+"dplyr", "cbind_all", 0, 0, 1, "list<list<double[]>>", 1
+"dplyr", "cbind_all", 0, 0, 2, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "cbind_all", 0, 0, 3, "list<class<`data.frame`, `tbl`, `tbl_df`> | class<`data.frame`>>", 1
 "dplyr", "changes", -1, 0, 0, "class<`matrix`>", 1
 "dplyr", "changes", -1, 0, 1, "null", 1
 "dplyr", "changes", 0, 0, 0, "class<`data.frame`>", 1
@@ -323,18 +331,25 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "common_by.NULL", 0, 0, 0, "null", 1
 "dplyr", "common_by.NULL", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "common_by.NULL", 2, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "compact", -1, 0, 0, "list<any>", 1
-"dplyr", "compact", 0, 0, 0, "list<any>", 1
+"dplyr", "compact", -1, 0, 0, "list<character>", 1
+"dplyr", "compact", -1, 0, 1, "list<class<`data.frame`>>", 1
+"dplyr", "compact", -1, 0, 2, "list<integer>", 1
+"dplyr", "compact", -1, 0, 3, "list<character | null>", 1
+"dplyr", "compact", 0, 0, 0, "list<character>", 1
+"dplyr", "compact", 0, 0, 1, "list<class<`data.frame`>>", 1
+"dplyr", "compact", 0, 0, 2, "list<integer>", 1
+"dplyr", "compact", 0, 0, 3, "list<character | null>", 1
 "dplyr", "compact_null", -1, 0, 0, "list<class<`formula`>>", 1
-"dplyr", "compact_null", 0, 0, 0, "list<class<`formula`> | class<`formula`> | null>", 1
+"dplyr", "compact_null", 0, 0, 0, "list<class<`formula`>>", 1
+"dplyr", "compact_null", 0, 0, 1, "list<class<`formula`> | null>", 1
 "dplyr", "compat_lazy", -1, 0, 0, "class<`formula`, `quosure`>", 1
 "dplyr", "compat_lazy", 0, 0, 0, "character", 1
 "dplyr", "compat_lazy", 0, 0, 1, "class<`formula`, `quosure`>", 1
 "dplyr", "compat_lazy", 1, 0, 0, "any", 1
 "dplyr", "compat_lazy", 2, 0, 0, "logical", 1
 "dplyr", "compat_lazy_dots", -1, 0, 0, "list<any>", 1
-"dplyr", "compat_lazy_dots", 0, 0, 0, "character[]", 1
-"dplyr", "compat_lazy_dots", 0, 0, 1, "list<any>", 1
+"dplyr", "compat_lazy_dots", 0, 0, 0, "list<any>", 1
+"dplyr", "compat_lazy_dots", 0, 0, 1, "character[]", 1
 "dplyr", "compat_lazy_dots", 1, 0, 0, "any", 1
 "dplyr", "compat_lazy_dots", 2, 0, 0, "...", 1
 "dplyr", "compat_lazy_dots", 3, 0, 0, "logical", 1
@@ -395,8 +410,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "db_create_indexes", -1, 0, 0, "null", 1
 "dplyr", "db_create_indexes", 0, 0, 0, "class<`SQLiteConnection`>", 1
 "dplyr", "db_create_indexes", 1, 0, 0, "any", 1
-"dplyr", "db_create_indexes", 2, 0, 0, "null", 1
-"dplyr", "db_create_indexes", 2, 0, 1, "list<any>", 1
+"dplyr", "db_create_indexes", 2, 0, 0, "list<any>", 1
+"dplyr", "db_create_indexes", 2, 0, 1, "null", 1
 "dplyr", "db_create_indexes", 3, 0, 0, "logical", 1
 "dplyr", "db_create_indexes", 4, 0, 0, "...", 1
 "dplyr", "db_data_type", -1, 0, 0, "character[]", 1
@@ -481,7 +496,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "distinct_impl", 1, 0, 0, "integer[]", 1
 "dplyr", "distinct_impl", 2, 0, 0, "integer[]", 1
 "dplyr", "distinct_impl", 3, 0, 0, "environment", 1
-"dplyr", "distinct_prepare", -1, 0, 0, "list<any>", 1
+"dplyr", "distinct_prepare", -1, 0, 0, "list<class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | character[]>", 1
+"dplyr", "distinct_prepare", -1, 0, 1, "list<class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | integer[]>", 1
+"dplyr", "distinct_prepare", -1, 0, 2, "list<class<`data.frame`, `tbl`, `tbl_df`> | character[]>", 1
+"dplyr", "distinct_prepare", -1, 0, 3, "list<class<`data.frame`, `tbl`, `tbl_df`> | character>", 1
+"dplyr", "distinct_prepare", -1, 0, 4, "list<class<`data.frame`, `tbl`, `tbl_df`> | character | integer[]>", 1
+"dplyr", "distinct_prepare", -1, 0, 5, "list<class<`data.frame`, `tbl`, `tbl_df`> | integer[]>", 1
+"dplyr", "distinct_prepare", -1, 0, 6, "list<class<`data.frame`, `tbl`, `tbl_df`> | integer>", 1
 "dplyr", "distinct_prepare", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct_prepare", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "distinct_prepare", 1, 0, 0, "class<`list`, `quosures`>", 1
@@ -591,7 +612,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "find_index_check", 2, 0, 0, "character[]", 1
 "dplyr", "find_template", -1, 0, 0, "character", 1
 "dplyr", "find_template", -1, 0, 1, "integer", 1
-"dplyr", "find_template", 0, 0, 0, "list<character | integer>", 1
+"dplyr", "find_template", 0, 0, 0, "list<character>", 1
+"dplyr", "find_template", 0, 0, 1, "list<integer>", 1
 "dplyr", "find_template", 1, 0, 0, "null", 1
 "dplyr", "find_template", 1, 0, 1, "character[]", 1
 "dplyr", "find_template", 2, 0, 0, "null", 1
@@ -601,8 +623,21 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "first", 0, 0, 0, "integer[]", 1
 "dplyr", "first", 1, 0, 0, "null", 1
 "dplyr", "first", 2, 0, 0, "any", 1
-"dplyr", "flatten_bindable", -1, 0, 0, "list<any>", 1
-"dplyr", "flatten_bindable", 0, 0, 0, "list<any>", 1
+"dplyr", "flatten_bindable", -1, 0, 0, "list<class<`data.frame`>>", 1
+"dplyr", "flatten_bindable", -1, 0, 1, "list<class<`data.frame`, `tbl`, `tbl_df`> | class<`data.frame`>>", 1
+"dplyr", "flatten_bindable", -1, 0, 2, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "flatten_bindable", -1, 0, 3, "list<double[] | class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "flatten_bindable", -1, 0, 4, "list<double[]>", 1
+"dplyr", "flatten_bindable", -1, 0, 5, "list<list<double[]>>", 1
+"dplyr", "flatten_bindable", 0, 0, 0, "list<list<class<`data.frame`>>>", 1
+"dplyr", "flatten_bindable", 0, 0, 1, "list<class<`data.frame`>>", 1
+"dplyr", "flatten_bindable", 0, 0, 2, "list<class<`data.frame`, `tbl`, `tbl_df`> | class<`data.frame`>>", 1
+"dplyr", "flatten_bindable", 0, 0, 3, "list<class<`rlang_box`, `rlang_box_splice`>>", 1
+"dplyr", "flatten_bindable", 0, 0, 4, "list<list<class<`data.frame`, `tbl`, `tbl_df`>>>", 1
+"dplyr", "flatten_bindable", 0, 0, 5, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "flatten_bindable", 0, 0, 6, "list<double[] | class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "flatten_bindable", 0, 0, 7, "list<double[]>", 1
+"dplyr", "flatten_bindable", 0, 0, 8, "list<list<double[]>>", 1
 "dplyr", "fmt_cols", -1, 0, 0, "class<`character`, `glue`>", 1
 "dplyr", "fmt_cols", 0, 0, 0, "character", 1
 "dplyr", "fmt_comma", -1, 0, 0, "character", 1
@@ -645,20 +680,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "full_join.tbl_df", 4, 0, 0, "character[]", 1
 "dplyr", "full_join.tbl_df", 5, 0, 0, "...", 1
 "dplyr", "full_join.tbl_df", 6, 0, 0, "null", 1
-"dplyr", "fun", -1, 0, 0, "^double[]", 1
-"dplyr", "fun", -1, 0, 1, "class<`factor`>", 1
-"dplyr", "fun", 0, 0, 0, "double[]", 1
-"dplyr", "fun", 0, 0, 1, "class<`factor`>", 1
-"dplyr", "fun", 1, 0, 0, "double", 1
-"dplyr", "fun", 2, 0, 0, "null", 1
-"dplyr", "fun", 3, 0, 0, "null", 1
-"dplyr", "fun", 3, 0, 1, "integer[]", 1
-"dplyr", "fun", 4, 0, 0, "...", 1
-"dplyr", "FUN", -1, 0, 0, "integer[]", 1
-"dplyr", "FUN", 0, 0, 0, "class<`call`>", 1
-"dplyr", "FUN", 0, 0, 1, "double", 1
-"dplyr", "FUN", 0, 0, 2, "class<`name`>", 1
-"dplyr", "FUN", 1, 0, 0, "character[]", 1
 "dplyr", "fun_env", -1, 0, 0, "environment", 1
 "dplyr", "fun_env", 0, 0, 0, "class<`formula`, `quosure`>", 1
 "dplyr", "fun_env", 1, 0, 0, "any", 1
@@ -735,7 +756,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "group_by_if", 3, 0, 0, "...", 1
 "dplyr", "group_by_if", 4, 0, 0, "logical", 1
 "dplyr", "group_by_if", 5, 0, 0, "logical", 1
-"dplyr", "group_by_prepare", -1, 0, 0, "list<any>", 1
+"dplyr", "group_by_prepare", -1, 0, 0, "list<class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | character[] | list<any>>", 1
+"dplyr", "group_by_prepare", -1, 0, 1, "list<class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | character[] | list<class<`name`>>>", 1
+"dplyr", "group_by_prepare", -1, 0, 2, "list<class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`> | character | list<class<`name`>>>", 1
+"dplyr", "group_by_prepare", -1, 0, 3, "list<class<`data.frame`> | character[] | list<class<`name`>>>", 1
+"dplyr", "group_by_prepare", -1, 0, 4, "list<class<`data.frame`> | character | list<class<`name`>>>", 1
+"dplyr", "group_by_prepare", -1, 0, 5, "list<class<`data.frame`, `tbl`, `tbl_df`> | character[] | list<any>>", 1
+"dplyr", "group_by_prepare", -1, 0, 6, "list<class<`data.frame`, `tbl`, `tbl_df`> | character[] | list<class<`name`>>>", 1
+"dplyr", "group_by_prepare", -1, 0, 7, "list<class<`data.frame`, `tbl`, `tbl_df`> | character | list<class<`name`>>>", 1
+"dplyr", "group_by_prepare", -1, 0, 8, "list<class<`tbl_cube`> | character[] | list<class<`name`>>>", 1
+"dplyr", "group_by_prepare", -1, 0, 9, "list<class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`> | character | list<class<`name`>>>", 1
 "dplyr", "group_by_prepare", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_by_prepare", 0, 0, 1, "class<`data.frame`>", 1
 "dplyr", "group_by_prepare", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -775,8 +805,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "grouped_df", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df", 0, 0, 2, "class<`data.frame`>", 1
-"dplyr", "grouped_df", 1, 0, 0, "character[]", 1
-"dplyr", "grouped_df", 1, 0, 1, "list<class<`name`>>", 1
+"dplyr", "grouped_df", 1, 0, 0, "list<class<`name`>>", 1
+"dplyr", "grouped_df", 1, 0, 1, "character[]", 1
 "dplyr", "grouped_df", 2, 0, 0, "logical", 1
 "dplyr", "grouped_df_impl", -1, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "grouped_df_impl", -1, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -806,7 +836,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "group_keys.grouped_df", 1, 0, 0, "...", 1
 "dplyr", "group_keys_impl", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_keys_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"dplyr", "group_map", -1, 0, 0, "list<class<`data.frame`, `tbl`, `tbl_df`> | double[] | null>", 1
+"dplyr", "group_map", -1, 0, 0, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "group_map", -1, 0, 1, "list<double[]>", 1
+"dplyr", "group_map", -1, 0, 2, "list<null>", 1
 "dplyr", "group_map", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_map", 1, 0, 0, "class<`formula`>", 1
 "dplyr", "group_map", 1, 0, 1, "class<`function`>", 1
@@ -852,8 +884,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "group_rows", -1, 0, 0, "list<integer[]>", 1
 "dplyr", "group_rows", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "group_rows", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "groups", -1, 0, 0, "null", 1
-"dplyr", "groups", -1, 0, 1, "list<class<`name`>>", 1
+"dplyr", "groups", -1, 0, 0, "list<class<`name`>>", 1
+"dplyr", "groups", -1, 0, 1, "null", 1
 "dplyr", "groups", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "groups", 0, 0, 1, "class<`data.frame`>", 1
 "dplyr", "groups", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -960,9 +992,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "intersect", -1, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect", 0, 0, 0, "character[]", 1
 "dplyr", "intersect", 0, 0, 1, "class<`character`, `dplyr_sel_vars`>", 1
-"dplyr", "intersect", 0, 0, 2, "class<`data.frame`>", 1
-"dplyr", "intersect", 0, 0, 3, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "intersect", 0, 0, 4, "list<character>", 1
+"dplyr", "intersect", 0, 0, 2, "list<character>", 1
+"dplyr", "intersect", 0, 0, 3, "class<`data.frame`>", 1
+"dplyr", "intersect", 0, 0, 4, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "intersect", 1, 0, 0, "class<`character`, `dplyr_sel_vars`>", 1
 "dplyr", "intersect", 1, 0, 1, "^character[]", 1
 "dplyr", "intersect", 1, 0, 2, "class<`data.frame`>", 1
@@ -999,10 +1031,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "is_grouped_df", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "is_sel_vars", -1, 0, 0, "logical", 1
 "dplyr", "is_sel_vars", 0, 0, 0, "class<`character`, `dplyr_sel_vars`>", 1
-"dplyr", "joiner", -1, 0, 0, "class<`formula`, `quosure`>", 1
-"dplyr", "joiner", 0, 0, 0, "...", 1
-"dplyr", "joiner", 1, 0, 0, "logical", 1
-"dplyr", "join_vars", -1, 0, 0, "list<character[] | integer[] | list<list<integer[]>> | character[] | ^integer[] | list<list<integer[]>> | character[] | ^integer[] | list<list<integer>>>", 1
+"dplyr", "join_vars", -1, 0, 0, "list<character[] | integer[] | list<list<integer[]>>>", 1
+"dplyr", "join_vars", -1, 0, 1, "list<character[] | ^integer[] | list<list<integer[]>>>", 1
+"dplyr", "join_vars", -1, 0, 2, "list<character[] | ^integer[] | list<list<integer>>>", 1
 "dplyr", "join_vars", 0, 0, 0, "class<`character`, `dplyr_sel_vars`>", 1
 "dplyr", "join_vars", 1, 0, 0, "class<`character`, `dplyr_sel_vars`>", 1
 "dplyr", "join_vars", 2, 0, 0, "list<character[]>", 1
@@ -1011,13 +1042,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "label_output_dataframe", -1, 0, 1, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "label_output_dataframe", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "label_output_dataframe", 0, 0, 1, "null", 1
-"dplyr", "label_output_dataframe", 1, 0, 0, "list<list<class<`data.frame`, `tbl`, `tbl_df`> | class<`data.frame`>>>", 1
+"dplyr", "label_output_dataframe", 1, 0, 0, "list<list<class<`data.frame`, `tbl`, `tbl_df`>>>", 1
+"dplyr", "label_output_dataframe", 1, 0, 1, "list<list<class<`data.frame`>>>", 1
 "dplyr", "label_output_dataframe", 2, 0, 0, "any", 1
 "dplyr", "label_output_dataframe", 3, 0, 0, "any", 1
 "dplyr", "label_output_list", -1, 0, 0, "class<`data.frame`, `rowwise_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "label_output_list", 0, 0, 0, "null", 1
 "dplyr", "label_output_list", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "label_output_list", 1, 0, 0, "list<list<class<`anova`, `data.frame`> | integer[] | class<`lm`>>>", 1
+"dplyr", "label_output_list", 1, 0, 0, "list<list<class<`anova`, `data.frame`>>>", 1
+"dplyr", "label_output_list", 1, 0, 1, "list<list<integer[]>>", 1
+"dplyr", "label_output_list", 1, 0, 2, "list<list<class<`lm`>>>", 1
 "dplyr", "label_output_list", 2, 0, 0, "any", 1
 "dplyr", "lag", -1, 0, 0, "^double[]", 1
 "dplyr", "lag", -1, 0, 1, "class<`factor`>", 1
@@ -1096,8 +1130,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "manip_all", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "manip_all", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "manip_all", 0, 0, 2, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"dplyr", "manip_all", 1, 0, 0, "class<`function`>", 1
-"dplyr", "manip_all", 1, 0, 1, "list<any>", 1
+"dplyr", "manip_all", 1, 0, 0, "list<any>", 1
+"dplyr", "manip_all", 1, 0, 1, "class<`function`>", 1
 "dplyr", "manip_all", 2, 0, 0, "any", 1
 "dplyr", "manip_all", 3, 0, 0, "any", 1
 "dplyr", "manip_all", 4, 0, 0, "...", 1
@@ -1114,9 +1148,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "manip_at", 0, 0, 2, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "manip_at", 1, 0, 0, "class<`list`, `quosures`>", 1
 "dplyr", "manip_at", 1, 0, 1, "character[]", 1
-"dplyr", "manip_at", 2, 0, 0, "class<`formula`>", 1
-"dplyr", "manip_at", 2, 0, 1, "class<`function`>", 1
-"dplyr", "manip_at", 2, 0, 2, "list<any>", 1
+"dplyr", "manip_at", 2, 0, 0, "list<any>", 1
+"dplyr", "manip_at", 2, 0, 1, "class<`formula`>", 1
+"dplyr", "manip_at", 2, 0, 2, "class<`function`>", 1
 "dplyr", "manip_at", 3, 0, 0, "any", 1
 "dplyr", "manip_at", 4, 0, 0, "any", 1
 "dplyr", "manip_at", 5, 0, 0, "...", 1
@@ -1125,27 +1159,31 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "manip_if", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "manip_if", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "manip_if", 1, 0, 0, "class<`function`>", 1
-"dplyr", "manip_if", 2, 0, 0, "class<`function`>", 1
-"dplyr", "manip_if", 2, 0, 1, "list<any>", 1
+"dplyr", "manip_if", 2, 0, 0, "list<any>", 1
+"dplyr", "manip_if", 2, 0, 1, "class<`function`>", 1
 "dplyr", "manip_if", 3, 0, 0, "any", 1
 "dplyr", "manip_if", 4, 0, 0, "any", 1
 "dplyr", "manip_if", 5, 0, 0, "...", 1
 "dplyr", "manip_if", 6, 0, 0, "logical", 1
 "dplyr", "map", -1, 0, 0, "list<any>", 1
-"dplyr", "map", 0, 0, 0, "null", 1
-"dplyr", "map", 0, 0, 1, "integer[]", 1
-"dplyr", "map", 0, 0, 2, "pairlist", 1
-"dplyr", "map", 0, 0, 3, "character", 1
-"dplyr", "map", 0, 0, 4, "class<`list`, `quosures`>", 1
-"dplyr", "map", 0, 0, 5, "list<any>", 1
+"dplyr", "map", 0, 0, 0, "list<any>", 1
+"dplyr", "map", 0, 0, 1, "null", 1
+"dplyr", "map", 0, 0, 2, "integer[]", 1
+"dplyr", "map", 0, 0, 3, "pairlist", 1
+"dplyr", "map", 0, 0, 4, "character", 1
+"dplyr", "map", 0, 0, 5, "class<`list`, `quosures`>", 1
 "dplyr", "map", 1, 0, 0, "class<`function`>", 1
 "dplyr", "map", 2, 0, 0, "...", 1
-"dplyr", "map2", -1, 0, 0, "list<any>", 1
-"dplyr", "map2", 0, 0, 0, "integer[]", 1
-"dplyr", "map2", 0, 0, 1, "list<class<`data.frame`, `tbl`, `tbl_df`> | class<`formula`>>", 1
-"dplyr", "map2", 1, 0, 0, "class<`list`, `quosures`>", 1
-"dplyr", "map2", 1, 0, 1, "integer[]", 1
-"dplyr", "map2", 1, 0, 2, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "map2", -1, 0, 0, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "map2", -1, 0, 1, "list<double[]>", 1
+"dplyr", "map2", -1, 0, 2, "list<null>", 1
+"dplyr", "map2", -1, 0, 3, "list<list<class<`formula`, `quosure`>>>", 1
+"dplyr", "map2", 0, 0, 0, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "map2", 0, 0, 1, "integer[]", 1
+"dplyr", "map2", 0, 0, 2, "list<class<`formula`>>", 1
+"dplyr", "map2", 1, 0, 0, "list<class<`data.frame`, `tbl`, `tbl_df`>>", 1
+"dplyr", "map2", 1, 0, 1, "class<`list`, `quosures`>", 1
+"dplyr", "map2", 1, 0, 2, "integer[]", 1
 "dplyr", "map2", 2, 0, 0, "class<`function`>", 1
 "dplyr", "map2", 2, 0, 1, "class<`function`, `rlang_lambda_function`>", 1
 "dplyr", "map2", 3, 0, 0, "...", 1
@@ -1155,32 +1193,35 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "map2_int", 2, 0, 0, "class<`function`>", 1
 "dplyr", "map2_int", 3, 0, 0, "...", 1
 "dplyr", "map_chr", -1, 0, 0, "character[]", 1
-"dplyr", "map_chr", 0, 0, 0, "null", 1
-"dplyr", "map_chr", 0, 0, 1, "list<any>", 1
+"dplyr", "map_chr", 0, 0, 0, "list<any>", 1
+"dplyr", "map_chr", 0, 0, 1, "null", 1
 "dplyr", "map_chr", 1, 0, 0, "class<`function`>", 1
 "dplyr", "map_chr", 2, 0, 0, "...", 1
-"dplyr", "map_if", -1, 0, 0, "null", 1
-"dplyr", "map_if", -1, 0, 1, "list<class<`name`>>", 1
-"dplyr", "map_if", 0, 0, 0, "null", 1
-"dplyr", "map_if", 0, 0, 1, "list<class<`name`>>", 1
+"dplyr", "map_if", -1, 0, 0, "list<class<`name`>>", 1
+"dplyr", "map_if", -1, 0, 1, "null", 1
+"dplyr", "map_if", 0, 0, 0, "list<class<`name`>>", 1
+"dplyr", "map_if", 0, 0, 1, "null", 1
 "dplyr", "map_if", 1, 0, 0, "class<`function`>", 1
 "dplyr", "map_if", 2, 0, 0, "class<`function`>", 1
 "dplyr", "map_if", 3, 0, 0, "...", 1
 "dplyr", "map_lgl", -1, 0, 0, "logical[]", 1
-"dplyr", "map_lgl", 0, 0, 0, "null", 1
-"dplyr", "map_lgl", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "map_lgl", 0, 0, 2, "class<`list`, `quosures`>", 1
-"dplyr", "map_lgl", 0, 0, 3, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"dplyr", "map_lgl", 0, 0, 4, "list<any>", 1
+"dplyr", "map_lgl", 0, 0, 0, "list<class<`data.frame`>>", 1
+"dplyr", "map_lgl", 0, 0, 1, "list<class<`formula`>>", 1
+"dplyr", "map_lgl", 0, 0, 2, "list<class<`function`>>", 1
+"dplyr", "map_lgl", 0, 0, 3, "null", 1
+"dplyr", "map_lgl", 0, 0, 4, "list<class<`name`>>", 1
+"dplyr", "map_lgl", 0, 0, 5, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "map_lgl", 0, 0, 6, "class<`list`, `quosures`>", 1
+"dplyr", "map_lgl", 0, 0, 7, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "map_lgl", 1, 0, 0, "class<`function`>", 1
 "dplyr", "map_lgl", 2, 0, 0, "...", 1
 "dplyr", "map_mold", -1, 0, 0, "character[]", 1
 "dplyr", "map_mold", -1, 0, 1, "logical[]", 1
-"dplyr", "map_mold", 0, 0, 0, "null", 1
-"dplyr", "map_mold", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"dplyr", "map_mold", 0, 0, 2, "class<`list`, `quosures`>", 1
-"dplyr", "map_mold", 0, 0, 3, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"dplyr", "map_mold", 0, 0, 4, "list<any>", 1
+"dplyr", "map_mold", 0, 0, 0, "list<any>", 1
+"dplyr", "map_mold", 0, 0, 1, "null", 1
+"dplyr", "map_mold", 0, 0, 2, "class<`data.frame`, `tbl`, `tbl_df`>", 1
+"dplyr", "map_mold", 0, 0, 3, "class<`list`, `quosures`>", 1
+"dplyr", "map_mold", 0, 0, 4, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "dplyr", "map_mold", 1, 0, 0, "class<`function`>", 1
 "dplyr", "map_mold", 2, 0, 0, "character", 1
 "dplyr", "map_mold", 2, 0, 1, "logical", 1
@@ -1225,7 +1266,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "mutate_if", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "mutate_if", 1, 0, 0, "class<`function`>", 1
 "dplyr", "mutate_if", 2, 0, 0, "class<`function`>", 1
-"dplyr", "mutate_if", 2, 0, 1, "list<class<`formula`> | class<`function`>>", 1
+"dplyr", "mutate_if", 2, 0, 1, "list<class<`formula`>>", 1
+"dplyr", "mutate_if", 2, 0, 2, "list<class<`function`>>", 1
 "dplyr", "mutate_if", 3, 0, 0, "...", 1
 "dplyr", "mutate_impl", -1, 0, 0, "any", 1
 "dplyr", "mutate_impl", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
@@ -1323,7 +1365,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "percent_rank", -1, 0, 0, "^double[]", 1
 "dplyr", "percent_rank", 0, 0, 0, "^double[]", 1
 "dplyr", "plfloc", -1, 0, 0, "character[]", 1
-"dplyr", "plfloc", 0, 0, 0, "list<character[] | integer[] | character[]>", 1
+"dplyr", "plfloc", 0, 0, 0, "list<character[] | integer[]>", 1
+"dplyr", "plfloc", 0, 0, 1, "list<character[]>", 1
 "dplyr", "probe", -1, 0, 0, "logical[]", 1
 "dplyr", "probe", 0, 0, 0, "null", 1
 "dplyr", "probe", 0, 0, 1, "list<class<`name`>>", 1
@@ -1740,8 +1783,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "sql_select", 6, 0, 0, "character[]", 1
 "dplyr", "sql_select", 6, 0, 1, "null", 1
 "dplyr", "sql_select", 7, 0, 0, "null", 1
-"dplyr", "sql_select", 8, 0, 0, "logical", 1
-"dplyr", "sql_select", 9, 0, 0, "...", 1
 "dplyr", "sql_subquery", -1, 0, 0, "class<`character`, `ident`>", 1
 "dplyr", "sql_subquery", -1, 0, 1, "class<`character`, `sql`>", 1
 "dplyr", "sql_subquery", 0, 0, 0, "class<`SQLiteConnection`>", 1
@@ -1779,7 +1820,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "summarise", 1, 0, 0, "...", 1
 "dplyr", "summarise_all", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise_all", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
-"dplyr", "summarise_all", 1, 0, 0, "list<class<`formula`> | class<`function`>>", 1
+"dplyr", "summarise_all", 1, 0, 0, "list<class<`formula`>>", 1
+"dplyr", "summarise_all", 1, 0, 1, "list<class<`function`>>", 1
 "dplyr", "summarise_all", 2, 0, 0, "...", 1
 "dplyr", "summarise_at", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "summarise_at", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
@@ -1849,7 +1891,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "tbl_at_vars", 1, 0, 1, "character[]", 1
 "dplyr", "tbl_at_vars", 2, 0, 0, "logical", 1
 "dplyr", "tbl_cube", -1, 0, 0, "class<`tbl_cube`>", 1
-"dplyr", "tbl_cube", 0, 0, 0, "list<character[] | class<`factor`, `ordered`>>", 1
+"dplyr", "tbl_cube", 0, 0, 0, "list<character[]>", 1
+"dplyr", "tbl_cube", 0, 0, 1, "list<class<`factor`, `ordered`>>", 1
 "dplyr", "tbl_cube", 1, 0, 0, "list<class<`array`>>", 1
 "dplyr", "tbl.DBIConnection", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dplyr", "tbl.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
@@ -1870,8 +1913,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "tbl_if_vars", 0, 0, 0, "class<`data.frame`>", 1
 "dplyr", "tbl_if_vars", 0, 0, 1, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "dplyr", "tbl_if_vars", 1, 0, 0, "class<`formula`>", 1
-"dplyr", "tbl_if_vars", 1, 0, 1, "class<`function`>", 1
-"dplyr", "tbl_if_vars", 1, 0, 2, "list<class<`function`>>", 1
+"dplyr", "tbl_if_vars", 1, 0, 1, "list<class<`function`>>", 1
+"dplyr", "tbl_if_vars", 1, 0, 2, "class<`function`>", 1
 "dplyr", "tbl_if_vars", 2, 0, 0, "any", 1
 "dplyr", "tbl_if_vars", 3, 0, 0, "...", 1
 "dplyr", "tbl_if_vars", 4, 0, 0, "logical", 1
@@ -1977,7 +2020,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dplyr", "unique_names", 2, 0, 0, "class<`function`>", 1
 "dplyr", "validate_case_when_length", -1, 0, 0, "integer", 1
 "dplyr", "validate_case_when_length", 0, 0, 0, "list<^logical[]>", 1
-"dplyr", "validate_case_when_length", 1, 0, 0, "list<any>", 1
+"dplyr", "validate_case_when_length", 1, 0, 0, "list<^character[]>", 1
+"dplyr", "validate_case_when_length", 1, 0, 1, "list<double | null>", 1
+"dplyr", "validate_case_when_length", 1, 0, 2, "list<null | ^character[]>", 1
+"dplyr", "validate_case_when_length", 1, 0, 3, "list<double[]>", 1
 "dplyr", "validate_case_when_length", 2, 0, 0, "any", 1
 "dplyr", "validate_recode_default", -1, 0, 0, "character[]", 1
 "dplyr", "validate_recode_default", -1, 0, 1, "^integer[]", 1

@@ -92,7 +92,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "SKAT", "Get_Critical_Value", -1, 0, 0, "list<double[] | list<double>>", 1
 "SKAT", "Get_Critical_Value", 0, 0, 0, "double[]", 1
 "SKAT", "Get_Critical_Value", 1, 0, 0, "double", 1
-"SKAT", "Get_Davies_PVal", -1, 0, 0, "list<double[] | null | list<double[]> | double | null | list<double>>", 1
+"SKAT", "Get_Davies_PVal", -1, 0, 0, "list<double[] | null | list<double[]>>", 1
+"SKAT", "Get_Davies_PVal", -1, 0, 1, "list<double | null | list<double>>", 1
 "SKAT", "Get_Davies_PVal", 0, 0, 0, "class<`matrix`>", 1
 "SKAT", "Get_Davies_PVal", 1, 0, 0, "class<`matrix`>", 1
 "SKAT", "Get_Davies_PVal", 2, 0, 0, "double[]", 1
@@ -138,22 +139,27 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "SKAT", "Get_Power_Logistic", 4, 0, 0, "double[]", 1
 "SKAT", "Get_Power_Logistic", 5, 0, 0, "double[]", 1
 "SKAT", "Get_Power_Logistic", 6, 0, 0, "double[]", 1
-"SKAT", "Get_PValue", -1, 0, 0, "list<double[] | null | double | null>", 1
+"SKAT", "Get_PValue", -1, 0, 0, "list<double[] | null>", 1
+"SKAT", "Get_PValue", -1, 0, 1, "list<double | null>", 1
 "SKAT", "Get_PValue", 0, 0, 0, "class<`matrix`>", 1
 "SKAT", "Get_PValue", 1, 0, 0, "double[]", 1
-"SKAT", "Get_PValue.Lambda", -1, 0, 0, "list<double[] | null | double | null>", 1
+"SKAT", "Get_PValue.Lambda", -1, 0, 0, "list<double[] | null>", 1
+"SKAT", "Get_PValue.Lambda", -1, 0, 1, "list<double | null>", 1
 "SKAT", "Get_PValue.Lambda", 0, 0, 0, "double[]", 1
 "SKAT", "Get_PValue.Lambda", 1, 0, 0, "double[]", 1
 "SKAT", "Get_RandomRegion", -1, 0, 0, "integer[]", 1
 "SKAT", "Get_RandomRegion", 0, 0, 0, "integer[]", 1
 "SKAT", "Get_RandomRegion", 1, 0, 0, "double", 1
-"SKAT", "Get_RequiredSampleSize", -1, 0, 0, "list<character | double | character>", 1
+"SKAT", "Get_RequiredSampleSize", -1, 0, 0, "list<character>", 1
+"SKAT", "Get_RequiredSampleSize", -1, 0, 1, "list<double | character>", 1
 "SKAT", "Get_RequiredSampleSize", 0, 0, 0, "class<`SKAT_Power`>", 1
 "SKAT", "Get_RequiredSampleSize", 1, 0, 0, "double", 1
-"SKAT", "Get_RequiredSampleSize.numeric", -1, 0, 0, "list<character | double | character>", 1
+"SKAT", "Get_RequiredSampleSize.numeric", -1, 0, 0, "list<character>", 1
+"SKAT", "Get_RequiredSampleSize.numeric", -1, 0, 1, "list<double | character>", 1
 "SKAT", "Get_RequiredSampleSize.numeric", 0, 0, 0, "class<`matrix`>", 1
 "SKAT", "Get_RequiredSampleSize.numeric", 1, 0, 0, "double", 1
-"SKAT", "Get_RequiredSampleSize.SKAT_Power", -1, 0, 0, "list<character | double | character>", 1
+"SKAT", "Get_RequiredSampleSize.SKAT_Power", -1, 0, 0, "list<character>", 1
+"SKAT", "Get_RequiredSampleSize.SKAT_Power", -1, 0, 1, "list<double | character>", 1
 "SKAT", "Get_RequiredSampleSize.SKAT_Power", 0, 0, 0, "class<`SKAT_Power`>", 1
 "SKAT", "Get_RequiredSampleSize.SKAT_Power", 1, 0, 0, "double", 1
 "SKAT", "Get_Resampling_Pvalue", -1, 0, 0, "list<double>", 1
@@ -330,8 +336,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "SKAT", "SKATBinary", 13, 0, 0, "double", 1
 "SKAT", "SKATBinary", 14, 0, 0, "any", 1
 "SKAT", "SKATBinary", 15, 0, 0, "double", 1
-"SKAT", "SKATBinary", 16, 0, 0, "any", 1
-"SKAT", "SKATBinary", 17, 0, 0, "null", 1
 "SKAT", "SKATBinary_RestoreSeed", -1, 0, 0, "double", 1
 "SKAT", "SKATBinary_RestoreSeed", 0, 0, 0, "any", 1
 "SKAT", "SKATBinary_SeedNum", -1, 0, 0, "double", 1
@@ -356,7 +360,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "SKAT", "SKATBinary.Single.CheckZ", 3, 0, 0, "logical", 1
 "SKAT", "SKATBinary.Single.CheckZ", 4, 0, 0, "logical", 1
 "SKAT", "SKATBinary.Single.CheckZ", 5, 0, 0, "double", 1
-"SKAT", "SKAT_Check_Method", -1, 0, 0, "list<character | double[] | character | double>", 1
+"SKAT", "SKAT_Check_Method", -1, 0, 0, "list<character | double[]>", 1
+"SKAT", "SKAT_Check_Method", -1, 0, 1, "list<character | double>", 1
 "SKAT", "SKAT_Check_Method", 0, 0, 0, "character", 1
 "SKAT", "SKAT_Check_Method", 1, 0, 0, "any", 1
 "SKAT", "SKAT_Check_Method", 2, 0, 0, "integer", 1
@@ -468,10 +473,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "SKAT", "SKATExactBin", 13, 0, 0, "double", 1
 "SKAT", "SKATExactBin", 14, 0, 0, "any", 1
 "SKAT", "SKATExactBin", 15, 0, 0, "double", 1
-"SKAT", "SKATExactBin", 16, 0, 0, "double", 1
-"SKAT", "SKATExactBin", 17, 0, 0, "logical", 1
-"SKAT", "SKATExactBin", 18, 0, 0, "null", 1
-"SKAT", "SKATExactBin", 19, 0, 0, "logical", 1
 "SKAT", "SKATExactBin.Adaptive", -1, 0, 0, "list<double | null | list<integer>>", 1
 "SKAT", "SKATExactBin.Adaptive", 0, 0, 0, "class<`matrix`>", 1
 "SKAT", "SKATExactBin.Adaptive", 1, 0, 0, "class<`SKAT_NULL_Model`>", 1
@@ -655,7 +656,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "SKAT", "SKAT_Logistic_VarMatching_GetParam1", 3, 0, 0, "character", 1
 "SKAT", "SKAT_MAIN_Check_OutType", -1, 0, 0, "null", 1
 "SKAT", "SKAT_MAIN_Check_OutType", 0, 0, 0, "character", 1
-"SKAT", "SKAT_MAIN_Check_Z", -1, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double | integer[]>", 1
+"SKAT", "SKAT_MAIN_Check_Z", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"SKAT", "SKAT_MAIN_Check_Z", -1, 0, 1, "list<class<`matrix`> | double | integer[]>", 1
 "SKAT", "SKAT_MAIN_Check_Z", 0, 0, 0, "class<`matrix`>", 1
 "SKAT", "SKAT_MAIN_Check_Z", 1, 0, 0, "integer", 1
 "SKAT", "SKAT_MAIN_Check_Z", 2, 0, 0, "integer[]", 1

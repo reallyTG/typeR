@@ -17,10 +17,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "Ccall.msm", 1, 0, 0, "character", 1
 "msm", "Ccall.msm", 2, 0, 0, "list<any>", 1
 "msm", "Ccall.msm", 3, 0, 0, "class<`msmqmodel`>", 1
-"msm", "Ccall.msm", 4, 0, 0, "list<double[] | character[] | double>", 1
+"msm", "Ccall.msm", 4, 0, 0, "list<double[] | character[]>", 1
+"msm", "Ccall.msm", 4, 0, 1, "list<double>", 1
 "msm", "Ccall.msm", 5, 0, 0, "list<double | null>", 1
-"msm", "Ccall.msm", 6, 0, 0, "class<`hmodel`>", 1
-"msm", "Ccall.msm", 6, 0, 1, "list<double[]>", 1
+"msm", "Ccall.msm", 6, 0, 0, "list<double[]>", 1
+"msm", "Ccall.msm", 6, 0, 1, "class<`hmodel`>", 1
 "msm", "Ccall.msm", 7, 0, 0, "list<any>", 1
 "msm", "crudeinits.msm", -1, 0, 0, "class<`matrix`>", 1
 "msm", "crudeinits.msm", 0, 0, 0, "class<`formula`>", 1
@@ -40,8 +41,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "deriv.msm", 1, 0, 0, "...", 1
 "msm", "deriv.supported", -1, 0, 0, "logical", 1
 "msm", "deriv.supported", 0, 0, 0, "list<any>", 1
-"msm", "deriv.supported", 1, 0, 0, "class<`hmodel`>", 1
-"msm", "deriv.supported", 1, 0, 1, "list<double[]>", 1
+"msm", "deriv.supported", 1, 0, 0, "list<double[]>", 1
+"msm", "deriv.supported", 1, 0, 1, "class<`hmodel`>", 1
 "msm", "deriv.supported", 2, 0, 0, "any", 1
 "msm", "dgexpit", -1, 0, 0, "double[]", 1
 "msm", "dgexpit", 0, 0, 0, "double[]", 1
@@ -87,7 +88,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "expsum", -1, 0, 0, "character", 1
 "msm", "expsum", 0, 0, 0, "double", 1
 "msm", "expsum", 1, 0, 0, "double", 1
-"msm", "expsum.formstr", -1, 0, 0, "list<character[] | double[] | character | double>", 1
+"msm", "expsum.formstr", -1, 0, 0, "list<character[] | double[]>", 1
+"msm", "expsum.formstr", -1, 0, 1, "list<character | double>", 1
 "msm", "expsum.formstr", 0, 0, 0, "integer", 1
 "msm", "expsum.formstr", 1, 0, 0, "integer[]", 1
 "msm", "expsum.formstr", 2, 0, 0, "double", 1
@@ -113,9 +115,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "glogit", 0, 0, 0, "double[]", 1
 "msm", "glogit", 1, 0, 0, "double[]", 1
 "msm", "glogit", 2, 0, 0, "double[]", 1
-"msm", "gr", -1, 0, 0, "double[]", 1
-"msm", "gr", 0, 0, 0, "double[]", 1
-"msm", "gr", 1, 0, 0, "...", 1
 "msm", "hazard.msm", -1, 0, 0, "list<class<`matrix`>>", 1
 "msm", "hazard.msm", 0, 0, 0, "class<`msm`>", 1
 "msm", "hazard.msm", 1, 0, 0, "double", 1
@@ -138,8 +137,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "information.msm", 1, 0, 0, "...", 1
 "msm", "info.supported", -1, 0, 0, "logical", 1
 "msm", "info.supported", 0, 0, 0, "list<any>", 1
-"msm", "info.supported", 1, 0, 0, "class<`hmodel`>", 1
-"msm", "info.supported", 1, 0, 1, "list<double[]>", 1
+"msm", "info.supported", 1, 0, 0, "list<double[]>", 1
+"msm", "info.supported", 1, 0, 1, "class<`hmodel`>", 1
 "msm", "info.supported", 2, 0, 0, "any", 1
 "msm", "in.range", -1, 0, 0, "logical", 1
 "msm", "in.range", 0, 0, 0, "double", 1
@@ -180,16 +179,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm", 9, 0, 0, "class<`formula`>", 1
 "msm", "msm", 9, 0, 1, "null", 1
 "msm", "msm", 10, 0, 0, "null", 1
-"msm", "msm", 11, 0, 0, "null", 1
-"msm", "msm", 11, 0, 1, "list<double[]>", 1
+"msm", "msm", 11, 0, 0, "list<double[]>", 1
+"msm", "msm", 11, 0, 1, "null", 1
 "msm", "msm", 12, 0, 0, "null", 1
 "msm", "msm", 13, 0, 0, "null", 1
 "msm", "msm", 14, 0, 0, "null", 1
 "msm", "msm", 15, 0, 0, "null", 1
-"msm", "msm", 16, 0, 0, "null", 1
-"msm", "msm", 17, 0, 0, "null", 1
-"msm", "msm", 18, 0, 0, "null", 1
-"msm", "msm", 19, 0, 0, "null", 1
 "msm", "msm2Surv", -1, 0, 0, "class<`data.frame`, `msdata`>", 1
 "msm", "msm2Surv", 0, 0, 0, "class<`data.frame`>", 1
 "msm", "msm2Surv", 1, 0, 0, "character", 1
@@ -217,7 +212,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.check.constraint", 0, 0, 0, "list<double[]>", 1
 "msm", "msm.check.constraint", 1, 0, 0, "class<`matrix`>", 1
 "msm", "msm.check.hmodel", -1, 0, 0, "null", 1
-"msm", "msm.check.hmodel", 0, 0, 0, "list<class<`hmmdist`> | class<`hmmMVdist`, `hmmdist`>>", 1
+"msm", "msm.check.hmodel", 0, 0, 0, "list<class<`hmmdist`>>", 1
+"msm", "msm.check.hmodel", 0, 0, 1, "list<class<`hmmMVdist`, `hmmdist`>>", 1
 "msm", "msm.check.hmodel", 1, 0, 0, "integer", 1
 "msm", "msm.check.model", -1, 0, 0, "null", 1
 "msm", "msm.check.model", 0, 0, 0, "integer[]", 1
@@ -277,11 +273,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.form.dmodel", 0, 0, 0, "null", 1
 "msm", "msm.form.dmodel", 0, 0, 1, "double", 1
 "msm", "msm.form.dmodel", 1, 0, 0, "class<`msmqmodel`>", 1
-"msm", "msm.form.dmodel", 2, 0, 0, "class<`hmodel`>", 1
-"msm", "msm.form.dmodel", 2, 0, 1, "list<double[]>", 1
+"msm", "msm.form.dmodel", 2, 0, 0, "list<double[]>", 1
+"msm", "msm.form.dmodel", 2, 0, 1, "class<`hmodel`>", 1
 "msm", "msm.form.dq", -1, 0, 0, "class<`array`>", 1
 "msm", "msm.form.dq", 0, 0, 0, "class<`msmqmodel`>", 1
-"msm", "msm.form.dq", 1, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.form.dq", 1, 0, 0, "list<double>", 1
+"msm", "msm.form.dq", 1, 0, 1, "list<double[] | character[]>", 1
 "msm", "msm.form.dq", 2, 0, 0, "double[]", 1
 "msm", "msm.form.dq", 3, 0, 0, "list<any>", 1
 "msm", "msm.form.dq", 4, 0, 0, "class<`matrix`>", 1
@@ -294,7 +291,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.form.hmm.agg", -1, 0, 0, "^integer[]", 1
 "msm", "msm.form.hmm.agg", 0, 0, 0, "class<`data.frame`>", 1
 "msm", "msm.form.hmodel", -1, 0, 0, "class<`hmodel`>", 1
-"msm", "msm.form.hmodel", 0, 0, 0, "list<class<`hmmdist`> | class<`hmmMVdist`, `hmmdist`>>", 1
+"msm", "msm.form.hmodel", 0, 0, 0, "list<class<`hmmdist`>>", 1
+"msm", "msm.form.hmodel", 0, 0, 1, "list<class<`hmmMVdist`, `hmmdist`>>", 1
 "msm", "msm.form.hmodel", 1, 0, 0, "any", 1
 "msm", "msm.form.hmodel", 2, 0, 0, "null", 1
 "msm", "msm.form.hmodel", 3, 0, 0, "logical", 1
@@ -312,7 +310,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.form.mf.agg", -1, 0, 0, "class<`data.frame`>", 1
 "msm", "msm.form.mf.agg", -1, 0, 1, "null", 1
 "msm", "msm.form.mf.agg", 0, 0, 0, "class<`msm`>", 1
-"msm", "msm.form.mf.agg", 0, 0, 1, "list<class<`msmqmodel`> | list<class<`data.frame`> | double[] | double | null> | class<`msmqmodel`> | class<`hmodel`> | list<class<`data.frame`> | double | null>>", 1
+"msm", "msm.form.mf.agg", 0, 0, 1, "list<class<`msmqmodel`> | list<class<`data.frame`> | double[] | double | null>>", 1
+"msm", "msm.form.mf.agg", 0, 0, 2, "list<class<`msmqmodel`> | class<`hmodel`> | list<class<`data.frame`> | double | null>>", 1
 "msm", "msm.form.mm.cov", -1, 0, 0, "class<`matrix`>", 1
 "msm", "msm.form.mm.cov", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mm.cov", 0, 0, 1, "list<class<`formula`> | logical | list<class<`data.frame`>>>", 1
@@ -320,14 +319,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.form.mm.cov.agg", -1, 0, 1, "null", 1
 "msm", "msm.form.mm.cov.agg", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mm.cov.agg", 0, 0, 1, "list<any>", 1
-"msm", "msm.form.mm.hcov", -1, 0, 0, "null", 1
-"msm", "msm.form.mm.hcov", -1, 0, 1, "list<class<`matrix`>>", 1
-"msm", "msm.form.mm.hcov", 0, 0, 0, "class<`msm`>", 1
-"msm", "msm.form.mm.hcov", 0, 0, 1, "list<any>", 1
+"msm", "msm.form.mm.hcov", -1, 0, 0, "list<class<`matrix`>>", 1
+"msm", "msm.form.mm.hcov", -1, 0, 1, "null", 1
+"msm", "msm.form.mm.hcov", 0, 0, 0, "list<any>", 1
+"msm", "msm.form.mm.hcov", 0, 0, 1, "class<`msm`>", 1
 "msm", "msm.form.mm.icov", -1, 0, 0, "class<`matrix`>", 1
 "msm", "msm.form.mm.icov", -1, 0, 1, "null", 1
-"msm", "msm.form.mm.icov", 0, 0, 0, "class<`msm`>", 1
-"msm", "msm.form.mm.icov", 0, 0, 1, "list<any>", 1
+"msm", "msm.form.mm.icov", 0, 0, 0, "list<any>", 1
+"msm", "msm.form.mm.icov", 0, 0, 1, "class<`msm`>", 1
 "msm", "msm.form.mm.mcov", -1, 0, 0, "null", 1
 "msm", "msm.form.mm.mcov", 0, 0, 0, "class<`msm`>", 1
 "msm", "msm.form.mm.mcov", 0, 0, 1, "list<null | logical | list<class<`data.frame`> | double>>", 1
@@ -348,7 +347,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.form.output", 1, 0, 0, "character", 1
 "msm", "msm.form.params", -1, 0, 0, "list<double[] | character[] | class<`matrix`>>", 1
 "msm", "msm.form.params", 0, 0, 0, "class<`msmqmodel`>", 1
-"msm", "msm.form.params", 1, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.form.params", 1, 0, 0, "list<double>", 1
+"msm", "msm.form.params", 1, 0, 1, "list<double[] | character[]>", 1
 "msm", "msm.form.params", 2, 0, 0, "any", 1
 "msm", "msm.form.params", 3, 0, 0, "class<`hmodel`>", 1
 "msm", "msm.form.params", 3, 0, 1, "list<double[]>", 1
@@ -376,8 +376,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.initprobs2mat", 3, 0, 0, "class<`data.frame`>", 1
 "msm", "msm.inv.transform", -1, 0, 0, "double[]", 1
 "msm", "msm.inv.transform", 0, 0, 0, "double[]", 1
-"msm", "msm.inv.transform", 1, 0, 0, "class<`hmodel`>", 1
-"msm", "msm.inv.transform", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.inv.transform", 1, 0, 0, "list<double[]>", 1
+"msm", "msm.inv.transform", 1, 0, 1, "class<`hmodel`>", 1
 "msm", "msm.inv.transform", 2, 0, 0, "class<`matrix`>", 1
 "msm", "msm.mninvlogit.transform", -1, 0, 0, "class<`matrix`>", 1
 "msm", "msm.mninvlogit.transform", -1, 0, 1, "double[]", 1
@@ -387,8 +387,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.mninvlogit.transform", 1, 0, 1, "list<double[]>", 1
 "msm", "msm.mnlogit.transform", -1, 0, 0, "double[]", 1
 "msm", "msm.mnlogit.transform", 0, 0, 0, "double[]", 1
-"msm", "msm.mnlogit.transform", 1, 0, 0, "class<`hmodel`>", 1
-"msm", "msm.mnlogit.transform", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.mnlogit.transform", 1, 0, 0, "list<double[]>", 1
+"msm", "msm.mnlogit.transform", 1, 0, 1, "class<`hmodel`>", 1
 "msm", "msm.obs.to.fromto", -1, 0, 0, "class<`data.frame`>", 1
 "msm", "msm.obs.to.fromto", 0, 0, 0, "class<`data.frame`>", 1
 "msm", "msm.optim", -1, 0, 0, "list<any>", 1
@@ -398,7 +398,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.optim", 3, 0, 0, "logical", 1
 "msm", "msm.optim", 4, 0, 0, "list<any>", 1
 "msm", "msm.optim", 5, 0, 0, "class<`msmqmodel`>", 1
-"msm", "msm.optim", 6, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.optim", 6, 0, 0, "list<double>", 1
+"msm", "msm.optim", 6, 0, 1, "list<double[] | character[]>", 1
 "msm", "msm.optim", 7, 0, 0, "list<double | null>", 1
 "msm", "msm.optim", 8, 0, 0, "class<`hmodel`>", 1
 "msm", "msm.optim", 8, 0, 1, "list<double[]>", 1
@@ -409,7 +410,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.optim.optim", 2, 0, 0, "logical", 1
 "msm", "msm.optim.optim", 3, 0, 0, "list<any>", 1
 "msm", "msm.optim.optim", 4, 0, 0, "class<`msmqmodel`>", 1
-"msm", "msm.optim.optim", 5, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.optim.optim", 5, 0, 0, "list<double>", 1
+"msm", "msm.optim.optim", 5, 0, 1, "list<double[] | character[]>", 1
 "msm", "msm.optim.optim", 6, 0, 0, "list<double | null>", 1
 "msm", "msm.optim.optim", 7, 0, 0, "class<`hmodel`>", 1
 "msm", "msm.optim.optim", 7, 0, 1, "list<double[]>", 1
@@ -418,17 +420,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "msm.parse.covariates", 0, 0, 0, "any", 1
 "msm", "msm.parse.covariates", 1, 0, 0, "character", 1
 "msm", "msm.parse.covariates", 1, 0, 1, "list<integer>", 1
-"msm", "msm.parse.covariates", 2, 0, 0, "list<double | double[] | character[]>", 1
+"msm", "msm.parse.covariates", 2, 0, 0, "list<double>", 1
+"msm", "msm.parse.covariates", 2, 0, 1, "list<double[] | character[]>", 1
 "msm", "msm.parse.covariates", 3, 0, 0, "logical", 1
 "msm", "msm.rep.constraints", -1, 0, 0, "double[]", 1
 "msm", "msm.rep.constraints", 0, 0, 0, "double[]", 1
 "msm", "msm.rep.constraints", 1, 0, 0, "list<any>", 1
-"msm", "msm.rep.constraints", 2, 0, 0, "class<`hmodel`>", 1
-"msm", "msm.rep.constraints", 2, 0, 1, "list<double[]>", 1
+"msm", "msm.rep.constraints", 2, 0, 0, "list<double[]>", 1
+"msm", "msm.rep.constraints", 2, 0, 1, "class<`hmodel`>", 1
 "msm", "msm.transform", -1, 0, 0, "double[]", 1
 "msm", "msm.transform", 0, 0, 0, "double[]", 1
-"msm", "msm.transform", 1, 0, 0, "class<`hmodel`>", 1
-"msm", "msm.transform", 1, 0, 1, "list<double[]>", 1
+"msm", "msm.transform", 1, 0, 0, "list<double[]>", 1
+"msm", "msm.transform", 1, 0, 1, "class<`hmodel`>", 1
 "msm", "msm.transform", 2, 0, 0, "class<`matrix`>", 1
 "msm", "na.find.msmdata", -1, 0, 0, "class<`array`>", 1
 "msm", "na.find.msmdata", 0, 0, 0, "class<`data.frame`>", 1
@@ -454,8 +457,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "msm", "pmatrix.msm", 0, 0, 0, "class<`msm`>", 1
 "msm", "pmatrix.msm", 1, 0, 0, "double", 1
 "msm", "pmatrix.msm", 2, 0, 0, "any", 1
-"msm", "pmatrix.msm", 3, 0, 0, "character", 1
-"msm", "pmatrix.msm", 3, 0, 1, "list<integer>", 1
+"msm", "pmatrix.msm", 3, 0, 0, "list<integer>", 1
+"msm", "pmatrix.msm", 3, 0, 1, "character", 1
 "msm", "pmatrix.msm", 4, 0, 0, "character[]", 1
 "msm", "pmatrix.msm", 5, 0, 0, "double", 1
 "msm", "pmatrix.msm", 6, 0, 0, "double", 1

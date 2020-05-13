@@ -72,31 +72,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "format_arg_label", -1, 0, 0, "character", 1
 "vctrs", "format_arg_label", 0, 0, 0, "character", 1
 "vctrs", "format_arg_label", 1, 0, 0, "character", 1
-"vctrs", "FUN", -1, 0, 0, "^double[]", 1
-"vctrs", "FUN", -1, 0, 1, "character[]", 1
-"vctrs", "FUN", -1, 0, 2, "class<`data.frame`>", 1
-"vctrs", "FUN", 0, 0, 0, "^double[]", 1
-"vctrs", "FUN", 0, 0, 1, "character[]", 1
-"vctrs", "FUN", 0, 0, 2, "class<`data.frame`>", 1
-"vctrs", "FUN", 1, 0, 0, "...", 1
-"vctrs", "FUN", 2, 0, 0, "logical", 1
-"vctrs", "FUN", -1, 1, 0, "character", 1
-"vctrs", "FUN", 0, 1, 0, "character[]", 1
-"vctrs", "FUN", 1, 1, 0, "double", 1
-"vctrs", "FUN", -1, 2, 0, "character", 1
-"vctrs", "FUN", 0, 2, 0, "class<`data.frame`>", 1
-"vctrs", "FUN", 0, 2, 1, "class<`factor`>", 1
-"vctrs", "FUN", 0, 2, 2, "double[]", 1
-"vctrs", "FUN", 0, 2, 3, "character[]", 1
-"vctrs", "FUN", 0, 2, 4, "class<`Date`>", 1
-"vctrs", "FUN", 0, 2, 5, "class<`factor`, `ordered`>", 1
-"vctrs", "FUN", 0, 2, 6, "class<`matrix`>", 1
-"vctrs", "FUN", 0, 2, 7, "class<`POSIXct`, `POSIXt`>", 1
-"vctrs", "FUN", 0, 2, 8, "class<`vctrs_partial`, `vctrs_partial_factor`, `vctrs_sclr`>", 1
-"vctrs", "FUN", 0, 2, 9, "null", 1
-"vctrs", "FUN", 1, 2, 0, "...", 1
-"vctrs", "FUN", -1, 3, 0, "class<`data.frame`>", 1
-"vctrs", "FUN", 0, 3, 0, "class<`data.frame`>", 1
 "vctrs", "glue_lines", -1, 0, 0, "character", 1
 "vctrs", "glue_lines", 0, 0, 0, "...", 1
 "vctrs", "glue_lines", 1, 0, 0, "environment", 1
@@ -110,7 +85,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "hash_label", 0, 0, 0, "character[]", 1
 "vctrs", "hash_label", 1, 0, 0, "double", 1
 "vctrs", "has_unique_names", -1, 0, 0, "logical", 1
-"vctrs", "has_unique_names", 0, 0, 0, "list<class<`data.frame`> | class<`factor`> | integer[] | character[]>", 1
+"vctrs", "has_unique_names", 0, 0, 0, "list<class<`data.frame`>>", 1
+"vctrs", "has_unique_names", 0, 0, 1, "list<class<`factor`>>", 1
+"vctrs", "has_unique_names", 0, 0, 2, "list<integer[] | character[]>", 1
 "vctrs", "indent", -1, 0, 0, "character", 1
 "vctrs", "indent", 0, 0, 0, "character", 1
 "vctrs", "indent", 1, 0, 0, "double", 1
@@ -145,24 +122,29 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "make_syntactic", 0, 0, 0, "character[]", 1
 "vctrs", "map", -1, 0, 0, "list<any>", 1
 "vctrs", "map", 0, 0, 0, "character[]", 1
-"vctrs", "map", 0, 0, 1, "class<`data.frame`>", 1
-"vctrs", "map", 0, 0, 2, "class<`vctrs_partial`, `vctrs_partial_factor`, `vctrs_sclr`>", 1
-"vctrs", "map", 0, 0, 3, "list<any>", 1
+"vctrs", "map", 0, 0, 1, "list<character[]>", 1
+"vctrs", "map", 0, 0, 2, "list<class<`data.frame`>>", 1
+"vctrs", "map", 0, 0, 3, "list<double>", 1
+"vctrs", "map", 0, 0, 4, "class<`data.frame`>", 1
+"vctrs", "map", 0, 0, 5, "list<integer[]>", 1
+"vctrs", "map", 0, 0, 6, "class<`vctrs_partial`, `vctrs_partial_factor`, `vctrs_sclr`>", 1
 "vctrs", "map", 1, 0, 0, "class<`function`>", 1
 "vctrs", "map", 2, 0, 0, "...", 1
 "vctrs", "map_chr", -1, 0, 0, "character[]", 1
-"vctrs", "map_chr", 0, 0, 0, "character", 1
-"vctrs", "map_chr", 0, 0, 1, "class<`data.frame`>", 1
-"vctrs", "map_chr", 0, 0, 2, "list<character[] | class<`data.frame`>>", 1
+"vctrs", "map_chr", 0, 0, 0, "list<character[]>", 1
+"vctrs", "map_chr", 0, 0, 1, "list<class<`data.frame`>>", 1
+"vctrs", "map_chr", 0, 0, 2, "character", 1
+"vctrs", "map_chr", 0, 0, 3, "class<`data.frame`>", 1
 "vctrs", "map_chr", 1, 0, 0, "class<`function`>", 1
 "vctrs", "map_chr", 2, 0, 0, "...", 1
 "vctrs", "map_int", -1, 0, 0, "integer[]", 1
-"vctrs", "map_int", 0, 0, 0, "list<character[] | integer[] | character[]>", 1
+"vctrs", "map_int", 0, 0, 0, "list<character[]>", 1
+"vctrs", "map_int", 0, 0, 1, "list<integer[] | character[]>", 1
 "vctrs", "map_int", 1, 0, 0, "class<`function`>", 1
 "vctrs", "map_int", 2, 0, 0, "...", 1
 "vctrs", "map_lgl", -1, 0, 0, "logical[]", 1
-"vctrs", "map_lgl", 0, 0, 0, "class<`data.frame`>", 1
-"vctrs", "map_lgl", 0, 0, 1, "list<any>", 1
+"vctrs", "map_lgl", 0, 0, 0, "list<any>", 1
+"vctrs", "map_lgl", 0, 0, 1, "class<`data.frame`>", 1
 "vctrs", "map_lgl", 1, 0, 0, "class<`function`>", 1
 "vctrs", "map_lgl", 2, 0, 0, "...", 1
 "vctrs", "map_mold", -1, 0, 0, "character[]", 1
@@ -194,7 +176,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "names_all_or_nothing", -1, 0, 0, "logical", 1
 "vctrs", "names_all_or_nothing", 0, 0, 0, "null", 1
 "vctrs", "new_data_frame", -1, 0, 0, "class<`data.frame`>", 1
-"vctrs", "new_data_frame", 0, 0, 0, "list<any>", 1
+"vctrs", "new_data_frame", 0, 0, 0, "list<^double[]>", 1
+"vctrs", "new_data_frame", 0, 0, 1, "list<^logical[] | integer[]>", 1
+"vctrs", "new_data_frame", 0, 0, 2, "list<double[] | character[]>", 1
+"vctrs", "new_data_frame", 0, 0, 3, "list<integer[] | character[]>", 1
 "vctrs", "new_data_frame", 1, 0, 0, "integer", 1
 "vctrs", "new_data_frame", 1, 0, 1, "null", 1
 "vctrs", "new_data_frame", 2, 0, 0, "...", 1
@@ -239,8 +224,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "new_sclr", 1, 0, 0, "character[]", 1
 "vctrs", "new_vctr", -1, 0, 0, "class<`vctrs_list_of`, `vctrs_vctr`>", 1
 "vctrs", "new_vctr", -1, 0, 1, "class<`vctrs_vctr`>", 1
-"vctrs", "new_vctr", 0, 0, 0, "double[]", 1
-"vctrs", "new_vctr", 0, 0, 1, "list<any>", 1
+"vctrs", "new_vctr", 0, 0, 0, "list<any>", 1
+"vctrs", "new_vctr", 0, 0, 1, "double[]", 1
 "vctrs", "new_vctr", 1, 0, 0, "...", 1
 "vctrs", "new_vctr", 2, 0, 0, "character[]", 1
 "vctrs", "new_vctr", 3, 0, 0, "logical", 1
@@ -515,7 +500,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "vec_cast", 2, 0, 0, "...", 1
 "vctrs", "vec_cast", 3, 0, 0, "character", 1
 "vctrs", "vec_cast", 4, 0, 0, "character", 1
-"vctrs", "vec_cast_common", -1, 0, 0, "list<any>", 1
+"vctrs", "vec_cast_common", -1, 0, 0, "list<character[]>", 1
+"vctrs", "vec_cast_common", -1, 0, 1, "list<class<`data.frame`>>", 1
+"vctrs", "vec_cast_common", -1, 0, 2, "list<class<`difftime`>>", 1
+"vctrs", "vec_cast_common", -1, 0, 3, "list<class<`factor`>>", 1
+"vctrs", "vec_cast_common", -1, 0, 4, "list<double[]>", 1
+"vctrs", "vec_cast_common", -1, 0, 5, "list<^logical[]>", 1
 "vctrs", "vec_cast_common", 0, 0, 0, "...", 1
 "vctrs", "vec_cast_common", 1, 0, 0, "null", 1
 "vctrs", "vec_cast.Date", -1, 0, 0, "class<`Date`>", 1
@@ -638,11 +628,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "vec_cbind", 1, 0, 0, "null", 1
 "vctrs", "vec_cbind", 2, 0, 0, "null", 1
 "vctrs", "vec_cbind", 3, 0, 0, "character[]", 1
-"vctrs", "vec_chop", -1, 0, 0, "list<class<`data.frame`> | integer[]>", 1
+"vctrs", "vec_chop", -1, 0, 0, "list<class<`data.frame`>>", 1
+"vctrs", "vec_chop", -1, 0, 1, "list<integer[]>", 1
 "vctrs", "vec_chop", 0, 0, 0, "class<`data.frame`>", 1
 "vctrs", "vec_chop", 0, 0, 1, "integer[]", 1
-"vctrs", "vec_chop", 1, 0, 0, "null", 1
-"vctrs", "vec_chop", 1, 0, 1, "list<integer[] | double | integer[]>", 1
+"vctrs", "vec_chop", 1, 0, 0, "list<integer[]>", 1
+"vctrs", "vec_chop", 1, 0, 1, "null", 1
+"vctrs", "vec_chop", 1, 0, 2, "list<double | integer[]>", 1
 "vctrs", "vec_coerce_bare", -1, 0, 0, "integer[]", 1
 "vctrs", "vec_coerce_bare", 0, 0, 0, "double[]", 1
 "vctrs", "vec_coerce_bare", 0, 0, 1, "character", 1
@@ -1034,7 +1026,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "vec_recycle", 1, 0, 0, "integer", 1
 "vctrs", "vec_recycle", 2, 0, 0, "...", 1
 "vctrs", "vec_recycle", 3, 0, 0, "character", 1
-"vctrs", "vec_recycle_common", -1, 0, 0, "list<any>", 1
+"vctrs", "vec_recycle_common", -1, 0, 0, "list<character[]>", 1
+"vctrs", "vec_recycle_common", -1, 0, 1, "list<class<`array`> | integer[]>", 1
+"vctrs", "vec_recycle_common", -1, 0, 2, "list<class<`data.frame`>>", 1
+"vctrs", "vec_recycle_common", -1, 0, 3, "list<class<`data.frame`> | integer[]>", 1
+"vctrs", "vec_recycle_common", -1, 0, 4, "list<class<`difftime`>>", 1
+"vctrs", "vec_recycle_common", -1, 0, 5, "list<class<`difftime`> | double>", 1
+"vctrs", "vec_recycle_common", -1, 0, 6, "list<class<`matrix`> | integer[]>", 1
+"vctrs", "vec_recycle_common", -1, 0, 7, "list<class<`POSIXct`, `POSIXt`> | class<`difftime`>>", 1
+"vctrs", "vec_recycle_common", -1, 0, 8, "list<class<`POSIXct`, `POSIXt`> | double>", 1
+"vctrs", "vec_recycle_common", -1, 0, 9, "list<double[]>", 1
+"vctrs", "vec_recycle_common", -1, 0, 10, "list<^logical[]>", 1
 "vctrs", "vec_recycle_common", 0, 0, 0, "...", 1
 "vctrs", "vec_recycle_common", 1, 0, 0, "null", 1
 "vctrs", "vec_repeat", -1, 0, 0, "class<`data.frame`>", 1
@@ -1063,8 +1065,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "vec_restore.default", 0, 0, 2, "null", 1
 "vctrs", "vec_restore.default", 0, 0, 3, "class<`factor`>", 1
 "vctrs", "vec_restore.default", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
-"vctrs", "vec_restore.default", 0, 0, 5, "class<`vctrs_vctr`>", 1
-"vctrs", "vec_restore.default", 0, 0, 6, "list<any>", 1
+"vctrs", "vec_restore.default", 0, 0, 5, "list<any>", 1
+"vctrs", "vec_restore.default", 0, 0, 6, "class<`vctrs_vctr`>", 1
 "vctrs", "vec_restore.default", 1, 0, 0, "class<`Date`>", 1
 "vctrs", "vec_restore.default", 1, 0, 1, "class<`difftime`>", 1
 "vctrs", "vec_restore.default", 1, 0, 2, "class<`factor`>", 1
@@ -1084,8 +1086,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "vec_restore_dispatch", 0, 0, 2, "null", 1
 "vctrs", "vec_restore_dispatch", 0, 0, 3, "class<`factor`>", 1
 "vctrs", "vec_restore_dispatch", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
-"vctrs", "vec_restore_dispatch", 0, 0, 5, "class<`vctrs_vctr`>", 1
-"vctrs", "vec_restore_dispatch", 0, 0, 6, "list<any>", 1
+"vctrs", "vec_restore_dispatch", 0, 0, 5, "list<any>", 1
+"vctrs", "vec_restore_dispatch", 0, 0, 6, "class<`vctrs_vctr`>", 1
 "vctrs", "vec_restore_dispatch", 1, 0, 0, "class<`Date`>", 1
 "vctrs", "vec_restore_dispatch", 1, 0, 1, "class<`difftime`>", 1
 "vctrs", "vec_restore_dispatch", 1, 0, 2, "class<`factor`>", 1
@@ -1096,9 +1098,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "vec_restore_dispatch", 3, 0, 0, "any", 1
 "vctrs", "vec_restore.vctrs_vctr", -1, 0, 0, "class<`vctrs_list_of`, `vctrs_vctr`>", 1
 "vctrs", "vec_restore.vctrs_vctr", -1, 0, 1, "class<`vctrs_vctr`>", 1
-"vctrs", "vec_restore.vctrs_vctr", 0, 0, 0, "class<`vctrs_vctr`>", 1
-"vctrs", "vec_restore.vctrs_vctr", 0, 0, 1, "^double[]", 1
-"vctrs", "vec_restore.vctrs_vctr", 0, 0, 2, "list<any>", 1
+"vctrs", "vec_restore.vctrs_vctr", 0, 0, 0, "list<any>", 1
+"vctrs", "vec_restore.vctrs_vctr", 0, 0, 1, "class<`vctrs_vctr`>", 1
+"vctrs", "vec_restore.vctrs_vctr", 0, 0, 2, "^double[]", 1
 "vctrs", "vec_restore.vctrs_vctr", 1, 0, 0, "class<`vctrs_list_of`, `vctrs_vctr`>", 1
 "vctrs", "vec_restore.vctrs_vctr", 1, 0, 1, "class<`vctrs_vctr`>", 1
 "vctrs", "vec_restore.vctrs_vctr", 2, 0, 0, "...", 1
@@ -1112,13 +1114,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "vctrs", "vec_set_attributes", -1, 0, 3, "^double[]", 1
 "vctrs", "vec_set_attributes", -1, 0, 4, "list<class<`factor`>>", 1
 "vctrs", "vec_set_attributes", 0, 0, 0, "character[]", 1
-"vctrs", "vec_set_attributes", 0, 0, 1, "^double[]", 1
-"vctrs", "vec_set_attributes", 0, 0, 2, "class<`vctrs_vctr`>", 1
-"vctrs", "vec_set_attributes", 0, 0, 3, "class<`difftime`>", 1
-"vctrs", "vec_set_attributes", 0, 0, 4, "class<`POSIXct`, `POSIXt`>", 1
-"vctrs", "vec_set_attributes", 0, 0, 5, "class<`vctrs_partial`, `vctrs_partial_factor`, `vctrs_sclr`>", 1
-"vctrs", "vec_set_attributes", 0, 0, 6, "list<any>", 1
-"vctrs", "vec_set_attributes", 1, 0, 0, "list<any>", 1
+"vctrs", "vec_set_attributes", 0, 0, 1, "list<any>", 1
+"vctrs", "vec_set_attributes", 0, 0, 2, "^double[]", 1
+"vctrs", "vec_set_attributes", 0, 0, 3, "class<`vctrs_vctr`>", 1
+"vctrs", "vec_set_attributes", 0, 0, 4, "class<`difftime`>", 1
+"vctrs", "vec_set_attributes", 0, 0, 5, "class<`POSIXct`, `POSIXt`>", 1
+"vctrs", "vec_set_attributes", 0, 0, 6, "class<`vctrs_partial`, `vctrs_partial_factor`, `vctrs_sclr`>", 1
+"vctrs", "vec_set_attributes", 1, 0, 0, "list<null>", 1
+"vctrs", "vec_set_attributes", 1, 0, 1, "list<null | double[] | character[]>", 1
+"vctrs", "vec_set_attributes", 1, 0, 2, "list<null | integer[] | character[]>", 1
+"vctrs", "vec_set_attributes", 1, 0, 3, "list<null | logical[] | character[]>", 1
+"vctrs", "vec_set_attributes", 1, 0, 4, "list<null | character>", 1
+"vctrs", "vec_set_attributes", 1, 0, 5, "list<character[]>", 1
 "vctrs", "vec_set_names", -1, 0, 0, "character[]", 1
 "vctrs", "vec_set_names", -1, 0, 1, "class<`factor`>", 1
 "vctrs", "vec_set_names", -1, 0, 2, "double[]", 1

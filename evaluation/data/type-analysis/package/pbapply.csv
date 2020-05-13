@@ -1,8 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"pbapply", "::", -1, 0, 0, "double", 1
-"pbapply", "::", -1, 0, 1, "null", 1
-"pbapply", "::", 0, 0, 0, "any", 1
-"pbapply", "::", 1, 0, 0, "any", 1
 "pbapply", "closepb", -1, 0, 0, "null", 1
 "pbapply", "closepb", 0, 0, 0, "class<`timerProgressBar`, `txtProgressBar`>", 1
 "pbapply", "closepb", 0, 0, 1, "class<`txtProgressBar`>", 1
@@ -14,7 +10,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pbapply", "pbapply", -1, 0, 0, "class<`array`>", 1
 "pbapply", "pbapply", -1, 0, 1, "class<`matrix`>", 1
 "pbapply", "pbapply", -1, 0, 2, "double[]", 1
-"pbapply", "pbapply", -1, 0, 3, "list<class<`table`> | integer[]>", 1
+"pbapply", "pbapply", -1, 0, 3, "list<class<`table`>>", 1
+"pbapply", "pbapply", -1, 0, 4, "list<integer[]>", 1
 "pbapply", "pbapply", 0, 0, 0, "class<`array`>", 1
 "pbapply", "pbapply", 0, 0, 1, "class<`matrix`>", 1
 "pbapply", "pbapply", 1, 0, 0, "integer[]", 1
@@ -30,11 +27,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pbapply", "pblapply", 1, 0, 0, "class<`function`>", 1
 "pbapply", "pblapply", 2, 0, 0, "...", 1
 "pbapply", "pblapply", 3, 0, 0, "any", 1
-"pbapply", "pbmapply", -1, 0, 0, "list<double[] | character>", 1
+"pbapply", "pbmapply", -1, 0, 0, "list<double[]>", 1
+"pbapply", "pbmapply", -1, 0, 1, "list<character>", 1
 "pbapply", "pbmapply", 0, 0, 0, "class<`function`>", 1
 "pbapply", "pbmapply", 1, 0, 0, "...", 1
-"pbapply", "pbmapply", 2, 0, 0, "null", 1
-"pbapply", "pbmapply", 2, 0, 1, "list<double>", 1
+"pbapply", "pbmapply", 2, 0, 0, "list<double>", 1
+"pbapply", "pbmapply", 2, 0, 1, "null", 1
 "pbapply", "pbmapply", 3, 0, 0, "logical", 1
 "pbapply", "pbmapply", 4, 0, 0, "logical", 1
 "pbapply", "pboptions", -1, 0, 0, "list<character | double>", 1
@@ -52,8 +50,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pbapply", "pbsapply", -1, 0, 2, "double[]", 1
 "pbapply", "pbsapply", -1, 0, 3, "list<any>", 1
 "pbapply", "pbsapply", 0, 0, 0, "double[]", 1
-"pbapply", "pbsapply", 0, 0, 1, "character[]", 1
-"pbapply", "pbsapply", 0, 0, 2, "list<double[]>", 1
+"pbapply", "pbsapply", 0, 0, 1, "list<double[]>", 1
+"pbapply", "pbsapply", 0, 0, 2, "character[]", 1
 "pbapply", "pbsapply", 1, 0, 0, "class<`function`>", 1
 "pbapply", "pbsapply", 2, 0, 0, "...", 1
 "pbapply", "pbsapply", 3, 0, 0, "character", 1

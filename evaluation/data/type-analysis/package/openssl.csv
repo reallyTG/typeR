@@ -1,17 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"openssl", ":::", -1, 0, 0, "raw[]", 1
-"openssl", ":::", 0, 0, 0, "class<`bignum`>", 1
-"openssl", ":::", 0, 0, 1, "raw[]", 1
-"openssl", ":::", 1, 0, 0, "class<`bignum`>", 1
-"openssl", ":::", 1, 0, 1, "raw[]", 1
-"openssl", ":::", 2, 0, 0, "character", 1
-"openssl", ":::", -1, 1, 0, "character", 1
-"openssl", ":::", 0, 1, 0, "class<`pubkey`>", 1
-"openssl", ":::", 0, 1, 1, "class<`ecdsa`, `pubkey`>", 1
-"openssl", ":::", 0, 1, 2, "class<`NA`, `pubkey`>", 1
-"openssl", ":::", 0, 1, 3, "class<`pubkey`, `rsa`>", 1
-"openssl", ":::", 0, 1, 4, "class<`pubkey`, `x25519`>", 1
-"openssl", ":::", 0, 1, 5, "raw[]", 1
 "openssl", "aes_any", -1, 0, 0, "raw[]", 1
 "openssl", "aes_any", 0, 0, 0, "raw[]", 1
 "openssl", "aes_any", 1, 0, 0, "class<`hash`, `sha256`>", 1
@@ -143,7 +130,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "data_verify", 1, 0, 0, "raw[]", 1
 "openssl", "data_verify", 2, 0, 0, "class<`ed25519`, `pubkey`>", 1
 "openssl", "decompose", -1, 0, 0, "raw[]", 1
-"openssl", "decompose", -1, 0, 1, "list<character | class<`bignum`> | class<`bignum`>>", 1
+"openssl", "decompose", -1, 0, 1, "list<character | class<`bignum`>>", 1
+"openssl", "decompose", -1, 0, 2, "list<class<`bignum`>>", 1
 "openssl", "decompose", 0, 0, 0, "class<`ed25519`, `key`>", 1
 "openssl", "decompose", 0, 0, 1, "class<`ed25519`, `pubkey`>", 1
 "openssl", "decompose", 0, 0, 2, "class<`key`, `x25519`>", 1
@@ -155,14 +143,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "decompose", 0, 0, 8, "class<`dsa`, `pubkey`>", 1
 "openssl", "decompose", 1, 0, 0, "...", 1
 "openssl", "decompose.key", -1, 0, 0, "raw[]", 1
-"openssl", "decompose.key", -1, 0, 1, "list<character | class<`bignum`> | class<`bignum`>>", 1
+"openssl", "decompose.key", -1, 0, 1, "list<character | class<`bignum`>>", 1
+"openssl", "decompose.key", -1, 0, 2, "list<class<`bignum`>>", 1
 "openssl", "decompose.key", 0, 0, 0, "class<`ed25519`, `key`>", 1
 "openssl", "decompose.key", 0, 0, 1, "class<`key`, `x25519`>", 1
 "openssl", "decompose.key", 0, 0, 2, "class<`ecdsa`, `key`>", 1
 "openssl", "decompose.key", 0, 0, 3, "class<`key`, `rsa`>", 1
 "openssl", "decompose.key", 1, 0, 0, "...", 1
 "openssl", "decompose.pubkey", -1, 0, 0, "raw[]", 1
-"openssl", "decompose.pubkey", -1, 0, 1, "list<character | class<`bignum`> | class<`bignum`>>", 1
+"openssl", "decompose.pubkey", -1, 0, 1, "list<character | class<`bignum`>>", 1
+"openssl", "decompose.pubkey", -1, 0, 2, "list<class<`bignum`>>", 1
 "openssl", "decompose.pubkey", 0, 0, 0, "class<`ed25519`, `pubkey`>", 1
 "openssl", "decompose.pubkey", 0, 0, 1, "class<`pubkey`, `x25519`>", 1
 "openssl", "decompose.pubkey", 0, 0, 2, "class<`ecdsa`, `pubkey`>", 1
@@ -267,14 +257,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "openssl", "fpdata.rsa", 0, 0, 0, "class<`pubkey`, `rsa`>", 1
 "openssl", "fpdata.x25519", -1, 0, 0, "list<raw[]>", 1
 "openssl", "fpdata.x25519", 0, 0, 0, "class<`pubkey`, `x25519`>", 1
-"openssl", "hashfun", -1, 0, 0, "class<`hash`, `md5`>", 1
-"openssl", "hashfun", -1, 0, 1, "class<`hash`, `hmac`, `md5`>", 1
-"openssl", "hashfun", 0, 0, 0, "raw[]", 1
-"openssl", "hashfun", 0, 0, 1, "class<`connection`, `file`>", 1
-"openssl", "hashfun", 0, 0, 2, "character[]", 1
-"openssl", "hashfun", 0, 0, 3, "class<`cert`>", 1
-"openssl", "hashfun", 1, 0, 0, "null", 1
-"openssl", "hashfun", 1, 0, 1, "character", 1
 "openssl", "hash_sign", -1, 0, 0, "raw[]", 1
 "openssl", "hash_sign", 0, 0, 0, "class<`hash`, `md5`>", 1
 "openssl", "hash_sign", 0, 0, 1, "class<`hash`, `sha1`>", 1

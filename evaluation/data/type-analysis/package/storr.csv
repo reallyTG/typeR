@@ -1,23 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"storr", "::", -1, 0, 0, "any", 1
-"storr", "::", 0, 0, 0, "null", 1
-"storr", "::", 0, 0, 1, "environment", 1
-"storr", "::", 1, 0, 0, "null", 1
-"storr", "::", 1, 0, 1, "character", 1
-"storr", "::", -1, 1, 0, "class<`R6`, `storr`>", 1
-"storr", "::", 0, 1, 0, "class<`R6`, `driver_environment`>", 1
-"storr", "::", 0, 1, 1, "class<`R6`, `driver_DBI`>", 1
-"storr", "::", 0, 1, 2, "class<`R6`, `driver_multistorr`>", 1
-"storr", "::", 0, 1, 3, "class<`R6`, `driver_rds`>", 1
-"storr", "::", 1, 1, 0, "character", 1
-"storr", "$", -1, 0, 0, "raw[]", 1
-"storr", "$", 0, 0, 0, "character[]", 1
-"storr", "$", 0, 0, 1, "class<`data.frame`>", 1
-"storr", "$", 0, 0, 2, "class<`function`>", 1
-"storr", "$", 0, 0, 3, "double[]", 1
-"storr", "$", 0, 0, 4, "list<character>", 1
-"storr", "$", -1, 1, 0, "character", 1
-"storr", "$", 0, 1, 0, "raw[]", 1
 "storr", "%||%", -1, 0, 0, "character", 1
 "storr", "%||%", 0, 0, 0, "character", 1
 "storr", "%||%", 0, 0, 1, "null", 1
@@ -152,22 +133,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "fetch_hook_read", 1, 0, 0, "class<`function`>", 1
 "storr", "file_remove", -1, 0, 0, "logical", 1
 "storr", "file_remove", 0, 0, 0, "character", 1
-"storr", "FUN", -1, 0, 0, "raw[]", 1
-"storr", "FUN", 0, 0, 0, "character[]", 1
-"storr", "FUN", 0, 0, 1, "class<`data.frame`>", 1
-"storr", "FUN", 0, 0, 2, "class<`function`>", 1
-"storr", "FUN", 0, 0, 3, "double[]", 1
-"storr", "FUN", 0, 0, 4, "list<character>", 1
-"storr", "FUN", -1, 1, 0, "character", 1
-"storr", "FUN", 0, 1, 0, "raw[]", 1
-"storr", "FUN", -1, 2, 0, "character[]", 1
-"storr", "FUN", 0, 2, 0, "character[]", 1
-"storr", "FUN", 1, 2, 0, "character", 1
-"storr", "FUN", 2, 2, 0, "character", 1
-"storr", "FUN", 3, 2, 0, "any", 1
-"storr", "FUN", -1, 3, 0, "any", 1
-"storr", "FUN", 0, 3, 0, "any", 1
-"storr", "FUN", 1, 3, 0, "any", 1
 "storr", "HashError", -1, 0, 0, "class<`HashError`, `condition`, `error`>", 1
 "storr", "HashError", 0, 0, 0, "character", 1
 "storr", "HashError", 1, 0, 0, "any", 1
@@ -176,7 +141,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "is_storr", 0, 0, 1, "class<`R6`, `storr`, `storr_external`>", 1
 "storr", "is_storr", 0, 0, 2, "environment", 1
 "storr", "is_storr", 0, 0, 3, "list<any>", 1
-"storr", "join_key_namespace", -1, 0, 0, "list<integer | character[] | integer | character>", 1
+"storr", "join_key_namespace", -1, 0, 0, "list<integer | character[]>", 1
+"storr", "join_key_namespace", -1, 0, 1, "list<integer | character>", 1
 "storr", "join_key_namespace", 0, 0, 0, "character[]", 1
 "storr", "join_key_namespace", 1, 0, 0, "character[]", 1
 "storr", "KeyError", -1, 0, 0, "class<`KeyError`, `condition`, `error`>", 1
@@ -223,7 +189,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "serialize_to_raw", 0, 0, 1, "class<`data.frame`>", 1
 "storr", "serialize_to_raw", 0, 0, 2, "class<`function`>", 1
 "storr", "serialize_to_raw", 0, 0, 3, "double[]", 1
-"storr", "serialize_to_raw", 0, 0, 4, "list<double | character>", 1
+"storr", "serialize_to_raw", 0, 0, 4, "list<double>", 1
+"storr", "serialize_to_raw", 0, 0, 5, "list<character>", 1
 "storr", "serialize_to_raw", 1, 0, 0, "logical", 1
 "storr", "serialize_to_raw", 2, 0, 0, "logical", 1
 "storr", "storr", -1, 0, 0, "class<`R6`, `storr`>", 1
@@ -232,7 +199,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "storr", 0, 0, 2, "class<`R6`, `driver_multistorr`>", 1
 "storr", "storr", 0, 0, 3, "class<`R6`, `driver_rds`>", 1
 "storr", "storr", 1, 0, 0, "character", 1
-"storr", "storr_copy", -1, 0, 0, "list<class<`matrix`> | class<`R6`, `storr`> | class<`matrix`> | environment | class<`matrix`> | list<double[]>>", 1
+"storr", "storr_copy", -1, 0, 0, "list<class<`matrix`> | class<`R6`, `storr`>>", 1
+"storr", "storr_copy", -1, 0, 1, "list<class<`matrix`> | environment>", 1
+"storr", "storr_copy", -1, 0, 2, "list<class<`matrix`> | list<double[]>>", 1
 "storr", "storr_copy", 0, 0, 0, "class<`R6`, `storr`>", 1
 "storr", "storr_copy", 0, 0, 1, "environment", 1
 "storr", "storr_copy", 0, 0, 2, "list<any>", 1
@@ -269,7 +238,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "storr", "storr_rds", 4, 0, 0, "null", 1
 "storr", "storr_rds", 5, 0, 0, "character", 1
 "storr", "storr_traits", -1, 0, 0, "list<character | logical>", 1
-"storr", "storr_traits", 0, 0, 0, "list<character | character | logical>", 1
+"storr", "storr_traits", 0, 0, 0, "list<character>", 1
+"storr", "storr_traits", 0, 0, 1, "list<character | logical>", 1
 "storr", "storr_traits_default", -1, 0, 0, "list<character | logical>", 1
 "storr", "storr_used_hashes", -1, 0, 0, "character[]", 1
 "storr", "storr_used_hashes", 0, 0, 0, "class<`R6`, `driver_environment`>", 1

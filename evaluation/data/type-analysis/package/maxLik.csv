@@ -16,8 +16,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "addControlDddot", 1, 0, 0, "...", 1
 "maxLik", "addControlList", -1, 0, 0, "class<`MaxControl`>", 1
 "maxLik", "addControlList", 0, 0, 0, "class<`MaxControl`>", 1
-"maxLik", "addControlList", 1, 0, 0, "null", 1
-"maxLik", "addControlList", 1, 0, 1, "list<any>", 1
+"maxLik", "addControlList", 1, 0, 0, "list<any>", 1
+"maxLik", "addControlList", 1, 0, 1, "null", 1
 "maxLik", "addControlList", 2, 0, 0, "logical", 1
 "maxLik", "addFixedPar", -1, 0, 0, "double[]", 1
 "maxLik", "addFixedPar", 0, 0, 0, "double[]", 1
@@ -58,7 +58,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "coef.maxLik", 0, 0, 1, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "coef.maxLik", 0, 0, 2, "class<`maxLik`, `maxim`>", 1
 "maxLik", "coef.maxLik", 1, 0, 0, "...", 1
-"maxLik", "compareDerivatives", -1, 0, 0, "list<double[] | list<double[] | class<`matrix`>> | double | list<double | class<`matrix`>> | integer[] | double | list<double[] | class<`matrix`>>>", 1
+"maxLik", "compareDerivatives", -1, 0, 0, "list<double[] | list<double[] | class<`matrix`>>>", 1
+"maxLik", "compareDerivatives", -1, 0, 1, "list<double | list<double | class<`matrix`>>>", 1
+"maxLik", "compareDerivatives", -1, 0, 2, "list<integer[] | double | list<double[] | class<`matrix`>>>", 1
 "maxLik", "compareDerivatives", 0, 0, 0, "class<`function`>", 1
 "maxLik", "compareDerivatives", 1, 0, 0, "class<`function`>", 1
 "maxLik", "compareDerivatives", 2, 0, 0, "null", 1
@@ -93,82 +95,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "estfun.maxLik", 0, 0, 0, "class<`list`, `maxLik`, `maxim`>", 1
 "maxLik", "estfun.maxLik", 0, 0, 1, "class<`maxLik`, `maxim`>", 1
 "maxLik", "estfun.maxLik", 1, 0, 0, "...", 1
-"maxLik", "f", -1, 0, 0, "double[]", 1
-"maxLik", "f", -1, 0, 1, "class<`matrix`>", 1
-"maxLik", "f", 0, 0, 0, "double[]", 1
-"maxLik", "f", 1, 0, 0, "class<`function`>", 1
-"maxLik", "f", 2, 0, 0, "class<`function`>", 1
-"maxLik", "f", 2, 0, 1, "null", 1
-"maxLik", "f", 3, 0, 0, "any", 1
-"maxLik", "f", 4, 0, 0, "null", 1
-"maxLik", "f", 4, 0, 1, "double[]", 1
-"maxLik", "f", 5, 0, 0, "null", 1
-"maxLik", "f", 5, 0, 1, "logical[]", 1
-"maxLik", "f", 6, 0, 0, "logical", 1
-"maxLik", "f", 7, 0, 0, "null", 1
-"maxLik", "f", 8, 0, 0, "...", 1
-"maxLik", "f", -1, 1, 0, "double", 1
-"maxLik", "f", 0, 1, 0, "double", 1
-"maxLik", "f", 1, 1, 0, "class<`function`>", 1
-"maxLik", "f", 2, 1, 0, "double", 1
-"maxLik", "f", 3, 1, 0, "double[]", 1
-"maxLik", "f", 4, 1, 0, "...", 1
-"maxLik", "f", -1, 2, 0, "class<`matrix`>", 1
-"maxLik", "f", -1, 2, 1, "double[]", 1
-"maxLik", "f", 0, 2, 0, "double[]", 1
-"maxLik", "f", 1, 2, 0, "class<`function`>", 1
-"maxLik", "f", 2, 2, 0, "any", 1
-"maxLik", "f", 3, 2, 0, "any", 1
-"maxLik", "f", 4, 2, 0, "null", 1
-"maxLik", "f", 4, 2, 1, "double[]", 1
-"maxLik", "f", 5, 2, 0, "null", 1
-"maxLik", "f", 5, 2, 1, "logical[]", 1
-"maxLik", "f", 6, 2, 0, "logical", 1
-"maxLik", "f", 7, 2, 0, "...", 1
-"maxLik", "fn", -1, 0, 0, "double", 1
-"maxLik", "fn", 0, 0, 0, "double", 1
-"maxLik", "fn", 1, 0, 0, "class<`function`>", 1
-"maxLik", "fn", 2, 0, 0, "double", 1
-"maxLik", "fn", 3, 0, 0, "double[]", 1
-"maxLik", "fn", 4, 0, 0, "...", 1
-"maxLik", "fn", -1, 1, 0, "class<`matrix`>", 1
-"maxLik", "fn", -1, 1, 1, "double[]", 1
-"maxLik", "fn", 0, 1, 0, "double[]", 1
-"maxLik", "fn", 1, 1, 0, "class<`function`>", 1
-"maxLik", "fn", 2, 1, 0, "any", 1
-"maxLik", "fn", 3, 1, 0, "any", 1
-"maxLik", "fn", 4, 1, 0, "null", 1
-"maxLik", "fn", 4, 1, 1, "double[]", 1
-"maxLik", "fn", 5, 1, 0, "null", 1
-"maxLik", "fn", 5, 1, 1, "logical[]", 1
-"maxLik", "fn", 6, 1, 0, "logical", 1
-"maxLik", "fn", 7, 1, 0, "...", 1
-"maxLik", "fnOrig", -1, 0, 0, "double", 1
-"maxLik", "fnOrig", 0, 0, 0, "double", 1
-"maxLik", "fnOrig", 1, 0, 0, "class<`function`>", 1
-"maxLik", "fnOrig", 2, 0, 0, "double", 1
-"maxLik", "fnOrig", 3, 0, 0, "double[]", 1
-"maxLik", "fnOrig", 4, 0, 0, "...", 1
 "maxLik", "fnSubset", -1, 0, 0, "double", 1
 "maxLik", "fnSubset", 0, 0, 0, "double", 1
 "maxLik", "fnSubset", 1, 0, 0, "class<`function`>", 1
 "maxLik", "fnSubset", 2, 0, 0, "double", 1
 "maxLik", "fnSubset", 3, 0, 0, "double[]", 1
 "maxLik", "fnSubset", 4, 0, 0, "...", 1
-"maxLik", "gr", -1, 0, 0, "double[]", 1
-"maxLik", "gr", -1, 0, 1, "class<`matrix`>", 1
-"maxLik", "gr", 0, 0, 0, "double[]", 1
-"maxLik", "gr", 1, 0, 0, "class<`function`>", 1
-"maxLik", "gr", 2, 0, 0, "class<`function`>", 1
-"maxLik", "gr", 2, 0, 1, "null", 1
-"maxLik", "gr", 3, 0, 0, "any", 1
-"maxLik", "gr", 4, 0, 0, "null", 1
-"maxLik", "gr", 4, 0, 1, "double[]", 1
-"maxLik", "gr", 5, 0, 0, "null", 1
-"maxLik", "gr", 5, 0, 1, "logical[]", 1
-"maxLik", "gr", 6, 0, 0, "logical", 1
-"maxLik", "gr", 7, 0, 0, "null", 1
-"maxLik", "gr", 8, 0, 0, "...", 1
 "maxLik", "gradient", -1, 0, 0, "double[]", 1
 "maxLik", "gradient", 0, 0, 0, "class<`list`, `maxim`>", 1
 "maxLik", "gradient", 0, 0, 1, "class<`list`, `maxLik`, `maxim`>", 1
@@ -365,41 +297,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "maxLik", "maxOptim", 8, 0, 0, "double[]", 1
 "maxLik", "maxOptim", 9, 0, 0, "class<`MaxControl`>", 1
 "maxLik", "maxOptim", 10, 0, 0, "...", 1
-"maxLik", "maxRoutine", -1, 0, 0, "class<`list`, `maxim`>", 1
-"maxLik", "maxRoutine", 0, 0, 0, "class<`function`>", 1
-"maxLik", "maxRoutine", 1, 0, 0, "null", 1
-"maxLik", "maxRoutine", 2, 0, 0, "null", 1
-"maxLik", "maxRoutine", 3, 0, 0, "double[]", 1
-"maxLik", "maxRoutine", 4, 0, 0, "null", 1
-"maxLik", "maxRoutine", 4, 0, 1, "list<class<`matrix`> | double>", 1
-"maxLik", "maxRoutine", 5, 0, 0, "logical", 1
-"maxLik", "maxRoutine", 6, 0, 0, "null", 1
-"maxLik", "maxRoutine", 6, 0, 1, "double", 1
-"maxLik", "maxRoutine", 6, 0, 2, "logical[]", 1
-"maxLik", "maxRoutine", 7, 0, 0, "null", 1
-"maxLik", "maxRoutine", 8, 0, 0, "null", 1
-"maxLik", "maxRoutine", 8, 0, 1, "class<`MaxControl`>", 1
-"maxLik", "maxRoutine", 9, 0, 0, "...", 1
-"maxLik", "maxRoutine", -1, 1, 0, "any", 1
-"maxLik", "maxRoutine", 0, 1, 0, "class<`function`>", 1
-"maxLik", "maxRoutine", 1, 1, 0, "class<`function`>", 1
-"maxLik", "maxRoutine", 1, 1, 1, "null", 1
-"maxLik", "maxRoutine", 2, 1, 0, "class<`function`>", 1
-"maxLik", "maxRoutine", 2, 1, 1, "null", 1
-"maxLik", "maxRoutine", 3, 1, 0, "double[]", 1
-"maxLik", "maxRoutine", 4, 1, 0, "null", 1
-"maxLik", "maxRoutine", 4, 1, 1, "list<class<`matrix`> | double>", 1
-"maxLik", "maxRoutine", 5, 1, 0, "logical", 1
-"maxLik", "maxRoutine", 5, 1, 1, "character", 1
-"maxLik", "maxRoutine", 6, 1, 0, "logical", 1
-"maxLik", "maxRoutine", 7, 1, 0, "null", 1
-"maxLik", "maxRoutine", 7, 1, 1, "character", 1
-"maxLik", "maxRoutine", 7, 1, 2, "logical[]", 1
-"maxLik", "maxRoutine", 8, 1, 0, "null", 1
-"maxLik", "maxRoutine", 9, 1, 0, "null", 1
-"maxLik", "maxRoutine", 9, 1, 1, "class<`MaxControl`>", 1
-"maxLik", "maxRoutine", 9, 1, 2, "list<double>", 1
-"maxLik", "maxRoutine", 10, 1, 0, "...", 1
 "maxLik", "maxValue", -1, 0, 0, "double", 1
 "maxLik", "maxValue", 0, 0, 0, "class<`list`, `maxim`>", 1
 "maxLik", "maxValue", 0, 0, 1, "class<`list`, `maxLik`, `maxim`>", 1

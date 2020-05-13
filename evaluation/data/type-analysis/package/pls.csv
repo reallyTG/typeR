@@ -1,19 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"pls", "::", -1, 0, 0, "class<`mvr`>", 1
-"pls", "::", 0, 0, 0, "any", 1
-"pls", "::", 1, 0, 0, "double", 1
-"pls", "::", 2, 0, 0, "any", 1
-"pls", "::", 3, 0, 0, "any", 1
-"pls", "::", 4, 0, 0, "any", 1
-"pls", "::", 5, 0, 0, "any", 1
-"pls", "::", 6, 0, 0, "character", 1
-"pls", "::", 7, 0, 0, "logical", 1
-"pls", "::", 8, 0, 0, "logical", 1
-"pls", "::", 9, 0, 0, "character[]", 1
-"pls", "::", 10, 0, 0, "logical", 1
-"pls", "::", 11, 0, 0, "logical", 1
-"pls", "::", 12, 0, 0, "logical", 1
-"pls", "::", 13, 0, 0, "...", 1
 "pls", "cancorr", -1, 0, 0, "list<class<`matrix`> | double>", 1
 "pls", "cancorr", 0, 0, 0, "class<`matrix`>", 1
 "pls", "cancorr", 1, 0, 0, "class<`AsIs`>", 1
@@ -84,7 +69,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pls", "loadingplot.default", 13, 0, 0, "any", 1
 "pls", "loadingplot.default", 14, 0, 0, "logical", 1
 "pls", "loadingplot.default", 15, 0, 0, "any", 1
-"pls", "loadingplot.default", 16, 0, 0, "...", 1
 "pls", "loadings", -1, 0, 0, "class<`loadings`>", 1
 "pls", "loadings", 0, 0, 0, "class<`mvr`>", 1
 "pls", "loadings", 1, 0, 0, "...", 1
@@ -144,8 +128,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pls", "mvrCv", 4, 0, 0, "null", 1
 "pls", "mvrCv", 5, 0, 0, "character", 1
 "pls", "mvrCv", 6, 0, 0, "logical", 1
-"pls", "mvrCv", 7, 0, 0, "double", 1
-"pls", "mvrCv", 7, 0, 1, "list<integer>", 1
+"pls", "mvrCv", 7, 0, 0, "list<integer>", 1
+"pls", "mvrCv", 7, 0, 1, "double", 1
 "pls", "mvrCv", 8, 0, 0, "any", 1
 "pls", "mvrCv", 9, 0, 0, "any", 1
 "pls", "mvrCv", 10, 0, 0, "logical", 1
@@ -165,20 +149,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pls", "pcr", -1, 0, 0, "class<`mvr`>", 1
 "pls", "pcr", 0, 0, 0, "...", 1
 "pls", "pcr", 1, 0, 0, "character", 1
-"pls", "plotFunc", -1, 0, 0, "class<`matrix`>", 1
-"pls", "plotFunc", 0, 0, 0, "class<`mvr`>", 1
-"pls", "plotFunc", 1, 0, 0, "double", 1
-"pls", "plotFunc", 2, 0, 0, "any", 1
-"pls", "plotFunc", 3, 0, 0, "any", 1
-"pls", "plotFunc", 4, 0, 0, "any", 1
-"pls", "plotFunc", 5, 0, 0, "any", 1
-"pls", "plotFunc", 6, 0, 0, "character", 1
-"pls", "plotFunc", 7, 0, 0, "character", 1
-"pls", "plotFunc", 8, 0, 0, "any", 1
-"pls", "plotFunc", 9, 0, 0, "any", 1
-"pls", "plotFunc", 10, 0, 0, "...", 1
-"pls", "plotFunc", 11, 0, 0, "any", 1
-"pls", "plotFunc", 12, 0, 0, "any", 1
 "pls", "plot.mvr", -1, 0, 0, "class<`matrix`>", 1
 "pls", "plot.mvr", -1, 0, 1, "null", 1
 "pls", "plot.mvr", 0, 0, 0, "class<`mvr`>", 1
@@ -200,7 +170,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pls", "plot.mvrVal", 12, 0, 0, "any", 1
 "pls", "plot.mvrVal", 13, 0, 0, "any", 1
 "pls", "plot.mvrVal", 14, 0, 0, "...", 1
-"pls", "pls.options", -1, 0, 0, "list<character | null | double | character>", 1
+"pls", "pls.options", -1, 0, 0, "list<character | null | double>", 1
+"pls", "pls.options", -1, 0, 1, "list<character>", 1
 "pls", "pls.options", 0, 0, 0, "...", 1
 "pls", "plsr", -1, 0, 0, "class<`mvr`>", 1
 "pls", "plsr", 0, 0, 0, "...", 1
@@ -276,7 +247,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "pls", "randomiz.test", 0, 0, 0, "double[]", 1
 "pls", "randomiz.test", 1, 0, 0, "double[]", 1
 "pls", "randomiz.test", 2, 0, 0, "double", 1
-"pls", "Rcal", -1, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double>", 1
+"pls", "Rcal", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"pls", "Rcal", -1, 0, 1, "list<class<`matrix`> | double>", 1
 "pls", "Rcal", 0, 0, 0, "class<`matrix`>", 1
 "pls", "Rcal", 1, 0, 0, "class<`matrix`>", 1
 "pls", "Rcal", 2, 0, 0, "class<`AsIs`>", 1

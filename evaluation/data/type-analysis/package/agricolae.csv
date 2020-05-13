@@ -23,13 +23,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "audps", 0, 0, 0, "double[]", 1
 "agricolae", "audps", 1, 0, 0, "double[]", 1
 "agricolae", "audps", 2, 0, 0, "character", 1
-"agricolae", "bar.err", -1, 0, 0, "list<class<`matrix`> | class<`array`> | class<`matrix`> | double[]>", 1
+"agricolae", "bar.err", -1, 0, 0, "list<class<`matrix`> | class<`array`>>", 1
+"agricolae", "bar.err", -1, 0, 1, "list<class<`matrix`> | double[]>", 1
 "agricolae", "bar.err", 0, 0, 0, "class<`data.frame`>", 1
 "agricolae", "bar.err", 1, 0, 0, "character", 1
 "agricolae", "bar.err", 2, 0, 0, "logical", 1
 "agricolae", "bar.err", 3, 0, 0, "logical", 1
 "agricolae", "bar.err", 4, 0, 0, "...", 1
-"agricolae", "bar.group", -1, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | integer[]>", 1
+"agricolae", "bar.group", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"agricolae", "bar.group", -1, 0, 1, "list<class<`matrix`> | integer[]>", 1
 "agricolae", "bar.group", 0, 0, 0, "class<`data.frame`>", 1
 "agricolae", "bar.group", 1, 0, 0, "logical", 1
 "agricolae", "bar.group", 2, 0, 0, "...", 1
@@ -46,7 +48,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "carolina", -1, 0, 0, "list<class<`lm`> | double>", 1
 "agricolae", "carolina", 0, 0, 0, "double", 1
 "agricolae", "carolina", 1, 0, 0, "class<`data.frame`>", 1
-"agricolae", "consensus", -1, 0, 0, "list<class<`data.frame`> | class<`hclust`> | class<`data.frame`> | class<`hclust`> | null>", 1
+"agricolae", "consensus", -1, 0, 0, "list<class<`data.frame`> | class<`hclust`>>", 1
+"agricolae", "consensus", -1, 0, 1, "list<class<`data.frame`> | class<`hclust`> | null>", 1
 "agricolae", "consensus", 0, 0, 0, "class<`data.frame`>", 1
 "agricolae", "consensus", 1, 0, 0, "character[]", 1
 "agricolae", "consensus", 2, 0, 0, "character[]", 1
@@ -87,7 +90,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "delete.na", 0, 0, 0, "class<`data.frame`>", 1
 "agricolae", "delete.na", 0, 0, 1, "class<`matrix`>", 1
 "agricolae", "delete.na", 1, 0, 0, "character", 1
-"agricolae", "design.ab", -1, 0, 0, "list<class<`data.frame`> | list<character[] | double[]> | class<`data.frame`> | list<character[] | double>>", 1
+"agricolae", "design.ab", -1, 0, 0, "list<class<`data.frame`> | list<character[] | double[]>>", 1
+"agricolae", "design.ab", -1, 0, 1, "list<class<`data.frame`> | list<character[] | double>>", 1
 "agricolae", "design.ab", 0, 0, 0, "double[]", 1
 "agricolae", "design.ab", 1, 0, 0, "double", 1
 "agricolae", "design.ab", 1, 0, 1, "null", 1
@@ -97,7 +101,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "design.ab", 5, 0, 0, "character", 1
 "agricolae", "design.ab", 6, 0, 0, "logical", 1
 "agricolae", "design.ab", 7, 0, 0, "logical", 1
-"agricolae", "design.alpha", -1, 0, 0, "list<class<`data.frame`> | list<character[] | double | class<`matrix`>> | class<`data.frame`> | list<character | integer[] | double | class<`matrix`>>>", 1
+"agricolae", "design.alpha", -1, 0, 0, "list<class<`data.frame`> | list<character[] | double | class<`matrix`>>>", 1
+"agricolae", "design.alpha", -1, 0, 1, "list<class<`data.frame`> | list<character | integer[] | double | class<`matrix`>>>", 1
 "agricolae", "design.alpha", 0, 0, 0, "character[]", 1
 "agricolae", "design.alpha", 0, 0, 1, "integer[]", 1
 "agricolae", "design.alpha", 1, 0, 0, "double", 1
@@ -140,7 +145,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "design.dau", 5, 0, 0, "character", 1
 "agricolae", "design.dau", 6, 0, 0, "character", 1
 "agricolae", "design.dau", 7, 0, 0, "logical", 1
-"agricolae", "design.graeco", -1, 0, 0, "list<class<`matrix`> | class<`data.frame`> | list<character[] | double> | class<`matrix`> | class<`data.frame`> | list<character[] | integer[] | double>>", 1
+"agricolae", "design.graeco", -1, 0, 0, "list<class<`matrix`> | class<`data.frame`> | list<character[] | double>>", 1
+"agricolae", "design.graeco", -1, 0, 1, "list<class<`matrix`> | class<`data.frame`> | list<character[] | integer[] | double>>", 1
 "agricolae", "design.graeco", 0, 0, 0, "character[]", 1
 "agricolae", "design.graeco", 1, 0, 0, "character[]", 1
 "agricolae", "design.graeco", 1, 0, 1, "integer[]", 1
@@ -148,7 +154,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "design.graeco", 3, 0, 0, "double", 1
 "agricolae", "design.graeco", 4, 0, 0, "character", 1
 "agricolae", "design.graeco", 5, 0, 0, "logical", 1
-"agricolae", "design.lattice", -1, 0, 0, "list<class<`data.frame`> | list<character[] | double | class<`matrix`>> | class<`data.frame`> | list<character | integer[] | double | class<`matrix`>>>", 1
+"agricolae", "design.lattice", -1, 0, 0, "list<class<`data.frame`> | list<character[] | double | class<`matrix`>>>", 1
+"agricolae", "design.lattice", -1, 0, 1, "list<class<`data.frame`> | list<character | integer[] | double | class<`matrix`>>>", 1
 "agricolae", "design.lattice", 0, 0, 0, "character[]", 1
 "agricolae", "design.lattice", 0, 0, 1, "integer[]", 1
 "agricolae", "design.lattice", 1, 0, 0, "double", 1
@@ -156,7 +163,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "design.lattice", 3, 0, 0, "double", 1
 "agricolae", "design.lattice", 4, 0, 0, "character", 1
 "agricolae", "design.lattice", 5, 0, 0, "logical", 1
-"agricolae", "design.lsd", -1, 0, 0, "list<class<`matrix`> | class<`data.frame`> | list<character[] | double> | class<`matrix`> | class<`data.frame`> | list<character | integer[] | double>>", 1
+"agricolae", "design.lsd", -1, 0, 0, "list<class<`matrix`> | class<`data.frame`> | list<character[] | double>>", 1
+"agricolae", "design.lsd", -1, 0, 1, "list<class<`matrix`> | class<`data.frame`> | list<character | integer[] | double>>", 1
 "agricolae", "design.lsd", 0, 0, 0, "character[]", 1
 "agricolae", "design.lsd", 0, 0, 1, "integer[]", 1
 "agricolae", "design.lsd", 1, 0, 0, "double", 1
@@ -481,7 +489,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "agricolae", "resampling.cv", 0, 0, 0, "class<`data.frame`>", 1
 "agricolae", "resampling.cv", 1, 0, 0, "double", 1
 "agricolae", "resampling.cv", 2, 0, 0, "double", 1
-"agricolae", "resampling.model", -1, 0, 0, "list<class<`lm`> | class<`matrix`> | double[] | class<`lm`> | class<`matrix`> | double>", 1
+"agricolae", "resampling.model", -1, 0, 0, "list<class<`lm`> | class<`matrix`> | double[]>", 1
+"agricolae", "resampling.model", -1, 0, 1, "list<class<`lm`> | class<`matrix`> | double>", 1
 "agricolae", "resampling.model", 0, 0, 0, "character", 1
 "agricolae", "resampling.model", 1, 0, 0, "class<`data.frame`>", 1
 "agricolae", "resampling.model", 2, 0, 0, "double", 1

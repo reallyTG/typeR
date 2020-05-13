@@ -207,12 +207,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_length", 3, 0, 0, "logical", 1
 "checkr", "check_length1", -1, 0, 0, "double", 1
 "checkr", "check_length1", -1, 0, 1, "integer[]", 1
-"checkr", "check_length1", -1, 0, 2, "null", 1
-"checkr", "check_length1", -1, 0, 3, "list<any>", 1
+"checkr", "check_length1", -1, 0, 2, "list<any>", 1
+"checkr", "check_length1", -1, 0, 3, "null", 1
 "checkr", "check_length1", 0, 0, 0, "double", 1
 "checkr", "check_length1", 0, 0, 1, "integer[]", 1
-"checkr", "check_length1", 0, 0, 2, "null", 1
-"checkr", "check_length1", 0, 0, 3, "list<any>", 1
+"checkr", "check_length1", 0, 0, 2, "list<any>", 1
+"checkr", "check_length1", 0, 0, 3, "null", 1
 "checkr", "check_length1", 1, 0, 0, "double", 1
 "checkr", "check_length1", 1, 0, 1, "class<`call`>", 1
 "checkr", "check_length1", 1, 0, 2, "null", 1
@@ -243,7 +243,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_list", -1, 0, 0, "list<any>", 1
 "checkr", "check_list", 0, 0, 0, "list<any>", 1
 "checkr", "check_list", 1, 0, 0, "null", 1
-"checkr", "check_list", 1, 0, 1, "list<double | integer[]>", 1
+"checkr", "check_list", 1, 0, 1, "list<double>", 1
+"checkr", "check_list", 1, 0, 2, "list<integer[]>", 1
 "checkr", "check_list", 2, 0, 0, "null", 1
 "checkr", "check_list", 3, 0, 0, "logical", 1
 "checkr", "check_list", 4, 0, 0, "null", 1
@@ -251,7 +252,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_list", 6, 0, 0, "logical", 1
 "checkr", "check_list", 7, 0, 0, "class<`call`>", 1
 "checkr", "check_list", 7, 0, 1, "character", 1
-"checkr", "check_list", 8, 0, 0, "logical", 1
 "checkr", "check_logical", -1, 0, 0, "double", 1
 "checkr", "check_logical", -1, 0, 1, "logical[]", 1
 "checkr", "check_logical", 0, 0, 0, "double", 1
@@ -285,9 +285,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_name", 2, 0, 0, "logical", 1
 "checkr", "check_name", 3, 0, 0, "logical", 1
 "checkr", "check_named", -1, 0, 0, "double[]", 1
-"checkr", "check_named", -1, 0, 1, "list<double | integer[] | double | integer[]>", 1
+"checkr", "check_named", -1, 0, 1, "list<double | integer[]>", 1
+"checkr", "check_named", -1, 0, 2, "list<double>", 1
+"checkr", "check_named", -1, 0, 3, "list<integer[]>", 1
 "checkr", "check_named", 0, 0, 0, "double[]", 1
-"checkr", "check_named", 0, 0, 1, "list<double | integer[] | double | integer[]>", 1
+"checkr", "check_named", 0, 0, 1, "list<double | integer[]>", 1
+"checkr", "check_named", 0, 0, 2, "list<double>", 1
+"checkr", "check_named", 0, 0, 3, "list<integer[]>", 1
 "checkr", "check_named", 1, 0, 0, "any", 1
 "checkr", "check_named", 2, 0, 0, "character", 1
 "checkr", "check_named", 3, 0, 0, "any", 1
@@ -297,9 +301,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_named", 5, 0, 2, "class<`name`>", 1
 "checkr", "check_named", 6, 0, 0, "logical", 1
 "checkr", "check_names", -1, 0, 0, "double[]", 1
-"checkr", "check_names", -1, 0, 1, "list<double | integer[] | integer>", 1
+"checkr", "check_names", -1, 0, 1, "list<double | integer[]>", 1
+"checkr", "check_names", -1, 0, 2, "list<integer>", 1
 "checkr", "check_names", 0, 0, 0, "double[]", 1
-"checkr", "check_names", 0, 0, 1, "list<double | integer[] | integer>", 1
+"checkr", "check_names", 0, 0, 1, "list<double | integer[]>", 1
+"checkr", "check_names", 0, 0, 2, "list<integer>", 1
 "checkr", "check_names", 1, 0, 0, "character[]", 1
 "checkr", "check_names", 2, 0, 0, "logical", 1
 "checkr", "check_names", 3, 0, 0, "logical", 1
@@ -467,12 +473,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_tzone", 3, 0, 0, "logical", 1
 "checkr", "check_unique", -1, 0, 0, "character[]", 1
 "checkr", "check_unique", -1, 0, 1, "double[]", 1
-"checkr", "check_unique", -1, 0, 2, "null", 1
-"checkr", "check_unique", -1, 0, 3, "list<any>", 1
+"checkr", "check_unique", -1, 0, 2, "list<any>", 1
+"checkr", "check_unique", -1, 0, 3, "null", 1
 "checkr", "check_unique", 0, 0, 0, "character[]", 1
 "checkr", "check_unique", 0, 0, 1, "double[]", 1
-"checkr", "check_unique", 0, 0, 2, "null", 1
-"checkr", "check_unique", 0, 0, 3, "list<any>", 1
+"checkr", "check_unique", 0, 0, 2, "list<any>", 1
+"checkr", "check_unique", 0, 0, 3, "null", 1
 "checkr", "check_unique", 1, 0, 0, "character", 1
 "checkr", "check_unique", 1, 0, 1, "class<`call`>", 1
 "checkr", "check_unique", 1, 0, 2, "double", 1
@@ -534,12 +540,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkr", "check_vector", 6, 0, 0, "logical", 1
 "checkr", "check_vector", 6, 0, 1, "null", 1
 "checkr", "check_vector", 7, 0, 0, "logical", 1
-"checkr", "check_vector", 8, 0, 0, "logical", 1
-"checkr", "check_vector", 9, 0, 0, "logical", 1
-"checkr", "check_vector", 10, 0, 0, "character", 1
-"checkr", "check_vector", 10, 0, 1, "class<`call`>", 1
-"checkr", "check_vector", 10, 0, 2, "class<`name`>", 1
-"checkr", "check_vector", 11, 0, 0, "logical", 1
 "checkr", "chk_deparse", -1, 0, 0, "character", 1
 "checkr", "chk_deparse", 0, 0, 0, "character", 1
 "checkr", "chk_deparse", 0, 0, 1, "class<`call`>", 1

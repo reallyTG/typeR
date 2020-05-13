@@ -20,7 +20,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "axsearch", 5, 0, 0, "null", 1
 "optimx", "axsearch", 6, 0, 0, "double", 1
 "optimx", "axsearch", 7, 0, 0, "...", 1
-"optimx", "bmchk", -1, 0, 0, "list<double[] | character[] | double | character>", 1
+"optimx", "bmchk", -1, 0, 0, "list<double[] | character[]>", 1
+"optimx", "bmchk", -1, 0, 1, "list<double | character>", 1
 "optimx", "bmchk", 0, 0, 0, "double[]", 1
 "optimx", "bmchk", 1, 0, 0, "double[]", 1
 "optimx", "bmchk", 1, 0, 1, "null", 1
@@ -70,9 +71,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "crash", 0, 0, 0, "double[]", 1
 "optimx", "crash", 1, 0, 0, "double[]", 1
 "optimx", "crash", 2, 0, 0, "double[]", 1
-"optimx", "ctrldefault", -1, 0, 0, "list<character[] | double[] | double | character[]>", 1
+"optimx", "ctrldefault", -1, 0, 0, "list<character[] | double[]>", 1
+"optimx", "ctrldefault", -1, 0, 1, "list<double | character[]>", 1
 "optimx", "ctrldefault", 0, 0, 0, "double", 1
-"optimx", "fnchk", -1, 0, 0, "list<double | character | null | double | character>", 1
+"optimx", "fnchk", -1, 0, 0, "list<double | character>", 1
+"optimx", "fnchk", -1, 0, 1, "list<null | double | character>", 1
 "optimx", "fnchk", 0, 0, 0, "double[]", 1
 "optimx", "fnchk", 1, 0, 0, "class<`function`>", 1
 "optimx", "fnchk", 2, 0, 0, "double", 1
@@ -150,7 +153,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "hjn", 3, 0, 0, "double[]", 1
 "optimx", "hjn", 4, 0, 0, "null", 1
 "optimx", "hjn", 4, 0, 1, "double[]", 1
-"optimx", "hjn", 5, 0, 0, "list<double | character[] | double[]>", 1
+"optimx", "hjn", 5, 0, 0, "list<double>", 1
+"optimx", "hjn", 5, 0, 1, "list<character[] | double[]>", 1
 "optimx", "hjn", 6, 0, 0, "...", 1
 "optimx", "initpc", -1, 0, 0, "list<double[]>", 1
 "optimx", "initpc", 0, 0, 0, "double[]", 1
@@ -197,7 +201,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "lmqnbc", 7, 0, 0, "double", 1
 "optimx", "lmqnbc", 8, 0, 0, "double", 1
 "optimx", "lmqnbc", 9, 0, 0, "...", 1
-"optimx", "modlnp", -1, 0, 0, "list<double[] | class<`matrix`> | double[]>", 1
+"optimx", "modlnp", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"optimx", "modlnp", -1, 0, 1, "list<double[]>", 1
 "optimx", "modlnp", 0, 0, 0, "double[]", 1
 "optimx", "modlnp", 1, 0, 0, "any", 1
 "optimx", "modlnp", 2, 0, 0, "double[]", 1
@@ -358,7 +363,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "polyopt", 8, 0, 0, "...", 1
 "optimx", "proptimr", -1, 0, 0, "null", 1
 "optimx", "proptimr", 0, 0, 0, "list<any>", 1
-"optimx", "Rcgmin", -1, 0, 0, "list<double[] | null | character | double[] | character>", 1
+"optimx", "Rcgmin", -1, 0, 0, "list<double[] | null | character>", 1
+"optimx", "Rcgmin", -1, 0, 1, "list<double[] | character>", 1
 "optimx", "Rcgmin", 0, 0, 0, "double[]", 1
 "optimx", "Rcgmin", 1, 0, 0, "any", 1
 "optimx", "Rcgmin", 2, 0, 0, "null", 1
@@ -380,7 +386,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "optimx", "Rcgminb", 5, 0, 0, "double[]", 1
 "optimx", "Rcgminb", 6, 0, 0, "list<any>", 1
 "optimx", "Rcgminb", 7, 0, 0, "...", 1
-"optimx", "Rcgminu", -1, 0, 0, "list<double[] | null | character | double[] | character>", 1
+"optimx", "Rcgminu", -1, 0, 0, "list<double[] | null | character>", 1
+"optimx", "Rcgminu", -1, 0, 1, "list<double[] | character>", 1
 "optimx", "Rcgminu", 0, 0, 0, "double[]", 1
 "optimx", "Rcgminu", 1, 0, 0, "any", 1
 "optimx", "Rcgminu", 2, 0, 0, "character", 1

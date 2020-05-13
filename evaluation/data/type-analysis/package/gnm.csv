@@ -44,7 +44,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "Dref", -1, 0, 0, "list<any>", 1
 "gnm", "Dref", 0, 0, 0, "...", 1
 "gnm", "Dref", 1, 0, 0, "class<`formula`>", 1
-"gnm", "DrefWeights", -1, 0, 0, "list<class<`data.frame`> | double[]>", 1
+"gnm", "DrefWeights", -1, 0, 0, "list<class<`data.frame`>>", 1
+"gnm", "DrefWeights", -1, 0, 1, "list<double[]>", 1
 "gnm", "DrefWeights", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "exitInfo", -1, 0, 0, "class<`data.frame`>", 1
 "gnm", "exitInfo", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
@@ -82,12 +83,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "glm.fit.e", 5, 0, 0, "null", 1
 "gnm", "glm.fit.e", 6, 0, 0, "double[]", 1
 "gnm", "glm.fit.e", 7, 0, 0, "class<`family`>", 1
-"gnm", "glm.fit.e", 8, 0, 0, "list<double>", 1
-"gnm", "glm.fit.e", 9, 0, 0, "integer", 1
-"gnm", "glm.fit.e", 10, 0, 0, "null", 1
-"gnm", "glm.fit.e", 10, 0, 1, "class<`factor`>", 1
-"gnm", "glm.fit.e", 11, 0, 0, "double", 1
-"gnm", "glm.fit.e", 12, 0, 0, "logical", 1
 "gnm", "gnm", -1, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "gnm", -1, 0, 1, "class<`matrix`>", 1
 "gnm", "gnm", 0, 0, 0, "class<`formula`>", 1
@@ -105,22 +100,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "gnm", 6, 0, 3, "class<`table`, `xtabs`>", 1
 "gnm", "gnm", 6, 0, 4, "null", 1
 "gnm", "gnm", 7, 0, 0, "any", 1
-"gnm", "gnm", 8, 0, 0, "any", 1
-"gnm", "gnm", 9, 0, 0, "any", 1
-"gnm", "gnm", 10, 0, 0, "character", 1
-"gnm", "gnm", 11, 0, 0, "logical", 1
-"gnm", "gnm", 12, 0, 0, "any", 1
-"gnm", "gnm", 13, 0, 0, "null", 1
-"gnm", "gnm", 13, 0, 1, "^double[]", 1
-"gnm", "gnm", 13, 0, 2, "class<`coef.gnm`, `numeric`>", 1
-"gnm", "gnm", 14, 0, 0, "null", 1
-"gnm", "gnm", 15, 0, 0, "null", 1
-"gnm", "gnm", 16, 0, 0, "double", 1
-"gnm", "gnm", 17, 0, 0, "double", 1
-"gnm", "gnm", 18, 0, 0, "double", 1
-"gnm", "gnm", 19, 0, 0, "logical", 1
 "gnm", "gnmFit", -1, 0, 0, "list<any>", 1
-"gnm", "gnmFit", 0, 0, 0, "list<double[] | class<`function`> | ^logical[] | class<`function`> | double[] | ^logical[] | integer[] | class<`function`>>", 1
+"gnm", "gnmFit", 0, 0, 0, "list<double[] | class<`function`>>", 1
+"gnm", "gnmFit", 0, 0, 1, "list<^logical[] | class<`function`> | double[]>", 1
+"gnm", "gnmFit", 0, 0, 2, "list<^logical[] | integer[] | class<`function`>>", 1
 "gnm", "gnmFit", 1, 0, 0, "double[]", 1
 "gnm", "gnmFit", 2, 0, 0, "double[]", 1
 "gnm", "gnmFit", 3, 0, 0, "double[]", 1
@@ -129,19 +112,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "gnmFit", 5, 0, 0, "class<`family`>", 1
 "gnm", "gnmFit", 6, 0, 0, "double[]", 1
 "gnm", "gnmFit", 7, 0, 0, "double[]", 1
-"gnm", "gnmFit", 8, 0, 0, "integer", 1
-"gnm", "gnmFit", 9, 0, 0, "class<`coef.gnm`, `numeric`>", 1
-"gnm", "gnmFit", 9, 0, 1, "^double[]", 1
-"gnm", "gnmFit", 10, 0, 0, "any", 1
-"gnm", "gnmFit", 11, 0, 0, "any", 1
-"gnm", "gnmFit", 12, 0, 0, "double", 1
-"gnm", "gnmFit", 13, 0, 0, "any", 1
-"gnm", "gnmFit", 14, 0, 0, "double", 1
-"gnm", "gnmFit", 15, 0, 0, "logical", 1
-"gnm", "gnmFit", 16, 0, 0, "logical", 1
-"gnm", "gnmFit", 17, 0, 0, "logical", 1
-"gnm", "gnmFit", 18, 0, 0, "logical", 1
-"gnm", "gnmFit", 19, 0, 0, "double", 1
 "gnm", "gnmStart", -1, 0, 0, "double[]", 1
 "gnm", "gnmStart", 0, 0, 0, "integer", 1
 "gnm", "gnmStart", 1, 0, 0, "double", 1
@@ -154,7 +124,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "gnmTerms", 2, 0, 2, "class<`table`>", 1
 "gnm", "gnmTerms", 2, 0, 3, "class<`table`, `xtabs`>", 1
 "gnm", "gnmTerms", 2, 0, 4, "null", 1
-"gnm", "gnmTools", -1, 0, 0, "list<double[] | class<`function`> | ^logical[] | class<`function`> | double[] | ^logical[] | integer[] | class<`function`>>", 1
+"gnm", "gnmTools", -1, 0, 0, "list<double[] | class<`function`>>", 1
+"gnm", "gnmTools", -1, 0, 1, "list<^logical[] | class<`function`> | double[]>", 1
+"gnm", "gnmTools", -1, 0, 2, "list<^logical[] | integer[] | class<`function`>>", 1
 "gnm", "gnmTools", 0, 0, 0, "class<`formula`, `gnmTerms`, `terms`>", 1
 "gnm", "gnmTools", 1, 0, 0, "class<`data.frame`>", 1
 "gnm", "gnmTools", 2, 0, 0, "any", 1
@@ -212,8 +184,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "naToZero", 0, 0, 1, "class<`matrix`>", 1
 "gnm", "naToZero", 0, 0, 2, "^double[]", 1
 "gnm", "nonlinTerms", -1, 0, 0, "list<any>", 1
-"gnm", "nonlinTerms", 0, 0, 0, "pairlist", 1
-"gnm", "nonlinTerms", 0, 0, 1, "list<any>", 1
+"gnm", "nonlinTerms", 0, 0, 0, "list<class<`call`>>", 1
+"gnm", "nonlinTerms", 0, 0, 1, "pairlist", 1
+"gnm", "nonlinTerms", 0, 0, 2, "list<class<`formula`> | class<`name`>>", 1
+"gnm", "nonlinTerms", 0, 0, 3, "list<class<`name`> | double>", 1
+"gnm", "nonlinTerms", 0, 0, 4, "list<class<`name`>>", 1
+"gnm", "nonlinTerms", 0, 0, 5, "list<double>", 1
 "gnm", "nonlinTerms", 1, 0, 0, "null", 1
 "gnm", "nonlinTerms", 1, 0, 1, "list<class<`name`>>", 1
 "gnm", "nonlinTerms", 2, 0, 0, "class<`function`>", 1
@@ -225,11 +201,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "nonlinTerms", 6, 0, 1, "class<`function`>", 1
 "gnm", "nonlinTerms", 7, 0, 0, "null", 1
 "gnm", "nonlinTerms", 7, 0, 1, "character", 1
-"gnm", "nonlinTerms", 8, 0, 0, "null", 1
-"gnm", "nonlinTerms", 8, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
-"gnm", "nonlinTerms", 8, 0, 2, "class<`data.frame`>", 1
-"gnm", "nonlinTerms", 8, 0, 3, "class<`table`, `xtabs`>", 1
-"gnm", "nonlinTerms", 8, 0, 4, "class<`table`>", 1
 "gnm", "ofInterest", -1, 0, 0, "integer[]", 1
 "gnm", "ofInterest", -1, 0, 1, "null", 1
 "gnm", "ofInterest", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
@@ -254,14 +225,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "plot.gnm", 5, 0, 0, "character", 1
 "gnm", "plot.gnm", 6, 0, 0, "logical", 1
 "gnm", "plot.gnm", 7, 0, 0, "...", 1
-"gnm", "plot.gnm", 8, 0, 0, "double", 1
-"gnm", "plot.gnm", 9, 0, 0, "null", 1
-"gnm", "plot.gnm", 10, 0, 0, "double", 1
-"gnm", "plot.gnm", 11, 0, 0, "logical", 1
-"gnm", "plot.gnm", 12, 0, 0, "double[]", 1
-"gnm", "plot.gnm", 13, 0, 0, "any", 1
-"gnm", "plot.gnm", 14, 0, 0, "double[]", 1
-"gnm", "plot.gnm", 15, 0, 0, "double", 1
 "gnm", "plot.profile.gnm", -1, 0, 0, "null", 1
 "gnm", "plot.profile.gnm", 0, 0, 0, "class<`profile`, `profile.glm`, `profile.gnm`>", 1
 "gnm", "plot.profile.gnm", 1, 0, 0, "any", 1
@@ -320,7 +283,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "se.gnm", 4, 0, 0, "null", 1
 "gnm", "se.gnm", 5, 0, 0, "...", 1
 "gnm", "sumExpression", -1, 0, 0, "class<`call`>", 1
-"gnm", "sumExpression", 0, 0, 0, "list<class<`name`> | class<`call`> | class<`call`>>", 1
+"gnm", "sumExpression", 0, 0, 0, "list<class<`name`> | class<`call`>>", 1
+"gnm", "sumExpression", 0, 0, 1, "list<class<`call`>>", 1
 "gnm", "summary.gnm", -1, 0, 0, "class<`summary.gnm`>", 1
 "gnm", "summary.gnm", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "summary.gnm", 1, 0, 0, "null", 1
@@ -364,10 +328,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gnm", "updateLinear", 5, 0, 0, "double[]", 1
 "gnm", "updateLinear", 6, 0, 0, "double[]", 1
 "gnm", "updateLinear", 7, 0, 0, "class<`family`>", 1
-"gnm", "updateLinear", 8, 0, 0, "list<^logical[] | class<`function`> | double[] | ^logical[] | integer[] | class<`function`>>", 1
-"gnm", "updateLinear", 9, 0, 0, "class<`matrix`>", 1
-"gnm", "updateLinear", 10, 0, 0, "null", 1
-"gnm", "updateLinear", 10, 0, 1, "class<`factor`>", 1
 "gnm", "vcov.gnm", -1, 0, 0, "class<`vcov.gnm`>", 1
 "gnm", "vcov.gnm", 0, 0, 0, "class<`glm`, `gnm`, `lm`>", 1
 "gnm", "vcov.gnm", 1, 0, 0, "null", 1

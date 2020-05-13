@@ -1,16 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dbplyr", "::", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
-"dbplyr", "::", -1, 0, 1, "class<`src`, `src_Microsoft SQL Server`, `src_dbi`, `src_sql`>", 1
-"dbplyr", "::", -1, 0, 2, "class<`src`, `src_PostgreSQLConnection`, `src_dbi`, `src_sql`>", 1
-"dbplyr", "::", -1, 0, 3, "class<`src`, `src_TestConnection`, `src_dbi`, `src_sql`>", 1
-"dbplyr", "::", 0, 0, 0, "class<`SQLiteConnection`>", 1
-"dbplyr", "::", 0, 0, 1, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
-"dbplyr", "::", 0, 0, 2, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
-"dbplyr", "::", 0, 0, 3, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
-"dbplyr", "::", 0, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
-"dbplyr", "::", 1, 0, 0, "logical", 1
-"dbplyr", "::", -1, 1, 0, "class<`character`, `sql`>", 1
-"dbplyr", "::", 0, 1, 0, "...", 1
 "dbplyr", "add_op_order", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dbplyr", "add_op_order", -1, 0, 1, "class<`tbl`, `tbl_TestConnection`, `tbl_lazy`>", 1
 "dbplyr", "add_op_order", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
@@ -93,7 +81,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "cache_computation", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
 "dbplyr", "cache_computation", 0, 0, 0, "character", 1
 "dbplyr", "cache_computation", 1, 0, 0, "any", 1
-"dbplyr", "carry_over", -1, 0, 0, "list<class<`name`> | class<`formula`, `quosure`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "carry_over", -1, 0, 0, "list<class<`name`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "carry_over", -1, 0, 1, "list<class<`formula`, `quosure`>>", 1
 "dbplyr", "carry_over", 0, 0, 0, "character[]", 1
 "dbplyr", "carry_over", 1, 0, 0, "list<class<`formula`, `quosure`>>", 1
 "dbplyr", "cat_line", -1, 0, 0, "null", 1
@@ -102,8 +91,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "c_character", 0, 0, 0, "...", 1
 "dbplyr", "ceply", -1, 0, 0, "environment", 1
 "dbplyr", "ceply", 0, 0, 0, "character[]", 1
-"dbplyr", "ceply", 0, 0, 1, "null", 1
-"dbplyr", "ceply", 0, 0, 2, "list<any>", 1
+"dbplyr", "ceply", 0, 0, 1, "list<any>", 1
+"dbplyr", "ceply", 0, 0, 2, "null", 1
 "dbplyr", "ceply", 1, 0, 0, "any", 1
 "dbplyr", "ceply", 2, 0, 0, "...", 1
 "dbplyr", "ceply", 3, 0, 0, "environment", 1
@@ -146,8 +135,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "copy_to.src_sql", 6, 0, 0, "null", 1
 "dbplyr", "copy_to.src_sql", 7, 0, 0, "null", 1
 "dbplyr", "copy_to.src_sql", 7, 0, 1, "list<any>", 1
-"dbplyr", "copy_to.src_sql", 8, 0, 0, "logical", 1
-"dbplyr", "copy_to.src_sql", 9, 0, 0, "...", 1
 "dbplyr", "c.sql", -1, 0, 0, "class<`character`, `sql`>", 1
 "dbplyr", "c.sql", 0, 0, 0, "...", 1
 "dbplyr", "c.sql", 1, 0, 0, "logical", 1
@@ -206,8 +193,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "db_copy_to", 6, 0, 0, "null", 1
 "dbplyr", "db_copy_to", 7, 0, 0, "null", 1
 "dbplyr", "db_copy_to", 7, 0, 1, "list<any>", 1
-"dbplyr", "db_copy_to", 8, 0, 0, "logical", 1
-"dbplyr", "db_copy_to", 9, 0, 0, "...", 1
 "dbplyr", "db_copy_to.DBIConnection", -1, 0, 0, "character", 1
 "dbplyr", "db_copy_to.DBIConnection", -1, 0, 1, "class<`character`, `ident`, `ident_q`>", 1
 "dbplyr", "db_copy_to.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
@@ -220,8 +205,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "db_copy_to.DBIConnection", 6, 0, 0, "null", 1
 "dbplyr", "db_copy_to.DBIConnection", 7, 0, 0, "null", 1
 "dbplyr", "db_copy_to.DBIConnection", 7, 0, 1, "list<any>", 1
-"dbplyr", "db_copy_to.DBIConnection", 8, 0, 0, "logical", 1
-"dbplyr", "db_copy_to.DBIConnection", 9, 0, 0, "...", 1
 "dbplyr", "db_create_index.DBIConnection", -1, 0, 0, "integer", 1
 "dbplyr", "db_create_index.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
 "dbplyr", "db_create_index.DBIConnection", 1, 0, 0, "character", 1
@@ -232,8 +215,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "db_create_indexes.DBIConnection", -1, 0, 0, "null", 1
 "dbplyr", "db_create_indexes.DBIConnection", 0, 0, 0, "class<`SQLiteConnection`>", 1
 "dbplyr", "db_create_indexes.DBIConnection", 1, 0, 0, "any", 1
-"dbplyr", "db_create_indexes.DBIConnection", 2, 0, 0, "null", 1
-"dbplyr", "db_create_indexes.DBIConnection", 2, 0, 1, "list<any>", 1
+"dbplyr", "db_create_indexes.DBIConnection", 2, 0, 0, "list<any>", 1
+"dbplyr", "db_create_indexes.DBIConnection", 2, 0, 1, "null", 1
 "dbplyr", "db_create_indexes.DBIConnection", 3, 0, 0, "logical", 1
 "dbplyr", "db_create_indexes.DBIConnection", 4, 0, 0, "...", 1
 "dbplyr", "db_data_type.DBIConnection", -1, 0, 0, "character[]", 1
@@ -311,8 +294,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "escape", 0, 0, 2, "class<`character`, `ident`, `ident_q`>", 1
 "dbplyr", "escape", 0, 0, 3, "class<`character`, `sql`>", 1
 "dbplyr", "escape", 0, 0, 4, "double[]", 1
-"dbplyr", "escape", 0, 0, 5, "null", 1
-"dbplyr", "escape", 0, 0, 6, "list<any>", 1
+"dbplyr", "escape", 0, 0, 5, "list<class<`character`, `sql`>>", 1
+"dbplyr", "escape", 0, 0, 6, "list<class<`character`, `sql`> | double>", 1
+"dbplyr", "escape", 0, 0, 7, "list<class<`character`, `sql`> | integer>", 1
+"dbplyr", "escape", 0, 0, 8, "null", 1
+"dbplyr", "escape", 0, 0, 9, "list<integer>", 1
 "dbplyr", "escape", 1, 0, 0, "null", 1
 "dbplyr", "escape", 1, 0, 1, "logical", 1
 "dbplyr", "escape", 2, 0, 0, "character", 1
@@ -371,7 +357,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "escape.integer", 3, 0, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
 "dbplyr", "escape.integer", 3, 0, 4, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
 "dbplyr", "escape.list", -1, 0, 0, "class<`character`, `sql`>", 1
-"dbplyr", "escape.list", 0, 0, 0, "list<any>", 1
+"dbplyr", "escape.list", 0, 0, 0, "list<class<`character`, `sql`>>", 1
+"dbplyr", "escape.list", 0, 0, 1, "list<class<`character`, `sql`> | double>", 1
+"dbplyr", "escape.list", 0, 0, 2, "list<class<`character`, `sql`> | integer>", 1
+"dbplyr", "escape.list", 0, 0, 3, "list<integer>", 1
 "dbplyr", "escape.list", 1, 0, 0, "logical", 1
 "dbplyr", "escape.list", 2, 0, 0, "character", 1
 "dbplyr", "escape.list", 3, 0, 0, "class<`SQLiteConnection`>", 1
@@ -398,76 +387,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "escape.sql", 3, 0, 4, "class<`DBIConnection`, `TestConnection`>", 1
 "dbplyr", "escape.sql", 3, 0, 5, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
 "dbplyr", "escape.sql", 3, 0, 6, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
-"dbplyr", "f", -1, 0, 0, "class<`src`, `src_SQLiteConnection`, `src_dbi`, `src_sql`>", 1
-"dbplyr", "f", 0, 0, 0, "null", 1
 "dbplyr", "filter.tbl_lazy", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dbplyr", "filter.tbl_lazy", 0, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
 "dbplyr", "filter.tbl_lazy", 1, 0, 0, "...", 1
 "dbplyr", "filter.tbl_lazy", 2, 0, 0, "logical", 1
 "dbplyr", "find_fun", -1, 0, 0, "character", 1
 "dbplyr", "find_fun", 0, 0, 0, "class<`function`>", 1
-"dbplyr", "FUN", -1, 0, 0, "character[]", 1
-"dbplyr", "FUN", -1, 0, 1, "null", 1
-"dbplyr", "FUN", 0, 0, 0, "class<`call`>", 1
-"dbplyr", "FUN", 0, 0, 1, "class<`formula`, `quosure`>", 1
-"dbplyr", "FUN", 0, 0, 2, "class<`if`>", 1
-"dbplyr", "FUN", 0, 0, 3, "class<`name`>", 1
-"dbplyr", "FUN", 0, 0, 4, "class<`(`>", 1
-"dbplyr", "FUN", 0, 0, 5, "character", 1
-"dbplyr", "FUN", 0, 0, 6, "double", 1
-"dbplyr", "FUN", 0, 0, 7, "null", 1
-"dbplyr", "FUN", -1, 1, 0, "character[]", 1
-"dbplyr", "FUN", -1, 1, 1, "null", 1
-"dbplyr", "FUN", 0, 1, 0, "class<`call`>", 1
-"dbplyr", "FUN", 0, 1, 1, "class<`formula`, `quosure`>", 1
-"dbplyr", "FUN", 0, 1, 2, "class<`if`>", 1
-"dbplyr", "FUN", 0, 1, 3, "class<`name`>", 1
-"dbplyr", "FUN", 0, 1, 4, "class<`(`>", 1
-"dbplyr", "FUN", 0, 1, 5, "character", 1
-"dbplyr", "FUN", 0, 1, 6, "double", 1
-"dbplyr", "FUN", 0, 1, 7, "null", 1
-"dbplyr", "FUN", -1, 2, 0, "class<`character`, `sql`>", 1
-"dbplyr", "FUN", 0, 2, 0, "character[]", 1
-"dbplyr", "FUN", 0, 2, 1, "class<`character`, `ident`>", 1
-"dbplyr", "FUN", 0, 2, 2, "class<`character`, `ident`, `ident_q`>", 1
-"dbplyr", "FUN", 0, 2, 3, "class<`character`, `sql`>", 1
-"dbplyr", "FUN", 0, 2, 4, "double[]", 1
-"dbplyr", "FUN", 0, 2, 5, "null", 1
-"dbplyr", "FUN", 0, 2, 6, "list<any>", 1
-"dbplyr", "FUN", 1, 2, 0, "null", 1
-"dbplyr", "FUN", 1, 2, 1, "logical", 1
-"dbplyr", "FUN", 2, 2, 0, "character", 1
-"dbplyr", "FUN", 2, 2, 1, "null", 1
-"dbplyr", "FUN", 3, 2, 0, "class<`DBIConnection`, `TestConnection`>", 1
-"dbplyr", "FUN", 3, 2, 1, "class<`SQLiteConnection`>", 1
-"dbplyr", "FUN", 3, 2, 2, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
-"dbplyr", "FUN", 3, 2, 3, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
-"dbplyr", "FUN", 3, 2, 4, "class<`DBIConnection`, `SQLiteConnection`, `TestConnection`>", 1
-"dbplyr", "FUN", 3, 2, 5, "class<`ACCESS`, `DBIConnection`, `TestConnection`>", 1
-"dbplyr", "FUN", 3, 2, 6, "class<`DBIConnection`, `TestCon`, `TestConnection`>", 1
-"dbplyr", "FUN", -1, 3, 0, "character[]", 1
-"dbplyr", "FUN", -1, 3, 1, "class<`(`>", 1
-"dbplyr", "FUN", -1, 3, 2, "class<`call`>", 1
-"dbplyr", "FUN", -1, 3, 3, "class<`name`>", 1
-"dbplyr", "FUN", -1, 3, 4, "double", 1
-"dbplyr", "FUN", 0, 3, 0, "class<`name`>", 1
-"dbplyr", "FUN", 0, 3, 1, "character", 1
-"dbplyr", "FUN", 0, 3, 2, "class<`(`>", 1
-"dbplyr", "FUN", 0, 3, 3, "class<`call`>", 1
-"dbplyr", "FUN", 0, 3, 4, "double", 1
-"dbplyr", "FUN", 1, 3, 0, "any", 1
-"dbplyr", "FUN", 2, 3, 0, "any", 1
-"dbplyr", "FUN", -1, 4, 0, "character", 1
-"dbplyr", "FUN", 0, 4, 0, "character[]", 1
-"dbplyr", "FUN", 0, 4, 1, "class<`(`>", 1
-"dbplyr", "FUN", 0, 4, 2, "class<`call`>", 1
-"dbplyr", "FUN", 0, 4, 3, "class<`character`, `ident`>", 1
-"dbplyr", "FUN", 0, 4, 4, "class<`character`, `sql`>", 1
-"dbplyr", "FUN", 0, 4, 5, "class<`name`>", 1
-"dbplyr", "FUN", 0, 4, 6, "double", 1
-"dbplyr", "FUN", 1, 4, 0, "any", 1
-"dbplyr", "FUN", -1, 5, 0, "class<`character`, `ident`>", 1
-"dbplyr", "FUN", 0, 5, 0, "...", 1
 "dbplyr", "fun_name", -1, 0, 0, "character", 1
 "dbplyr", "fun_name", 0, 0, 0, "class<`function`>", 1
 "dbplyr", "group_by_drop_default.tbl_lazy", -1, 0, 0, "logical", 1
@@ -548,9 +473,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "names_to_as", 0, 0, 0, "character[]", 1
 "dbplyr", "names_to_as", 0, 0, 1, "class<`character`, `ident`>", 1
 "dbplyr", "names_to_as", 0, 0, 2, "class<`character`, `sql`>", 1
-"dbplyr", "names_to_as", 0, 0, 3, "class<`character`, `ident`, `ident_q`>", 1
-"dbplyr", "names_to_as", 0, 0, 4, "class<`SQL`>", 1
-"dbplyr", "names_to_as", 0, 0, 5, "list<class<`character`, `sql`>>", 1
+"dbplyr", "names_to_as", 0, 0, 3, "list<class<`character`, `sql`>>", 1
+"dbplyr", "names_to_as", 0, 0, 4, "class<`character`, `ident`, `ident_q`>", 1
+"dbplyr", "names_to_as", 0, 0, 5, "class<`SQL`>", 1
 "dbplyr", "names_to_as", 1, 0, 0, "any", 1
 "dbplyr", "names_to_as", 2, 0, 0, "any", 1
 "dbplyr", "nest_vars", -1, 0, 0, "class<`tbl`, `tbl_SQLiteConnection`, `tbl_dbi`, `tbl_lazy`, `tbl_sql`>", 1
@@ -564,7 +489,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "new_op_select", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
 "dbplyr", "new_op_select", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
 "dbplyr", "new_op_select", 0, 0, 3, "class<`op`, `op_select`, `op_single`>", 1
-"dbplyr", "new_op_select", 1, 0, 0, "list<class<`name`> | class<`name`> | class<`formula`, `quosure`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "new_op_select", 1, 0, 0, "list<class<`name`>>", 1
+"dbplyr", "new_op_select", 1, 0, 1, "list<class<`name`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "new_op_select", 1, 0, 2, "list<class<`formula`, `quosure`>>", 1
 "dbplyr", "op_base", -1, 0, 0, "class<`op`, `op_base`, `op_base_local`>", 1
 "dbplyr", "op_base", -1, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
 "dbplyr", "op_base", 0, 0, 0, "class<`data.frame`>", 1
@@ -639,7 +566,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "op_select", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
 "dbplyr", "op_select", 0, 0, 2, "class<`op`, `op_order`, `op_single`>", 1
 "dbplyr", "op_select", 0, 0, 3, "class<`op`, `op_select`, `op_single`>", 1
-"dbplyr", "op_select", 1, 0, 0, "list<class<`name`> | class<`formula`, `quosure`> | class<`name`> | class<`formula`, `quosure`>>", 1
+"dbplyr", "op_select", 1, 0, 0, "list<class<`name`>>", 1
+"dbplyr", "op_select", 1, 0, 1, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "op_select", 1, 0, 2, "list<class<`name`> | class<`formula`, `quosure`>>", 1
 "dbplyr", "op_single", -1, 0, 0, "class<`op`, `op_arrange`, `op_single`>", 1
 "dbplyr", "op_single", -1, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
 "dbplyr", "op_single", -1, 0, 2, "class<`op`, `op_frame`, `op_single`>", 1
@@ -660,8 +589,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "op_single", 1, 0, 8, "class<`op`, `op_select`, `op_single`>", 1
 "dbplyr", "op_single", 2, 0, 0, "list<any>", 1
 "dbplyr", "op_single", 3, 0, 0, "list<any>", 1
-"dbplyr", "op_sort", -1, 0, 0, "null", 1
-"dbplyr", "op_sort", -1, 0, 1, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "op_sort", -1, 0, 0, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "op_sort", -1, 0, 1, "null", 1
 "dbplyr", "op_sort", 0, 0, 0, "class<`op`, `op_order`, `op_single`>", 1
 "dbplyr", "op_sort", 0, 0, 1, "class<`op`, `op_select`, `op_single`>", 1
 "dbplyr", "op_sort", 0, 0, 2, "class<`op`, `op_base`, `op_base_local`>", 1
@@ -675,8 +604,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "op_sort.op_base", 0, 0, 1, "class<`op`, `op_base`, `op_base_remote`>", 1
 "dbplyr", "op_sort.op_order", -1, 0, 0, "list<class<`formula`, `quosure`>>", 1
 "dbplyr", "op_sort.op_order", 0, 0, 0, "class<`op`, `op_order`, `op_single`>", 1
-"dbplyr", "op_sort.op_single", -1, 0, 0, "null", 1
-"dbplyr", "op_sort.op_single", -1, 0, 1, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "op_sort.op_single", -1, 0, 0, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "op_sort.op_single", -1, 0, 1, "null", 1
 "dbplyr", "op_sort.op_single", 0, 0, 0, "class<`op`, `op_select`, `op_single`>", 1
 "dbplyr", "op_sort.op_single", 0, 0, 1, "class<`op`, `op_filter`, `op_single`>", 1
 "dbplyr", "op_sort.op_single", 0, 0, 2, "class<`op`, `op_frame`, `op_single`>", 1
@@ -829,8 +758,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "set_current_con", 0, 0, 6, "class<`SQLiteConnection`>", 1
 "dbplyr", "set_current_context", -1, 0, 0, "character", 1
 "dbplyr", "set_current_context", -1, 0, 1, "list<character>", 1
-"dbplyr", "set_current_context", 0, 0, 0, "character", 1
-"dbplyr", "set_current_context", 0, 0, 1, "list<character>", 1
+"dbplyr", "set_current_context", 0, 0, 0, "list<character>", 1
+"dbplyr", "set_current_context", 0, 0, 1, "character", 1
 "dbplyr", "set_win_current_frame", -1, 0, 0, "double[]", 1
 "dbplyr", "set_win_current_frame", -1, 0, 1, "null", 1
 "dbplyr", "set_win_current_frame", 0, 0, 0, "null", 1
@@ -1166,8 +1095,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "sql_select.DBIConnection", 6, 0, 2, "null", 1
 "dbplyr", "sql_select.DBIConnection", 7, 0, 0, "double", 1
 "dbplyr", "sql_select.DBIConnection", 7, 0, 1, "null", 1
-"dbplyr", "sql_select.DBIConnection", 8, 0, 0, "logical", 1
-"dbplyr", "sql_select.DBIConnection", 9, 0, 0, "...", 1
 "dbplyr", "sql_select.Microsoft SQL Server", -1, 0, 0, "class<`character`, `sql`>", 1
 "dbplyr", "sql_select.Microsoft SQL Server", 0, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
 "dbplyr", "sql_select.Microsoft SQL Server", 1, 0, 0, "class<`character`, `sql`>", 1
@@ -1177,9 +1104,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "sql_select.Microsoft SQL Server", 5, 0, 0, "character[]", 1
 "dbplyr", "sql_select.Microsoft SQL Server", 6, 0, 0, "character[]", 1
 "dbplyr", "sql_select.Microsoft SQL Server", 7, 0, 0, "double", 1
-"dbplyr", "sql_select.Microsoft SQL Server", 8, 0, 0, "logical", 1
-"dbplyr", "sql_select.Microsoft SQL Server", 9, 0, 0, "...", 1
-"dbplyr", "sql_select.Microsoft SQL Server", 10, 0, 0, "any", 1
 "dbplyr", "sql_subquery.DBIConnection", -1, 0, 0, "class<`character`, `ident`>", 1
 "dbplyr", "sql_subquery.DBIConnection", 0, 0, 0, "class<`DBIConnection`, `Microsoft SQL Server`, `TestConnection`>", 1
 "dbplyr", "sql_subquery.DBIConnection", 0, 0, 1, "class<`DBIConnection`, `PostgreSQLConnection`, `TestConnection`>", 1
@@ -1304,8 +1228,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dbplyr", "translate_sql", 6, 0, 0, "logical", 1
 "dbplyr", "translate_sql_", -1, 0, 0, "class<`character`, `sql`>", 1
 "dbplyr", "translate_sql_", 0, 0, 0, "class<`list`, `quosures`>", 1
-"dbplyr", "translate_sql_", 0, 0, 1, "null", 1
-"dbplyr", "translate_sql_", 0, 0, 2, "list<any>", 1
+"dbplyr", "translate_sql_", 0, 0, 1, "list<class<`call`>>", 1
+"dbplyr", "translate_sql_", 0, 0, 2, "list<class<`formula`, `quosure`>>", 1
+"dbplyr", "translate_sql_", 0, 0, 3, "null", 1
+"dbplyr", "translate_sql_", 0, 0, 4, "list<class<`name`>>", 1
+"dbplyr", "translate_sql_", 0, 0, 5, "list<class<`name`> | class<`formula`, `quosure`>>", 1
 "dbplyr", "translate_sql_", 1, 0, 0, "any", 1
 "dbplyr", "translate_sql_", 2, 0, 0, "any", 1
 "dbplyr", "translate_sql_", 3, 0, 0, "any", 1

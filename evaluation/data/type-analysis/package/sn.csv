@@ -36,35 +36,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "delta.etc", 0, 0, 0, "double[]", 1
 "sn", "delta.etc", 1, 0, 0, "null", 1
 "sn", "delta.etc", 1, 0, 1, "class<`matrix`>", 1
-"sn", "d.fn", -1, 0, 0, "double[]", 1
-"sn", "d.fn", -1, 0, 1, "null", 1
-"sn", "d.fn", 0, 0, 0, "any", 1
-"sn", "d.fn", 1, 0, 0, "any", 1
-"sn", "d.fn", 2, 0, 0, "any", 1
-"sn", "d.fn", 3, 0, 0, "any", 1
-"sn", "d.fn", 4, 0, 0, "double", 1
-"sn", "d.fn", 5, 0, 0, "null", 1
-"sn", "d.fn", 5, 0, 1, "list<double[] | class<`matrix`>>", 1
-"sn", "d.fn", 6, 0, 0, "logical", 1
-"sn", "d.fn", -1, 1, 0, "double[]", 1
-"sn", "d.fn", 0, 1, 0, "double[]", 1
-"sn", "d.fn", 1, 1, 0, "double[]", 1
-"sn", "d.fn", 2, 1, 0, "double", 1
-"sn", "d.fn", 3, 1, 0, "double", 1
-"sn", "d.fn", 4, 1, 0, "double", 1
-"sn", "d.fn", 5, 1, 0, "double[]", 1
-"sn", "d.fn", 5, 1, 1, "null", 1
-"sn", "d.fn", 6, 1, 0, "logical", 1
-"sn", "d.fn", -1, 2, 0, "double[]", 1
-"sn", "d.fn", 0, 2, 0, "class<`matrix`>", 1
-"sn", "d.fn", 0, 2, 1, "double[]", 1
-"sn", "d.fn", 1, 2, 0, "double[]", 1
-"sn", "d.fn", 2, 2, 0, "double", 1
-"sn", "d.fn", 3, 2, 0, "double", 1
-"sn", "d.fn", 4, 2, 0, "double", 1
-"sn", "d.fn", 5, 2, 0, "double[]", 1
-"sn", "d.fn", 5, 2, 1, "null", 1
-"sn", "d.fn", 6, 2, 0, "logical", 1
 "sn", "dmsn", -1, 0, 0, "double[]", 1
 "sn", "dmsn", 0, 0, 0, "class<`matrix`>", 1
 "sn", "dmsn", 1, 0, 0, "double[]", 1
@@ -80,11 +51,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "dmst", 2, 0, 0, "any", 1
 "sn", "dmst", 3, 0, 0, "any", 1
 "sn", "dmst", 4, 0, 0, "double", 1
-"sn", "dmst", 5, 0, 0, "null", 1
-"sn", "dmst", 5, 0, 1, "list<double[] | class<`matrix`>>", 1
+"sn", "dmst", 5, 0, 0, "list<double[] | class<`matrix`>>", 1
+"sn", "dmst", 5, 0, 1, "null", 1
 "sn", "dmst", 6, 0, 0, "logical", 1
 "sn", "dp2cp", -1, 0, 0, "double[]", 1
-"sn", "dp2cp", -1, 0, 1, "list<double[] | class<`matrix`> | double[]>", 1
+"sn", "dp2cp", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
+"sn", "dp2cp", -1, 0, 2, "list<double[]>", 1
 "sn", "dp2cp", 0, 0, 0, "any", 1
 "sn", "dp2cp", 1, 0, 0, "any", 1
 "sn", "dp2cp", 2, 0, 0, "null", 1
@@ -93,8 +65,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "dp2cp", 3, 0, 0, "character", 1
 "sn", "dp2cp", 4, 0, 0, "null", 1
 "sn", "dp2cp", 4, 0, 1, "double", 1
-"sn", "dp2cpMv", -1, 0, 0, "list<any>", 1
-"sn", "dp2cpMv", 0, 0, 0, "list<class<`matrix`> | double[] | double[] | class<`matrix`>>", 1
+"sn", "dp2cpMv", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"sn", "dp2cpMv", -1, 0, 1, "list<double[]>", 1
+"sn", "dp2cpMv", -1, 0, 2, "list<double[] | class<`matrix`>>", 1
+"sn", "dp2cpMv", -1, 0, 3, "list<double[] | class<`matrix`> | list<double[] | class<`matrix`>>>", 1
+"sn", "dp2cpMv", -1, 0, 4, "list<double[] | class<`matrix`> | list<null | double[] | class<`matrix`>>>", 1
+"sn", "dp2cpMv", 0, 0, 0, "list<class<`matrix`> | double[]>", 1
+"sn", "dp2cpMv", 0, 0, 1, "list<double[] | class<`matrix`>>", 1
 "sn", "dp2cpMv", 1, 0, 0, "character", 1
 "sn", "dp2cpMv", 2, 0, 0, "character", 1
 "sn", "dp2cpMv", 3, 0, 0, "null", 1
@@ -159,68 +136,20 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "extractSECdistr", 0, 0, 1, "class<`selm`>", 1
 "sn", "extractSECdistr", 1, 0, 0, "any", 1
 "sn", "extractSECdistr", 2, 0, 0, "any", 1
-"sn", "f", -1, 0, 0, "double[]", 1
-"sn", "f", 0, 0, 0, "double[]", 1
-"sn", "f", 1, 0, 0, "double[]", 1
-"sn", "f", 2, 0, 0, "double", 1
-"sn", "f", 3, 0, 0, "double", 1
-"sn", "f", 4, 0, 0, "double", 1
-"sn", "f", 5, 0, 0, "double[]", 1
-"sn", "f", 5, 0, 1, "null", 1
-"sn", "f", 6, 0, 0, "logical", 1
-"sn", "f", -1, 1, 0, "double[]", 1
-"sn", "f", 0, 1, 0, "class<`matrix`>", 1
-"sn", "f", 0, 1, 1, "double[]", 1
-"sn", "f", 1, 1, 0, "double[]", 1
-"sn", "f", 2, 1, 0, "double", 1
-"sn", "f", 3, 1, 0, "double", 1
-"sn", "f", 4, 1, 0, "double", 1
-"sn", "f", 5, 1, 0, "double[]", 1
-"sn", "f", 5, 1, 1, "null", 1
-"sn", "f", 6, 1, 0, "logical", 1
 "sn", "fitted", -1, 0, 0, "class<`matrix`>", 1
 "sn", "fitted", 0, 0, 0, "class<`mselm`>", 1
 "sn", "fitted", 1, 0, 0, "...", 1
 "sn", "fitted", -1, 1, 0, "double[]", 1
 "sn", "fitted", 0, 1, 0, "class<`selm`>", 1
 "sn", "fitted", 1, 1, 0, "...", 1
-"sn", "fn", -1, 0, 0, "double", 1
-"sn", "fn", 0, 0, 0, "double[]", 1
-"sn", "fn", 1, 0, 0, "class<`matrix`>", 1
-"sn", "fn", 2, 0, 0, "class<`matrix`>", 1
-"sn", "fn", 3, 0, 0, "double[]", 1
-"sn", "fn", 4, 0, 0, "logical", 1
 "sn", "force.symmetry", -1, 0, 0, "class<`matrix`>", 1
 "sn", "force.symmetry", 0, 0, 0, "class<`matrix`>", 1
 "sn", "force.symmetry", 1, 0, 0, "double", 1
-"sn", "gradient", -1, 0, 0, "double[]", 1
-"sn", "gradient", 0, 0, 0, "double[]", 1
-"sn", "gradient", 1, 0, 0, "class<`matrix`>", 1
-"sn", "gradient", 2, 0, 0, "double[]", 1
-"sn", "gradient", 3, 0, 0, "double[]", 1
-"sn", "gradient", 4, 0, 0, "null", 1
-"sn", "gradient", 4, 0, 1, "double", 1
-"sn", "gradient", 5, 0, 0, "logical", 1
-"sn", "gradient", 6, 0, 0, "null", 1
-"sn", "gradient", 7, 0, 0, "logical", 1
-"sn", "gradient", 8, 0, 0, "logical", 1
-"sn", "gradient", -1, 1, 0, "double[]", 1
-"sn", "gradient", 0, 1, 0, "double[]", 1
-"sn", "gradient", 1, 1, 0, "class<`matrix`>", 1
-"sn", "gradient", 2, 1, 0, "double[]", 1
-"sn", "gradient", 3, 1, 0, "double[]", 1
-"sn", "gradient", 4, 1, 0, "class<`function`>", 1
-"sn", "gradient", 4, 1, 1, "null", 1
-"sn", "gradient", 5, 1, 0, "logical", 1
-"sn", "gradient", 6, 1, 0, "logical", 1
-"sn", ".local", -1, 0, 0, "class<`matrix`>", 1
-"sn", ".local", 0, 0, 0, "class<`mselm`>", 1
-"sn", ".local", 1, 0, 0, "character", 1
-"sn", ".local", 2, 0, 0, "...", 1
 "sn", "makeSECdistr", -1, 0, 0, "class<`SECdistrMv`>", 1
 "sn", "makeSECdistr", -1, 0, 1, "class<`SECdistrUv`>", 1
-"sn", "makeSECdistr", 0, 0, 0, "double[]", 1
-"sn", "makeSECdistr", 0, 0, 1, "list<class<`matrix`> | double[] | double[] | class<`matrix`>>", 1
+"sn", "makeSECdistr", 0, 0, 0, "list<class<`matrix`> | double[]>", 1
+"sn", "makeSECdistr", 0, 0, 1, "list<double[] | class<`matrix`>>", 1
+"sn", "makeSECdistr", 0, 0, 2, "double[]", 1
 "sn", "makeSECdistr", 1, 0, 0, "character", 1
 "sn", "makeSECdistr", 2, 0, 0, "any", 1
 "sn", "makeSECdistr", 3, 0, 0, "any", 1
@@ -242,7 +171,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "modeSECdistr", 2, 0, 0, "class<`SECdistrMv`>", 1
 "sn", "modeSECdistr", 2, 0, 1, "null", 1
 "sn", "modeSECdistrMv", -1, 0, 0, "double[]", 1
-"sn", "modeSECdistrMv", 0, 0, 0, "list<double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"sn", "modeSECdistrMv", 0, 0, 0, "list<double[] | class<`matrix`>>", 1
+"sn", "modeSECdistrMv", 0, 0, 1, "list<class<`matrix`> | double[]>", 1
 "sn", "modeSECdistrMv", 1, 0, 0, "character", 1
 "sn", "modeSECdistrUv", -1, 0, 0, "double", 1
 "sn", "modeSECdistrUv", 0, 0, 0, "double[]", 1
@@ -256,10 +186,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "msn.dev", 2, 0, 0, "class<`matrix`>", 1
 "sn", "msn.dev", 3, 0, 0, "double[]", 1
 "sn", "msn.dev", 4, 0, 0, "logical", 1
-"sn", "msn.dp2cp", -1, 0, 0, "list<class<`matrix`> | double[] | double[] | class<`matrix`> | list<double[] | class<`matrix`>> | double[] | class<`matrix`>>", 1
-"sn", "msn.dp2cp", 0, 0, 0, "list<class<`matrix`> | double[] | double[] | class<`matrix`>>", 1
+"sn", "msn.dp2cp", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"sn", "msn.dp2cp", -1, 0, 1, "list<double[] | class<`matrix`> | list<double[] | class<`matrix`>>>", 1
+"sn", "msn.dp2cp", -1, 0, 2, "list<double[] | class<`matrix`>>", 1
+"sn", "msn.dp2cp", 0, 0, 0, "list<class<`matrix`> | double[]>", 1
+"sn", "msn.dp2cp", 0, 0, 1, "list<double[] | class<`matrix`>>", 1
 "sn", "msn.dp2cp", 1, 0, 0, "logical", 1
-"sn", "msn.mle", -1, 0, 0, "list<class<`call`> | double | list<class<`matrix`> | double[] | double | double[] | null | character> | class<`call`> | double | list<class<`matrix`> | double[] | double | double[] | character>>", 1
+"sn", "msn.mle", -1, 0, 0, "list<class<`call`> | double | list<class<`matrix`> | double[] | double | double[] | null | character>>", 1
+"sn", "msn.mle", -1, 0, 1, "list<class<`call`> | double | list<class<`matrix`> | double[] | double | double[] | character>>", 1
 "sn", "msn.mle", 0, 0, 0, "class<`matrix`>", 1
 "sn", "msn.mle", 1, 0, 0, "class<`matrix`>", 1
 "sn", "msn.mle", 2, 0, 0, "null", 1
@@ -275,8 +209,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "mst.cp2dp", 2, 0, 0, "any", 1
 "sn", "mst.cp2dp", 3, 0, 0, "logical", 1
 "sn", "mst.dp2cp", -1, 0, 0, "null", 1
-"sn", "mst.dp2cp", -1, 0, 1, "list<any>", 1
-"sn", "mst.dp2cp", 0, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double>", 1
+"sn", "mst.dp2cp", -1, 0, 1, "list<class<`matrix`>>", 1
+"sn", "mst.dp2cp", -1, 0, 2, "list<class<`matrix`> | double[]>", 1
+"sn", "mst.dp2cp", -1, 0, 3, "list<class<`matrix`> | double>", 1
+"sn", "mst.dp2cp", -1, 0, 4, "list<double[]>", 1
+"sn", "mst.dp2cp", -1, 0, 5, "list<double[] | class<`matrix`>>", 1
+"sn", "mst.dp2cp", -1, 0, 6, "list<double[] | class<`matrix`> | list<null | double[] | class<`matrix`>>>", 1
+"sn", "mst.dp2cp", 0, 0, 0, "list<class<`matrix`> | double[]>", 1
+"sn", "mst.dp2cp", 0, 0, 1, "list<class<`matrix`> | double>", 1
 "sn", "mst.dp2cp", 1, 0, 0, "character", 1
 "sn", "mst.dp2cp", 2, 0, 0, "null", 1
 "sn", "mst.dp2cp", 3, 0, 0, "any", 1
@@ -291,7 +231,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "mst.mardia", 0, 0, 0, "double", 1
 "sn", "mst.mardia", 1, 0, 0, "double", 1
 "sn", "mst.mardia", 2, 0, 0, "integer", 1
-"sn", "mst.mple", -1, 0, 0, "list<class<`call`> | double | list<class<`matrix`> | double[] | null | double | double[] | character> | class<`call`> | double | list<any>>", 1
+"sn", "mst.mple", -1, 0, 0, "list<class<`call`> | double | list<class<`matrix`> | double[] | null | double | double[] | character>>", 1
+"sn", "mst.mple", -1, 0, 1, "list<class<`call`> | double | list<any>>", 1
 "sn", "mst.mple", 0, 0, 0, "class<`matrix`>", 1
 "sn", "mst.mple", 1, 0, 0, "class<`matrix`>", 1
 "sn", "mst.mple", 2, 0, 0, "null", 1
@@ -307,14 +248,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "mst.theta.jacobian", 1, 0, 0, "integer", 1
 "sn", "mst.theta.jacobian", 2, 0, 0, "integer", 1
 "sn", "mst.theta.jacobian", 3, 0, 0, "character", 1
-"sn", "objective", -1, 0, 0, "double", 1
-"sn", "objective", 0, 0, 0, "double[]", 1
-"sn", "objective", 1, 0, 0, "class<`matrix`>", 1
-"sn", "objective", 2, 0, 0, "class<`matrix`>", 1
-"sn", "objective", 3, 0, 0, "double[]", 1
-"sn", "objective", 4, 0, 0, "logical", 1
-"sn", "op2dp", -1, 0, 0, "list<double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
-"sn", "op2dp", 0, 0, 0, "list<double[] | class<`matrix`> | class<`matrix`> | double[]>", 1
+"sn", "op2dp", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"sn", "op2dp", -1, 0, 1, "list<class<`matrix`> | double[]>", 1
+"sn", "op2dp", 0, 0, 0, "list<double[] | class<`matrix`>>", 1
+"sn", "op2dp", 0, 0, 1, "list<class<`matrix`> | double[]>", 1
 "sn", "op2dp", 1, 0, 0, "character", 1
 "sn", "optpar2dplist", -1, 0, 0, "list<class<`matrix`> | double[] | list<class<`matrix`> | double[]>>", 1
 "sn", "optpar2dplist", 0, 0, 0, "double[]", 1
@@ -465,8 +402,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "rmsn", 2, 0, 0, "any", 1
 "sn", "rmsn", 3, 0, 0, "any", 1
 "sn", "rmsn", 4, 0, 0, "double", 1
-"sn", "rmsn", 5, 0, 0, "null", 1
-"sn", "rmsn", 5, 0, 1, "list<double[] | class<`matrix`>>", 1
+"sn", "rmsn", 5, 0, 0, "list<double[] | class<`matrix`>>", 1
+"sn", "rmsn", 5, 0, 1, "null", 1
 "sn", "rmst", -1, 0, 0, "class<`matrix`>", 1
 "sn", "rmst", 0, 0, 0, "double", 1
 "sn", "rmst", 1, 0, 0, "double[]", 1
@@ -626,7 +563,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "sn", "st.gamma2", 0, 0, 0, "double", 1
 "sn", "st.gamma2", 1, 0, 0, "double", 1
 "sn", "st.infoMv", -1, 0, 0, "list<any>", 1
-"sn", "st.infoMv", 0, 0, 0, "list<class<`matrix`> | double[] | class<`matrix`> | double>", 1
+"sn", "st.infoMv", 0, 0, 0, "list<class<`matrix`> | double[]>", 1
+"sn", "st.infoMv", 0, 0, 1, "list<class<`matrix`> | double>", 1
 "sn", "st.infoMv", 1, 0, 0, "class<`matrix`>", 1
 "sn", "st.infoMv", 2, 0, 0, "class<`matrix`>", 1
 "sn", "st.infoMv", 3, 0, 0, "double[]", 1

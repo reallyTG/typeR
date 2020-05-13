@@ -28,14 +28,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "as.col_spec", -1, 0, 0, "class<`col_spec`>", 1
 "readr", "as.col_spec", 0, 0, 0, "character", 1
 "readr", "as.col_spec", 0, 0, 1, "class<`col_spec`>", 1
-"readr", "as.col_spec", 0, 0, 2, "null", 1
-"readr", "as.col_spec", 0, 0, 3, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`> | class<`collector`, `collector_double`>>", 1
+"readr", "as.col_spec", 0, 0, 2, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
+"readr", "as.col_spec", 0, 0, 3, "list<class<`collector`, `collector_double`>>", 1
+"readr", "as.col_spec", 0, 0, 4, "null", 1
 "readr", "as.col_spec.character", -1, 0, 0, "class<`col_spec`>", 1
 "readr", "as.col_spec.character", 0, 0, 0, "character", 1
 "readr", "as.col_spec.col_spec", -1, 0, 0, "class<`col_spec`>", 1
 "readr", "as.col_spec.col_spec", 0, 0, 0, "class<`col_spec`>", 1
 "readr", "as.col_spec.list", -1, 0, 0, "class<`col_spec`>", 1
-"readr", "as.col_spec.list", 0, 0, 0, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`> | class<`collector`, `collector_double`>>", 1
+"readr", "as.col_spec.list", 0, 0, 0, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
+"readr", "as.col_spec.list", 0, 0, 1, "list<class<`collector`, `collector_double`>>", 1
 "readr", "as.col_spec.NULL", -1, 0, 0, "class<`col_spec`>", 1
 "readr", "as.col_spec.NULL", 0, 0, 0, "null", 1
 "readr", "check_callback_fun", -1, 0, 0, "null", 1
@@ -115,7 +117,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "col_spec_standardise", 2, 0, 0, "null", 1
 "readr", "col_spec_standardise", 2, 0, 1, "character", 1
 "readr", "col_spec_standardise", 2, 0, 2, "class<`col_spec`>", 1
-"readr", "col_spec_standardise", 2, 0, 3, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`> | class<`collector`, `collector_double`>>", 1
+"readr", "col_spec_standardise", 2, 0, 3, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
+"readr", "col_spec_standardise", 2, 0, 4, "list<class<`collector`, `collector_double`>>", 1
 "readr", "col_spec_standardise", 3, 0, 0, "null", 1
 "readr", "col_spec_standardise", 3, 0, 1, "list<character>", 1
 "readr", "col_spec_standardise", 4, 0, 0, "character", 1
@@ -205,14 +208,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "format_tsv", 2, 0, 0, "logical", 1
 "readr", "format_tsv", 3, 0, 0, "logical", 1
 "readr", "format_tsv", 4, 0, 0, "character", 1
-"readr", "FUN", -1, 0, 0, "logical", 1
-"readr", "FUN", 0, 0, 0, "class<`collector`, `collector_character`>", 1
-"readr", "FUN", 0, 0, 1, "class<`collector`, `collector_date`>", 1
-"readr", "FUN", 0, 0, 2, "class<`collector`, `collector_double`>", 1
-"readr", "FUN", 0, 0, 3, "class<`collector`, `collector_integer`>", 1
-"readr", "FUN", 0, 0, 4, "class<`collector`, `collector_number`>", 1
-"readr", "FUN", 0, 0, 5, "class<`collector`, `collector_skip`>", 1
-"readr", "FUN", 0, 0, 6, "class<`collector`, `collector_guess`>", 1
 "readr", "fwf_col_names", -1, 0, 0, "character[]", 1
 "readr", "fwf_col_names", 0, 0, 0, "character[]", 1
 "readr", "fwf_col_names", 0, 0, 1, "null", 1
@@ -235,25 +230,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "fwf_widths", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "readr", "fwf_widths", 0, 0, 0, "double[]", 1
 "readr", "fwf_widths", 1, 0, 0, "character[]", 1
-"readr", "get", -1, 0, 0, "class<`collector`, `collector_character`>", 1
-"readr", "get", -1, 1, 0, "class<`collector`, `collector_date`>", 1
-"readr", "get", 0, 1, 0, "character", 1
-"readr", "get", -1, 2, 0, "class<`collector`, `collector_double`>", 1
-"readr", "get", -1, 3, 0, "class<`collector`, `collector_logical`>", 1
 "readr", "guess_encoding", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "readr", "guess_encoding", 0, 0, 0, "character", 1
-"readr", "guess_encoding", 0, 0, 1, "raw[]", 1
-"readr", "guess_encoding", 0, 0, 2, "list<raw[]>", 1
+"readr", "guess_encoding", 0, 0, 1, "list<raw[]>", 1
+"readr", "guess_encoding", 0, 0, 2, "raw[]", 1
 "readr", "guess_encoding", 1, 0, 0, "double", 1
 "readr", "guess_encoding", 2, 0, 0, "double", 1
-"readr", "guess_header", -1, 0, 0, "list<character[] | double | character | double | ^character[] | double>", 1
+"readr", "guess_header", -1, 0, 0, "list<character[] | double>", 1
+"readr", "guess_header", -1, 0, 1, "list<character | double>", 1
+"readr", "guess_header", -1, 0, 2, "list<^character[] | double>", 1
 "readr", "guess_header", 0, 0, 0, "class<`source`, `source_file`>", 1
 "readr", "guess_header", 0, 0, 1, "class<`source`, `source_string`>", 1
 "readr", "guess_header", 1, 0, 0, "class<`tokenizer_delim`>", 1
 "readr", "guess_header", 1, 0, 1, "class<`tokenizer_fwf`>", 1
 "readr", "guess_header", 1, 0, 2, "class<`tokenizer_log`>", 1
 "readr", "guess_header", 2, 0, 0, "class<`locale`>", 1
-"readr", "guess_header_", -1, 0, 0, "list<character[] | double | character | double | ^character[] | double>", 1
+"readr", "guess_header_", -1, 0, 0, "list<character[] | double>", 1
+"readr", "guess_header_", -1, 0, 1, "list<character | double>", 1
+"readr", "guess_header_", -1, 0, 2, "list<^character[] | double>", 1
 "readr", "guess_header_", 0, 0, 0, "class<`source`, `source_file`>", 1
 "readr", "guess_header_", 0, 0, 1, "class<`source`, `source_string`>", 1
 "readr", "guess_header_", 1, 0, 0, "class<`tokenizer_delim`>", 1
@@ -622,10 +616,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "read_csv", -1, 0, 0, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "read_csv", 0, 0, 0, "character", 1
 "readr", "read_csv", 1, 0, 0, "logical", 1
-"readr", "read_csv", 2, 0, 0, "null", 1
-"readr", "read_csv", 2, 0, 1, "character", 1
-"readr", "read_csv", 2, 0, 2, "class<`col_spec`>", 1
-"readr", "read_csv", 2, 0, 3, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
+"readr", "read_csv", 2, 0, 0, "list<class<`collector`, `collector_double`>>", 1
+"readr", "read_csv", 2, 0, 1, "null", 1
+"readr", "read_csv", 2, 0, 2, "character", 1
+"readr", "read_csv", 2, 0, 3, "class<`col_spec`>", 1
+"readr", "read_csv", 2, 0, 4, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
 "readr", "read_csv", 3, 0, 0, "class<`locale`>", 1
 "readr", "read_csv", 4, 0, 0, "character[]", 1
 "readr", "read_csv", 5, 0, 0, "logical", 1
@@ -689,16 +684,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "read_delim", 13, 0, 0, "double", 1
 "readr", "read_delim", 14, 0, 0, "double", 1
 "readr", "read_delim", 15, 0, 0, "logical", 1
-"readr", "read_delim", 16, 0, 0, "logical", 1
 "readr", "read_delimited", -1, 0, 0, "class<`data.frame`, `spec_tbl_df`, `tbl`, `tbl_df`>", 1
 "readr", "read_delimited", 0, 0, 0, "character", 1
 "readr", "read_delimited", 1, 0, 0, "class<`tokenizer_delim`>", 1
 "readr", "read_delimited", 1, 0, 1, "class<`tokenizer_log`>", 1
 "readr", "read_delimited", 2, 0, 0, "logical", 1
-"readr", "read_delimited", 3, 0, 0, "null", 1
-"readr", "read_delimited", 3, 0, 1, "character", 1
-"readr", "read_delimited", 3, 0, 2, "class<`col_spec`>", 1
-"readr", "read_delimited", 3, 0, 3, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
+"readr", "read_delimited", 3, 0, 0, "list<class<`collector`, `collector_double`>>", 1
+"readr", "read_delimited", 3, 0, 1, "null", 1
+"readr", "read_delimited", 3, 0, 2, "character", 1
+"readr", "read_delimited", 3, 0, 3, "class<`col_spec`>", 1
+"readr", "read_delimited", 3, 0, 4, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
 "readr", "read_delimited", 4, 0, 0, "class<`locale`>", 1
 "readr", "read_delimited", 5, 0, 0, "double", 1
 "readr", "read_delimited", 6, 0, 0, "logical", 1
@@ -820,7 +815,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "read_tokens", 1, 0, 0, "class<`tokenizer_delim`>", 1
 "readr", "read_tokens", 1, 0, 1, "class<`tokenizer_fwf`>", 1
 "readr", "read_tokens", 1, 0, 2, "class<`tokenizer_log`>", 1
-"readr", "read_tokens", 2, 0, 0, "list<any>", 1
+"readr", "read_tokens", 2, 0, 0, "list<class<`collector`, `collector_character`>>", 1
+"readr", "read_tokens", 2, 0, 1, "list<class<`collector`, `collector_double`>>", 1
+"readr", "read_tokens", 2, 0, 2, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_date`>>", 1
+"readr", "read_tokens", 2, 0, 3, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_logical`>>", 1
+"readr", "read_tokens", 2, 0, 4, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
+"readr", "read_tokens", 2, 0, 5, "list<class<`collector`, `collector_character`> | class<`collector`, `collector_double`>>", 1
+"readr", "read_tokens", 2, 0, 6, "list<class<`collector`, `collector_character`> | class<`collector`, `collector_logical`> | class<`collector`, `collector_double`>>", 1
 "readr", "read_tokens", 3, 0, 0, "character[]", 1
 "readr", "read_tokens", 4, 0, 0, "class<`locale`>", 1
 "readr", "read_tokens", 5, 0, 0, "double", 1
@@ -831,7 +832,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readr", "read_tokens_", 1, 0, 0, "class<`tokenizer_delim`>", 1
 "readr", "read_tokens_", 1, 0, 1, "class<`tokenizer_fwf`>", 1
 "readr", "read_tokens_", 1, 0, 2, "class<`tokenizer_log`>", 1
-"readr", "read_tokens_", 2, 0, 0, "list<any>", 1
+"readr", "read_tokens_", 2, 0, 0, "list<class<`collector`, `collector_character`>>", 1
+"readr", "read_tokens_", 2, 0, 1, "list<class<`collector`, `collector_double`>>", 1
+"readr", "read_tokens_", 2, 0, 2, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_date`>>", 1
+"readr", "read_tokens_", 2, 0, 3, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_logical`>>", 1
+"readr", "read_tokens_", 2, 0, 4, "list<class<`collector`, `collector_double`> | class<`collector`, `collector_character`>>", 1
+"readr", "read_tokens_", 2, 0, 5, "list<class<`collector`, `collector_character`> | class<`collector`, `collector_double`>>", 1
+"readr", "read_tokens_", 2, 0, 6, "list<class<`collector`, `collector_character`> | class<`collector`, `collector_logical`> | class<`collector`, `collector_double`>>", 1
 "readr", "read_tokens_", 3, 0, 0, "character[]", 1
 "readr", "read_tokens_", 4, 0, 0, "class<`locale`>", 1
 "readr", "read_tokens_", 5, 0, 0, "double", 1

@@ -26,17 +26,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringr", "fix_replacement", -1, 0, 1, "null", 1
 "stringr", "fix_replacement", 0, 0, 0, "character[]", 1
 "stringr", "fix_replacement", 0, 0, 1, "null", 1
-"stringr", "FUN", -1, 0, 0, "^character[]", 1
-"stringr", "FUN", 0, 0, 0, "...", 1
-"stringr", "FUN", 1, 0, 0, "character", 1
-"stringr", "FUN", 2, 0, 0, "character", 1
-"stringr", "FUN", 2, 0, 1, "null", 1
-"stringr", "interp_placeholders", -1, 0, 0, "list<integer[] | character[] | integer | character>", 1
+"stringr", "interp_placeholders", -1, 0, 0, "list<integer[] | character[]>", 1
+"stringr", "interp_placeholders", -1, 0, 1, "list<integer | character>", 1
 "stringr", "interp_placeholders", 0, 0, 0, "character", 1
 "stringr", "invert_match", -1, 0, 0, "class<`matrix`>", 1
 "stringr", "invert_match", 0, 0, 0, "class<`matrix`>", 1
 "stringr", "opts", -1, 0, 0, "null", 1
-"stringr", "opts", -1, 0, 1, "list<any>", 1
+"stringr", "opts", -1, 0, 1, "list<logical>", 1
+"stringr", "opts", -1, 0, 2, "list<character | integer>", 1
+"stringr", "opts", -1, 0, 3, "list<character>", 1
+"stringr", "opts", -1, 0, 4, "list<character | logical>", 1
 "stringr", "opts", 0, 0, 0, "character[]", 1
 "stringr", "opts", 0, 0, 1, "class<`character`, `pattern`, `regex`>", 1
 "stringr", "opts", 0, 0, 2, "class<`character`, `fixed`, `pattern`>", 1
@@ -80,7 +79,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "stringr", "str_extract", 0, 0, 0, "^character[]", 1
 "stringr", "str_extract", 1, 0, 0, "character[]", 1
 "stringr", "str_extract_all", -1, 0, 0, "class<`matrix`>", 1
-"stringr", "str_extract_all", -1, 0, 1, "list<character[] | character[] | null>", 1
+"stringr", "str_extract_all", -1, 0, 1, "list<character[]>", 1
+"stringr", "str_extract_all", -1, 0, 2, "list<character[] | null>", 1
 "stringr", "str_extract_all", 0, 0, 0, "^character[]", 1
 "stringr", "str_extract_all", 1, 0, 0, "character", 1
 "stringr", "str_extract_all", 1, 0, 1, "class<`boundary`, `character`, `pattern`>", 1

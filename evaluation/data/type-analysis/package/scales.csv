@@ -43,7 +43,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "calcLevels", 0, 0, 1, "class<`factor`>", 1
 "scales", "calcLevels", 0, 0, 2, "integer[]", 1
 "scales", "calcLevels", 1, 0, 0, "any", 1
-"scales", "cbreaks", -1, 0, 0, "list<double[] | character[] | double[] | expression | double[] | list<class<`name`>>>", 1
+"scales", "cbreaks", -1, 0, 0, "list<double[] | character[]>", 1
+"scales", "cbreaks", -1, 0, 1, "list<double[] | expression>", 1
+"scales", "cbreaks", -1, 0, 2, "list<double[] | list<class<`name`>>>", 1
 "scales", "cbreaks", 0, 0, 0, "double[]", 1
 "scales", "cbreaks", 1, 0, 0, "class<`function`>", 1
 "scales", "cbreaks", 1, 0, 1, "double[]", 1
@@ -101,10 +103,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "col_numeric", 4, 0, 0, "logical", 1
 "scales", "col_numeric", -1, 1, 0, "character[]", 1
 "scales", "col_numeric", 0, 1, 0, "double[]", 1
-"scales", "colorFunc", -1, 0, 0, "character[]", 1
-"scales", "colorFunc", 0, 0, 0, "character[]", 1
-"scales", "colorFunc", 0, 0, 1, "class<`factor`>", 1
-"scales", "colorFunc", 0, 0, 2, "integer[]", 1
 "scales", "colour_ramp", -1, 0, 0, "class<`function`>", 1
 "scales", "colour_ramp", 0, 0, 0, "character[]", 1
 "scales", "colour_ramp", 1, 0, 0, "null", 1
@@ -401,8 +399,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "number_format", 7, 0, 0, "...", 1
 "scales", "ordinal_english", -1, 0, 0, "list<character>", 1
 "scales", "ordinal_french", -1, 0, 0, "list<character>", 1
-"scales", "pal", -1, 0, 0, "character[]", 1
-"scales", "pal", 0, 0, 0, "double[]", 1
 "scales", "pal_name", -1, 0, 0, "character", 1
 "scales", "pal_name", 0, 0, 0, "character", 1
 "scales", "pal_name", 0, 0, 1, "double", 1
@@ -589,7 +585,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "scales", "viridis_pal", 0, 1, 0, "double", 1
 "scales", "withColorAttr", -1, 0, 0, "class<`function`>", 1
 "scales", "withColorAttr", 0, 0, 0, "character", 1
-"scales", "withColorAttr", 1, 0, 0, "list<double[] | character | double | character | character>", 1
+"scales", "withColorAttr", 1, 0, 0, "list<double[] | character>", 1
+"scales", "withColorAttr", 1, 0, 1, "list<double | character>", 1
+"scales", "withColorAttr", 1, 0, 2, "list<character>", 1
 "scales", "withColorAttr", 2, 0, 0, "class<`function`>", 1
 "scales", "yj_trans", -1, 0, 0, "class<`trans`>", 1
 "scales", "yj_trans", 0, 0, 0, "double", 1

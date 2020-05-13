@@ -1,13 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"dtw", ":::", -1, 0, 0, "list<class<`matrix`> | class<`stepPattern`>>", 1
-"dtw", ":::", 0, 0, 0, "class<`matrix`>", 1
-"dtw", ":::", 0, 0, 1, "class<`crossdist`>", 1
-"dtw", ":::", 1, 0, 0, "class<`stepPattern`>", 1
-"dtw", ":::", 2, 0, 0, "class<`function`>", 1
-"dtw", ":::", 3, 0, 0, "logical", 1
-"dtw", ":::", 4, 0, 0, "null", 1
-"dtw", ":::", 4, 0, 1, "class<`matrix`>", 1
-"dtw", ":::", 5, 0, 0, "...", 1
 "dtw", "backtrack", -1, 0, 0, "list<double[]>", 1
 "dtw", "backtrack", 0, 0, 0, "list<any>", 1
 "dtw", ".canonicalizeWindowFunction", -1, 0, 0, "class<`function`>", 1
@@ -127,7 +118,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "dtw", "print.stepPattern", 0, 0, 0, "class<`stepPattern`>", 1
 "dtw", "print.stepPattern", 1, 0, 0, "...", 1
 "dtw", ".Pstep", -1, 0, 0, "list<double[] | character>", 1
-"dtw", ".Pstep", 0, 0, 0, "list<double[] | character | double | character>", 1
+"dtw", ".Pstep", 0, 0, 0, "list<double[] | character>", 1
+"dtw", ".Pstep", 0, 0, 1, "list<double | character>", 1
 "dtw", ".Pstep", 1, 0, 0, "double", 1
 "dtw", ".Pstep", 2, 0, 0, "double", 1
 "dtw", ".PtoMx", -1, 0, 0, "class<`matrix`>", 1

@@ -52,14 +52,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "glue", "glue_data", 5, 0, 0, "character", 1
 "glue", "glue_data", 6, 0, 0, "any", 1
 "glue", "glue_data", 7, 0, 0, "any", 1
-"glue", "glue_data", 8, 0, 0, "logical", 1
 "glue", "glue_sql", -1, 0, 0, "class<`SQL`>", 1
 "glue", "glue_sql", 0, 0, 0, "...", 1
 "glue", "glue_sql", 1, 0, 0, "class<`SQLiteConnection`>", 1
 "glue", "glue_sql", 2, 0, 0, "environment", 1
 "glue", "glue_sql", 3, 0, 0, "class<`SQL`>", 1
 "glue", "has_names", -1, 0, 0, "logical[]", 1
-"glue", "has_names", 0, 0, 0, "list<any>", 1
+"glue", "has_names", 0, 0, 0, "list<character>", 1
+"glue", "has_names", 0, 0, 1, "list<character | double | class<`call`>>", 1
+"glue", "has_names", 0, 0, 2, "list<character | class<`call`>>", 1
+"glue", "has_names", 0, 0, 3, "list<character | double>", 1
+"glue", "has_names", 0, 0, 4, "list<class<`name`>>", 1
 "glue", "lengths", -1, 0, 0, "integer[]", 1
 "glue", "lengths", 0, 0, 0, "list<character[]>", 1
 "glue", "recycle_columns", -1, 0, 0, "list<character[]>", 1

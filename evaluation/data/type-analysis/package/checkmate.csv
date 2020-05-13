@@ -22,8 +22,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "anyMissing", -1, 0, 0, "logical", 1
 "checkmate", "anyMissing", 0, 0, 0, "class<`data.frame`>", 1
 "checkmate", "anyMissing", 0, 0, 1, "^double[]", 1
-"checkmate", "anyMissing", 0, 0, 2, "null", 1
-"checkmate", "anyMissing", 0, 0, 3, "list<double | null>", 1
+"checkmate", "anyMissing", 0, 0, 2, "list<double | null>", 1
+"checkmate", "anyMissing", 0, 0, 3, "null", 1
 "checkmate", "anyNaN", -1, 0, 0, "logical", 1
 "checkmate", "anyNaN", 0, 0, 0, "class<`data.frame`>", 1
 "checkmate", "anyNaN", 0, 0, 1, "double[]", 1
@@ -49,11 +49,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "asInteger", 5, 0, 0, "logical", 1
 "checkmate", "asInteger", 6, 0, 0, "null", 1
 "checkmate", "asInteger", 7, 0, 0, "null", 1
-"checkmate", "asInteger", 8, 0, 0, "null", 1
-"checkmate", "asInteger", 9, 0, 0, "logical", 1
-"checkmate", "asInteger", 10, 0, 0, "logical", 1
-"checkmate", "asInteger", 11, 0, 0, "null", 1
-"checkmate", "asInteger", 12, 0, 0, "any", 1
 "checkmate", "assert", -1, 0, 0, "logical", 1
 "checkmate", "assert", 0, 0, 0, "...", 1
 "checkmate", "assert", 1, 0, 0, "character", 1
@@ -69,15 +64,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "assertCharacter", 6, 0, 0, "logical", 1
 "checkmate", "assertCharacter", 7, 0, 0, "null", 1
 "checkmate", "assertCharacter", 7, 0, 1, "integer", 1
-"checkmate", "assertCharacter", 8, 0, 0, "null", 1
-"checkmate", "assertCharacter", 8, 0, 1, "integer", 1
-"checkmate", "assertCharacter", 9, 0, 0, "null", 1
-"checkmate", "assertCharacter", 10, 0, 0, "logical", 1
-"checkmate", "assertCharacter", 11, 0, 0, "logical", 1
-"checkmate", "assertCharacter", 12, 0, 0, "null", 1
-"checkmate", "assertCharacter", 13, 0, 0, "logical", 1
-"checkmate", "assertCharacter", 14, 0, 0, "any", 1
-"checkmate", "assertCharacter", 15, 0, 0, "any", 1
 "checkmate", "assertChoice", -1, 0, 0, "character", 1
 "checkmate", "assertChoice", 0, 0, 0, "character", 1
 "checkmate", "assertChoice", 1, 0, 0, "character[]", 1
@@ -116,7 +102,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "assertInt", 5, 0, 0, "logical", 1
 "checkmate", "assertInt", 6, 0, 0, "logical", 1
 "checkmate", "assertInt", 7, 0, 0, "any", 1
-"checkmate", "assertInt", 8, 0, 0, "null", 1
 "checkmate", "assertInteger", -1, 0, 0, "integer[]", 1
 "checkmate", "assertInteger", 0, 0, 0, "integer[]", 1
 "checkmate", "assertInteger", 1, 0, 0, "double", 1
@@ -126,12 +111,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "assertInteger", 5, 0, 0, "null", 1
 "checkmate", "assertInteger", 6, 0, 0, "null", 1
 "checkmate", "assertInteger", 7, 0, 0, "null", 1
-"checkmate", "assertInteger", 8, 0, 0, "logical", 1
-"checkmate", "assertInteger", 9, 0, 0, "logical", 1
-"checkmate", "assertInteger", 10, 0, 0, "null", 1
-"checkmate", "assertInteger", 11, 0, 0, "logical", 1
-"checkmate", "assertInteger", 12, 0, 0, "any", 1
-"checkmate", "assertInteger", 13, 0, 0, "null", 1
 "checkmate", "assertIntegerish", -1, 0, 0, "double[]", 1
 "checkmate", "assertIntegerish", 0, 0, 0, "double[]", 1
 "checkmate", "assertIntegerish", 1, 0, 0, "double", 1
@@ -141,14 +120,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "assertIntegerish", 5, 0, 0, "logical", 1
 "checkmate", "assertIntegerish", 6, 0, 0, "null", 1
 "checkmate", "assertIntegerish", 7, 0, 0, "null", 1
-"checkmate", "assertIntegerish", 8, 0, 0, "null", 1
-"checkmate", "assertIntegerish", 9, 0, 0, "logical", 1
-"checkmate", "assertIntegerish", 10, 0, 0, "logical", 1
-"checkmate", "assertIntegerish", 11, 0, 0, "null", 1
-"checkmate", "assertIntegerish", 12, 0, 0, "logical", 1
-"checkmate", "assertIntegerish", 13, 0, 0, "logical", 1
-"checkmate", "assertIntegerish", 14, 0, 0, "any", 1
-"checkmate", "assertIntegerish", 15, 0, 0, "null", 1
 "checkmate", "assertNames", -1, 0, 0, "character[]", 1
 "checkmate", "assertNames", 0, 0, 0, "character[]", 1
 "checkmate", "assertNames", 1, 0, 0, "character", 1
@@ -158,8 +129,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "assertNames", 5, 0, 0, "null", 1
 "checkmate", "assertNames", 6, 0, 0, "null", 1
 "checkmate", "assertNames", 7, 0, 0, "character", 1
-"checkmate", "assertNames", 8, 0, 0, "any", 1
-"checkmate", "assertNames", 9, 0, 0, "null", 1
 "checkmate", "assertNumeric", -1, 0, 0, "character", 1
 "checkmate", "assertNumeric", -1, 0, 1, "double[]", 1
 "checkmate", "assertNumeric", 0, 0, 0, "character", 1
@@ -172,14 +141,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "assertNumeric", 6, 0, 0, "null", 1
 "checkmate", "assertNumeric", 6, 0, 1, "double", 1
 "checkmate", "assertNumeric", 7, 0, 0, "null", 1
-"checkmate", "assertNumeric", 8, 0, 0, "null", 1
-"checkmate", "assertNumeric", 9, 0, 0, "logical", 1
-"checkmate", "assertNumeric", 10, 0, 0, "logical", 1
-"checkmate", "assertNumeric", 11, 0, 0, "null", 1
-"checkmate", "assertNumeric", 12, 0, 0, "logical", 1
-"checkmate", "assertNumeric", 13, 0, 0, "any", 1
-"checkmate", "assertNumeric", 14, 0, 0, "class<`AssertCollection`>", 1
-"checkmate", "assertNumeric", 14, 0, 1, "null", 1
 "checkmate", "checkAccess", -1, 0, 0, "logical", 1
 "checkmate", "checkAccess", 0, 0, 0, "character", 1
 "checkmate", "checkAccess", 1, 0, 0, "character", 1
@@ -203,13 +164,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkCharacter", 6, 0, 0, "logical", 1
 "checkmate", "checkCharacter", 7, 0, 0, "null", 1
 "checkmate", "checkCharacter", 7, 0, 1, "integer", 1
-"checkmate", "checkCharacter", 8, 0, 0, "null", 1
-"checkmate", "checkCharacter", 8, 0, 1, "double", 1
-"checkmate", "checkCharacter", 9, 0, 0, "null", 1
-"checkmate", "checkCharacter", 10, 0, 0, "logical", 1
-"checkmate", "checkCharacter", 11, 0, 0, "logical", 1
-"checkmate", "checkCharacter", 12, 0, 0, "null", 1
-"checkmate", "checkCharacter", 13, 0, 0, "logical", 1
 "checkmate", "checkCharacterPattern", -1, 0, 0, "logical", 1
 "checkmate", "checkCharacterPattern", 0, 0, 0, "character[]", 1
 "checkmate", "checkCharacterPattern", 1, 0, 0, "null", 1
@@ -246,13 +200,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkDataFrame", 5, 0, 0, "null", 1
 "checkmate", "checkDataFrame", 6, 0, 0, "null", 1
 "checkmate", "checkDataFrame", 7, 0, 0, "null", 1
-"checkmate", "checkDataFrame", 8, 0, 0, "null", 1
-"checkmate", "checkDataFrame", 8, 0, 1, "double", 1
-"checkmate", "checkDataFrame", 9, 0, 0, "null", 1
-"checkmate", "checkDataFrame", 10, 0, 0, "null", 1
-"checkmate", "checkDataFrame", 11, 0, 0, "null", 1
-"checkmate", "checkDataFrame", 11, 0, 1, "character", 1
-"checkmate", "checkDataFrame", 12, 0, 0, "logical", 1
 "checkmate", "checkDataTable", -1, 0, 0, "logical", 1
 "checkmate", "checkDataTable", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
 "checkmate", "checkDataTable", 1, 0, 0, "character", 1
@@ -264,13 +211,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkDataTable", 5, 0, 0, "logical", 1
 "checkmate", "checkDataTable", 6, 0, 0, "null", 1
 "checkmate", "checkDataTable", 7, 0, 0, "null", 1
-"checkmate", "checkDataTable", 8, 0, 0, "null", 1
-"checkmate", "checkDataTable", 9, 0, 0, "null", 1
-"checkmate", "checkDataTable", 10, 0, 0, "null", 1
-"checkmate", "checkDataTable", 11, 0, 0, "null", 1
-"checkmate", "checkDataTable", 12, 0, 0, "null", 1
-"checkmate", "checkDataTable", 13, 0, 0, "null", 1
-"checkmate", "checkDataTable", 14, 0, 0, "logical", 1
 "checkmate", "checkDataTableProps", -1, 0, 0, "logical", 1
 "checkmate", "checkDataTableProps", 0, 0, 0, "any", 1
 "checkmate", "checkDataTableProps", 1, 0, 0, "null", 1
@@ -302,13 +242,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkFactor", 5, 0, 0, "logical", 1
 "checkmate", "checkFactor", 6, 0, 0, "null", 1
 "checkmate", "checkFactor", 7, 0, 0, "null", 1
-"checkmate", "checkFactor", 8, 0, 0, "null", 1
-"checkmate", "checkFactor", 9, 0, 0, "any", 1
-"checkmate", "checkFactor", 10, 0, 0, "any", 1
-"checkmate", "checkFactor", 11, 0, 0, "any", 1
-"checkmate", "checkFactor", 12, 0, 0, "logical", 1
-"checkmate", "checkFactor", 13, 0, 0, "null", 1
-"checkmate", "checkFactor", 14, 0, 0, "logical", 1
 "checkmate", "checkFactorLevels", -1, 0, 0, "character", 1
 "checkmate", "checkFactorLevels", -1, 0, 1, "logical", 1
 "checkmate", "checkFactorLevels", 0, 0, 0, "class<`factor`>", 1
@@ -348,10 +281,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkInteger", 5, 0, 0, "null", 1
 "checkmate", "checkInteger", 6, 0, 0, "null", 1
 "checkmate", "checkInteger", 7, 0, 0, "null", 1
-"checkmate", "checkInteger", 8, 0, 0, "logical", 1
-"checkmate", "checkInteger", 9, 0, 0, "logical", 1
-"checkmate", "checkInteger", 10, 0, 0, "null", 1
-"checkmate", "checkInteger", 11, 0, 0, "logical", 1
 "checkmate", "checkList", -1, 0, 0, "character", 1
 "checkmate", "checkList", -1, 0, 1, "logical", 1
 "checkmate", "checkList", 0, 0, 0, "list<any>", 1
@@ -362,8 +291,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkList", 5, 0, 0, "null", 1
 "checkmate", "checkList", 6, 0, 0, "null", 1
 "checkmate", "checkList", 7, 0, 0, "logical", 1
-"checkmate", "checkList", 8, 0, 0, "null", 1
-"checkmate", "checkList", 9, 0, 0, "logical", 1
 "checkmate", "checkListTypes", -1, 0, 0, "logical", 1
 "checkmate", "checkListTypes", 0, 0, 0, "class<`data.frame`>", 1
 "checkmate", "checkListTypes", 0, 0, 1, "class<`data.frame`, `data.table`>", 1
@@ -381,11 +308,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkMatrix", 5, 0, 0, "null", 1
 "checkmate", "checkMatrix", 6, 0, 0, "null", 1
 "checkmate", "checkMatrix", 7, 0, 0, "null", 1
-"checkmate", "checkMatrix", 8, 0, 0, "null", 1
-"checkmate", "checkMatrix", 9, 0, 0, "null", 1
-"checkmate", "checkMatrix", 10, 0, 0, "null", 1
-"checkmate", "checkMatrix", 11, 0, 0, "null", 1
-"checkmate", "checkMatrix", 12, 0, 0, "logical", 1
 "checkmate", "checkMultiClass", -1, 0, 0, "character", 1
 "checkmate", "checkMultiClass", -1, 0, 1, "logical", 1
 "checkmate", "checkMultiClass", 0, 0, 0, "class<`bar`>", 1
@@ -476,20 +398,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "checkTibble", 5, 0, 0, "null", 1
 "checkmate", "checkTibble", 6, 0, 0, "null", 1
 "checkmate", "checkTibble", 7, 0, 0, "null", 1
-"checkmate", "checkTibble", 8, 0, 0, "double", 1
-"checkmate", "checkTibble", 8, 0, 1, "null", 1
-"checkmate", "checkTibble", 9, 0, 0, "null", 1
-"checkmate", "checkTibble", 10, 0, 0, "null", 1
-"checkmate", "checkTibble", 11, 0, 0, "null", 1
-"checkmate", "checkTibble", 12, 0, 0, "logical", 1
 "checkmate", "checkTRUE", -1, 0, 0, "character", 1
 "checkmate", "checkTRUE", -1, 0, 1, "logical", 1
 "checkmate", "checkTRUE", 0, 0, 0, "logical", 1
 "checkmate", "checkTRUE", 1, 0, 0, "logical", 1
-"checkmate", "FUN", -1, 0, 0, "logical", 1
-"checkmate", "FUN", 0, 0, 0, "class<`data.frame`>", 1
-"checkmate", "FUN", 0, 0, 1, "class<`factor`>", 1
-"checkmate", "FUN", 0, 0, 2, "^double[]", 1
 "checkmate", "isSameType", -1, 0, 0, "logical", 1
 "checkmate", "isSameType", 0, 0, 0, "character[]", 1
 "checkmate", "isSameType", 0, 0, 1, "class<`factor`>", 1
@@ -551,7 +463,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "qtest", 1, 0, 0, "character[]", 1
 "checkmate", "qtestr", -1, 0, 0, "logical", 1
 "checkmate", "qtestr", 0, 0, 0, "class<`data.frame`>", 1
-"checkmate", "qtestr", 0, 0, 1, "list<integer | integer[] | double | character[]>", 1
+"checkmate", "qtestr", 0, 0, 1, "list<integer>", 1
+"checkmate", "qtestr", 0, 0, 2, "list<integer[] | double | character[]>", 1
 "checkmate", "qtestr", 1, 0, 0, "character[]", 1
 "checkmate", "qtestr", 2, 0, 0, "integer", 1
 "checkmate", "register_tinytest", -1, 0, 0, "list<null>", 1
@@ -592,13 +505,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testCharacter", 5, 0, 0, "logical", 1
 "checkmate", "testCharacter", 6, 0, 0, "logical", 1
 "checkmate", "testCharacter", 7, 0, 0, "null", 1
-"checkmate", "testCharacter", 8, 0, 0, "null", 1
-"checkmate", "testCharacter", 8, 0, 1, "double", 1
-"checkmate", "testCharacter", 9, 0, 0, "null", 1
-"checkmate", "testCharacter", 10, 0, 0, "logical", 1
-"checkmate", "testCharacter", 11, 0, 0, "logical", 1
-"checkmate", "testCharacter", 12, 0, 0, "null", 1
-"checkmate", "testCharacter", 13, 0, 0, "logical", 1
 "checkmate", "testChoice", -1, 0, 0, "logical", 1
 "checkmate", "testChoice", 0, 0, 0, "character", 1
 "checkmate", "testChoice", 0, 0, 1, "class<`factor`>", 1
@@ -621,7 +527,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testComplex", 5, 0, 0, "null", 1
 "checkmate", "testComplex", 6, 0, 0, "logical", 1
 "checkmate", "testComplex", 7, 0, 0, "null", 1
-"checkmate", "testComplex", 8, 0, 0, "logical", 1
 "checkmate", "testCount", -1, 0, 0, "logical", 1
 "checkmate", "testCount", 0, 0, 0, "double", 1
 "checkmate", "testCount", 1, 0, 0, "logical", 1
@@ -638,12 +543,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testDataFrame", 5, 0, 0, "null", 1
 "checkmate", "testDataFrame", 6, 0, 0, "null", 1
 "checkmate", "testDataFrame", 7, 0, 0, "null", 1
-"checkmate", "testDataFrame", 8, 0, 0, "null", 1
-"checkmate", "testDataFrame", 9, 0, 0, "null", 1
-"checkmate", "testDataFrame", 10, 0, 0, "null", 1
-"checkmate", "testDataFrame", 11, 0, 0, "character", 1
-"checkmate", "testDataFrame", 11, 0, 1, "null", 1
-"checkmate", "testDataFrame", 12, 0, 0, "logical", 1
 "checkmate", "testDataTable", -1, 0, 0, "logical", 1
 "checkmate", "testDataTable", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
 "checkmate", "testDataTable", 1, 0, 0, "character", 1
@@ -655,13 +554,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testDataTable", 5, 0, 0, "logical", 1
 "checkmate", "testDataTable", 6, 0, 0, "null", 1
 "checkmate", "testDataTable", 7, 0, 0, "null", 1
-"checkmate", "testDataTable", 8, 0, 0, "null", 1
-"checkmate", "testDataTable", 9, 0, 0, "null", 1
-"checkmate", "testDataTable", 10, 0, 0, "null", 1
-"checkmate", "testDataTable", 11, 0, 0, "null", 1
-"checkmate", "testDataTable", 12, 0, 0, "null", 1
-"checkmate", "testDataTable", 13, 0, 0, "null", 1
-"checkmate", "testDataTable", 14, 0, 0, "logical", 1
 "checkmate", "testDirectory", -1, 0, 0, "logical", 1
 "checkmate", "testDirectory", 0, 0, 0, "character", 1
 "checkmate", "testDirectory", 1, 0, 0, "character", 1
@@ -682,11 +574,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testDouble", 6, 0, 0, "null", 1
 "checkmate", "testDouble", 7, 0, 0, "double", 1
 "checkmate", "testDouble", 7, 0, 1, "null", 1
-"checkmate", "testDouble", 8, 0, 0, "null", 1
-"checkmate", "testDouble", 9, 0, 0, "logical", 1
-"checkmate", "testDouble", 10, 0, 0, "logical", 1
-"checkmate", "testDouble", 11, 0, 0, "null", 1
-"checkmate", "testDouble", 12, 0, 0, "logical", 1
 "checkmate", "testEnvironment", -1, 0, 0, "logical", 1
 "checkmate", "testEnvironment", 0, 0, 0, "environment", 1
 "checkmate", "testEnvironment", 1, 0, 0, "character[]", 1
@@ -700,13 +587,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testFactor", 5, 0, 0, "logical", 1
 "checkmate", "testFactor", 6, 0, 0, "null", 1
 "checkmate", "testFactor", 7, 0, 0, "null", 1
-"checkmate", "testFactor", 8, 0, 0, "null", 1
-"checkmate", "testFactor", 9, 0, 0, "null", 1
-"checkmate", "testFactor", 10, 0, 0, "null", 1
-"checkmate", "testFactor", 11, 0, 0, "null", 1
-"checkmate", "testFactor", 12, 0, 0, "logical", 1
-"checkmate", "testFactor", 13, 0, 0, "null", 1
-"checkmate", "testFactor", 14, 0, 0, "logical", 1
 "checkmate", "testFALSE", -1, 0, 0, "logical", 1
 "checkmate", "testFALSE", 0, 0, 0, "logical", 1
 "checkmate", "testFALSE", 1, 0, 0, "logical", 1
@@ -742,10 +622,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testInteger", 5, 0, 0, "null", 1
 "checkmate", "testInteger", 6, 0, 0, "null", 1
 "checkmate", "testInteger", 7, 0, 0, "null", 1
-"checkmate", "testInteger", 8, 0, 0, "logical", 1
-"checkmate", "testInteger", 9, 0, 0, "logical", 1
-"checkmate", "testInteger", 10, 0, 0, "null", 1
-"checkmate", "testInteger", 11, 0, 0, "logical", 1
 "checkmate", "testIntegerish", -1, 0, 0, "logical", 1
 "checkmate", "testIntegerish", 0, 0, 0, "double", 1
 "checkmate", "testIntegerish", 0, 0, 1, "integer[]", 1
@@ -756,11 +632,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testIntegerish", 5, 0, 0, "logical", 1
 "checkmate", "testIntegerish", 6, 0, 0, "null", 1
 "checkmate", "testIntegerish", 7, 0, 0, "null", 1
-"checkmate", "testIntegerish", 8, 0, 0, "null", 1
-"checkmate", "testIntegerish", 9, 0, 0, "logical", 1
-"checkmate", "testIntegerish", 10, 0, 0, "logical", 1
-"checkmate", "testIntegerish", 11, 0, 0, "null", 1
-"checkmate", "testIntegerish", 12, 0, 0, "logical", 1
 "checkmate", "testList", -1, 0, 0, "logical", 1
 "checkmate", "testList", 0, 0, 0, "list<any>", 1
 "checkmate", "testList", 1, 0, 0, "any", 1
@@ -770,8 +641,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testList", 5, 0, 0, "null", 1
 "checkmate", "testList", 6, 0, 0, "null", 1
 "checkmate", "testList", 7, 0, 0, "logical", 1
-"checkmate", "testList", 8, 0, 0, "null", 1
-"checkmate", "testList", 9, 0, 0, "logical", 1
 "checkmate", "testLogical", -1, 0, 0, "logical", 1
 "checkmate", "testLogical", 0, 0, 0, "logical", 1
 "checkmate", "testLogical", 1, 0, 0, "logical", 1
@@ -782,7 +651,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testLogical", 5, 0, 0, "null", 1
 "checkmate", "testLogical", 6, 0, 0, "logical", 1
 "checkmate", "testLogical", 7, 0, 0, "null", 1
-"checkmate", "testLogical", 8, 0, 0, "logical", 1
 "checkmate", "testMatrix", -1, 0, 0, "logical", 1
 "checkmate", "testMatrix", 0, 0, 0, "class<`matrix`>", 1
 "checkmate", "testMatrix", 1, 0, 0, "null", 1
@@ -792,11 +660,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testMatrix", 5, 0, 0, "null", 1
 "checkmate", "testMatrix", 6, 0, 0, "double", 1
 "checkmate", "testMatrix", 7, 0, 0, "null", 1
-"checkmate", "testMatrix", 8, 0, 0, "double", 1
-"checkmate", "testMatrix", 9, 0, 0, "null", 1
-"checkmate", "testMatrix", 10, 0, 0, "null", 1
-"checkmate", "testMatrix", 11, 0, 0, "character", 1
-"checkmate", "testMatrix", 12, 0, 0, "logical", 1
 "checkmate", "testNamed", -1, 0, 0, "logical", 1
 "checkmate", "testNamed", 0, 0, 0, "integer[]", 1
 "checkmate", "testNamed", 1, 0, 0, "character", 1
@@ -830,11 +693,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testNumeric", 6, 0, 0, "null", 1
 "checkmate", "testNumeric", 7, 0, 0, "double", 1
 "checkmate", "testNumeric", 7, 0, 1, "null", 1
-"checkmate", "testNumeric", 8, 0, 0, "null", 1
-"checkmate", "testNumeric", 9, 0, 0, "logical", 1
-"checkmate", "testNumeric", 10, 0, 0, "logical", 1
-"checkmate", "testNumeric", 11, 0, 0, "null", 1
-"checkmate", "testNumeric", 12, 0, 0, "logical", 1
 "checkmate", "testOS", -1, 0, 0, "logical", 1
 "checkmate", "testOS", 0, 0, 0, "character", 1
 "checkmate", "testPathForOutput", -1, 0, 0, "logical", 1
@@ -892,12 +750,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testTibble", 5, 0, 0, "null", 1
 "checkmate", "testTibble", 6, 0, 0, "null", 1
 "checkmate", "testTibble", 7, 0, 0, "null", 1
-"checkmate", "testTibble", 8, 0, 0, "double", 1
-"checkmate", "testTibble", 8, 0, 1, "null", 1
-"checkmate", "testTibble", 9, 0, 0, "null", 1
-"checkmate", "testTibble", 10, 0, 0, "null", 1
-"checkmate", "testTibble", 11, 0, 0, "null", 1
-"checkmate", "testTibble", 12, 0, 0, "logical", 1
 "checkmate", "testTRUE", -1, 0, 0, "logical", 1
 "checkmate", "testTRUE", 0, 0, 0, "logical", 1
 "checkmate", "testTRUE", 1, 0, 0, "logical", 1
@@ -910,8 +762,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "checkmate", "testVector", 5, 0, 0, "integer", 1
 "checkmate", "testVector", 6, 0, 0, "null", 1
 "checkmate", "testVector", 7, 0, 0, "logical", 1
-"checkmate", "testVector", 8, 0, 0, "null", 1
-"checkmate", "testVector", 9, 0, 0, "logical", 1
 "checkmate", "vname", -1, 0, 0, "character", 1
 "checkmate", "vname", 0, 0, 0, "any", 1
 "checkmate", "wf", -1, 0, 0, "integer[]", 1

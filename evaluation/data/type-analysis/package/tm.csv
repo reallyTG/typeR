@@ -1,8 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"tm", "$", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "$", 0, 0, 0, "list<null | character | character>", 1
-"tm", "$", 1, 0, 0, "character", 1
-"tm", "$", 2, 0, 0, "any", 1
 "tm", "as.character.PlainTextDocument", -1, 0, 0, "character[]", 1
 "tm", "as.character.PlainTextDocument", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "as.character.PlainTextDocument", 1, 0, 0, "...", 1
@@ -116,9 +112,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "eoi", 0, 0, 0, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
 "tm", "eoi.SimpleSource", -1, 0, 0, "logical", 1
 "tm", "eoi.SimpleSource", 0, 0, 0, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
-"tm", "f", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "f", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "f", 1, 0, 0, "...", 1
 "tm", "filter_global_bounds", -1, 0, 0, "class<`simple_triplet_matrix`>", 1
 "tm", "filter_global_bounds", 0, 0, 0, "class<`simple_triplet_matrix`>", 1
 "tm", "filter_global_bounds", 1, 0, 0, "null", 1
@@ -175,13 +168,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "format.VCorpus", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "format.VCorpus", 0, 0, 1, "class<`Corpus`, `VCorpus`>", 1
 "tm", "format.VCorpus", 1, 0, 0, "...", 1
-"tm", "FUN", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "FUN", 0, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "FUN", 1, 0, 0, "...", 1
-"tm", "FUN", -1, 1, 0, "class<`integer`, `term_frequency`>", 1
-"tm", "FUN", 0, 1, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "FUN", 1, 1, 0, "list<any>", 1
-"tm", "getElem", -1, 0, 0, "list<character | null | class<`data.frame`> | null | class<`xml_node`> | character>", 1
+"tm", "getElem", -1, 0, 0, "list<character | null>", 1
+"tm", "getElem", -1, 0, 1, "list<class<`data.frame`> | null>", 1
+"tm", "getElem", -1, 0, 2, "list<class<`xml_node`> | character>", 1
 "tm", "getElem", 0, 0, 0, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
 "tm", "getElem", 0, 0, 1, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
 "tm", "getElem", 0, 0, 2, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
@@ -327,14 +316,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "open.ZipSource", 1, 0, 0, "...", 1
 "tm", "PDF_Date_to_POSIXt", -1, 0, 0, "class<`POSIXlt`, `POSIXt`>", 1
 "tm", "PDF_Date_to_POSIXt", 0, 0, 0, "character", 1
-"tm", "pGetElem", -1, 0, 0, "list<list<any>>", 1
+"tm", "pGetElem", -1, 0, 0, "list<list<character[]>>", 1
+"tm", "pGetElem", -1, 0, 1, "list<list<character | null>>", 1
+"tm", "pGetElem", -1, 0, 2, "list<list<null | character>>", 1
+"tm", "pGetElem", -1, 0, 3, "list<list<raw[] | character>>", 1
 "tm", "pGetElem", 0, 0, 0, "class<`SimpleSource`, `Source`, `URISource`>", 1
 "tm", "pGetElem", 0, 0, 1, "class<`DirSource`, `SimpleSource`, `Source`>", 1
 "tm", "pGetElem", 0, 0, 2, "class<`SimpleSource`, `Source`, `ZipSource`>", 1
 "tm", "pGetElem", 0, 0, 3, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
-"tm", "pGetElem.DirSource", -1, 0, 0, "list<list<character[] | raw[] | character>>", 1
+"tm", "pGetElem.DirSource", -1, 0, 0, "list<list<character[]>>", 1
+"tm", "pGetElem.DirSource", -1, 0, 1, "list<list<raw[] | character>>", 1
 "tm", "pGetElem.DirSource", 0, 0, 0, "class<`DirSource`, `SimpleSource`, `Source`>", 1
-"tm", "pGetElem.URISource", -1, 0, 0, "list<list<character[] | null | character>>", 1
+"tm", "pGetElem.URISource", -1, 0, 0, "list<list<character[]>>", 1
+"tm", "pGetElem.URISource", -1, 0, 1, "list<list<null | character>>", 1
 "tm", "pGetElem.URISource", 0, 0, 0, "class<`SimpleSource`, `Source`, `URISource`>", 1
 "tm", "pGetElem.VectorSource", -1, 0, 0, "list<list<character | null>>", 1
 "tm", "pGetElem.VectorSource", 0, 0, 0, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
@@ -353,11 +347,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "PlainTextDocument", 5, 0, 0, "character[]", 1
 "tm", "PlainTextDocument", 6, 0, 0, "character[]", 1
 "tm", "PlainTextDocument", 7, 0, 0, "character[]", 1
-"tm", "PlainTextDocument", 8, 0, 0, "...", 1
-"tm", "PlainTextDocument", 9, 0, 0, "null", 1
-"tm", "PlainTextDocument", 10, 0, 0, "null", 1
-"tm", "prepareReader", -1, 0, 0, "list<character | class<`function`> | class<`function`> | character>", 1
-"tm", "prepareReader", 0, 0, 0, "list<character | class<`function`> | character | class<`function`>>", 1
+"tm", "prepareReader", -1, 0, 0, "list<character | class<`function`>>", 1
+"tm", "prepareReader", -1, 0, 1, "list<class<`function`> | character>", 1
+"tm", "prepareReader", 0, 0, 0, "list<character>", 1
+"tm", "prepareReader", 0, 0, 1, "list<class<`function`> | character>", 1
+"tm", "prepareReader", 0, 0, 2, "list<class<`function`>>", 1
 "tm", "prepareReader", 1, 0, 0, "any", 1
 "tm", "prepareReader", 2, 0, 0, "...", 1
 "tm", "print.DocumentTermMatrix", -1, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
@@ -386,7 +380,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "readDataframe", 1, 0, 0, "character", 1
 "tm", "readDataframe", 2, 0, 0, "null", 1
 "tm", "reader", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
-"tm", "reader", 0, 0, 0, "list<null | character | character>", 1
+"tm", "reader", 0, 0, 0, "list<null | character>", 1
+"tm", "reader", 0, 0, 1, "list<character>", 1
 "tm", "reader", 1, 0, 0, "character", 1
 "tm", "reader", 2, 0, 0, "any", 1
 "tm", "reader", -1, 1, 0, "class<`function`>", 1
@@ -464,7 +459,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "SimpleCorpus", 0, 0, 0, "class<`DataframeSource`, `SimpleSource`, `Source`>", 1
 "tm", "SimpleCorpus", 0, 0, 1, "class<`DirSource`, `SimpleSource`, `Source`>", 1
 "tm", "SimpleCorpus", 0, 0, 2, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
-"tm", "SimpleCorpus", 1, 0, 0, "list<class<`function`> | character | character>", 1
+"tm", "SimpleCorpus", 1, 0, 0, "list<class<`function`> | character>", 1
+"tm", "SimpleCorpus", 1, 0, 1, "list<character>", 1
 "tm", "[[.SimpleCorpus", -1, 0, 0, "class<`PlainTextDocument`, `TextDocument`>", 1
 "tm", "[[.SimpleCorpus", 0, 0, 0, "class<`Corpus`, `SimpleCorpus`>", 1
 "tm", "[[.SimpleCorpus", 1, 0, 0, "double", 1
@@ -527,7 +523,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "tdm", 5, 0, 0, "integer", 1
 "tm", "tdm", 6, 0, 0, "integer", 1
 "tm", "tdm", 7, 0, 0, "integer", 1
-"tm", "tdm", 8, 0, 0, "integer", 1
 "tm", "t.DocumentTermMatrix", -1, 0, 0, "class<`TermDocumentMatrix`, `simple_triplet_matrix`>", 1
 "tm", "t.DocumentTermMatrix", -1, 0, 1, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "t.DocumentTermMatrix", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
@@ -579,7 +574,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "TextDocumentMeta", 5, 0, 0, "character[]", 1
 "tm", "TextDocumentMeta", 6, 0, 0, "character[]", 1
 "tm", "TextDocumentMeta", 7, 0, 0, "...", 1
-"tm", "TextDocumentMeta", 8, 0, 0, "null", 1
 "tm", "tm_filter", -1, 0, 0, "class<`Corpus`, `VCorpus`>", 1
 "tm", "tm_filter", 0, 0, 0, "class<`Corpus`, `VCorpus`>", 1
 "tm", "tm_filter", 1, 0, 0, "class<`function`>", 1
@@ -605,7 +599,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "tm_map.VCorpus", 1, 0, 0, "any", 1
 "tm", "tm_map.VCorpus", 2, 0, 0, "...", 1
 "tm", "tm_map.VCorpus", 3, 0, 0, "logical", 1
-"tm", "tm_parLapply", -1, 0, 0, "list<class<`integer`, `term_frequency`> | class<`PlainTextDocument`, `TextDocument`> | logical>", 1
+"tm", "tm_parLapply", -1, 0, 0, "list<class<`integer`, `term_frequency`>>", 1
+"tm", "tm_parLapply", -1, 0, 1, "list<class<`PlainTextDocument`, `TextDocument`>>", 1
+"tm", "tm_parLapply", -1, 0, 2, "list<logical>", 1
 "tm", "tm_parLapply", 0, 0, 0, "list<class<`PlainTextDocument`, `TextDocument`>>", 1
 "tm", "tm_parLapply", 1, 0, 0, "class<`function`>", 1
 "tm", "tm_parLapply", 1, 0, 1, "class<`content_transformer`, `function`>", 1
@@ -643,7 +639,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "VCorpus", 0, 0, 2, "class<`SimpleSource`, `Source`, `VectorSource`>", 1
 "tm", "VCorpus", 0, 0, 3, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
 "tm", "VCorpus", 0, 0, 4, "class<`SimpleSource`, `Source`, `ZipSource`>", 1
-"tm", "VCorpus", 1, 0, 0, "list<character | class<`function`> | class<`function`> | character>", 1
+"tm", "VCorpus", 1, 0, 0, "list<character>", 1
+"tm", "VCorpus", 1, 0, 1, "list<class<`function`>>", 1
+"tm", "VCorpus", 1, 0, 2, "list<class<`function`> | character>", 1
 "tm", "[.VCorpus", -1, 0, 0, "class<`Corpus`, `VCorpus`>", 1
 "tm", "[.VCorpus", 0, 0, 0, "class<`Corpus`, `VCorpus`>", 1
 "tm", "[.VCorpus", 1, 0, 0, "integer[]", 1
@@ -679,7 +677,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", ".xml_content", -1, 0, 0, "character[]", 1
 "tm", ".xml_content", -1, 0, 1, "class<`POSIXlt`, `POSIXt`>", 1
 "tm", ".xml_content", 0, 0, 0, "any", 1
-"tm", ".xml_content", 1, 0, 0, "list<character | character | class<`function`>>", 1
+"tm", ".xml_content", 1, 0, 0, "list<character>", 1
+"tm", ".xml_content", 1, 0, 1, "list<character | class<`function`>>", 1
 "tm", "XMLSource", -1, 0, 0, "class<`SimpleSource`, `Source`, `XMLSource`>", 1
 "tm", "XMLSource", 0, 0, 0, "character", 1
 "tm", "XMLSource", 1, 0, 0, "class<`function`>", 1
@@ -693,8 +692,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tm", "XMLTextDocument", 5, 0, 0, "character", 1
 "tm", "XMLTextDocument", 6, 0, 0, "character", 1
 "tm", "XMLTextDocument", 7, 0, 0, "character[]", 1
-"tm", "XMLTextDocument", 8, 0, 0, "...", 1
-"tm", "XMLTextDocument", 9, 0, 0, "null", 1
 "tm", "Zipf_plot", -1, 0, 0, "double[]", 1
 "tm", "Zipf_plot", 0, 0, 0, "class<`DocumentTermMatrix`, `simple_triplet_matrix`>", 1
 "tm", "Zipf_plot", 1, 0, 0, "character", 1

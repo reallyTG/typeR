@@ -36,51 +36,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "format1", 0, 0, 2, "class<`if`>", 1
 "Deriv", "format1", 0, 0, 3, "class<`name`>", 1
 "Deriv", "format1", 0, 0, 4, "double", 1
-"Deriv", "FUN", -1, 0, 0, "class<`call`>", 1
-"Deriv", "FUN", -1, 0, 1, "class<`name`>", 1
-"Deriv", "FUN", -1, 0, 2, "double", 1
-"Deriv", "FUN", 0, 0, 0, "class<`call`>", 1
-"Deriv", "FUN", 0, 0, 1, "class<`name`>", 1
-"Deriv", "FUN", 0, 0, 2, "double", 1
-"Deriv", "FUN", -1, 1, 0, "class<`call`>", 1
-"Deriv", "FUN", -1, 1, 1, "class<`if`>", 1
-"Deriv", "FUN", -1, 1, 2, "double", 1
-"Deriv", "FUN", 0, 1, 0, "class<`call`>", 1
-"Deriv", "FUN", 0, 1, 1, "class<`if`>", 1
-"Deriv", "FUN", 0, 1, 2, "class<`name`>", 1
-"Deriv", "FUN", 0, 1, 3, "double", 1
-"Deriv", "FUN", 1, 1, 0, "character[]", 1
-"Deriv", "FUN", 2, 1, 0, "any", 1
-"Deriv", "FUN", 3, 1, 0, "any", 1
-"Deriv", "FUN", 4, 1, 0, "any", 1
-"Deriv", "FUN", 5, 1, 0, "any", 1
-"Deriv", "FUN", 6, 1, 0, "any", 1
-"Deriv", "FUN", -1, 2, 0, "character", 1
-"Deriv", "FUN", 0, 2, 0, "class<`(`>", 1
-"Deriv", "FUN", 0, 2, 1, "class<`call`>", 1
-"Deriv", "FUN", 0, 2, 2, "class<`if`>", 1
-"Deriv", "FUN", 0, 2, 3, "class<`name`>", 1
-"Deriv", "FUN", 0, 2, 4, "double", 1
-"Deriv", "FUN", -1, 3, 0, "logical", 1
-"Deriv", "FUN", 0, 3, 0, "class<`call`>", 1
-"Deriv", "FUN", 0, 3, 1, "class<`name`>", 1
-"Deriv", "FUN", 0, 3, 2, "double", 1
-"Deriv", "FUN", 0, 3, 3, "class<`if`>", 1
-"Deriv", "FUN", -1, 4, 0, "class<`call`>", 1
-"Deriv", "FUN", 0, 4, 0, "list<any>", 1
-"Deriv", "FUN", 1, 4, 0, "any", 1
-"Deriv", "FUN", 2, 4, 0, "null", 1
-"Deriv", "FUN", 2, 4, 1, "logical", 1
-"Deriv", "FUN", -1, 5, 0, "class<`call`>", 1
-"Deriv", "FUN", -1, 5, 1, "class<`name`>", 1
-"Deriv", "FUN", -1, 5, 2, "double", 1
-"Deriv", "FUN", -1, 5, 3, "class<`if`>", 1
-"Deriv", "FUN", 0, 5, 0, "class<`(`>", 1
-"Deriv", "FUN", 0, 5, 1, "class<`call`>", 1
-"Deriv", "FUN", 0, 5, 2, "class<`name`>", 1
-"Deriv", "FUN", 0, 5, 3, "double", 1
-"Deriv", "FUN", 0, 5, 4, "class<`if`>", 1
-"Deriv", "FUN", 1, 5, 0, "any", 1
 "Deriv", "is.conuloch", -1, 0, 0, "logical", 1
 "Deriv", "is.conuloch", 0, 0, 0, "class<`call`>", 1
 "Deriv", "is.conuloch", 0, 0, 1, "class<`name`>", 1
@@ -115,17 +70,26 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "Leaves", 1, 0, 0, "any", 1
 "Deriv", "Leaves", 2, 0, 0, "environment", 1
 "Deriv", "li2sum", -1, 0, 0, "class<`call`>", 1
-"Deriv", "li2sum", 0, 0, 0, "list<class<`call`> | double>", 1
-"Deriv", "Lincomb", -1, 0, 0, "list<list<logical | list<double | list<class<`call`> | double>> | logical | list<null | double | list<class<`name`> | double>>>>", 1
+"Deriv", "li2sum", 0, 0, 0, "list<class<`call`>>", 1
+"Deriv", "li2sum", 0, 0, 1, "list<double>", 1
+"Deriv", "Lincomb", -1, 0, 0, "list<list<logical | list<double | list<class<`call`> | double>>>>", 1
+"Deriv", "Lincomb", -1, 0, 1, "list<list<logical | list<null | double | list<class<`name`> | double>>>>", 1
 "Deriv", "Lincomb", 0, 0, 0, "class<`call`>", 1
 "Deriv", "nd2expr", -1, 0, 0, "class<`call`>", 1
-"Deriv", "nd2expr", 0, 0, 0, "list<any>", 1
+"Deriv", "nd2expr", 0, 0, 0, "list<logical | list<double | list<class<`call`> | double>>>", 1
+"Deriv", "nd2expr", 0, 0, 1, "list<logical | list<null | double | list<class<`name`> | double>>>", 1
+"Deriv", "nd2expr", 0, 0, 2, "list<logical | list<null | double | list<class<`name`> | class<`call`> | double>>>", 1
+"Deriv", "nd2expr", 0, 0, 3, "list<logical | list<double | list<class<`name`> | double>>>", 1
 "Deriv", "nd2expr", 1, 0, 0, "any", 1
 "Deriv", "nd2expr", 2, 0, 0, "null", 1
 "Deriv", "nd2expr", 2, 0, 1, "logical", 1
 "Deriv", "negate.expr", -1, 0, 0, "double", 1
 "Deriv", "negate.expr", 0, 0, 0, "double", 1
-"Deriv", "Numden", -1, 0, 0, "list<any>", 1
+"Deriv", "Numden", -1, 0, 0, "list<logical | list<double>>", 1
+"Deriv", "Numden", -1, 0, 1, "list<logical | list<double | list<class<`call`> | double>>>", 1
+"Deriv", "Numden", -1, 0, 2, "list<logical | list<null | double | list<class<`name`> | class<`call`> | double>>>", 1
+"Deriv", "Numden", -1, 0, 3, "list<logical | list<null | double | list<class<`name`> | double>>>", 1
+"Deriv", "Numden", -1, 0, 4, "list<logical | list<double | list<class<`name`> | double>>>", 1
 "Deriv", "Numden", 0, 0, 0, "double", 1
 "Deriv", "Numden", 0, 0, 1, "class<`call`>", 1
 "Deriv", "Numden", 0, 0, 2, "class<`name`>", 1
@@ -153,7 +117,3 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "Deriv", "Simplify.+", 0, 0, 0, "class<`call`>", 1
 "Deriv", "Simplify.+", 1, 0, 0, "logical", 1
 "Deriv", "Simplify.+", 2, 0, 0, "any", 1
-"Deriv", "Simplify.rule", -1, 0, 0, "class<`call`>", 1
-"Deriv", "Simplify.rule", 0, 0, 0, "class<`call`>", 1
-"Deriv", "Simplify.rule", 1, 0, 0, "logical", 1
-"Deriv", "Simplify.rule", 2, 0, 0, "any", 1

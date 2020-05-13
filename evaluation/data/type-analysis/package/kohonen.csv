@@ -5,8 +5,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "add.cluster.boundaries", 2, 0, 0, "double", 1
 "kohonen", "add.cluster.boundaries", 3, 0, 0, "...", 1
 "kohonen", "check.data", -1, 0, 0, "list<class<`matrix`>>", 1
-"kohonen", "check.data", 0, 0, 0, "class<`matrix`>", 1
-"kohonen", "check.data", 0, 0, 1, "list<class<`matrix`> | class<`factor`> | class<`matrix`>>", 1
+"kohonen", "check.data", 0, 0, 0, "list<class<`matrix`> | class<`factor`>>", 1
+"kohonen", "check.data", 0, 0, 1, "list<class<`matrix`>>", 1
+"kohonen", "check.data", 0, 0, 2, "class<`matrix`>", 1
 "kohonen", "check.data.na", -1, 0, 0, "integer[]", 1
 "kohonen", "check.data.na", -1, 0, 1, "null", 1
 "kohonen", "check.data.na", 0, 0, 0, "list<any>", 1
@@ -20,7 +21,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "check.whatmap", -1, 0, 0, "double", 1
 "kohonen", "check.whatmap", -1, 0, 1, "integer[]", 1
 "kohonen", "check.whatmap", 0, 0, 0, "class<`kohonen`>", 1
-"kohonen", "check.whatmap", 0, 0, 1, "list<class<`matrix`> | double | class<`somgrid`> | class<`matrix`>>", 1
+"kohonen", "check.whatmap", 0, 0, 1, "list<class<`matrix`>>", 1
+"kohonen", "check.whatmap", 0, 0, 2, "list<double | class<`somgrid`> | class<`matrix`>>", 1
 "kohonen", "check.whatmap", 1, 0, 0, "double", 1
 "kohonen", "check.whatmap", 1, 0, 1, "null", 1
 "kohonen", "check.whatmap", 1, 0, 2, "character[]", 1
@@ -36,12 +38,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "CreateStdDistancePointers", 1, 0, 0, "logical", 1
 "kohonen", "expandMap", -1, 0, 0, "class<`kohonen`>", 1
 "kohonen", "expandMap", 0, 0, 0, "class<`kohonen`>", 1
-"kohonen", "FUN", -1, 0, 0, "logical", 1
-"kohonen", "FUN", 0, 0, 0, "class<`matrix`>", 1
-"kohonen", "FUN", 1, 0, 0, "double", 1
-"kohonen", "FUN", 2, 0, 0, "double", 1
 "kohonen", "getCodes", -1, 0, 0, "class<`matrix`>", 1
-"kohonen", "getCodes", -1, 0, 1, "list<class<`matrix`> | null | class<`matrix`>>", 1
+"kohonen", "getCodes", -1, 0, 1, "list<class<`matrix`>>", 1
+"kohonen", "getCodes", -1, 0, 2, "list<null | class<`matrix`>>", 1
 "kohonen", "getCodes", 0, 0, 0, "class<`kohonen`>", 1
 "kohonen", "getCodes", 1, 0, 0, "double", 1
 "kohonen", "getCodes", 1, 0, 1, "integer[]", 1
@@ -178,11 +177,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "plot.kohonen", 13, 0, 0, "null", 1
 "kohonen", "plot.kohonen", 14, 0, 0, "logical", 1
 "kohonen", "plot.kohonen", 15, 0, 0, "double", 1
-"kohonen", "plot.kohonen", 16, 0, 0, "any", 1
-"kohonen", "plot.kohonen", 17, 0, 0, "character", 1
-"kohonen", "plot.kohonen", 17, 0, 1, "null", 1
-"kohonen", "plot.kohonen", 18, 0, 0, "character", 1
-"kohonen", "plot.kohonen", 19, 0, 0, "...", 1
 "kohonen", "plot.kohprop", -1, 0, 0, "null", 1
 "kohonen", "plot.kohprop", 0, 0, 0, "class<`kohonen`>", 1
 "kohonen", "plot.kohprop", 1, 0, 0, "class<`factor`>", 1
@@ -231,11 +225,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "plot.somgrid", 1, 0, 0, "any", 1
 "kohonen", "plot.somgrid", 2, 0, 0, "any", 1
 "kohonen", "plot.somgrid", 3, 0, 0, "...", 1
-"kohonen", "predict.kohonen", -1, 0, 0, "list<double[] | list<class<`matrix`>> | double[] | list<class<`matrix`> | class<`factor`> | class<`matrix`>>>", 1
+"kohonen", "predict.kohonen", -1, 0, 0, "list<double[] | list<class<`matrix`>>>", 1
+"kohonen", "predict.kohonen", -1, 0, 1, "list<double[] | list<class<`matrix`> | class<`factor`> | class<`matrix`>>>", 1
 "kohonen", "predict.kohonen", 0, 0, 0, "class<`kohonen`>", 1
 "kohonen", "predict.kohonen", 1, 0, 0, "class<`matrix`>", 1
-"kohonen", "predict.kohonen", 1, 0, 1, "null", 1
-"kohonen", "predict.kohonen", 1, 0, 2, "list<class<`matrix`> | class<`factor`> | class<`matrix`>>", 1
+"kohonen", "predict.kohonen", 1, 0, 1, "list<class<`matrix`> | class<`factor`>>", 1
+"kohonen", "predict.kohonen", 1, 0, 2, "list<class<`matrix`>>", 1
+"kohonen", "predict.kohonen", 1, 0, 3, "null", 1
 "kohonen", "predict.kohonen", 2, 0, 0, "class<`matrix`>", 1
 "kohonen", "predict.kohonen", 2, 0, 1, "null", 1
 "kohonen", "predict.kohonen", 3, 0, 0, "null", 1
@@ -283,7 +279,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "kohonen", "summary.kohonen", 1, 0, 0, "...", 1
 "kohonen", "supersom", -1, 0, 0, "class<`kohonen`>", 1
 "kohonen", "supersom", 0, 0, 0, "class<`matrix`>", 1
-"kohonen", "supersom", 0, 0, 1, "list<class<`matrix`> | class<`factor`> | class<`matrix`>>", 1
+"kohonen", "supersom", 0, 0, 1, "list<class<`matrix`> | class<`factor`>>", 1
+"kohonen", "supersom", 0, 0, 2, "list<class<`matrix`>>", 1
 "kohonen", "supersom", 1, 0, 0, "class<`somgrid`>", 1
 "kohonen", "supersom", 2, 0, 0, "double", 1
 "kohonen", "supersom", 3, 0, 0, "double[]", 1

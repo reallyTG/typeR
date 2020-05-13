@@ -11,7 +11,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "annotate_base", -1, 0, 0, "class<`rpptx`>", 1
 "officer", "annotate_base", 0, 0, 0, "null", 1
 "officer", "annotate_base", 1, 0, 0, "character", 1
-"officer", "as_ph_location", -1, 0, 0, "list<double | character | double | character | null>", 1
+"officer", "as_ph_location", -1, 0, 0, "list<double | character>", 1
+"officer", "as_ph_location", -1, 0, 1, "list<double | character | null>", 1
 "officer", "as_ph_location", 0, 0, 0, "class<`data.frame`>", 1
 "officer", "as_ph_location", 1, 0, 0, "...", 1
 "officer", "as_xpath_content_sel", -1, 0, 0, "character", 1
@@ -46,7 +47,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "block_table", 5, 0, 0, "logical", 1
 "officer", "block_table", 6, 0, 0, "logical", 1
 "officer", "block_table", 7, 0, 0, "logical", 1
-"officer", "block_table", 8, 0, 0, "logical", 1
 "officer", "block_toc", -1, 0, 0, "class<`block`, `block_toc`>", 1
 "officer", "block_toc", 0, 0, 0, "double", 1
 "officer", "block_toc", 1, 0, 0, "character", 1
@@ -99,9 +99,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "body_add.data.frame", 5, 0, 0, "logical", 1
 "officer", "body_add.data.frame", 6, 0, 0, "logical", 1
 "officer", "body_add.data.frame", 7, 0, 0, "logical", 1
-"officer", "body_add.data.frame", 8, 0, 0, "logical", 1
-"officer", "body_add.data.frame", 9, 0, 0, "logical", 1
-"officer", "body_add.data.frame", 10, 0, 0, "...", 1
 "officer", "body_add_docx", -1, 0, 0, "class<`rdocx`>", 1
 "officer", "body_add_docx", 0, 0, 0, "class<`rdocx`>", 1
 "officer", "body_add_docx", 1, 0, 0, "character", 1
@@ -167,9 +164,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "body_add_table", 5, 0, 0, "logical", 1
 "officer", "body_add_table", 6, 0, 0, "logical", 1
 "officer", "body_add_table", 7, 0, 0, "logical", 1
-"officer", "body_add_table", 8, 0, 0, "logical", 1
-"officer", "body_add_table", 9, 0, 0, "logical", 1
-"officer", "body_add_table", 10, 0, 0, "logical", 1
 "officer", "body_add_toc", -1, 0, 0, "class<`rdocx`>", 1
 "officer", "body_add_toc", 0, 0, 0, "class<`rdocx`>", 1
 "officer", "body_add_toc", 1, 0, 0, "double", 1
@@ -244,16 +238,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "check_set_bool", 0, 0, 0, "list<double>", 1
 "officer", "check_set_bool", 1, 0, 0, "logical", 1
 "officer", "check_set_choice", -1, 0, 0, "class<`fp_border`>", 1
-"officer", "check_set_choice", -1, 0, 1, "list<class<`fp_border`> | character | double | character | character>", 1
+"officer", "check_set_choice", -1, 0, 1, "list<class<`fp_border`> | character>", 1
+"officer", "check_set_choice", -1, 0, 2, "list<double | character>", 1
+"officer", "check_set_choice", -1, 0, 3, "list<character>", 1
 "officer", "check_set_choice", 0, 0, 0, "class<`fp_border`>", 1
-"officer", "check_set_choice", 0, 0, 1, "list<class<`fp_border`> | character | double | character | character>", 1
+"officer", "check_set_choice", 0, 0, 1, "list<class<`fp_border`> | character>", 1
+"officer", "check_set_choice", 0, 0, 2, "list<double | character>", 1
+"officer", "check_set_choice", 0, 0, 3, "list<character>", 1
 "officer", "check_set_choice", 1, 0, 0, "character", 1
 "officer", "check_set_choice", 2, 0, 0, "character[]", 1
 "officer", "check_set_chr", -1, 0, 0, "list<double | character>", 1
 "officer", "check_set_chr", 0, 0, 0, "list<double | character>", 1
 "officer", "check_set_chr", 1, 0, 0, "character", 1
 "officer", "check_set_color", -1, 0, 0, "class<`fp_text`>", 1
-"officer", "check_set_color", -1, 0, 1, "list<class<`fp_border`> | character | double | character | character>", 1
+"officer", "check_set_color", -1, 0, 1, "list<class<`fp_border`> | character>", 1
+"officer", "check_set_color", -1, 0, 2, "list<double | character>", 1
+"officer", "check_set_color", -1, 0, 3, "list<character>", 1
 "officer", "check_set_color", 0, 0, 0, "class<`fp_text`>", 1
 "officer", "check_set_color", 0, 0, 1, "list<any>", 1
 "officer", "check_set_color", 1, 0, 0, "character", 1
@@ -267,12 +267,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "check_set_numeric", -1, 0, 0, "list<double>", 1
 "officer", "check_set_numeric", 0, 0, 0, "list<any>", 1
 "officer", "check_set_numeric", 1, 0, 0, "double", 1
-"officer", "check_spread_border", -1, 0, 0, "list<class<`fp_border`> | character | integer | class<`fp_border`>>", 1
+"officer", "check_spread_border", -1, 0, 0, "list<class<`fp_border`>>", 1
+"officer", "check_spread_border", -1, 0, 1, "list<character | integer | class<`fp_border`>>", 1
 "officer", "check_spread_border", 0, 0, 0, "list<any>", 1
 "officer", "check_spread_border", 1, 0, 0, "class<`fp_border`>", 1
 "officer", "check_spread_border", 2, 0, 0, "character[]", 1
-"officer", "check_spread_integer", -1, 0, 0, "list<class<`fp_border`> | character | integer | character | integer>", 1
-"officer", "check_spread_integer", 0, 0, 0, "list<class<`fp_border`> | character | character>", 1
+"officer", "check_spread_integer", -1, 0, 0, "list<class<`fp_border`> | character | integer>", 1
+"officer", "check_spread_integer", -1, 0, 1, "list<character | integer>", 1
+"officer", "check_spread_integer", 0, 0, 0, "list<class<`fp_border`> | character>", 1
+"officer", "check_spread_integer", 0, 0, 1, "list<character>", 1
 "officer", "check_spread_integer", 1, 0, 0, "double", 1
 "officer", "check_spread_integer", 2, 0, 0, "character[]", 1
 "officer", "colalpha", -1, 0, 0, "double", 1
@@ -348,10 +351,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "format.fp_text", 0, 0, 0, "class<`fp_text`>", 1
 "officer", "format.fp_text", 1, 0, 0, "character", 1
 "officer", "format.fp_text", 2, 0, 0, "...", 1
-"officer", "fortify_fpar", -1, 0, 0, "list<class<`cot`, `external_img`> | class<`cot`, `ftext`> | class<`cot`, `external_img`> | class<`cot`, `ftext`>>", 1
+"officer", "fortify_fpar", -1, 0, 0, "list<class<`cot`, `external_img`>>", 1
+"officer", "fortify_fpar", -1, 0, 1, "list<class<`cot`, `ftext`> | class<`cot`, `external_img`>>", 1
+"officer", "fortify_fpar", -1, 0, 2, "list<class<`cot`, `ftext`>>", 1
 "officer", "fortify_fpar", 0, 0, 0, "class<`fpar`>", 1
 "officer", "fortify_location", -1, 0, 0, "class<`location_manual`, `location_str`>", 1
-"officer", "fortify_location", -1, 0, 1, "list<double | character | double | character | null>", 1
+"officer", "fortify_location", -1, 0, 1, "list<double | character>", 1
+"officer", "fortify_location", -1, 0, 2, "list<double | character | null>", 1
 "officer", "fortify_location", 0, 0, 0, "class<`location_manual`, `location_str`>", 1
 "officer", "fortify_location", 0, 0, 1, "class<`location_str`, `location_template`>", 1
 "officer", "fortify_location", 0, 0, 2, "class<`location_label`, `location_str`>", 1
@@ -411,11 +417,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "fp_cell", 5, 0, 0, "character", 1
 "officer", "fp_cell", 6, 0, 0, "double", 1
 "officer", "fp_cell", 7, 0, 0, "any", 1
-"officer", "fp_cell", 8, 0, 0, "any", 1
-"officer", "fp_cell", 9, 0, 0, "any", 1
-"officer", "fp_cell", 10, 0, 0, "any", 1
-"officer", "fp_cell", 11, 0, 0, "character", 1
-"officer", "fp_cell", 12, 0, 0, "character", 1
 "officer", "fp_par", -1, 0, 0, "class<`fp_par`>", 1
 "officer", "fp_par", 0, 0, 0, "character", 1
 "officer", "fp_par", 1, 0, 0, "double", 1
@@ -425,11 +426,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "fp_par", 5, 0, 0, "any", 1
 "officer", "fp_par", 6, 0, 0, "any", 1
 "officer", "fp_par", 7, 0, 0, "any", 1
-"officer", "fp_par", 8, 0, 0, "any", 1
-"officer", "fp_par", 9, 0, 0, "any", 1
-"officer", "fp_par", 10, 0, 0, "any", 1
-"officer", "fp_par", 11, 0, 0, "character", 1
-"officer", "fp_par", 12, 0, 0, "logical", 1
 "officer", "fp_sign", -1, 0, 0, "character", 1
 "officer", "fp_sign", 0, 0, 0, "class<`fp_text`>", 1
 "officer", "fp_text", -1, 0, 0, "class<`fp_text`>", 1
@@ -444,24 +440,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "ftext", -1, 0, 0, "class<`cot`, `ftext`>", 1
 "officer", "ftext", 0, 0, 0, "character", 1
 "officer", "ftext", 1, 0, 0, "class<`fp_text`>", 1
-"officer", "FUN", -1, 0, 0, "character", 1
-"officer", "FUN", 0, 0, 0, "class<`cot`, `ftext`>", 1
-"officer", "FUN", 0, 0, 1, "class<`fpar`>", 1
-"officer", "FUN", 0, 0, 2, "class<`block`, `block_table`>", 1
-"officer", "FUN", 0, 0, 3, "class<`unordered_list`>", 1
-"officer", "FUN", 1, 0, 0, "logical", 1
-"officer", "FUN", 2, 0, 0, "...", 1
-"officer", "FUN", -1, 1, 0, "character", 1
-"officer", "FUN", 0, 1, 0, "class<`cot`, `external_img`>", 1
-"officer", "FUN", 0, 1, 1, "class<`cot`, `ftext`>", 1
-"officer", "FUN", 0, 1, 2, "class<`block`, `block_caption`>", 1
-"officer", "FUN", 0, 1, 3, "class<`block`, `block_table`>", 1
-"officer", "FUN", 0, 1, 4, "class<`block`, `block_toc`>", 1
-"officer", "FUN", 0, 1, 5, "class<`fpar`>", 1
-"officer", "FUN", 0, 1, 6, "class<`run`, `run_autonum`>", 1
-"officer", "FUN", 0, 1, 7, "class<`run`, `run_seqfield`>", 1
-"officer", "FUN", 1, 1, 0, "logical", 1
-"officer", "FUN", 2, 1, 0, "...", 1
 "officer", "get_ph_loc", -1, 0, 0, "list<double | character>", 1
 "officer", "get_ph_loc", 0, 0, 0, "class<`rpptx`>", 1
 "officer", "get_ph_loc", 1, 0, 0, "character", 1
@@ -572,8 +550,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "ph_add_text", 5, 0, 1, "null", 1
 "officer", "ph_add_text", 6, 0, 0, "class<`fp_text`>", 1
 "officer", "ph_add_text", 7, 0, 0, "character", 1
-"officer", "ph_add_text", 8, 0, 0, "null", 1
-"officer", "ph_add_text", 9, 0, 0, "null", 1
 "officer", "ph_hyperlink", -1, 0, 0, "class<`rpptx`>", 1
 "officer", "ph_hyperlink", 0, 0, 0, "class<`rpptx`>", 1
 "officer", "ph_hyperlink", 1, 0, 0, "character", 1
@@ -683,7 +659,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "ph_with.data.frame", 5, 0, 0, "logical", 1
 "officer", "ph_with.data.frame", 6, 0, 0, "logical", 1
 "officer", "ph_with.data.frame", 7, 0, 0, "logical", 1
-"officer", "ph_with.data.frame", 8, 0, 0, "...", 1
 "officer", "ph_with.empty_content", -1, 0, 0, "class<`rpptx`>", 1
 "officer", "ph_with.empty_content", 0, 0, 0, "class<`rpptx`>", 1
 "officer", "ph_with.empty_content", 1, 0, 0, "class<`empty_content`>", 1
@@ -731,7 +706,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "pic_pml", 6, 0, 0, "character", 1
 "officer", "pic_pml", 7, 0, 0, "character", 1
 "officer", "pic_pml", 7, 0, 1, "null", 1
-"officer", "pic_pml", 8, 0, 0, "character", 1
 "officer", "plot_instr", -1, 0, 0, "class<`plot_instr`>", 1
 "officer", "plot_instr", 0, 0, 0, "any", 1
 "officer", "ppr_pml", -1, 0, 0, "character", 1
@@ -900,8 +874,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "table_docx", 5, 0, 0, "logical", 1
 "officer", "table_docx", 6, 0, 0, "logical", 1
 "officer", "table_docx", 7, 0, 0, "logical", 1
-"officer", "table_docx", 8, 0, 0, "logical", 1
-"officer", "table_docx", 9, 0, 0, "logical", 1
 "officer", "table_pptx", -1, 0, 0, "character", 1
 "officer", "table_pptx", 0, 0, 0, "class<`data.frame`>", 1
 "officer", "table_pptx", 1, 0, 0, "character", 1
@@ -911,7 +883,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "table_pptx", 5, 0, 0, "logical", 1
 "officer", "table_pptx", 6, 0, 0, "logical", 1
 "officer", "table_pptx", 7, 0, 0, "logical", 1
-"officer", "table_pptx", 8, 0, 0, "logical", 1
 "officer", "to_pml", -1, 0, 0, "character", 1
 "officer", "to_pml", 0, 0, 0, "class<`cot`, `ftext`>", 1
 "officer", "to_pml", 0, 0, 1, "class<`fpar`>", 1
@@ -928,9 +899,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "to_pml.block_table", 5, 0, 0, "double", 1
 "officer", "to_pml.block_table", 6, 0, 0, "null", 1
 "officer", "to_pml.block_table", 7, 0, 0, "null", 1
-"officer", "to_pml.block_table", 8, 0, 0, "character", 1
-"officer", "to_pml.block_table", 9, 0, 0, "character", 1
-"officer", "to_pml.block_table", 10, 0, 0, "...", 1
 "officer", "to_pml.fpar", -1, 0, 0, "character", 1
 "officer", "to_pml.fpar", 0, 0, 0, "class<`fpar`>", 1
 "officer", "to_pml.fpar", 1, 0, 0, "logical", 1
@@ -1016,13 +984,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "update.fp_cell", 5, 0, 0, "any", 1
 "officer", "update.fp_cell", 6, 0, 0, "any", 1
 "officer", "update.fp_cell", 7, 0, 0, "double", 1
-"officer", "update.fp_cell", 8, 0, 0, "double", 1
-"officer", "update.fp_cell", 9, 0, 0, "any", 1
-"officer", "update.fp_cell", 10, 0, 0, "any", 1
-"officer", "update.fp_cell", 11, 0, 0, "any", 1
-"officer", "update.fp_cell", 12, 0, 0, "any", 1
-"officer", "update.fp_cell", 13, 0, 0, "any", 1
-"officer", "update.fp_cell", 14, 0, 0, "...", 1
 "officer", "update.fp_par", -1, 0, 0, "class<`fp_par`>", 1
 "officer", "update.fp_par", 0, 0, 0, "class<`fp_par`>", 1
 "officer", "update.fp_par", 1, 0, 0, "any", 1
@@ -1032,12 +993,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "update.fp_par", 5, 0, 0, "any", 1
 "officer", "update.fp_par", 6, 0, 0, "any", 1
 "officer", "update.fp_par", 7, 0, 0, "any", 1
-"officer", "update.fp_par", 8, 0, 0, "any", 1
-"officer", "update.fp_par", 9, 0, 0, "any", 1
-"officer", "update.fp_par", 10, 0, 0, "any", 1
-"officer", "update.fp_par", 11, 0, 0, "any", 1
-"officer", "update.fp_par", 12, 0, 0, "any", 1
-"officer", "update.fp_par", 13, 0, 0, "...", 1
 "officer", "update.fp_text", -1, 0, 0, "class<`fp_text`>", 1
 "officer", "update.fp_text", 0, 0, 0, "class<`fp_text`>", 1
 "officer", "update.fp_text", 1, 0, 0, "character", 1
@@ -1047,8 +1002,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "officer", "update.fp_text", 5, 0, 0, "logical", 1
 "officer", "update.fp_text", 6, 0, 0, "any", 1
 "officer", "update.fp_text", 7, 0, 0, "any", 1
-"officer", "update.fp_text", 8, 0, 0, "any", 1
-"officer", "update.fp_text", 9, 0, 0, "...", 1
 "officer", "wml_link_images", -1, 0, 0, "character", 1
 "officer", "wml_link_images", 0, 0, 0, "class<`rdocx`>", 1
 "officer", "wml_link_images", 1, 0, 0, "character", 1

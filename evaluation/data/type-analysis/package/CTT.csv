@@ -55,7 +55,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "CTT", "reliability", 1, 0, 0, "logical", 1
 "CTT", "reliability", 2, 0, 0, "logical", 1
 "CTT", "reliability", 3, 0, 0, "logical", 1
-"CTT", "score", -1, 0, 0, "list<double[] | double[] | class<`reliability`> | class<`matrix`> | double[] | class<`matrix`>>", 1
+"CTT", "score", -1, 0, 0, "list<double[]>", 1
+"CTT", "score", -1, 0, 1, "list<double[] | class<`reliability`> | class<`matrix`>>", 1
+"CTT", "score", -1, 0, 2, "list<double[] | class<`matrix`>>", 1
 "CTT", "score", 0, 0, 0, "class<`data.frame`>", 1
 "CTT", "score", 1, 0, 0, "any", 1
 "CTT", "score", 2, 0, 0, "logical", 1

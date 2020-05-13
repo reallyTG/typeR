@@ -6,9 +6,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "%<-%", 1, 0, 2, "class<`summaryDefault`, `table`>", 1
 "zeallot", "%<-%", 1, 0, 3, "class<`summary.lm`>", 1
 "zeallot", "%<-%", 1, 0, 4, "double[]", 1
-"zeallot", "%<-%", 1, 0, 5, "list<any>", 1
-"zeallot", "%->%", -1, 0, 0, "list<character | double | character>", 1
-"zeallot", "%->%", 0, 0, 0, "list<character | double | character>", 1
+"zeallot", "%<-%", 1, 0, 5, "list<character[]>", 1
+"zeallot", "%<-%", 1, 0, 6, "list<double | character>", 1
+"zeallot", "%<-%", 1, 0, 7, "list<double>", 1
+"zeallot", "%<-%", 1, 0, 8, "list<double | list<double | list<double | list<double>>>>", 1
+"zeallot", "%<-%", 1, 0, 9, "list<list<double>>", 1
+"zeallot", "%->%", -1, 0, 0, "list<character>", 1
+"zeallot", "%->%", -1, 0, 1, "list<double | character>", 1
+"zeallot", "%->%", 0, 0, 0, "list<character>", 1
+"zeallot", "%->%", 0, 0, 1, "list<double | character>", 1
 "zeallot", "%->%", 1, 0, 0, "any", 1
 "zeallot", "add_defaults", -1, 0, 0, "list<character | null>", 1
 "zeallot", "add_defaults", 0, 0, 0, "list<character>", 1
@@ -19,26 +25,45 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "assert_destruction", 0, 0, 1, "class<`Date`>", 1
 "zeallot", "calls", -1, 0, 0, "character[]", 1
 "zeallot", "calls", -1, 0, 1, "null", 1
-"zeallot", "calls", 0, 0, 0, "character", 1
-"zeallot", "calls", 0, 0, 1, "class<`name`>", 1
-"zeallot", "calls", 0, 0, 2, "null", 1
-"zeallot", "calls", 0, 0, 3, "list<any>", 1
+"zeallot", "calls", 0, 0, 0, "list<class<`name`> | list<class<`name`> | character | null>>", 1
+"zeallot", "calls", 0, 0, 1, "list<class<`name`> | list<class<`name`> | list<class<`name`> | list<class<`name`>>>>>", 1
+"zeallot", "calls", 0, 0, 2, "list<class<`name`> | list<class<`name`>>>", 1
+"zeallot", "calls", 0, 0, 3, "list<class<`name`>>", 1
+"zeallot", "calls", 0, 0, 4, "list<class<`name`> | list<class<`name`> | list<class<`name`>>>>", 1
+"zeallot", "calls", 0, 0, 5, "list<class<`name`> | character | null>", 1
+"zeallot", "calls", 0, 0, 6, "character", 1
+"zeallot", "calls", 0, 0, 7, "class<`name`>", 1
+"zeallot", "calls", 0, 0, 8, "null", 1
 "zeallot", "car", -1, 0, 0, "character[]", 1
 "zeallot", "car", -1, 0, 1, "class<`call`>", 1
 "zeallot", "car", -1, 0, 2, "class<`name`>", 1
 "zeallot", "car", -1, 0, 3, "double[]", 1
-"zeallot", "car", -1, 0, 4, "null", 1
-"zeallot", "car", -1, 0, 5, "list<any>", 1
+"zeallot", "car", -1, 0, 4, "list<character>", 1
+"zeallot", "car", -1, 0, 5, "list<character | list<character | list<character>>>", 1
+"zeallot", "car", -1, 0, 6, "list<character | list<character>>", 1
+"zeallot", "car", -1, 0, 7, "list<double>", 1
+"zeallot", "car", -1, 0, 8, "list<double | list<double | list<double>>>", 1
+"zeallot", "car", -1, 0, 9, "list<double | list<double>>", 1
+"zeallot", "car", -1, 0, 10, "null", 1
 "zeallot", "car", 0, 0, 0, "list<any>", 1
 "zeallot", "cdr", -1, 0, 0, "list<any>", 1
 "zeallot", "cdr", 0, 0, 0, "list<any>", 1
 "zeallot", "check_extract_calls", -1, 0, 0, "null", 1
-"zeallot", "check_extract_calls", 0, 0, 0, "character", 1
-"zeallot", "check_extract_calls", 0, 0, 1, "list<any>", 1
+"zeallot", "check_extract_calls", 0, 0, 0, "list<character>", 1
+"zeallot", "check_extract_calls", 0, 0, 1, "list<character | list<character | list<character | list<character>>>>", 1
+"zeallot", "check_extract_calls", 0, 0, 2, "list<list<character>>", 1
+"zeallot", "check_extract_calls", 0, 0, 3, "character", 1
+"zeallot", "check_extract_calls", 0, 0, 4, "list<character | list<character | list<character>>>", 1
+"zeallot", "check_extract_calls", 0, 0, 5, "list<character | list<character>>", 1
 "zeallot", "check_extract_calls", 1, 0, 0, "any", 1
-"zeallot", "collect", -1, 0, 0, "list<character | list<character> | double[] | class<`matrix`> | list<class<`formula`, `terms`> | double[] | class<`matrix`>> | list<character | double[]>>", 1
+"zeallot", "collect", -1, 0, 0, "list<list<character>>", 1
+"zeallot", "collect", -1, 0, 1, "list<character | list<character>>", 1
+"zeallot", "collect", -1, 0, 2, "list<list<double[]>>", 1
+"zeallot", "collect", -1, 0, 3, "list<double[] | class<`matrix`> | list<class<`formula`, `terms`> | double[] | class<`matrix`>>>", 1
 "zeallot", "collect", 0, 0, 0, "list<character>", 1
-"zeallot", "collect", 1, 0, 0, "list<character | double[] | class<`formula`, `terms`> | double[] | class<`matrix`>>", 1
+"zeallot", "collect", 1, 0, 0, "list<character>", 1
+"zeallot", "collect", 1, 0, 1, "list<double[]>", 1
+"zeallot", "collect", 1, 0, 2, "list<class<`formula`, `terms`> | double[] | class<`matrix`>>", 1
 "zeallot", "condition", -1, 0, 0, "class<`condition`, `error`, `invalid_rhs`>", 1
 "zeallot", "condition", 0, 0, 0, "character[]", 1
 "zeallot", "condition", 1, 0, 0, "character", 1
@@ -58,25 +83,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "destructure.Date", 0, 0, 0, "class<`Date`>", 1
 "zeallot", "destructure.summary.lm", -1, 0, 0, "list<any>", 1
 "zeallot", "destructure.summary.lm", 0, 0, 0, "class<`summary.lm`>", 1
-"zeallot", "FUN", -1, 0, 0, "character[]", 1
-"zeallot", "FUN", -1, 0, 1, "null", 1
-"zeallot", "FUN", 0, 0, 0, "character", 1
-"zeallot", "FUN", 0, 0, 1, "class<`name`>", 1
-"zeallot", "FUN", 0, 0, 2, "null", 1
-"zeallot", "FUN", 0, 0, 3, "list<any>", 1
-"zeallot", "FUN", -1, 1, 0, "null", 1
-"zeallot", "FUN", 0, 1, 0, "character", 1
-"zeallot", "FUN", 0, 1, 1, "list<any>", 1
-"zeallot", "FUN", 1, 1, 0, "any", 1
-"zeallot", "FUN", -1, 2, 0, "null", 1
-"zeallot", "FUN", 0, 2, 0, "character", 1
-"zeallot", "FUN", -1, 3, 0, "logical", 1
-"zeallot", "FUN", 0, 3, 0, "character", 1
-"zeallot", "FUN", 0, 3, 1, "list<character | character | list<character | list<character>> | character | list<character>>", 1
-"zeallot", "FUN", -1, 4, 0, "character", 1
-"zeallot", "FUN", -1, 4, 1, "list<any>", 1
-"zeallot", "FUN", 0, 4, 0, "class<`name`>", 1
-"zeallot", "FUN", 0, 4, 1, "list<any>", 1
 "zeallot", "get_default", -1, 0, 0, "null", 1
 "zeallot", "get_default", 0, 0, 0, "character", 1
 "zeallot", "has_collector", -1, 0, 0, "logical", 1
@@ -86,7 +92,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "incorrect_number_of_values", -1, 0, 0, "character", 1
 "zeallot", "is_collector", -1, 0, 0, "logical", 1
 "zeallot", "is_collector", 0, 0, 0, "character", 1
-"zeallot", "is_collector", 0, 0, 1, "list<character | character | list<character | list<character>> | character | list<character>>", 1
+"zeallot", "is_collector", 0, 0, 1, "list<character>", 1
+"zeallot", "is_collector", 0, 0, 2, "list<character | list<character | list<character>>>", 1
+"zeallot", "is_collector", 0, 0, 3, "list<character | list<character>>", 1
 "zeallot", "is_extract_op", -1, 0, 0, "logical", 1
 "zeallot", "is_extract_op", 0, 0, 0, "class<`name`>", 1
 "zeallot", "is_list", -1, 0, 0, "logical", 1
@@ -96,8 +104,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "is_list", 0, 0, 3, "class<`summaryDefault`, `table`>", 1
 "zeallot", "is_list", 0, 0, 4, "class<`summary.lm`>", 1
 "zeallot", "is_list", 0, 0, 5, "double[]", 1
-"zeallot", "is_list", 0, 0, 6, "null", 1
-"zeallot", "is_list", 0, 0, 7, "list<any>", 1
+"zeallot", "is_list", 0, 0, 6, "list<any>", 1
+"zeallot", "is_list", 0, 0, 7, "null", 1
 "zeallot", "is_valid_call", -1, 0, 0, "logical", 1
 "zeallot", "is_valid_call", 0, 0, 0, "class<`name`>", 1
 "zeallot", "multi_assign", -1, 0, 0, "any", 1
@@ -107,7 +115,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "multi_assign", 1, 0, 2, "class<`summaryDefault`, `table`>", 1
 "zeallot", "multi_assign", 1, 0, 3, "class<`summary.lm`>", 1
 "zeallot", "multi_assign", 1, 0, 4, "double[]", 1
-"zeallot", "multi_assign", 1, 0, 5, "list<any>", 1
+"zeallot", "multi_assign", 1, 0, 5, "list<character[]>", 1
+"zeallot", "multi_assign", 1, 0, 6, "list<double | character>", 1
+"zeallot", "multi_assign", 1, 0, 7, "list<double>", 1
+"zeallot", "multi_assign", 1, 0, 8, "list<double | list<double | list<double | list<double>>>>", 1
+"zeallot", "multi_assign", 1, 0, 9, "list<list<double>>", 1
 "zeallot", "multi_assign", 2, 0, 0, "any", 1
 "zeallot", "names2", -1, 0, 0, "character", 1
 "zeallot", "names2", 0, 0, 0, "class<`call`>", 1
@@ -121,10 +133,23 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "zeallot", "stop_invalid_rhs", 1, 0, 0, "class<`call`>", 1
 "zeallot", "stop_invalid_rhs", 2, 0, 0, "...", 1
 "zeallot", "tree", -1, 0, 0, "class<`name`>", 1
-"zeallot", "tree", -1, 0, 1, "list<any>", 1
+"zeallot", "tree", -1, 0, 1, "list<class<`name`>>", 1
+"zeallot", "tree", -1, 0, 2, "list<class<`name`> | list<class<`name`> | character | null>>", 1
+"zeallot", "tree", -1, 0, 3, "list<class<`name`> | list<class<`name`> | list<class<`name`> | list<class<`name`>>>>>", 1
+"zeallot", "tree", -1, 0, 4, "list<class<`name`> | list<class<`name`> | list<class<`name`>>>>", 1
+"zeallot", "tree", -1, 0, 5, "list<class<`name`> | list<class<`name`>>>", 1
 "zeallot", "tree", 0, 0, 0, "class<`name`>", 1
 "zeallot", "tree", 0, 0, 1, "class<`call`>", 1
 "zeallot", "variables", -1, 0, 0, "character", 1
-"zeallot", "variables", -1, 0, 1, "list<any>", 1
+"zeallot", "variables", -1, 0, 1, "list<character>", 1
+"zeallot", "variables", -1, 0, 2, "list<character | list<character | list<character>>>", 1
+"zeallot", "variables", -1, 0, 3, "list<character | list<character>>", 1
+"zeallot", "variables", -1, 0, 4, "list<character | list<character | list<character | list<character>>>>", 1
+"zeallot", "variables", -1, 0, 5, "list<list<character>>", 1
 "zeallot", "variables", 0, 0, 0, "class<`name`>", 1
-"zeallot", "variables", 0, 0, 1, "list<any>", 1
+"zeallot", "variables", 0, 0, 1, "list<class<`name`> | character | null>", 1
+"zeallot", "variables", 0, 0, 2, "list<class<`name`>>", 1
+"zeallot", "variables", 0, 0, 3, "list<class<`name`> | list<class<`name`> | list<class<`name`>>>>", 1
+"zeallot", "variables", 0, 0, 4, "list<class<`name`> | list<class<`name`>>>", 1
+"zeallot", "variables", 0, 0, 5, "list<class<`name`> | list<class<`name`> | character | null>>", 1
+"zeallot", "variables", 0, 0, 6, "list<class<`name`> | list<class<`name`> | list<class<`name`> | list<class<`name`>>>>>", 1

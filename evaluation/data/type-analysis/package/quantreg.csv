@@ -18,9 +18,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "anova.rq", 5, 0, 0, "character", 1
 "quantreg", "anova.rq", 6, 0, 0, "logical", 1
 "quantreg", "anova.rq", 7, 0, 0, "double", 1
-"quantreg", "anova.rq", 8, 0, 0, "null", 1
 "quantreg", "anova.rqlist", -1, 0, 0, "class<`anova.rq`>", 1
-"quantreg", "anova.rqlist", 0, 0, 0, "list<class<`dynrq`, `rq`> | class<`rq`>>", 1
+"quantreg", "anova.rqlist", 0, 0, 0, "list<class<`dynrq`, `rq`>>", 1
+"quantreg", "anova.rqlist", 0, 0, 1, "list<class<`rq`>>", 1
 "quantreg", "anova.rqlist", 1, 0, 0, "...", 1
 "quantreg", "anova.rqlist", 2, 0, 0, "character", 1
 "quantreg", "anova.rqlist", 3, 0, 0, "any", 1
@@ -28,7 +28,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "anova.rqlist", 5, 0, 0, "character", 1
 "quantreg", "anova.rqlist", 6, 0, 0, "any", 1
 "quantreg", "anova.rqlist", 7, 0, 0, "double", 1
-"quantreg", "anova.rqlist", 8, 0, 0, "any", 1
 "quantreg", "bandwidth.rq", -1, 0, 0, "double", 1
 "quantreg", "bandwidth.rq", 0, 0, 0, "double", 1
 "quantreg", "bandwidth.rq", 1, 0, 0, "double", 1
@@ -43,8 +42,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "boot.crq", 5, 0, 0, "character", 1
 "quantreg", "boot.crq", 6, 0, 0, "double", 1
 "quantreg", "boot.crq", 7, 0, 0, "any", 1
-"quantreg", "boot.crq", 8, 0, 0, "character", 1
-"quantreg", "boot.crq", 9, 0, 0, "...", 1
 "quantreg", "boot.rq", -1, 0, 0, "list<class<`matrix`>>", 1
 "quantreg", "boot.rq", 0, 0, 0, "class<`matrix`>", 1
 "quantreg", "boot.rq", 1, 0, 0, "double[]", 1
@@ -54,8 +51,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "boot.rq", 5, 0, 0, "any", 1
 "quantreg", "boot.rq", 6, 0, 0, "null", 1
 "quantreg", "boot.rq", 7, 0, 0, "null", 1
-"quantreg", "boot.rq", 8, 0, 0, "null", 1
-"quantreg", "boot.rq", 9, 0, 0, "...", 1
 "quantreg", "boot.rq.pwy", -1, 0, 0, "class<`matrix`>", 1
 "quantreg", "boot.rq.pwy", 0, 0, 0, "class<`matrix`>", 1
 "quantreg", "boot.rq.pwy", 1, 0, 0, "class<`matrix`>", 1
@@ -84,7 +79,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "crq", 5, 0, 0, "any", 1
 "quantreg", "crq", 6, 0, 0, "character", 1
 "quantreg", "crq", 7, 0, 0, "null", 1
-"quantreg", "crq", 8, 0, 0, "...", 1
 "quantreg", "crq.fit.por", -1, 0, 0, "class<`crq`>", 1
 "quantreg", "crq.fit.por", 0, 0, 0, "class<`matrix`>", 1
 "quantreg", "crq.fit.por", 1, 0, 0, "double[]", 1
@@ -120,21 +114,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "dynrq", 5, 0, 0, "any", 1
 "quantreg", "dynrq", 6, 0, 0, "character", 1
 "quantreg", "dynrq", 7, 0, 0, "null", 1
-"quantreg", "dynrq", 8, 0, 0, "double[]", 1
-"quantreg", "dynrq", 8, 0, 1, "null", 1
-"quantreg", "dynrq", 9, 0, 0, "double[]", 1
-"quantreg", "dynrq", 9, 0, 1, "null", 1
-"quantreg", "dynrq", 10, 0, 0, "...", 1
 "quantreg", "formula.rq", -1, 0, 0, "class<`formula`>", 1
 "quantreg", "formula.rq", 0, 0, 0, "class<`dynrq`, `rq`>", 1
 "quantreg", "formula.rq", 0, 0, 1, "class<`rq`>", 1
 "quantreg", "formula.rq", 1, 0, 0, "...", 1
-"quantreg", "FUN", -1, 0, 0, "class<`function`, `stepfun`>", 1
-"quantreg", "FUN", -1, 0, 1, "list<class<`function`, `stepfun`>>", 1
-"quantreg", "FUN", 0, 0, 0, "class<`function`, `stepfun`>", 1
-"quantreg", "FUN", 0, 0, 1, "list<class<`function`, `stepfun`>>", 1
-"quantreg", "FUN", 1, 0, 0, "any", 1
-"quantreg", "FUN", 2, 0, 0, "any", 1
 "quantreg", "KhmaladzeTest", -1, 0, 0, "class<`KhmaladzeTest`>", 1
 "quantreg", "KhmaladzeTest", 0, 0, 0, "class<`formula`>", 1
 "quantreg", "KhmaladzeTest", 1, 0, 0, "class<`data.frame`>", 1
@@ -213,13 +196,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "plot.rqs", 6, 0, 0, "character", 1
 "quantreg", "plot.rqs", 6, 0, 1, "null", 1
 "quantreg", "plot.rqs", 7, 0, 0, "integer[]", 1
-"quantreg", "plot.rqs", 8, 0, 0, "integer[]", 1
-"quantreg", "plot.rqs", 9, 0, 0, "double", 1
-"quantreg", "plot.rqs", 10, 0, 0, "double", 1
-"quantreg", "plot.rqs", 11, 0, 0, "character", 1
-"quantreg", "plot.rqs", 12, 0, 0, "character", 1
-"quantreg", "plot.rqs", 13, 0, 0, "character", 1
-"quantreg", "plot.rqs", 14, 0, 0, "...", 1
 "quantreg", "plot.rqss", -1, 0, 0, "null", 1
 "quantreg", "plot.rqss", 0, 0, 0, "class<`rqss`>", 1
 "quantreg", "plot.rqss", 1, 0, 0, "logical", 1
@@ -229,10 +205,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "plot.rqss", 5, 0, 0, "logical", 1
 "quantreg", "plot.rqss", 6, 0, 0, "logical", 1
 "quantreg", "plot.rqss", 7, 0, 0, "null", 1
-"quantreg", "plot.rqss", 8, 0, 0, "double", 1
-"quantreg", "plot.rqss", 9, 0, 0, "null", 1
-"quantreg", "plot.rqss", 10, 0, 0, "null", 1
-"quantreg", "plot.rqss", 11, 0, 0, "...", 1
 "quantreg", "plot.summary.rqs", -1, 0, 0, "class<`array`>", 1
 "quantreg", "plot.summary.rqs", 0, 0, 0, "class<`summary.rqs`>", 1
 "quantreg", "plot.summary.rqs", 1, 0, 0, "double", 1
@@ -245,16 +217,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "plot.summary.rqs", 6, 0, 0, "null", 1
 "quantreg", "plot.summary.rqs", 7, 0, 0, "character", 1
 "quantreg", "plot.summary.rqs", 7, 0, 1, "null", 1
-"quantreg", "plot.summary.rqs", 8, 0, 0, "character[]", 1
-"quantreg", "plot.summary.rqs", 9, 0, 0, "null", 1
-"quantreg", "plot.summary.rqs", 10, 0, 0, "double", 1
-"quantreg", "plot.summary.rqs", 11, 0, 0, "integer[]", 1
-"quantreg", "plot.summary.rqs", 12, 0, 0, "double", 1
-"quantreg", "plot.summary.rqs", 13, 0, 0, "double", 1
-"quantreg", "plot.summary.rqs", 14, 0, 0, "character", 1
-"quantreg", "plot.summary.rqs", 15, 0, 0, "character", 1
-"quantreg", "plot.summary.rqs", 16, 0, 0, "character", 1
-"quantreg", "plot.summary.rqs", 17, 0, 0, "...", 1
 "quantreg", "predict.nlrq", -1, 0, 0, "double[]", 1
 "quantreg", "predict.nlrq", 0, 0, 0, "class<`nlrq`>", 1
 "quantreg", "predict.nlrq", 1, 0, 0, "list<integer[]>", 1
@@ -352,8 +314,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "rq", 5, 0, 0, "any", 1
 "quantreg", "rq", 6, 0, 0, "character", 1
 "quantreg", "rq", 7, 0, 0, "logical", 1
-"quantreg", "rq", 8, 0, 0, "null", 1
-"quantreg", "rq", 9, 0, 0, "...", 1
 "quantreg", "rq.fit", -1, 0, 0, "list<any>", 1
 "quantreg", "rq.fit", 0, 0, 0, "class<`matrix`>", 1
 "quantreg", "rq.fit", 1, 0, 0, "double[]", 1
@@ -362,7 +322,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "rq.fit", 2, 0, 0, "double", 1
 "quantreg", "rq.fit", 3, 0, 0, "character", 1
 "quantreg", "rq.fit", 4, 0, 0, "...", 1
-"quantreg", "rq.fit.br", -1, 0, 0, "list<any>", 1
+"quantreg", "rq.fit.br", -1, 0, 0, "list<class<`matrix`> | class<`ts`>>", 1
+"quantreg", "rq.fit.br", -1, 0, 1, "list<class<`matrix`> | double[]>", 1
+"quantreg", "rq.fit.br", -1, 0, 2, "list<double[] | class<`matrix`>>", 1
+"quantreg", "rq.fit.br", -1, 0, 3, "list<double[] | class<`matrix`> | class<`ts`>>", 1
+"quantreg", "rq.fit.br", -1, 0, 4, "list<double[] | class<`matrix`> | class<`zoo`>>", 1
+"quantreg", "rq.fit.br", -1, 0, 5, "list<class<`matrix`> | class<`ts`> | double[]>", 1
+"quantreg", "rq.fit.br", -1, 0, 6, "list<class<`matrix`>>", 1
 "quantreg", "rq.fit.br", 0, 0, 0, "class<`matrix`>", 1
 "quantreg", "rq.fit.br", 1, 0, 0, "class<`ts`>", 1
 "quantreg", "rq.fit.br", 1, 0, 1, "double[]", 1
@@ -373,7 +339,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "rq.fit.br", 5, 0, 0, "logical", 1
 "quantreg", "rq.fit.br", 6, 0, 0, "logical", 1
 "quantreg", "rq.fit.br", 7, 0, 0, "logical", 1
-"quantreg", "rq.fit.fnb", -1, 0, 0, "list<double[] | class<`matrix`> | double[] | class<`ts`> | double | class<`ts`>>", 1
+"quantreg", "rq.fit.fnb", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"quantreg", "rq.fit.fnb", -1, 0, 1, "list<double[] | class<`ts`>>", 1
+"quantreg", "rq.fit.fnb", -1, 0, 2, "list<double | class<`ts`>>", 1
 "quantreg", "rq.fit.fnb", 0, 0, 0, "class<`matrix`>", 1
 "quantreg", "rq.fit.fnb", 1, 0, 0, "double[]", 1
 "quantreg", "rq.fit.fnb", 1, 0, 1, "class<`ts`>", 1
@@ -414,7 +382,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "rq.fit.scad", 5, 0, 0, "character", 1
 "quantreg", "rq.fit.scad", 6, 0, 0, "double", 1
 "quantreg", "rq.fit.scad", 7, 0, 0, "double", 1
-"quantreg", "rq.fit.sfn", -1, 0, 0, "list<double[] | class<`matrix`> | list<double> | double[] | class<`matrix`> | list<null | double>>", 1
+"quantreg", "rq.fit.sfn", -1, 0, 0, "list<double[] | class<`matrix`> | list<double>>", 1
+"quantreg", "rq.fit.sfn", -1, 0, 1, "list<double[] | class<`matrix`> | list<null | double>>", 1
 "quantreg", "rq.fit.sfn", 0, 0, 0, "class<`matrix.csr`>", 1
 "quantreg", "rq.fit.sfn", 1, 0, 0, "double[]", 1
 "quantreg", "rq.fit.sfn", 2, 0, 0, "double", 1
@@ -446,9 +415,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "rqss", 5, 0, 0, "character", 1
 "quantreg", "rqss", 6, 0, 0, "null", 1
 "quantreg", "rqss", 7, 0, 0, "null", 1
-"quantreg", "rqss", 8, 0, 0, "double", 1
-"quantreg", "rqss", 9, 0, 0, "list<null | double>", 1
-"quantreg", "rqss", 10, 0, 0, "...", 1
 "quantreg", "rqss.fit", -1, 0, 0, "list<double[] | class<`matrix`> | list<double>>", 1
 "quantreg", "rqss.fit", 0, 0, 0, "class<`matrix.csr`>", 1
 "quantreg", "rqss.fit", 1, 0, 0, "double[]", 1
@@ -457,7 +423,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "quantreg", "rqss.fit", 4, 0, 0, "class<`matrix`>", 1
 "quantreg", "rqss.fit", 5, 0, 0, "list<double>", 1
 "quantreg", "rqss.fit", 6, 0, 0, "...", 1
-"quantreg", "rq.wfit", -1, 0, 0, "list<class<`matrix`> | double[] | double[] | class<`matrix`>>", 1
+"quantreg", "rq.wfit", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"quantreg", "rq.wfit", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
 "quantreg", "rq.wfit", 0, 0, 0, "class<`matrix`>", 1
 "quantreg", "rq.wfit", 1, 0, 0, "double[]", 1
 "quantreg", "rq.wfit", 2, 0, 0, "double", 1

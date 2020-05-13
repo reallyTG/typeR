@@ -104,7 +104,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlr3misc", "invoke", -1, 0, 1, "double", 1
 "mlr3misc", "invoke", 0, 0, 0, "any", 1
 "mlr3misc", "invoke", 1, 0, 0, "...", 1
-"mlr3misc", "invoke", 2, 0, 0, "list<integer[] | character[] | integer[] | double>", 1
+"mlr3misc", "invoke", 2, 0, 0, "list<integer[] | character[]>", 1
+"mlr3misc", "invoke", 2, 0, 1, "list<integer[]>", 1
+"mlr3misc", "invoke", 2, 0, 2, "list<double>", 1
 "mlr3misc", "invoke", 3, 0, 0, "list<any>", 1
 "mlr3misc", "invoke", 4, 0, 0, "null", 1
 "mlr3misc", "invoke", 4, 0, 1, "double", 1
@@ -116,9 +118,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlr3misc", "load_dataset", 0, 0, 0, "character", 1
 "mlr3misc", "load_dataset", 1, 0, 0, "character", 1
 "mlr3misc", "load_dataset", 2, 0, 0, "logical", 1
-"mlr3misc", "map", -1, 0, 0, "list<character[] | double[] | list<character>>", 1
-"mlr3misc", "map", 0, 0, 0, "class<`data.frame`>", 1
-"mlr3misc", "map", 0, 0, 1, "list<character[] | class<`condition`, `message`, `simpleMessage`>>", 1
+"mlr3misc", "map", -1, 0, 0, "list<character[]>", 1
+"mlr3misc", "map", -1, 0, 1, "list<list<character>>", 1
+"mlr3misc", "map", -1, 0, 2, "list<double[]>", 1
+"mlr3misc", "map", 0, 0, 0, "list<character[]>", 1
+"mlr3misc", "map", 0, 0, 1, "list<class<`condition`, `message`, `simpleMessage`>>", 1
+"mlr3misc", "map", 0, 0, 2, "class<`data.frame`>", 1
 "mlr3misc", "map", 1, 0, 0, "class<`function`>", 1
 "mlr3misc", "map", 2, 0, 0, "...", 1
 "mlr3misc", "map_chr", -1, 0, 0, "character[]", 1
@@ -138,15 +143,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlr3misc", "map_int", 2, 0, 0, "...", 1
 "mlr3misc", "map_lgl", -1, 0, 0, "logical[]", 1
 "mlr3misc", "map_lgl", 0, 0, 0, "character[]", 1
-"mlr3misc", "map_lgl", 0, 0, 1, "class<`data.frame`>", 1
-"mlr3misc", "map_lgl", 0, 0, 2, "list<double>", 1
+"mlr3misc", "map_lgl", 0, 0, 1, "list<double>", 1
+"mlr3misc", "map_lgl", 0, 0, 2, "class<`data.frame`>", 1
 "mlr3misc", "map_lgl", 1, 0, 0, "class<`function`>", 1
 "mlr3misc", "map_lgl", 2, 0, 0, "...", 1
 "mlr3misc", "map_mold", -1, 0, 0, "character[]", 1
 "mlr3misc", "map_mold", -1, 0, 1, "integer[]", 1
 "mlr3misc", "map_mold", 0, 0, 0, "character[]", 1
-"mlr3misc", "map_mold", 0, 0, 1, "class<`data.frame`>", 1
-"mlr3misc", "map_mold", 0, 0, 2, "list<class<`formula`> | character[] | double>", 1
+"mlr3misc", "map_mold", 0, 0, 1, "list<class<`formula`>>", 1
+"mlr3misc", "map_mold", 0, 0, 2, "list<character[]>", 1
+"mlr3misc", "map_mold", 0, 0, 3, "list<double>", 1
+"mlr3misc", "map_mold", 0, 0, 4, "class<`data.frame`>", 1
 "mlr3misc", "map_mold", 1, 0, 0, "class<`function`>", 1
 "mlr3misc", "map_mold", 2, 0, 0, "null", 1
 "mlr3misc", "map_mold", 3, 0, 0, "...", 1
@@ -180,7 +187,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlr3misc", "modify_if.default", 1, 0, 0, "class<`function`>", 1
 "mlr3misc", "modify_if.default", 2, 0, 0, "class<`function`>", 1
 "mlr3misc", "modify_if.default", 3, 0, 0, "...", 1
-"mlr3misc", "named_list", -1, 0, 0, "list<double | null>", 1
+"mlr3misc", "named_list", -1, 0, 0, "list<double>", 1
+"mlr3misc", "named_list", -1, 0, 1, "list<null>", 1
 "mlr3misc", "named_list", 0, 0, 0, "character[]", 1
 "mlr3misc", "named_list", 1, 0, 0, "double", 1
 "mlr3misc", "named_list", 1, 0, 1, "null", 1
@@ -270,7 +278,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "mlr3misc", "str_wrap", 1, 0, 0, "double", 1
 "mlr3misc", "topo_sort", -1, 0, 0, "class<`data.frame`, `data.table`>", 1
 "mlr3misc", "topo_sort", 0, 0, 0, "class<`data.frame`, `data.table`>", 1
-"mlr3misc", "transpose_list", -1, 0, 0, "list<list<double | class<`factor`> | double>>", 1
+"mlr3misc", "transpose_list", -1, 0, 0, "list<list<double | class<`factor`>>>", 1
+"mlr3misc", "transpose_list", -1, 0, 1, "list<list<double>>", 1
 "mlr3misc", "transpose_list", 0, 0, 0, "class<`data.frame`>", 1
 "mlr3misc", "transpose_list", 0, 0, 1, "list<list<double>>", 1
 "mlr3misc", "unnest", -1, 0, 0, "class<`data.frame`, `data.table`>", 1

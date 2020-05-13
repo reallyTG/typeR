@@ -75,12 +75,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "readxl", "readxl_example", 0, 0, 1, "character", 1
 "readxl", "readxl_progress", -1, 0, 0, "logical", 1
 "readxl", "set_readxl_names", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
-"readxl", "set_readxl_names", 0, 0, 0, "list<any>", 1
+"readxl", "set_readxl_names", 0, 0, 0, "list<^character[] | ^logical[]>", 1
+"readxl", "set_readxl_names", 0, 0, 1, "list<double[]>", 1
+"readxl", "set_readxl_names", 0, 0, 2, "list<double[] | character[]>", 1
+"readxl", "set_readxl_names", 0, 0, 3, "list<^character[]>", 1
+"readxl", "set_readxl_names", 0, 0, 4, "list<^logical[] | character[]>", 1
+"readxl", "set_readxl_names", 0, 0, 5, "list<character[] | double[]>", 1
+"readxl", "set_readxl_names", 0, 0, 6, "list<character[] | double[] | class<`POSIXct`, `POSIXt`>>", 1
+"readxl", "set_readxl_names", 0, 0, 7, "list<character[] | list<character | class<`POSIXct`, `POSIXt`> | double>>", 1
+"readxl", "set_readxl_names", 0, 0, 8, "list<null | character>", 1
+"readxl", "set_readxl_names", 0, 0, 9, "list<double | character>", 1
 "readxl", "set_readxl_names", 1, 0, 0, "character", 1
 "readxl", "set_readxl_names", 1, 0, 1, "class<`function`>", 1
 "readxl", "set_readxl_names", 1, 0, 2, "class<`formula`>", 1
-"readxl", "sheets_fun", -1, 0, 0, "character[]", 1
-"readxl", "sheets_fun", 0, 0, 0, "character", 1
 "readxl", "standardise_limits", -1, 0, 0, "double[]", 1
 "readxl", "standardise_limits", 0, 0, 0, "character", 1
 "readxl", "standardise_limits", 0, 0, 1, "class<`cell_limits`, `list`>", 1

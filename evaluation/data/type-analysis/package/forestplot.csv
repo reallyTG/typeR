@@ -5,7 +5,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "forestplot.default", 0, 0, 0, "character[]", 1
 "forestplot", "forestplot.default", 0, 0, 1, "class<`matrix`>", 1
 "forestplot", "forestplot.default", 0, 0, 2, "integer[]", 1
-"forestplot", "forestplot.default", 0, 0, 3, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "forestplot.default", 0, 0, 3, "list<^character[] | list<expression | character>>", 1
+"forestplot", "forestplot.default", 0, 0, 4, "list<list<character | expression | character | class<`call`>>>", 1
+"forestplot", "forestplot.default", 0, 0, 5, "list<list<character | expression>>", 1
 "forestplot", "forestplot.default", 1, 0, 0, "class<`matrix`>", 1
 "forestplot", "forestplot.default", 1, 0, 1, "class<`data.frame`>", 1
 "forestplot", "forestplot.default", 1, 0, 2, "^double[]", 1
@@ -25,10 +27,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "forestplot.default", 13, 0, 1, "class<`unit`>", 1
 "forestplot", "forestplot.default", 14, 0, 0, "any", 1
 "forestplot", "forestplot.default", 15, 0, 0, "class<`fpColors`, `list`>", 1
-"forestplot", "forestplot.default", 16, 0, 0, "class<`fpTxtGp`, `list`>", 1
-"forestplot", "forestplot.default", 17, 0, 0, "logical", 1
-"forestplot", "forestplot.default", 18, 0, 0, "any", 1
-"forestplot", "forestplot.default", 19, 0, 0, "double", 1
 "forestplot", "fpColors", -1, 0, 0, "class<`fpColors`, `list`>", 1
 "forestplot", "fpColors", 0, 0, 0, "any", 1
 "forestplot", "fpColors", 1, 0, 0, "character[]", 1
@@ -54,7 +52,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "fpDrawPointCI", 12, 0, 0, "...", 1
 "forestplot", "fpLegend", -1, 0, 0, "list<any>", 1
 "forestplot", "fpLegend", 0, 0, 0, "character", 1
-"forestplot", "fpLegend", 0, 0, 1, "list<character | character | double | double>", 1
+"forestplot", "fpLegend", 0, 0, 1, "list<character>", 1
+"forestplot", "fpLegend", 0, 0, 2, "list<character | double>", 1
+"forestplot", "fpLegend", 0, 0, 3, "list<double>", 1
 "forestplot", "fpLegend", 1, 0, 0, "null", 1
 "forestplot", "fpLegend", 1, 0, 1, "class<`gpar`>", 1
 "forestplot", "fpLegend", 2, 0, 0, "class<`unit`>", 1
@@ -86,8 +86,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpDrawLegend", 0, 0, 0, "class<`Legend`, `list`>", 1
 "forestplot", "prFpDrawLegend", 1, 0, 0, "class<`fpColors`, `list`>", 1
 "forestplot", "prFpDrawLegend", 2, 0, 0, "class<`unit`>", 1
-"forestplot", "prFpDrawLegend", 3, 0, 0, "character", 1
-"forestplot", "prFpDrawLegend", 3, 0, 1, "list<double | character[] | class<`unit`> | class<`unit`, `unit.arithmetic`> | character[]>", 1
+"forestplot", "prFpDrawLegend", 3, 0, 0, "list<double | character[]>", 1
+"forestplot", "prFpDrawLegend", 3, 0, 1, "list<class<`unit`> | class<`unit`, `unit.arithmetic`> | character[]>", 1
+"forestplot", "prFpDrawLegend", 3, 0, 2, "character", 1
 "forestplot", "prFpDrawLegend", 4, 0, 0, "class<`gpar`>", 1
 "forestplot", "prFpDrawLegend", 4, 0, 1, "null", 1
 "forestplot", "prFpDrawLegend", 5, 0, 0, "any", 1
@@ -105,7 +106,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpDrawLine", 6, 0, 0, "any", 1
 "forestplot", "prFpDrawLine", 7, 0, 0, "any", 1
 "forestplot", "prFpDrawLines", -1, 0, 0, "null", 1
-"forestplot", "prFpDrawLines", 0, 0, 0, "list<null | class<`gpar`, `list`> | null>", 1
+"forestplot", "prFpDrawLines", 0, 0, 0, "list<null | class<`gpar`, `list`>>", 1
+"forestplot", "prFpDrawLines", 0, 0, 1, "list<null>", 1
 "forestplot", "prFpDrawLines", 1, 0, 0, "integer", 1
 "forestplot", "prFpDrawLines", 2, 0, 0, "any", 1
 "forestplot", "prFpDrawLines", 3, 0, 0, "any", 1
@@ -115,16 +117,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpFetchRowLabel", -1, 0, 3, "integer", 1
 "forestplot", "prFpFetchRowLabel", 0, 0, 0, "character", 1
 "forestplot", "prFpFetchRowLabel", 1, 0, 0, "class<`matrix`>", 1
-"forestplot", "prFpFetchRowLabel", 1, 0, 1, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "prFpFetchRowLabel", 1, 0, 1, "list<^character[] | list<expression | character>>", 1
+"forestplot", "prFpFetchRowLabel", 1, 0, 2, "list<list<character | expression | character | class<`call`>>>", 1
+"forestplot", "prFpFetchRowLabel", 1, 0, 3, "list<list<character | expression>>", 1
 "forestplot", "prFpFetchRowLabel", 2, 0, 0, "integer", 1
 "forestplot", "prFpFetchRowLabel", 3, 0, 0, "integer", 1
 "forestplot", "prFpFindWidestGrob", -1, 0, 0, "class<`unit`>", 1
-"forestplot", "prFpFindWidestGrob", 0, 0, 0, "list<class<`gDesc`, `grob`, `text`> | null | class<`gDesc`, `grob`, `text`>>", 1
+"forestplot", "prFpFindWidestGrob", 0, 0, 0, "list<class<`gDesc`, `grob`, `text`> | null>", 1
+"forestplot", "prFpFindWidestGrob", 0, 0, 1, "list<class<`gDesc`, `grob`, `text`>>", 1
 "forestplot", "prFpFindWidestGrob", 1, 0, 0, "character", 1
-"forestplot", "prFpGetConfintFnList", -1, 0, 0, "list<class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prFpGetConfintFnList", -1, 0, 0, "list<class<`function`>>", 1
+"forestplot", "prFpGetConfintFnList", -1, 0, 1, "list<list<class<`function`>>>", 1
 "forestplot", "prFpGetConfintFnList", 0, 0, 0, "class<`function`>", 1
-"forestplot", "prFpGetConfintFnList", 0, 0, 1, "character[]", 1
-"forestplot", "prFpGetConfintFnList", 0, 0, 2, "list<character | class<`function`> | class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prFpGetConfintFnList", 0, 0, 1, "list<character | class<`function`>>", 1
+"forestplot", "prFpGetConfintFnList", 0, 0, 2, "character[]", 1
+"forestplot", "prFpGetConfintFnList", 0, 0, 3, "list<list<class<`function`>>>", 1
+"forestplot", "prFpGetConfintFnList", 0, 0, 4, "list<class<`function`>>", 1
 "forestplot", "prFpGetConfintFnList", 1, 0, 0, "integer", 1
 "forestplot", "prFpGetConfintFnList", 2, 0, 0, "integer", 1
 "forestplot", "prFpGetConfintFnList", 3, 0, 0, "any", 1
@@ -145,10 +153,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpGetGraphTicksAndClips", 11, 0, 0, "class<`matrix`>", 1
 "forestplot", "prFpGetGraphTicksAndClips", 11, 0, 1, "^double[]", 1
 "forestplot", "prFpGetGraphTicksAndClips", 12, 0, 0, "double", 1
-"forestplot", "prFpGetLabels", -1, 0, 0, "list<list<class<`gDesc`, `grob`, `text`> | null | class<`gDesc`, `grob`, `text`>>>", 1
+"forestplot", "prFpGetLabels", -1, 0, 0, "list<list<class<`gDesc`, `grob`, `text`> | null>>", 1
+"forestplot", "prFpGetLabels", -1, 0, 1, "list<list<class<`gDesc`, `grob`, `text`>>>", 1
 "forestplot", "prFpGetLabels", 0, 0, 0, "character", 1
 "forestplot", "prFpGetLabels", 1, 0, 0, "class<`matrix`>", 1
-"forestplot", "prFpGetLabels", 1, 0, 1, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "prFpGetLabels", 1, 0, 1, "list<^character[] | list<expression | character>>", 1
+"forestplot", "prFpGetLabels", 1, 0, 2, "list<list<character | expression | character | class<`call`>>>", 1
+"forestplot", "prFpGetLabels", 1, 0, 3, "list<list<character | expression>>", 1
 "forestplot", "prFpGetLabels", 2, 0, 0, "character[]", 1
 "forestplot", "prFpGetLabels", 3, 0, 0, "double", 1
 "forestplot", "prFpGetLabels", 4, 0, 0, "integer", 1
@@ -162,14 +173,18 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpGetLayoutVP", 2, 0, 0, "any", 1
 "forestplot", "prFpGetLayoutVP", 3, 0, 0, "class<`layout`>", 1
 "forestplot", "prFpGetLayoutVP", 3, 0, 1, "null", 1
-"forestplot", "prFpGetLegendBoxPosition", -1, 0, 0, "list<class<`unit`> | class<`unit`, `unit.arithmetic`> | character[] | double | character[]>", 1
-"forestplot", "prFpGetLegendBoxPosition", 0, 0, 0, "list<character | character | double | double>", 1
+"forestplot", "prFpGetLegendBoxPosition", -1, 0, 0, "list<class<`unit`> | class<`unit`, `unit.arithmetic`> | character[]>", 1
+"forestplot", "prFpGetLegendBoxPosition", -1, 0, 1, "list<double | character[]>", 1
+"forestplot", "prFpGetLegendBoxPosition", 0, 0, 0, "list<character>", 1
+"forestplot", "prFpGetLegendBoxPosition", 0, 0, 1, "list<character | double>", 1
+"forestplot", "prFpGetLegendBoxPosition", 0, 0, 2, "list<double>", 1
 "forestplot", "prFpGetLegendGrobs", -1, 0, 0, "class<`Legend`, `list`>", 1
 "forestplot", "prFpGetLegendGrobs", 0, 0, 0, "character[]", 1
 "forestplot", "prFpGetLegendGrobs", 1, 0, 0, "class<`fpTxtGp`, `list`>", 1
 "forestplot", "prFpGetLegendGrobs", 2, 0, 0, "null", 1
 "forestplot", "prFpGetLegendGrobs", 2, 0, 1, "character", 1
-"forestplot", "prFpGetLines", -1, 0, 0, "list<null | class<`gpar`, `list`> | null>", 1
+"forestplot", "prFpGetLines", -1, 0, 0, "list<null | class<`gpar`, `list`>>", 1
+"forestplot", "prFpGetLines", -1, 0, 1, "list<null>", 1
 "forestplot", "prFpGetLines", 0, 0, 0, "any", 1
 "forestplot", "prFpGetLines", 1, 0, 0, "logical[]", 1
 "forestplot", "prFpGetLines", 2, 0, 0, "any", 1
@@ -180,9 +195,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpPrepareLegendMarker", 2, 0, 0, "any", 1
 "forestplot", "prFpPrepareLegendMarker", 3, 0, 0, "character[]", 1
 "forestplot", "prFpPrepareLegendMarker", 3, 0, 1, "class<`function`>", 1
-"forestplot", "prFpPrepareLegendMarker", 3, 0, 2, "list<class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prFpPrepareLegendMarker", 3, 0, 2, "list<list<class<`function`>>>", 1
+"forestplot", "prFpPrepareLegendMarker", 3, 0, 3, "list<class<`function`>>", 1
 "forestplot", "prFpPrintLabels", -1, 0, 0, "null", 1
-"forestplot", "prFpPrintLabels", 0, 0, 0, "list<list<class<`gDesc`, `grob`, `text`> | null | class<`gDesc`, `grob`, `text`>>>", 1
+"forestplot", "prFpPrintLabels", 0, 0, 0, "list<list<class<`gDesc`, `grob`, `text`> | null>>", 1
+"forestplot", "prFpPrintLabels", 0, 0, 1, "list<list<class<`gDesc`, `grob`, `text`>>>", 1
 "forestplot", "prFpPrintLabels", 1, 0, 0, "double", 1
 "forestplot", "prFpPrintLabels", 2, 0, 0, "integer", 1
 "forestplot", "prFpPrintLabels", 3, 0, 0, "double", 1
@@ -191,7 +208,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prFpPrintXaxis", 1, 0, 0, "class<`fpColors`, `list`>", 1
 "forestplot", "prFpPrintXaxis", 2, 0, 0, "any", 1
 "forestplot", "prFpValidateLabelList", -1, 0, 0, "logical", 1
-"forestplot", "prFpValidateLabelList", 0, 0, 0, "list<^character[] | list<expression | character> | list<character | expression | character | class<`call`> | character | expression>>", 1
+"forestplot", "prFpValidateLabelList", 0, 0, 0, "list<^character[] | list<expression | character>>", 1
+"forestplot", "prFpValidateLabelList", 0, 0, 1, "list<list<character | expression | character | class<`call`>>>", 1
+"forestplot", "prFpValidateLabelList", 0, 0, 2, "list<list<character | expression>>", 1
 "forestplot", "prFpXrange", -1, 0, 0, "double[]", 1
 "forestplot", "prFpXrange", 0, 0, 0, "^double[]", 1
 "forestplot", "prFpXrange", 1, 0, 0, "^double[]", 1
@@ -206,19 +225,31 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "forestplot", "prGparMerge", 0, 0, 0, "class<`gpar`>", 1
 "forestplot", "prGparMerge", 0, 0, 1, "list<character | double>", 1
 "forestplot", "prGparMerge", 1, 0, 0, "class<`gpar`>", 1
-"forestplot", "prGparMerge", 1, 0, 1, "list<character | double | double>", 1
+"forestplot", "prGparMerge", 1, 0, 1, "list<character | double>", 1
+"forestplot", "prGparMerge", 1, 0, 2, "list<double>", 1
 "forestplot", "prGridPlotTitle", -1, 0, 0, "null", 1
 "forestplot", "prGridPlotTitle", 0, 0, 0, "character", 1
 "forestplot", "prGridPlotTitle", 1, 0, 0, "list<character | double>", 1
 "forestplot", "prGridPlotTitle", 2, 0, 0, "any", 1
-"forestplot", "prListRep", -1, 0, 0, "list<list<character | double | list<character | double>>>", 1
-"forestplot", "prListRep", 0, 0, 0, "list<character | double | list<character | double | list<character | double>>>", 1
+"forestplot", "prListRep", -1, 0, 0, "list<list<list<character | double>>>", 1
+"forestplot", "prListRep", -1, 0, 1, "list<list<character | double>>", 1
+"forestplot", "prListRep", 0, 0, 0, "list<list<list<character | double>>>", 1
+"forestplot", "prListRep", 0, 0, 1, "list<list<character | double>>", 1
+"forestplot", "prListRep", 0, 0, 2, "list<character | double>", 1
 "forestplot", "prListRep", 1, 0, 0, "double", 1
-"forestplot", "prPopulateList", -1, 0, 0, "list<any>", 1
-"forestplot", "prPopulateList", 0, 0, 0, "class<`function`>", 1
-"forestplot", "prPopulateList", 0, 0, 1, "character[]", 1
-"forestplot", "prPopulateList", 0, 0, 2, "double[]", 1
-"forestplot", "prPopulateList", 0, 0, 3, "list<character | class<`function`> | class<`function`> | list<class<`function`>>>", 1
+"forestplot", "prPopulateList", -1, 0, 0, "list<character | class<`function`>>", 1
+"forestplot", "prPopulateList", -1, 0, 1, "list<class<`function`>>", 1
+"forestplot", "prPopulateList", -1, 0, 2, "list<double>", 1
+"forestplot", "prPopulateList", -1, 0, 3, "list<list<character>>", 1
+"forestplot", "prPopulateList", -1, 0, 4, "list<list<character | class<`function`>>>", 1
+"forestplot", "prPopulateList", -1, 0, 5, "list<list<class<`function`>>>", 1
+"forestplot", "prPopulateList", -1, 0, 6, "list<list<double>>", 1
+"forestplot", "prPopulateList", 0, 0, 0, "list<character | class<`function`>>", 1
+"forestplot", "prPopulateList", 0, 0, 1, "class<`function`>", 1
+"forestplot", "prPopulateList", 0, 0, 2, "character[]", 1
+"forestplot", "prPopulateList", 0, 0, 3, "list<list<class<`function`>>>", 1
+"forestplot", "prPopulateList", 0, 0, 4, "list<class<`function`>>", 1
+"forestplot", "prPopulateList", 0, 0, 5, "double[]", 1
 "forestplot", "prPopulateList", 1, 0, 0, "integer", 1
 "forestplot", "prPopulateList", 2, 0, 0, "integer", 1
 "forestplot", "prPopulateList", 3, 0, 0, "any", 1

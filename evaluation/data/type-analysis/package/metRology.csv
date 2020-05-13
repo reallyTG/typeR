@@ -34,10 +34,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "barplot.mandel.kh", 13, 0, 0, "double", 1
 "metRology", "barplot.mandel.kh", 14, 0, 0, "character", 1
 "metRology", "barplot.mandel.kh", 15, 0, 0, "double", 1
-"metRology", "barplot.mandel.kh", 16, 0, 0, "double", 1
-"metRology", "barplot.mandel.kh", 17, 0, 0, "double", 1
-"metRology", "barplot.mandel.kh", 18, 0, 0, "double", 1
-"metRology", "barplot.mandel.kh", 19, 0, 0, "double", 1
 "metRology", "barplot.MSD", -1, 0, 0, "class<`matrix`>", 1
 "metRology", "barplot.MSD", 0, 0, 0, "class<`MSD`, `numeric`>", 1
 "metRology", "barplot.MSD", 1, 0, 0, "character", 1
@@ -49,9 +45,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "barplot.MSD", 7, 0, 0, "double[]", 1
 "metRology", "barplot.MSD", 8, 0, 0, "integer", 1
 "metRology", "barplot.MSD", 9, 0, 0, "...", 1
-"metRology", "bkp", -1, 0, 0, "list<^double[] | class<`factor`> | character[] | double[] | class<`factor`> | character[] | double[] | null | character[]>", 1
-"metRology", "bkp", 0, 0, 0, "class<`blockplot`, `list`>", 1
-"metRology", "bkp", 0, 0, 1, "list<^double[] | class<`factor`> | character[] | double[] | class<`factor`> | character[] | double[] | null | character[]>", 1
+"metRology", "bkp", -1, 0, 0, "list<^double[] | class<`factor`> | character[]>", 1
+"metRology", "bkp", -1, 0, 1, "list<double[] | class<`factor`> | character[]>", 1
+"metRology", "bkp", -1, 0, 2, "list<double[] | null | character[]>", 1
+"metRology", "bkp", 0, 0, 0, "list<^double[] | class<`factor`> | character[]>", 1
+"metRology", "bkp", 0, 0, 1, "class<`blockplot`, `list`>", 1
+"metRology", "bkp", 0, 0, 2, "list<double[] | class<`factor`> | character[]>", 1
+"metRology", "bkp", 0, 0, 3, "list<double[] | null | character[]>", 1
 "metRology", "bkp", 1, 0, 0, "character[]", 1
 "metRology", "bkp", 2, 0, 0, "null", 1
 "metRology", "bkp", 3, 0, 0, "null", 1
@@ -70,10 +70,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "bkp", 13, 0, 0, "null", 1
 "metRology", "bkp", 14, 0, 0, "null", 1
 "metRology", "bkp", 15, 0, 0, "double", 1
-"metRology", "bkp", 16, 0, 0, "double", 1
-"metRology", "bkp", 17, 0, 0, "double", 1
-"metRology", "bkp", 18, 0, 0, "double", 1
-"metRology", "bkp", 19, 0, 0, "null", 1
 "metRology", "blockplot", -1, 0, 0, "class<`blockplot`, `list`>", 1
 "metRology", "blockplot", 0, 0, 0, "class<`formula`>", 1
 "metRology", "blockplot", 0, 0, 1, "^double[]", 1
@@ -123,10 +119,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "boxplot.mandel.kh", 13, 0, 0, "double", 1
 "metRology", "boxplot.mandel.kh", 14, 0, 0, "double[]", 1
 "metRology", "boxplot.mandel.kh", 15, 0, 0, "double", 1
-"metRology", "boxplot.mandel.kh", 16, 0, 0, "character", 1
-"metRology", "boxplot.mandel.kh", 17, 0, 0, "double", 1
-"metRology", "boxplot.mandel.kh", 18, 0, 0, "double", 1
-"metRology", "boxplot.mandel.kh", 19, 0, 0, "double", 1
 "metRology", "buildCor", -1, 0, 0, "class<`matrix`>", 1
 "metRology", "buildCor", 0, 0, 0, "double", 1
 "metRology", "buildCor", 1, 0, 0, "class<`matrix`>", 1
@@ -177,8 +169,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", ".construct.loc.est", 6, 0, 0, "double[]", 1
 "metRology", ".construct.loc.est", 7, 0, 0, "double[]", 1
 "metRology", ".construct.loc.est", 8, 0, 0, "character", 1
-"metRology", ".construct.loc.est", 9, 0, 0, "class<`lm`, `rlm`>", 1
-"metRology", ".construct.loc.est", 9, 0, 1, "list<double>", 1
+"metRology", ".construct.loc.est", 9, 0, 0, "list<double>", 1
+"metRology", ".construct.loc.est", 9, 0, 1, "class<`lm`, `rlm`>", 1
 "metRology", ".construct.uncert", -1, 0, 0, "class<`list`, `uncert`>", 1
 "metRology", ".construct.uncert", 0, 0, 0, "class<`call`>", 1
 "metRology", ".construct.uncert", 1, 0, 0, "class<`formula`>", 1
@@ -189,12 +181,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", ".construct.uncert", 2, 0, 1, "null", 1
 "metRology", ".construct.uncert", 3, 0, 0, "double", 1
 "metRology", ".construct.uncert", 4, 0, 0, "character", 1
-"metRology", ".construct.uncert", 5, 0, 0, "null", 1
-"metRology", ".construct.uncert", 5, 0, 1, "list<double>", 1
-"metRology", ".construct.uncert", 6, 0, 0, "null", 1
-"metRology", ".construct.uncert", 6, 0, 1, "list<null>", 1
-"metRology", ".construct.uncert", 7, 0, 0, "double[]", 1
-"metRology", ".construct.uncert", 7, 0, 1, "list<double>", 1
+"metRology", ".construct.uncert", 5, 0, 0, "list<double>", 1
+"metRology", ".construct.uncert", 5, 0, 1, "null", 1
+"metRology", ".construct.uncert", 6, 0, 0, "list<null>", 1
+"metRology", ".construct.uncert", 6, 0, 1, "null", 1
+"metRology", ".construct.uncert", 7, 0, 0, "list<double>", 1
+"metRology", ".construct.uncert", 7, 0, 1, "double[]", 1
 "metRology", ".construct.uncert", 8, 0, 0, "double[]", 1
 "metRology", ".construct.uncert", 8, 0, 1, "list<double>", 1
 "metRology", ".construct.uncert", 9, 0, 0, "null", 1
@@ -204,18 +196,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", ".construct.uncert", 11, 0, 1, "null", 1
 "metRology", ".construct.uncert", 12, 0, 0, "class<`matrix`>", 1
 "metRology", ".construct.uncert", 13, 0, 0, "null", 1
-"metRology", ".construct.uncert", 14, 0, 0, "null", 1
-"metRology", ".construct.uncert", 14, 0, 1, "list<character>", 1
-"metRology", ".construct.uncert", 15, 0, 0, "null", 1
-"metRology", ".construct.uncert", 15, 0, 1, "list<list<double>>", 1
-"metRology", ".construct.uncert", 16, 0, 0, "class<`data.frame`>", 1
-"metRology", ".construct.uncert", 16, 0, 1, "double[]", 1
-"metRology", ".construct.uncert", 17, 0, 0, "class<`data.frame`>", 1
-"metRology", ".construct.uncert", 17, 0, 1, "double[]", 1
-"metRology", ".construct.uncert", 18, 0, 0, "null", 1
-"metRology", ".construct.uncert", 18, 0, 1, "double", 1
-"metRology", ".construct.uncert", 19, 0, 0, "null", 1
-"metRology", ".construct.uncert", 19, 0, 1, "list<double[] | class<`data.frame`>>", 1
+"metRology", ".construct.uncert", 14, 0, 0, "list<character>", 1
+"metRology", ".construct.uncert", 14, 0, 1, "null", 1
+"metRology", ".construct.uncert", 15, 0, 0, "list<list<double>>", 1
+"metRology", ".construct.uncert", 15, 0, 1, "null", 1
 "metRology", "contribs", -1, 0, 0, "class<`matrix`>", 1
 "metRology", "contribs", -1, 0, 1, "double[]", 1
 "metRology", "contribs", 0, 0, 0, "class<`list`, `uncert`>", 1
@@ -299,10 +283,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "duewer.plot.default", 13, 0, 0, "null", 1
 "metRology", "duewer.plot.default", 14, 0, 0, "null", 1
 "metRology", "duewer.plot.default", 15, 0, 0, "any", 1
-"metRology", "duewer.plot.default", 16, 0, 0, "character", 1
-"metRology", "duewer.plot.default", 17, 0, 0, "character", 1
-"metRology", "duewer.plot.default", 18, 0, 0, "double", 1
-"metRology", "duewer.plot.default", 19, 0, 0, "logical", 1
 "metRology", ".get.df", -1, 0, 0, "double", 1
 "metRology", ".get.df", 0, 0, 0, "double", 1
 "metRology", ".get.df", 1, 0, 0, "double", 1
@@ -334,11 +314,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "gplot", 13, 0, 0, "character", 1
 "metRology", "gplot", 14, 0, 0, "double", 1
 "metRology", "gplot", 15, 0, 0, "double", 1
-"metRology", "gplot", 16, 0, 0, "logical", 1
-"metRology", "gplot", 17, 0, 0, "double", 1
-"metRology", "gplot", 18, 0, 0, "double", 1
-"metRology", "gplot", 19, 0, 0, "double", 1
-"metRology", "GUM", -1, 0, 0, "list<double[] | class<`matrix`> | character[] | double | class<`matrix`> | character[]>", 1
+"metRology", "GUM", -1, 0, 0, "list<double[] | class<`matrix`> | character[]>", 1
+"metRology", "GUM", -1, 0, 1, "list<double | class<`matrix`> | character[]>", 1
 "metRology", "GUM", 0, 0, 0, "character[]", 1
 "metRology", "GUM", 1, 0, 0, "class<`matrix`>", 1
 "metRology", "GUM", 1, 0, 1, "double[]", 1
@@ -399,10 +376,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "kplot.default", 13, 0, 0, "any", 1
 "metRology", "kplot.default", 14, 0, 0, "null", 1
 "metRology", "kplot.default", 15, 0, 0, "null", 1
-"metRology", "kplot.default", 16, 0, 0, "null", 1
-"metRology", "kplot.default", 17, 0, 0, "double", 1
-"metRology", "kplot.default", 18, 0, 0, "double", 1
-"metRology", "kplot.default", 19, 0, 0, "integer[]", 1
 "metRology", "kplot.ilab", -1, 0, 0, "list<integer[]>", 1
 "metRology", "kplot.ilab", 0, 0, 0, "class<`ilab`>", 1
 "metRology", "kplot.ilab", 1, 0, 0, "...", 1
@@ -596,8 +569,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "plot.d.ellipse", 13, 0, 0, "double", 1
 "metRology", "plot.d.ellipse", 14, 0, 0, "double", 1
 "metRology", "plot.d.ellipse", 15, 0, 0, "null", 1
-"metRology", "plot.d.ellipse", 16, 0, 0, "null", 1
-"metRology", "plot.d.ellipse", 17, 0, 0, "...", 1
 "metRology", "plot.drop1.uncert", -1, 0, 0, "null", 1
 "metRology", "plot.drop1.uncert", 0, 0, 0, "class<`data.frame`, `drop1.uncert`>", 1
 "metRology", "plot.drop1.uncert", 1, 0, 0, "...", 1
@@ -623,10 +594,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "plot.mandel.kh", 13, 0, 0, "double", 1
 "metRology", "plot.mandel.kh", 14, 0, 0, "double[]", 1
 "metRology", "plot.mandel.kh", 15, 0, 0, "double", 1
-"metRology", "plot.mandel.kh", 16, 0, 0, "logical", 1
-"metRology", "plot.mandel.kh", 17, 0, 0, "character", 1
-"metRology", "plot.mandel.kh", 18, 0, 0, "double", 1
-"metRology", "plot.mandel.kh", 19, 0, 0, "double", 1
 "metRology", "plot.MSD", -1, 0, 0, "null", 1
 "metRology", "plot.MSD", 0, 0, 0, "class<`MSD`, `numeric`>", 1
 "metRology", "plot.MSD", 1, 0, 0, "character", 1
@@ -855,8 +822,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "update.uncert", 2, 0, 0, "null", 1
 "metRology", "update.uncert", 2, 0, 1, "character", 1
 "metRology", "update.uncert", 3, 0, 0, "null", 1
-"metRology", "update.uncert", 4, 0, 0, "null", 1
-"metRology", "update.uncert", 4, 0, 1, "list<double>", 1
+"metRology", "update.uncert", 4, 0, 0, "list<double>", 1
+"metRology", "update.uncert", 4, 0, 1, "null", 1
 "metRology", "update.uncert", 5, 0, 0, "null", 1
 "metRology", "update.uncert", 6, 0, 0, "null", 1
 "metRology", "update.uncert", 7, 0, 0, "null", 1
@@ -905,10 +872,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "xs.plot.default", 13, 0, 0, "logical", 1
 "metRology", "xs.plot.default", 14, 0, 0, "character", 1
 "metRology", "xs.plot.default", 15, 0, 0, "character", 1
-"metRology", "xs.plot.default", 16, 0, 0, "double", 1
-"metRology", "xs.plot.default", 17, 0, 0, "logical", 1
-"metRology", "xs.plot.default", 18, 0, 0, "character", 1
-"metRology", "xs.plot.default", 19, 0, 0, "character[]", 1
 "metRology", "youden.plot", -1, 0, 0, "class<`d.ellipse`>", 1
 "metRology", "youden.plot", 0, 0, 0, "class<`data.frame`>", 1
 "metRology", "youden.plot", 0, 0, 1, "double[]", 1
@@ -932,10 +895,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "metRology", "youden.plot.default", 13, 0, 0, "any", 1
 "metRology", "youden.plot.default", 14, 0, 0, "character[]", 1
 "metRology", "youden.plot.default", 15, 0, 0, "character[]", 1
-"metRology", "youden.plot.default", 16, 0, 0, "double", 1
-"metRology", "youden.plot.default", 17, 0, 0, "double", 1
-"metRology", "youden.plot.default", 18, 0, 0, "double", 1
-"metRology", "youden.plot.default", 19, 0, 0, "double", 1
 "metRology", "yplot", -1, 0, 0, "class<`d.ellipse`>", 1
 "metRology", "yplot", 0, 0, 0, "class<`data.frame`>", 1
 "metRology", "yplot", 0, 0, 1, "double[]", 1

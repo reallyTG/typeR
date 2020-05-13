@@ -11,7 +11,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "arma", 0, 0, 0, "class<`ts`>", 1
 "tseries", "arma", 1, 0, 0, "double[]", 1
 "tseries", "arma", 2, 0, 0, "null", 1
-"tseries", "arma", 2, 0, 1, "list<double[] | double[] | null>", 1
+"tseries", "arma", 2, 0, 1, "list<double[]>", 1
+"tseries", "arma", 2, 0, 2, "list<double[] | null>", 1
 "tseries", "arma", 3, 0, 0, "null", 1
 "tseries", "arma", 4, 0, 0, "logical", 1
 "tseries", "arma", 5, 0, 0, "null", 1
@@ -51,7 +52,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "garch.control", 5, 0, 0, "double", 1
 "tseries", "garch.control", 6, 0, 0, "double", 1
 "tseries", "garch.control", 7, 0, 0, "double", 1
-"tseries", "garch.control", 8, 0, 0, "...", 1
 "tseries", "get.hist.quote", -1, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tseries", "get.hist.quote", -1, 0, 1, "class<`zoo`>", 1
 "tseries", "get.hist.quote", 0, 0, 0, "character", 1
@@ -62,9 +62,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "get.hist.quote", 5, 0, 0, "null", 1
 "tseries", "get.hist.quote", 6, 0, 0, "character", 1
 "tseries", "get.hist.quote", 7, 0, 0, "character", 1
-"tseries", "get.hist.quote", 8, 0, 0, "character[]", 1
-"tseries", "get.hist.quote", 9, 0, 0, "logical", 1
-"tseries", "get.hist.quote", 10, 0, 0, "logical", 1
 "tseries", "irts", -1, 0, 0, "class<`irts`>", 1
 "tseries", "irts", 0, 0, 0, "double[]", 1
 "tseries", "irts", 1, 0, 0, "class<`matrix`>", 1
@@ -96,9 +93,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "maxdrawdown", -1, 0, 0, "list<double>", 1
 "tseries", "maxdrawdown", 0, 0, 0, "class<`ts`>", 1
 "tseries", "maxdrawdown", 0, 0, 1, "integer[]", 1
-"tseries", "na.action", -1, 0, 0, "class<`ts`>", 1
-"tseries", "na.action", 0, 0, 0, "class<`ts`>", 1
-"tseries", "na.action", 1, 0, 0, "...", 1
 "tseries", "na.remove", -1, 0, 0, "class<`ts`>", 1
 "tseries", "na.remove", 0, 0, 0, "class<`ts`>", 1
 "tseries", "na.remove", 1, 0, 0, "...", 1
@@ -125,7 +119,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "plot.irts", 5, 0, 0, "null", 1
 "tseries", "plot.irts", 6, 0, 0, "null", 1
 "tseries", "plot.irts", 7, 0, 0, "any", 1
-"tseries", "plot.irts", 8, 0, 0, "...", 1
 "tseries", "plotOHLC", -1, 0, 0, "null", 1
 "tseries", "plotOHLC", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tseries", "plotOHLC", 1, 0, 0, "null", 1
@@ -135,13 +128,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "plotOHLC", 5, 0, 0, "character", 1
 "tseries", "plotOHLC", 6, 0, 0, "character", 1
 "tseries", "plotOHLC", 7, 0, 0, "logical", 1
-"tseries", "plotOHLC", 8, 0, 0, "logical", 1
-"tseries", "plotOHLC", 9, 0, 0, "logical", 1
-"tseries", "plotOHLC", 10, 0, 0, "character", 1
-"tseries", "plotOHLC", 11, 0, 0, "character[]", 1
-"tseries", "plotOHLC", 12, 0, 0, "character", 1
-"tseries", "plotOHLC", 13, 0, 0, "character", 1
-"tseries", "plotOHLC", 14, 0, 0, "...", 1
 "tseries", "points.irts", -1, 0, 0, "class<`irts`>", 1
 "tseries", "points.irts", 0, 0, 0, "class<`irts`>", 1
 "tseries", "points.irts", 1, 0, 0, "character", 1
@@ -160,7 +146,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "portfolio.optim.default", 5, 0, 0, "null", 1
 "tseries", "portfolio.optim.default", 6, 0, 0, "null", 1
 "tseries", "portfolio.optim.default", 7, 0, 0, "class<`matrix`>", 1
-"tseries", "portfolio.optim.default", 8, 0, 0, "...", 1
 "tseries", "po.test", -1, 0, 0, "class<`htest`>", 1
 "tseries", "po.test", 0, 0, 0, "class<`matrix`, `mts`, `ts`>", 1
 "tseries", "po.test", 1, 0, 0, "logical", 1
@@ -201,13 +186,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "tseries", "seqplot.ts", 5, 0, 0, "character", 1
 "tseries", "seqplot.ts", 6, 0, 0, "double", 1
 "tseries", "seqplot.ts", 7, 0, 0, "double", 1
-"tseries", "seqplot.ts", 8, 0, 0, "character", 1
-"tseries", "seqplot.ts", 9, 0, 0, "character", 1
-"tseries", "seqplot.ts", 10, 0, 0, "double[]", 1
-"tseries", "seqplot.ts", 11, 0, 0, "logical", 1
-"tseries", "seqplot.ts", 12, 0, 0, "character", 1
-"tseries", "seqplot.ts", 13, 0, 0, "any", 1
-"tseries", "seqplot.ts", 14, 0, 0, "null", 1
 "tseries", "sharpe", -1, 0, 0, "double", 1
 "tseries", "sharpe", 0, 0, 0, "class<`ts`>", 1
 "tseries", "sharpe", 1, 0, 0, "double", 1

@@ -22,7 +22,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "docopt", "extras", 3, 0, 0, "any", 1
 "docopt", "formal_usage", -1, 0, 0, "character", 1
 "docopt", "formal_usage", 0, 0, 0, "character", 1
-"docopt", "matched", -1, 0, 0, "list<logical | list<any> | logical | list<class<`Option`>>>", 1
+"docopt", "matched", -1, 0, 0, "list<logical | list<any>>", 1
+"docopt", "matched", -1, 0, 1, "list<logical | list<class<`Option`>>>", 1
 "docopt", "matched", 0, 0, 0, "logical", 1
 "docopt", "matched", 1, 0, 0, "list<any>", 1
 "docopt", "matched", 2, 0, 0, "list<any>", 1
@@ -37,12 +38,17 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "docopt", "parse_args", -1, 0, 0, "list<class<`Option`>>", 1
 "docopt", "parse_args", 0, 0, 0, "character", 1
 "docopt", "parse_args", 1, 0, 0, "class<`OptionList`>", 1
-"docopt", "parse_atom", -1, 0, 0, "list<class<`Argument`> | class<`Optional`> | class<`Option`>>", 1
+"docopt", "parse_atom", -1, 0, 0, "list<class<`Argument`>>", 1
+"docopt", "parse_atom", -1, 0, 1, "list<class<`Optional`>>", 1
+"docopt", "parse_atom", -1, 0, 2, "list<class<`Option`>>", 1
 "docopt", "parse_atom", 0, 0, 0, "class<`Tokens`>", 1
 "docopt", "parse_atom", 1, 0, 0, "any", 1
 "docopt", "parse_doc_options", -1, 0, 0, "class<`OptionList`>", 1
 "docopt", "parse_doc_options", 0, 0, 0, "character", 1
-"docopt", "parse_expr", -1, 0, 0, "list<any>", 1
+"docopt", "parse_expr", -1, 0, 0, "list<class<`Either`>>", 1
+"docopt", "parse_expr", -1, 0, 1, "list<class<`OneOrMore`>>", 1
+"docopt", "parse_expr", -1, 0, 2, "list<class<`Optional`>>", 1
+"docopt", "parse_expr", -1, 0, 3, "list<class<`Option`>>", 1
 "docopt", "parse_expr", 0, 0, 0, "class<`Tokens`>", 1
 "docopt", "parse_expr", 1, 0, 0, "any", 1
 "docopt", "parse_long", -1, 0, 0, "list<class<`Option`>>", 1
@@ -53,7 +59,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "docopt", "parse_pattern", -1, 0, 0, "class<`Required`>", 1
 "docopt", "parse_pattern", 0, 0, 0, "character", 1
 "docopt", "parse_pattern", 1, 0, 0, "class<`OptionList`>", 1
-"docopt", "parse_seq", -1, 0, 0, "list<class<`OneOrMore`> | class<`Optional`> | class<`Option`>>", 1
+"docopt", "parse_seq", -1, 0, 0, "list<class<`OneOrMore`>>", 1
+"docopt", "parse_seq", -1, 0, 1, "list<class<`Optional`>>", 1
+"docopt", "parse_seq", -1, 0, 2, "list<class<`Option`>>", 1
 "docopt", "parse_seq", 0, 0, 0, "class<`Tokens`>", 1
 "docopt", "parse_seq", 1, 0, 0, "any", 1
 "docopt", "parse_shorts", -1, 0, 0, "list<class<`Option`>>", 1

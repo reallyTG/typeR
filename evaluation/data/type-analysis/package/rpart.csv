@@ -9,8 +9,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "formatg", 1, 0, 0, "any", 1
 "rpart", "formatg", 2, 0, 0, "character", 1
 "rpart", "importance", -1, 0, 0, "double[]", 1
-"rpart", "importance", 0, 0, 0, "class<`rpart`>", 1
-"rpart", "importance", 0, 0, 1, "list<any>", 1
+"rpart", "importance", 0, 0, 0, "list<any>", 1
+"rpart", "importance", 0, 0, 1, "class<`rpart`>", 1
 "rpart", "labels.rpart", -1, 0, 0, "character[]", 1
 "rpart", "labels.rpart", 0, 0, 0, "class<`rpart`>", 1
 "rpart", "labels.rpart", 1, 0, 0, "double", 1
@@ -86,11 +86,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "rpart", 5, 0, 0, "any", 1
 "rpart", "rpart", 6, 0, 0, "logical", 1
 "rpart", "rpart", 7, 0, 0, "logical", 1
-"rpart", "rpart", 8, 0, 0, "logical", 1
-"rpart", "rpart", 9, 0, 0, "any", 1
-"rpart", "rpart", 10, 0, 0, "any", 1
-"rpart", "rpart", 11, 0, 0, "any", 1
-"rpart", "rpart", 12, 0, 0, "...", 1
 "rpart", "rpart.branch", -1, 0, 0, "list<class<`matrix`>>", 1
 "rpart", "rpart.branch", 0, 0, 0, "double[]", 1
 "rpart", "rpart.branch", 1, 0, 0, "double[]", 1
@@ -99,11 +94,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "rpartcallback", -1, 0, 0, "list<class<`{`> | environment>", 1
 "rpart", "rpartcallback", 0, 0, 0, "list<class<`function`>>", 1
 "rpart", "rpartcallback", 1, 0, 0, "integer", 1
-"rpart", "rpartcallback", 2, 0, 0, "list<any>", 1
+"rpart", "rpartcallback", 2, 0, 0, "list<double[] | class<`function`>>", 1
+"rpart", "rpartcallback", 2, 0, 1, "list<double[] | null | class<`function`>>", 1
+"rpart", "rpartcallback", 2, 0, 2, "list<double>", 1
+"rpart", "rpartcallback", 2, 0, 3, "list<double | null>", 1
 "rpart", "rpartco", -1, 0, 0, "list<double[]>", 1
 "rpart", "rpartco", 0, 0, 0, "class<`rpart`>", 1
 "rpart", "rpartco", 1, 0, 0, "any", 1
-"rpart", "rpart.control", -1, 0, 0, "list<double | integer[] | double>", 1
+"rpart", "rpart.control", -1, 0, 0, "list<double | integer[]>", 1
+"rpart", "rpart.control", -1, 0, 1, "list<double>", 1
 "rpart", "rpart.control", 0, 0, 0, "double", 1
 "rpart", "rpart.control", 1, 0, 0, "double", 1
 "rpart", "rpart.control", 2, 0, 0, "double", 1
@@ -113,8 +112,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "rpart.control", 6, 0, 0, "integer[]", 1
 "rpart", "rpart.control", 6, 0, 1, "double", 1
 "rpart", "rpart.control", 7, 0, 0, "integer", 1
-"rpart", "rpart.control", 8, 0, 0, "double", 1
-"rpart", "rpart.control", 9, 0, 0, "...", 1
 "rpart", "rpart.exp", -1, 0, 0, "list<class<`matrix`> | integer[] | class<`function`>>", 1
 "rpart", "rpart.exp", 0, 0, 0, "class<`Surv`>", 1
 "rpart", "rpart.exp", 1, 0, 0, "null", 1
@@ -145,12 +142,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rpart", "text.rpart", 5, 0, 0, "null", 1
 "rpart", "text.rpart", 6, 0, 0, "integer", 1
 "rpart", "text.rpart", 7, 0, 0, "logical", 1
-"rpart", "text.rpart", 8, 0, 0, "logical", 1
-"rpart", "text.rpart", 9, 0, 0, "double", 1
-"rpart", "text.rpart", 10, 0, 0, "double", 1
-"rpart", "text.rpart", 11, 0, 0, "any", 1
-"rpart", "text.rpart", 12, 0, 0, "double", 1
-"rpart", "text.rpart", 13, 0, 0, "...", 1
 "rpart", "tree.depth", -1, 0, 0, "double[]", 1
 "rpart", "tree.depth", 0, 0, 0, "double[]", 1
 "rpart", "xpred.rpart", -1, 0, 0, "class<`array`>", 1

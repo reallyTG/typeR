@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"fdrtool", "approximate.fit", -1, 0, 0, "list<double | double | null>", 1
+"fdrtool", "approximate.fit", -1, 0, 0, "list<double>", 1
+"fdrtool", "approximate.fit", -1, 0, 1, "list<double | null>", 1
 "fdrtool", "approximate.fit", 0, 0, 0, "double[]", 1
 "fdrtool", "approximate.fit", 1, 0, 0, "character", 1
 "fdrtool", "approximate.fit", 2, 0, 0, "double[]", 1
@@ -18,10 +19,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fdrtool", "ecdf.pval", -1, 0, 0, "class<`ecdf`, `function`, `stepfun`>", 1
 "fdrtool", "ecdf.pval", 0, 0, 0, "double[]", 1
 "fdrtool", "ecdf.pval", 1, 0, 0, "double", 1
-"fdrtool", "f", -1, 0, 0, "double[]", 1
-"fdrtool", "f", 0, 0, 0, "double[]", 1
-"fdrtool", "f", 1, 0, 0, "double", 1
-"fdrtool", "f", 2, 0, 0, "logical", 1
 "fdrtool", "fdrtool", -1, 0, 0, "list<double[] | character | class<`matrix`>>", 1
 "fdrtool", "fdrtool", 0, 0, 0, "double[]", 1
 "fdrtool", "fdrtool", 1, 0, 0, "character[]", 1
@@ -40,7 +37,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fdrtool", "gcmlcm", 0, 0, 0, "double[]", 1
 "fdrtool", "gcmlcm", 1, 0, 0, "double[]", 1
 "fdrtool", "gcmlcm", 2, 0, 0, "character[]", 1
-"fdrtool", "get.nullmodel", -1, 0, 0, "list<class<`function`> | class<`function`> | null>", 1
+"fdrtool", "get.nullmodel", -1, 0, 0, "list<class<`function`>>", 1
+"fdrtool", "get.nullmodel", -1, 0, 1, "list<class<`function`> | null>", 1
 "fdrtool", "get.nullmodel", 0, 0, 0, "character", 1
 "fdrtool", "grenander", -1, 0, 0, "class<`grenander`>", 1
 "fdrtool", "grenander", 0, 0, 0, "class<`ecdf`, `function`, `stepfun`>", 1
@@ -90,7 +88,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "fdrtool", "pval.estimate.eta0", 2, 0, 0, "any", 1
 "fdrtool", "pval.estimate.eta0", 3, 0, 0, "logical", 1
 "fdrtool", "pval.estimate.eta0", 4, 0, 0, "double", 1
-"fdrtool", "pvt.fit.nullmodel", -1, 0, 0, "list<double | double | null>", 1
+"fdrtool", "pvt.fit.nullmodel", -1, 0, 0, "list<double>", 1
+"fdrtool", "pvt.fit.nullmodel", -1, 0, 1, "list<double | null>", 1
 "fdrtool", "pvt.fit.nullmodel", 0, 0, 0, "double[]", 1
 "fdrtool", "pvt.fit.nullmodel", 1, 0, 0, "double", 1
 "fdrtool", "pvt.fit.nullmodel", 2, 0, 0, "character", 1

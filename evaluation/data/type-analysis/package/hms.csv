@@ -8,7 +8,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "hms", "as.POSIXct.hms", 0, 0, 0, "class<`difftime`, `hms`>", 1
 "hms", "as.POSIXct.hms", 1, 0, 0, "...", 1
 "hms", "check_args", -1, 0, 0, "null", 1
-"hms", "check_args", 0, 0, 0, "list<double | null | null | integer[] | null>", 1
+"hms", "check_args", 0, 0, 0, "list<double | null>", 1
+"hms", "check_args", 0, 0, 1, "list<null | integer[]>", 1
+"hms", "check_args", 0, 0, 2, "list<null>", 1
 "hms", "hms", -1, 0, 0, "class<`difftime`, `hms`>", 1
 "hms", "hms", 0, 0, 0, "double", 1
 "hms", "hms", 0, 0, 1, "null", 1
@@ -19,20 +21,31 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "hms", "hms", 2, 0, 2, "integer[]", 1
 "hms", "hms", 3, 0, 0, "null", 1
 "hms", "map2", -1, 0, 0, "list<double[]>", 1
-"hms", "map2", 0, 0, 0, "list<null | integer[] | null | double | null>", 1
+"hms", "map2", 0, 0, 0, "list<null | integer[]>", 1
+"hms", "map2", 0, 0, 1, "list<null>", 1
+"hms", "map2", 0, 0, 2, "list<double | null>", 1
 "hms", "map2", 1, 0, 0, "double[]", 1
 "hms", "map2", 2, 0, 0, "class<`function`>", 1
 "hms", "map2", 3, 0, 0, "...", 1
 "hms", "map_int", -1, 0, 0, "integer[]", 1
-"hms", "map_int", 0, 0, 0, "list<integer[] | double>", 1
+"hms", "map_int", 0, 0, 0, "list<integer[]>", 1
+"hms", "map_int", 0, 0, 1, "list<double>", 1
 "hms", "map_int", 1, 0, 0, "class<`function`>", 1
 "hms", "map_int", 2, 0, 0, "...", 1
 "hms", "map_lgl", -1, 0, 0, "logical[]", 1
-"hms", "map_lgl", 0, 0, 0, "list<any>", 1
+"hms", "map_lgl", 0, 0, 0, "list<integer[]>", 1
+"hms", "map_lgl", 0, 0, 1, "list<double | null>", 1
+"hms", "map_lgl", 0, 0, 2, "list<null | integer[]>", 1
+"hms", "map_lgl", 0, 0, 3, "list<null>", 1
+"hms", "map_lgl", 0, 0, 4, "list<double>", 1
 "hms", "map_lgl", 1, 0, 0, "class<`function`>", 1
 "hms", "map_lgl", 2, 0, 0, "...", 1
 "hms", "map_mold", -1, 0, 0, "integer[]", 1
-"hms", "map_mold", 0, 0, 0, "list<any>", 1
+"hms", "map_mold", 0, 0, 0, "list<integer[]>", 1
+"hms", "map_mold", 0, 0, 1, "list<double>", 1
+"hms", "map_mold", 0, 0, 2, "list<double | null>", 1
+"hms", "map_mold", 0, 0, 3, "list<null | integer[]>", 1
+"hms", "map_mold", 0, 0, 4, "list<null>", 1
 "hms", "map_mold", 1, 0, 0, "class<`function`>", 1
 "hms", "map_mold", 2, 0, 0, "integer", 1
 "hms", "map_mold", 3, 0, 0, "...", 1

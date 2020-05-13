@@ -2,7 +2,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "doRNG", "%||%", -1, 0, 0, "class<`matrix`>", 1
 "doRNG", "%||%", -1, 0, 1, "double", 1
 "doRNG", "%||%", -1, 0, 2, "integer[]", 1
-"doRNG", "%||%", -1, 0, 3, "list<double[] | double | character>", 1
+"doRNG", "%||%", -1, 0, 3, "list<double[]>", 1
+"doRNG", "%||%", -1, 0, 4, "list<double | character>", 1
 "doRNG", "%||%", 0, 0, 0, "null", 1
 "doRNG", "%||%", 0, 0, 1, "double", 1
 "doRNG", "%||%", 0, 0, 2, "integer[]", 1
@@ -25,7 +26,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "doRNG", "doRNGseq", 2, 0, 0, "...", 1
 "doRNG", "doRNGversion", -1, 0, 0, "character", 1
 "doRNG", "doRNGversion", 0, 0, 0, "any", 1
-"doRNG", "getDoBackend", -1, 0, 0, "list<class<`function`> | class<`SOCKcluster`, `cluster`> | class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "getDoBackend", -1, 0, 0, "list<class<`function`> | class<`SOCKcluster`, `cluster`>>", 1
+"doRNG", "getDoBackend", -1, 0, 1, "list<class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "getDoBackend", -1, 0, 2, "list<class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
 "doRNG", "ns_get", -1, 0, 0, "class<`function`>", 1
 "doRNG", "ns_get", -1, 0, 1, "environment", 1
 "doRNG", "ns_get", 0, 0, 0, "character", 1
@@ -35,5 +38,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "doRNG", "registerDoRNG", 0, 0, 0, "double", 1
 "doRNG", "registerDoRNG", 0, 0, 1, "null", 1
 "doRNG", "registerDoRNG", 1, 0, 0, "logical", 1
-"doRNG", "setDoBackend", -1, 0, 0, "list<class<`function`> | class<`SOCKcluster`, `cluster`> | class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
-"doRNG", "setDoBackend", 0, 0, 0, "list<class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>> | class<`function`> | class<`SOCKcluster`, `cluster`>>", 1
+"doRNG", "setDoBackend", -1, 0, 0, "list<class<`function`> | class<`SOCKcluster`, `cluster`>>", 1
+"doRNG", "setDoBackend", -1, 0, 1, "list<class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "setDoBackend", -1, 0, 2, "list<class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "setDoBackend", 0, 0, 0, "list<class<`function`> | list<double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "setDoBackend", 0, 0, 1, "list<class<`function`> | list<null | double | list<class<`function`> | class<`SOCKcluster`, `cluster`>>>>", 1
+"doRNG", "setDoBackend", 0, 0, 2, "list<class<`function`> | class<`SOCKcluster`, `cluster`>>", 1

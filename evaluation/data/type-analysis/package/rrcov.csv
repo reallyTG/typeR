@@ -39,16 +39,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".biplot", 5, 0, 0, "double[]", 1
 "rrcov", ".biplot", 6, 0, 0, "null", 1
 "rrcov", ".biplot", 7, 0, 0, "null", 1
-"rrcov", ".biplot", 8, 0, 0, "double", 1
-"rrcov", ".biplot", 9, 0, 0, "null", 1
-"rrcov", ".biplot", 10, 0, 0, "null", 1
-"rrcov", ".biplot", 11, 0, 0, "double", 1
-"rrcov", ".biplot", 12, 0, 0, "character", 1
-"rrcov", ".biplot", 12, 0, 1, "null", 1
-"rrcov", ".biplot", 13, 0, 0, "null", 1
-"rrcov", ".biplot", 14, 0, 0, "null", 1
-"rrcov", ".biplot", 15, 0, 0, "null", 1
-"rrcov", ".biplot", 16, 0, 0, "...", 1
 "rrcov", ".check_vars_numeric", -1, 0, 0, "logical", 1
 "rrcov", ".check_vars_numeric", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", ".chiInt", -1, 0, 0, "double", 1
@@ -67,7 +57,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".chiIntD", 0, 0, 0, "integer", 1
 "rrcov", ".chiIntD", 1, 0, 0, "double", 1
 "rrcov", ".chiIntD", 2, 0, 0, "double", 1
-"rrcov", ".classPC", -1, 0, 0, "list<double[] | class<`matrix`> | double[] | class<`matrix`> | null | double | null>", 1
+"rrcov", ".classPC", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"rrcov", ".classPC", -1, 0, 1, "list<double[] | class<`matrix`> | null>", 1
+"rrcov", ".classPC", -1, 0, 2, "list<double | null>", 1
 "rrcov", ".classPC", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", ".classPC", 1, 0, 0, "logical", 1
 "rrcov", ".classPC", 2, 0, 0, "logical", 1
@@ -144,7 +136,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "CovControlSest", 5, 0, 0, "null", 1
 "rrcov", "CovControlSest", 6, 0, 0, "logical", 1
 "rrcov", "CovControlSest", 7, 0, 0, "double", 1
-"rrcov", "CovControlSest", 8, 0, 0, "character", 1
 "rrcov", "CovMcd", -1, 0, 0, "class<`CovMcd`>", 1
 "rrcov", "CovMcd", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", "CovMcd", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
@@ -157,11 +148,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "CovMcd", 5, 0, 0, "any", 1
 "rrcov", "CovMcd", 6, 0, 0, "null", 1
 "rrcov", "CovMcd", 7, 0, 0, "logical", 1
-"rrcov", "CovMcd", 8, 0, 0, "null", 1
-"rrcov", "CovMcd", 9, 0, 0, "logical", 1
-"rrcov", "CovMcd", 10, 0, 0, "logical", 1
-"rrcov", "CovMcd", 11, 0, 0, "class<`CovControlMcd`>", 1
-"rrcov", "CovMcd", 12, 0, 0, "...", 1
 "rrcov", "CovMest", -1, 0, 0, "class<`CovMest`>", 1
 "rrcov", "CovMest", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", "CovMest", 0, 0, 1, "class<`matrix`>", 1
@@ -172,7 +158,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "CovMest", 5, 0, 0, "any", 1
 "rrcov", "CovMest", 6, 0, 0, "any", 1
 "rrcov", "CovMest", 7, 0, 0, "any", 1
-"rrcov", "CovMest", 8, 0, 0, "any", 1
 "rrcov", "CovMMest", -1, 0, 0, "class<`CovMMest`>", 1
 "rrcov", "CovMMest", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", "CovMMest", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
@@ -195,9 +180,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "CovMrcd", 5, 0, 0, "logical", 1
 "rrcov", "CovMrcd", 6, 0, 0, "null", 1
 "rrcov", "CovMrcd", 7, 0, 0, "character", 1
-"rrcov", "CovMrcd", 8, 0, 0, "any", 1
-"rrcov", "CovMrcd", 9, 0, 0, "logical", 1
-"rrcov", "CovMrcd", 10, 0, 0, "class<`CovControlMrcd`>", 1
 "rrcov", "CovMve", -1, 0, 0, "class<`CovMve`>", 1
 "rrcov", "CovMve", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", "CovMve", 0, 0, 1, "class<`matrix`>", 1
@@ -242,8 +224,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "..covSBic", 5, 0, 0, "any", 1
 "rrcov", "..covSBic", 6, 0, 0, "double", 1
 "rrcov", "..covSBic", 7, 0, 0, "null", 1
-"rrcov", "..covSBic", 8, 0, 0, "any", 1
-"rrcov", "..covSBic", 9, 0, 0, "logical", 1
 "rrcov", "CovSde", -1, 0, 0, "class<`CovSde`>", 1
 "rrcov", "CovSde", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", "CovSde", 0, 0, 1, "class<`matrix`>", 1
@@ -254,7 +234,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "CovSde", 5, 0, 0, "double", 1
 "rrcov", "CovSde", 6, 0, 0, "null", 1
 "rrcov", "CovSde", 7, 0, 0, "logical", 1
-"rrcov", "CovSde", 8, 0, 0, "any", 1
 "rrcov", "CovSest", -1, 0, 0, "class<`CovSest`>", 1
 "rrcov", "CovSest", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", "CovSest", 0, 0, 1, "class<`data.frame`, `groupedData`, `nfGroupedData`, `nfnGroupedData`>", 1
@@ -266,16 +245,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "CovSest", 5, 0, 0, "double", 1
 "rrcov", "CovSest", 6, 0, 0, "null", 1
 "rrcov", "CovSest", 7, 0, 0, "logical", 1
-"rrcov", "CovSest", 8, 0, 0, "double", 1
-"rrcov", "CovSest", 9, 0, 0, "any", 1
-"rrcov", "CovSest", 10, 0, 0, "double", 1
-"rrcov", "CovSest", 11, 0, 0, "null", 1
-"rrcov", "CovSest", 12, 0, 0, "logical", 1
-"rrcov", "CovSest", 13, 0, 0, "character[]", 1
-"rrcov", "CovSest", 14, 0, 0, "any", 1
-"rrcov", "CovSest", 15, 0, 0, "any", 1
-"rrcov", "CovSest", 16, 0, 0, "any", 1
-"rrcov", "CovSest", 17, 0, 0, "any", 1
 "rrcov", "..covSRocke", -1, 0, 0, "list<double[] | class<`matrix`> | character>", 1
 "rrcov", "..covSRocke", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", "..covSRocke", 1, 0, 0, "double", 1
@@ -285,8 +254,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "..covSRocke", 5, 0, 0, "any", 1
 "rrcov", "..covSRocke", 6, 0, 0, "double", 1
 "rrcov", "..covSRocke", 7, 0, 0, "null", 1
-"rrcov", "..covSRocke", 8, 0, 0, "any", 1
-"rrcov", "..covSRocke", 9, 0, 0, "logical", 1
 "rrcov", "..covSURREAL", -1, 0, 0, "list<double[] | class<`matrix`> | character>", 1
 "rrcov", "..covSURREAL", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", "..covSURREAL", 1, 0, 0, "double", 1
@@ -328,10 +295,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".detmrcd", 5, 0, 0, "double", 1
 "rrcov", ".detmrcd", 6, 0, 0, "double", 1
 "rrcov", ".detmrcd", 7, 0, 0, "double", 1
-"rrcov", ".detmrcd", 8, 0, 0, "null", 1
-"rrcov", ".detmrcd", 9, 0, 0, "logical", 1
-"rrcov", ".detmrcd", 10, 0, 0, "any", 1
-"rrcov", ".detmrcd", 11, 0, 0, "integer", 1
 "rrcov", "..detSloc", -1, 0, 0, "list<any>", 1
 "rrcov", "..detSloc", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", "..detSloc", 1, 0, 0, "null", 1
@@ -341,8 +304,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "..detSloc", 5, 0, 0, "double", 1
 "rrcov", "..detSloc", 6, 0, 0, "logical", 1
 "rrcov", "..detSloc", 7, 0, 0, "double", 1
-"rrcov", "..detSloc", 8, 0, 0, "double", 1
-"rrcov", "..detSloc", 9, 0, 0, "logical", 1
 "rrcov", ".distances", -1, 0, 0, "class<`PcaClassic`>", 1
 "rrcov", ".distances", -1, 0, 1, "class<`PcaCov`>", 1
 "rrcov", ".distances", -1, 0, 2, "class<`PcaGrid`>", 1
@@ -379,46 +340,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".fastmve", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", ".fastmve", 1, 0, 0, "double", 1
 "rrcov", ".fastmve", 2, 0, 0, "double", 1
-"rrcov", "FUN", -1, 0, 0, "class<`CovMcd`>", 1
-"rrcov", "FUN", 0, 0, 0, "class<`CovControlMcd`>", 1
-"rrcov", "FUN", 1, 0, 0, "class<`data.frame`>", 1
-"rrcov", "FUN", 1, 0, 1, "class<`matrix`>", 1
-"rrcov", "FUN", 2, 0, 0, "...", 1
-"rrcov", "FUN", -1, 1, 0, "character", 1
-"rrcov", "FUN", 0, 1, 0, "class<`CovSest`>", 1
-"rrcov", "FUN", -1, 2, 0, "character", 1
-"rrcov", "FUN", 0, 2, 0, "class<`CovOgk`>", 1
-"rrcov", "FUN", -1, 3, 0, "class<`CovSest`>", 1
-"rrcov", "FUN", 0, 3, 0, "class<`CovControlSest`>", 1
-"rrcov", "FUN", 1, 3, 0, "class<`data.frame`>", 1
-"rrcov", "FUN", 1, 3, 1, "class<`matrix`>", 1
-"rrcov", "FUN", 2, 3, 0, "...", 1
-"rrcov", "FUN", -1, 4, 0, "class<`CovOgk`>", 1
-"rrcov", "FUN", 0, 4, 0, "class<`CovControlOgk`>", 1
-"rrcov", "FUN", 1, 4, 0, "class<`data.frame`>", 1
-"rrcov", "FUN", 1, 4, 1, "class<`matrix`>", 1
-"rrcov", "FUN", 2, 4, 0, "...", 1
-"rrcov", "FUN", -1, 5, 0, "character", 1
-"rrcov", "FUN", 0, 5, 0, "class<`CovMcd`>", 1
-"rrcov", "FUN", 0, 5, 1, "class<`CovMest`>", 1
-"rrcov", "FUN", 0, 5, 2, "class<`CovOgk`>", 1
-"rrcov", "FUN", 0, 5, 3, "class<`CovSest`>", 1
-"rrcov", "FUN", 0, 5, 4, "class<`CovSde`>", 1
-"rrcov", "FUN", -1, 6, 0, "character", 1
-"rrcov", "FUN", 0, 6, 0, "class<`CovMcd`>", 1
-"rrcov", "FUN", -1, 7, 0, "class<`CovMcd`>", 1
-"rrcov", "FUN", -1, 7, 1, "class<`CovMest`>", 1
-"rrcov", "FUN", -1, 7, 2, "class<`CovOgk`>", 1
-"rrcov", "FUN", -1, 7, 3, "class<`CovSest`>", 1
-"rrcov", "FUN", -1, 7, 4, "class<`CovSde`>", 1
-"rrcov", "FUN", 0, 7, 0, "class<`CovControlMcd`>", 1
-"rrcov", "FUN", 0, 7, 1, "class<`CovControlMest`>", 1
-"rrcov", "FUN", 0, 7, 2, "class<`CovControlOgk`>", 1
-"rrcov", "FUN", 0, 7, 3, "class<`CovControlSest`>", 1
-"rrcov", "FUN", 0, 7, 4, "class<`CovControlSde`>", 1
-"rrcov", "FUN", 1, 7, 0, "class<`data.frame`>", 1
-"rrcov", "FUN", 1, 7, 1, "class<`matrix`>", 1
-"rrcov", "FUN", 2, 7, 0, "...", 1
 "rrcov", ".getApprox", -1, 0, 0, "list<double>", 1
 "rrcov", ".getApprox", 0, 0, 0, "integer", 1
 "rrcov", ".getApprox", 1, 0, 0, "integer", 1
@@ -755,8 +676,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "Linda.default", 5, 0, 0, "double", 1
 "rrcov", "Linda.default", 6, 0, 0, "logical", 1
 "rrcov", "Linda.default", 7, 0, 0, "any", 1
-"rrcov", "Linda.default", 8, 0, 0, "logical", 1
-"rrcov", "Linda.default", 9, 0, 0, "...", 1
 "rrcov", "Linda.formula", -1, 0, 0, "class<`Linda`>", 1
 "rrcov", "Linda.formula", 0, 0, 0, "class<`formula`>", 1
 "rrcov", "Linda.formula", 1, 0, 0, "any", 1
@@ -777,7 +696,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".myddplot", 5, 0, 0, "character", 1
 "rrcov", ".myddplot", 6, 0, 0, "character", 1
 "rrcov", ".myddplot", 7, 0, 0, "integer[]", 1
-"rrcov", ".myddplot", 8, 0, 0, "...", 1
 "rrcov", ".mydistplot", -1, 0, 0, "null", 1
 "rrcov", ".mydistplot", 0, 0, 0, "double[]", 1
 "rrcov", ".mydistplot", 1, 0, 0, "double", 1
@@ -788,8 +706,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".mydistplot", 5, 0, 0, "character", 1
 "rrcov", ".mydistplot", 6, 0, 0, "character", 1
 "rrcov", ".mydistplot", 7, 0, 0, "character", 1
-"rrcov", ".mydistplot", 8, 0, 0, "any", 1
-"rrcov", ".mydistplot", 9, 0, 0, "...", 1
 "rrcov", ".myellipse", -1, 0, 0, "null", 1
 "rrcov", ".myellipse", 0, 0, 0, "class<`matrix`>", 1
 "rrcov", ".myellipse", 1, 0, 0, "list<class<`matrix`> | double[]>", 1
@@ -799,13 +715,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".myellipse", 5, 0, 0, "double", 1
 "rrcov", ".myellipse", 6, 0, 0, "character", 1
 "rrcov", ".myellipse", 7, 0, 0, "character", 1
-"rrcov", ".myellipse", 8, 0, 0, "character", 1
-"rrcov", ".myellipse", 9, 0, 0, "character", 1
-"rrcov", ".myellipse", 10, 0, 0, "any", 1
-"rrcov", ".myellipse", 11, 0, 0, "character[]", 1
-"rrcov", ".myellipse", 12, 0, 0, "character[]", 1
-"rrcov", ".myellipse", 13, 0, 0, "any", 1
-"rrcov", ".myellipse", 14, 0, 0, "any", 1
 "rrcov", "myPcaPrint", -1, 0, 0, "class<`PcaClassic`>", 1
 "rrcov", "myPcaPrint", -1, 0, 1, "class<`PcaHubert`>", 1
 "rrcov", "myPcaPrint", 0, 0, 0, "class<`PcaClassic`>", 1
@@ -871,7 +780,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "PcaCov.default", 5, 0, 0, "logical", 1
 "rrcov", "PcaCov.default", 6, 0, 0, "double", 1
 "rrcov", "PcaCov.default", 7, 0, 0, "logical", 1
-"rrcov", "PcaCov.default", 8, 0, 0, "...", 1
 "rrcov", "PcaCov.formula", -1, 0, 0, "class<`PcaCov`>", 1
 "rrcov", "PcaCov.formula", 0, 0, 0, "class<`formula`>", 1
 "rrcov", "PcaCov.formula", 1, 0, 0, "class<`data.frame`>", 1
@@ -955,9 +863,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "PcaHubert.default", 5, 0, 0, "double", 1
 "rrcov", "PcaHubert.default", 6, 0, 0, "logical", 1
 "rrcov", "PcaHubert.default", 7, 0, 0, "logical", 1
-"rrcov", "PcaHubert.default", 8, 0, 0, "double", 1
-"rrcov", "PcaHubert.default", 9, 0, 0, "logical", 1
-"rrcov", "PcaHubert.default", 10, 0, 0, "...", 1
 "rrcov", "PcaHubert.formula", -1, 0, 0, "class<`PcaHubert`>", 1
 "rrcov", "PcaHubert.formula", 0, 0, 0, "class<`formula`>", 1
 "rrcov", "PcaHubert.formula", 1, 0, 0, "class<`data.frame`>", 1
@@ -979,8 +884,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "PcaLocantore.default", 5, 0, 0, "logical", 1
 "rrcov", "PcaLocantore.default", 6, 0, 0, "logical", 1
 "rrcov", "PcaLocantore.default", 7, 0, 0, "double", 1
-"rrcov", "PcaLocantore.default", 8, 0, 0, "logical", 1
-"rrcov", "PcaLocantore.default", 9, 0, 0, "...", 1
 "rrcov", "PcaLocantore.formula", -1, 0, 0, "class<`PcaLocantore`>", 1
 "rrcov", "PcaLocantore.formula", 0, 0, 0, "class<`formula`>", 1
 "rrcov", "PcaLocantore.formula", 1, 0, 0, "class<`data.frame`>", 1
@@ -1104,8 +1007,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".qqplot", 5, 0, 0, "expression", 1
 "rrcov", ".qqplot", 6, 0, 0, "expression", 1
 "rrcov", ".qqplot", 7, 0, 0, "character", 1
-"rrcov", ".qqplot", 8, 0, 0, "integer[]", 1
-"rrcov", ".qqplot", 9, 0, 0, "...", 1
 "rrcov", "restimate", -1, 0, 0, "class<`CovMcd`>", 1
 "rrcov", "restimate", 0, 0, 0, "class<`CovControlMcd`>", 1
 "rrcov", "restimate", 1, 0, 0, "class<`data.frame`>", 1
@@ -1231,8 +1132,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", ".tolellipse", 5, 0, 0, "character", 1
 "rrcov", ".tolellipse", 6, 0, 0, "character", 1
 "rrcov", ".tolellipse", 7, 0, 0, "character", 1
-"rrcov", ".tolellipse", 8, 0, 0, "any", 1
-"rrcov", ".tolellipse", 9, 0, 0, "...", 1
 "rrcov", ".tomatrix", -1, 0, 0, "class<`matrix`>", 1
 "rrcov", ".tomatrix", 0, 0, 0, "class<`data.frame`>", 1
 "rrcov", ".tomatrix", 0, 0, 1, "class<`matrix`>", 1
@@ -1291,9 +1190,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "rrcov", "Wilks.test.default", 5, 0, 1, "null", 1
 "rrcov", "Wilks.test.default", 6, 0, 0, "null", 1
 "rrcov", "Wilks.test.default", 7, 0, 0, "null", 1
-"rrcov", "Wilks.test.default", 8, 0, 0, "double", 1
-"rrcov", "Wilks.test.default", 9, 0, 0, "logical", 1
-"rrcov", "Wilks.test.default", 10, 0, 0, "...", 1
 "rrcov", "Wilks.test.formula", -1, 0, 0, "class<`htest`>", 1
 "rrcov", "Wilks.test.formula", 0, 0, 0, "class<`formula`>", 1
 "rrcov", "Wilks.test.formula", 1, 0, 0, "any", 1

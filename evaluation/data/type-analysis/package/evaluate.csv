@@ -27,17 +27,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "evaluate", "evaluate_call", 8, 0, 0, "any", 1
 "evaluate", "evaluate_call", 9, 0, 0, "class<`output_handler`>", 1
 "evaluate", "evaluate_call", 10, 0, 0, "any", 1
-"evaluate", "FUN", -1, 0, 0, "class<`recordedplot`>", 1
-"evaluate", "FUN", -1, 0, 1, "null", 1
-"evaluate", "FUN", -1, 0, 2, "list<null | class<`recordedplot`> | null>", 1
-"evaluate", "FUN", 0, 0, 0, "class<`recordedplot`>", 1
-"evaluate", "FUN", 0, 0, 1, "character", 1
-"evaluate", "FUN", 0, 0, 2, "class<`condition`, `error`, `simpleError`>", 1
-"evaluate", "FUN", 0, 0, 3, "class<`condition`, `message`, `simpleMessage`>", 1
-"evaluate", "FUN", 0, 0, 4, "class<`condition`, `simpleWarning`, `warning`>", 1
-"evaluate", "FUN", 0, 0, 5, "class<`source`>", 1
-"evaluate", "FUN", 0, 0, 6, "null", 1
-"evaluate", "FUN", 0, 0, 7, "list<any>", 1
 "evaluate", "inject_funs", -1, 0, 0, "list<any>", 1
 "evaluate", "inject_funs", 0, 0, 0, "...", 1
 "evaluate", "is.empty", -1, 0, 0, "logical", 1
@@ -80,7 +69,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "evaluate", "render", 0, 0, 1, "class<`FOO_BAR`>", 1
 "evaluate", "replay", -1, 0, 0, "class<`recordedplot`>", 1
 "evaluate", "replay", -1, 0, 1, "null", 1
-"evaluate", "replay", -1, 0, 2, "list<null | class<`recordedplot`> | null>", 1
+"evaluate", "replay", -1, 0, 2, "list<null | class<`recordedplot`>>", 1
+"evaluate", "replay", -1, 0, 3, "list<null>", 1
 "evaluate", "replay", 0, 0, 0, "class<`recordedplot`>", 1
 "evaluate", "replay", 0, 0, 1, "character", 1
 "evaluate", "replay", 0, 0, 2, "class<`condition`, `error`, `simpleError`>", 1
@@ -95,7 +85,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "evaluate", "replay.default", 0, 0, 0, "null", 1
 "evaluate", "replay.error", -1, 0, 0, "null", 1
 "evaluate", "replay.error", 0, 0, 0, "class<`condition`, `error`, `simpleError`>", 1
-"evaluate", "replay.list", -1, 0, 0, "list<null | class<`recordedplot`> | null>", 1
+"evaluate", "replay.list", -1, 0, 0, "list<null | class<`recordedplot`>>", 1
+"evaluate", "replay.list", -1, 0, 1, "list<null>", 1
 "evaluate", "replay.list", 0, 0, 0, "list<any>", 1
 "evaluate", "replay.message", -1, 0, 0, "null", 1
 "evaluate", "replay.message", 0, 0, 0, "class<`condition`, `message`, `simpleMessage`>", 1
@@ -106,10 +97,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "evaluate", "replay.warning", -1, 0, 0, "null", 1
 "evaluate", "replay.warning", 0, 0, 0, "class<`condition`, `simpleWarning`, `warning`>", 1
 "evaluate", "set_hooks", -1, 0, 0, "list<list<any>>", 1
-"evaluate", "set_hooks", 0, 0, 0, "list<class<`function`> | list<any>>", 1
+"evaluate", "set_hooks", 0, 0, 0, "list<class<`function`>>", 1
+"evaluate", "set_hooks", 0, 0, 1, "list<list<any>>", 1
 "evaluate", "set_hooks", 1, 0, 0, "character", 1
-"evaluate", "value_handler", -1, 0, 0, "null", 1
-"evaluate", "value_handler", 0, 0, 0, "null", 1
-"evaluate", "value_handler", 0, 0, 1, "class<`FOO_BAR`>", 1
 "evaluate", "watchout", -1, 0, 0, "list<class<`function`>>", 1
 "evaluate", "watchout", 0, 0, 0, "logical", 1

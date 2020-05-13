@@ -23,14 +23,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "add_summary", 5, 0, 2, "null", 1
 "ggpubr", "add_summary", 6, 0, 0, "any", 1
 "ggpubr", "add_summary", 7, 0, 0, "any", 1
-"ggpubr", "add_summary", 8, 0, 0, "double", 1
-"ggpubr", "add_summary", 8, 0, 1, "null", 1
-"ggpubr", "add_summary", 9, 0, 0, "double", 1
-"ggpubr", "add_summary", 10, 0, 0, "null", 1
-"ggpubr", "add_summary", 11, 0, 0, "any", 1
-"ggpubr", "add_summary", 12, 0, 0, "null", 1
-"ggpubr", "add_summary", 13, 0, 0, "character", 1
-"ggpubr", "add_summary", 13, 0, 1, "class<`Position`, `PositionDodge`, `gg`, `ggproto`>", 1
 "ggpubr", "annotate_figure", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "annotate_figure", 0, 0, 0, "class<`gg`, `ggarrange`, `ggplot`>", 1
 "ggpubr", "annotate_figure", 1, 0, 0, "class<`gDesc`, `grob`, `text`>", 1
@@ -40,7 +32,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "annotate_figure", 5, 0, 0, "character", 1
 "ggpubr", "annotate_figure", 6, 0, 0, "character[]", 1
 "ggpubr", "annotate_figure", 7, 0, 0, "any", 1
-"ggpubr", "annotate_figure", 8, 0, 0, "character", 1
 "ggpubr", "as_ggplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "as_ggplot", 0, 0, 0, "class<`gDesc`, `grob`, `splitText`>", 1
 "ggpubr", "as_ggplot", 0, 0, 1, "class<`gDesc`, `grob`, `text`>", 1
@@ -74,7 +65,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "build_signif_mapping", 0, 0, 1, "null", 1
 "ggpubr", "build_signif_mapping", 1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "ggpubr", "build_signif_mapping", 1, 0, 1, "class<`data.frame`>", 1
-"ggpubr", ".check_add.params", -1, 0, 0, "list<character | double | character>", 1
+"ggpubr", ".check_add.params", -1, 0, 0, "list<character>", 1
+"ggpubr", ".check_add.params", -1, 0, 1, "list<double | character>", 1
 "ggpubr", ".check_add.params", 0, 0, 0, "character[]", 1
 "ggpubr", ".check_add.params", 1, 0, 0, "list<any>", 1
 "ggpubr", ".check_add.params", 2, 0, 0, "character", 1
@@ -95,20 +87,24 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", ".check_legend", -1, 0, 1, "null", 1
 "ggpubr", ".check_legend", 0, 0, 0, "character", 1
 "ggpubr", ".check_legend", 0, 0, 1, "null", 1
-"ggpubr", ".check_margin_params", -1, 0, 0, "list<character | character | double>", 1
+"ggpubr", ".check_margin_params", -1, 0, 0, "list<character>", 1
+"ggpubr", ".check_margin_params", -1, 0, 1, "list<character | double>", 1
 "ggpubr", ".check_margin_params", 0, 0, 0, "list<any>", 1
 "ggpubr", ".check_margin_params", 1, 0, 0, "any", 1
 "ggpubr", ".check_margin_params", 2, 0, 0, "any", 1
 "ggpubr", ".check_margin_params", 3, 0, 0, "any", 1
 "ggpubr", ".check_margin_params", 4, 0, 0, "character", 1
 "ggpubr", ".check_pie_labfont", -1, 0, 0, "list<double | character>", 1
-"ggpubr", ".check_pie_labfont", 0, 0, 0, "list<double | character | null | character>", 1
+"ggpubr", ".check_pie_labfont", 0, 0, 0, "list<double | character>", 1
+"ggpubr", ".check_pie_labfont", 0, 0, 1, "list<null | character>", 1
 "ggpubr", "clean_theme", -1, 0, 0, "class<`gg`, `theme`>", 1
 "ggpubr", ".collapse", -1, 0, 0, "character", 1
 "ggpubr", ".collapse", 0, 0, 0, "character", 1
 "ggpubr", ".collapse", 1, 0, 0, "character", 1
 "ggpubr", ".collapse", 2, 0, 0, "character", 1
-"ggpubr", "colnames_style", -1, 0, 0, "list<list<character | double | character | double | null | double | character | character | double | null | double>>", 1
+"ggpubr", "colnames_style", -1, 0, 0, "list<list<character | double>>", 1
+"ggpubr", "colnames_style", -1, 0, 1, "list<list<character | double | null | double | character>>", 1
+"ggpubr", "colnames_style", -1, 0, 2, "list<list<character | double | null | double>>", 1
 "ggpubr", "colnames_style", 0, 0, 0, "character", 1
 "ggpubr", "colnames_style", 1, 0, 0, "character", 1
 "ggpubr", "colnames_style", 2, 0, 0, "double", 1
@@ -125,7 +121,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "color_palette", 0, 0, 1, "null", 1
 "ggpubr", "color_palette", 1, 0, 0, "...", 1
 "ggpubr", ".compact", -1, 0, 0, "list<any>", 1
-"ggpubr", ".compact", 0, 0, 0, "list<any>", 1
+"ggpubr", ".compact", 0, 0, 0, "list<null>", 1
+"ggpubr", ".compact", 0, 0, 1, "list<character>", 1
+"ggpubr", ".compact", 0, 0, 2, "list<double | character | null>", 1
+"ggpubr", ".compact", 0, 0, 3, "list<class<`gDesc`, `grob`, `text`> | character>", 1
+"ggpubr", ".compact", 0, 0, 4, "list<character | class<`data.frame`> | null>", 1
+"ggpubr", ".compact", 0, 0, 5, "list<character | class<`data.frame`>>", 1
 "ggpubr", "compare_means", -1, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "ggpubr", "compare_means", 0, 0, 0, "class<`formula`>", 1
 "ggpubr", "compare_means", 1, 0, 0, "class<`data.frame`>", 1
@@ -137,7 +138,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "compare_means", 5, 0, 1, "character", 1
 "ggpubr", "compare_means", 6, 0, 0, "list<any>", 1
 "ggpubr", "compare_means", 7, 0, 0, "character", 1
-"ggpubr", "compare_means", 8, 0, 0, "...", 1
 "ggpubr", ".contains_curlybracket", -1, 0, 0, "logical", 1
 "ggpubr", ".contains_curlybracket", 0, 0, 0, "character", 1
 "ggpubr", "desc_statby", -1, 0, 0, "class<`data.frame`>", 1
@@ -149,41 +149,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "detect_comparison_type", 0, 0, 0, "class<`data.frame`, `tbl`, `tbl_df`>", 1
 "ggpubr", ".df_strech", -1, 0, 0, "class<`data.frame`>", 1
 "ggpubr", ".df_strech", 0, 0, 0, "class<`data.frame`>", 1
-"ggpubr", ".f", -1, 0, 0, "class<`gg`, `ggplot`>", 1
-"ggpubr", ".f", 0, 0, 0, "class<`gg`, `ggplot`>", 1
-"ggpubr", ".f", 1, 0, 0, "null", 1
-"ggpubr", ".f", 1, 0, 1, "character[]", 1
-"ggpubr", ".f", 2, 0, 0, "null", 1
-"ggpubr", ".f", 2, 0, 1, "character[]", 1
-"ggpubr", ".f", 3, 0, 0, "null", 1
-"ggpubr", ".f", 3, 0, 1, "character", 1
-"ggpubr", ".f", 4, 0, 0, "null", 1
-"ggpubr", ".f", 5, 0, 0, "null", 1
-"ggpubr", ".f", 5, 0, 1, "character", 1
-"ggpubr", ".f", 6, 0, 0, "null", 1
-"ggpubr", ".f", 6, 0, 1, "character", 1
-"ggpubr", ".f", 6, 0, 2, "logical", 1
-"ggpubr", ".f", 7, 0, 0, "null", 1
-"ggpubr", ".f", 7, 0, 1, "character", 1
-"ggpubr", ".f", 7, 0, 2, "logical", 1
-"ggpubr", ".f", 8, 0, 0, "null", 1
-"ggpubr", ".f", 8, 0, 1, "character", 1
-"ggpubr", ".f", 9, 0, 0, "null", 1
-"ggpubr", ".f", 9, 0, 1, "character", 1
-"ggpubr", ".f", 10, 0, 0, "null", 1
-"ggpubr", ".f", 10, 0, 1, "character[]", 1
-"ggpubr", ".f", 11, 0, 0, "null", 1
-"ggpubr", ".f", 12, 0, 0, "null", 1
-"ggpubr", ".f", 12, 0, 1, "character[]", 1
-"ggpubr", ".f", 13, 0, 0, "null", 1
-"ggpubr", ".f", 13, 0, 1, "character[]", 1
-"ggpubr", ".f", 14, 0, 0, "null", 1
-"ggpubr", ".f", 15, 0, 0, "null", 1
-"ggpubr", ".f", 16, 0, 0, "null", 1
-"ggpubr", ".f", 17, 0, 0, "character", 1
-"ggpubr", ".f", 18, 0, 0, "null", 1
-"ggpubr", ".f", 19, 0, 0, "null", 1
-"ggpubr", ".f", 19, 0, 1, "double[]", 1
 "ggpubr", "facet", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "facet", 0, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "facet", 1, 0, 0, "character[]", 1
@@ -192,12 +157,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "facet", 4, 0, 0, "character", 1
 "ggpubr", "facet", 5, 0, 0, "logical", 1
 "ggpubr", "facet", 6, 0, 0, "null", 1
-"ggpubr", "facet", 7, 0, 0, "list<null | character>", 1
-"ggpubr", "facet", 8, 0, 0, "list<null>", 1
-"ggpubr", "facet", 9, 0, 0, "list<null>", 1
-"ggpubr", "facet", 10, 0, 0, "list<null>", 1
-"ggpubr", "facet", 11, 0, 0, "character", 1
-"ggpubr", "facet", 12, 0, 0, "...", 1
+"ggpubr", "facet", 7, 0, 0, "list<null>", 1
+"ggpubr", "facet", 7, 0, 1, "list<character>", 1
 "ggpubr", "fill_palette", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
 "ggpubr", "fill_palette", -1, 0, 1, "null", 1
 "ggpubr", "fill_palette", 0, 0, 0, "character[]", 1
@@ -239,19 +200,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "geom_bracket", 6, 0, 0, "logical", 1
 "ggpubr", "geom_bracket", 7, 0, 0, "null", 1
 "ggpubr", "geom_bracket", 7, 0, 1, "character[]", 1
-"ggpubr", "geom_bracket", 8, 0, 0, "double[]", 1
-"ggpubr", "geom_bracket", 9, 0, 0, "null", 1
-"ggpubr", "geom_bracket", 9, 0, 1, "character[]", 1
-"ggpubr", "geom_bracket", 10, 0, 0, "null", 1
-"ggpubr", "geom_bracket", 10, 0, 1, "character[]", 1
-"ggpubr", "geom_bracket", 11, 0, 0, "double", 1
-"ggpubr", "geom_bracket", 12, 0, 0, "null", 1
-"ggpubr", "geom_bracket", 13, 0, 0, "double[]", 1
-"ggpubr", "geom_bracket", 14, 0, 0, "double", 1
-"ggpubr", "geom_bracket", 15, 0, 0, "double", 1
-"ggpubr", "geom_bracket", 16, 0, 0, "character", 1
-"ggpubr", "geom_bracket", 17, 0, 0, "double", 1
-"ggpubr", "geom_bracket", 18, 0, 0, "...", 1
 "ggpubr", ".geom_exec", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", ".geom_exec", -1, 0, 1, "list<list<any>>", 1
 "ggpubr", ".geom_exec", 0, 0, 0, "class<`function`>", 1
@@ -289,7 +237,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", ".get_label_data", 3, 0, 0, "character", 1
 "ggpubr", ".get_label_data", 4, 0, 0, "character[]", 1
 "ggpubr", ".get_label_data", 5, 0, 0, "any", 1
-"ggpubr", ".get_layout", -1, 0, 0, "list<double | null>", 1
+"ggpubr", ".get_layout", -1, 0, 0, "list<double>", 1
+"ggpubr", ".get_layout", -1, 0, 1, "list<null>", 1
 "ggpubr", ".get_layout", 0, 0, 0, "double", 1
 "ggpubr", ".get_layout", 0, 0, 1, "null", 1
 "ggpubr", ".get_layout", 1, 0, 0, "double", 1
@@ -321,17 +270,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggadd", 5, 0, 0, "double", 1
 "ggpubr", "ggadd", 6, 0, 0, "double", 1
 "ggpubr", "ggadd", 7, 0, 0, "null", 1
-"ggpubr", "ggadd", 8, 0, 0, "double", 1
-"ggpubr", "ggadd", 9, 0, 0, "double", 1
-"ggpubr", "ggadd", 10, 0, 0, "null", 1
-"ggpubr", "ggadd", 11, 0, 0, "null", 1
-"ggpubr", "ggadd", 12, 0, 0, "double", 1
-"ggpubr", "ggadd", 13, 0, 0, "null", 1
-"ggpubr", "ggadd", 14, 0, 0, "character", 1
-"ggpubr", "ggadd", 15, 0, 0, "double", 1
-"ggpubr", "ggadd", 16, 0, 0, "null", 1
-"ggpubr", "ggadd", 17, 0, 0, "class<`Position`, `PositionDodge`, `gg`, `ggproto`>", 1
-"ggpubr", "ggadd", 18, 0, 0, "character", 1
 "ggpubr", "ggarrange", -1, 0, 0, "class<`gg`, `ggarrange`, `ggplot`>", 1
 "ggpubr", "ggarrange", 0, 0, 0, "...", 1
 "ggpubr", "ggarrange", 1, 0, 0, "null", 1
@@ -343,13 +281,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggarrange", 5, 0, 0, "double", 1
 "ggpubr", "ggarrange", 6, 0, 0, "double", 1
 "ggpubr", "ggarrange", 7, 0, 0, "double", 1
-"ggpubr", "ggarrange", 8, 0, 0, "double", 1
-"ggpubr", "ggarrange", 9, 0, 0, "list<double | character | null>", 1
-"ggpubr", "ggarrange", 10, 0, 0, "character[]", 1
-"ggpubr", "ggarrange", 11, 0, 0, "double", 1
-"ggpubr", "ggarrange", 12, 0, 0, "double[]", 1
-"ggpubr", "ggarrange", 13, 0, 0, "null", 1
-"ggpubr", "ggarrange", 14, 0, 0, "logical", 1
 "ggpubr", "ggballoonplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggballoonplot", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggballoonplot", 1, 0, 0, "character", 1
@@ -363,12 +294,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggballoonplot", 5, 0, 0, "double[]", 1
 "ggpubr", "ggballoonplot", 6, 0, 0, "double", 1
 "ggpubr", "ggballoonplot", 7, 0, 0, "character", 1
-"ggpubr", "ggballoonplot", 8, 0, 0, "character", 1
-"ggpubr", "ggballoonplot", 9, 0, 0, "logical", 1
-"ggpubr", "ggballoonplot", 10, 0, 0, "any", 1
-"ggpubr", "ggballoonplot", 11, 0, 0, "logical", 1
-"ggpubr", "ggballoonplot", 12, 0, 0, "class<`gg`, `theme`>", 1
-"ggpubr", "ggballoonplot", 13, 0, 0, "...", 1
 "ggpubr", "ggbarplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggbarplot", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggbarplot", 1, 0, 0, "character", 1
@@ -379,20 +304,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggbarplot", 6, 0, 0, "character", 1
 "ggpubr", "ggbarplot", 7, 0, 0, "character[]", 1
 "ggpubr", "ggbarplot", 7, 0, 1, "null", 1
-"ggpubr", "ggbarplot", 8, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 9, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 9, 0, 1, "double", 1
-"ggpubr", "ggbarplot", 10, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 11, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 12, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 13, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 14, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 15, 0, 0, "logical", 1
-"ggpubr", "ggbarplot", 16, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 17, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 18, 0, 0, "null", 1
-"ggpubr", "ggbarplot", 18, 0, 1, "character[]", 1
-"ggpubr", "ggbarplot", 19, 0, 0, "character[]", 1
 "ggpubr", "ggboxplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggboxplot", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggboxplot", 1, 0, 0, "character", 1
@@ -403,22 +314,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggboxplot", 6, 0, 0, "character", 1
 "ggpubr", "ggboxplot", 7, 0, 0, "character[]", 1
 "ggpubr", "ggboxplot", 7, 0, 1, "null", 1
-"ggpubr", "ggboxplot", 8, 0, 0, "null", 1
-"ggpubr", "ggboxplot", 8, 0, 1, "character", 1
-"ggpubr", "ggboxplot", 9, 0, 0, "null", 1
-"ggpubr", "ggboxplot", 9, 0, 1, "character", 1
-"ggpubr", "ggboxplot", 10, 0, 0, "null", 1
-"ggpubr", "ggboxplot", 10, 0, 1, "character", 1
-"ggpubr", "ggboxplot", 11, 0, 0, "logical", 1
-"ggpubr", "ggboxplot", 12, 0, 0, "double", 1
-"ggpubr", "ggboxplot", 13, 0, 0, "null", 1
-"ggpubr", "ggboxplot", 13, 0, 1, "character", 1
-"ggpubr", "ggboxplot", 14, 0, 0, "null", 1
-"ggpubr", "ggboxplot", 15, 0, 0, "logical", 1
-"ggpubr", "ggboxplot", 16, 0, 0, "character", 1
-"ggpubr", "ggboxplot", 17, 0, 0, "null", 1
-"ggpubr", "ggboxplot", 18, 0, 0, "double", 1
-"ggpubr", "ggboxplot", 19, 0, 0, "logical", 1
 "ggpubr", ".ggcolor", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
 "ggpubr", ".ggcolor", -1, 0, 1, "null", 1
 "ggpubr", ".ggcolor", 0, 0, 0, "character[]", 1
@@ -435,21 +330,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggdensity", 6, 0, 1, "null", 1
 "ggpubr", "ggdensity", 7, 0, 0, "character[]", 1
 "ggpubr", "ggdensity", 7, 0, 1, "null", 1
-"ggpubr", "ggdensity", 8, 0, 0, "null", 1
-"ggpubr", "ggdensity", 9, 0, 0, "character", 1
-"ggpubr", "ggdensity", 10, 0, 0, "double", 1
-"ggpubr", "ggdensity", 11, 0, 0, "null", 1
-"ggpubr", "ggdensity", 12, 0, 0, "null", 1
-"ggpubr", "ggdensity", 12, 0, 1, "character", 1
-"ggpubr", "ggdensity", 13, 0, 0, "null", 1
-"ggpubr", "ggdensity", 13, 0, 1, "character", 1
-"ggpubr", "ggdensity", 14, 0, 0, "null", 1
-"ggpubr", "ggdensity", 14, 0, 1, "character", 1
-"ggpubr", "ggdensity", 15, 0, 0, "null", 1
-"ggpubr", "ggdensity", 16, 0, 0, "logical", 1
-"ggpubr", "ggdensity", 17, 0, 0, "character[]", 1
-"ggpubr", "ggdensity", 18, 0, 0, "list<character>", 1
-"ggpubr", "ggdensity", 19, 0, 0, "logical", 1
 "ggpubr", "ggdonutchart", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggdonutchart", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggdonutchart", 1, 0, 0, "character", 1
@@ -459,12 +339,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggdonutchart", 5, 0, 0, "character[]", 1
 "ggpubr", "ggdonutchart", 6, 0, 0, "character", 1
 "ggpubr", "ggdonutchart", 7, 0, 0, "character", 1
-"ggpubr", "ggdonutchart", 8, 0, 0, "character", 1
-"ggpubr", "ggdonutchart", 9, 0, 0, "character[]", 1
-"ggpubr", "ggdonutchart", 9, 0, 1, "null", 1
-"ggpubr", "ggdonutchart", 10, 0, 0, "null", 1
-"ggpubr", "ggdonutchart", 11, 0, 0, "class<`gg`, `theme`>", 1
-"ggpubr", "ggdonutchart", 12, 0, 0, "...", 1
 "ggpubr", "ggdotchart", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggdotchart", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggdotchart", 1, 0, 0, "character", 1
@@ -476,20 +350,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggdotchart", 6, 0, 0, "character[]", 1
 "ggpubr", "ggdotchart", 6, 0, 1, "null", 1
 "ggpubr", "ggdotchart", 7, 0, 0, "double", 1
-"ggpubr", "ggdotchart", 8, 0, 0, "double", 1
-"ggpubr", "ggdotchart", 8, 0, 1, "null", 1
-"ggpubr", "ggdotchart", 9, 0, 0, "double", 1
-"ggpubr", "ggdotchart", 9, 0, 1, "null", 1
-"ggpubr", "ggdotchart", 10, 0, 0, "character[]", 1
-"ggpubr", "ggdotchart", 11, 0, 0, "character[]", 1
-"ggpubr", "ggdotchart", 12, 0, 0, "list<any>", 1
-"ggpubr", "ggdotchart", 13, 0, 0, "logical", 1
-"ggpubr", "ggdotchart", 14, 0, 0, "logical", 1
-"ggpubr", "ggdotchart", 15, 0, 0, "null", 1
-"ggpubr", "ggdotchart", 16, 0, 0, "null", 1
-"ggpubr", "ggdotchart", 17, 0, 0, "null", 1
-"ggpubr", "ggdotchart", 18, 0, 0, "null", 1
-"ggpubr", "ggdotchart", 19, 0, 0, "null", 1
 "ggpubr", "ggdotplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggdotplot", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggdotplot", 1, 0, 0, "character", 1
@@ -500,18 +360,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggdotplot", 6, 0, 0, "character", 1
 "ggpubr", "ggdotplot", 7, 0, 0, "character[]", 1
 "ggpubr", "ggdotplot", 7, 0, 1, "null", 1
-"ggpubr", "ggdotplot", 8, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 9, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 10, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 11, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 12, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 13, 0, 0, "logical", 1
-"ggpubr", "ggdotplot", 14, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 15, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 16, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 17, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 18, 0, 0, "null", 1
-"ggpubr", "ggdotplot", 19, 0, 0, "character[]", 1
 "ggpubr", "ggecdf", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggecdf", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggecdf", 1, 0, 0, "character", 1
@@ -522,14 +370,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggecdf", 5, 0, 1, "null", 1
 "ggpubr", "ggecdf", 6, 0, 0, "null", 1
 "ggpubr", "ggecdf", 7, 0, 0, "character", 1
-"ggpubr", "ggecdf", 8, 0, 0, "null", 1
-"ggpubr", "ggecdf", 9, 0, 0, "null", 1
-"ggpubr", "ggecdf", 10, 0, 0, "null", 1
-"ggpubr", "ggecdf", 11, 0, 0, "null", 1
-"ggpubr", "ggecdf", 12, 0, 0, "null", 1
-"ggpubr", "ggecdf", 13, 0, 0, "logical", 1
-"ggpubr", "ggecdf", 14, 0, 0, "class<`gg`, `theme`>", 1
-"ggpubr", "ggecdf", 15, 0, 0, "...", 1
 "ggpubr", "ggerrorplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggerrorplot", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggerrorplot", 1, 0, 0, "character", 1
@@ -539,20 +379,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggerrorplot", 5, 0, 0, "logical", 1
 "ggpubr", "ggerrorplot", 6, 0, 0, "character", 1
 "ggpubr", "ggerrorplot", 7, 0, 0, "character", 1
-"ggpubr", "ggerrorplot", 8, 0, 0, "character", 1
-"ggpubr", "ggerrorplot", 8, 0, 1, "null", 1
-"ggpubr", "ggerrorplot", 9, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 10, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 10, 0, 1, "double", 1
-"ggpubr", "ggerrorplot", 11, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 12, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 13, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 14, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 15, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 16, 0, 0, "logical", 1
-"ggpubr", "ggerrorplot", 17, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 18, 0, 0, "null", 1
-"ggpubr", "ggerrorplot", 19, 0, 0, "null", 1
 "ggpubr", ".ggfill", -1, 0, 0, "class<`Scale`, `ScaleDiscrete`, `gg`, `ggproto`>", 1
 "ggpubr", ".ggfill", -1, 0, 1, "null", 1
 "ggpubr", ".ggfill", 0, 0, 0, "character[]", 1
@@ -569,18 +395,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "gghistogram", 6, 0, 1, "null", 1
 "ggpubr", "gghistogram", 7, 0, 0, "character[]", 1
 "ggpubr", "gghistogram", 7, 0, 1, "null", 1
-"ggpubr", "gghistogram", 8, 0, 0, "null", 1
-"ggpubr", "gghistogram", 9, 0, 0, "character", 1
-"ggpubr", "gghistogram", 10, 0, 0, "double", 1
-"ggpubr", "gghistogram", 11, 0, 0, "null", 1
-"ggpubr", "gghistogram", 12, 0, 0, "null", 1
-"ggpubr", "gghistogram", 13, 0, 0, "null", 1
-"ggpubr", "gghistogram", 14, 0, 0, "null", 1
-"ggpubr", "gghistogram", 15, 0, 0, "null", 1
-"ggpubr", "gghistogram", 16, 0, 0, "null", 1
-"ggpubr", "gghistogram", 17, 0, 0, "null", 1
-"ggpubr", "gghistogram", 18, 0, 0, "logical", 1
-"ggpubr", "gghistogram", 19, 0, 0, "character", 1
 "ggpubr", "ggline", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggline", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggline", 1, 0, 0, "character", 1
@@ -590,20 +404,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggline", 5, 0, 0, "logical", 1
 "ggpubr", "ggline", 6, 0, 0, "logical", 1
 "ggpubr", "ggline", 7, 0, 0, "character", 1
-"ggpubr", "ggline", 8, 0, 0, "character[]", 1
-"ggpubr", "ggline", 8, 0, 1, "null", 1
-"ggpubr", "ggline", 9, 0, 0, "character", 1
-"ggpubr", "ggline", 10, 0, 0, "character[]", 1
-"ggpubr", "ggline", 11, 0, 0, "double", 1
-"ggpubr", "ggline", 12, 0, 0, "character", 1
-"ggpubr", "ggline", 12, 0, 1, "double", 1
-"ggpubr", "ggline", 13, 0, 0, "double", 1
-"ggpubr", "ggline", 14, 0, 0, "character", 1
-"ggpubr", "ggline", 15, 0, 0, "null", 1
-"ggpubr", "ggline", 16, 0, 0, "null", 1
-"ggpubr", "ggline", 17, 0, 0, "null", 1
-"ggpubr", "ggline", 18, 0, 0, "null", 1
-"ggpubr", "ggline", 19, 0, 0, "null", 1
 "ggpubr", "ggmaplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggmaplot", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggmaplot", 1, 0, 0, "double", 1
@@ -613,14 +413,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggmaplot", 5, 0, 0, "double", 1
 "ggpubr", "ggmaplot", 6, 0, 0, "character[]", 1
 "ggpubr", "ggmaplot", 7, 0, 0, "logical", 1
-"ggpubr", "ggmaplot", 8, 0, 0, "character[]", 1
-"ggpubr", "ggmaplot", 9, 0, 0, "double", 1
-"ggpubr", "ggmaplot", 10, 0, 0, "character[]", 1
-"ggpubr", "ggmaplot", 11, 0, 0, "expression", 1
-"ggpubr", "ggmaplot", 12, 0, 0, "character", 1
-"ggpubr", "ggmaplot", 13, 0, 0, "character", 1
-"ggpubr", "ggmaplot", 14, 0, 0, "class<`gg`, `theme`>", 1
-"ggpubr", "ggmaplot", 15, 0, 0, "...", 1
 "ggpubr", "ggpaired", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggpaired", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggpaired", 1, 0, 0, "any", 1
@@ -632,18 +424,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggpaired", 5, 0, 0, "null", 1
 "ggpubr", "ggpaired", 6, 0, 0, "character", 1
 "ggpubr", "ggpaired", 7, 0, 0, "character", 1
-"ggpubr", "ggpaired", 8, 0, 0, "character", 1
-"ggpubr", "ggpaired", 9, 0, 0, "double", 1
-"ggpubr", "ggpaired", 10, 0, 0, "double", 1
-"ggpubr", "ggpaired", 11, 0, 0, "double", 1
-"ggpubr", "ggpaired", 12, 0, 0, "character", 1
-"ggpubr", "ggpaired", 13, 0, 0, "null", 1
-"ggpubr", "ggpaired", 14, 0, 0, "character", 1
-"ggpubr", "ggpaired", 15, 0, 0, "character", 1
-"ggpubr", "ggpaired", 16, 0, 0, "null", 1
-"ggpubr", "ggpaired", 17, 0, 0, "null", 1
-"ggpubr", "ggpaired", 18, 0, 0, "logical", 1
-"ggpubr", "ggpaired", 19, 0, 0, "null", 1
 "ggpubr", "ggpar", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggpar", 0, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggpar", 1, 0, 0, "null", 1
@@ -661,24 +441,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggpar", 7, 0, 0, "null", 1
 "ggpubr", "ggpar", 7, 0, 1, "character", 1
 "ggpubr", "ggpar", 7, 0, 2, "logical", 1
-"ggpubr", "ggpar", 8, 0, 0, "null", 1
-"ggpubr", "ggpar", 8, 0, 1, "character", 1
-"ggpubr", "ggpar", 9, 0, 0, "null", 1
-"ggpubr", "ggpar", 9, 0, 1, "character", 1
-"ggpubr", "ggpar", 10, 0, 0, "null", 1
-"ggpubr", "ggpar", 10, 0, 1, "character[]", 1
-"ggpubr", "ggpar", 11, 0, 0, "null", 1
-"ggpubr", "ggpar", 12, 0, 0, "null", 1
-"ggpubr", "ggpar", 12, 0, 1, "character[]", 1
-"ggpubr", "ggpar", 13, 0, 0, "null", 1
-"ggpubr", "ggpar", 13, 0, 1, "character[]", 1
-"ggpubr", "ggpar", 14, 0, 0, "null", 1
-"ggpubr", "ggpar", 15, 0, 0, "null", 1
-"ggpubr", "ggpar", 16, 0, 0, "null", 1
-"ggpubr", "ggpar", 17, 0, 0, "character", 1
-"ggpubr", "ggpar", 18, 0, 0, "null", 1
-"ggpubr", "ggpar", 19, 0, 0, "null", 1
-"ggpubr", "ggpar", 19, 0, 1, "double[]", 1
 "ggpubr", "ggparagraph", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggparagraph", 0, 0, 0, "character", 1
 "ggpubr", "ggparagraph", 1, 0, 0, "null", 1
@@ -695,12 +457,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggpie", 5, 0, 0, "character[]", 1
 "ggpubr", "ggpie", 6, 0, 0, "character", 1
 "ggpubr", "ggpie", 7, 0, 0, "character", 1
-"ggpubr", "ggpie", 8, 0, 0, "character", 1
-"ggpubr", "ggpie", 9, 0, 0, "character[]", 1
-"ggpubr", "ggpie", 9, 0, 1, "null", 1
-"ggpubr", "ggpie", 10, 0, 0, "null", 1
-"ggpubr", "ggpie", 11, 0, 0, "class<`gg`, `theme`>", 1
-"ggpubr", "ggpie", 12, 0, 0, "...", 1
 "ggpubr", "ggqqplot", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggqqplot", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggqqplot", 1, 0, 0, "character", 1
@@ -711,18 +467,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggqqplot", 5, 0, 1, "null", 1
 "ggpubr", "ggqqplot", 6, 0, 0, "null", 1
 "ggpubr", "ggqqplot", 7, 0, 0, "null", 1
-"ggpubr", "ggqqplot", 8, 0, 0, "any", 1
-"ggpubr", "ggqqplot", 9, 0, 0, "any", 1
-"ggpubr", "ggqqplot", 10, 0, 0, "logical", 1
-"ggpubr", "ggqqplot", 11, 0, 0, "double", 1
-"ggpubr", "ggqqplot", 12, 0, 0, "null", 1
-"ggpubr", "ggqqplot", 13, 0, 0, "null", 1
-"ggpubr", "ggqqplot", 14, 0, 0, "null", 1
-"ggpubr", "ggqqplot", 15, 0, 0, "null", 1
-"ggpubr", "ggqqplot", 16, 0, 0, "null", 1
-"ggpubr", "ggqqplot", 17, 0, 0, "logical", 1
-"ggpubr", "ggqqplot", 18, 0, 0, "class<`gg`, `theme`>", 1
-"ggpubr", "ggqqplot", 19, 0, 0, "...", 1
 "ggpubr", "ggscatter", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggscatter", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggscatter", 1, 0, 0, "character", 1
@@ -734,20 +478,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggscatter", 6, 0, 1, "null", 1
 "ggpubr", "ggscatter", 7, 0, 0, "null", 1
 "ggpubr", "ggscatter", 7, 0, 1, "character[]", 1
-"ggpubr", "ggscatter", 8, 0, 0, "double", 1
-"ggpubr", "ggscatter", 8, 0, 1, "character", 1
-"ggpubr", "ggscatter", 9, 0, 0, "double", 1
-"ggpubr", "ggscatter", 9, 0, 1, "character", 1
-"ggpubr", "ggscatter", 10, 0, 0, "logical", 1
-"ggpubr", "ggscatter", 11, 0, 0, "logical", 1
-"ggpubr", "ggscatter", 12, 0, 0, "null", 1
-"ggpubr", "ggscatter", 13, 0, 0, "null", 1
-"ggpubr", "ggscatter", 14, 0, 0, "null", 1
-"ggpubr", "ggscatter", 15, 0, 0, "null", 1
-"ggpubr", "ggscatter", 16, 0, 0, "null", 1
-"ggpubr", "ggscatter", 17, 0, 0, "logical", 1
-"ggpubr", "ggscatter", 18, 0, 0, "character[]", 1
-"ggpubr", "ggscatter", 19, 0, 0, "list<any>", 1
 "ggpubr", "ggscatterhist", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggscatterhist", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggscatterhist", 1, 0, 0, "character", 1
@@ -758,18 +488,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggscatterhist", 6, 0, 0, "character[]", 1
 "ggpubr", "ggscatterhist", 6, 0, 1, "null", 1
 "ggpubr", "ggscatterhist", 7, 0, 0, "double", 1
-"ggpubr", "ggscatterhist", 8, 0, 0, "double", 1
-"ggpubr", "ggscatterhist", 9, 0, 0, "character", 1
-"ggpubr", "ggscatterhist", 10, 0, 0, "double", 1
-"ggpubr", "ggscatterhist", 11, 0, 0, "character[]", 1
-"ggpubr", "ggscatterhist", 12, 0, 0, "list<any>", 1
-"ggpubr", "ggscatterhist", 13, 0, 0, "class<`gg`, `theme`>", 1
-"ggpubr", "ggscatterhist", 14, 0, 0, "logical", 1
-"ggpubr", "ggscatterhist", 15, 0, 0, "double", 1
-"ggpubr", "ggscatterhist", 16, 0, 0, "double", 1
-"ggpubr", "ggscatterhist", 17, 0, 0, "null", 1
-"ggpubr", "ggscatterhist", 18, 0, 0, "null", 1
-"ggpubr", "ggscatterhist", 19, 0, 0, "null", 1
 "ggpubr", ".ggscipal", -1, 0, 0, "character[]", 1
 "ggpubr", "ggstripchart", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggstripchart", 0, 0, 0, "class<`data.frame`>", 1
@@ -781,19 +499,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggstripchart", 6, 0, 0, "character", 1
 "ggpubr", "ggstripchart", 7, 0, 0, "character[]", 1
 "ggpubr", "ggstripchart", 7, 0, 1, "null", 1
-"ggpubr", "ggstripchart", 8, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 9, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 10, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 11, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 12, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 13, 0, 0, "logical", 1
-"ggpubr", "ggstripchart", 14, 0, 0, "character", 1
-"ggpubr", "ggstripchart", 15, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 15, 0, 1, "double", 1
-"ggpubr", "ggstripchart", 16, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 17, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 18, 0, 0, "null", 1
-"ggpubr", "ggstripchart", 19, 0, 0, "character[]", 1
 "ggpubr", "ggtext", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggtext", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggtext", 1, 0, 0, "character", 1
@@ -803,23 +508,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggtext", 5, 0, 0, "any", 1
 "ggpubr", "ggtext", 6, 0, 0, "double", 1
 "ggpubr", "ggtext", 7, 0, 0, "character", 1
-"ggpubr", "ggtext", 8, 0, 0, "character", 1
-"ggpubr", "ggtext", 9, 0, 0, "null", 1
-"ggpubr", "ggtext", 10, 0, 0, "null", 1
-"ggpubr", "ggtext", 11, 0, 0, "logical", 1
-"ggpubr", "ggtext", 12, 0, 0, "logical", 1
-"ggpubr", "ggtext", 13, 0, 0, "null", 1
-"ggpubr", "ggtext", 14, 0, 0, "character", 1
-"ggpubr", "ggtext", 15, 0, 0, "null", 1
-"ggpubr", "ggtext", 16, 0, 0, "any", 1
-"ggpubr", "ggtext", 17, 0, 0, "...", 1
 "ggpubr", "ggtexttable", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggtexttable", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", "ggtexttable", 1, 0, 0, "null", 1
 "ggpubr", "ggtexttable", 1, 0, 1, "character[]", 1
 "ggpubr", "ggtexttable", 2, 0, 0, "character[]", 1
 "ggpubr", "ggtexttable", 3, 0, 0, "null", 1
-"ggpubr", "ggtexttable", 4, 0, 0, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | double> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character> | class<`function`> | class<`unit`> | list<character | double | null | double | character> | class<`function`> | class<`unit`> | list<character | double | null | double> | class<`function`> | class<`unit`> | list<character | double | null | double>>>", 1
+"ggpubr", "ggtexttable", 4, 0, 0, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | double> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character>>>", 1
+"ggpubr", "ggtexttable", 4, 0, 1, "list<list<class<`function`> | class<`unit`> | list<character | double | null | double | character> | class<`function`> | class<`unit`> | list<character | double | null | double>>>", 1
+"ggpubr", "ggtexttable", 4, 0, 2, "list<list<class<`function`> | class<`unit`> | list<character | double | null | double>>>", 1
 "ggpubr", "ggtexttable", 5, 0, 0, "...", 1
 "ggpubr", "ggviolin", -1, 0, 0, "class<`gg`, `ggplot`>", 1
 "ggpubr", "ggviolin", 0, 0, 0, "class<`data.frame`>", 1
@@ -831,19 +528,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "ggviolin", 6, 0, 0, "character", 1
 "ggpubr", "ggviolin", 7, 0, 0, "character[]", 1
 "ggpubr", "ggviolin", 7, 0, 1, "null", 1
-"ggpubr", "ggviolin", 8, 0, 0, "double", 1
-"ggpubr", "ggviolin", 9, 0, 0, "null", 1
-"ggpubr", "ggviolin", 10, 0, 0, "null", 1
-"ggpubr", "ggviolin", 11, 0, 0, "null", 1
-"ggpubr", "ggviolin", 12, 0, 0, "null", 1
-"ggpubr", "ggviolin", 13, 0, 0, "null", 1
-"ggpubr", "ggviolin", 14, 0, 0, "logical", 1
-"ggpubr", "ggviolin", 15, 0, 0, "character", 1
-"ggpubr", "ggviolin", 16, 0, 0, "logical", 1
-"ggpubr", "ggviolin", 17, 0, 0, "null", 1
-"ggpubr", "ggviolin", 18, 0, 0, "double", 1
-"ggpubr", "ggviolin", 19, 0, 0, "null", 1
-"ggpubr", "ggviolin", 19, 0, 1, "double", 1
 "ggpubr", ".gradient_col", -1, 0, 0, "class<`Scale`, `ScaleContinuous`, `gg`, `ggproto`>", 1
 "ggpubr", ".gradient_col", 0, 0, 0, "character[]", 1
 "ggpubr", "gradient_color", -1, 0, 0, "class<`Scale`, `ScaleContinuous`, `gg`, `ggproto`>", 1
@@ -889,8 +573,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", ".is_empty", 0, 0, 0, "character[]", 1
 "ggpubr", ".is_empty", 0, 0, 1, "class<`waiver`>", 1
 "ggpubr", ".is_empty", 0, 0, 2, "integer[]", 1
-"ggpubr", ".is_empty", 0, 0, 3, "null", 1
-"ggpubr", ".is_empty", 0, 0, 4, "list<any>", 1
+"ggpubr", ".is_empty", 0, 0, 3, "list<any>", 1
+"ggpubr", ".is_empty", 0, 0, 4, "null", 1
 "ggpubr", ".is_list", -1, 0, 0, "logical", 1
 "ggpubr", ".is_list", 0, 0, 0, "character[]", 1
 "ggpubr", ".is_list", 0, 0, 1, "class<`gg`, `ggplot`>", 1
@@ -928,10 +612,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", ".labs", 6, 0, 1, "character[]", 1
 "ggpubr", ".labs", 7, 0, 0, "character", 1
 "ggpubr", ".labs", 7, 0, 1, "null", 1
-"ggpubr", ".labs", 8, 0, 0, "character", 1
-"ggpubr", ".labs", 8, 0, 1, "null", 1
-"ggpubr", ".labs", 9, 0, 0, "null", 1
-"ggpubr", ".labs", 10, 0, 0, "null", 1
 "ggpubr", "labs_pubr", -1, 0, 0, "class<`gg`, `theme`>", 1
 "ggpubr", "labs_pubr", 0, 0, 0, "double", 1
 "ggpubr", "labs_pubr", 1, 0, 0, "character", 1
@@ -954,10 +634,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", ".nbplots_per_page", 1, 0, 0, "double", 1
 "ggpubr", ".nbplots_per_page", 1, 0, 1, "null", 1
 "ggpubr", ".parse_font", -1, 0, 0, "null", 1
-"ggpubr", ".parse_font", -1, 0, 1, "list<any>", 1
+"ggpubr", ".parse_font", -1, 0, 1, "list<character>", 1
+"ggpubr", ".parse_font", -1, 0, 2, "list<double | character>", 1
+"ggpubr", ".parse_font", -1, 0, 3, "list<double | character | null>", 1
+"ggpubr", ".parse_font", -1, 0, 4, "list<null | character>", 1
 "ggpubr", ".parse_font", 0, 0, 0, "null", 1
-"ggpubr", ".parse_font", 0, 0, 1, "character[]", 1
-"ggpubr", ".parse_font", 0, 0, 2, "list<character | double | character>", 1
+"ggpubr", ".parse_font", 0, 0, 1, "list<character>", 1
+"ggpubr", ".parse_font", 0, 0, 2, "list<double | character>", 1
+"ggpubr", ".parse_font", 0, 0, 3, "character[]", 1
 "ggpubr", ".paste_colnames", -1, 0, 0, "class<`data.frame`>", 1
 "ggpubr", ".paste_colnames", 0, 0, 0, "class<`data.frame`, `grouped_df`, `tbl`, `tbl_df`>", 1
 "ggpubr", ".paste_colnames", 1, 0, 0, "character", 1
@@ -979,7 +663,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "rotate_y_text", 1, 0, 0, "null", 1
 "ggpubr", "rotate_y_text", 2, 0, 0, "null", 1
 "ggpubr", "rotate_y_text", 3, 0, 0, "...", 1
-"ggpubr", "rownames_style", -1, 0, 0, "list<list<character | double | null | double | character | character | double | null | double>>", 1
+"ggpubr", "rownames_style", -1, 0, 0, "list<list<character | double | null | double | character>>", 1
+"ggpubr", "rownames_style", -1, 0, 1, "list<list<character | double | null | double>>", 1
 "ggpubr", "rownames_style", 0, 0, 0, "character", 1
 "ggpubr", "rownames_style", 1, 0, 0, "character", 1
 "ggpubr", "rownames_style", 2, 0, 0, "double", 1
@@ -1063,7 +748,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "stat_central_tendency", 5, 0, 0, "null", 1
 "ggpubr", "stat_central_tendency", 6, 0, 0, "logical", 1
 "ggpubr", "stat_central_tendency", 7, 0, 0, "character", 1
-"ggpubr", "stat_central_tendency", 8, 0, 0, "...", 1
 "ggpubr", "stat_chull", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", "stat_chull", 0, 0, 0, "class<`uneval`>", 1
 "ggpubr", "stat_chull", 1, 0, 0, "null", 1
@@ -1086,19 +770,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "stat_compare_means", 6, 0, 0, "null", 1
 "ggpubr", "stat_compare_means", 6, 0, 1, "list<character[]>", 1
 "ggpubr", "stat_compare_means", 7, 0, 0, "logical", 1
-"ggpubr", "stat_compare_means", 8, 0, 0, "character", 1
-"ggpubr", "stat_compare_means", 9, 0, 0, "null", 1
-"ggpubr", "stat_compare_means", 10, 0, 0, "character", 1
-"ggpubr", "stat_compare_means", 11, 0, 0, "character", 1
-"ggpubr", "stat_compare_means", 12, 0, 0, "null", 1
-"ggpubr", "stat_compare_means", 13, 0, 0, "null", 1
-"ggpubr", "stat_compare_means", 13, 0, 1, "double[]", 1
-"ggpubr", "stat_compare_means", 14, 0, 0, "double", 1
-"ggpubr", "stat_compare_means", 15, 0, 0, "double", 1
-"ggpubr", "stat_compare_means", 16, 0, 0, "double", 1
-"ggpubr", "stat_compare_means", 17, 0, 0, "list<any>", 1
-"ggpubr", "stat_compare_means", 18, 0, 0, "character", 1
-"ggpubr", "stat_compare_means", 19, 0, 0, "character", 1
 "ggpubr", "stat_conf_ellipse", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", "stat_conf_ellipse", 0, 0, 0, "class<`uneval`>", 1
 "ggpubr", "stat_conf_ellipse", 1, 0, 0, "null", 1
@@ -1108,9 +779,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "stat_conf_ellipse", 5, 0, 0, "null", 1
 "ggpubr", "stat_conf_ellipse", 6, 0, 0, "logical", 1
 "ggpubr", "stat_conf_ellipse", 7, 0, 0, "double", 1
-"ggpubr", "stat_conf_ellipse", 8, 0, 0, "double", 1
-"ggpubr", "stat_conf_ellipse", 9, 0, 0, "logical", 1
-"ggpubr", "stat_conf_ellipse", 10, 0, 0, "...", 1
 "ggpubr", "stat_cor", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", "stat_cor", 0, 0, 0, "class<`uneval`>", 1
 "ggpubr", "stat_cor", 0, 0, 1, "null", 1
@@ -1122,18 +790,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "stat_cor", 6, 0, 0, "character", 1
 "ggpubr", "stat_cor", 7, 0, 0, "double", 1
 "ggpubr", "stat_cor", 7, 0, 1, "null", 1
-"ggpubr", "stat_cor", 8, 0, 0, "null", 1
-"ggpubr", "stat_cor", 8, 0, 1, "double", 1
-"ggpubr", "stat_cor", 9, 0, 0, "character", 1
-"ggpubr", "stat_cor", 10, 0, 0, "double", 1
-"ggpubr", "stat_cor", 11, 0, 0, "double", 1
-"ggpubr", "stat_cor", 12, 0, 0, "double", 1
-"ggpubr", "stat_cor", 13, 0, 0, "character", 1
-"ggpubr", "stat_cor", 14, 0, 0, "character", 1
-"ggpubr", "stat_cor", 15, 0, 0, "logical", 1
-"ggpubr", "stat_cor", 16, 0, 0, "null", 1
-"ggpubr", "stat_cor", 17, 0, 0, "logical", 1
-"ggpubr", "stat_cor", 18, 0, 0, "...", 1
 "ggpubr", ".stat_ellipse", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", ".stat_ellipse", 0, 0, 0, "class<`data.frame`>", 1
 "ggpubr", ".stat_ellipse", 1, 0, 0, "character", 1
@@ -1143,8 +799,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", ".stat_ellipse", 5, 0, 0, "any", 1
 "ggpubr", ".stat_ellipse", 6, 0, 0, "double", 1
 "ggpubr", ".stat_ellipse", 7, 0, 0, "character", 1
-"ggpubr", ".stat_ellipse", 8, 0, 0, "double", 1
-"ggpubr", ".stat_ellipse", 9, 0, 0, "logical", 1
 "ggpubr", "stat_mean", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", "stat_mean", 0, 0, 0, "class<`uneval`>", 1
 "ggpubr", "stat_mean", 1, 0, 0, "null", 1
@@ -1175,18 +829,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "stat_pvalue_manual", 5, 0, 1, "character", 1
 "ggpubr", "stat_pvalue_manual", 6, 0, 0, "double", 1
 "ggpubr", "stat_pvalue_manual", 7, 0, 0, "double", 1
-"ggpubr", "stat_pvalue_manual", 8, 0, 0, "double", 1
-"ggpubr", "stat_pvalue_manual", 9, 0, 0, "character", 1
-"ggpubr", "stat_pvalue_manual", 10, 0, 0, "double", 1
-"ggpubr", "stat_pvalue_manual", 11, 0, 0, "double", 1
-"ggpubr", "stat_pvalue_manual", 12, 0, 0, "logical", 1
-"ggpubr", "stat_pvalue_manual", 13, 0, 0, "double", 1
-"ggpubr", "stat_pvalue_manual", 14, 0, 0, "null", 1
-"ggpubr", "stat_pvalue_manual", 15, 0, 0, "logical", 1
-"ggpubr", "stat_pvalue_manual", 16, 0, 0, "double", 1
-"ggpubr", "stat_pvalue_manual", 17, 0, 0, "character", 1
-"ggpubr", "stat_pvalue_manual", 17, 0, 1, "class<`Position`, `PositionDodge`, `gg`, `ggproto`>", 1
-"ggpubr", "stat_pvalue_manual", 18, 0, 0, "...", 1
 "ggpubr", "stat_regline_equation", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", "stat_regline_equation", 0, 0, 0, "class<`uneval`>", 1
 "ggpubr", "stat_regline_equation", 0, 0, 1, "null", 1
@@ -1199,12 +841,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "stat_regline_equation", 6, 0, 0, "null", 1
 "ggpubr", "stat_regline_equation", 6, 0, 1, "double", 1
 "ggpubr", "stat_regline_equation", 7, 0, 0, "character", 1
-"ggpubr", "stat_regline_equation", 8, 0, 0, "character", 1
-"ggpubr", "stat_regline_equation", 9, 0, 0, "character", 1
-"ggpubr", "stat_regline_equation", 10, 0, 0, "logical", 1
-"ggpubr", "stat_regline_equation", 11, 0, 0, "null", 1
-"ggpubr", "stat_regline_equation", 12, 0, 0, "logical", 1
-"ggpubr", "stat_regline_equation", 13, 0, 0, "...", 1
 "ggpubr", "stat_stars", -1, 0, 0, "class<`Layer`, `LayerInstance`, `gg`, `ggproto`>", 1
 "ggpubr", "stat_stars", 0, 0, 0, "class<`uneval`>", 1
 "ggpubr", "stat_stars", 1, 0, 0, "null", 1
@@ -1231,7 +867,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "table_cell_font", 2, 0, 0, "double", 1
 "ggpubr", "table_cell_font", 3, 0, 0, "character", 1
 "ggpubr", "table_cell_font", 4, 0, 0, "null", 1
-"ggpubr", "tbody_style", -1, 0, 0, "list<list<character | double | character[] | double | character | double | null | double | character | character | double | null | double>>", 1
+"ggpubr", "tbody_style", -1, 0, 0, "list<list<character | double | character[] | double>>", 1
+"ggpubr", "tbody_style", -1, 0, 1, "list<list<character | double | null | double | character>>", 1
+"ggpubr", "tbody_style", -1, 0, 2, "list<list<character | double | null | double>>", 1
 "ggpubr", "tbody_style", 0, 0, 0, "character", 1
 "ggpubr", "tbody_style", 1, 0, 0, "character", 1
 "ggpubr", "tbody_style", 2, 0, 0, "double", 1
@@ -1258,9 +896,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "text_grob", 6, 0, 0, "character", 1
 "ggpubr", "text_grob", 7, 0, 0, "double", 1
 "ggpubr", "text_grob", 7, 0, 1, "null", 1
-"ggpubr", "text_grob", 8, 0, 0, "null", 1
-"ggpubr", "text_grob", 9, 0, 0, "null", 1
-"ggpubr", "text_grob", 10, 0, 0, "...", 1
 "ggpubr", "theme_pubclean", -1, 0, 0, "class<`gg`, `theme`>", 1
 "ggpubr", "theme_pubclean", 0, 0, 0, "double", 1
 "ggpubr", "theme_pubclean", 1, 0, 0, "character", 1
@@ -1276,10 +911,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "ggpubr", "theme_transparent", 0, 0, 0, "double", 1
 "ggpubr", "theme_transparent", 1, 0, 0, "character", 1
 "ggpubr", "tstyle", -1, 0, 0, "null", 1
-"ggpubr", "tstyle", -1, 0, 1, "list<list<list<character | double | character | double | null | double | character | character | double | character[] | double | character | double | null | double | character | character | double | null | double | character | double | null | double>>>", 1
+"ggpubr", "tstyle", -1, 0, 1, "list<list<list<character | double | character | double | null | double | character | character | double | character[] | double>>>", 1
+"ggpubr", "tstyle", -1, 0, 2, "list<list<list<character | double | null | double | character | character | double | null | double>>>", 1
+"ggpubr", "tstyle", -1, 0, 3, "list<list<list<character | double | null | double>>>", 1
 "ggpubr", "tstyle", 0, 0, 0, "character", 1
 "ggpubr", "tstyle", 1, 0, 0, "any", 1
-"ggpubr", "ttheme", -1, 0, 0, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | double> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character> | class<`function`> | class<`unit`> | list<character | double | null | double | character> | class<`function`> | class<`unit`> | list<character | double | null | double> | class<`function`> | class<`unit`> | list<character | double | null | double>>>", 1
+"ggpubr", "ttheme", -1, 0, 0, "list<list<class<`function`> | class<`unit`> | list<character | double | character[] | double> | class<`function`> | class<`unit`> | list<character | double> | class<`function`> | class<`unit`> | list<character | double | null | double | character>>>", 1
+"ggpubr", "ttheme", -1, 0, 1, "list<list<class<`function`> | class<`unit`> | list<character | double | null | double | character> | class<`function`> | class<`unit`> | list<character | double | null | double>>>", 1
+"ggpubr", "ttheme", -1, 0, 2, "list<list<class<`function`> | class<`unit`> | list<character | double | null | double>>>", 1
 "ggpubr", "ttheme", 0, 0, 0, "character", 1
 "ggpubr", "ttheme", 1, 0, 0, "double", 1
 "ggpubr", "ttheme", 2, 0, 0, "character", 1

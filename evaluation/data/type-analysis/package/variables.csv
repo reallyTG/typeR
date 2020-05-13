@@ -23,7 +23,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "variables", "as.vars", 0, 0, 0, "class<`data.frame`>", 1
 "variables", "as.vars.data.frame", -1, 0, 0, "class<`vars`>", 1
 "variables", "as.vars.data.frame", 0, 0, 0, "class<`data.frame`>", 1
-"variables", "bounds", -1, 0, 0, "list<any>", 1
+"variables", "bounds", -1, 0, 0, "list<double[]>", 1
+"variables", "bounds", -1, 0, 1, "list<double[] | class<`factor`, `ordered`> | null>", 1
+"variables", "bounds", -1, 0, 2, "list<null>", 1
+"variables", "bounds", -1, 0, 3, "list<class<`factor`, `ordered`>>", 1
 "variables", "bounds", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
 "variables", "bounds", 0, 0, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
 "variables", "bounds", 0, 0, 2, "class<`vars`>", 1
@@ -81,51 +84,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "variables", "factor_var", 1, 0, 0, "character", 1
 "variables", "factor_var", 1, 0, 1, "null", 1
 "variables", "factor_var", 2, 0, 0, "character[]", 1
-"variables", "FUN", -1, 0, 0, "list<any>", 1
-"variables", "FUN", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 0, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 0, 2, "class<`vars`>", 1
-"variables", "FUN", 0, 0, 3, "class<`factor_var`, `var`>", 1
-"variables", "FUN", 0, 0, 4, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "FUN", -1, 1, 0, "logical", 1
-"variables", "FUN", 0, 1, 0, "class<`vars`>", 1
-"variables", "FUN", 0, 1, 1, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 1, 2, "class<`discrete_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 1, 3, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "FUN", 0, 1, 4, "class<`factor_var`, `var`>", 1
-"variables", "FUN", 1, 1, 0, "class<`data.frame`>", 1
-"variables", "FUN", -1, 2, 0, "character[]", 1
-"variables", "FUN", 0, 2, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 2, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 2, 2, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "FUN", 0, 2, 3, "class<`factor_var`, `var`>", 1
-"variables", "FUN", 0, 2, 4, "class<`vars`>", 1
-"variables", "FUN", -1, 3, 0, "list<any>", 1
-"variables", "FUN", 0, 3, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 3, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 3, 2, "class<`factor_var`, `var`>", 1
-"variables", "FUN", 0, 3, 3, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "FUN", 0, 3, 4, "class<`vars`>", 1
-"variables", "FUN", 1, 3, 0, "...", 1
-"variables", "FUN", -1, 4, 0, "logical[]", 1
-"variables", "FUN", 0, 4, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 4, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 4, 2, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "FUN", 0, 4, 3, "class<`factor_var`, `var`>", 1
-"variables", "FUN", 0, 4, 4, "class<`vars`>", 1
-"variables", "FUN", -1, 5, 0, "null", 1
-"variables", "FUN", -1, 5, 1, "^character[]", 1
-"variables", "FUN", 0, 5, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 5, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 5, 2, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "FUN", 0, 5, 3, "class<`factor_var`, `var`>", 1
-"variables", "FUN", 0, 5, 4, "class<`vars`>", 1
-"variables", "FUN", -1, 6, 0, "list<any>", 1
-"variables", "FUN", 0, 6, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 6, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
-"variables", "FUN", 0, 6, 2, "class<`factor_var`, `var`>", 1
-"variables", "FUN", 0, 6, 3, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "FUN", 0, 6, 4, "class<`vars`>", 1
 "variables", "is.bounded", -1, 0, 0, "logical[]", 1
 "variables", "is.bounded", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
 "variables", "is.bounded", 0, 0, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
@@ -147,7 +105,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "variables", "levels.factor_var", 0, 0, 1, "class<`factor_var`, `var`>", 1
 "variables", "levels.var", -1, 0, 0, "null", 1
 "variables", "levels.var", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
-"variables", "mkgrid", -1, 0, 0, "list<any>", 1
+"variables", "mkgrid", -1, 0, 0, "list<double[]>", 1
+"variables", "mkgrid", -1, 0, 1, "list<class<`factor`>>", 1
+"variables", "mkgrid", -1, 0, 2, "list<class<`factor`, `ordered`>>", 1
+"variables", "mkgrid", -1, 0, 3, "list<double[] | class<`factor`, `ordered`> | class<`factor`>>", 1
+"variables", "mkgrid", -1, 0, 4, "list<class<`factor`> | double[]>", 1
 "variables", "mkgrid", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
 "variables", "mkgrid", 0, 0, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
 "variables", "mkgrid", 0, 0, 2, "class<`factor_var`, `var`>", 1
@@ -158,12 +120,15 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "variables", "mkgrid.continuous_var", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
 "variables", "mkgrid.continuous_var", 1, 0, 0, "double", 1
 "variables", "mkgrid.continuous_var", 2, 0, 0, "...", 1
-"variables", "mkgrid.var", -1, 0, 0, "list<double[] | class<`factor`> | class<`factor`, `ordered`>>", 1
+"variables", "mkgrid.var", -1, 0, 0, "list<double[]>", 1
+"variables", "mkgrid.var", -1, 0, 1, "list<class<`factor`>>", 1
+"variables", "mkgrid.var", -1, 0, 2, "list<class<`factor`, `ordered`>>", 1
 "variables", "mkgrid.var", 0, 0, 0, "class<`discrete_var`, `numeric_var`, `var`>", 1
 "variables", "mkgrid.var", 0, 0, 1, "class<`factor_var`, `var`>", 1
 "variables", "mkgrid.var", 0, 0, 2, "class<`factor_var`, `ordered_var`, `var`>", 1
 "variables", "mkgrid.var", 1, 0, 0, "...", 1
-"variables", "mkgrid.vars", -1, 0, 0, "list<double[] | class<`factor`, `ordered`> | class<`factor`> | class<`factor`> | double[]>", 1
+"variables", "mkgrid.vars", -1, 0, 0, "list<double[] | class<`factor`, `ordered`> | class<`factor`>>", 1
+"variables", "mkgrid.vars", -1, 0, 1, "list<class<`factor`> | double[]>", 1
 "variables", "mkgrid.vars", 0, 0, 0, "class<`vars`>", 1
 "variables", "mkgrid.vars", 1, 0, 0, "...", 1
 "variables", "numeric_var", -1, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
@@ -181,18 +146,25 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "variables", "ordered_var", 0, 0, 0, "character", 1
 "variables", "ordered_var", 1, 0, 0, "character", 1
 "variables", "ordered_var", 2, 0, 0, "character[]", 1
-"variables", "support", -1, 0, 0, "list<any>", 1
+"variables", "support", -1, 0, 0, "list<double[]>", 1
+"variables", "support", -1, 0, 1, "list<class<`factor`>>", 1
+"variables", "support", -1, 0, 2, "list<class<`factor`, `ordered`>>", 1
+"variables", "support", -1, 0, 3, "list<double[] | class<`factor`, `ordered`> | class<`factor`>>", 1
+"variables", "support", -1, 0, 4, "list<class<`factor`> | double[]>", 1
 "variables", "support", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
 "variables", "support", 0, 0, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
 "variables", "support", 0, 0, 2, "class<`factor_var`, `var`>", 1
 "variables", "support", 0, 0, 3, "class<`factor_var`, `ordered_var`, `var`>", 1
 "variables", "support", 0, 0, 4, "class<`vars`>", 1
-"variables", "support.var", -1, 0, 0, "list<double[] | class<`factor`> | class<`factor`, `ordered`>>", 1
+"variables", "support.var", -1, 0, 0, "list<double[]>", 1
+"variables", "support.var", -1, 0, 1, "list<class<`factor`>>", 1
+"variables", "support.var", -1, 0, 2, "list<class<`factor`, `ordered`>>", 1
 "variables", "support.var", 0, 0, 0, "class<`continuous_var`, `numeric_var`, `var`>", 1
 "variables", "support.var", 0, 0, 1, "class<`discrete_var`, `numeric_var`, `var`>", 1
 "variables", "support.var", 0, 0, 2, "class<`factor_var`, `var`>", 1
 "variables", "support.var", 0, 0, 3, "class<`factor_var`, `ordered_var`, `var`>", 1
-"variables", "support.vars", -1, 0, 0, "list<double[] | class<`factor`, `ordered`> | class<`factor`> | class<`factor`> | double[]>", 1
+"variables", "support.vars", -1, 0, 0, "list<double[] | class<`factor`, `ordered`> | class<`factor`>>", 1
+"variables", "support.vars", -1, 0, 1, "list<class<`factor`> | double[]>", 1
 "variables", "support.vars", 0, 0, 0, "class<`vars`>", 1
 "variables", "unit", -1, 0, 0, "null", 1
 "variables", "unit", -1, 0, 1, "^character[]", 1

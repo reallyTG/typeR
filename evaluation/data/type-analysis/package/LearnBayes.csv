@@ -7,11 +7,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "LearnBayes", "bayes.model.selection", 1, 0, 0, "class<`matrix`>", 1
 "LearnBayes", "bayes.model.selection", 2, 0, 0, "double", 1
 "LearnBayes", "bayes.model.selection", 3, 0, 0, "logical", 1
-"LearnBayes", "bayes.probit", -1, 0, 0, "list<class<`matrix`> | double | class<`matrix`> | null>", 1
+"LearnBayes", "bayes.probit", -1, 0, 0, "list<class<`matrix`> | double>", 1
+"LearnBayes", "bayes.probit", -1, 0, 1, "list<class<`matrix`> | null>", 1
 "LearnBayes", "bayes.probit", 0, 0, 0, "double[]", 1
 "LearnBayes", "bayes.probit", 1, 0, 0, "class<`matrix`>", 1
 "LearnBayes", "bayes.probit", 2, 0, 0, "double", 1
-"LearnBayes", "bayes.probit", 3, 0, 0, "list<double[] | class<`matrix`> | double>", 1
+"LearnBayes", "bayes.probit", 3, 0, 0, "list<double[] | class<`matrix`>>", 1
+"LearnBayes", "bayes.probit", 3, 0, 1, "list<double>", 1
 "LearnBayes", "bayesresiduals", -1, 0, 0, "double[]", 1
 "LearnBayes", "bayesresiduals", 0, 0, 0, "class<`lm`>", 1
 "LearnBayes", "bayesresiduals", 1, 0, 0, "list<class<`matrix`> | double[]>", 1
@@ -118,7 +120,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "LearnBayes", "indepmetrop", 2, 0, 0, "class<`matrix`>", 1
 "LearnBayes", "indepmetrop", 3, 0, 0, "double", 1
 "LearnBayes", "indepmetrop", 4, 0, 0, "...", 1
-"LearnBayes", "laplace", -1, 0, 0, "list<class<`matrix`> | double | double[] | class<`matrix`> | double | class<`matrix`>>", 1
+"LearnBayes", "laplace", -1, 0, 0, "list<class<`matrix`> | double>", 1
+"LearnBayes", "laplace", -1, 0, 1, "list<double[] | class<`matrix`>>", 1
+"LearnBayes", "laplace", -1, 0, 2, "list<double | class<`matrix`>>", 1
 "LearnBayes", "laplace", 0, 0, 0, "class<`function`>", 1
 "LearnBayes", "laplace", 1, 0, 0, "class<`matrix`>", 1
 "LearnBayes", "laplace", 1, 0, 1, "double[]", 1
@@ -150,8 +154,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "LearnBayes", "mycontour", -1, 0, 0, "null", 1
 "LearnBayes", "mycontour", 0, 0, 0, "class<`function`>", 1
 "LearnBayes", "mycontour", 1, 0, 0, "double[]", 1
-"LearnBayes", "mycontour", 2, 0, 0, "class<`data.frame`>", 1
-"LearnBayes", "mycontour", 2, 0, 1, "list<double | class<`matrix`> | double[] | class<`matrix`>>", 1
+"LearnBayes", "mycontour", 2, 0, 0, "list<double>", 1
+"LearnBayes", "mycontour", 2, 0, 1, "class<`data.frame`>", 1
+"LearnBayes", "mycontour", 2, 0, 2, "list<class<`matrix`>>", 1
+"LearnBayes", "mycontour", 2, 0, 3, "list<double[] | class<`matrix`>>", 1
 "LearnBayes", "mycontour", 3, 0, 0, "...", 1
 "LearnBayes", "normal.normal.mix", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
 "LearnBayes", "normal.normal.mix", 0, 0, 0, "double[]", 1
@@ -282,7 +288,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "LearnBayes", "simcontour", 3, 0, 0, "double", 1
 "LearnBayes", "sir", -1, 0, 0, "class<`matrix`>", 1
 "LearnBayes", "sir", 0, 0, 0, "class<`function`>", 1
-"LearnBayes", "sir", 1, 0, 0, "list<class<`matrix`> | double | double[] | class<`matrix`>>", 1
+"LearnBayes", "sir", 1, 0, 0, "list<class<`matrix`> | double>", 1
+"LearnBayes", "sir", 1, 0, 1, "list<double[] | class<`matrix`>>", 1
 "LearnBayes", "sir", 2, 0, 0, "double", 1
 "LearnBayes", "sir", 3, 0, 0, "class<`data.frame`>", 1
 "LearnBayes", "summary.bayes", -1, 0, 0, "list<double[]>", 1

@@ -53,11 +53,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "shape", "colorlegend", 12, 0, 0, "double", 1
 "shape", "colorlegend", 13, 0, 0, "logical", 1
 "shape", "colorlegend", 14, 0, 0, "...", 1
-"shape", "color.palette", -1, 0, 0, "character[]", 1
-"shape", "color.palette", 0, 0, 0, "double", 1
-"shape", "color.palette", 1, 0, 0, "double[]", 1
-"shape", "color.palette", -1, 1, 0, "character[]", 1
-"shape", "color.palette", 0, 1, 0, "double", 1
 "shape", "cylindersegment", -1, 0, 0, "null", 1
 "shape", "cylindersegment", 0, 0, 0, "double", 1
 "shape", "cylindersegment", 1, 0, 0, "double", 1
@@ -264,7 +259,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "shape", "textflag", 12, 0, 0, "character", 1
 "shape", "textflag", 12, 0, 1, "null", 1
 "shape", "textflag", 13, 0, 0, "...", 1
-"shape", "val2col", -1, 0, 0, "list<character[] | double[] | character | double[] | double[]>", 1
+"shape", "val2col", -1, 0, 0, "list<character[] | double[]>", 1
+"shape", "val2col", -1, 0, 1, "list<character | double[]>", 1
+"shape", "val2col", -1, 0, 2, "list<double[]>", 1
 "shape", "val2col", 0, 0, 0, "class<`matrix`>", 1
 "shape", "val2col", 0, 0, 1, "null", 1
 "shape", "val2col", 1, 0, 0, "any", 1

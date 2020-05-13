@@ -1,16 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"matlab", "::", -1, 0, 0, "class<`size_t`>", 1
-"matlab", "::", -1, 0, 1, "integer", 1
-"matlab", "::", 0, 0, 0, "class<`array`>", 1
-"matlab", "::", 0, 0, 1, "class<`matrix`>", 1
-"matlab", "::", 0, 0, 2, "double[]", 1
-"matlab", "::", 1, 0, 0, "any", 1
-"matlab", "::", -1, 1, 0, "double", 1
-"matlab", "::", 0, 1, 0, "double", 1
-"matlab", "::", 1, 1, 0, "double", 1
-"matlab", "::", -1, 2, 0, "class<`size_t`>", 1
-"matlab", "::", 0, 2, 0, "class<`matrix`>", 1
-"matlab", "::", 1, 2, 0, "any", 1
 "matlab", "as.size_t", -1, 0, 0, "class<`size_t`>", 1
 "matlab", "as.size_t", 0, 0, 0, "integer[]", 1
 "matlab", "ceil", -1, 0, 0, "double[]", 1
@@ -96,7 +84,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "matlab", "logspace", 2, 0, 0, "double", 1
 "matlab", "magic", -1, 0, 0, "class<`matrix`>", 1
 "matlab", "magic", 0, 0, 0, "double", 1
-"matlab", "meshgrid", -1, 0, 0, "list<class<`array`> | class<`matrix`>>", 1
+"matlab", "meshgrid", -1, 0, 0, "list<class<`array`>>", 1
+"matlab", "meshgrid", -1, 0, 1, "list<class<`matrix`>>", 1
 "matlab", "meshgrid", 0, 0, 0, "integer[]", 1
 "matlab", "meshgrid", 1, 0, 0, "any", 1
 "matlab", "meshgrid", 2, 0, 0, "any", 1

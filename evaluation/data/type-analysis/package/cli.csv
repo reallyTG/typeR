@@ -3,15 +3,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "%||%", -1, 0, 1, "class<`cliapp`>", 1
 "cli", "%||%", -1, 0, 2, "class<`cli_glue_delay`>", 1
 "cli", "%||%", -1, 0, 3, "double", 1
-"cli", "%||%", -1, 0, 4, "null", 1
-"cli", "%||%", -1, 0, 5, "list<any>", 1
+"cli", "%||%", -1, 0, 4, "list<any>", 1
+"cli", "%||%", -1, 0, 5, "null", 1
 "cli", "%||%", 0, 0, 0, "character[]", 1
 "cli", "%||%", 0, 0, 1, "null", 1
 "cli", "%||%", 0, 0, 2, "class<`cliapp`>", 1
 "cli", "%||%", 0, 0, 3, "double", 1
 "cli", "%||%", 0, 0, 4, "list<any>", 1
 "cli", "%||%", 1, 0, 0, "any", 1
-"cli", "add_child", -1, 0, 0, "list<list<any>>", 1
+"cli", "add_child", -1, 0, 0, "list<list<character[] | null>>", 1
+"cli", "add_child", -1, 0, 1, "list<list<character[] | null | character[]>>", 1
+"cli", "add_child", -1, 0, 2, "list<list<character[] | null | character>>", 1
+"cli", "add_child", -1, 0, 3, "list<list<character[] | null | character[] | character | null>>", 1
+"cli", "add_child", -1, 0, 4, "list<list<character[] | null | character | null>>", 1
 "cli", "add_child", 0, 0, 0, "list<any>", 1
 "cli", "add_child", 1, 0, 0, "character", 1
 "cli", "add_child", 2, 0, 0, "...", 1
@@ -476,17 +480,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "defer", 2, 0, 0, "character", 1
 "cli", "detect_dark_theme", -1, 0, 0, "logical", 1
 "cli", "detect_dark_theme", 0, 0, 0, "character", 1
-"cli", "error", -1, 0, 0, "class<`ansi_string`>", 1
-"cli", "error", 0, 0, 0, "...", 1
 "cli", "format_code", -1, 0, 0, "class<`function`>", 1
 "cli", "format_code", 0, 0, 0, "any", 1
 "cli", "format_r_code", -1, 0, 0, "class<`function`>", 1
 "cli", "format_r_code", 0, 0, 0, "any", 1
-"cli", "FUN", -1, 0, 0, "list<any>", 1
-"cli", "FUN", 0, 0, 0, "list<any>", 1
-"cli", "FUN", -1, 1, 0, "class<`cli_glue_delay`>", 1
-"cli", "FUN", 0, 1, 0, "...", 1
-"cli", "FUN", 1, 1, 0, "environment", 1
 "cli", "get_active_symbol_set", -1, 0, 0, "character", 1
 "cli", "get_handlers", -1, 0, 0, "list<any>", 1
 "cli", "get_handlers", 0, 0, 0, "environment", 1
@@ -584,10 +581,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "make_space", 0, 0, 0, "double[]", 1
 "cli", "match_selector", -1, 0, 0, "logical", 1
 "cli", "match_selector", 0, 0, 0, "list<list<character[]>>", 1
-"cli", "match_selector", 1, 0, 0, "list<list<any>>", 1
+"cli", "match_selector", 1, 0, 0, "list<list<character[] | null>>", 1
+"cli", "match_selector", 1, 0, 1, "list<list<character[] | null | character[]>>", 1
+"cli", "match_selector", 1, 0, 2, "list<list<character[] | null | character>>", 1
+"cli", "match_selector", 1, 0, 3, "list<list<character[] | null | character[] | character | null>>", 1
+"cli", "match_selector", 1, 0, 4, "list<list<character[] | null | character | null>>", 1
 "cli", "match_selector_node", -1, 0, 0, "logical", 1
 "cli", "match_selector_node", 0, 0, 0, "list<character[]>", 1
-"cli", "match_selector_node", 1, 0, 0, "list<character[] | character[] | null | character | null>", 1
+"cli", "match_selector_node", 1, 0, 0, "list<character[]>", 1
+"cli", "match_selector_node", 1, 0, 1, "list<character[] | null>", 1
+"cli", "match_selector_node", 1, 0, 2, "list<character | null>", 1
 "cli", "merge_embedded_styles", -1, 0, 0, "list<any>", 1
 "cli", "merge_embedded_styles", 0, 0, 0, "list<any>", 1
 "cli", "merge_embedded_styles", 1, 0, 0, "list<any>", 1
@@ -603,8 +606,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "new_uuid", -1, 0, 0, "character", 1
 "cli", "no", -1, 0, 0, "class<`cli_no`>", 1
 "cli", "no", 0, 0, 0, "double", 1
-"cli", "note", -1, 0, 0, "class<`ansi_string`>", 1
-"cli", "note", 0, 0, 0, "...", 1
 "cli", "parse_plural", -1, 0, 0, "character", 1
 "cli", "parse_plural", 0, 0, 0, "character", 1
 "cli", "parse_plural", 1, 0, 0, "environment", 1
@@ -615,8 +616,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "process_plural", 0, 0, 0, "integer", 1
 "cli", "process_plural", 1, 0, 0, "character", 1
 "cli", "push", -1, 0, 0, "list<list<any>>", 1
-"cli", "push", 0, 0, 0, "null", 1
-"cli", "push", 0, 0, 1, "list<any>", 1
+"cli", "push", 0, 0, 0, "list<any>", 1
+"cli", "push", 0, 0, 1, "null", 1
 "cli", "push", 1, 0, 0, "list<any>", 1
 "cli", "push", 2, 0, 0, "null", 1
 "cli", "push", 2, 0, 1, "character", 1
@@ -675,8 +676,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "strwrap_fixed", -1, 0, 0, "character[]", 1
 "cli", "strwrap_fixed", 0, 0, 0, "character", 1
 "cli", "strwrap_fixed", 1, 0, 0, "...", 1
-"cli", "style", -1, 0, 0, "class<`ansi_string`>", 1
-"cli", "style", 0, 0, 0, "...", 1
 "cli", "style_bold", -1, 0, 0, "class<`ansi_string`>", 1
 "cli", "style_bold", 0, 0, 0, "...", 1
 "cli", "style_dim", -1, 0, 0, "class<`ansi_string`>", 1
@@ -714,9 +713,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "cli", "viapply", 2, 0, 0, "...", 1
 "cli", "viapply", 3, 0, 0, "logical", 1
 "cli", "vlapply", -1, 0, 0, "logical[]", 1
-"cli", "vlapply", 0, 0, 0, "list<list<any>>", 1
+"cli", "vlapply", 0, 0, 0, "list<list<character[] | null | character[]>>", 1
+"cli", "vlapply", 0, 0, 1, "list<list<character[] | null | character>>", 1
+"cli", "vlapply", 0, 0, 2, "list<list<character[] | null | character[] | character | null>>", 1
+"cli", "vlapply", 0, 0, 3, "list<list<character[] | null>>", 1
+"cli", "vlapply", 0, 0, 4, "list<list<character[] | null | character | null>>", 1
 "cli", "vlapply", 1, 0, 0, "class<`function`>", 1
 "cli", "vlapply", 2, 0, 0, "...", 1
 "cli", "vlapply", 3, 0, 0, "logical", 1
-"cli", "warn", -1, 0, 0, "class<`ansi_string`>", 1
-"cli", "warn", 0, 0, 0, "...", 1

@@ -7,8 +7,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "as.object_sizes", 0, 0, 0, "double[]", 1
 "gdata", "as.object_sizes", 0, 0, 1, "character", 1
 "gdata", "as.object_sizes", 0, 0, 2, "complex", 1
-"gdata", "as.object_sizes", 0, 0, 3, "null", 1
-"gdata", "as.object_sizes", 0, 0, 4, "list<any>", 1
+"gdata", "as.object_sizes", 0, 0, 3, "list<any>", 1
+"gdata", "as.object_sizes", 0, 0, 4, "null", 1
 "gdata", "bindData", -1, 0, 0, "class<`data.frame`>", 1
 "gdata", "bindData", 0, 0, 0, "class<`data.frame`>", 1
 "gdata", "bindData", 1, 0, 0, "class<`data.frame`>", 1
@@ -47,14 +47,14 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "ConvertMedUnits", 4, 0, 0, "logical", 1
 "gdata", "drop.levels", -1, 0, 0, "class<`data.frame`>", 1
 "gdata", "drop.levels", -1, 0, 1, "class<`factor`>", 1
-"gdata", "drop.levels", -1, 0, 2, "character[]", 1
-"gdata", "drop.levels", -1, 0, 3, "double[]", 1
-"gdata", "drop.levels", -1, 0, 4, "list<class<`factor`> | integer[] | character[]>", 1
+"gdata", "drop.levels", -1, 0, 2, "list<class<`factor`> | integer[] | character[]>", 1
+"gdata", "drop.levels", -1, 0, 3, "character[]", 1
+"gdata", "drop.levels", -1, 0, 4, "double[]", 1
 "gdata", "drop.levels", 0, 0, 0, "class<`data.frame`>", 1
 "gdata", "drop.levels", 0, 0, 1, "class<`factor`>", 1
-"gdata", "drop.levels", 0, 0, 2, "character[]", 1
-"gdata", "drop.levels", 0, 0, 3, "double[]", 1
-"gdata", "drop.levels", 0, 0, 4, "list<class<`factor`> | integer[] | character[]>", 1
+"gdata", "drop.levels", 0, 0, 2, "list<class<`factor`> | integer[] | character[]>", 1
+"gdata", "drop.levels", 0, 0, 3, "character[]", 1
+"gdata", "drop.levels", 0, 0, 4, "double[]", 1
 "gdata", "drop.levels", 1, 0, 0, "any", 1
 "gdata", "drop.levels", 2, 0, 0, "...", 1
 "gdata", "drop.levels.data.frame", -1, 0, 0, "class<`data.frame`>", 1
@@ -71,7 +71,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "drop.levels.factor", 0, 0, 0, "class<`factor`>", 1
 "gdata", "drop.levels.factor", 1, 0, 0, "logical", 1
 "gdata", "drop.levels.factor", 2, 0, 0, "...", 1
-"gdata", "drop.levels.list", -1, 0, 0, "list<any>", 1
+"gdata", "drop.levels.list", -1, 0, 0, "list<double[]>", 1
+"gdata", "drop.levels.list", -1, 0, 1, "list<class<`factor`> | integer[]>", 1
+"gdata", "drop.levels.list", -1, 0, 2, "list<class<`factor`>>", 1
+"gdata", "drop.levels.list", -1, 0, 3, "list<class<`factor`> | integer[] | character[]>", 1
 "gdata", "drop.levels.list", 0, 0, 0, "class<`data.frame`>", 1
 "gdata", "drop.levels.list", 0, 0, 1, "list<class<`factor`> | integer[] | character[]>", 1
 "gdata", "drop.levels.list", 1, 0, 0, "any", 1
@@ -126,52 +129,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "frameApply", 5, 0, 0, "logical", 1
 "gdata", "frameApply", 6, 0, 0, "character", 1
 "gdata", "frameApply", 7, 0, 0, "...", 1
-"gdata", "FUN", -1, 0, 0, "null", 1
-"gdata", "FUN", 0, 0, 0, "class<`levelsMap`>", 1
-"gdata", "FUN", 1, 0, 0, "character", 1
-"gdata", "FUN", -1, 1, 0, "class<`data.frame`>", 1
-"gdata", "FUN", -1, 1, 1, "class<`factor`>", 1
-"gdata", "FUN", -1, 1, 2, "character[]", 1
-"gdata", "FUN", -1, 1, 3, "double[]", 1
-"gdata", "FUN", -1, 1, 4, "list<class<`factor`> | integer[] | character[]>", 1
-"gdata", "FUN", 0, 1, 0, "class<`data.frame`>", 1
-"gdata", "FUN", 0, 1, 1, "class<`factor`>", 1
-"gdata", "FUN", 0, 1, 2, "character[]", 1
-"gdata", "FUN", 0, 1, 3, "double[]", 1
-"gdata", "FUN", 0, 1, 4, "list<class<`factor`> | integer[] | character[]>", 1
-"gdata", "FUN", 1, 1, 0, "any", 1
-"gdata", "FUN", 2, 1, 0, "...", 1
-"gdata", "FUN", -1, 2, 0, "character[]", 1
-"gdata", "FUN", -1, 2, 1, "class<`factor`>", 1
-"gdata", "FUN", -1, 2, 2, "integer[]", 1
-"gdata", "FUN", -1, 2, 3, "class<`data.frame`>", 1
-"gdata", "FUN", -1, 2, 4, "list<character[] | class<`factor`> | integer[]>", 1
-"gdata", "FUN", 0, 2, 0, "character[]", 1
-"gdata", "FUN", 0, 2, 1, "class<`factor`>", 1
-"gdata", "FUN", 0, 2, 2, "integer[]", 1
-"gdata", "FUN", 0, 2, 3, "class<`data.frame`>", 1
-"gdata", "FUN", 0, 2, 4, "list<character[] | class<`factor`> | integer[]>", 1
-"gdata", "FUN", 1, 2, 0, "any", 1
-"gdata", "FUN", 2, 2, 0, "...", 1
-"gdata", "FUN", -1, 3, 0, "logical", 1
-"gdata", "FUN", 0, 3, 0, "class<`levelsMap`>", 1
-"gdata", "FUN", -1, 4, 0, "integer[]", 1
-"gdata", "FUN", 0, 4, 0, "class<`lm`>", 1
-"gdata", "FUN", 0, 4, 1, "^double[]", 1
-"gdata", "FUN", 0, 4, 2, "class<`data.frame`>", 1
-"gdata", "FUN", 1, 4, 0, "...", 1
-"gdata", "FUN", -1, 5, 0, "class<`levelsMap`>", 1
-"gdata", "FUN", 0, 5, 0, "class<`factor`>", 1
-"gdata", "FUN", 0, 5, 1, "character", 1
-"gdata", "FUN", 0, 5, 2, "list<class<`factor`>>", 1
-"gdata", "FUN", 1, 5, 0, "logical", 1
-"gdata", "FUN", 2, 5, 0, "any", 1
-"gdata", "FUN", 3, 5, 0, "logical", 1
-"gdata", "FUN", 4, 5, 0, "logical", 1
-"gdata", "FUN", 5, 5, 0, "...", 1
-"gdata", "FUN", -1, 6, 0, "integer", 1
-"gdata", "FUN", 0, 6, 0, "^double[]", 1
-"gdata", "FUN", 1, 6, 0, "...", 1
 "gdata", "getDay", -1, 0, 0, "character", 1
 "gdata", "getDay", 0, 0, 0, "class<`Date`>", 1
 "gdata", "getDay", 0, 0, 1, "class<`POSIXct`, `POSIXt`>", 1
@@ -270,11 +227,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "isUnknown", -1, 0, 1, "list<logical[]>", 1
 "gdata", "isUnknown", 0, 0, 0, "class<`factor`>", 1
 "gdata", "isUnknown", 0, 0, 1, "^double[]", 1
-"gdata", "isUnknown", 0, 0, 2, "list<^double[] | class<`factor`> | class<`factor`> | double[]>", 1
+"gdata", "isUnknown", 0, 0, 2, "list<^double[] | class<`factor`>>", 1
+"gdata", "isUnknown", 0, 0, 3, "list<class<`factor`> | double[]>", 1
 "gdata", "isUnknown", 1, 0, 0, "^character[]", 1
 "gdata", "isUnknown", 1, 0, 1, "^double[]", 1
 "gdata", "isUnknown", 1, 0, 2, "null", 1
-"gdata", "isUnknown", 1, 0, 3, "list<character | double | double | character>", 1
+"gdata", "isUnknown", 1, 0, 3, "list<character | double>", 1
+"gdata", "isUnknown", 1, 0, 4, "list<double | character>", 1
 "gdata", "isUnknown", 2, 0, 0, "...", 1
 "gdata", "isUnknown.default", -1, 0, 0, "logical[]", 1
 "gdata", "isUnknown.default", 0, 0, 0, "class<`factor`>", 1
@@ -284,10 +243,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "isUnknown.default", 1, 0, 2, "null", 1
 "gdata", "isUnknown.default", 2, 0, 0, "...", 1
 "gdata", "isUnknown.list", -1, 0, 0, "list<logical[]>", 1
-"gdata", "isUnknown.list", 0, 0, 0, "list<^double[] | class<`factor`> | class<`factor`> | double[]>", 1
+"gdata", "isUnknown.list", 0, 0, 0, "list<^double[] | class<`factor`>>", 1
+"gdata", "isUnknown.list", 0, 0, 1, "list<class<`factor`> | double[]>", 1
 "gdata", "isUnknown.list", 1, 0, 0, "^double[]", 1
 "gdata", "isUnknown.list", 1, 0, 1, "character[]", 1
-"gdata", "isUnknown.list", 1, 0, 2, "list<character | double | double | character>", 1
+"gdata", "isUnknown.list", 1, 0, 2, "list<character | double>", 1
+"gdata", "isUnknown.list", 1, 0, 3, "list<double | character>", 1
 "gdata", "isUnknown.list", 2, 0, 0, "...", 1
 "gdata", "is.what", -1, 0, 0, "character[]", 1
 "gdata", "is.what", -1, 0, 1, "class<`data.frame`>", 1
@@ -321,9 +282,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "last<-", 0, 0, 3, "list<character | double>", 1
 "gdata", "last<-", 1, 0, 0, "double", 1
 "gdata", "last<-", 2, 0, 0, "...", 1
-"gdata", "last<-", 3, 0, 0, "character", 1
-"gdata", "last<-", 3, 0, 1, "double", 1
-"gdata", "last<-", 3, 0, 2, "list<double[]>", 1
+"gdata", "last<-", 3, 0, 0, "list<double[]>", 1
+"gdata", "last<-", 3, 0, 1, "character", 1
+"gdata", "last<-", 3, 0, 2, "double", 1
 "gdata", "left", -1, 0, 0, "class<`data.frame`>", 1
 "gdata", "left", -1, 0, 1, "class<`matrix`>", 1
 "gdata", "left", 0, 0, 0, "class<`data.frame`>", 1
@@ -422,10 +383,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "mv", 2, 0, 0, "environment", 1
 "gdata", "NAToUnknown", -1, 0, 0, "class<`factor`>", 1
 "gdata", "NAToUnknown", -1, 0, 1, "double[]", 1
-"gdata", "NAToUnknown", -1, 0, 2, "list<double[] | class<`factor`> | class<`factor`> | double[]>", 1
+"gdata", "NAToUnknown", -1, 0, 2, "list<double[] | class<`factor`>>", 1
+"gdata", "NAToUnknown", -1, 0, 3, "list<class<`factor`> | double[]>", 1
 "gdata", "NAToUnknown", 0, 0, 0, "class<`factor`>", 1
 "gdata", "NAToUnknown", 0, 0, 1, "^double[]", 1
-"gdata", "NAToUnknown", 0, 0, 2, "list<^double[] | class<`factor`> | class<`factor`> | ^double[]>", 1
+"gdata", "NAToUnknown", 0, 0, 2, "list<^double[] | class<`factor`>>", 1
+"gdata", "NAToUnknown", 0, 0, 3, "list<class<`factor`> | ^double[]>", 1
 "gdata", "NAToUnknown", 1, 0, 0, "character", 1
 "gdata", "NAToUnknown", 1, 0, 1, "double", 1
 "gdata", "NAToUnknown", 1, 0, 2, "list<character | double>", 1
@@ -445,10 +408,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "NAToUnknown.factor", 2, 0, 0, "logical", 1
 "gdata", "NAToUnknown.factor", 3, 0, 0, "logical", 1
 "gdata", "NAToUnknown.factor", 4, 0, 0, "...", 1
-"gdata", "NAToUnknown.list", -1, 0, 0, "list<double[] | class<`factor`> | class<`factor`> | double[]>", 1
-"gdata", "NAToUnknown.list", 0, 0, 0, "list<^double[] | class<`factor`> | class<`factor`> | ^double[]>", 1
-"gdata", "NAToUnknown.list", 1, 0, 0, "double", 1
-"gdata", "NAToUnknown.list", 1, 0, 1, "list<character | double>", 1
+"gdata", "NAToUnknown.list", -1, 0, 0, "list<double[] | class<`factor`>>", 1
+"gdata", "NAToUnknown.list", -1, 0, 1, "list<class<`factor`> | double[]>", 1
+"gdata", "NAToUnknown.list", 0, 0, 0, "list<^double[] | class<`factor`>>", 1
+"gdata", "NAToUnknown.list", 0, 0, 1, "list<class<`factor`> | ^double[]>", 1
+"gdata", "NAToUnknown.list", 1, 0, 0, "list<character | double>", 1
+"gdata", "NAToUnknown.list", 1, 0, 1, "double", 1
 "gdata", "NAToUnknown.list", 2, 0, 0, "logical", 1
 "gdata", "NAToUnknown.list", 3, 0, 0, "logical", 1
 "gdata", "NAToUnknown.list", 4, 0, 0, "...", 1
@@ -574,7 +539,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "trim.factor", 0, 0, 0, "class<`factor`>", 1
 "gdata", "trim.factor", 1, 0, 0, "logical", 1
 "gdata", "trim.factor", 2, 0, 0, "...", 1
-"gdata", "trim.list", -1, 0, 0, "list<class<`factor`> | integer[] | character[] | class<`factor`> | integer[]>", 1
+"gdata", "trim.list", -1, 0, 0, "list<class<`factor`> | integer[]>", 1
+"gdata", "trim.list", -1, 0, 1, "list<character[] | class<`factor`> | integer[]>", 1
 "gdata", "trim.list", 0, 0, 0, "class<`data.frame`>", 1
 "gdata", "trim.list", 0, 0, 1, "list<character[] | class<`factor`> | integer[]>", 1
 "gdata", "trim.list", 1, 0, 0, "logical", 1
@@ -591,23 +557,32 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "unique.levelsMap", 2, 0, 0, "...", 1
 "gdata", ".unknownList", -1, 0, 0, "character[]", 1
 "gdata", ".unknownList", -1, 0, 1, "^double[]", 1
-"gdata", ".unknownList", -1, 0, 2, "list<double | character[] | double | character | character | double>", 1
-"gdata", ".unknownList", 0, 0, 0, "class<`data.frame`>", 1
-"gdata", ".unknownList", 0, 0, 1, "list<class<`factor`> | double[] | ^double[] | class<`factor`> | class<`factor`> | ^double[]>", 1
+"gdata", ".unknownList", -1, 0, 2, "list<double | character[]>", 1
+"gdata", ".unknownList", -1, 0, 3, "list<double | character>", 1
+"gdata", ".unknownList", -1, 0, 4, "list<character | double>", 1
+"gdata", ".unknownList", 0, 0, 0, "list<class<`factor`> | double[]>", 1
+"gdata", ".unknownList", 0, 0, 1, "list<^double[] | class<`factor`>>", 1
+"gdata", ".unknownList", 0, 0, 2, "list<class<`factor`> | ^double[]>", 1
+"gdata", ".unknownList", 0, 0, 3, "class<`data.frame`>", 1
 "gdata", ".unknownList", 1, 0, 0, "character[]", 1
 "gdata", ".unknownList", 1, 0, 1, "^double[]", 1
-"gdata", ".unknownList", 1, 0, 2, "list<character[] | double | character | double | double | character>", 1
+"gdata", ".unknownList", 1, 0, 2, "list<character[] | double>", 1
+"gdata", ".unknownList", 1, 0, 3, "list<character | double>", 1
+"gdata", ".unknownList", 1, 0, 4, "list<double | character>", 1
 "gdata", "unknownToNA", -1, 0, 0, "class<`data.frame`>", 1
 "gdata", "unknownToNA", -1, 0, 1, "class<`factor`>", 1
 "gdata", "unknownToNA", -1, 0, 2, "^double[]", 1
-"gdata", "unknownToNA", -1, 0, 3, "list<^double[] | class<`factor`> | class<`factor`> | ^double[]>", 1
+"gdata", "unknownToNA", -1, 0, 3, "list<^double[] | class<`factor`>>", 1
+"gdata", "unknownToNA", -1, 0, 4, "list<class<`factor`> | ^double[]>", 1
 "gdata", "unknownToNA", 0, 0, 0, "class<`data.frame`>", 1
 "gdata", "unknownToNA", 0, 0, 1, "class<`factor`>", 1
 "gdata", "unknownToNA", 0, 0, 2, "^double[]", 1
-"gdata", "unknownToNA", 0, 0, 3, "list<^double[] | class<`factor`> | class<`factor`> | double[]>", 1
-"gdata", "unknownToNA", 1, 0, 0, "double", 1
-"gdata", "unknownToNA", 1, 0, 1, "character[]", 1
-"gdata", "unknownToNA", 1, 0, 2, "list<double | character | character[] | double>", 1
+"gdata", "unknownToNA", 0, 0, 3, "list<^double[] | class<`factor`>>", 1
+"gdata", "unknownToNA", 0, 0, 4, "list<class<`factor`> | double[]>", 1
+"gdata", "unknownToNA", 1, 0, 0, "list<double | character>", 1
+"gdata", "unknownToNA", 1, 0, 1, "double", 1
+"gdata", "unknownToNA", 1, 0, 2, "list<character[] | double>", 1
+"gdata", "unknownToNA", 1, 0, 3, "character[]", 1
 "gdata", "unknownToNA", 2, 0, 0, "logical", 1
 "gdata", "unknownToNA", 3, 0, 0, "...", 1
 "gdata", "unknownToNA.data.frame", -1, 0, 0, "class<`data.frame`>", 1
@@ -626,10 +601,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "unknownToNA.factor", 1, 0, 1, "double", 1
 "gdata", "unknownToNA.factor", 2, 0, 0, "logical", 1
 "gdata", "unknownToNA.factor", 3, 0, 0, "...", 1
-"gdata", "unknownToNA.list", -1, 0, 0, "list<^double[] | class<`factor`> | class<`factor`> | ^double[]>", 1
+"gdata", "unknownToNA.list", -1, 0, 0, "list<^double[] | class<`factor`>>", 1
+"gdata", "unknownToNA.list", -1, 0, 1, "list<class<`factor`> | ^double[]>", 1
 "gdata", "unknownToNA.list", 0, 0, 0, "class<`data.frame`>", 1
-"gdata", "unknownToNA.list", 0, 0, 1, "list<^double[] | class<`factor`> | class<`factor`> | double[]>", 1
-"gdata", "unknownToNA.list", 1, 0, 0, "list<double | character | character[] | double>", 1
+"gdata", "unknownToNA.list", 0, 0, 1, "list<^double[] | class<`factor`>>", 1
+"gdata", "unknownToNA.list", 0, 0, 2, "list<class<`factor`> | double[]>", 1
+"gdata", "unknownToNA.list", 1, 0, 0, "list<double | character>", 1
+"gdata", "unknownToNA.list", 1, 0, 1, "list<character[] | double>", 1
 "gdata", "unknownToNA.list", 2, 0, 0, "logical", 1
 "gdata", "unknownToNA.list", 3, 0, 0, "...", 1
 "gdata", ".unlistLevelsMap", -1, 0, 0, "list<character[] | integer[]>", 1
@@ -681,7 +659,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "gdata", "write.fwf", 13, 0, 0, "character", 1
 "gdata", "write.fwf", 14, 0, 0, "character[]", 1
 "gdata", "write.fwf", 15, 0, 0, "logical", 1
-"gdata", "write.fwf", 16, 0, 0, "...", 1
 "gdata", "xls2sep", -1, 0, 0, "class<`connection`, `file`>", 1
 "gdata", "xls2sep", 0, 0, 0, "character", 1
 "gdata", "xls2sep", 1, 0, 0, "character", 1

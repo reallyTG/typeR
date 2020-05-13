@@ -1,5 +1,7 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"iterators", "as.list.iter", -1, 0, 0, "list<class<`matrix`> | double | integer[]>", 1
+"iterators", "as.list.iter", -1, 0, 0, "list<class<`matrix`>>", 1
+"iterators", "as.list.iter", -1, 0, 1, "list<double>", 1
+"iterators", "as.list.iter", -1, 0, 2, "list<integer[]>", 1
 "iterators", "as.list.iter", 0, 0, 0, "class<`iter`, `matrixiter`>", 1
 "iterators", "as.list.iter", 0, 0, 1, "class<`abstractiter`, `iter`>", 1
 "iterators", "as.list.iter", 0, 0, 2, "class<`abstractiter`, `iforever`, `iter`>", 1
@@ -10,20 +12,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "iterators", "as.list.iter", 0, 0, 7, "class<`containeriter`, `iter`>", 1
 "iterators", "as.list.iter", 1, 0, 0, "double", 1
 "iterators", "as.list.iter", 2, 0, 0, "...", 1
-"iterators", "FUN", -1, 0, 0, "any", 1
-"iterators", "FUN", 0, 0, 0, "class<`dataframeiter`, `iter`>", 1
-"iterators", "FUN", 0, 0, 1, "class<`containeriter`, `iter`>", 1
-"iterators", "FUN", 0, 0, 2, "class<`abstractiter`, `iter`>", 1
-"iterators", "FUN", 0, 0, 3, "class<`abstractiter`, `iforever`, `iter`>", 1
-"iterators", "FUN", 0, 0, 4, "class<`abstractiter`, `ihasNext`, `iter`>", 1
-"iterators", "FUN", 0, 0, 5, "class<`abstractiter`, `ilimit`, `iter`>", 1
-"iterators", "FUN", 0, 0, 6, "class<`iter`, `matrixiter`>", 1
-"iterators", "FUN", 0, 0, 7, "class<`abstractiter`, `irep`, `iter`>", 1
-"iterators", "FUN", 0, 0, 8, "class<`funiter`, `iter`>", 1
-"iterators", "FUN", 0, 0, 9, "class<`abstractiter`, `iter`, `ivector`>", 1
-"iterators", "FUN", 0, 0, 10, "class<`abstractiter`, `irecycle`, `iter`>", 1
-"iterators", "FUN", 0, 0, 11, "class<`iforeach`, `iter`>", 1
-"iterators", "FUN", 1, 0, 0, "...", 1
 "iterators", "getIterVal", -1, 0, 0, "any", 1
 "iterators", "getIterVal", 0, 0, 0, "class<`containeriter`, `iter`>", 1
 "iterators", "getIterVal", 0, 0, 1, "class<`dataframeiter`, `iter`>", 1
@@ -92,12 +80,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "iterators", "iter", 0, 0, 3, "character[]", 1
 "iterators", "iter", 0, 0, 4, "class<`containeriter`, `iter`>", 1
 "iterators", "iter", 0, 0, 5, "double[]", 1
-"iterators", "iter", 0, 0, 6, "class<`data.frame`>", 1
-"iterators", "iter", 0, 0, 7, "class<`dataframeiter`, `iter`>", 1
-"iterators", "iter", 0, 0, 8, "class<`function`>", 1
-"iterators", "iter", 0, 0, 9, "class<`foreach`>", 1
-"iterators", "iter", 0, 0, 10, "class<`matrix`>", 1
-"iterators", "iter", 0, 0, 11, "list<integer[]>", 1
+"iterators", "iter", 0, 0, 6, "list<integer[]>", 1
+"iterators", "iter", 0, 0, 7, "class<`data.frame`>", 1
+"iterators", "iter", 0, 0, 8, "class<`dataframeiter`, `iter`>", 1
+"iterators", "iter", 0, 0, 9, "class<`function`>", 1
+"iterators", "iter", 0, 0, 10, "class<`foreach`>", 1
+"iterators", "iter", 0, 0, 11, "class<`matrix`>", 1
 "iterators", "iter", 1, 0, 0, "...", 1
 "iterators", "iter.data.frame", -1, 0, 0, "class<`dataframeiter`, `iter`>", 1
 "iterators", "iter.data.frame", 0, 0, 0, "class<`data.frame`>", 1

@@ -1,5 +1,6 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"codetools", "addLocalFunDef", -1, 0, 0, "list<null | pairlist>", 1
+"codetools", "addLocalFunDef", -1, 0, 0, "list<null>", 1
+"codetools", "addLocalFunDef", -1, 0, 1, "list<pairlist>", 1
 "codetools", "addLocalFunDef", 0, 0, 0, "character", 1
 "codetools", "addLocalFunDef", 1, 0, 0, "class<`<-`>", 1
 "codetools", "addLocalFunDef", 2, 0, 0, "list<any>", 1
@@ -38,11 +39,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "checkUsage", 5, 0, 0, "logical", 1
 "codetools", "checkUsage", 6, 0, 0, "logical", 1
 "codetools", "checkUsage", 7, 0, 0, "logical", 1
-"codetools", "checkUsage", 8, 0, 0, "logical", 1
-"codetools", "checkUsage", 9, 0, 0, "logical", 1
-"codetools", "checkUsage", 10, 0, 0, "logical", 1
-"codetools", "checkUsage", 11, 0, 0, "character[]", 1
-"codetools", "checkUsage", 12, 0, 0, "logical", 1
 "codetools", "checkUsageEnv", -1, 0, 0, "null", 1
 "codetools", "checkUsageEnv", 0, 0, 0, "environment", 1
 "codetools", "checkUsageEnv", 1, 0, 0, "...", 1
@@ -92,7 +88,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "dropMissings", 0, 0, 0, "null", 1
 "codetools", "dropMissings", 0, 0, 1, "pairlist", 1
 "codetools", "dropMissings", 0, 0, 2, "class<`call`>", 1
-"codetools", "evalseq", -1, 0, 0, "list<class<`name`> | class<`call`> | class<`name`>>", 1
+"codetools", "evalseq", -1, 0, 0, "list<class<`name`> | class<`call`>>", 1
+"codetools", "evalseq", -1, 0, 1, "list<class<`name`>>", 1
 "codetools", "evalseq", 0, 0, 0, "class<`call`>", 1
 "codetools", "evalseq", 0, 0, 1, "class<`name`>", 1
 "codetools", "exitFolder", -1, 0, 0, "any", 1
@@ -131,12 +128,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "findOwnerEnv", 2, 0, 0, "environment", 1
 "codetools", "findOwnerEnv", 2, 0, 1, "null", 1
 "codetools", "findOwnerEnv", 3, 0, 0, "any", 1
-"codetools", "flattenAssignment", -1, 0, 0, "list<null | list<class<`name`> | class<`call`> | class<`call`> | class<`name`> | class<`call`>>>", 1
+"codetools", "flattenAssignment", -1, 0, 0, "list<list<class<`name`> | class<`call`> | class<`call`>>>", 1
+"codetools", "flattenAssignment", -1, 0, 1, "list<list<class<`name`> | class<`call`>>>", 1
+"codetools", "flattenAssignment", -1, 0, 2, "list<null>", 1
 "codetools", "flattenAssignment", 0, 0, 0, "class<`call`>", 1
 "codetools", "flattenAssignment", 0, 0, 1, "class<`name`>", 1
-"codetools", "FUN", -1, 0, 0, "logical", 1
-"codetools", "FUN", 0, 0, 0, "character", 1
-"codetools", "FUN", 1, 0, 0, "environment", 1
 "codetools", "getAssignedVar", -1, 0, 0, "character", 1
 "codetools", "getAssignedVar", 0, 0, 0, "class<`<-`>", 1
 "codetools", "getLocalUsageEntry", -1, 0, 0, "environment", 1
@@ -144,8 +140,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "getLocalUsageEntry", 1, 0, 0, "list<any>", 1
 "codetools", "getLocalUsageValue", -1, 0, 0, "class<`data.frame`>", 1
 "codetools", "getLocalUsageValue", -1, 0, 1, "double", 1
-"codetools", "getLocalUsageValue", -1, 0, 2, "null", 1
-"codetools", "getLocalUsageValue", -1, 0, 3, "list<null | pairlist>", 1
+"codetools", "getLocalUsageValue", -1, 0, 2, "list<null>", 1
+"codetools", "getLocalUsageValue", -1, 0, 3, "list<pairlist>", 1
+"codetools", "getLocalUsageValue", -1, 0, 4, "null", 1
 "codetools", "getLocalUsageValue", 0, 0, 0, "character", 1
 "codetools", "getLocalUsageValue", 1, 0, 0, "character", 1
 "codetools", "getLocalUsageValue", 2, 0, 0, "list<any>", 1
@@ -197,7 +194,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "makeConstantFolder", 5, 0, 0, "class<`function`>", 1
 "codetools", "makeConstantFolder", 6, 0, 0, "any", 1
 "codetools", "makeConstantFolder", 7, 0, 0, "class<`function`>", 1
-"codetools", "makeConstantFolder", 8, 0, 0, "class<`function`>", 1
 "codetools", "makeLocalsCollector", -1, 0, 0, "list<class<`function`>>", 1
 "codetools", "makeLocalsCollector", 0, 0, 0, "...", 1
 "codetools", "makeLocalsCollector", 1, 0, 0, "class<`function`>", 1
@@ -214,8 +210,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "codetools", "makeUsageCollector", 5, 0, 0, "class<`function`>", 1
 "codetools", "makeUsageCollector", 6, 0, 0, "class<`function`>", 1
 "codetools", "makeUsageCollector", 7, 0, 0, "class<`function`>", 1
-"codetools", "makeUsageCollector", 8, 0, 0, "class<`function`>", 1
-"codetools", "makeUsageCollector", 9, 0, 0, "class<`function`>", 1
 "codetools", "matchCall", -1, 0, 0, "class<`call`>", 1
 "codetools", "matchCall", 0, 0, 0, "class<`function`>", 1
 "codetools", "matchCall", 1, 0, 0, "class<`call`>", 1

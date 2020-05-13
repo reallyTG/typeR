@@ -37,7 +37,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nloptr", "ccsaq", 7, 0, 0, "logical", 1
 "nloptr", "ccsaq", 8, 0, 0, "list<double>", 1
 "nloptr", "ccsaq", 9, 0, 0, "...", 1
-"nloptr", "check.derivatives", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"nloptr", "check.derivatives", -1, 0, 0, "list<class<`matrix`>>", 1
+"nloptr", "check.derivatives", -1, 0, 1, "list<double[]>", 1
 "nloptr", "check.derivatives", 0, 0, 0, "double[]", 1
 "nloptr", "check.derivatives", 1, 0, 0, "class<`function`>", 1
 "nloptr", "check.derivatives", 2, 0, 0, "class<`function`>", 1
@@ -161,7 +162,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nloptr", "nloptr", 9, 0, 0, "list<any>", 1
 "nloptr", "nloptr", 10, 0, 0, "...", 1
 "nloptr", "nloptr.add.default.options", -1, 0, 0, "list<character | list<character | double[]>>", 1
-"nloptr", "nloptr.add.default.options", 0, 0, 0, "list<any>", 1
+"nloptr", "nloptr.add.default.options", 0, 0, 0, "list<character | logical>", 1
+"nloptr", "nloptr.add.default.options", 0, 0, 1, "list<character>", 1
+"nloptr", "nloptr.add.default.options", 0, 0, 2, "list<character | double | class<`function`>>", 1
+"nloptr", "nloptr.add.default.options", 0, 0, 3, "list<character | double>", 1
+"nloptr", "nloptr.add.default.options", 0, 0, 4, "list<double | character>", 1
+"nloptr", "nloptr.add.default.options", 0, 0, 5, "list<null | double | character>", 1
+"nloptr", "nloptr.add.default.options", 0, 0, 6, "list<character | double | null>", 1
 "nloptr", "nloptr.add.default.options", 1, 0, 0, "double[]", 1
 "nloptr", "nloptr.add.default.options", 2, 0, 0, "double", 1
 "nloptr", "nloptr.add.default.options", 3, 0, 0, "double", 1
@@ -172,7 +179,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "nloptr", "nloptr.print.options", 0, 0, 2, "list<character | double>", 1
 "nloptr", "nloptr.print.options", 1, 0, 0, "null", 1
 "nloptr", "nloptr.print.options", 1, 0, 1, "list<character | double>", 1
-"nloptr", "nl.opts", -1, 0, 0, "list<double | null | null | double>", 1
+"nloptr", "nl.opts", -1, 0, 0, "list<double | null>", 1
+"nloptr", "nl.opts", -1, 0, 1, "list<null | double>", 1
 "nloptr", "nl.opts", 0, 0, 0, "list<any>", 1
 "nloptr", "print.nloptr", -1, 0, 0, "null", 1
 "nloptr", "print.nloptr", 0, 0, 0, "class<`nloptr`>", 1

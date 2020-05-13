@@ -22,7 +22,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "as.data.frame.Node", 6, 0, 0, "null", 1
 "data.tree", "as.data.frame.Node", 6, 0, 1, "class<`function`>", 1
 "data.tree", "as.data.frame.Node", 7, 0, 0, "logical", 1
-"data.tree", "as.data.frame.Node", 8, 0, 0, "any", 1
 "data.tree", "as.dendrogram.Node", -1, 0, 0, "class<`dendrogram`>", 1
 "data.tree", "as.dendrogram.Node", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "as.dendrogram.Node", 1, 0, 0, "character", 1
@@ -36,7 +35,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "as.igraph.Node", 3, 0, 0, "logical", 1
 "data.tree", "as.igraph.Node", 4, 0, 0, "character[]", 1
 "data.tree", "as.igraph.Node", 5, 0, 0, "...", 1
-"data.tree", "as.list.Node", -1, 0, 0, "list<any>", 1
+"data.tree", "as.list.Node", -1, 0, 0, "list<list<list<double>>>", 1
+"data.tree", "as.list.Node", -1, 0, 1, "list<double>", 1
+"data.tree", "as.list.Node", -1, 0, 2, "list<character | double>", 1
+"data.tree", "as.list.Node", -1, 0, 3, "list<character | list<list<character | double>>>", 1
+"data.tree", "as.list.Node", -1, 0, 4, "list<character | list<list<character | list<list<character | double>>>>>", 1
+"data.tree", "as.list.Node", -1, 0, 5, "list<character | list<character | list<character | double>>>", 1
+"data.tree", "as.list.Node", -1, 0, 6, "list<character | list<list<character | list<list<character | list<list<character | integer>>>>>>>", 1
+"data.tree", "as.list.Node", -1, 0, 7, "list<character | list<list<character | list<list<character | integer>>>>>", 1
+"data.tree", "as.list.Node", -1, 0, 8, "list<character | list<list<character | integer>>>", 1
+"data.tree", "as.list.Node", -1, 0, 9, "list<character | list<list<list<list<double>>>>>", 1
+"data.tree", "as.list.Node", -1, 0, 10, "list<character | integer>", 1
+"data.tree", "as.list.Node", -1, 0, 11, "list<character | list<character | double>>", 1
+"data.tree", "as.list.Node", -1, 0, 12, "list<list<double>>", 1
 "data.tree", "as.list.Node", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "as.list.Node", 1, 0, 0, "character[]", 1
 "data.tree", "as.list.Node", 2, 0, 0, "any", 1
@@ -46,7 +57,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "as.list.Node", 6, 0, 0, "null", 1
 "data.tree", "as.list.Node", 6, 0, 1, "character", 1
 "data.tree", "as.list.Node", 7, 0, 0, "any", 1
-"data.tree", "as.list.Node", 8, 0, 0, "...", 1
 "data.tree", "as.Node", -1, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "as.Node", 0, 0, 0, "class<`BinaryTree`>", 1
 "data.tree", "as.Node", 0, 0, 1, "class<`data.frame`>", 1
@@ -75,7 +85,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "as.Node.dendrogram", 3, 0, 0, "character[]", 1
 "data.tree", "as.Node.dendrogram", 4, 0, 0, "...", 1
 "data.tree", "as.Node.list", -1, 0, 0, "class<`Node`, `R6`>", 1
-"data.tree", "as.Node.list", 0, 0, 0, "list<any>", 1
+"data.tree", "as.Node.list", 0, 0, 0, "list<character>", 1
+"data.tree", "as.Node.list", 0, 0, 1, "list<list<integer>>", 1
+"data.tree", "as.Node.list", 0, 0, 2, "list<character | list<character>>", 1
+"data.tree", "as.Node.list", 0, 0, 3, "list<character | list<list<character>>>", 1
+"data.tree", "as.Node.list", 0, 0, 4, "list<integer>", 1
+"data.tree", "as.Node.list", 0, 0, 5, "list<character | list<list<integer>>>", 1
 "data.tree", "as.Node.list", 1, 0, 0, "character[]", 1
 "data.tree", "as.Node.list", 2, 0, 0, "character", 1
 "data.tree", "as.Node.list", 3, 0, 0, "character", 1
@@ -100,15 +115,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "as.phylo.Node", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "as.phylo.Node", 1, 0, 0, "class<`function`>", 1
 "data.tree", "as.phylo.Node", 2, 0, 0, "...", 1
-"data.tree", "attribute", -1, 0, 0, "double", 1
-"data.tree", "attribute", 0, 0, 0, "class<`Node`, `R6`>", 1
-"data.tree", "attribute", 1, 0, 0, "character", 1
-"data.tree", "attribute", 1, 0, 1, "class<`function`>", 1
-"data.tree", "attribute", 2, 0, 0, "any", 1
-"data.tree", "attribute", 3, 0, 0, "...", 1
-"data.tree", "attribute", -1, 1, 0, "double", 1
-"data.tree", "attribute", 0, 1, 0, "class<`Node`, `R6`>", 1
-"data.tree", "attribute", 1, 1, 0, "double", 1
 "data.tree", "averageBranchingFactor", -1, 0, 0, "double", 1
 "data.tree", "averageBranchingFactor", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "changeName", -1, 0, 0, "character", 1
@@ -163,8 +169,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "Do", 0, 0, 0, "list<class<`Node`, `R6`>>", 1
 "data.tree", "Do", 1, 0, 0, "class<`function`>", 1
 "data.tree", "Do", 2, 0, 0, "...", 1
-"data.tree", "filterFun", -1, 0, 0, "logical", 1
-"data.tree", "filterFun", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "FindNode", -1, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "FindNode", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "FindNode", 1, 0, 0, "character", 1
@@ -185,8 +189,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "FromDataFrameTable", 0, 0, 0, "class<`data.frame`>", 1
 "data.tree", "FromDataFrameTable", 1, 0, 0, "character", 1
 "data.tree", "FromDataFrameTable", 2, 0, 0, "character", 1
-"data.tree", "FromDataFrameTable", 3, 0, 0, "null", 1
-"data.tree", "FromDataFrameTable", 3, 0, 1, "list<null | character[]>", 1
+"data.tree", "FromDataFrameTable", 3, 0, 0, "list<null | character[]>", 1
+"data.tree", "FromDataFrameTable", 3, 0, 1, "null", 1
 "data.tree", "FromDataFrameTable", 4, 0, 0, "logical", 1
 "data.tree", "FromDataFrameTable", 5, 0, 0, "character[]", 1
 "data.tree", "FromListExplicit", -1, 0, 0, "class<`Node`, `R6`>", 1
@@ -207,7 +211,19 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "Get", -1, 0, 0, "^character[]", 1
 "data.tree", "Get", -1, 0, 1, "class<`matrix`>", 1
 "data.tree", "Get", -1, 0, 2, "^double[]", 1
-"data.tree", "Get", -1, 0, 3, "list<any>", 1
+"data.tree", "Get", -1, 0, 3, "list<double>", 1
+"data.tree", "Get", -1, 0, 4, "list<null | character>", 1
+"data.tree", "Get", -1, 0, 5, "list<null | integer>", 1
+"data.tree", "Get", -1, 0, 6, "list<null | list<character | class<`function`>>>", 1
+"data.tree", "Get", -1, 0, 7, "list<null | list<class<`function`> | character | character | double>>", 1
+"data.tree", "Get", -1, 0, 8, "list<character[]>", 1
+"data.tree", "Get", -1, 0, 9, "list<character | null>", 1
+"data.tree", "Get", -1, 0, 10, "list<integer[] | double>", 1
+"data.tree", "Get", -1, 0, 11, "list<null | double>", 1
+"data.tree", "Get", -1, 0, 12, "list<null>", 1
+"data.tree", "Get", -1, 0, 13, "list<null | list<character | double>>", 1
+"data.tree", "Get", -1, 0, 14, "list<null | list<class<`function`> | character>>", 1
+"data.tree", "Get", -1, 0, 15, "list<null | list<character | class<`function`> | character>>", 1
 "data.tree", "Get", 0, 0, 0, "list<class<`Node`, `R6`>>", 1
 "data.tree", "Get", 1, 0, 0, "character", 1
 "data.tree", "Get", 1, 0, 1, "class<`function`>", 1
@@ -220,7 +236,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "GetAttribute", -1, 0, 0, "character[]", 1
 "data.tree", "GetAttribute", -1, 0, 1, "double[]", 1
 "data.tree", "GetAttribute", -1, 0, 2, "null", 1
-"data.tree", "GetAttribute", -1, 0, 3, "list<any>", 1
+"data.tree", "GetAttribute", -1, 0, 3, "list<character | double>", 1
+"data.tree", "GetAttribute", -1, 0, 4, "list<character | class<`function`>>", 1
+"data.tree", "GetAttribute", -1, 0, 5, "list<character>", 1
+"data.tree", "GetAttribute", -1, 0, 6, "list<class<`function`>>", 1
+"data.tree", "GetAttribute", -1, 0, 7, "list<class<`function`> | character>", 1
 "data.tree", "GetAttribute", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "GetAttribute", 1, 0, 0, "character", 1
 "data.tree", "GetAttribute", 1, 0, 1, "class<`function`>", 1
@@ -345,7 +365,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "data.tree", "ToDiagrammeRGraph", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "ToDiagrammeRGraph", 1, 0, 0, "character[]", 1
 "data.tree", "ToDiagrammeRGraph", 2, 0, 0, "null", 1
-"data.tree", "ToListExplicit", -1, 0, 0, "list<any>", 1
+"data.tree", "ToListExplicit", -1, 0, 0, "list<character | list<list<character | double>>>", 1
+"data.tree", "ToListExplicit", -1, 0, 1, "list<character | list<list<character | list<list<character | double>>>>>", 1
+"data.tree", "ToListExplicit", -1, 0, 2, "list<character | list<list<character | list<list<character | list<list<character | integer>>>>>>>", 1
+"data.tree", "ToListExplicit", -1, 0, 3, "list<character | list<list<list<list<double>>>>>", 1
 "data.tree", "ToListExplicit", 0, 0, 0, "class<`Node`, `R6`>", 1
 "data.tree", "ToListExplicit", 1, 0, 0, "logical", 1
 "data.tree", "ToListExplicit", 2, 0, 0, "character", 1

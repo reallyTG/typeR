@@ -1,18 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"units", ":::", -1, 0, 0, "character[]", 1
-"units", ":::", -1, 0, 1, "logical", 1
-"units", ":::", -1, 0, 2, "list<any>", 1
-"units", ":::", 0, 0, 0, "...", 1
-"units", ":::", 1, 0, 0, "any", 1
-"units", ":::", 2, 0, 0, "any", 1
-"units", ":::", 3, 0, 0, "any", 1
-"units", ":::", 4, 0, 0, "any", 1
-"units", ":::", 5, 0, 0, "any", 1
-"units", ":::", 6, 0, 0, "any", 1
-"units", ":::", 7, 0, 0, "any", 1
-"units", ":::", 8, 0, 0, "any", 1
-"units", ":::", 9, 0, 0, "any", 1
-"units", ":::", 10, 0, 0, "any", 1
 "units", "%|%", -1, 0, 0, "character", 1
 "units", "%|%", 0, 0, 0, "character", 1
 "units", "%|%", 0, 0, 1, "null", 1
@@ -123,15 +109,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "%empty%", -1, 0, 0, "character[]", 1
 "units", "%empty%", 0, 0, 0, "character[]", 1
 "units", "%empty%", 1, 0, 0, "character", 1
-"units", "FUN", -1, 0, 0, "class<`data.frame`>", 1
-"units", "FUN", -1, 0, 1, "double[]", 1
-"units", "FUN", 0, 0, 0, "class<`data.frame`>", 1
-"units", "FUN", 0, 0, 1, "class<`units`>", 1
-"units", "FUN", -1, 1, 0, "class<`units`>", 1
-"units", "FUN", 0, 1, 0, "character", 1
-"units", "FUN", 1, 1, 0, "logical", 1
-"units", "FUN", -1, 2, 0, "logical", 1
-"units", "FUN", 0, 2, 0, "character", 1
 "units", ".get_ud_db_all", -1, 0, 0, "class<`data.frame`>", 1
 "units", ".get_ud_prefixes_xml", -1, 0, 0, "class<`xml_document`, `xml_node`>", 1
 "units", ".get_ud_xml_dir", -1, 0, 0, "character", 1
@@ -274,8 +251,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "set_units", 2, 0, 0, "...", 1
 "units", "set_units", 3, 0, 0, "any", 1
 "units", "set_units.mixed_units", -1, 0, 0, "class<`mixed_units`>", 1
-"units", "set_units.mixed_units", 0, 0, 0, "class<`mixed_units`>", 1
-"units", "set_units.mixed_units", 0, 0, 1, "list<class<`units`>>", 1
+"units", "set_units.mixed_units", 0, 0, 0, "list<class<`units`>>", 1
+"units", "set_units.mixed_units", 0, 0, 1, "class<`mixed_units`>", 1
 "units", "set_units.mixed_units", 1, 0, 0, "character[]", 1
 "units", "set_units.mixed_units", 2, 0, 0, "...", 1
 "units", "set_units.mixed_units", 3, 0, 0, "character", 1
@@ -348,9 +325,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "units", "units<-.numeric", 1, 0, 2, "character", 1
 "units", "units<-.numeric", 1, 0, 3, "class<`call`>", 1
 "units", "units<-.numeric", 1, 0, 4, "null", 1
-"units", "units_options", -1, 0, 0, "character[]", 1
-"units", "units_options", -1, 0, 1, "logical", 1
-"units", "units_options", -1, 0, 2, "list<any>", 1
+"units", "units_options", -1, 0, 0, "list<logical>", 1
+"units", "units_options", -1, 0, 1, "character[]", 1
+"units", "units_options", -1, 0, 2, "logical", 1
+"units", "units_options", -1, 0, 3, "list<character[]>", 1
+"units", "units_options", -1, 0, 4, "list<character[] | logical>", 1
+"units", "units_options", -1, 0, 5, "list<null>", 1
+"units", "units_options", -1, 0, 6, "list<character[] | logical | null>", 1
 "units", "units_options", 0, 0, 0, "...", 1
 "units", "units_options", 1, 0, 0, "any", 1
 "units", "units_options", 2, 0, 0, "any", 1

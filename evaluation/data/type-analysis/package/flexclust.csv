@@ -210,7 +210,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "getData", 1, 0, 0, "logical", 1
 "flexclust", "getData", -1, 1, 0, "class<`data.frame`>", 1
 "flexclust", "getData", 0, 1, 0, "character", 1
-"flexclust", "getDistColClust", -1, 0, 0, "list<double[] | character[] | double[]>", 1
+"flexclust", "getDistColClust", -1, 0, 0, "list<double[] | character[]>", 1
+"flexclust", "getDistColClust", -1, 0, 1, "list<double[]>", 1
 "flexclust", "getDistColClust", 0, 0, 0, "class<`kcca`>", 1
 "flexclust", "getDistColClust", 1, 0, 0, "integer", 1
 "flexclust", "getDistColClust", 2, 0, 0, "character", 1
@@ -258,7 +259,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "kcca", 3, 0, 1, "null", 1
 "flexclust", "kcca", 4, 0, 0, "null", 1
 "flexclust", "kcca", 5, 0, 0, "null", 1
-"flexclust", "kcca", 5, 0, 1, "list<character | double>", 1
+"flexclust", "kcca", 5, 0, 1, "list<character>", 1
+"flexclust", "kcca", 5, 0, 2, "list<double>", 1
 "flexclust", "kcca", 6, 0, 0, "logical", 1
 "flexclust", "kcca", 7, 0, 0, "logical", 1
 "flexclust", "kcca2df", -1, 0, 0, "class<`data.frame`>", 1
@@ -278,7 +280,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "kmeanspp", 2, 0, 0, "class<`kccaFamily`>", 1
 "flexclust", "list2object", -1, 0, 0, "class<`cclustControl`>", 1
 "flexclust", "list2object", -1, 0, 1, "class<`flexclustControl`>", 1
-"flexclust", "list2object", 0, 0, 0, "list<double | character | character | double>", 1
+"flexclust", "list2object", 0, 0, 0, "list<double | character>", 1
+"flexclust", "list2object", 0, 0, 1, "list<character>", 1
+"flexclust", "list2object", 0, 0, 2, "list<double>", 1
 "flexclust", "list2object", 1, 0, 0, "character", 1
 "flexclust", "matrix2df", -1, 0, 0, "class<`data.frame`>", 1
 "flexclust", "matrix2df", 0, 0, 0, "class<`matrix`>", 1
@@ -288,7 +292,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "flexclust", "maxDist", 0, 0, 0, "any", 1
 "flexclust", "maxDist", 1, 0, 0, "character", 1
 "flexclust", "maxDist", 2, 0, 0, "any", 1
-"flexclust", "MClapply", -1, 0, 0, "list<class<`kccasimple`> | list<class<`matrix`> | double | list<class<`matrix`>> | class<`matrix`> | list<class<`matrix`>>>>", 1
+"flexclust", "MClapply", -1, 0, 0, "list<class<`kccasimple`>>", 1
+"flexclust", "MClapply", -1, 0, 1, "list<list<class<`matrix`> | double | list<class<`matrix`>>>>", 1
+"flexclust", "MClapply", -1, 0, 2, "list<list<class<`matrix`> | list<class<`matrix`>>>>", 1
 "flexclust", "MClapply", 0, 0, 0, "list<double>", 1
 "flexclust", "MClapply", 1, 0, 0, "any", 1
 "flexclust", "MClapply", 2, 0, 0, "logical", 1

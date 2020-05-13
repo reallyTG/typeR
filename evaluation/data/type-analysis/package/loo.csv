@@ -1,13 +1,4 @@
 package_name, function_name, parameter_position, outer_alternative, inner_alternative, type, count
-"loo", "::", -1, 0, 0, "integer[]", 1
-"loo", "::", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
-"loo", "::", 1, 0, 0, "double", 1
-"loo", "::", -1, 1, 0, "double[]", 1
-"loo", "::", 0, 1, 0, "class<`function`>", 1
-"loo", "::", 0, 1, 1, "class<`array`>", 1
-"loo", "::", 0, 1, 2, "class<`importance_sampling`, `list`, `psis`>", 1
-"loo", "::", 0, 1, 3, "class<`matrix`>", 1
-"loo", "::", 1, 1, 0, "...", 1
 "loo", "adjust_k_wip", -1, 0, 0, "double", 1
 "loo", "adjust_k_wip", 0, 0, 0, "double", 1
 "loo", "adjust_k_wip", 1, 0, 0, "integer", 1
@@ -40,11 +31,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "do_importance_sampling", 3, 0, 0, "character", 1
 "loo", ".E_fun", -1, 0, 0, "class<`function`>", 1
 "loo", ".E_fun", 0, 0, 0, "character", 1
-"loo", "E_fun", -1, 0, 0, "double", 1
-"loo", "E_fun", 0, 0, 0, "double[]", 1
-"loo", "E_fun", 1, 0, 0, "double[]", 1
-"loo", "E_fun", 2, 0, 0, "...", 1
-"loo", "E_loo", -1, 0, 0, "list<class<`matrix`> | null | double[] | double[] | null>", 1
+"loo", "E_loo", -1, 0, 0, "list<class<`matrix`> | null>", 1
+"loo", "E_loo", -1, 0, 1, "list<double[]>", 1
+"loo", "E_loo", -1, 0, 2, "list<double[] | null>", 1
 "loo", "E_loo", 0, 0, 0, "class<`matrix`, `ppd`>", 1
 "loo", "E_loo", 1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
 "loo", "E_loo", 2, 0, 0, "...", 1
@@ -57,7 +46,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "E_loo_khat.matrix", 1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
 "loo", "E_loo_khat.matrix", 2, 0, 0, "class<`matrix`>", 1
 "loo", "E_loo_khat.matrix", 3, 0, 0, "...", 1
-"loo", "E_loo.matrix", -1, 0, 0, "list<class<`matrix`> | null | double[] | double[] | null>", 1
+"loo", "E_loo.matrix", -1, 0, 0, "list<class<`matrix`> | null>", 1
+"loo", "E_loo.matrix", -1, 0, 1, "list<double[]>", 1
+"loo", "E_loo.matrix", -1, 0, 2, "list<double[] | null>", 1
 "loo", "E_loo.matrix", 0, 0, 0, "class<`matrix`, `ppd`>", 1
 "loo", "E_loo.matrix", 1, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
 "loo", "E_loo.matrix", 2, 0, 0, "...", 1
@@ -84,24 +75,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", ".fr", 0, 0, 3, "class<`compare.loo`, `matrix`>", 1
 "loo", ".fr", 0, 0, 4, "class<`matrix`>", 1
 "loo", ".fr", 1, 0, 0, "double", 1
-"loo", "FUN", -1, 0, 0, "logical", 1
-"loo", "FUN", 0, 0, 0, "double", 1
-"loo", "FUN", 1, 0, 0, "double", 1
-"loo", "FUN", -1, 1, 0, "logical", 1
-"loo", "FUN", 0, 1, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
-"loo", "FUN", 0, 1, 1, "list<class<`importance_sampling_loo`, `loo`, `psis_loo`>>", 1
-"loo", "FUN", -1, 2, 0, "list<class<`matrix`> | null | list<double>>", 1
-"loo", "FUN", 0, 2, 0, "integer", 1
-"loo", "FUN", 1, 2, 0, "class<`function`>", 1
-"loo", "FUN", 2, 2, 0, "...", 1
-"loo", "FUN", 3, 2, 0, "class<`data.frame`>", 1
-"loo", "FUN", 4, 2, 0, "class<`matrix`>", 1
-"loo", "FUN", 5, 2, 0, "double[]", 1
-"loo", "FUN", 5, 2, 1, "null", 1
-"loo", "FUN", 6, 2, 0, "logical", 1
-"loo", "FUN", 7, 2, 0, "character", 1
-"loo", "FUN", -1, 3, 0, "logical", 1
-"loo", "FUN", 0, 3, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
 "loo", "gpdfit", -1, 0, 0, "list<double>", 1
 "loo", "gpdfit", 0, 0, 0, "double[]", 1
 "loo", "gpdfit", 1, 0, 0, "logical", 1
@@ -207,8 +180,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "loo.function", 0, 0, 0, "class<`function`>", 1
 "loo", "loo.function", 1, 0, 0, "...", 1
 "loo", "loo.function", 2, 0, 0, "class<`data.frame`>", 1
-"loo", "loo.function", 3, 0, 0, "class<`matrix`>", 1
-"loo", "loo.function", 3, 0, 1, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "loo.function", 3, 0, 0, "list<class<`family`> | class<`matrix`>>", 1
+"loo", "loo.function", 3, 0, 1, "list<class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "loo.function", 3, 0, 2, "class<`matrix`>", 1
 "loo", "loo.function", 4, 0, 0, "double[]", 1
 "loo", "loo.function", 4, 0, 1, "null", 1
 "loo", "loo.function", 5, 0, 0, "logical", 1
@@ -256,8 +230,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "loo_model_weights.default", 5, 0, 0, "logical", 1
 "loo", "loo_model_weights.default", 6, 0, 0, "double", 1
 "loo", "loo_model_weights.default", 7, 0, 0, "double", 1
-"loo", "loo_model_weights.default", 8, 0, 0, "null", 1
-"loo", "loo_model_weights.default", 9, 0, 0, "double", 1
 "loo", "lx", -1, 0, 0, "double[]", 1
 "loo", "lx", 0, 0, 0, "double[]", 1
 "loo", "lx", 1, 0, 0, "double[]", 1
@@ -274,7 +246,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "min_n_eff_by_k", -1, 0, 0, "^double[]", 1
 "loo", "min_n_eff_by_k", 0, 0, 0, "double[]", 1
 "loo", "min_n_eff_by_k", 1, 0, 0, "class<`factor`>", 1
-"loo", "nlist", -1, 0, 0, "list<any>", 1
+"loo", "nlist", -1, 0, 0, "list<double[] | class<`matrix`>>", 1
+"loo", "nlist", -1, 0, 1, "list<double[] | class<`matrix`> | character[]>", 1
+"loo", "nlist", -1, 0, 2, "list<class<`matrix`> | list<double[]>>", 1
+"loo", "nlist", -1, 0, 3, "list<class<`matrix`>>", 1
+"loo", "nlist", -1, 0, 4, "list<double>", 1
 "loo", "nlist", 0, 0, 0, "...", 1
 "loo", "n_pareto", -1, 0, 0, "double[]", 1
 "loo", "n_pareto", 0, 0, 0, "double[]", 1
@@ -285,13 +261,12 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "parallel_importance_sampling_list", 1, 0, 0, "class<`function`>", 1
 "loo", "parallel_importance_sampling_list", 2, 0, 0, "class<`function`>", 1
 "loo", "parallel_importance_sampling_list", 3, 0, 0, "class<`data.frame`>", 1
-"loo", "parallel_importance_sampling_list", 4, 0, 0, "class<`matrix`>", 1
-"loo", "parallel_importance_sampling_list", 4, 0, 1, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "parallel_importance_sampling_list", 4, 0, 0, "list<class<`family`> | class<`matrix`>>", 1
+"loo", "parallel_importance_sampling_list", 4, 0, 1, "list<class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "parallel_importance_sampling_list", 4, 0, 2, "class<`matrix`>", 1
 "loo", "parallel_importance_sampling_list", 5, 0, 0, "double[]", 1
 "loo", "parallel_importance_sampling_list", 6, 0, 0, "logical", 1
 "loo", "parallel_importance_sampling_list", 7, 0, 0, "double", 1
-"loo", "parallel_importance_sampling_list", 8, 0, 0, "character", 1
-"loo", "parallel_importance_sampling_list", 9, 0, 0, "...", 1
 "loo", "pareto_k_ids", -1, 0, 0, "integer[]", 1
 "loo", "pareto_k_ids", 0, 0, 0, "class<`importance_sampling_loo`, `loo`, `psis_loo`>", 1
 "loo", "pareto_k_ids", 1, 0, 0, "double", 1
@@ -427,7 +402,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "relative_eff.function", 2, 0, 0, "...", 1
 "loo", "relative_eff.function", 3, 0, 0, "double", 1
 "loo", "relative_eff.function", 4, 0, 0, "class<`data.frame`>", 1
-"loo", "relative_eff.function", 5, 0, 0, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "relative_eff.function", 5, 0, 0, "list<class<`family`> | class<`matrix`>>", 1
+"loo", "relative_eff.function", 5, 0, 1, "list<class<`family`> | class<`matrix`> | double[]>", 1
 "loo", "relative_eff.importance_sampling", -1, 0, 0, "double[]", 1
 "loo", "relative_eff.importance_sampling", 0, 0, 0, "class<`importance_sampling`, `list`, `psis`>", 1
 "loo", "relative_eff.importance_sampling", 1, 0, 0, "...", 1
@@ -489,7 +465,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "loo", "waic.function", 0, 0, 0, "class<`function`>", 1
 "loo", "waic.function", 1, 0, 0, "...", 1
 "loo", "waic.function", 2, 0, 0, "class<`data.frame`>", 1
-"loo", "waic.function", 3, 0, 0, "list<class<`family`> | class<`matrix`> | class<`family`> | class<`matrix`> | double[]>", 1
+"loo", "waic.function", 3, 0, 0, "list<class<`family`> | class<`matrix`>>", 1
+"loo", "waic.function", 3, 0, 1, "list<class<`family`> | class<`matrix`> | double[]>", 1
 "loo", "waic.matrix", -1, 0, 0, "class<`loo`, `waic`>", 1
 "loo", "waic.matrix", 0, 0, 0, "class<`matrix`>", 1
 "loo", "waic.matrix", 1, 0, 0, "...", 1

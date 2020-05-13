@@ -4,68 +4,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", ":=", -1, 0, 2, "double[]", 1
 "wrapr", ":=", 0, 0, 0, "any", 1
 "wrapr", ":=", 1, 0, 0, "any", 1
-"wrapr", "::", -1, 0, 0, "any", 1
-"wrapr", "::", 0, 0, 0, "class<`call`>", 1
-"wrapr", "::", 1, 0, 0, "character", 1
-"wrapr", "::", -1, 1, 0, "class<`data.frame`>", 1
-"wrapr", "::", 0, 1, 0, "...", 1
-"wrapr", "::", -1, 2, 0, "character[]", 1
-"wrapr", "::", 0, 2, 0, "...", 1
-"wrapr", "::", 1, 2, 0, "environment", 1
-"wrapr", "::", -1, 3, 0, "class<`function`>", 1
-"wrapr", "::", 0, 3, 0, "character[]", 1
-"wrapr", "::", 0, 3, 1, "class<`name`>", 1
-"wrapr", "::", 0, 3, 2, "list<class<`name`>>", 1
-"wrapr", "::", 1, 3, 0, "class<`call`>", 1
-"wrapr", "::", 1, 3, 1, "class<`{`>", 1
-"wrapr", "::", 2, 3, 0, "environment", 1
-"wrapr", "::", -1, 4, 0, "character[]", 1
-"wrapr", "::", 0, 4, 0, "...", 1
-"wrapr", "::", -1, 5, 0, "class<`data.frame`>", 1
-"wrapr", "::", 0, 5, 0, "...", 1
-"wrapr", "::", 1, 5, 0, "environment", 1
-"wrapr", "::", -1, 6, 0, "double[]", 1
-"wrapr", "::", 0, 6, 0, "double", 1
-"wrapr", "::", 1, 6, 0, "double", 1
-"wrapr", "::", -1, 7, 0, "double[]", 1
-"wrapr", "::", -1, 7, 1, "character", 1
-"wrapr", "::", -1, 7, 2, "class<`data.frame`>", 1
-"wrapr", "::", -1, 7, 3, "class<`UnaryFnList`>", 1
-"wrapr", "::", 0, 7, 0, "character", 1
-"wrapr", "::", 0, 7, 1, "class<`data.frame`>", 1
-"wrapr", "::", 0, 7, 2, "class<`PartialFunction`>", 1
-"wrapr", "::", 0, 7, 3, "class<`PartialNamedFn`>", 1
-"wrapr", "::", 0, 7, 4, "class<`UnaryFnList`>", 1
-"wrapr", "::", 0, 7, 5, "double[]", 1
-"wrapr", "::", 1, 7, 0, "class<`PartialFunction`>", 1
-"wrapr", "::", 1, 7, 1, "character", 1
-"wrapr", "::", 1, 7, 2, "class<`data.frame`>", 1
-"wrapr", "::", 1, 7, 3, "class<`PartialNamedFn`>", 1
-"wrapr", "::", 1, 7, 4, "class<`UnaryFnList`>", 1
-"wrapr", "::", 1, 7, 5, "class<`SrcFunction`>", 1
-"wrapr", "::", 1, 7, 6, "class<`locum`>", 1
-"wrapr", "::", 1, 7, 7, "class<`ourclass`, `wrapr_applicable`>", 1
-"wrapr", "::", 1, 7, 8, "class<`glm`, `lm`>", 1
-"wrapr", "::", 1, 7, 9, "list<class<`function`>>", 1
-"wrapr", "::", 2, 7, 0, "environment", 1
-"wrapr", "::", 3, 7, 0, "any", 1
-"wrapr", "::", 4, 7, 0, "any", 1
-"wrapr", "::", 5, 7, 0, "any", 1
-"wrapr", "::", -1, 8, 0, "character[]", 1
-"wrapr", "::", -1, 8, 1, "list<character[]>", 1
-"wrapr", "::", 0, 8, 0, "character[]", 1
-"wrapr", "::", 0, 8, 1, "list<character>", 1
-"wrapr", "::", 1, 8, 0, "character", 1
-"wrapr", "::", 2, 8, 0, "character", 1
-"wrapr", ":::", -1, 0, 0, "class<`call`>", 1
-"wrapr", ":::", -1, 0, 1, "class<`name`>", 1
-"wrapr", ":::", -1, 0, 2, "double", 1
-"wrapr", ":::", 0, 0, 0, "character[]", 1
-"wrapr", ":::", 0, 0, 1, "null", 1
-"wrapr", ":::", 1, 0, 0, "logical", 1
 "wrapr", "%?%", -1, 0, 0, "^double[]", 1
-"wrapr", "%?%", -1, 0, 1, "null", 1
-"wrapr", "%?%", -1, 0, 2, "list<double | null | double>", 1
+"wrapr", "%?%", -1, 0, 1, "list<double | null>", 1
+"wrapr", "%?%", -1, 0, 2, "null", 1
+"wrapr", "%?%", -1, 0, 3, "list<double>", 1
 "wrapr", "%?%", 0, 0, 0, "^double[]", 1
 "wrapr", "%?%", 0, 0, 1, "null", 1
 "wrapr", "%?%", 0, 0, 2, "list<any>", 1
@@ -77,9 +19,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "%.|%", -1, 0, 0, "integer", 1
 "wrapr", "%.|%", 0, 0, 0, "integer[]", 1
 "wrapr", "%.|%", 1, 0, 0, "any", 1
-"wrapr", "%+%", -1, 0, 0, "any", 1
-"wrapr", "%+%", 0, 0, 0, "any", 1
-"wrapr", "%+%", 1, 0, 0, "any", 1
 "wrapr", "add_name_column", -1, 0, 0, "list<class<`data.frame`>>", 1
 "wrapr", "add_name_column", 0, 0, 0, "list<class<`data.frame`>>", 1
 "wrapr", "add_name_column", 1, 0, 0, "character", 1
@@ -87,13 +26,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "apply_left", 0, 0, 0, "character", 1
 "wrapr", "apply_left", 0, 0, 1, "class<`Collector`>", 1
 "wrapr", "apply_left", 0, 0, 2, "class<`data.frame`>", 1
-"wrapr", "apply_left", 0, 0, 3, "class<`formula`>", 1
-"wrapr", "apply_left", 0, 0, 4, "class<`function`>", 1
-"wrapr", "apply_left", 0, 0, 5, "class<`locum`>", 1
-"wrapr", "apply_left", 0, 0, 6, "class<`PartialNamedFn`>", 1
-"wrapr", "apply_left", 0, 0, 7, "double[]", 1
-"wrapr", "apply_left", 0, 0, 8, "class<`track`>", 1
-"wrapr", "apply_left", 0, 0, 9, "list<class<`data.frame`>>", 1
+"wrapr", "apply_left", 0, 0, 3, "list<class<`data.frame`>>", 1
+"wrapr", "apply_left", 0, 0, 4, "class<`formula`>", 1
+"wrapr", "apply_left", 0, 0, 5, "class<`function`>", 1
+"wrapr", "apply_left", 0, 0, 6, "class<`locum`>", 1
+"wrapr", "apply_left", 0, 0, 7, "class<`PartialNamedFn`>", 1
+"wrapr", "apply_left", 0, 0, 8, "double[]", 1
+"wrapr", "apply_left", 0, 0, 9, "class<`track`>", 1
 "wrapr", "apply_left", 1, 0, 0, "character", 1
 "wrapr", "apply_left", 1, 0, 1, "class<`call`>", 1
 "wrapr", "apply_left", 1, 0, 2, "double", 1
@@ -119,10 +58,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "apply_left_default", 5, 0, 0, "any", 1
 "wrapr", "apply_left.default", -1, 0, 0, "any", 1
 "wrapr", "apply_left.default", 0, 0, 0, "class<`data.frame`>", 1
-"wrapr", "apply_left.default", 0, 0, 1, "class<`function`>", 1
-"wrapr", "apply_left.default", 0, 0, 2, "double[]", 1
-"wrapr", "apply_left.default", 0, 0, 3, "class<`track`>", 1
-"wrapr", "apply_left.default", 0, 0, 4, "list<class<`data.frame`>>", 1
+"wrapr", "apply_left.default", 0, 0, 1, "list<class<`data.frame`>>", 1
+"wrapr", "apply_left.default", 0, 0, 2, "class<`function`>", 1
+"wrapr", "apply_left.default", 0, 0, 3, "double[]", 1
+"wrapr", "apply_left.default", 0, 0, 4, "class<`track`>", 1
 "wrapr", "apply_left.default", 1, 0, 0, "class<`call`>", 1
 "wrapr", "apply_left.default", 1, 0, 1, "class<`{`>", 1
 "wrapr", "apply_left.default", 2, 0, 0, "environment", 1
@@ -161,8 +100,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "apply_right", 1, 0, 5, "class<`SrcFunction`>", 1
 "wrapr", "apply_right", 1, 0, 6, "class<`locum`>", 1
 "wrapr", "apply_right", 1, 0, 7, "class<`ourclass`, `wrapr_applicable`>", 1
-"wrapr", "apply_right", 1, 0, 8, "class<`glm`, `lm`>", 1
-"wrapr", "apply_right", 1, 0, 9, "list<class<`function`>>", 1
+"wrapr", "apply_right", 1, 0, 8, "list<class<`function`>>", 1
+"wrapr", "apply_right", 1, 0, 9, "class<`glm`, `lm`>", 1
 "wrapr", "apply_right", 2, 0, 0, "environment", 1
 "wrapr", "apply_right", 3, 0, 0, "any", 1
 "wrapr", "apply_right", 4, 0, 0, "any", 1
@@ -351,8 +290,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "clean_fit_glm", 5, 0, 0, "logical", 1
 "wrapr", "clean_fit_glm", 6, 0, 0, "null", 1
 "wrapr", "clean_fit_glm", 7, 0, 0, "character", 1
-"wrapr", "clean_fit_glm", 8, 0, 0, "null", 1
-"wrapr", "clean_fit_glm", 9, 0, 0, "environment", 1
 "wrapr", "clean_fit_lm", -1, 0, 0, "list<class<`lm`> | class<`summary.lm`>>", 1
 "wrapr", "clean_fit_lm", 0, 0, 0, "character", 1
 "wrapr", "clean_fit_lm", 1, 0, 0, "character[]", 1
@@ -362,16 +299,22 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "clean_fit_lm", 5, 0, 0, "null", 1
 "wrapr", "clean_fit_lm", 6, 0, 0, "environment", 1
 "wrapr", "coalesce", -1, 0, 0, "^double[]", 1
-"wrapr", "coalesce", -1, 0, 1, "null", 1
-"wrapr", "coalesce", -1, 0, 2, "list<double | null | double>", 1
+"wrapr", "coalesce", -1, 0, 1, "list<double | null>", 1
+"wrapr", "coalesce", -1, 0, 2, "null", 1
+"wrapr", "coalesce", -1, 0, 3, "list<double>", 1
 "wrapr", "coalesce", 0, 0, 0, "^double[]", 1
 "wrapr", "coalesce", 0, 0, 1, "null", 1
 "wrapr", "coalesce", 0, 0, 2, "list<any>", 1
 "wrapr", "coalesce", 1, 0, 0, "^double[]", 1
 "wrapr", "coalesce", 1, 0, 1, "list<any>", 1
 "wrapr", "Collector", -1, 0, 0, "class<`Collector`>", 1
-"wrapr", "concat_items_rev", -1, 0, 0, "list<any>", 1
-"wrapr", "concat_items_rev", 0, 0, 0, "list<class<`PartialFunction`> | class<`PartialNamedFn`> | class<`PartialFunction`> | class<`PartialNamedFn`>>", 1
+"wrapr", "concat_items_rev", -1, 0, 0, "list<class<`PartialFunction`>>", 1
+"wrapr", "concat_items_rev", -1, 0, 1, "list<class<`PartialFunction`> | class<`PartialNamedFn`>>", 1
+"wrapr", "concat_items_rev", -1, 0, 2, "list<class<`PartialNamedFn`> | class<`PartialFunction`>>", 1
+"wrapr", "concat_items_rev", -1, 0, 3, "list<class<`PartialNamedFn`>>", 1
+"wrapr", "concat_items_rev", 0, 0, 0, "list<class<`PartialFunction`>>", 1
+"wrapr", "concat_items_rev", 0, 0, 1, "list<class<`PartialNamedFn`> | class<`PartialFunction`>>", 1
+"wrapr", "concat_items_rev", 0, 0, 2, "list<class<`PartialNamedFn`>>", 1
 "wrapr", "concat_items_rev", 1, 0, 0, "list<any>", 1
 "wrapr", "c.UnaryFn", -1, 0, 0, "class<`UnaryFnList`>", 1
 "wrapr", "c.UnaryFn", 0, 0, 0, "...", 1
@@ -467,7 +410,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "format.UnaryFnList", 0, 0, 0, "class<`UnaryFnList`>", 1
 "wrapr", "format.UnaryFnList", 1, 0, 0, "...", 1
 "wrapr", "grab_assignments_from_dots", -1, 0, 0, "character[]", 1
-"wrapr", "grab_assignments_from_dots", 0, 0, 0, "list<any>", 1
+"wrapr", "grab_assignments_from_dots", 0, 0, 0, "list<class<`name`>>", 1
+"wrapr", "grab_assignments_from_dots", 0, 0, 1, "list<class<`name`> | class<`call`> | class<`<-`>>", 1
+"wrapr", "grab_assignments_from_dots", 0, 0, 2, "list<class<`<-`> | class<`name`>>", 1
+"wrapr", "grab_assignments_from_dots", 0, 0, 3, "list<class<`<-`>>", 1
 "wrapr", "grepdf", -1, 0, 0, "character", 1
 "wrapr", "grepdf", 0, 0, 0, "character", 1
 "wrapr", "grepdf", 1, 0, 0, "class<`data.frame`>", 1
@@ -477,7 +423,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "grepdf", 5, 0, 0, "logical", 1
 "wrapr", "grepdf", 6, 0, 0, "logical", 1
 "wrapr", "grepdf", 7, 0, 0, "logical", 1
-"wrapr", "grepdf", 8, 0, 0, "logical", 1
 "wrapr", "grepv", -1, 0, 0, "character", 1
 "wrapr", "grepv", 0, 0, 0, "character", 1
 "wrapr", "grepv", 1, 0, 0, "character[]", 1
@@ -514,8 +459,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "let", -1, 0, 6, "null", 1
 "wrapr", "let", -1, 0, 7, "list<character | double[]>", 1
 "wrapr", "let", 0, 0, 0, "character[]", 1
-"wrapr", "let", 0, 0, 1, "null", 1
-"wrapr", "let", 0, 0, 2, "list<any>", 1
+"wrapr", "let", 0, 0, 1, "list<any>", 1
+"wrapr", "let", 0, 0, 2, "null", 1
 "wrapr", "let", 1, 0, 0, "any", 1
 "wrapr", "let", 2, 0, 0, "...", 1
 "wrapr", "let", 3, 0, 0, "environment", 1
@@ -545,9 +490,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "letprep_str", 1, 0, 0, "character", 1
 "wrapr", "locum", -1, 0, 0, "class<`locum`>", 1
 "wrapr", "makeFunction_se", -1, 0, 0, "class<`function`>", 1
-"wrapr", "makeFunction_se", 0, 0, 0, "character[]", 1
-"wrapr", "makeFunction_se", 0, 0, 1, "class<`name`>", 1
-"wrapr", "makeFunction_se", 0, 0, 2, "list<class<`name`>>", 1
+"wrapr", "makeFunction_se", 0, 0, 0, "list<class<`name`>>", 1
+"wrapr", "makeFunction_se", 0, 0, 1, "character[]", 1
+"wrapr", "makeFunction_se", 0, 0, 2, "class<`name`>", 1
 "wrapr", "makeFunction_se", 1, 0, 0, "class<`call`>", 1
 "wrapr", "makeFunction_se", 1, 0, 1, "class<`{`>", 1
 "wrapr", "makeFunction_se", 2, 0, 0, "environment", 1
@@ -629,9 +574,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "pkgfn", 1, 0, 0, "character", 1
 "wrapr", "pkgfn", 2, 0, 0, "list<any>", 1
 "wrapr", "prepareAlias", -1, 0, 0, "list<any>", 1
-"wrapr", "prepareAlias", 0, 0, 0, "null", 1
-"wrapr", "prepareAlias", 0, 0, 1, "character[]", 1
-"wrapr", "prepareAlias", 0, 0, 2, "list<any>", 1
+"wrapr", "prepareAlias", 0, 0, 0, "list<any>", 1
+"wrapr", "prepareAlias", 0, 0, 1, "null", 1
+"wrapr", "prepareAlias", 0, 0, 2, "character[]", 1
 "wrapr", "prepareAlias", 1, 0, 0, "logical", 1
 "wrapr", "print.locum", -1, 0, 0, "null", 1
 "wrapr", "print.locum", 0, 0, 0, "class<`locum`>", 1
@@ -690,10 +635,10 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "sortv", 3, 0, 0, "logical", 1
 "wrapr", "sortv", 4, 0, 0, "logical", 1
 "wrapr", "sortv", 5, 0, 0, "character[]", 1
-"wrapr", "split_at_brace_pairs", -1, 0, 0, "character[]", 1
-"wrapr", "split_at_brace_pairs", -1, 0, 1, "list<character[]>", 1
-"wrapr", "split_at_brace_pairs", 0, 0, 0, "character[]", 1
-"wrapr", "split_at_brace_pairs", 0, 0, 1, "list<character>", 1
+"wrapr", "split_at_brace_pairs", -1, 0, 0, "list<character[]>", 1
+"wrapr", "split_at_brace_pairs", -1, 0, 1, "character[]", 1
+"wrapr", "split_at_brace_pairs", 0, 0, 0, "list<character>", 1
+"wrapr", "split_at_brace_pairs", 0, 0, 1, "character[]", 1
 "wrapr", "split_at_brace_pairs", 1, 0, 0, "character", 1
 "wrapr", "split_at_brace_pairs", 2, 0, 0, "character", 1
 "wrapr", "srcfn", -1, 0, 0, "class<`SrcFunction`>", 1
@@ -716,7 +661,11 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "to_vector", -1, 0, 0, "^character[]", 1
 "wrapr", "to_vector", -1, 0, 1, "class<`Date`>", 1
 "wrapr", "to_vector", -1, 0, 2, "^double[]", 1
-"wrapr", "to_vector", 0, 0, 0, "list<any>", 1
+"wrapr", "to_vector", 0, 0, 0, "list<character | null>", 1
+"wrapr", "to_vector", 0, 0, 1, "list<character>", 1
+"wrapr", "to_vector", 0, 0, 2, "list<class<`Date`>>", 1
+"wrapr", "to_vector", 0, 0, 3, "list<double | null>", 1
+"wrapr", "to_vector", 0, 0, 4, "list<double>", 1
 "wrapr", "uniques", -1, 0, 0, "any", 1
 "wrapr", "uniques", 0, 0, 0, "any", 1
 "wrapr", "uniques", 1, 0, 0, "...", 1
@@ -729,14 +678,16 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "[<-.Unpacker", -1, 0, 0, "class<`Unpacker`>", 1
 "wrapr", "[<-.Unpacker", 0, 0, 0, "class<`Unpacker`>", 1
 "wrapr", "[<-.Unpacker", 1, 0, 0, "...", 1
-"wrapr", "[<-.Unpacker", 2, 0, 0, "list<double | class<`data.frame`>>", 1
+"wrapr", "[<-.Unpacker", 2, 0, 0, "list<double>", 1
+"wrapr", "[<-.Unpacker", 2, 0, 1, "list<class<`data.frame`>>", 1
 "wrapr", "[.Unpacker", -1, 0, 0, "class<`UnpackTarget`>", 1
 "wrapr", "[.Unpacker", 0, 0, 0, "class<`Unpacker`>", 1
 "wrapr", "[.Unpacker", 1, 0, 0, "...", 1
 "wrapr", "unpack_impl", -1, 0, 0, "any", 1
 "wrapr", "unpack_impl", 0, 0, 0, "...", 1
 "wrapr", "unpack_impl", 1, 0, 0, "environment", 1
-"wrapr", "unpack_impl", 2, 0, 0, "list<class<`data.frame`> | double>", 1
+"wrapr", "unpack_impl", 2, 0, 0, "list<class<`data.frame`>>", 1
+"wrapr", "unpack_impl", 2, 0, 1, "list<double>", 1
 "wrapr", "unpack_impl", 3, 0, 0, "character[]", 1
 "wrapr", "unpack_impl", 4, 0, 0, "null", 1
 "wrapr", "unpack_impl", 4, 0, 1, "character", 1
@@ -786,4 +737,5 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "wrapr", "write_values_into_env", -1, 0, 0, "any", 1
 "wrapr", "write_values_into_env", 0, 0, 0, "environment", 1
 "wrapr", "write_values_into_env", 1, 0, 0, "character[]", 1
-"wrapr", "write_values_into_env", 2, 0, 0, "list<class<`data.frame`> | double>", 1
+"wrapr", "write_values_into_env", 2, 0, 0, "list<class<`data.frame`>>", 1
+"wrapr", "write_values_into_env", 2, 0, 1, "list<double>", 1

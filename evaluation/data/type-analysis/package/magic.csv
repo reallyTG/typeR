@@ -5,10 +5,13 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "magic", "adiag", 1, 0, 0, "double", 1
 "magic", "adiag", 1, 0, 1, "integer[]", 1
 "magic", "adiag", 2, 0, 0, "logical", 1
-"magic", "allsubhypercubes", -1, 0, 0, "list<class<`array`> | class<`matrix`> | class<`array`> | class<`array`> | class<`matrix`>>", 1
+"magic", "allsubhypercubes", -1, 0, 0, "list<class<`array`>>", 1
+"magic", "allsubhypercubes", -1, 0, 1, "list<class<`matrix`> | class<`array`>>", 1
+"magic", "allsubhypercubes", -1, 0, 2, "list<class<`array`> | class<`matrix`>>", 1
 "magic", "allsubhypercubes", 0, 0, 0, "class<`matrix`>", 1
 "magic", "allsubhypercubes", 0, 0, 1, "class<`array`>", 1
-"magic", "allsums", -1, 0, 0, "list<class<`matrix`> | double[]>", 1
+"magic", "allsums", -1, 0, 0, "list<class<`matrix`>>", 1
+"magic", "allsums", -1, 0, 1, "list<double[]>", 1
 "magic", "allsums", 0, 0, 0, "class<`matrix`>", 1
 "magic", "allsums", 1, 0, 0, "class<`function`>", 1
 "magic", "allsums", 1, 0, 1, "null", 1
@@ -109,57 +112,6 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "magic", "force.integer", -1, 0, 1, "class<`matrix`>", 1
 "magic", "force.integer", 0, 0, 0, "class<`array`>", 1
 "magic", "force.integer", 0, 0, 1, "class<`matrix`>", 1
-"magic", "FUN", -1, 0, 0, "class<`matrix`>", 1
-"magic", "FUN", 0, 0, 0, "double[]", 1
-"magic", "FUN", 1, 0, 0, "logical", 1
-"magic", "FUN", -1, 1, 0, "class<`matrix`>", 1
-"magic", "FUN", -1, 1, 1, "list<class<`matrix`>>", 1
-"magic", "FUN", 0, 1, 0, "double", 1
-"magic", "FUN", 0, 1, 1, "integer[]", 1
-"magic", "FUN", -1, 2, 0, "logical", 1
-"magic", "FUN", 0, 2, 0, "class<`array`>", 1
-"magic", "FUN", 0, 2, 1, "class<`matrix`>", 1
-"magic", "FUN", 1, 2, 0, "logical", 1
-"magic", "FUN", 2, 2, 0, "class<`function`>", 1
-"magic", "FUN", 3, 2, 0, "logical", 1
-"magic", "FUN", 4, 2, 0, "...", 1
-"magic", "FUN", -1, 3, 0, "class<`matrix`>", 1
-"magic", "FUN", -1, 3, 1, "list<class<`matrix`>>", 1
-"magic", "FUN", 0, 3, 0, "double", 1
-"magic", "FUN", 0, 3, 1, "integer[]", 1
-"magic", "FUN", -1, 4, 0, "logical[]", 1
-"magic", "FUN", 0, 4, 0, "class<`matrix`>", 1
-"magic", "FUN", 0, 4, 1, "class<`array`>", 1
-"magic", "FUN", 0, 4, 2, "list<class<`matrix`>>", 1
-"magic", "FUN", 1, 4, 0, "logical", 1
-"magic", "FUN", 2, 4, 0, "logical", 1
-"magic", "FUN", -1, 5, 0, "class<`matrix`>", 1
-"magic", "FUN", -1, 5, 1, "list<class<`matrix`>>", 1
-"magic", "FUN", 0, 5, 0, "double", 1
-"magic", "FUN", 0, 5, 1, "integer[]", 1
-"magic", "FUN", -1, 6, 0, "logical[]", 1
-"magic", "FUN", 0, 6, 0, "class<`matrix`>", 1
-"magic", "FUN", 0, 6, 1, "list<class<`matrix`>>", 1
-"magic", "FUN", -1, 7, 0, "class<`matrix`>", 1
-"magic", "FUN", 0, 7, 0, "class<`matrix`>", 1
-"magic", "FUN", 1, 7, 0, "double", 1
-"magic", "FUN", -1, 8, 0, "class<`matrix`>", 1
-"magic", "FUN", -1, 8, 1, "list<class<`matrix`>>", 1
-"magic", "FUN", 0, 8, 0, "double[]", 1
-"magic", "FUN", -1, 9, 0, "class<`matrix`>", 1
-"magic", "FUN", -1, 9, 1, "list<class<`matrix`>>", 1
-"magic", "FUN", 0, 9, 0, "double", 1
-"magic", "FUN", 0, 9, 1, "integer[]", 1
-"magic", "FUN", 1, 9, 0, "double[]", 1
-"magic", "FUN", 2, 9, 0, "double[]", 1
-"magic", "FUN", 3, 9, 0, "null", 1
-"magic", "FUN", -1, 10, 0, "logical[]", 1
-"magic", "FUN", -1, 10, 1, "list<integer[]>", 1
-"magic", "FUN", 0, 10, 0, "class<`matrix`>", 1
-"magic", "FUN", 0, 10, 1, "list<class<`matrix`>>", 1
-"magic", "FUN", 1, 10, 0, "logical", 1
-"magic", "FUN", 2, 10, 0, "class<`function`>", 1
-"magic", "FUN", 3, 10, 0, "logical", 1
 "magic", "hudson", -1, 0, 0, "class<`matrix`>", 1
 "magic", "hudson", 0, 0, 0, "double", 1
 "magic", "hudson", 0, 0, 1, "null", 1
@@ -194,7 +146,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "magic", "is.circulant", 0, 0, 1, "class<`matrix`>", 1
 "magic", "is.circulant", 1, 0, 0, "double[]", 1
 "magic", "is.diagonally.correct", -1, 0, 0, "logical", 1
-"magic", "is.diagonally.correct", -1, 0, 1, "list<logical | class<`array`> | logical | class<`matrix`>>", 1
+"magic", "is.diagonally.correct", -1, 0, 1, "list<logical | class<`array`>>", 1
+"magic", "is.diagonally.correct", -1, 0, 2, "list<logical | class<`matrix`>>", 1
 "magic", "is.diagonally.correct", 0, 0, 0, "class<`array`>", 1
 "magic", "is.diagonally.correct", 0, 0, 1, "class<`matrix`>", 1
 "magic", "is.diagonally.correct", 1, 0, 0, "logical", 1
@@ -264,7 +217,9 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "magic", "is.semimagic", 2, 0, 0, "class<`function`>", 1
 "magic", "is.semimagic", 3, 0, 0, "logical", 1
 "magic", "is.semimagichypercube", -1, 0, 0, "logical", 1
-"magic", "is.semimagichypercube", -1, 0, 1, "list<logical | class<`array`> | logical | class<`matrix`> | logical | list<class<`matrix`>>>", 1
+"magic", "is.semimagichypercube", -1, 0, 1, "list<logical | class<`array`>>", 1
+"magic", "is.semimagichypercube", -1, 0, 2, "list<logical | class<`matrix`>>", 1
+"magic", "is.semimagichypercube", -1, 0, 3, "list<logical | list<class<`matrix`>>>", 1
 "magic", "is.semimagichypercube", 0, 0, 0, "class<`array`>", 1
 "magic", "is.semimagichypercube", 0, 0, 1, "class<`matrix`>", 1
 "magic", "is.semimagichypercube", 1, 0, 0, "logical", 1
@@ -279,8 +234,8 @@ package_name, function_name, parameter_position, outer_alternative, inner_altern
 "magic", "is.square.palindromic", 2, 0, 0, "logical", 1
 "magic", "is.standard", -1, 0, 0, "logical[]", 1
 "magic", "is.standard", 0, 0, 0, "class<`matrix`>", 1
-"magic", "is.standard", 0, 0, 1, "class<`array`>", 1
-"magic", "is.standard", 0, 0, 2, "list<class<`matrix`>>", 1
+"magic", "is.standard", 0, 0, 1, "list<class<`matrix`>>", 1
+"magic", "is.standard", 0, 0, 2, "class<`array`>", 1
 "magic", "is.standard", 1, 0, 0, "logical", 1
 "magic", "is.standard", 2, 0, 0, "logical", 1
 "magic", "latin", -1, 0, 0, "class<`matrix`>", 1

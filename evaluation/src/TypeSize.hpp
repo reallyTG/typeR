@@ -18,41 +18,9 @@ class TypeSize final: public tastr::visitor::ConstNodeVisitor {
     }
 
     virtual void visit(const tastr::ast::NAScalarTypeNode& node) {
+        /* one for ^  */
         ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::IdentifierNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::KeywordNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::OperatorNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::TerminatorNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::SeparatorNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::EmptyNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::EofNode& node) {
+        /* other for base type  */
         ++size_;
         update_counter_(node);
     }
@@ -88,7 +56,8 @@ class TypeSize final: public tastr::visitor::ConstNodeVisitor {
     }
 
     virtual void visit(const tastr::ast::VectorTypeNode& node) {
-        ++size_;
+        /* 1 ([]) + 1 (base type) + optional 1 for ^ */
+        size_ += 2 + node.get_scalar_type().is_na_scalar_type_node();
         update_counter_(node);
     }
 
@@ -147,23 +116,9 @@ class TypeSize final: public tastr::visitor::ConstNodeVisitor {
         update_counter_(node);
     }
 
-    virtual void visit(const tastr::ast::UnknownTypeNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::CommaSeparatorNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::ParameterNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
     virtual void visit(const tastr::ast::FunctionTypeNode& node) {
-        ++size_;
+        /* 1 (any) + 1 (=>) + 1 (any)  */
+        size_ += 3;
         update_counter_(node);
     }
 
@@ -182,21 +137,6 @@ class TypeSize final: public tastr::visitor::ConstNodeVisitor {
         update_counter_(node);
     }
 
-    virtual void visit(const tastr::ast::GroupTypeNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::UnionTypeNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
-    virtual void visit(const tastr::ast::IntersectionTypeNode& node) {
-        ++size_;
-        update_counter_(node);
-    }
-
     virtual void visit(const tastr::ast::VarargTypeNode& node) {
         ++size_;
         update_counter_(node);
@@ -207,24 +147,104 @@ class TypeSize final: public tastr::visitor::ConstNodeVisitor {
         update_counter_(node);
     }
 
+    virtual void visit(const tastr::ast::IdentifierNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+    }
+
+    virtual void visit(const tastr::ast::KeywordNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+    }
+
+    virtual void visit(const tastr::ast::OperatorNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::TerminatorNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::SeparatorNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::EmptyNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::EofNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::UnknownTypeNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::CommaSeparatorNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::ParameterNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::GroupTypeNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::UnionTypeNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
+    virtual void visit(const tastr::ast::IntersectionTypeNode& node) {
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
+    }
+
     virtual void visit(const tastr::ast::NullableTypeNode& node) {
-        ++size_;
-        update_counter_(node);
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
     }
 
     virtual void visit(const tastr::ast::TagTypePairNode& node) {
-        ++size_;
-        update_counter_(node);
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
     }
 
     virtual void visit(const tastr::ast::TypeDeclarationNode& node) {
-        ++size_;
-        update_counter_(node);
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
     }
 
     virtual void visit(const tastr::ast::TopLevelNode& node) {
-        ++size_;
-        update_counter_(node);
+        std::cerr << "Unexpected node: '" << tastr::parser::to_string(node)
+                  << "'";
+        exit(1);
     }
 
   private:
