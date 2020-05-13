@@ -1139,18 +1139,31 @@ For now, S3 types suffice: S3 is the most common object system in R, with no sop
 %
 %
 %
-\subsection{Parametric Types and Higher-Order Function Types}
+\subsection{Parametric and Higher-Order Function Types}
 
-\AT{Ok, high level:
-We don't do higher-order function types, beyond any to any.
-Typetracer detected them once, but the data was way too noisy.
-We found that mostly these correlated with functions where parametric polymorphism would be suitable, though there's no way to say that from the data, and only manual inspection revealed it.
-We could implement some heuristic parametric polymorphism detector, but that would be way unsound.
-Ultimately, we felt that higher-order function types and parametric polymorphism were related, and they didn't occur frequently enough across all of R.
-Some packages are heavy users, but those packages are heavily metaprogrammed and effectively implement DSLs.
-We will revisit this issue, but it's not something that we can pick up with \typetracer as it is, and doing justice to these types will require significant effort.}
+Functions are first-class values in R.
 
-In R, functions are first-class values, and they can be passed as function arguments.
+\typetracer found \AT{number} functions to be higher-order, having at least one function type among their arguments.
+They are markedly more common in a subset of packages, such as \AT{such as...}.
+By-and-large, these higher-order functions are similar to well-known higher-order functions like map, filter, and fold.
+
+The truth is that higher-order function types are best served by {\it parametric types} and parametric polymorphism, wherein type variables are used within a type declaration to specify type-based relationships between function arguments.
+Unfortunately, the nature of dynamic analysis is such that \typetracer cannot soundly detect parametric polymorphism, as without a static analysis of the function body it is impossible to say if function execution will halt given certain argument types, and we saw some examples of this in Figures~\ref{fig:scalar-vector-example}~and~\ref{fig:matrix-example}.
+Without parametric types, higher-order function types become noisy and fail to tell the complete picture.
+
+Ultimately, we configured \typetracer to report only top-level function types (i.e., detect if a value is a function or not).
+\AT{The data suggests that} most of the use of higher-order functions is through map-, filter-, and apply-like functions, whose behaviour is best captured with parametric polymorphism.
+Other common uses include higher-order functions operating on data frame columns (in packages such as \code{dplyr}), which would necessitate a more in-depth treatment of data frame types, which as we discussed is a huge endeavour in and of itself.
+We aim to extend our type annotation framework with parametric, higher-order, and detailed data frame types together in future work.
+
+
+%
+%
+%
+%
+\subsection{Nullable Types}
+
+
 
 %
 %
