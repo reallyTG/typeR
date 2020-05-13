@@ -767,7 +767,8 @@ captured the dynamic behaviour of the functions.  We emphasize that this was
 an iterative process: initial analysis suggested a certain set of types,
 which we tried and implemented, and reanalysis suggested improvements,
 and so on.  In this section, we will present the final type annotation language design, 
-which we believe captures the essence of R.  Throughout, we will
+which we believe captures the essence of R.  We will end the section with a formal type 
+language grammar, and leading up to that we will
 touch on design decisions and weigh our choices against alternatives,
 speaking to the strengths and weaknesses of our chosen design.
 We begin with basic, primitive types.
@@ -1107,10 +1108,15 @@ When set to ignore classes, \typetracer reports \AT{type} as the type of the fun
 %
 \subsubsection{Multi-Classes}
 
-As R does, our type system supports multiple classes on values, and the type
-of a classful value is simply a list of all of its classes.
+A value can have multiple classes in R.
+This is common practice in the \code{dplyr} package, which extends the functionality of data frames: a \code{data.frame} that passes through \code{dplyr} functions gains two additional classes (\code{tbl} and \code{tbl_df}), bringing the total to at least 3, in addition to whichever other classes that data frame happened to have.
+Note that when looking to perform S3 dispatch, R will try to match {\it any} of the classes of the first argument to a dispatched function, so each of these classes are important.
 
-\AT{What more to say here? Discussing occurrences of multi-classes?}
+We found these so-called multi-classes to be surprisingly common, making up \AT{occurrence} of the occurrences of class-typed values.
+One possible reason for this is that values can gain classes quite easily (e.g. the \code{dplyr} example discussed above), somewhat polluting the output of \typetracer.
+Nevertheless, we found \AT{number} of occurrences of monomorphic multi-class arguments, meaning that the function was always called with a multi-class value in that argument position.
+
+In the end, we support these multi-class types by allowing \code{class<...>} types to contain a list of class names, so for instance a \code{dplyr} \code{tibble} would have type \code{class<data.frame, tbl, tbl_df>} in our type language, and when performing related contract assertions \contractr will check that the value has every class that make up its type.
 
 %
 %
@@ -1119,25 +1125,32 @@ of a classful value is simply a list of all of its classes.
 R has multiple, disparate object systems, with the language providing direct
 support for S3, S4, and R5.  Thus far, we've mainly discussed S3 and its
 dispatch mechanism, and indeed our class types roughly capture the S3
-``types'' of values.  We will not discuss R5 as it is still under
+classes of values.  We will not discuss R5 as it is still under
 development.
 
-For S4, we have an \code{s4} type to denote S4 values, though we did not
-elaborate on this type.  We stuck to simple S4 types since doing anything
-more would be immensely complicated, and outside of the scope of this work.
-For instance, the mechanics of S4 dispatch are more complex than for S3 (S4
-dispatches on the class of {\it all} arguments), and users can define their
-own class hierarchies that we would need to incorporate in our type analysis
-and contract checking frameworks.  Further, \AT{we found limited use of S4
-  during our analysis}, with S4 types being heavily used in a select subset
-of packages (\AT{such as ...}), some of which make heavy use of R's
-metaprogramming capabilities.  Coming up with a type system that accounts
-for all of these factors, and consolidates multiple object-orientation
-frameworks, is an interesting problem in and of itself, and we aim to extend
-our type system to account for this in future work.  For now, S3 types
-suffice: S3 is the most common object system in R, with no sophisticated
-hierarchies, and its semantics are simple enough to be captured by our
-proposed design.
+For S4, we have an \code{s4} type to denote S4 values, though we did not elaborate on this type, and in practice S4 values have a class, and thus a \code{class<...>} type.  
+We stuck to simple class-based types for S4 since doing anything more would be immensely complicated, and outside of the scope of this work.
+For instance, the mechanics of S4 dispatch are more complex than for S3 (S4 dispatches on the class of {\it all} arguments), and users can define their own class hierarchies that we would need to incorporate in our type analysis and contract checking frameworks.  
+Further, \AT{we found limited use of S4 during our analysis}, with S4 types being heavily used in a select subset of packages (\AT{such as ...}), some of which make heavy use of R's metaprogramming capabilities.  
+Coming up with a type system that accounts for all of these factors and consolidates multiple object-orientation frameworks in a single language design is an interesting problem in and of itself, and we aim to extend our type annotation framework to account for this in future work.  
+For now, S3 types suffice: S3 is the most common object system in R, with no sophisticated hierarchies, and its semantics are simple enough to be captured by our proposed design.
+
+%
+%
+%
+%
+\subsection{Parametric Types and Higher-Order Function Types}
+
+\AT{Ok, high level:
+We don't do higher-order function types, beyond any to any.
+Typetracer detected them once, but the data was way too noisy.
+We found that mostly these correlated with functions where parametric polymorphism would be suitable, though there's no way to say that from the data, and only manual inspection revealed it.
+We could implement some heuristic parametric polymorphism detector, but that would be way unsound.
+Ultimately, we felt that higher-order function types and parametric polymorphism were related, and they didn't occur frequently enough across all of R.
+Some packages are heavy users, but those packages are heavily metaprogrammed and effectively implement DSLs.
+We will revisit this issue, but it's not something that we can pick up with \typetracer as it is, and doing justice to these types will require significant effort.}
+
+In R, functions are first-class values, and they can be passed as function arguments.
 
 %
 %
