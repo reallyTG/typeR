@@ -164,20 +164,21 @@ Second, but just as crucially, designing a type system that will be adopted
 would require overcoming some prejudices and educating large numbers of
 users.
 
-
-xxx WIP xxxx
-
-
 This paper is a data-driven study of what a type system for the R language
-could look like. Our intention is to propose changes to the
-language, and for any changes to be accepted by the user community they
-must clearly benefit the language without endangering backwards
-compatibility. Our goal is thus to find a compromise between simplicity and
-usefulness; the proposed type system should cover most common programming
-idioms while remaining easy to use. In order to do this, we need to
-understand the degree of polymorphism present in R code, that is to say, how
-programmers leverage the dynamic nature of R to write code that can accept
-arguments of different types.  This understanding will drive our design.
+could look like. Our intention is to eventually propose changes to the
+language, but we are aware that for any changes to be accepted by the user
+community they must clearly benefit the language without endangering
+backwards compatibility. Our goal is thus to find a compromise between
+simplicity and usefulness; any proposed type system should cover common
+programming idioms while remaining easy to learn and to use.
+
+
+
+
+In order to do this, we need to understand the degree of polymorphism
+present in R code, that is to say, how programmers leverage the dynamic
+nature of R to write code that can accept arguments of different types.
+This understanding will drive our design.
 
 We propose to capture the degree of polymorphism present in R by means
 of a dynamic analysis of widely used libraries. For each function call we
@@ -215,40 +216,16 @@ repository. While this may bias our findings towards code written to be
 reusable and, possibly, better engineered than typical user code. This is
 also the code that would most benefit from type annotations.
 
+%
+\section{Background} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-How does one retrofit a type system to an existing language? Three succesful
-models are Hack, Typed Racket and TypeScript. 
-
-
-The story that we're aiming for: Designing type systems for established
-languages can be a challenging.  We aim to approach this problem by
-essentially reverse-engineering a type system from a corpora analysis of a
-representative subset of R code.  We present a simple type system that
-captures the vast majority of usage of R --- it is lightweight, and
-\AT{should provide enough information to be useful to a compiler}.
-
-To evaluate our type system, we present a type-checker that is aware of R's
-promise semantics.  In R, function arguments are wrapped in promises such
-that they are not evaluated until they are needed.  Our tool deals with
-these promises by inserting a check which fires only when the promise is
-forced, at which point the value is checked for compliance with the type.
-
+In this section, we will introduce the R programming language, as well as
+discuss the dynamic analysis framework we used as part of our initial
+analysis.
 
 %
 %
-%
-\section{Background}
-
-In this section, we will introduce the R programming language, as well as discuss the dynamic analysis framework we used as part of our initial analysis.
-
-%
-%
-%
-%
-\subsection{The R Programming Language}
-\label{sec:R}
+\subsection{The R Programming Language}\label{sec:R}
 
 Over the last decade, the R Project has become a key tool for implementing
 sophisticated data analysis algorithms in fields ranging from Computational
@@ -272,8 +249,7 @@ normalizes the vector with respect to its sum and rounds the results. The
 function definition does not require type annotations, and all operations
 transparently work on vectors of any length and different types.
 
-\begin{figure}[!hb]{\small
-\begin{lstlisting}
+\begin{figure}[!hb]{\begin{lstlisting}
 > normSum <- function( m )  round( m / sum(m), 2)
 > normSum(c(1L,3L,6L))
 [1] 0.1 0.3 0.6
@@ -287,8 +263,9 @@ transparently work on vectors of any length and different types.
 \caption{Sample R code}\label{sample}
 \end{figure}
 
-In R, functions can be called with named parameters, arguments can have default values, and R also support variable argument lists. 
-To illustrate all of this in a single example, consider:
+In R, functions can be called with named parameters, arguments can have
+default values, and R also support variable argument lists.  To illustrate
+all of this in a single example, consider:
 
 \begin{lstlisting}
 f <- function(x, ..., y=3) x + y
@@ -324,48 +301,49 @@ be.
 \renewcommand{\k}[1]{{\tt #1}\xspace}
 
 R has one builtin notion of type that can be queried by the \k{typeof}
-function. Figure~\ref{types} lists all of the builtin types that are provided by the
-language. They are the possible return values of \k{typeof}. There is no
-intrinsic notion of subtyping in R. But, in many context a \k{logical} will
-convert to \k{integer}, and an \k{integer} will convert to \k{double}.  Some
-off conversions can occur in corner cases, such as \k{1<"2"} holds and
-\k{c(1,2)[1.6]} returns the first element of the vector, as the double is
-converted to an integer. R does not distinguish between scalars and vectors
-(they are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
-  typeof(c(5,5))} \code{ == "double"}. Finally all vectorized data types have a
-distinguished missing value denoted by \code{NA}. The default type of
-\code{NA} is \k{logical}. We can see that \code{typeof(NA)=="logical"}, but
-NA inhabits every type: \code{typeof(c(1,NA)[2])=="double"}.
+function. Figure~\ref{types} lists all of the builtin types that are
+provided by the language. They are the possible return values of
+\k{typeof}. There is no intrinsic notion of subtyping in R. But, in many
+context a \k{logical} will convert to \k{integer}, and an \k{integer} will
+convert to \k{double}.  Some off conversions can occur in corner cases, such
+as \k{1<"2"} holds and \k{c(1,2)[1.6]} returns the first element of the
+vector, as the double is converted to an integer. R does not distinguish
+between scalars and vectors (they are all vectors), so \code{typeof(5) ==}
+\code{typeof(c(5)) == typeof(c(5,5))} \code{ == "double"}. Finally all
+vectorized data types have a distinguished missing value denoted by
+\code{NA}. The default type of \code{NA} is \k{logical}. We can see that
+\code{typeof(NA)=="logical"}, but NA inhabits every type:
+\code{typeof(c(1,NA)[2])=="double"}.
 
 \begin{wrapfigure}{r}{6.1cm}
-\footnotesize\begin{tabular}{l|c|l@{}}\hline
-\multicolumn{3}{l}{\bf Vectorized data types:}  \\\hline
-\k{logical}   & \L & vector of boolean values\\
-\k{integer}   & \I & vector of 32 bit integer values\\
-\k{double}    & \D & vector of 64 bit floating points\\
-\k{complex}   & \X & vector of complex values\\
-\k{character} & \C & vector of strings values\\
-\k{raw}       & \R & vector of bytes\\
-\k{list}      & \l & vector of values of any type\\\hline
-\multicolumn{3}{l}{\bf Scalar data types:}\\\hline
-\k{NULL}      & \sN &  singleton null value\\
-\k{S4}        & \sS &  instance of a S4 class \\
-\k{closure}   & \sF & a function with its environment\\
-\k{environment}&\sE &  a mapping from symbol to value \\\hline
-\multicolumn{3}{l}{\bf Implementation data types:}\\\hline
-\multicolumn{3}{l}{\k{special},
+\footnotesize\begin{tabular}{l|l@{}}\hline
+\multicolumn{2}{l}{\bf Vectorized data types:}  \\\hline
+\k{logical}   & vector of boolean values\\
+\k{integer}   & vector of 32 bit integer values\\
+\k{double}    & vector of 64 bit floating points\\
+\k{complex}   & vector of complex values\\
+\k{character} & vector of strings values\\
+\k{raw}       & vector of bytes\\
+\k{list}      & vector of values of any type\\\hline
+\multicolumn{2}{l}{\bf Scalar data types:}\\\hline
+\k{NULL}      &  singleton null value\\
+\k{S4}        &  instance of a S4 class \\
+\k{closure}   &  function with its environment\\
+\k{environment}& mapping from symbol to value \\\hline
+\multicolumn{2}{l}{\bf Implementation data types:}\\\hline
+\multicolumn{2}{l}{\k{special},
 \k{builtin},
-\k{symbol} (\sY),
+\k{symbol},
 \k{pairlist},
 \k{promise}}\\
-\multicolumn{3}{l}{
+\multicolumn{2}{l}{
 \k{language},
 \k{char},
 \k{...},
 \k{any},
 \k{expression},
 }\\
-\multicolumn{3}{l}{
+\multicolumn{2}{l}{
 \k{externalprt},
 \k{bytecode},
 \k{weakref}}\\\hline
@@ -402,37 +380,17 @@ multiple dispatch (on all arguments). Some of the most widely used data
 type, such as data frames, leverage attributes. A data frame, for instance,
 is a list of vectors with a class and a column name attribute.
 
-\paragraph{Summary.} The most common values in R computations are vectorized
-types. R programs do not have a way to constrain values to be scalar.
-\k{NULL} is sometimes used to represent the case when no value is
-available. \k{NA} is used within vector to represent missing observations.
-Attributes can decorate values and are used as building blocks for
-object-oriented programming. A potential type system for R could focus only
-on the builtin types, if one wanted to strive for simplicity, or it could
-try to capture attributes at the risk of increased complexity.
 
-%
-%
-%
-%
-\subsection{R-dyntrace}
-\label{sec:r-dyntrace}
-
-
-R-dyntrace is an efficient dynamic analysis framework for R.
-
-%
-%
 %
 %
 \section{Project Corpus}\label{sec:corpus}
 
 For this paper we have selected \CorpusLoadable packages consisting of
 \CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
-code (C/C++/Fortran).  \FK{Add more details} Figure~\ref{fig:corpus} shows
-all the packages, the size of the dots reflects the size of the project in
-terms of both R and native lines of code\footnote{ Lines of source code
-  reported excludes comments and blank lines, counted by \emph{cloc}, \cf
+code (C/C++/Fortran). Figure~\ref{fig:corpus} shows all the packages, the
+size of the dots reflects the size of the project in terms of both R and
+native lines of code\footnote{ Lines of source code reported excludes
+  comments and blank lines, counted by \emph{cloc}, \cf
   \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
 expression code coverage in percents and the y-axis gives the number of
 reverse dependencies in log scale. Dotted lines indicate means.  Packages
@@ -465,7 +423,7 @@ for including a package into the corpus:
 \item have runnable code that covers significant part of the package source
   code from which type signatures could be inferred, and
 \item have some reverse dependencies that allows us to evaluate the inferred
-types on runnable code from these dependent packages.
+  types on runnable code from these dependent packages.
 \end{inparaenum}
 The concrete thresholds were set to at least \ThresholdCodeCoverage of
 expression coverage and at minimum \ThresholdRevdeps reverse dependencies.
@@ -478,17 +436,17 @@ metadata using builtin function.
 %
 %
 %
-%
-%
-%
 \section{Methodology}
 
-In this section, we will describe our approach to data collection and analysis through \typetracer, a dynamic analysis built in the \rdt framework.
-We will then describe the process by which we distill the rich information we collect with \typetracer to more digestible ``types'', though we discuss the precise details of our type annotation language in Section~\ref{sec:types}.
-Finally, we discuss \contractr, a package built in R which supports our type language and can generate and check contracts for function types.
+In this section, we will describe our approach to data collection and
+analysis through \typetracer, a dynamic analysis built in the \rdt
+framework.  We will then describe the process by which we distill the rich
+information we collect with \typetracer to more digestible ``types'', though
+we discuss the precise details of our type annotation language in
+Section~\ref{sec:types}.  Finally, we discuss \contractr, a package built in
+R which supports our type language and can generate and check contracts for
+function types.
 
-%
-%
 %
 %
 \subsection{typetracer and Initial Analysis}
@@ -505,16 +463,18 @@ reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
 %
 \subsubsection{Overview}
 The goal of our analysis is to discover argument types for functions,
-builtins, and specials (R functions such as \{, \code{if}, etc.).  
-First, recall that R wraps arguments in promises (Section~\ref{sec:R}).
-Naively intercepting function calls and recording argument types would result in incomplete data:
-While we can dig into promises without forcing them, if the innermost value is an unevaluated expression we are unable to probe it without evaluating it, which may alter program behaviour.
-To circumvent this obstacle, we instead
-intercept the forcing of promises: when a promise is forced, we identify the
-surrounding call, collect the type of the value, and add it to the call
-trace associated with the current function call.  Once function execution
-completes, we collect information about the return value, add it to the call
-trace, and save the completed call trace to be written out later.
+builtins, and specials (R functions such as \{, \code{if}, etc.).  First,
+recall that R wraps arguments in promises (Section~\ref{sec:R}).  Naively
+intercepting function calls and recording argument types would result in
+incomplete data: While we can dig into promises without forcing them, if the
+innermost value is an unevaluated expression we are unable to probe it
+without evaluating it, which may alter program behaviour.  To circumvent
+this obstacle, we instead intercept the forcing of promises: when a promise
+is forced, we identify the surrounding call, collect the type of the value,
+and add it to the call trace associated with the current function call.
+Once function execution completes, we collect information about the return
+value, add it to the call trace, and save the completed call trace to be
+written out later.
 %
 %
 \subsubsection{Type Information}
@@ -538,7 +498,9 @@ Now, depending on the value's type tag, we collect further information:
 \item For R's primitive types, we collect its dimension, and if it has a
   names attribute we collect the names as well;
 \item For lists, we recursively collect the types of list elements;
-\item For lists {\it with a names attribute}, we collect the names as well as the types of the slots that those names refer to (data.frames fall into this category);
+\item For lists {\it with a names attribute}, we collect the names as well
+  as the types of the slots that those names refer to (data.frames fall into
+  this category);
 \item For promises, we carefully dig into the promise value {\it without
   forcing it}, and collect information about the innermost value. If the
   innermost value is the unbound value, then the promise is an as-of-yet
@@ -567,21 +529,23 @@ We grappled with a number of corner cases related to R's non-strict semantics.
 
 \begin{itemize}
 
-\item 
+\item First, we wanted to ensure that \typetracer captured types for
+  unevaluated arguments.  Unfortunately, not every argument of a function is
+  necessarily used during every function execution, meaning that some
+  arguments may remain unevaluated (as they are never forced), and there are
+  a few reasons for this.
 
-First, we wanted to ensure that \typetracer captured types for unevaluated arguments.  
-Unfortunately, not every argument of a function is necessarily used during every function execution, meaning that some arguments may remain unevaluated (as they are never forced), and there are a few reasons for this.
-
-One possibility is that the argument was simply unused given the control
-flow of this particular execution (e.g. if the argument is only needed in
-one branch of a conditional expression).  This mainly occurs when arguments have default
-values for some parameters that are not critical to every execution of the
-function.  In these cases, we still want to collect the type of the default
-value.
+  One possibility is that the argument was simply unused given the control
+  flow of this particular execution (e.g. if the argument is only needed in
+  one branch of a conditional expression).  This mainly occurs when
+  arguments have default values for some parameters that are not critical to
+  every execution of the function.  In these cases, we still want to collect
+  the type of the default value.
 
 Another possibility is that a value is used {\it without being forced}, as
 is the case when values are ``metaprogrammed''.
 This is common practice in e.g. the \code{tidyverse}~\footnote{\AT{either talk about it here or in background}} ecosystem, as they use the metaprogramming capabilities of R to implement a DSL for data analysis.
+
 
 To tackle possibly unevaluated arguments, we make an {\it initial guess} of function argument types on
 function entry. Specifically, we collect types for argument default values, and
@@ -598,7 +562,8 @@ There are two obvious ways to deal with missing arguments: type them as $\bot$
 or as $\top$.  As we are performing a dynamic analysis based on package test
 code, we conservatively type these arguments as $\top$, or \code{any}, as It is
 impossible to know dynamically what all possible function behaviours are.
-We discuss the prevalence of such any-typed arguments in Section~\ref{sec:evaluation}.
+We discuss the prevalence of such any-typed arguments in
+Section~\ref{sec:evaluation}.
 
 \item Third, we had to contend with R's backend sometimes
   performing longjumps, which discards current R calls from the call stack.
@@ -611,8 +576,6 @@ We discuss the prevalence of such any-typed arguments in Section~\ref{sec:evalua
   obtained (e.g. a longjump occurred as part of some error handling), and
   then we simply record a ``jumped'' return value, which we can deal with in
   post-processing.  
-  % These longjumps occur quite often, particularly when S3 dispatch occurs, as the R implementation optimizes returns from dispatched functions by initiating a longjump.
-
 \end{itemize}
 
 Having outlined these challenges, we will now explore the implementation of \typetracer in more detail.
