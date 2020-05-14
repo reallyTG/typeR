@@ -1378,9 +1378,7 @@ This case exemplifies something we have touched on earlier, namely that vectors 
 \AT{Is this coercion automatic? I've seen it mentioned often in the documentation.}
 
 Of the remaining \~60\% of failed contract assertions, we found quite an interesting pattern: the top as-of-yet unexplained contract failure, making up roughly 7\% of total failed assertions, is an assertion checking a ${\bf character}$ against the expected type ${\bf class} \langle bignum \rangle \, | \, {\bf raw}[]$.
-
-Separately, we investigated the effect of running reverse dependency code on the code coverage of the packages in our corpus.
-Further investigation revealed that most failures were coming from the \code{openssl::base64_encode} function, whose code is available in Figure~\ref{fig:base64-encode}.
+Further investigation revealed that most of these failures were coming from the \code{openssl::base64_encode} function, whose code is available in Figure~\ref{fig:base64-encode}.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -1412,6 +1410,13 @@ To try to detect this pattern, we cross-referenced functions with failing contra
 For a given function, a coverage of X\% indicates that X\% of the code in the function body was executing by running package test, example, and vignette code.
 Of the remaining failed contracts, we found that \~28\% of them were from functions which had less than 100\% coverage, meaning that it is possible that \typetracer failed to synthesize the correct type for the function as not all possible executions were recorded.
 
+But what of the large amount (\~70\%) of assertion failures in functions with 100\% coverage?
+As it happens, many of these functions have very few lines of code, many having as few as a single line.
+The most interesting among these are functions which are the entry point for S3 dispatch (these functions typically have a single line of code, \code{UseMethod("InsertS3MethodNameHere")}).
+
+It turns out that the lion's share of the remaining polymorphism is related to S3 dispatch.
+S3 generics are naturally polymorphic, and we aim to define types to capture these cases, and implement a full-fledged object-oriented type system for R in future work.
+In the meantime, if we count out S3 methods, we find that only \AT{few} contract failures remain.
 
 %
 %
