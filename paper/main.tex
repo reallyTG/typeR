@@ -439,13 +439,28 @@ metadata using builtin function.
 \section{Methodology}
 
 In this section, we will describe our approach to data collection and
-analysis through \typetracer, a dynamic analysis built in the \rdt
+analysis through \typetracer, a dynamic analysis built in the \R-dyntrace
 framework.  We will then describe the process by which we distill the rich
 information we collect with \typetracer to more digestible ``types'', though
 we discuss the precise details of our type annotation language in
 Section~\ref{sec:types}.  Finally, we discuss \contractr, a package built in
 R which supports our type language and can generate and check contracts for
 function types.
+
+%
+\subsection{R-dyntrace}
+R-dyntrace is a framework for performing dynamic analysis of R. It was designed
+and used previously for a large-scale study of laziness in R~\cite{oopsla19} It
+is an instrumented R Virtual Machine based on GNU-R version 3.5.0. It exposes
+hooks from key points inside the R interpreter to which user defined callbacks
+can be attached for gathering information about the program state at those
+points. This information can be used to generate detailed program traces for
+online or offline analysis. R-dyntrace provides hooks for function entry and
+exit, S3/S4 dispatch, non-local jumps (because of longjumps in the R interpreter
+on exceptions and other non-local returns), promise creation and forcing,
+variable definition and mutation and garbage collection. garbage collection
+entry and exit, function entry and exit.
+
 
 %
 %
