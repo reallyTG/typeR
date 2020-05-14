@@ -106,7 +106,7 @@
   language. We argue that R is particularly challenging due to its unique
   combination of features and to the programming idioms that have developped
   over the last two decades. As our starting point, we infer type signatures
-  for \NUMFUNCTION functions from \NUMPACKAGES packages amongst the most
+  for \NUMFUNCTIONS functions from \NUMPACKAGES packages amongst the most
   widely used open source R libraries. The signatures use a minimal type
   language consisting of basic types, vectors, classes and disjunctions. We
   purposefully leave out notions such as subtyping, higher-order types, and
@@ -322,14 +322,11 @@ try to capture attributes at the risk of increased complexity.
 \subsection{R-dyntrace}
 \label{sec:r-dyntrace}
 
-\AT{Leaving this one for Aviral.}
 
 R-dyntrace is an efficient dynamic analysis framework for R.
 
 \subsection{contractr}
 \label{sec:contractr}
-
-\AT{I think we should move this to the Methodology section, which we should maybe rename to implementation. Thoughts?}
 
 \contractr is an R package that implements our type system for the R
 package ecosystem. It adds contracts to package functions for type-checking
