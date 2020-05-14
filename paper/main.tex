@@ -1408,7 +1408,10 @@ This function is a wrapper for a C function (\code{R_base64_encode}) which encod
 It would appear that the code for this function was never tested with a ${\bf character}$-typed input, even though it {\it is} valid.
 This is an example of a rather common phenomenon wherein the code of a package's reverse dependencies increases the coverage of some of the original package's functions, exemplified here by the code on line 6 never having been run in \code{openssl}'s own tests.
 
-We found that \AT{in many cases}. the reverse dependencies increased the code coverage (this aligns with findings in \AT{cite genthat}), and this was especially true for the functions for which contract assertions failed.
+To try to detect this pattern, we cross-referenced functions with failing contract checks against the code coverage for that function from the package's tests.
+For a given function, a coverage of X\% indicates that X\% of the code in the function body was executing by running package test, example, and vignette code.
+Of the remaining failed contracts, we found that \~28\% of them were from functions which had less than 100\% coverage, meaning that it is possible that \typetracer failed to synthesize the correct type for the function as not all possible executions were recorded.
+
 
 %
 %
