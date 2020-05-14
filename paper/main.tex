@@ -100,20 +100,27 @@
 
 
 \begin{abstract}
-  Retrofitting a type system onto an existing dynamic language which was not
-  designed to be statically typed is challenging. This paper takes the first
-  step in the direction of designing a type system for the R programming
-  language. We argue that R is particularly challenging due to its unique
-  combination of features and to the programming idioms that have developped
-  over the last two decades. As our starting point, we infer type signatures
-  for \NUMFUNCTIONS functions from \NUMPACKAGES packages amongst the most
-  widely used open source R libraries. The signatures use a minimal type
-  language consisting of basic types, vectors, classes and disjunctions. We
-  purposefully leave out notions such as subtyping, higher-order types, and
-  polymorphism. Our goal is to understand what benefits a simple lanugage
-  can yield.  We also implement a contract system that can use the inferred
-  types to validate their correctness. We use the reverse depedencies of the
-  packages to evaluate the benefits of typing.
+The R programming language is widely used in a variety of domains for tasks
+related to data science. R was designed to favor an interactive style of
+programming with minimal syntactic and conceptual overhead. This design is
+well suited to interactive data analysis, but a bad firt for tools such as
+compilers or program analyzers which must generate performant code or catch
+programming errors.  In particular, R has no type annotations, its
+operations are dynamically checked at runtime. The starting point for our
+work are the twin questions, \emph{what expressive power is needed to
+  accurately type R code?} and \emph{which type system is the R community
+  willing to adopt?} Both questions are difficult to answer without actually
+designing a type system and attempting to convince users and package
+developers to try the proposed system.  The goal of this paper is to provide
+data that can feed into the design process. To this end, we perform a large
+corpus analysis with aim to gain insights in the degree of polymorphism
+exhibited by idiomatic R code and explore potential benefits that the R
+community could accrue from even a simple type system.  As a starting point,
+we infer type signatures for \NUMFUNCTIONS functions from \NUMPACKAGES
+packages among the most widely used open source R libraries. The signatures
+use a minimal type language with only basic types, vectors and classes.  We
+implement a contract checker that can be used to validate the inferred type
+signatures.
 \end{abstract}
 \maketitle
 
