@@ -635,7 +635,7 @@ choices of R to make it work without surprises for the end-users. We describe
 two key challenges that we faced in the development of \contractr.
 \begin{itemize}
 \item Firstly, we faced the problem of type-checking arguments in a
-  non-strict language while retaining the non-strict semantics. When a
+  non-strict language while retaining the non-strict semantics. Recall that when a
   function is called in R, parameters are bound to unevaluated code thunks
   called promises~\cite{oopsla19}, instead of values which can be
   immediately type-checked. Naively forcing promises at function call to
