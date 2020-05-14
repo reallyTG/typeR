@@ -237,7 +237,7 @@ function. Figure~\ref{types} lists all of the builtin types that are provided by
 language. They are the possible return values of \k{typeof}. There is no
 intrinsic notion of subtyping in R. But, in many context a \k{logical} will
 convert to \k{integer}, and an \k{integer} will convert to \k{double}.  Some
-off conversion can occur in corner cases, such as \k{1<"2"} holds and
+off conversions can occur in corner cases, such as \k{1<"2"} holds and
 \k{c(1,2)[1.6]} returns the first element of the vector, as the double is
 converted to an integer. R does not distinguish between scalars and vectors
 (they are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
@@ -287,7 +287,7 @@ different type will cause a conversion. Either the value is converted to the
 type of vector, or the vector is converted to the type of the value.
 
 Scalar data types include the distinguished \k{NULL} value, which is also of
-type \k{NULL}, instance of classes written using the S4 object system,
+type \k{NULL}, instance of classes written using the S4~\footnote{put footnote on S4 here} object system,
 closures and environments.  The implementation of R has a number of other
 types that are mostly not used by user code, they are listed in
 Figure~\ref{types} for reference.
@@ -414,9 +414,11 @@ reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
 %
 \subsubsection{Overview}
 The goal of our analysis is to discover argument types for functions,
-builtins, and specials.  Naively intercepting function calls and recording
-argument types is incorrect, as recall that R wraps arguments in promises
-(Section~\ref{sec:R}).  To circumvent this obstacle, we instead
+builtins, and specials (R functions such as \{, \code{if}, etc.).  
+First, recall that R wraps arguments in promises (Section~\ref{sec:R}).
+Naively intercepting function calls and recording argument types would result in incomplete data:
+While we can dig into promises without forcing them, if the innermost value is an unevaluated expression we are unable to probe it without evaluating it, which may alter program behaviour.
+To circumvent this obstacle, we instead
 intercept the forcing of promises: when a promise is forced, we identify the
 surrounding call, collect the type of the value, and add it to the call
 trace associated with the current function call.  Once function execution
@@ -426,7 +428,8 @@ trace, and save the completed call trace to be written out later.
 %
 \subsubsection{Type Information}
 Once a value is obtained, either on function return or when an argument
-promise is forced, we probe the value for the following information:
+promise is forced, we can probe it without interfering with program behaviour.
+We query the value for the following information:
 
 \begin{itemize}
 \item the value's type tag according to R's runtime. R's runtime implements
@@ -473,10 +476,10 @@ We grappled with a number of corner cases related to R's non-strict semantics.
 
 \begin{itemize}
 
-\item First, we wanted to ensure that \typetracer captured type for
-  unevaluated arguments.  Not every argument of a function needs to be used
-  during every function execution, and the approach we discussed above
-  relies on argument promises being forced.  There are a few reasons for this.
+\item 
+
+First, we wanted to ensure that \typetracer captured types for unevaluated arguments.  
+Unfortunately, not every argument of a function is necessarily used during every function execution, meaning that some arguments may remain unevaluated (as they are never forced), and there are a few reasons for this.
 
 One possibility is that the argument was simply unused given the control
 flow of this particular execution (e.g. if the argument is only needed in
@@ -1039,24 +1042,28 @@ agricolae::cv.model <- function(x) {
   return(sqrt(suma2/gl)*100/promedio)
 }
 
-cars_model <- lm(dist ~ speed, data = cars)
-cv.model(cars_model)
+data(sweetpotato)
+model<-aov(yield~virus, data=sweetpotato)
+cv.model(model)
 \end{lstlisting}
 
-\caption{Struct example from the \code{agricolae} package.}
+\caption{Struct example from a test in the \code{agricolae} package.}
 \label{fig:struct-ex}
 \end{center}
 \end{figure}
 
 In the code snippet, the function \code{cv.model} takes an argument \code{x}, which we observed to always be a {\it linear model}, which is part of R's built-in statistics functionality.
 Internally, linear models are represented as lists with named elements, and one may access these named elements using the \code{$} syntax, as seen on lines 2-4 in the snippet.
+To describe these kinds of values, we included a struct type in our type system, allowing users to specify name, type pairs as part of list type definitions.
 
-In the code snippet, the function \code{generate.startweights} return a list with (at least) two named elements: \code{weights} and \code{exclude}, which are accessed through \code{result$weights} and \code{result$exclude} respectively.
-We include a struct type in our language to capture this behaviour: we would encode the return type of \code{generate.startweights} as e.g. \code{struct<x: double[], y: logical[]>}.  
-We also thought to encode data frames as structs, as they are essentially lists with named columns of homogeneous values, but it was difficult to draw any meaningful conclusions from the data as unfortunately structs introduced a lot of noise into our analysis.
+This example also illustrates an issue we grappled with when dealing with structs.
+On line 8, we see the call \code{data(sweetpotato)}.
+It is quite common for R example code to use some built-in data sets, such as \code{sweetpotato}, to show off some package functionality with ``real data''.
+We found that the types of functions which use these built-in data sets (such as \code{aov}) became polluted with the names from the example sets.
 
-It is common for R example code to use some built-in data sets, such as \code{mtcars}, a data set extracted from a Motor Trends US magazine in 1974.
-These data sets are used to show off some package functionality with ``real data'', and when \typetracer is configured to detect structs we saw a marked increase in misrepresentative types.
+% We also thought to encode data frames as structs, as they are essentially lists with named columns of homogeneous values, but it was difficult to draw any meaningful conclusions from the data as unfortunately structs introduced a lot of noise into our analysis.
+
+When \typetracer is configured to detect structs we saw a marked increase in misrepresentative types.
 We implemented a unification strategy for struct types, removing them if they co-occurred with list types, and turning them into lists if two co-occurring struct types shared no common names, but even so we found ourselves with function signatures that were full of noise introduced by the struct names.
 
 We still believe struct types to be useful to R programmers, and so our language supports the type and \contractr will check them, though we configured \typetracer to ignore them as they made the data substantially less useful.
