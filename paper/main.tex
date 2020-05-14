@@ -189,9 +189,8 @@ transparently work on vectors of any length and different types.
 \caption{Sample R code}\label{sample}
 \end{figure}
 
-In R, function can be called with named parameters, R support variable
-argument lists, and arguments can have default values. Putting all of these
-together consider the following declaration:
+In R, functions can be called with named parameters, arguments can have default values, and R also support variable argument lists. 
+To illustrate all of this in a single example, consider:
 
 \begin{lstlisting}
 f <- function(x, ..., y=3) x + y
@@ -227,11 +226,18 @@ be.
 \renewcommand{\k}[1]{{\tt #1}\xspace}
 
 R has one builtin notion of type that can be queried by the \k{typeof}
-function. Over the years, programmers have found the need for a richer type
-structure and have added {\it attributes}. The best way to think of attributes is
-as an optional map from name to values that can be attached to any object.
-Attributes are used to encode various type structures. They can be queried
-with functions such as \k{attributes} and \k{class}.
+function. Figure~\ref{types} lists all of the builtin types that are provided by the
+language. They are the possible return values of \k{typeof}. There is no
+intrinsic notion of subtyping in R. But, in many context a \k{logical} will
+convert to \k{integer}, and an \k{integer} will convert to \k{double}.  Some
+off conversion can occur in corner cases, such as \k{1<"2"} holds and
+\k{c(1,2)[1.6]} returns the first element of the vector, as the double is
+converted to an integer. R does not distinguish between scalars and vectors
+(they are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
+  typeof(c(5,5))} \code{ == "double"}. Finally all vectorized data types have a
+distinguished missing value denoted by \code{NA}. The default type of
+\code{NA} is \k{logical}. We can see that \code{typeof(NA)=="logical"}, but
+NA inhabits every type: \code{typeof(c(1,NA)[2])=="double"}.
 
 \begin{wrapfigure}{r}{6.1cm}
 \footnotesize\begin{tabular}{l|c|l@{}}\hline
@@ -267,19 +273,6 @@ with functions such as \k{attributes} and \k{class}.
 \k{weakref}}\\\hline
 \end{tabular}\caption{Builtin Types}\label{types}\end{wrapfigure}
 
-Figure~\ref{types} lists all of the builtin types that are provided by the
-language. They are the possible return values of \k{typeof}. There is no
-intrinsic notion of subtyping in R. But, in many context a \k{logical} will
-convert to \k{integer}, and an \k{integer} will convert to \k{double}.  Some
-off conversion can occur in corner cases, such as \k{1<"2"} holds and
-\k{c(1,2)[1.6]} returns the first element of the vector, as the double is
-converted to an integer. R does not distinguish between scalars and vectors
-(they are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
-  typeof(c(5,5))} \code{ == "double"}. Finally all vectorized data types have a
-distinguished missing value denoted by \code{NA}. The default type of
-\code{NA} is \k{logical}. We can see that \code{typeof(NA)=="logical"}, but
-NA inhabits every type: \code{typeof(c(1,NA)[2])=="double"}.
-
 With one exception all vectorized data types are monomorphic, the exception
 is the \k{list} type which can hold values of any other type including
 \k{list}. For all monomorphic data types, attempting to store a value of a
@@ -292,6 +285,11 @@ closures and environments.  The implementation of R has a number of other
 types that are mostly not used by user code, they are listed in
 Figure~\ref{types} for reference.
 
+Over the years, programmers have found the need for a richer type
+structure and have added {\it attributes}. The best way to think of attributes is
+as an optional map from name to values that can be attached to any object.
+Attributes are used to encode various type structures. They can be queried
+with functions such as \k{attributes} and \k{class}.
 The addition of attributes lets programmers extend the set of types by
 tagging data with user-defined attributes. For example, one could define a
 vector of four values, \code{x<-c(1,2,3,4)} and then attach the attribute
@@ -891,9 +889,9 @@ The NA-free modifier works as expected: \code{^T[]} indicates a vector of \code{
 %
 \subsubsection{Matrices}
 
-On the subject of matrices, they represent another layer of complexity on top of vectorized primitives.
-Internally, matrices are simply vectors with class ``matrix'' and a \code{dims} attribute indicating matrix dimensions, and many functions automatically coerce vectors to matrices when appropriate (while not codified in the language semantics, many internal functions perform the coercion).
-Relying on automatic coercion is unwise, and many functions check to ensure that their arguments are matrices, particularly those in packages which rely on matrices.
+Matrices represent another layer of complexity on top of vectorized primitives.
+Internally, matrices are simply vectors with class ``matrix'' and a \code{dims} attribute indicating matrix dimensions, and while not codified in the language semantics, many internal functions will coerce vectors to matrices automatically.
+Relying on automatic coercion is unwise, and many functions check to ensure that their arguments are matrices.
 For instance, consider the code in Figure~\ref{fig:matrix-example}.
 
 \begin{figure}[htbp]
@@ -919,20 +917,18 @@ rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
 \end{center}
 \end{figure}
 
-The \code{rowWeightedMeans} function calculated the weighted means of rows or columns of a matrix \code{x}.
+The \code{rowWeightedMeans} function calculates the weighted means of rows or columns of a matrix \code{x}.
 This function exhibits good practice in type checking arguments, rightly producing a message to the user indicating that an explicit matrix should be passed.
 
 To capture cases like this, we include a \code{class<matrix>} type in our type annotation language.
-If \code{rowWeightedMeans} were outfitted with such a type, \contractr can perform the check present in this code automatically.
-That said, we don't intend to subsume all argument validation code, discussed next.
- 
+If \code{rowWeightedMeans} were outfitted with such a type, \contractr can perform the check present in this code automatically, notifying the users passing ill-typed arguments.
+
 %
 %
 \subsubsection{Forgoing Dimensionality} 
 
-Given the discussion of scalars, vectors, and matrices, it might be tempting to consider factoring dimensionality into types.
-The primary drawback of this would be rendering our type annotation language into a language of dependent types, which we believe too complex to retrofit onto a dynamic data science language such as R.  
-This does mean our types cannot subsume all validation code, such as some later code from the aforementioned \code{rowWeightedMeans} function, shown in Figure~\ref{fig:general-validation-example}.
+Thus far we've seen instances where we introduce types that subsume existing argument validation code, but our intention is not to subsume {\it all} such code.
+As an example of something we {\it do not} want to do, consider the code in Figure~\ref{fig:general-validation-example}.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -954,10 +950,11 @@ rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
 \end{center}
 \end{figure}
 
+This code is from later in the same \code{rowWeightedMeans} function discussed previously.
 Here, the length of the weights vector \code{w} is being checked for equality with the number of columns in the matrix \code{x}. 
+Specifying this relationship as a type amounts to {\it dependent typing}, which we believe too complex to retrofit onto a dynamic data science language such as R.  
 Ultimately, we decided to leave these kinds of checks up to the programmer.
-\AT{I feel like we might want a better argument to not make our type language dependent (better than lol pls no dependent types), but I could be wrong.
-Maybe reviewers would be ok with a simple argument.}
+\AT{Can we say more here?}
 
 %
 %
@@ -971,13 +968,15 @@ Further, lists and vectors have a different syntax for accessing elements, where
 R even builds on lists to create a more complex data structure known as the {\it data frame}, an essential data structure to R's functionality.
 
 We are faced with several possible designs for list types.  
-Chief concerns include the heterogeneity of list elements, and the presence of a \code{names} attribute, allowing list elements to be accessed in a struct-like manner.  
-\AT{Rarely?}, programmers even write code expecting lists of a particular pre-defined length.  
+Chief concerns include the heterogeneity of list elements and the presence list element names, which allow list elements to be accessed in a struct-like manner.  
+% \AT{Rarely?}, programmers even write code expecting lists of a particular pre-defined length.  
 The next sections highlight some important design decisions for our list types.
 
 %
 %
 \subsubsection{Relationship Between Lists and Vectors}
+
+\AT{Worth a code example?}
 
 The ease with which vectors may be transformed into lists is perhaps indicative of a relationship between the two.
 In R, all vectors can be converted to lists with a simple call to \code{as.list}, and lists to vectors with \code{unlist}, though care must be taken when unlisting a non-homogeneous list, as coercions will be performed where possible, and the function will simply do nothing if coercion is impossible.
@@ -1003,14 +1002,14 @@ Further, environments \AT{did not occur often}, and giving them a richer type wa
 
 %
 %
-\subsubsection{Forgoing Tuples, or Short, Constant Length Lists}
+% \subsubsection{Forgoing Tuples, or Short, Constant Length Lists}
 
-We briefly entertained the possibility of including a \code{tuple} type, which would have looked like e.g. \code{tuple<int, int>} for a list of two integers.  
-When configured to detect tuples, our analysis did indeed pick up \AT{a number}, but post-processing and simplification revealed that in \AT{many} cases, they would be subsumed by co-occurring \code{list} types.
-In other words, more often than not it just so happened that functions were being called with short lists.  
-Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{tuples of different lengths}, implying that the shape of the argument was not essential.
+% We briefly entertained the possibility of including a \code{tuple} type, which would have looked like e.g. \code{tuple<int, int>} for a list of two integers.  
+% When configured to detect tuples, our analysis did indeed pick up \AT{a number}, but post-processing and simplification revealed that in \AT{many} cases, they would be subsumed by co-occurring \code{list} types.
+% In other words, more often than not it just so happened that functions were being called with short lists.  
+% Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{tuples of different lengths}, implying that the shape of the argument was not essential.
 
-\AT{I feel like this is the least important of the design decisions we made, so I'm leaving it for the end, we might not even want it.}
+% \AT{I feel like this is the least important of the design decisions we made, so I'm leaving it for the end, we might not even want it.}
 
 %
 %
@@ -1019,26 +1018,31 @@ Of the cases that tuples were not subsumed by lists, \AT{often} there were \AT{t
 
 \AT{Do we want to talk about how list names are not unique?}
 
-Another pattern that we observed was the use of consistently-named lists.
+We observed the use of consistently-named lists in \AT{a number of functions}.
 In R, ``fields'' of named lists can be accessed using the \code{$} operator, as illustrated in the code snippet in Figure~\ref{fig:struct-ex}.
 
 \begin{figure}[htbp]
 \begin{center}
 
 \begin{lstlisting}
-calculate.neuralnet <- function (data, model.list, hidden, rep,
-            startweights, exclude, constant.weights) {
-    result <- generate.startweights(model.list, hidden, startweights,
-                                    rep, exclude, constant.weights)
-    weights <- result$weights
-    exclude <- result$exclude
-    ...
+agricolae::cv.model <- function(x) {
+  suma2 <- sum(x$residual^2)
+  gl <- x$df.residual
+  promedio <- mean(x$fitted.values)
+  return(sqrt(suma2/gl)*100/promedio)
+}
+
+cars_model <- lm(dist ~ speed, data = cars)
+cv.model(cars_model)
 \end{lstlisting}
 
-\caption{Struct example from the \code{neuralnet} package.}
+\caption{Struct example from the \code{agricolae} package.}
 \label{fig:struct-ex}
 \end{center}
 \end{figure}
+
+In the code snippet, the function \code{cv.model} takes an argument \code{x}, which we observed to always be a {\it linear model}, which is part of R's built-in statistics functionality.
+Internally, linear models are represented as lists with named elements, and one may access these named elements using the \code{$} syntax, as seen on lines 2-4 in the snippet.
 
 In the code snippet, the function \code{generate.startweights} return a list with (at least) two named elements: \code{weights} and \code{exclude}, which are accessed through \code{result$weights} and \code{result$exclude} respectively.
 We include a struct type in our language to capture this behaviour: we would encode the return type of \code{generate.startweights} as e.g. \code{struct<x: double[], y: logical[]>}.  
