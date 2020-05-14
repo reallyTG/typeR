@@ -581,27 +581,26 @@ value.
 
 Another possibility is that a value is used {\it without being forced}, as
 is the case when values are ``metaprogrammed''.
-This is common practice in e.g. the \code{tidyverse} ecosystem, as they use the metaprogramming capabilities of R to implement a DSL for data analysis.
+This is common practice in e.g. the \code{tidyverse}~\footnote{\AT{either talk about it here or in background}} ecosystem, as they use the metaprogramming capabilities of R to implement a DSL for data analysis.
 
-To tackle this, we make an {\it initial guess} of function argument types on
-function entry. This collects types for argument default values, and
-collects an ``unused'' type for unevaluated expressions.  If an argument
+To tackle possibly unevaluated arguments, we make an {\it initial guess} of function argument types on
+function entry. Specifically, we collect types for argument default values, and
+ascribe an ``unused'' type for unevaluated expressions.  If an argument
 promise is later forced, we simply update the recorded type for the
 argument.
 
 \item Second, we wanted to account for formal arguments (arguments which are
-  named in the function definition) that were {\it not} passed to the
-  function. This represents cases where a function was not called with all of its
+  named in the function definition) which received no values when the function was called. This represents cases where a function was not called with all of its
   arguments, and no default value was specified for missing arguments. 
   We record a ``missing'' type for such argument.
 
-There are two obvious ways to deal with missing arguments: type them as bot
-or as top.  As we are performing a dynamic analysis based on package test
-code, we conservatively type these arguments as top, or \code{any}, as It is
+There are two obvious ways to deal with missing arguments: type them as $\bot$
+or as $\top$.  As we are performing a dynamic analysis based on package test
+code, we conservatively type these arguments as $\top$, or \code{any}, as It is
 impossible to know dynamically what all possible function behaviours are.
 We discuss the prevalence of such any-typed arguments in Section~\ref{sec:evaluation}.
 
-\item Third, we had to contend with R's C implementation sometimes
+\item Third, we had to contend with R's backend sometimes
   performing longjumps, which discards current R calls from the call stack.
   In order to ensure that call traces are not lost when a longjump occurs,
   \typetracer intercepts the unwinding process initiated by the longjump and
@@ -624,10 +623,8 @@ Having outlined these challenges, we will now explore the implementation of \typ
 
 As mentioned, our analysis is built on the R-dyntrace framework.  R-dyntrace
 is a very efficient instrumentation framework for R, which is built on a
-modified version of the R runtime.  Our dynamic type analysis only needs to
-be run once, ever---from the analysis results, we synthesize function
-signatures which are passed along to later type-checking tools which do not
-rely on a heavily modified runtime.
+modified version of the R runtime. 
+% Our dynamic type analysis only needs to be run once, ever---from the analysis results, we synthesize function signatures which are passed along to later type-checking tools which do not rely on a heavily modified runtime.
 
 We primarily rely on 8 R-dyntrace callbacks: \texttt{closure\_entry},
 \texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit},
@@ -640,21 +637,21 @@ closure, builtin, or special has been entered/exited by pushing/popping the
 call onto a stack.  The calls themselves store a {\it call trace} object,
 where we store the type information that we collect, populated with initial
 guesses of argument types (as discussed in
-Section~\ref{subsec:typetracer-challenges}).  Further, the type of dispatch
-is recorded on the {\tt \_entry} variants: recall that R can perform single or multiple dispatch on function arguments depending on their class.
-We collect dispatch information in order to analyze dispatch usage patterns.
+Section~\ref{subsec:typetracer-challenges}).  
+Also, recall that R can perform single or multiple dispatch on function arguments depending on their class.
+We collect such dispatch information the {\tt \_entry} variants.
 
-The main work is done in {\tt promise\_force\_exit}.  As arguments to
+The primary functionality of \typetracer is in {\tt promise\_force\_exit}.  As arguments to
 functions in R are wrapped in promises, we delay our reflection to promise
 force time.  In R, promises are essentially objects with value and
-expression slots.  When a promise is created for a particular expression,
+expression slots. \AT{Put this as part of R-dyntrace background:} When a promise is created for a particular expression,
 that expression is merely put into the expression slot of a promise object,
 and a special {\it unbound} value is loaded into the value slot (unless some
 default value is specified, wherein it is loaded into the value slot---this
 is the case with default argument values).  When the promise is forced, the
 expression is evaluated in the forcing context, and the value is stored in
 the value slot of the promise.  So to get the type of a function argument,
-we check the value slot of the argument promise---perhaps recursively if the
+we check the value slot of the argument promise---recursively if the
 value itself is a promise.
 
 To construct a type for each argument, we make use of R's C FFI and use
@@ -669,8 +666,10 @@ reflection mechanisms.
 %
 \subsection{Post-Processing and Type Ascription}
 
+\AT{Maybe further discuss how we can create many candidate TS from the data.}
+
 The type information we collect is far more detailed than the types we
-actually generate, and so the next stage of our inference process is to
+actually generate (which we discuss in Section~\ref{sec:types}), and so the next stage of our inference process is to
 distill the rich type information into simpler, manageable types.  For each
 unique observed call trace, we translate the representation of the type of
 each of the function arguments and returns according to the design of our
@@ -689,6 +688,10 @@ While our analysis collects more detailed information than necessary for type ge
 This profile informed our language design: based on the rich type information we collected, we were able to determine types that would be useful for capturing the observed behaviour.
 We discuss this iterative, data-driven language design process in Section~\ref{types}, highlighting the reasoning behind our type system design.
 
+Thus far, we have discussed \typetracer and our strategies to take the data from the dynamic analysis and generate function types.
+This work also presents a framework for specifying these types in R code, as well as generating contract checks for these types.
+We dub this tool \contractr, discussed next.
+
 %
 %
 %
@@ -697,7 +700,7 @@ We discuss this iterative, data-driven language design process in Section~\ref{t
 \label{sec:contractr}
 
 \contractr is an R package that implements our type system for the R
-package ecosystem. It adds contracts to package functions for type-checking
+package ecosystem. For functions with type annotations, it adds contracts for type-checking
 arguments and results on function calls. On contract failure, it reports a type
 mismatch warning with the package name, function name, argument name, argument
 position, expected type signature, actual type signature of the value observed,
@@ -713,7 +716,7 @@ hardened with a battery of 400 test cases. We have used it extensively during
 the course of this work; firstly, for sanity checking of XXX type signatures
 generated for the XXX packages during the development phase, and secondly, for
 assessing the quality of these type signatures on XXX packages during the
-evaluation phase.
+evaluation phase. We discuss this further in Section~\ref{sec:evaluation}.
 
 %
 %
@@ -1147,19 +1150,16 @@ In the code snippet, the function \code{cv.model} takes an argument \code{x}, wh
 Internally, linear models are represented as lists with named elements, and one may access these named elements using the \code{$} syntax, as seen on lines 2-4 in the snippet.
 To describe these kinds of values, we included a struct type in our type system, allowing users to specify name, type pairs as part of list type definitions.
 
-This example also illustrates an issue we grappled with when dealing with structs.
-On line 8, we see the call \code{data(sweetpotato)}.
+Unfortunately, the inclusion of structs complicated our analysis by polluting the data, illustrated on line 8 with the call \code{data(sweetpotato)}.
 It is quite common for R example code to use some built-in data sets, such as \code{sweetpotato}, to show off some package functionality with ``real data''.
-We found that the types of functions which use these built-in data sets (such as \code{aov}) became polluted with the names from the example sets.
-
-% We also thought to encode data frames as structs, as they are essentially lists with named columns of homogeneous values, but it was difficult to draw any meaningful conclusions from the data as unfortunately structs introduced a lot of noise into our analysis.
-
-When \typetracer is configured to detect structs we saw a marked increase in misrepresentative types.
+When \typetracer is configured to detect structs we saw a marked increase in misrepresentative types, as the types of functions which use these data sets (such as \code{aov} in Figure~\ref{fig:struct-ex}) became polluted with the names from the example sets.
 We implemented a unification strategy for struct types, removing them if they co-occurred with list types, and turning them into lists if two co-occurring struct types shared no common names, but even so we found ourselves with function signatures that were full of noise introduced by the struct names.
 
 We still believe struct types to be useful to R programmers, and so our language supports the type and \contractr will check them, though we configured \typetracer to ignore them as they made the data substantially less useful.
-On the positive side, we found that \AT{get the number, but often} structs-typed values had a {\it class}, and so we decided to include class-based types.
-Classes are discussed in more detail in the next section, though we will quickly discuss data frames before focusing on them. 
+On the positive side, we found that \AT{get the number, but often} structs-typed values had a {\it class}, which helped motivate our inclusion of class-like types in our type annotation language.
+Classes are discussed in more detail in Section~\ref{subsec:classes}.
+
+% We also thought to encode data frames as structs, as they are essentially lists with named columns of homogeneous values, but it was difficult to draw any meaningful conclusions from the data as unfortunately structs introduced a lot of noise into our analysis.
 
 %
 %
@@ -1169,7 +1169,7 @@ One of the most popular classes in R is the \code{data.frame} class \AT{we have 
 Data frames and the derivative \code{tibble} (from the \code{tidyverse} ecosystem) and \code{data.table} (from the \code{data.table} package) types underpin a huge amount of data analysis in R.
 
 One way to deal with data frames is through the struct type, with a named field for each column of the data frame, but as mentioned previously structs introduced undue noise into \typetracer's analysis results. 
-Further complicated issues for data frames is that many functions built to operate on them operate in a name-agnostic way.
+Further complicating data frames is that many functions built to operate on them operate in a name-agnostic way.
 For instance, the \code{tidyverse} package ecosystem allows programmers to pass column names to functions which operate on their data frames.
 In base R, idiomatic data frame use is to use string column names to select rows from the frame (unless only a single column is of interest, wherein the \code{$} syntax is appropriate). 
 We include some examples in Figure~\ref{fig:data-frames-bad} to illustrate the complexities.
@@ -1178,8 +1178,14 @@ We include some examples in Figure~\ref{fig:data-frames-bad} to illustrate the c
 \begin{center}
 
 \begin{lstlisting}
-# Let's put some examples showing that data frames can get out of hand, and that
-# structs are inadequate.
+data(cars)
+
+# tidyverse: Filter rows where speed is > 20. 
+fast_cars_tidy <- filter(cars, speed > 20)
+
+# base R: Get all rows where the "speed" column has a value > 20.
+fast_cars_base <- cars[cars[, "speed"] > 20, ] # base example
+
 \end{lstlisting}
 
 \caption{Select examples of idiomatic \code{data.frame} use.}
@@ -1188,7 +1194,8 @@ We include some examples in Figure~\ref{fig:data-frames-bad} to illustrate the c
 \end{figure}
 
 Doing justice to this type will be an endeavour in and of itself, requiring reconciliation of base R's \code{data.frame}, \code{tidyverse}'s \code{tibble}, and \code{data.table}'s \code{data.table}.
-\AT{We could talk about how metaprogramming is pervasive in dplyr, and how we would need to capture that, too, which is a huge undertaking.}
+Developing useful types for the \code{tidyverse} ecosystem may well involve 
+
 It will also require proper treatment of function types, and perhaps even parametric types, which dynamic analyses such as \typetracer are unable to discern soundly.
 \AT{General words to convince the reader that data frames are, in fact, hard, and worthy of their own paper.}
 
@@ -1200,6 +1207,7 @@ A more in-depth discussion of class types follows.
 %
 %
 \subsection{Classes in R}
+\label{subsec:classes}
 
 As discussed in Section~\ref{sec:R}, the R runtime has more than one notion of type.  
 The classes of function arguments are used by R as part of its dispatch mechanism, the most prevalent of which (\AT{we have that number, too!}) is S3 dispatch, in which R dispatches on the (S3) class of the first argument to a function, selecting the appropriate method to call for the class.
@@ -1481,7 +1489,7 @@ For now, if we count out
 
 %
 %
-\subsubsection{Select Examples}
+\subsubsection{Subsumed Checks}
 
 %
 %
