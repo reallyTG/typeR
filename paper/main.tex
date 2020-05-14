@@ -92,10 +92,12 @@
 \input{corpus.tex}
 
 \begin{document}
-\title{Extracting Function Signatures from Program Traces}
+\title{Designing Types for R, Empirically}
 
 \newcommand{\NUMFUNCTIONS}{25,000\xspace}  %%% TODO auto-gen
 \newcommand{\NUMPACKAGES}{412\xspace}  %%% TODO auto-gen
+\newcommand{\PACKAGES}{412\xspace}  %%% TODO auto-gen
+\newcommand{\genthat}{genthat\xspace}  %%% TODO auto-gen
 \newcommand{\YEARS}{20\xspace} %%TODO fix
 
 
@@ -121,11 +123,100 @@ packages among the most widely used open source R libraries. The signatures
 use a minimal type language with only basic types, vectors and classes.  We
 implement a contract checker that can be used to validate the inferred type
 signatures.
-\end{abstract}
-\maketitle
-
+\end{abstract} \maketitle
 
 \section{Introduction}
+
+Our community builds, improves, and reasons about programming languages.  To
+make design decisions that benefit users, we need to understand our target
+language as well as the real-world needs it answers. Often, we can appeal to
+our intuition, as many languages are intended for general purpose
+programming tasks. Unfortunately, intuition may fail when looking at
+domain-specific languages as these languages designed for a specific group
+of users to solve very specific needs. This is the case of the data science
+language R.
+
+R and its ancestor S were designed, implemented, and maintained by
+statisticians. Originally they aimed to be glue languages for reading data
+and calling statistical routines written in Fortran. Over three decades they
+became widely used across many fields for data analysis and visualization.
+Modern R, as an object of study, is fascinating. It is a vectorized,
+dynamically typed, lazy functional language with limited side-effects,
+extensive reflective facilities and retrofitted object-oriented programming
+support.
+
+Many of the design decisions that gave us R were intended to foster an
+interactive, exploratory, programming style. These include, to name a few,
+the lack of type annotations, the ability to use syntactic shortcut, and the
+automatic conversion between data types.  While these choices have led to a
+language with a low barrier to entry---many data science educational
+programs do not teach R itself but simply introduce some of its key
+libraries---they have also created a language where errors can go
+undetected.
+
+Retrofitting a type system to the R programming language would increase our
+assurance in the result of data analysis. But, we are faced with two
+challenges. First, it is unclear what would be the \emph{right} type system
+for a language as baroque as R. For example, one of the most popular data
+type, the \code{data.frame}, is manipulated through reflective operations --
+a data frame is a table whose columns can be added or removed on the fly.
+Second, but just as crucially, designing a type system that will be adopted
+would require overcoming some prejudices and educating large numbers of
+users.
+
+
+xxx WIP xxxx
+
+
+This paper is a data-driven study of what a type system for the R language
+could look like. Our intention is to propose changes to the
+language, and for any changes to be accepted by the user community they
+must clearly benefit the language without endangering backwards
+compatibility. Our goal is thus to find a compromise between simplicity and
+usefulness; the proposed type system should cover most common programming
+idioms while remaining easy to use. In order to do this, we need to
+understand the degree of polymorphism present in R code, that is to say, how
+programmers leverage the dynamic nature of R to write code that can accept
+arguments of different types.  This understanding will drive our design.
+
+We propose to capture the degree of polymorphism present in R by means
+of a dynamic analysis of widely used libraries. For each function call we
+can record the types of its arguments and of its return value. This allows
+us to observe how many different combination of types are accepted by any
+given function. Unlike many other languages, R has a carefully curated
+software repository called CRAN. To be deposited in CRAN, a package must
+come with sample dataset, tests and executable use-cases. As part of normal
+operations these tests are run regularly and failing packages are removed.
+This allowed us to have access to \PACKAGES libraries and about an order of
+magnitude more runnable scripts that exercise those libraries.
+
+The contributions of this paper are thus as follows:
+\begin{itemize}
+\item A large-scale analysis of the polymorphism present in function
+  signatures of \PACKAGES widely used and actively maintained R packages.
+\item A tracing and analysis pipeline that extends a previously published
+  test generation tool named \genthat.
+\item A set of type annotations that captures how programmers use types
+in existing R code.
+\end{itemize}
+
+One threat to validity of our work is that we rely on dynamic analysis, so
+our conclusions are only as good as the coverage of the possibly function
+behaviors. Previous work~\cite{issta18} reported that running all the
+scripts that come with CRAN packages gives, on average, 68\% test coverage.
+We attempted to mitigate the threat coming from the fact that only part of
+the code is being exercised by manual analysis. It would be reasonable to
+ask for confirmation of the data by static analysis of the code, but sound
+static analysis of R is difficult because of the extensive use of reflective
+features such as \code{eval} and of the ability to redefine the meaning of
+operators such as \code{+} and \code{if}.  Another threat to validity is
+that we only have access to code that has been deposited in the CRAN
+repository. While this may bias our findings towards code written to be
+reusable and, possibly, better engineered than typical user code. This is
+also the code that would most benefit from type annotations.
+
+
+
 
 How does one retrofit a type system to an existing language? Three succesful
 models are Hack, Typed Racket and TypeScript. 
