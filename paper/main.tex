@@ -106,7 +106,7 @@
   language. We argue that R is particularly challenging due to its unique
   combination of features and to the programming idioms that have developped
   over the last two decades. As our starting point, we infer type signatures
-  for \NUMFUNCTION functions from \NUMPACKAGES packages amongst the most
+  for \NUMFUNCTIONS functions from \NUMPACKAGES packages amongst the most
   widely used open source R libraries. The signatures use a minimal type
   language consisting of basic types, vectors, classes and disjunctions. We
   purposefully leave out notions such as subtyping, higher-order types, and
@@ -326,10 +326,277 @@ try to capture attributes at the risk of increased complexity.
 
 R-dyntrace is an efficient dynamic analysis framework for R.
 
+%
+%
+%
+%
+\section{Project Corpus}\label{sec:corpus}
+
+For this paper we have selected \CorpusLoadable packages consisting of
+\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
+code (C/C++/Fortran).  \FK{Add more details} Figure~\ref{fig:corpus} shows
+all the packages, the size of the dots reflects the size of the project in
+terms of both R and native lines of code\footnote{ Lines of source code
+  reported excludes comments and blank lines, counted by \emph{cloc}, \cf
+  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
+expression code coverage in percents and the y-axis gives the number of
+reverse dependencies in log scale. Dotted lines indicate means.  Packages
+with over \PackageSizeOutierRnd lines of code are annotated.
+
+\begin{figure}[!h]  \centering
+  \includegraphics[width=.8\linewidth]{plots/corpus.pdf}
+  \caption{Corpus overview}\label{fig:corpus}
+\end{figure}
+
+These packages come from the Comprehensive R Achive Network
+(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of
+R code with over \AllCranRnd packages\footnote{CRAN receives about 6 new
+  package submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd
+and \AllNativeCodeRnd R and native code respectively. Unlike other open code
+repositories like GitHub, CRAN is a curated repository. Each submitted
+package must abide to a number of well-formedness rules that are
+automatically checked asserting certain quality. Most relevant for this work
+is that all of the runnable code (including code snippets from examples and
+vignettes) is tested and only a successfully running package is admitted in
+the archive.
+
+We have downloaded and installed all available CRAN packages. Out of the
+\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason
+for this is that \rdt is based on R 3.5.0 and some of the packages are no
+longer compatible with it. Some packages also require extra native
+dependencies which were not present on our servers.  We have two criteria
+for including a package into the corpus:
+\begin{inparaenum}[(1)]
+\item have runnable code that covers significant part of the package source
+  code from which type signatures could be inferred, and
+\item have some reverse dependencies that allows us to evaluate the inferred
+types on runnable code from these dependent packages.
+\end{inparaenum}
+The concrete thresholds were set to at least \ThresholdCodeCoverage of
+expression coverage and at minimum \ThresholdRevdeps reverse dependencies.
+
+The code coverage was computed for each package using
+\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R
+tool.  The reverse package dependencies were extracted from the package
+metadata using builtin function.
+
+%
+%
+%
+%
+%
+%
+\section{Methodology}
+
+In this section, we will describe our approach to data collection and analysis through \typetracer, a dynamic analysis built in the \rdt framework.
+We will then describe the process by which we distill the rich information we collect with \typetracer to more digestible ``types'', though we discuss the precise details of our type annotation language in Section~\ref{sec:types}.
+Finally, we discuss \contractr, a package built in R which supports our type language and can generate and check contracts for function types.
+
+%
+%
+%
+%
+\subsection{typetracer and Initial Analysis}
+
+To help inform the design of our type system, and to ensure that it aligns
+with the day-to-day usage of R, we performed a corpus analysis of some of
+the most widely used R packages.  The corpus is discussed in detail in
+Section~\ref{sec:corpus}.  We built \typetracer, our dynamic analysis, in
+the R-dyntrace~\cite{oopsla19} dynamic analysis framework which is itself
+built on a modified version of R targeting R version 3.5.0---we refer the
+reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
+
+%
+%
+\subsubsection{Overview}
+The goal of our analysis is to discover argument types for functions,
+builtins, and specials.  Naively intercepting function calls and recording
+argument types is incorrect, as recall that R wraps arguments in promises
+(Section~\ref{sec:R}).  To circumvent this obstacle, we instead
+intercept the forcing of promises: when a promise is forced, we identify the
+surrounding call, collect the type of the value, and add it to the call
+trace associated with the current function call.  Once function execution
+completes, we collect information about the return value, add it to the call
+trace, and save the completed call trace to be written out later.
+%
+%
+\subsubsection{Type Information}
+Once a value is obtained, either on function return or when an argument
+promise is forced, we probe the value for the following information:
+
+\begin{itemize}
+\item the value's type tag according to R's runtime. R's runtime implements
+  type tags as a typedef, e.g. \code{INTSXP} for integers, and, confusingly,
+  \code{VECSXP} for lists;
+\item its class, which is a list of string class names. Typically, the class
+  of a value is held in an attribute with name ``class'', though some
+  classes are blessed by the R runtime, such as matrix and array classes;
+\item its attributes, a list of metadata attached to the value.
+\end{itemize}
+
+Now, depending on the value's type tag, we collect further information:
+
+\begin{itemize}
+\item For R's primitive types, we collect its dimension, and if it has a
+  names attribute we collect the names as well;
+\item For lists, we recursively collect the types of list elements;
+\item For lists {\it with a names attribute}, we collect the names as well as the types of the slots that those names refer to (data.frames fall into this category);
+\item For promises, we carefully dig into the promise value {\it without
+  forcing it}, and collect information about the innermost value. If the
+  innermost value is the unbound value, then the promise is an as-of-yet
+  unevaluated expression. In this case, we do our best to guess the value of
+  the unevaluated expression: if the expression is not a language
+  expression, we collect information about it, otherwise we can say nothing
+  without evaluating it and ascribe it type ``any''. \footnote{\AT{I think
+      this is confusing, reword.}}
+\end{itemize}
+
+For vectors (and lists), we additionally iterate through the elements,
+checking if the values are NA (resp. NULL); if none are NA (resp. NULL), we
+ascribe the NA-free (resp. NULL-free) tag to the value.  Arguments that are
+part of a function's varargs (denoted \ldots in function definitions) are
+tagged as such and ignored, as varargs can contain anything (and their type
+will be equivalent to and any-typed list).
+
+Now that we've seen the high-level picture of our approach, we will elaborate on some key details and discuss particular challenges that we faced.
+
+%
+%
+\subsubsection{Challenges}
+\label{subsec:typetracer-challenges}
+
+We grappled with a number of corner cases related to R's non-strict semantics.
+
+\begin{itemize}
+
+\item First, we wanted to ensure that \typetracer captured type for
+  unevaluated arguments.  Not every argument of a function needs to be used
+  during every function execution, and the approach we discussed above
+  relies on argument promises being forced.  There are a few reasons for this.
+
+One possibility is that the argument was simply unused given the control
+flow of this particular execution (e.g. if the argument is only needed in
+one branch of a conditional expression).  This mainly occurs when arguments have default
+values for some parameters that are not critical to every execution of the
+function.  In these cases, we still want to collect the type of the default
+value.
+
+Another possibility is that a value is used {\it without being forced}, as
+is the case when values are ``metaprogrammed''.
+This is common practice in e.g. the \code{tidyverse} ecosystem, as they use the metaprogramming capabilities of R to implement a DSL for data analysis.
+
+To tackle this, we make an {\it initial guess} of function argument types on
+function entry. This collects types for argument default values, and
+collects an ``unused'' type for unevaluated expressions.  If an argument
+promise is later forced, we simply update the recorded type for the
+argument.
+
+\item Second, we wanted to account for formal arguments (arguments which are
+  named in the function definition) that were {\it not} passed to the
+  function. This represents cases where a function was not called with all of its
+  arguments, and no default value was specified for missing arguments. 
+  We record a ``missing'' type for such argument.
+
+There are two obvious ways to deal with missing arguments: type them as bot
+or as top.  As we are performing a dynamic analysis based on package test
+code, we conservatively type these arguments as top, or \code{any}, as It is
+impossible to know dynamically what all possible function behaviours are.
+We discuss the prevalence of such any-typed arguments in Section~\ref{sec:evaluation}.
+
+\item Third, we had to contend with R's C implementation sometimes
+  performing longjumps, which discards current R calls from the call stack.
+  In order to ensure that call traces are not lost when a longjump occurs,
+  \typetracer intercepts the unwinding process initiated by the longjump and
+  mimics the functionality of the functions being exited.  The R-dyntrace
+  framework supplies the return value during the unwinding process (if there
+  is indeed such a value), so we can capture it, analyze it, and include it
+  in the call trace.  In certain situations, however, no return value can be
+  obtained (e.g. a longjump occurred as part of some error handling), and
+  then we simply record a ``jumped'' return value, which we can deal with in
+  post-processing.  
+  % These longjumps occur quite often, particularly when S3 dispatch occurs, as the R implementation optimizes returns from dispatched functions by initiating a longjump.
+
+\end{itemize}
+
+Having outlined these challenges, we will now explore the implementation of \typetracer in more detail.
+
+%
+%
+\subsubsection{Select Details}
+
+As mentioned, our analysis is built on the R-dyntrace framework.  R-dyntrace
+is a very efficient instrumentation framework for R, which is built on a
+modified version of the R runtime.  Our dynamic type analysis only needs to
+be run once, ever---from the analysis results, we synthesize function
+signatures which are passed along to later type-checking tools which do not
+rely on a heavily modified runtime.
+
+We primarily rely on 8 R-dyntrace callbacks: \texttt{closure\_entry},
+\texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit},
+\texttt{special\_entry},\texttt{special\_exit},
+\texttt{promise\_force\_entry}, and \texttt{promise\_force\_exit}.  These
+callbacks fire when closures, builtin, and special functions are entered and
+exited, and before and after the forcing of promises.  The function-related
+callbacks are used mainly for bookkeeping: the analysis is notified that a
+closure, builtin, or special has been entered/exited by pushing/popping the
+call onto a stack.  The calls themselves store a {\it call trace} object,
+where we store the type information that we collect, populated with initial
+guesses of argument types (as discussed in
+Section~\ref{subsec:typetracer-challenges}).  Further, the type of dispatch
+is recorded on the {\tt \_entry} variants: recall that R can perform single or multiple dispatch on function arguments depending on their class.
+We collect dispatch information in order to analyze dispatch usage patterns.
+
+The main work is done in {\tt promise\_force\_exit}.  As arguments to
+functions in R are wrapped in promises, we delay our reflection to promise
+force time.  In R, promises are essentially objects with value and
+expression slots.  When a promise is created for a particular expression,
+that expression is merely put into the expression slot of a promise object,
+and a special {\it unbound} value is loaded into the value slot (unless some
+default value is specified, wherein it is loaded into the value slot---this
+is the case with default argument values).  When the promise is forced, the
+expression is evaluated in the forcing context, and the value is stored in
+the value slot of the promise.  So to get the type of a function argument,
+we check the value slot of the argument promise---perhaps recursively if the
+value itself is a promise.
+
+To construct a type for each argument, we make use of R's C FFI and use
+low-level machinery to collect type tags and attributes from the R runtime.
+The types that we provide to users are constructed during post-processing,
+and rely on the detailed information made available by these low-level
+reflection mechanisms.
+
+%
+%
+%
+%
+\subsection{Post-Processing and Type Ascription}
+
+The type information we collect is far more detailed than the types we
+actually generate, and so the next stage of our inference process is to
+distill the rich type information into simpler, manageable types.  For each
+unique observed call trace, we translate the representation of the type of
+each of the function arguments and returns according to the design of our
+type system: for instance, we might have determined that a function returned
+a vector of integer with 4 elements, with names, that was free of NA values,
+in which case we would write out \code{integer[]} as the type.
+
+Once types have been simplified in this way, for each function we move to
+consolidate its multiple call traces into a single function type.  We do
+this by combining the observed types of each argument into one type according to subtyping rules that are part of our
+design.  The precise subtyping rules we used will be discussed further in
+Section~\ref{sec:typesystemdesign}.
+If we cannot consolidate multiple observed argument types into a single type, we simply union the disparate types together.
+
+While our analysis collects more detailed information than necessary for type generation, the information proved useful for building up a usage profile of the language. 
+This profile informed our language design: based on the rich type information we collected, we were able to determine types that would be useful for capturing the observed behaviour.
+We discuss this iterative, data-driven language design process in Section~\ref{types}, highlighting the reasoning behind our type system design.
+
+%
+%
+%
+%
 \subsection{contractr}
 \label{sec:contractr}
-
-\AT{I think we should move this to the Methodology section, which we should maybe rename to implementation. Thoughts?}
 
 \contractr is an R package that implements our type system for the R
 package ecosystem. It adds contracts to package functions for type-checking
@@ -493,277 +760,6 @@ engineering effort it takes to package experimental ideas in the form of stable
 and easy-to-use tools. R has an eclectic mix of features and design oddities
 that make this even harder. 
 
-%
-%
-%
-%
-\section{Project Corpus}\label{sec:corpus}
-
-For this paper we have selected \CorpusLoadable packages consisting of
-\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
-code (C/C++/Fortran).  \FK{Add more details} Figure~\ref{fig:corpus} shows
-all the packages, the size of the dots reflects the size of the project in
-terms of both R and native lines of code\footnote{ Lines of source code
-  reported excludes comments and blank lines, counted by \emph{cloc}, \cf
-  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
-expression code coverage in percents and the y-axis gives the number of
-reverse dependencies in log scale. Dotted lines indicate means.  Packages
-with over \PackageSizeOutierRnd lines of code are annotated.
-
-\begin{figure}[!h]  \centering
-  \includegraphics[width=.8\linewidth]{plots/corpus.pdf}
-  \caption{Corpus overview}\label{fig:corpus}
-\end{figure}
-
-These packages come from the Comprehensive R Achive Network
-(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of
-R code with over \AllCranRnd packages\footnote{CRAN receives about 6 new
-  package submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd
-and \AllNativeCodeRnd R and native code respectively. Unlike other open code
-repositories like GitHub, CRAN is a curated repository. Each submitted
-package must abide to a number of well-formedness rules that are
-automatically checked asserting certain quality. Most relevant for this work
-is that all of the runnable code (including code snippets from examples and
-vignettes) is tested and only a successfully running package is admitted in
-the archive.
-
-We have downloaded and installed all available CRAN packages. Out of the
-\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason
-for this is that \rdt is based on R 3.5.0 and some of the packages are no
-longer compatible with it. Some packages also require extra native
-dependencies which were not present on our servers.  We have two criteria
-for including a package into the corpus:
-\begin{inparaenum}[(1)]
-\item have runnable code that covers significant part of the package source
-  code from which type signatures could be inferred, and
-\item have some reverse dependencies that allows us to evaluate the inferred
-types on runnable code from these dependent packages.
-\end{inparaenum}
-The concrete thresholds were set to at least \ThresholdCodeCoverage of
-expression coverage and at minimum \ThresholdRevdeps reverse dependencies.
-
-The code coverage was computed for each package using
-\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R
-tool.  The reverse package dependencies were extracted from the package
-metadata using builtin function.
-
-%
-%
-%
-%
-%
-%
-\section{Methodology}
-
-%
-%
-%
-%
-\subsection{typetracer and Initial Analysis}
-
-To help inform the design of our type system, and to ensure that it aligns
-with the day-to-day usage of R, we performed a corpus analysis of some of
-the most widely used R packages.  The corpus is discussed in detail in
-Section~\ref{sec:corpus}.  We built \typetracer, our dynamic analysis, in
-the R-dyntrace~\cite{oopsla19} dynamic analysis framework which is itself
-built on a modified version of R targeting R version 3.5.0---we refer the
-reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
-
-%
-%
-\subsubsection{Overview}
-The goal of our analysis is to discover argument types for functions,
-builtins, and specials.  Naively intercepting function calls and recording
-argument types is incorrect, as recall that R wraps arguments in promises
-(Section \AT{what section}).  To circumvent this obstacle, we instead
-intercept the forcing of promises: when a promise is forced, we identify the
-surrounding call, collect the type of the value, and add it to the call
-trace associated with the current function call.  Once function execution
-completes, we collect information about the return value, add it to the call
-trace, and save the completed call trace to be written out later.  \AT{This
-  paragraph overlaps with the initial discussion of \contractr. We need to
-  make sure that we don't inadvertently repeat ourselves.}
-
-%
-%
-\subsubsection{Type Information}
-Once a value is obtained, either on function return or when an argument
-promise is forced, we probe the value for the following information:
-
-\begin{itemize}
-\item the value's type tag according to R's runtime. R's runtime implements
-  type tags as a typedef, e.g. \code{INTSXP} for integers, and, confusingly,
-  \code{VECSXP} for lists;
-\item its class, which is a list of string class names. Typically, the class
-  of a value is held in an attribute with name ``class'', though some
-  classes are blessed by the R runtime, such as matrix and array classes;
-\item its attributes, a list of metadata attached to the value.
-\end{itemize}
-
-Now, depending on the value's type tag, we collect further information:
-
-\begin{itemize}
-\item For R's primitive types, we collect its dimension, and if it has a
-  names attribute we collect the names as well;
-\item For lists, we recursively collect the types of list elements;
-\item For lists {\it with a names attribute}, we collect the names as well as the types of the slots that those names refer to (data.frames fall into this category);
-\item For promises, we carefully dig into the promise value {\it without
-  forcing it}, and collect information about the innermost value. If the
-  innermost value is the unbound value, then the promise is an as-of-yet
-  unevaluated expression. In this case, we do our best to guess the value of
-  the unevaluated expression: if the expression is not a language
-  expression, we collect information about it, otherwise we can say nothing
-  without evaluating it and ascribe it type ``any''. \footnote{\AT{I think
-      this is confusing, reword.}}
-\end{itemize}
-
-For vectors (and lists), we additionally iterate through the elements,
-checking if the values are NA (resp. NULL); if none are NA (resp. NULL), we
-ascribe the NA-free (resp. NULL-free) tag to the value.  Arguments that are
-part of a function's varargs (denoted \ldots in function definitions) are
-tagged as such and ignored, as varargs can contain anything (and their type
-will be equivalent to and any-typed list).
-
-Now that we've seen the high-level picture of our approach, we will elaborate on some key details and discuss particular challenges that we faced.
-
-%
-%
-\subsubsection{Challenges}
-\label{subsec:typetracer-challenges}
-
-We grappled with a number of corner cases related to R's non-strict semantics.
-
-\begin{itemize}
-
-\item First, we wanted to ensure that \typetracer captured type for
-  unevaluated arguments.  Not every argument of a function needs to be used
-  during every function execution, and the approach we discussed above
-  relies on argument promises being forced (and, consequently, on arguments
-  being used).  There are a few reasons for this.
-
-One possibility is that the argument was simply unused given the control
-flow of this particular execution (e.g. if the argument is only needed in
-one branch of an \code{if}).  This mainly occurs when arguments have default
-values for some parameters that are not critical to every execution oft he
-function.  In these cases, we still want to collect the type of the default
-value.
-
-Another possibility is that a value is used {\it without being forced}, as
-is the case when values are ``metaprogrammed'': \AT{describe, code example.}
-
-To tackle this, we make an {\it initial guess} of function argument types on
-function entry. This collects types for argument default values, and
-collects an ``unused'' type for unevaluated expressions.  If an argument
-promise is later forced, we simply update the recorded type for the
-argument.
-
-\item Second, we wanted to account for formal arguments (arguments which are
-  named in the function definition) that were {\it not} passed to the
-  function.  Put simply, a function was not called with all of its
-  arguments, and no default value was specified for missing arguments.  In
-  this case, we record a ``missing'' type for the argument.
-
-There are two obvious ways to deal with missing arguments: type them as bot,
-or as top.  As we are performing a dynamic analysis, based on package test
-code, we conservatively type these arguments as top, or \code{any}.  It is
-impossible to know dynamically what all possible function behaviours are,
-\AT{I'm still not convinced about this.}
-
-\item Third, we had to contend with R's C implementation sometimes
-  performing longjumps, which discards current R calls from the call stack.
-  In order to ensure that call traces are not lost when a longjump occurs,
-  \typetracer intercepts the unwinding process initiated by the longjump and
-  mimics the functionality of the functions being exited.  The R-dyntrace
-  framework supplies the return value during the unwinding process (if there
-  is indeed such a value), so we can capture it, analyze it, and include it
-  in the call trace.  In certain situations, however, no return value can be
-  obtained (e.g. a longjump occurred as part of some error handling), and
-  then we simply record a ``jumped'' return value, which we can deal with in
-  post-processing.  These longjumps occur quite often, particularly when S3
-  dispatch occurs, as the R implementation optimizes returns from dispatched
-  functions by initiating a longjump.
-
-\end{itemize}
-
-Having outlined these challenges, we will now explore the implementation of \typetracer in more detail.
-
-%
-%
-\subsubsection{Select Details}
-
-As mentioned, our analysis is built on the R-dyntrace framework.  R-dyntrace
-is a very efficient instrumentation framework for R, which is built on a
-modified version of the R runtime.  Our dynamic type analysis only needs to
-be run once, ever---from the analysis results, we synthesize function
-signatures which are passed along to later type-checking tools which do not
-rely on a heavily modified runtime.
-
-We primarily rely on 8 R-dyntrace callbacks: \texttt{closure\_entry},
-\texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit},
-\texttt{special\_entry},\texttt{special\_exit},
-\texttt{promise\_force\_entry}, and \texttt{promise\_force\_exit}.  These
-callbacks fire when closures, builtin, and special functions are entered and
-exited, and before and after the forcing of promises.  The function-related
-callbacks are used mainly for bookkeeping: the analysis is notified that a
-closure, builtin, or special has been entered/exited by pushing/popping the
-call onto a stack.  The calls themselves store a {\it call trace} object,
-where we store the type information that we collect, populated with initial
-guesses of argument types (as discussed in
-Section~\ref{subsec:typetracer-challenges}).  Further, the type of dispatch
-is recorded on the {\tt \_entry} variants: \AT{recall} that there are
-multiple ways that R performs dynamic dispatch, based on the class of
-function arguments.  We collect dispatch information in order to analyze
-dispatch usage patterns.
-
-The main work is done in {\tt promise\_force\_exit}.  As arguments to
-functions in R are wrapped in promises, we delay our reflection to promise
-force time.  In R, promises are essentially objects with value and
-expression slots.  When a promise is created for a particular expression,
-that expression is merely put into the expression slot of a promise object,
-and a special {\it unbound} value is loaded into the value slot (unless some
-default value is specified, wherein it is loaded into the value slot---this
-is the case with default argument values).  When the promise is forced, the
-expression is evaluated in the forcing context, and the value is stored in
-the value slot of the promise.  So to get the type of a function argument,
-we check the value slot of the argument promise---perhaps recursively if the
-value itself is a promise.
-
-To construct a type for each argument, we make use of R's C FFI and use
-low-level machinery to collect type tags and attributes from the R runtime.
-The types that we provide to users are constructed during post-processing,
-and rely on the detailed information made available by these low-level
-reflection mechanisms.
-
-%
-%
-%
-%
-\subsection{Post-Processing and Type Ascription}
-
-The type information we collect is far more detailed than the types we
-actually generate, and so the next stage of our inference process is to
-distill the rich type information into simpler, manageable types.  For each
-unique observed call trace, we translate the representation of the type of
-each of the function arguments and returns according to the design of our
-type system: for instance, we might have determined that a function returned
-a vector of integer with 4 elements, with names, that was free of NA values,
-in which case we would write out \code{integer[]} as the type.
-
-Once types have been simplified in this way, for each function we move to
-consolidate its multiple call traces into a single function type.  We do
-this by combining the observed types of each argument into one type
-(possibly a union, mind), according to subtyping rules that are part of our
-design.  The precise subtyping rules we used will be discussed further in
-Section~\ref{sec:typesystemdesign}.
-
-While our analysis collects more detailed information than necessary for
-type generation, the information proved useful for building up a usage
-profile of the language. Through it, we were able to determine the best
-translation rules (i.e., determining the type system we are translating to)
-through an iterative process, involving analyzing usage patterns that arose
-in the data and making design decisions based on them, revisiting the data
-as necessary.  In the following section, we will discuss these decisions in
-more detail, highlighting the reasoning behind our type system design.
 
 %
 %
@@ -1334,9 +1330,37 @@ We were interested in broad, high-level information, such as the distribution of
 %
 \subsubsection{Type Distribution}
 
+\AT{Include a figure? Histogram(s) of types?}
+
+In order to count the occurrences of each type, we subdivided them into {\it kinds}: 
+For our purposes, the {\it kind} of a type is equivalent to it's top-level type constructor, so all classes have kind ``class'', all lists have kind ``list'', and so on.
+We found that classes are the most common kind of type, accounting for roughly 31\% of types.
+\AT{Make sure to transform class<function> into any=>any.}
+In order, the most common classes are matrices (12\%), data.frames (7.5\%), formulas (2\%), factors (2\%), and tibbles (2\%).
+Roughly 25\% of classes are part of R's base language implementation, the others being defined as part of some package's functionality.
+
+Besides classes, scalars and vectors are the next most common kind, making up 41\% of types. with scalars making up 28.1\% of types and vectors 12.65\%.
+Nulls and lists follow at 8\% and 7\% respectively, and the vararg type \ldots makes up 6.5\% of arguments.
+This all totals up to over 90\% of types.
+We will discuss the any type in more detail in Section~\ref{subsec:any}.
+
+It would appear that our simple type annotations nicely account for the landscape of values in R.
+\AT{Not sure what to say about classes.}
+% Classes are a common kind of type in R, and for the purposes of this type annotation language allowing users to specify class names as part of class types is welcome: we saw that the breakdown of the class kind does not reveal many outlier classes,
+
 %
 %
 \subsubsection{Polymorphism}
+
+The polymorphism in R is best described by {\it ad hoc} polymorphism, wherein polymorphism is implemented by function and operator overloading (see S3 dispatch) rather than in some more fundamental way in the language design.
+For the purposes of this evaluation, we will say that an argument is polymorphic if its type is a union of two or more types, in other words the argument has been observed to take more than one type of value.
+
+\AT{We need better numbers on this.}
+We found that 15\% of argument positions were polymorphic, and that X\% of functions were polymorphic.
+
+Our type annotation language does not support sophisticated class typing, and much of the polymorphism in R is due to these classes, namely through the S3 dispatch mechanism. 
+In future work, we aim to more fully handle S3 and objects in R.
+For now, if we count out 
 
 %
 %
@@ -1345,6 +1369,7 @@ We were interested in broad, high-level information, such as the distribution of
 %
 %
 \subsubsection{Use of \code{any}}
+\label{subsec:any}
 
 %
 %
