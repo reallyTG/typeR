@@ -832,17 +832,17 @@ binom.profile <- function(x, n, ...) {
 \end{center}
 \end{figure}
 
-The \code{binom} package is a popular package \AT{do we want e.g. \# revdeps?} for computing confidence intervals for binomial experiments, and the \code{binom.profile} function does so using the profile likelihood, the details of which are not relevant here.
-Here, we highlighted a relevant snippet of code, which appears at the beginning of the function: the programmer first binds the vectors into a matrix (line 2), with one column for each of \code{x} and \code{n}, then finds rows where both columns are not NA (line 3), then extracts non-NA values and stores them into \code{x} and \code{n} respectively (lines 4-5).
+The \code{binom} package is a popular R package for computing confidence intervals for binomial experiments, and the \code{binom.profile} function does so using the profile likelihood, the details of which are not relevant here.
+This code snippet highlights a data sanitization pattern appearing at the beginning of the function: the programmer first binds the vectors into a matrix (line 2), with one column for each of \code{x} and \code{n}, then finds rows where both columns are not NA (line 3), then extracts non-NA values and stores them into \code{x} and \code{n} respectively (lines 4-5).
 Importantly, this process is entirely quiet, and the user of \code{binom.profile} will not be notified if their data happens to contain NAs, and the NAs will be silently ignored. 
 In reality, the presence of NAs in data could signify some sort of data corruption, and quietly ignoring issues in data could lead users (read: statisticians) to draw flawed conclusions from erroneous data.
 
 To combat this, we introduce a modifier on primitive types: the type \code{^T} signifies that primitive type \code{T} might contain an NA value, while \code{T} signifies that \code{T} is NA-free. 
+The NA-free case has a shorter syntax as NA-free vectors are \AT{more common} than the alternative.
 If the \code{binom} developers were to annotate arguments \code{x} and \code{n} with such an NA-free type, \contractr will notify users when \code{binom.profile} is called with NA-full values, rather than just quietly ignoring them.
-\AT{Gather usage statistics.}
 
 Note that when combining call traces involving \code{^T} and \code{T} types, we subsume \code{T} types into \code{^T} types: if NA-free and NA-full vectors are passed to an argument, then we say that the argument can handle NA-full vectors.
-This is equivalent to \code{T <: ^T}. 
+This is equivalent to saying \code{T <: ^T}. 
 
 %
 %
@@ -879,12 +879,12 @@ The \code{hankel.matrix} function takes two arguments (as described in the comme
 The function body has a number of interesting checks:
 on lines 6-7, \code{n} undergoes an integer ``type check'';
 on lines 8-9, \code{x} undergoes a vector ``type check'';
-on lines 11-12, \code{n} is assumed to be a scalar (if it were a vector, R would generate a warning, as \code{m < n} would return a vector of logicals obtained from checking if \code{m} were less than each element of \code{n} \AT{do we want to put the warning here?}).
-These checks exemplify behaviour we would like to capture with our annotation language, as we would like to differentiate between scalars and vectors in addition to checking for the basic type of a value (e.g. integer vs double), 
+on line 11, \code{n} is assumed to be a scalar, as if it were a vector, the code \code{m < n} would essentially check \code{m < n[i]} for each element in \code{n}, returning a vector of comparison results, and the conditional of an if must be a scalar else R generates a warning.
 
+These checks exemplify functionality that we would like to include in our type annotation language, namely, we would like our type language to differentiate between scalars and vectors.
 To that end, we introduce the following types into our type language:
 for some primitive type \code{T}, the user may modify \code{T} with a modifier \code{[]} to indicate that it is a vector of \code{T}.
-Perhaps surprisingly, we found that scalars occurred more often than vectors, and chose the scalar type syntax as the default. 
+Perhaps surprisingly, we found that scalars \AT{occurred more frequently} than vectors, and for that reason we chose the shorter scalar type syntax as the default.
 The NA-free modifier works as expected: \code{^T[]} indicates a vector of \code{T} that is free of NAs, while \code{^T} indicates a scalar which is not NA.
  
 %
