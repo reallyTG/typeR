@@ -1323,11 +1323,11 @@ perform appropriate conversions and computations. On the one hand, this form
 of ad-hoc polymorphism makes R functions expressive; on the other hand, it
 requires support for polymorphism in the typing scheme, making the type
 system complex.  Our system lacks explicit support for
-polymorphism. Instead, it supports union, any and ... types. A union type is
+polymorphism. Instead, it supports union, \any and \VARGS types. A union type is
 inferred when values of multiple types are observed at a function parameter
-and return position, any type is inferred when an argument is missing or
-unused, and ... is inferred for vararg parameters. Furthermore, list element
-types can be inferred as any if they have more than 5 different types. Values with many different types can result in
+and return position, \any type is inferred when an argument is missing or
+unused, and \VARGS is inferred for variable length argument list positions. Furthermore, list element
+types can be inferred as \any if they have more than 5 different types. Values with many different types can result in
 a large number of alternatives in the type inferred for that position,
 making it hard to read and unwieldy for end-users. To evaluate this
 ''expressivity gap`' between our type inference scheme and R functions, we
@@ -1339,10 +1339,15 @@ the XXX functions in our corpus.
   \caption{Types inferred for each position}\label{fig:unionfreq}
 \end{figure}
 
-We observe that XXX% of the positions have a single type ascribed to them. XXX%
-have five or more types ascribed to them. Parameter PARAMNAME of function
-XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it. This implies that
-most functions admit or return a uni-typed value.
+We observe that XXX of the positions have a single type ascribed to them, and,
+only XXX have four or more types ascribed to them. Parameter PARAMNAME of function
+XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it.
+Hence, most functions admit or return a uni-typed value.
+
+Figure 1 provides a breakdown of the different type categories observed at
+uni-typed positions.
+
+\input{tables/uni-typed-breakdown.tex}
 
 Figure XXX shows ten most common type categories that occur by themselves. We
 observe that three scalar types, double, logical, and character are most
