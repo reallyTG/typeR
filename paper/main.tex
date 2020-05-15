@@ -598,42 +598,31 @@ the relevant information is kept by the {\tt \_entry} variants.
 
 \subsection{Inferring type signatures from raw types}
 
-The type information we collect is far more detailed than the types we
-actually generate (which we discuss in Section~\ref{sec:types}), and so the
-next stage of our inference process is to distill the rich type information
-into simpler, manageable types.  For each unique observed call trace, we
-translate the representation of the type of each of the function arguments
-and returns according to the design of our type system: for instance, we
-might have determined that a function returned a vector of integer with 4
-elements, with names, that was free of NA values, in which case we would
-write out \code{integer[]} as the type.
+The output of the \typetracer tool consists of a set of tuples of row types,
+each representing a function call in some program's execution. The inference
+step consolidate the different tuples corresponding to a particular function
+definition across multiple programs and distills them into a single type
+signature.  The shape of the infered function signatures is:
 
-Once types have been simplified in this way, for each function we move to
-consolidate its multiple call traces into a single function type.  We do
-this by combining the observed types of each argument into one type
-according to subtyping rules that are part of our design.  The precise
-subtyping rules we used will be discussed further in
-Section~\ref{sec:typesystemdesign}.  If we cannot consolidate multiple
-observed argument types into a single type, we simply union the disparate
-types together.
+\medskip
+\FUN{ T_{1,1} \k{~|~} T_{1,i}, \dots, T_{n,1} \k{~|~} T_{n,j}}{T_1\k{~|~} T_k}
+\medskip
 
-While our analysis collects more detailed information than necessary for
-type generation, the information proved useful for building up a usage
-profile of the language.  This profile informed our language design: based
-on the rich type information we collected, we were able to determine types
-that would be useful for capturing the observed behaviour.  We discuss this
-iterative, data-driven language design process in Section~\ref{types},
-highlighting the reasoning behind our type system design.
+In other words, we take the union of the types occurring at individual
+argument positions rather than an union of function types. Furthermore we
+apply some transformation on the types to keep the size of types in check.
 
-Thus far, we have discussed \typetracer and our strategies to take the data
-from the dynamic analysis and generate function types.  This work also
-presents a framework for specifying these types in R code, as well as
-generating contract checks for these types.  We dub this tool \contractr,
-discussed next.
+\begin{tabular}{rclll}
+  \T \k{~|~} \T  & $\Rightarrow$ &  \T &  \\
+  \T \k{~|~} $T'$ & $\Rightarrow$ &  \T & \it{iff} $T' <: T$  \\
+   $\null \k{~|~} \VEC{\S_1} \k{~|~}\dots \VEC{\S_n}$  & $\Rightarrow$ &
+    $ \NAVEC{\S_1} \k{~|~}\dots \NAVEC{\S_n}$ &  \\  
+\end{tabular}
 
-%
-%
-%
+Assuming that type sequences can be reordered freely, redundant types can be
+deleted, types that are subsumed by subtyping can be removed, and nullable
+types can be introduced to replace \null.
+
 \subsection{Checking types signatures with contracts}
 
 \contractr is an R package that implements our type system for the R
@@ -1556,7 +1545,6 @@ In other words, our type language appears to match with programmer intuitions: h
 \section{Conclusion}
 
 \ldots
-
 
 
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
