@@ -608,32 +608,38 @@ signature.  The shape of the infered function signatures is:
 \FUN{ T_{1,1} \k{~|~} T_{1,i}, \dots, T_{n,1} \k{~|~} T_{n,j}}{T_1\k{~|~} T_k}
 \medskip
 
+\noindent
 In other words, we take the union of the types occurring at individual
 argument positions rather than an union of function types. Furthermore we
 apply some transformation on the types to keep the size of types in check.
 
+\medskip
 \begin{tabular}{rclll}
   \T \k{~|~} \T  & $\Rightarrow$ &  \T &  \\
   \T \k{~|~} $T'$ & $\Rightarrow$ &  \T & \it{iff} $T' <: T$  \\
+  \LIST{\T} \k{~|~} $\LIST{T'}$ & $\Rightarrow$ &  \LIST\T & \it{iff} $T' <: T$  \\
    $\null \k{~|~} \VEC{\S_1} \k{~|~}\dots \VEC{\S_n}$  & $\Rightarrow$ &
     $ \NAVEC{\S_1} \k{~|~}\dots \NAVEC{\S_n}$ &  \\  
 \end{tabular}
+\medskip
 
-Assuming that type sequences can be reordered freely, redundant types can be
-deleted, types that are subsumed by subtyping can be removed, and nullable
-types can be introduced to replace \null.
+\noindent
+Assuming that type sequences can be reordered freely, we rewrite types to
+minimize their size by removing redundant types, types that are subsumed by
+subtyping, and \null types.
 
 \subsection{Checking types signatures with contracts}
 
-\contractr is an R package that implements our type system for the R
-package ecosystem. For functions with type annotations, it adds contracts for type-checking
-arguments and results on function calls. On contract failure, it reports a type
-mismatch warning with the package name, function name, argument name, argument
-position, expected type signature, actual type signature of the value observed,
-and a stack trace for the called function. \contractr works by modifying
-function definition to insert a call to the type-checking function. When the
-modified function is called, the type-checking function is invoked on the
-modified function's arguments and return value.
+\contractr is an R package that implements our type system for the R package
+ecosystem. For functions with type annotations, it adds contracts for
+type-checking arguments and results on function calls. On contract failure,
+it reports a type mismatch warning with the package name, function name,
+argument name, argument position, expected type signature, actual type
+signature of the value observed, and a stack trace for the called
+function. \contractr works by modifying function definition to insert a call
+to the type-checking function. When the modified function is called, the
+type-checking function is invoked on the modified function's arguments and
+return value.
 
 \contractr is implemented in 434 R LOC and 2358 C++ LOC. The core
 implementation is in C++ to keep the runtime overhead low. It been designed and
@@ -657,127 +663,124 @@ a custom function with the type declaration provided as a string argument.
 %
 %
 \subsubsection{Challenges}
-Retrofitting a robust and efficient type-system as an external package in R has
-been a significant undertaking. We had to contend with the complex design
-choices of R to make it work without surprises for the end-users. We describe
-two key challenges that we faced in the development of \contractr.
-\begin{itemize}
-\item Firstly, we faced the problem of type-checking arguments in a
-  non-strict language while retaining the non-strict semantics. Recall that when a
-  function is called in R, parameters are bound to unevaluated code thunks
-  called promises~\cite{oopsla19}, instead of values which can be
-  immediately type-checked. Naively forcing promises at function call to
-  obtain a value for type-checking would violate the language semantics,
-  leading to incorrect results. To preserve the original semantics,
-  \contractr modifies the promise by wrapping the unevaluated promise
-  expression in a call to its type-checker along with the context necessary
-  to associate the promise to the function and its parameter (for failure
-  messages). The contract checking happens when the promise is evaluated,
-  either inside the function or many calls deep.  This works, but with one
-  wrinkle. GNU R has a bytecode compiler that can sometimes optimize away
-  promises; in those cases, \contractr receives values that can be
-  immediately type-checked. Non-strict semantics dictate that any
-  computation related to the argument should happen on the first use of the
-  argument. So type-checking at this point and issuing an error message
-  would violate the non-strict semantics; if this argument is never used, it
-  would be incorrect to type-check it at the beginning of call. To make this
-  work, \contractr mutates the function parameter binding to a promise that
-  wraps the argument value in a call to the type-checker, as in the previous
-  case.
-\item Secondly, we faced the problem of type-checking function return
-  value. In R, the result of a function call is the result of evaluating the
-  last expression in the function body; so an explicit return call is absent
-  from most function definitions. Thus, there could be many potential
-  sub-expressions in the function body which need to be type-checked against
-  the return type. To address this, \contractr registers the type-checker to
-  be called on the return value through a function exit hook. This hook is
-  executed in the function call's environment after it has executed. While
-  this works, we have to contend with yet another wrinkle, R interpreter can
-  perform longjumps in its C implementation, which causes active R function
-  calls on the stack to be discarded. When they are discarded, their exit
-  hooks are called, which in this case calls the registered
-  type-checker. But, these functions are in the middle of an active
-  computation, so they don't have a return value to type-check. \contractr
-  deals with this problem by allocating a unique sentinel object which
-  serves as the return value for calls that are discarded. The function call
-  exit hook does not call the type-checker if this unique value happens to
-  be the return value of the call.
-\end{itemize}
-%
-%
+Retrofitting a robust and efficient type-system as an external package in R
+has been a significant undertaking. We had to contend with the complex
+design choices of R to make it work without surprises for the end-users. We
+describe two key challenges that we faced in the development of \contractr.
+
+
+Firstly, we faced the problem of type-checking arguments in a non-strict
+language while retaining the non-strict semantics. Recall that when a
+function is called in R, parameters are bound to unevaluated code thunks
+called promises~\cite{oopsla19}, instead of values which can be immediately
+type-checked. Naively forcing promises at function call to obtain a value
+for type-checking would violate the language semantics, leading to incorrect
+results. To preserve the original semantics, \contractr modifies the promise
+by wrapping the unevaluated promise expression in a call to its type-checker
+along with the context necessary to associate the promise to the function
+and its parameter (for failure messages). The contract checking happens when
+the promise is evaluated, either inside the function or many calls deep.
+This works, but with one wrinkle. GNU R has a bytecode compiler that can
+sometimes optimize away promises; in those cases, \contractr receives values
+that can be immediately type-checked. Non-strict semantics dictate that any
+computation related to the argument should happen on the first use of the
+argument. So type-checking at this point and issuing an error message would
+violate the non-strict semantics; if this argument is never used, it would
+be incorrect to type-check it at the beginning of call. To make this work,
+\contractr mutates the function parameter binding to a promise that wraps
+the argument value in a call to the type-checker, as in the previous case.
+
+
+Secondly, we faced the problem of type-checking function return value. In R,
+the result of a function call is the result of evaluating the last
+expression in the function body; so an explicit return call is absent from
+most function definitions. Thus, there could be many potential
+sub-expressions in the function body which need to be type-checked against
+the return type. To address this, \contractr registers the type-checker to
+be called on the return value through a function exit hook. This hook is
+executed in the function call's environment after it has executed. While
+this works, we have to contend with yet another wrinkle, R interpreter can
+perform longjumps in its C implementation, which causes active R function
+calls on the stack to be discarded. When they are discarded, their exit
+hooks are called, which in this case calls the registered type-checker. But,
+these functions are in the middle of an active computation, so they don't
+have a return value to type-check. \contractr deals with this problem by
+allocating a unique sentinel object which serves as the return value for
+calls that are discarded. The function call exit hook does not call the
+type-checker if this unique value happens to be the return value of the
+call.
+
 \subsubsection{Usability}
 With \contractr, we aim to provide a hassle-free path to the R developers
 for adding types to untyped package code. Hence, we have paid a lot of
 attention towards usability in its design. We discuss three such usability
 features.
-\begin{itemize}
 
-\item \contractr enables automatic type-checking on importing without any
-  user intervention. Just running \code{library(contractr)} R code is enough
-  to insert contracts, both, in packages pre-loaded in the user's workspace,
-  and, in packages that will be loaded eventually. To achieve this
-  automation, \contractr relies heavily on R's reflective and dynamic
-  capabilities. On loading, \contractr scans all the pre-loaded packages in
-  the user's workspace and inserts contracts in functions for which type
-  signatures are available. For all other packages installed on user's
-  machine but not yet loaded in the workspace, \contractr sets up package
-  load hooks which are executed by R when those packages are loaded. The
-  hook registered by \contractr insert contracts to those package's
-  functions. Thus, developers and users do not have to call the \contractr
-  API to enable type-checking for packages at any point of their programming
-  workflow. Furthermore, \contractr automatically removes contracts from all
-  the package functions and restores them to their original state when it is
-  unloaded, an operation that is rarely performed, but useful in interactive
-  settings.
 
-\item \contractr enables package authors to supply type declarations for
-  their package without requiring package code modifications. Type
-  declarations can be written alongside a \code{@type} section inside
-  \roxygen function comment blocks. \roxygen is an R package that enables
-  authors to add documentation to R functions in the form of organized
-  plaintext sections which are automatically exported to R's latex style
-  custom documentation format.  \roxygen is a widely adopted package, used
-  by over XXX R packages in CRAN. It provides an extension API for adding
-  custom documentation tag sections in comment blocks. The sections are
-  processed by \roxygen before package build step and a registered method
-  for each custom tag section is invoked with the section data and
-  documented object. \contractr uses this mechanism to register a hook for a
-  custom \code{@type} tag. This hook parses the type declarations from the
-  \code{@type} sections, extracts the function name from the documented
-  function definition, and stores them in a TYPEDECLARATION file inside the
-  package folder. This files is copied verbatim on package installation and
-  picked up \contractr when the package is loaded. Here is an example of how
-  a roxygen code block looks like with our type declaration:
+\contractr enables automatic type-checking on importing without any user
+intervention. Just running \code{library(contractr)} R code is enough to
+insert contracts, both, in packages pre-loaded in the user's workspace, and,
+in packages that will be loaded eventually. To achieve this automation,
+\contractr relies heavily on R's reflective and dynamic capabilities. On
+loading, \contractr scans all the pre-loaded packages in the user's
+workspace and inserts contracts in functions for which type signatures are
+available. For all other packages installed on user's machine but not yet
+loaded in the workspace, \contractr sets up package load hooks which are
+executed by R when those packages are loaded. The hook registered by
+\contractr insert contracts to those package's functions. Thus, developers
+and users do not have to call the \contractr API to enable type-checking for
+packages at any point of their programming workflow. Furthermore, \contractr
+automatically removes contracts from all the package functions and restores
+them to their original state when it is unloaded, an operation that is
+rarely performed, but useful in interactive settings.
 
-  This feature enables a function and its type signature to coexist next to each
-  other, where they are more likely to remain synchronized. Furthermore, the
-  \contractr hook can also add the function's type declaration to its
-  documentation, which seamlessly integrate our type system with the existing R
-  tooling.
+\contractr enables package authors to supply type declarations for their
+package without requiring package code modifications. Type declarations can
+be written alongside a \code{@type} section inside \roxygen function comment
+blocks. \roxygen is an R package that enables authors to add documentation
+to R functions in the form of organized plaintext sections which are
+automatically exported to R's latex style custom documentation format.
+\roxygen is a widely adopted package, used by over XXX R packages in
+CRAN. It provides an extension API for adding custom documentation tag
+sections in comment blocks. The sections are processed by \roxygen before
+package build step and a registered method for each custom tag section is
+invoked with the section data and documented object. \contractr uses this
+mechanism to register a hook for a custom \code{@type} tag. This hook parses
+the type declarations from the \code{@type} sections, extracts the function
+name from the documented function definition, and stores them in a
+TYPEDECLARATION file inside the package folder. This files is copied
+verbatim on package installation and picked up \contractr when the package
+is loaded. Here is an example of how a roxygen code block looks like with
+our type declaration:
+
+This feature enables a function and its type signature to coexist next to
+each other, where they are more likely to remain synchronized. Furthermore,
+the \contractr hook can also add the function's type declaration to its
+documentation, which seamlessly integrate our type system with the existing
+R tooling.
   
-\item \contractr provides a very expressive API to the users, covering a
-  variety of uses cases. During interactive development, developers can
-  explicitly insert contracts by supplying the type declaration as a string
-  argument to the \code{insert\_contract} API function. Conversely,
-  contracts can be removed by calling the \code{remove\_contract} API on
-  functions. Contracts can be selectively enabled or disabled for code
-  blocks by wrapping them in calls to \code{ignore\_contracts} and
-  \code{capture\_contracts} functions. This enables selective type-checking
-  of code section during the development phase.  Furthermore, these
-  functions return a data frame that contains all the information about
-  failed and successful contract assertions in the wrapped code blocks. This
-  is useful for post-hoc investigation. Multiple type-checking failures can
-  introduce a lot of noise in the program output. To alleviate this problem,
-  \code{contractr.severity} option can be set to \code{'silence'}.  This
-  suppresses failure messages but \contractr still performs type-checking
-  whose results can be explicitly obtained as a data frame from the
-  \code{get\_contracts} API function. R suppresses printing of warnings on
-  the terminal when a function issues too many warnings. This can hide
-  type-checking failure messages. Setting \code{contractr.severity} flag to
-  \code{'error'} turns the type-checking failure warnings to errors, which
-  halts the program at the point of contract failure.
+\contractr provides a very expressive API to the users, covering a variety
+of uses cases. During interactive development, developers can explicitly
+insert contracts by supplying the type declaration as a string argument to
+the \code{insert\_contract} API function. Conversely, contracts can be
+removed by calling the \code{remove\_contract} API on functions. Contracts
+can be selectively enabled or disabled for code blocks by wrapping them in
+calls to \code{ignore\_contracts} and \code{capture\_contracts}
+functions. This enables selective type-checking of code section during the
+development phase.  Furthermore, these functions return a data frame that
+contains all the information about failed and successful contract assertions
+in the wrapped code blocks. This is useful for post-hoc
+investigation. Multiple type-checking failures can introduce a lot of noise
+in the program output. To alleviate this problem, \code{contractr.severity}
+option can be set to \code{'silence'}.  This suppresses failure messages but
+\contractr still performs type-checking whose results can be explicitly
+obtained as a data frame from the \code{get\_contracts} API function. R
+suppresses printing of warnings on the terminal when a function issues too
+many warnings. This can hide type-checking failure messages. Setting
+\code{contractr.severity} flag to \code{'error'} turns the type-checking
+failure warnings to errors, which halts the program at the point of contract
+failure.
 
-\end{itemize}
 
 While \contractr's primary logic has been implemented in C++, we have not
 observed a single segfault during our use of the package, either during the
