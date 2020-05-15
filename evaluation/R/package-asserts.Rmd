@@ -1,5 +1,5 @@
 ---
-title: "Runtime checks"
+title: "Package asserts"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -23,7 +23,7 @@ create_tags(path(TAGS_DIR, "package-asserts.tex"), prefix="", default=TRUE)
 
 ## Setup
 
-The `r RUNTIME_CHECKS` file contains information about the use of assertions across packages.
+The `r CRAN_ASSERTS` file contains information about the use of assertions across packages.
 To generate it, run the following:
 
 ```
@@ -46,76 +46,173 @@ to generate the CSV file.
 
 ## Data
 
-```{r load run}
-run <- read_csv(RUNTIME_CHECKS_RUN)
-run <- semi_join(run, CORPUS_PACKAGES_DF, by=c("job"="package"))
+```{r load corpus}
+corpus <- read_csv(CORPUS_DETAILS)
 ```
 
-```{r check run packages}
-#stopifnot(nrow(run) == nrow(CORPUS_PACKAGES_DF))
+```{r load asserts}
+cran_asserts <- read_csv(CRAN_ASSERTS)
+corpus_asserts <- semi_join(cran_asserts, corpus, by="package")
 ```
 
-```{r load runtime checks}
-runtime_checks <- read_csv(RUNTIME_CHECKS)
-runtime_checks <- semi_join(runtime_checks, CORPUS_PACKAGES_DF, by="package")
-```
-
-## Analysis
-
-### By package
+## Typeable and partially typeable
 
 ```{r}
-per_package <- count(runtime_checks, package)
-```
-
-```{r}
-per_package %>%
-  arrange(desc(n)) %>%
-  datatable()
-```
-
-```{r}
-ggplot(per_package, aes(n)) + geom_histogram(binwidth = 1)
-```
-
-### By package function
-
-```{r}
-per_package_fun <- count(runtime_checks, package, fun_name)
-```
-
-```{r}
-per_package_fun %>%
-  arrange(desc(n)) %>%
-  datatable()
-```
-
-```{r}
-ggplot(per_package_fun, aes(n)) + geom_histogram(binwidth = 1)
-```
-
-### By asertion function
-
-```{r}
-per_assert <- count(runtime_checks, assert)
-```
-
-```{r}
-per_assert %>%
-  arrange(desc(n)) %>%
-  datatable()
-```
-
-## Raw data
-
-```{r}
-datatable(
-  runtime_checks, 
-  filter="top", 
-  options=list(
-    pageLength=50,
-    autoWidth=TRUE
-  )
+TYPE_FUNS <- c(
+  "is.array",
+  "is.atomic",
+  "is.call",
+  "is.character",
+  "is.complex",
+  "is.data.frame",
+  "is.data.table",
+  "is.double",
+  "is.environment",
+  "is.factor",
+  "is.function",
+  "is.integer",
+  "is.language",
+  "is.list",
+  "is.logical",
+  "is.matrix",
+  "is.name",
+  "is.numeric",
+  "is.primitive",
+  "is.symbol",
+  "is.raw",
+  "is.vector",
+  
+  "is.na",
+  "is.null",
+  
+  "inherits",
+  "is",
+  "extends",
+  
+  # from desc package
+  "is_bool",
+  "is_call",
+  "is_character",
+  "is_formula",
+  "is_list",
+  "is_logical",
+  "is_null",
+  "is_string",
+  "is_scalar_character",
+  "is_scalar_logical",
+  "has_no_na",
+  "is_string_or_null"
 )
+
+AUX_FUNS <- c(
+  "stopifnot",
+  "|",
+  "||",
+  "&",
+  "&&",
+  "!",
+  "("
+)
+
+remove_type_asserts <- function(x, simplify=FALSE) {
+  ret <- if (!is.call(x)) {
+    x
+  } else {
+    fun <- as.character(x[[1]])
+    if (fun == "==" || fun == "!=") {
+      if (is.call(x[[2]]) && x[[2]][[1]] == "length" && (x[[3]] == 1 || x[[3]] == 1L)) {
+        NULL
+      } else {
+        x
+      }
+    } else if (any(fun %in% AUX_FUNS)) {
+      args <- map(x[-1], remove_type_asserts, simplify=simplify)
+      if (is.null(unlist(args))) {
+        NULL
+      } else if (any(sapply(args, is.null)) && simplify) {
+          NULL
+      } else {
+          x
+      }
+    } else if (any(fun %in% TYPE_FUNS)) {
+      NULL
+    } else {
+      x
+    }
+  }
+  
+  if (is.list(ret)) {
+    ret[[1]]
+  } else {
+    ret
+  }
+}
+
+remove_type_asserts(quote(stopifnot(is.integer(x) && is.character2(x))))
+remove_type_asserts(quote(stopifnot(is.integer(x) && is.character2(x))), simplify = T)
+
+remove_type_asserts(quote(stopifnot(is.integer(x) | is.character(x))))
+remove_type_asserts(quote(stopifnot(length(x) == 1)))
+remove_type_asserts(quote(stopifnot(length(x) == 1L)))
 ```
 
+
+```{r}
+remove_type_asserts_from_args <- function(args, simplify=FALSE) {
+  args %>%
+  map(~str_c("stopifnot(", ., ")")) %>%
+  map(~tryCatch(parse(text=.)[[1]], error=function(e) { message("Unable to parse: ",., " : ", e$message); NA })) %>%
+  map(~remove_type_asserts(., simplify=simplify)) %>%
+  map(~is.null(.))
+}
+
+remove_type_asserts_from_df <- function(df) {
+  df %>%
+  mutate(
+    typed=unlist(remove_type_asserts_from_args(args)),
+    partially_typed=unlist(remove_type_asserts_from_args(args, TRUE))
+  )
+}
+
+# df %>%
+#   filter(!partially_typed) %>%
+#   select(package, fun_name, args) %>%
+#  View()
+```
+
+```{r}
+summary_asserts <- function(df, prefix) {
+  df <- remove_type_asserts_from_df(df)
+  typed <- filter(df, typed)
+  partially_typed <- filter(df, partially_typed)
+  
+  overview_table(
+    r(paste(prefix, "asserts"), df),
+    r(paste(prefix, "asserts in packages"), count(df, package)),
+    r(paste(prefix, "asserts in functions"), count(df, fun_name)),
+    r(paste(prefix, "stopifnot ratio"), ratio(filter(df, assert=="stopifnot"), df)),
+    
+    r(paste(prefix, "typed asserts"), typed),
+    r(paste(prefix, "typed asserts ratio"), ratio(typed, df)),
+    r(paste(prefix, "typed asserts packages"), count(typed, package)),
+    r(paste(prefix, "typed asserts packages ratio"), ratio(count(typed, package), count(df, package))),
+    r(paste(prefix, "typed asserts functions"), count(typed, fun_name)),
+    r(paste(prefix, "typed asserts functions ration"), ratio(count(typed, fun_name), count(df, fun_name))),
+  
+    r(paste(prefix, "partially typed asserts"), partially_typed),
+    r(paste(prefix, "partially typed asserts ratio"), ratio(partially_typed, df)),
+    r(paste(prefix, "partially typed asserts packages"), count(partially_typed, package)),
+    r(paste(prefix, "partially typed asserts packages ratio"), ratio(count(partially_typed, package), count(df, package))),
+    r(paste(prefix, "partially typed asserts functions"), count(partially_typed, fun_name)),
+    r(paste(prefix, "partially typed asserts functions ration"), ratio(count(partially_typed, fun_name), count(df, fun_name))),
+  )
+}
+```
+
+```{r summary for cran}
+summary_asserts(cran_asserts, "cran")
+```
+
+```{r summary for corpus}
+summary_asserts(corpus_asserts, "corpus")
+```
