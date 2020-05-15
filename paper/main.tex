@@ -461,14 +461,12 @@ motivates our design.
   & |   & \T~\k{|}\T    & \it union type \\
   & |   & \k{?} \T      & \it nullable type \\
   & |   & \FUN{A_1, ..., A_n}\T    & \it function type \\
-  & |   & \STRUCT{F_1, ..., F_n}   & \it struct type \\
   & |   & \LIST\T                  & \it list type\\
   & |   & \CLASS{ID_1, ..., ID_n}  & \it class type\vspace{5pt}\\
 \end{tabular}\end{minipage}   \hfill
 \begin{minipage}{.45\linewidth}\begin{tabular}{lclr}
 \A & ::= & \T          & \it arguments \\
    & |   & \VARGS      & \vspace{5pt} \\
-\F & ::= & \ID:~~\T & \it struct field\vspace{5pt}\\
 \V & ::= & ~\VEC\S     & \\
    & |   & \NAVEC\S    & \it na vector types \vspace{5pt}\\
 \S & ::= & \int        & \\
@@ -497,6 +495,13 @@ guarantee to be \NA-free (\VEC\int).  A \NA-free vector can be treated as a
 vector that may have missing observations.  We do not allow scalar values to
 be missings.
 
+\paragraph{Nullables} 
+The type system has a \null type that is inhabited by a singleton
+\code{NULL} value. This value is often used as a sentinel or as a stand in
+for arguments that were not provided.  To capture this behavior, we
+introduce a nullable type \code{?}\T.  The difference between the \NA and
+\code{NULL} values is that \NA can be stored in primitive vectors.
+
 \paragraph{Lists} Heterogeneous collections are implemented using lists.
 Lists and vectors are closely related. Any vector can be converted to a list
 with \code{as.list}, and lists to vectors with \code{unlist} (coercions may
@@ -504,153 +509,20 @@ ensue). We support parametrization of the list type, \LIST\T, but for
 heterogenous lists this type will default to \any.
 
 \paragraph{Environments}
+Environments are lists with reference semantics: mutating a value in an
+environment is performed in-place.  They are used to store variables and to
+escape from the copy-on-write semantics of other data types.  Environments
+are comprised of name, value pairs, and each environment has a reference to
+its parent environment. 
 
-Environments in R are essentially lists with reference semantics: mutating a
-value in an environment is performed in-place, and that mutation can thus be
-shared with other code holding a reference to the environment.  They are
-used primarily by the R runtime to store variables (their primary function
-is that of an execution environment), though they also often used by
-programmers either to themselves reflect on local, previous, or global
-scope, or simply because of their reference semantics.  Environments are
-comprised of name, value pairs, and each environment has a reference to its
-parent environment.
+\paragraph{Classes} 
+R has more than one notion of type. Values can be attributed, one important
+attribute is the class of a value.  A class is a list of names that are used
+to mimic object-oriented programming. The type system includes class types
+writte \CLASS{\ID_1,\dots,\ID_n} A value can have multiple classes.
 
-We thought to include detailed environment types in our type language by way
-of allowing environment types to define names and types of values in the
-environment.  Unfortunately, this led to an undue explosion in the ``size''
-of our types: often, environments had hundreds of values, particularly those
-which were obtained from R (by e.g. passing a reference to a local scope).
-These types were difficult to parse visually and did not feel informative.
-Further, environments \AT{did not occur often}, and giving them a richer
-type was not worth the increase in the visual complexity of our types.
-
-%
-%
-\paragraph{Structs}
-
-We observed the use of consistently-named lists in \AT{a number of
-  functions}.  In R, ``fields'' of named lists can be accessed using the
-\code{$} operator, as illustrated in the code snippet in
-Figure~\ref{fig:struct-ex}.
-
-\begin{figure}[htbp]
-\begin{center}
-
-\begin{lstlisting}
-agricolae::cv.model <- function(x) {
-  suma2 <- sum(x$residual^2)
-  gl <- x$df.residual
-  promedio <- mean(x$fitted.values)
-  return(sqrt(suma2/gl)*100/promedio)
-}
-
-data(sweetpotato)
-model<-aov(yield~virus, data=sweetpotato)
-cv.model(model)
-\end{lstlisting}
-
-\caption{Struct example from a test in the \code{agricolae} package.}
-\label{fig:struct-ex}
-\end{center}
-\end{figure}
-
-In the code snippet, the function \code{cv.model} takes an argument
-\code{x}, which we observed to always be a {\it linear model}, which is part
-of R's built-in statistics functionality.  Internally, linear models are
-represented as lists with named elements, and one may access these named
-elements using the \code{$} syntax, as seen on lines 2-4 in the snippet.  To
-describe these kinds of values, we included a struct type in our type
-system, allowing users to specify name, type pairs as part of list type
-definitions.
-
-Unfortunately, the inclusion of structs complicated our analysis by
-polluting the data, illustrated on line 8 with the call
-\code{data(sweetpotato)}.  It is quite common for R example code to use some
-built-in data sets, such as \code{sweetpotato}, to show off some package
-functionality with ``real data''.  When \typetracer is configured to detect
-structs we saw a marked increase in misrepresentative types, as the types of
-functions which use these data sets (such as \code{aov} in
-Figure~\ref{fig:struct-ex}) became polluted with the names from the example
-sets.  We implemented a unification strategy for struct types, removing them
-if they co-occurred with list types, and turning them into lists if two
-co-occurring struct types shared no common names, but even so we found
-ourselves with function signatures that were full of noise introduced by the
-struct names.
-
-We still believe struct types to be useful to R programmers, and so our
-language supports the type and \contractr will check them, though we
-configured \typetracer to ignore them as they made the data substantially
-less useful.  On the positive side, we found that \AT{get the number, but
-  often} structs-typed values had a {\it class}, which helped motivate our
-inclusion of class-like types in our type annotation language.  Classes are
-discussed in more detail in Section~\ref{subsec:classes}.
-
-%
-\paragraph{Classes}
-
-R has more than one notion of type.  The classes of function arguments are
-used by R as part of its dispatch mechanism, the most prevalent of which
-(\AT{we have that number, too!}) is S3 dispatch, in which R dispatches on
-the (S3) class of the first argument to a function, selecting the
-appropriate method to call for the class. 
-
-Classes are very prevalent in R \AT{number}, and so we include a
-\code{class<class-name>} ... \AT{todo} \typetracer was outfit to report the
-class of values, but some care needed to be taken so as to not overreport
-class types, as {\it all} values have a class in R.  The main classes we
-were interested in were matrix, array (higher dimensional matrices), and
-data.frames, in addition to any user-defined classes.  In many cases
-\AT{number?}, values with a user-defined class are in reality lists with
-named elements, or structs.  Including class types, and having \typetracer
-report them in place of structs, significantly reduced the noise in the
-analysis and allowed us to gather more focused data. 
-
-When set to ignore classes, \typetracer reports \AT{type} as the type of the
-function, as compared with \AT{other type} when configured to report
-classes.
-%
-A value can have multiple classes in R.  This is common practice in the
-\code{dplyr} package, which extends the functionality of data frames: a
-\code{data.frame} that passes through \code{dplyr} functions gains two
-additional classes (\code{tbl} and \code{tbl_df}), bringing the total to at
-least 3, in addition to whichever other classes that data frame happened to
-have.  Note that when looking to perform S3 dispatch, R will try to match
-{\it any} of the classes of the first argument to a dispatched function, so
-each of these classes are important.
-
-We found these so-called multi-classes to be surprisingly common, making up
-\AT{occurrence} of the occurrences of class-typed values.  One possible
-reason for this is that values can gain classes quite easily (e.g. the
-\code{dplyr} example discussed above), somewhat polluting the output of
-\typetracer.  Nevertheless, we found \AT{number} of occurrences of
-monomorphic multi-class arguments, meaning that the function was always
-called with a multi-class value in that argument position.
-
-In the end, we support these multi-class types by allowing \code{class<...>}
-types to contain a list of class names, so for instance a \code{dplyr}
-\code{tibble} would have type \code{class<data.frame, tbl, tbl_df>} in our
-type language, and when performing related contract assertions \contractr
-will check that the value has every class that make up its type.
-
-%
-\paragraph{Nullable Types}
-
-One final, common pattern that we would like to highlight is the
-co-occurrence of \code{NULL} with other types of values.  In
-Section~\ref{subsec:basictypes} we discussed NA, and how NAs represent
-missing data for the primitive types, and more generally R provides a
-\code{NULL} value that programmers use to represent missing data for other
-types.  Programmers often use \code{NULL} as a default value for function
-arguments, and the code snippet in Figure~\ref{fig:null} exemplifies this.
-
-To capture this behaviour, we introduce a nullable type \code{? T} into our
-type language and contract checking framework.  That way, programmers can
-succinctly ascribe types to null-by-default arguments (such as in the
-example in Figure~\ref{fig:null}).  This also served to reduce the number of
-polymorphic arguments we detected: Without this type, \AT{X\%} of
-polymorphic argument positions were of the form \code{null | T}.  Including
-a nullable type served to reduce observed polymorphism by \AT{Y\%}.
-
+\paragraph{Unions} We support untagged unions of types written
+$\T_1 \k{|} \T_n$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1120,44 +992,9 @@ that make this even harder.
 %
 %
 %
-\section{Type Language Design}
-\label{sec:typesystemdesign}
+\section{Left overs}
 
-Our corpora analysis reported \AT{number} call traces for over \AT{number}
-functions.  We distilled these call traces into function types which
-captured the dynamic behaviour of the functions.  We emphasize that this was
-an iterative process: initial analysis suggested a certain set of types,
-which we tried and implemented, and reanalysis suggested improvements, and
-so on.  In this section, we will present the final type annotation language
-design, which we believe captures the essence of R.  We will end the section
-with a formal type language grammar, and leading up to that we will touch on
-design decisions and weigh our choices against alternatives, speaking to the
-strengths and weaknesses of our chosen design.  We begin with basic,
-primitive types.
-
-%
-%
-%
-%
-\subsection{Basic Types}
-\label{subsec:basictypes}
-
-As discussed in Section~\ref{subsubsec:backgroundtypes}, the workhorse types
-in R are the vectorized primitives: integers, doubles, complex numbers,
-logicals (booleans), characters, and raws (bytes).  These are {\it
-  vectorized} in that they are always considered to be vectors by the R
-runtime: for instance, even ``scalar'' numbers are considered to be
-unit-length vectors to R.  These primitive vectors are homogeneous, in that
-a vector of doubles contains only doubles.
-
-Related to these primitive types is one of R's notions of ``nullness'': for
-each of the primitives, R distinguishes a special ``NA'' value which
-represents missing data.  There is an NA for each of the primitive types
-(i.e. there is a double NA, integer NA, etc.).  Thus, even homogeneous
-vectors can represent missing data with their appropriate NA value.
-
-As with everything in R, there is nuance in even the simplest cases.
-We will now discuss our design decisions relating to the vectorized primitives.
+SOME OF THIS STUFF CAN BE USED IN THE EVALUATION
 
 %
 %
@@ -1356,23 +1193,6 @@ checks up to the programmer.
 %
 %
 %
-\subsection{Lists}
-
-Separate from the vectorized primitives in R are lists: Whereas vectors are
-homogeneous and restricted to primitive types, lists can contain
-arbitrarily-typed data.  Further, lists and vectors have a different syntax
-for accessing elements, where lists are indexed using \code{[[} and vectors
-    using \code{[}.  R even builds on lists to create a more complex data
-      structure known as the {\it data frame}, an essential data structure
-      to R's functionality.
-
-We are faced with several possible designs for list types.  Chief concerns
-include the heterogeneity of list elements and the presence list element
-names, which allow list elements to be accessed in a struct-like manner.
-The next sections highlight some important design decisions for our list
-types.
-
-%
 %
 \subsubsection{Relationship Between Lists and Vectors}
 
@@ -1393,28 +1213,6 @@ arguments and vice versa, and we will discuss this further in
 Section~\ref{sec:evaluation}.
 
 %
-%
-\subsubsection{Environments}
-
-Environments in R are essentially lists with reference semantics: mutating a
-value in an environment is performed in-place, and that mutation can thus be
-shared with other code holding a reference to the environment.  They are
-used primarily by the R runtime to store variables (their primary function
-is that of an execution environment), though they also often used by
-programmers either to themselves reflect on local, previous, or global
-scope, or simply because of their reference semantics.  Environments are
-comprised of name, value pairs, and each environment has a reference to its
-parent environment.
-
-We thought to include detailed environment types in our type language by way
-of allowing environment types to define names and types of values in the
-environment.  Unfortunately, this led to an undue explosion in the ``size''
-of our types: often, environments had hundreds of values, particularly those
-which were obtained from R (by e.g. passing a reference to a local scope).
-These types were difficult to parse visually and did not feel informative.
-Further, environments \AT{did not occur often}, and giving them a richer
-type was not worth the increase in the visual complexity of our types.
-
 %
 %
 \subsubsection{Structs}
@@ -1638,188 +1436,28 @@ semantics are simple enough to be captured by our proposed design.
 
 %
 %
-%
-%
-\subsection{Parametric and Higher-Order Function Types}
-
-Functions are first-class values in R.  \typetracer found \AT{number}
-functions to be higher-order, having at least one function type among their
-arguments.  They are markedly more common in a subset of packages, such as
-\AT{such as...}.  By-and-large, these higher-order functions are similar to
-well-known higher-order functions like map, filter, and fold.
-
-The truth is that higher-order function types are best served by {\it
-  parametric types} and parametric polymorphism, wherein type variables are
-used within a type declaration to specify type-based relationships between
-function arguments.  Unfortunately, the nature of dynamic analysis is such
-that \typetracer cannot soundly detect parametric polymorphism, as without a
-static analysis of the function body it is impossible to say if function
-execution will halt given certain argument types, and we saw some examples
-of this in
-Figures~\ref{fig:scalar-vector-example}~and~\ref{fig:matrix-example}.
-Without parametric types, higher-order function types become noisy and fail
-to tell the complete picture.
-
-Ultimately, we configured \typetracer to report only top-level function
-types (i.e., detect if a value is a function or not).  \AT{The data suggests
-  that} most of the use of higher-order functions is through map-, filter-,
-and apply-like functions, whose behaviour is best captured with parametric
-polymorphism.  Other common uses include higher-order functions operating on
-data frame columns (in packages such as \code{dplyr}), which would
-necessitate a more in-depth treatment of data frame types, which as we
-discussed is a huge endeavour in and of itself.  We aim to extend our type
-annotation framework with parametric, higher-order, and detailed data frame
-types together in future work.
-
-
-%
-%
-%
-%
-\subsection{Nullable Types}
-
-One final, common pattern that we would like to highlight is the
-co-occurrence of \code{NULL} with other types of values.  In
-Section~\ref{subsec:basictypes} we discussed NA, and how NAs represent
-missing data for the primitive types, and more generally R provides a
-\code{NULL} value that programmers use to represent missing data for other
-types.  Programmers often use \code{NULL} as a default value for function
-arguments, and the code snippet in Figure~\ref{fig:null} exemplifies this.
-
-\begin{figure}[htbp]
-\begin{center}
-
-\begin{lstlisting}
-# NULL default argument example. 
-\end{lstlisting}
-
-\caption{Idiomatic NULL usage in R.}
-\label{fig:null}
-\end{center}
-\end{figure}
-
-To capture this behaviour, we introduce a nullable type \code{? T} into our
-type language and contract checking framework.  That way, programmers can
-succinctly ascribe types to null-by-default arguments (such as in the
-example in Figure~\ref{fig:null}).  This also served to reduce the number of
-polymorphic arguments we detected: Without this type, \AT{X\%} of
-polymorphic argument positions were of the form \code{null | T}.  Including
-a nullable type served to reduce observed polymorphism by \AT{Y\%}.
-
-%
-%
-%
-%
-\subsection{Final Type Grammar}
-
-Finally, Figure~\ref{fig:types} presents our final type language design, and
-the grammar of types that \contractr is equipped to handle.  \contractr will
-look for a top-level type declaration file in a package, with function types
-having the form $type \; ID \; T$, where $ID$ is the function name and $T$
-is a function type.  These function types have the form $\langle A_1 , ...,
-A_n\rangle \Rightarrow T$, where each of the $A_i$ arguments are either some
-type $T_i$, or the vararg type $...$.  Recall that functions with a vararg
-parameter (\code{...}) can be called with arbitrarily many values, and extra
-values are lumped together in the vararg $...$ value.  Internally, the type
-$...$ is implemented as a ${\bf list} \langle any \rangle$ type.
-
-We have discussed most of these types throughout this section, with some
-notable exceptions.  ${\bf expression}$, ${\bf language}$, ${\bf symbol}$,
-${\bf externalptr}$, ${\bf pairlist}$, ${\bf S4}$, and ${\bf weakref}$ types
-occur \AT{rarely}, and are by-and-large uninteresting to most R programmers.
-\AT{Fill in details of these basic types.}  One other type we did not
-discuss is the union type $T_1 \, | \, T_2$, which is supported by
-\contractr and generated by \typetracer when it cannot find some way to
-consolidate argument types (for example, if an argument is observed to be
-${\bf chr}$ and ${\bf int}$, \typetracer will ascribe type ${\bf chr} \, |
-\, {\bf int}$ to it).  And while not generated by \typetracer (recall
-discussion in Section~\ref{subsec:structs}), user-defined struct types have
-the form ${\bf struct}\langle F_1, ..., F_n \rangle$, with fields $F_i$
-being name $:$ type pairs.
-
-\label{subsec:typegrammar}
-
-\begin{figure}          % Types
-    \noindent           % Collapse for readability.
-    \centering
-    \begin{minipage}{.45\linewidth}
-    \begin{flushleft}
-    % Types
-      $ \begin{array}{lclr}
-    D & ::= & {\bf type} \; ID \; T {\bf ;}  & \text{\it type declaration}\\
-    T & ::= & {\bf null} & \text{\it unit type} \\
-      & |   & {\bf any} & \text{\it top type} \\
-      & |   & {\bf environment} & \text{\it environment type} \\
-      & |   & {\bf expression} & \text{\it expression type} \\
-      & |   & {\bf language} & \text{\it language type} \\
-      & |   & {\bf symbol} & \text{\it symbol type} \\
-      & |   & {\bf externalptr} & \text{\it externalptr type} \\
-      & |   & {\bf pairlist} & \text{\it pairlist type} \\
-      & |   & {\bf s4} & \text{\it S4 type} \\
-      & |   & {\bf weakref} & \text{\it weakref type} \\
-      & |   & S & \text{\it scalar type} \\
-      & |   & V & \text{\it vector type} \\
-      & |   & \left( T \right) & \text{\it group type} \\
-      & |   & T_1 \; {\bf |} \; T_2 & \text{\it union type} \\
-      & |   & ? \; T & \text{\it nullable type} \\
-      & |   & \langle A_1 , ..., A_n\rangle \Rightarrow T & \text{\it function type} \\
-      & |   & {\bf struct}\langle F_1, ..., F_n \rangle & \text{\it struct type} \\
-      & |   & {\bf list} \langle T \rangle & \text{\it list type}\\
-      & |   & {\bf class}\langle ID_1, ..., ID_n \rangle & \text{\it class type}\vspace{5pt}\\
-    \end{array} $
-    \end{flushleft}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{.45\linewidth}
-    \begin{flushright}
-    $ \begin{array}{lclr}
-    % Argument Types
-    A & ::= & T & \text{\it argument type} \\
-      & |   & {\bf ...} \vspace{5pt} \\
-    % Field Types
-    F & ::= & ID : T & \text{\it struct field}\vspace{5pt}\\
-    % Scalar Types
-    S & ::= & B & \text{\it scalar types} \\
-      & |   & N \vspace{5pt}\\
-    % Vector Types
-    V & ::= & S \lbrack \rbrack & \text{\it vector types} \vspace{5pt}\\
-    % Base Types
-    B & ::= & {\bf int} & \text{\it base types} \\
-      & |   & {\bf chr} \\
-      & |   & {\bf dbl} \\
-      & |   & {\bf lgl} \\
-      & |   & {\bf clx} \\
-      & |   & {\bf raw} \vspace{5pt}\\
-    % NA Types
-    N & ::= & {\bf \string^int} & \text{\it na types} \\
-      & |   & {\bf \string^chr} \\
-      & |   & {\bf \string^dbl} \\
-      & |   & {\bf \string^lgl} \\
-      & |   & {\bf \string^clx} \\
-\end{array} $
-    \end{flushright}
-    \end{minipage}
-    \caption{The R type annotation language.}
-    \label{fig:types}
-\end{figure}
-
-%
-%
-%
-%
-%
-%
 \section{Evaluation}
 \label{sec:evaluation}
 
-To evaluate the effectiveness of our type annotation language and contract checking framework, we conducted a large-scale experiment based on the corpus of 412 packages we used to inform our language design.
-This corpus represents some of the most widely used and thoroughly tested R libraries on CRAN.
+To evaluate the effectiveness of our type annotation language and contract
+checking framework, we conducted a large-scale experiment based on the
+corpus of 412 packages we used to inform our language design.  This corpus
+represents some of the most widely used and thoroughly tested R libraries on
+CRAN.
 
-We configured \typetracer to infer the types of each of the functions that are visible to package clients.
-Recall that \typetracer's primary function is to collect call signatures from observed function calls, and we ran \typetracer on the test, example, and vignette code of all packages in the aforementioned corpus.
-These call traces were consolidated into a single function type for each visible package function:
-\typetracer employs unification strategies discussed in Section~\ref{sec:typesystemdesign} to keep the size of signatures in check and only generates an \code{any} type when missing and unused arguments were recored, and when a longjump caused function execution to abort prematurely.
-The types generated by \typetracer will be analyzed in more depth in Section~\ref{subsec:stats}, and a large-scale evaluation of the quality of these types will be discussed in Section~\ref{subsec:eval}.
+We configured \typetracer to infer the types of each of the functions that
+are visible to package clients.  Recall that \typetracer's primary function
+is to collect call signatures from observed function calls, and we ran
+\typetracer on the test, example, and vignette code of all packages in the
+aforementioned corpus.  These call traces were consolidated into a single
+function type for each visible package function: \typetracer employs
+unification strategies discussed in Section~\ref{sec:typesystemdesign} to
+keep the size of signatures in check and only generates an \code{any} type
+when missing and unused arguments were recored, and when a longjump caused
+function execution to abort prematurely.  The types generated by \typetracer
+will be analyzed in more depth in Section~\ref{subsec:stats}, and a
+large-scale evaluation of the quality of these types will be discussed in
+Section~\ref{subsec:eval}.
 
 %
 %
@@ -1829,19 +1467,20 @@ The types generated by \typetracer will be analyzed in more depth in Section~\re
 \label{subsec:stats}
 
 \subsection{Is our simple type language expressive enough to type R code?} Functions in
-R can support arguments of multiple types by reflecting on the type to perform
-appropriate conversions and computations. On the one hand, this form of ad-hoc
-polymorphism makes R functions expressive; on the other hand, it requires
-support for polymorphism in the typing scheme, making the type system complex. 
-Our system lacks explicit support for polymorphism. Instead, it supports union and any
-types. A union type is inferred when values of multiple types are observed at a
-function parameter and return position. any type is inferred when an argument is
-missing or unused. Furthermore, list element types can be inferred as any if
-they have more than 5 different types. Values with many different types can
-result in a large number of alternatives in the type inferred for that position,
+R can support arguments of multiple types by reflecting on the type to
+perform appropriate conversions and computations. On the one hand, this form
+of ad-hoc polymorphism makes R functions expressive; on the other hand, it
+requires support for polymorphism in the typing scheme, making the type
+system complex.  Our system lacks explicit support for
+polymorphism. Instead, it supports union and any types. A union type is
+inferred when values of multiple types are observed at a function parameter
+and return position. any type is inferred when an argument is missing or
+unused. Furthermore, list element types can be inferred as any if they have
+more than 5 different types. Values with many different types can result in
+a large number of alternatives in the type inferred for that position,
 making it hard to read and unwieldy for end-users. To evaluate this
-''expressivity gap`' between our type inference scheme and R functions,
-we look at the number of different types in the parameter and return types of
+''expressivity gap`' between our type inference scheme and R functions, we
+look at the number of different types in the parameter and return types of
 the XXX functions in our corpus.
 
 We observe that XXX% of the positions have a single type ascribed to them. XXX%
@@ -1860,7 +1499,7 @@ character vector, and classes matrix and data.frame respectively.
 Figure 1 shows the number of alternatives in the inferred type of function
 parameter and return values.
 
-XXX% of the parameter positions are monomorphic. 
+XXX\% of the parameter positions are monomorphic. 
 \typetracer observes XXX calls to XXX functions with XXX arguments. This
 translates to XXX parameters and XXX return types. 
 A parameter or return type is  from unioning all the distinct observed types of 
@@ -1888,10 +1527,11 @@ XXXX expression types, XXXX pairlist types and lastly, XXX externalptr types.
 
 
 
-
-
-We analyzed the type signatures generated by \typetracer in order to build up a profile of our type annotation language.
-We were interested in broad, high-level information, such as the distribution of generated types, the level of polymorphism observed in the types, and the distribution of sizes of union types.
+We analyzed the type signatures generated by \typetracer in order to build
+up a profile of our type annotation language.  We were interested in broad,
+high-level information, such as the distribution of generated types, the
+level of polymorphism observed in the types, and the distribution of sizes
+of union types.
 
 %
 %
