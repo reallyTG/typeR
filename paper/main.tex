@@ -209,8 +209,31 @@ In this section, we will introduce related work and the R programming language.
 
 \subsection{Related Work}
 
+Dynamic programming languages such as Racket, JavaScript and PHP have been
+extended post-facto with various static type systems.  In each case, the
+type system was carefully engineered to match the salient characteristics of
+the host languages and to foster a particular programming style. For
+example, Typed Racket emphasizes functional programming and support the
+migration from untyped to fully typed code~\cite{tf-popl08},
+Hack~\cite{hack13} and TypeScript~\cite{BAT14} focus on typing
+object-oriented features of PHP and JavaScript, respectively. They allow to
+intersperse typed and untyped code in a fine-grained manner.
 
-%
+But what if the design of the type system is unclear?  \citet{tip} propose
+an intriguing approach called trace typing. With trace typing, a new type
+system can be prototyped and evaluated by applying the type rule to
+execution traces of programs. While the appraoch has the limitation of
+dynamic analysis techniques, namely that the results are only as good at the
+coverage of the source code, it allows to quickly test new design and
+quantify how much of a code base can be type-checked.  Other approaches that
+infer types for dynamic analysis include the work of \citet{FurrAF2009} for
+Ruby.
+
+There is no previous work for the R programming language. We take
+inspiration in the above mentionned works but focus on adapting them to our
+target language.
+
+
 %
 \subsection{The R Programming Language}
 
