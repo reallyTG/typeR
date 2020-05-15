@@ -93,6 +93,10 @@ overview_table(
 
 ```{r summary}
 summary_corpus <- function(df, prefix) {
+  w_coverage <- filter(df, coverage_expr > 0)
+  w_revdeps <- filter(df, revdeps > 0)
+  w_runnable <- filter(df, !is.na(runnable_time))
+  
   overview_table(
     r(paste(prefix, "cran"), df),
     r(paste(prefix, "installed"), filter(df, installed)),
@@ -104,9 +108,9 @@ summary_corpus <- function(df, prefix) {
     r(paste(prefix, "tests code"), sum(df$runnable_code_tests, na.rm=T)),
     r(paste(prefix, "vignettes code"), sum(df$runnable_code_vignettes , na.rm=T)),
     
-    r(paste(prefix, "with coverage"), filter(df, coverage_expr > 0)),
-    r(paste(prefix, "mean expr coverage"), percent(mean(df$coverage_expr, na.rm=T))),
-    r(paste(prefix, "median expr coverage"), percent(median(df$coverage_expr, na.rm=T))),
+    r(paste(prefix, "with coverage"), w_coverage),
+    r(paste(prefix, "mean expr coverage"), percent(mean(w_coverage))),
+    r(paste(prefix, "median expr coverage"), percent(median(w_coverage))),
   
     r(paste(prefix, "with R code"), filter(df, package_r_code > 0)),
     r(paste(prefix, "R code"), sum(df$package_r_code, na.rm=T)),
@@ -121,14 +125,16 @@ summary_corpus <- function(df, prefix) {
     r(paste(prefix, "public functions"), sum(df$funs_public, na.rm=T)),
     r(paste(prefix, "private functions"), sum(df$funs_private, na.rm=T)),
     
-    r(paste(prefix, "mean revdes"), mean(df$revdeps, na.rm=T)),
-    r(paste(prefix, "median revdes"), median(df$revdeps, na.rm=T)),
+    r(paste(prefix, "w revdes"), w_revdeps),
+    r(paste(prefix, "mean revdes"), mean(w_revdeps)),
+    r(paste(prefix, "median revdes"), median(w_revdeps)),
+    r(paste(prefix, "at least min revdep"), filter(w_revdeps, revdeps >= params$min_revdeps)),
     
-    r(paste(prefix, "runtime"), as.duration(sum(df$runnable_time, na.rm=T))),
-    r(paste(prefix, "mean runtime"), as.duration(mean(df$runnable_time, na.rm=T))),
-    r(paste(prefix, "median runtime"), as.duration(median(df$runnable_time, na.rm=T))),
+    r(paste(prefix, "runtime"), as.duration(sum(w_runnable$runnable_time))),
+    r(paste(prefix, "mean runtime"), as.duration(mean(w_runnable$runnable_time))),
+    r(paste(prefix, "median runtime"), as.duration(median(w_runnable$runnable_time))),
     
-    r(paste(prefix, "using roxygen"), sum(df$uses_roxygen, na.rm=T))
+    r(paste(prefix, "using roxygen"), sum(df$uses_roxygen, na.rm=T)),
   )
 }
 
@@ -344,3 +350,4 @@ filter(df_top_cran, package %in% missed_top_cran_packages) %>%
 ```
 
 The main reason is that we use R 3.5. Some key dependencies such as Hmisc are no longer available.
+
