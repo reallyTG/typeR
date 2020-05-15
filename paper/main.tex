@@ -675,50 +675,31 @@ type-checking so that results can be obtained by calling
 \code{'error'} turns the type-checking warnings to errors and
 halt the program.
 
-Firstly, we faced the problem of type-checking arguments in a non-strict
-language while retaining the non-strict semantics. Recall that when a
-function is called in R, parameters are bound to unevaluated code thunks
-called promises~\cite{oopsla19}, instead of values which can be immediately
-type-checked. Naively forcing promises at function call to obtain a value
-for type-checking would violate the language semantics, leading to incorrect
-results. To preserve the original semantics, \contractr modifies the promise
-by wrapping the unevaluated promise expression in a call to its type-checker
-along with the context necessary to associate the promise to the function
-and its parameter (for failure messages). The contract checking happens when
-the promise is evaluated, either inside the function or many calls deep.
-This works, but with one wrinkle. GNU R has a bytecode compiler that can
-sometimes optimize away promises; in those cases, \contractr receives values
-that can be immediately type-checked. Non-strict semantics dictate that any
-computation related to the argument should happen on the first use of the
-argument. So type-checking at this point and issuing an error message would
-violate the non-strict semantics; if this argument is never used, it would
-be incorrect to type-check it at the beginning of call. To make this work,
-\contractr mutates the function parameter binding to a promise that wraps
-the argument value in a call to the type-checker, as in the previous case.
+\paragraph{Checking the values} A number of properties can be checked
+by a simple tag check, namely wether a value is a: null, environment, vector
+or scalar. Other properties require an inspection of the contents of a
+value: the absence of \NA or the type of the elements of list. Union types
+require checking for each of the alternatives. We do not check higher-order
+functions in this version of the tool.
 
+When argument values are wrapped in promises (this is not always the case
+due to compiler optimizations), in order to retain the non-strict semantics
+of R, the expression held in the promise is wrapped in a call to the type
+checker, and type checking is delayed until the promise is forced. This
+leads to corner cases such that the type checking of a function may happen
+after that function has returned.
 
-Secondly, we faced the problem of type-checking function return value. In R,
-the result of a function call is the result of evaluating the last
-expression in the function body; so an explicit return call is absent from
-most function definitions. Thus, there could be many potential
-sub-expressions in the function body which need to be type-checked against
-the return type. To address this, \contractr registers the type-checker to
-be called on the return value through a function exit hook. This hook is
-executed in the function call's environment after it has executed. While
-this works, we have to contend with yet another wrinkle, R interpreter can
-perform longjumps in its C implementation, which causes active R function
-calls on the stack to be discarded. When they are discarded, their exit
-hooks are called, which in this case calls the registered type-checker. But,
-these functions are in the middle of an active computation, so they don't
-have a return value to type-check. \contractr deals with this problem by
-allocating a unique sentinel object which serves as the return value for
-calls that are discarded. The function call exit hook does not call the
-type-checker if this unique value happens to be the return value of the
-call.
+Return values require care as well.  Functions return the last expression
+they evaluate, thus to avoid having to analyze the code of the called
+function the checker will register a callback on the exit hook. The hook is
+executed in the function call's environment. Another wrinkle is due to
+longjumps which causes active function calls on the stack to be
+discarded. When they are discarded, their exit hooks are called.  But, these
+function do not have a return value to type-check. \contractr deals with
+this problem by allocating a unique sentinel object which serves as the
+return value for calls that are discarded. The exit hook does not call the
+type-checker if it see the sentinel.
 
-
-
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
