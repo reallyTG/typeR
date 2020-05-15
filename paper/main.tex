@@ -60,37 +60,44 @@
 \newcommand{\attr}[2]{\ensuremath{#1_{\mathtt{#2}}}\xspace}
 \newcommand{\attrclass}[3]{\ensuremath{#1^{\mathtt{#3}}_{\mathtt{#2}}}\xspace}
 \renewcommand{\to}{\ensuremath{\rightarrow}\xspace}
-\newcommand{\D}{\ensuremath{\small\vec{\mathtt D}}\xspace} % Double
-\newcommand{\I}{\ensuremath{\small\vec{\mathtt I}}\xspace} % Integer
-\renewcommand{\C}{\ensuremath{\small\vec{\mathtt C}}\xspace} % Character
-\renewcommand{\L}{\ensuremath{\small\vec{\mathtt L}}\xspace} % Logical
-\newcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
-\newcommand{\X}{\ensuremath{\small\vec{\mathtt X}}\xspace} % Complex
-\newcommand{\Y}{\ensuremath{\small\vec{\mathtt Y}}\xspace} % Symbol
-\newcommand{\sY}{\ensuremath{\small{\mathtt Y}}\xspace} % Symbol
-\newcommand{\sS}{\ensuremath{\small{\mathtt S}}\xspace} % S4
-\newcommand{\sF}{\ensuremath{\small{\mathtt F}}\xspace} % Closure
-\newcommand{\sE}{\ensuremath{\small{\mathtt E}}\xspace} % Env
-\renewcommand{\R}{\ensuremath{\small\vec{\mathtt R}}\xspace} % Raw
-\newcommand{\sN}{\ensuremath{\small{\mathtt N}}\xspace}     % Null
-%\renewcommand{\l}{\ensuremath{\small L<?>}\xspace}     % List
-\renewcommand{\l}{\ensuremath{\small\underline{\mathtt ?}}\xspace}     % List
-\newcommand{\sD}{\ensuremath{\small{\mathtt D}}\xspace} % Double
-\newcommand{\sI}{\ensuremath{\small{\mathtt I}}\xspace} % Integer
-\newcommand{\sC}{\ensuremath{\small{\mathtt C}}\xspace} % Character
-\newcommand{\sL}{\ensuremath{\small{\mathtt L}}\xspace} % Logical
-\newcommand{\sX}{\ensuremath{\small{\mathtt X}}\xspace} % Complex
-\newcommand{\sR}{\ensuremath{\small{\mathtt R}}\xspace} % Raw
-\newcommand{\ANY}{\ensuremath{\small{\mathtt ?}}\xspace}     % Any
-\newcommand{\lT}[1]{\ensuremath{\small\underline{\mathtt{#1}}}\xspace}     % list<T>
-\newcommand{\M}[1]{\ensuremath{\attr{\vec{\tt #1}}{mat}}\xspace}     % matrix
-\newcommand{\df}{\ensuremath{\attr{\l}{df}}\xspace}     % data.frame
 
-\newcommand{\contractr}{\emph{contractr}\xspace} % contractr
-\newcommand{\roxygen}{\emph{roxygen2}\xspace} % roxygen
-\newcommand{\typetracer}{\emph{typetracer}\xspace} % typetracer
-\newcommand{\rdt}{\emph{R-dyntrace}\xspace}
-\newcommand{\covr}{\emph{covr}\xspace}
+
+\renewcommand{\null}{\texttt{\textbf{null}}\xspace}
+\newcommand{\any}{\texttt{\textbf{any}}\xspace}
+\newcommand{\environment}{\texttt{\textbf{envir}}\xspace}
+\newcommand{\expression}{\texttt{\textbf{expression}}\xspace}
+\newcommand{\Language}{\texttt{\textbf{lang}}\xspace} %% Upper case!
+\newcommand{\externalptr}{\texttt{\textbf{externalptr}}\xspace}
+\renewcommand{\symbol}{\texttt{\textbf{symbol}}\xspace}
+\newcommand{\pairlist}{\texttt{\textbf{pairlist}}\xspace}
+\newcommand{\weakref}{\texttt{\textbf{weakref}}\xspace}
+\renewcommand{\int}{\texttt{\textbf{int}}\xspace}
+\newcommand{\chr}{\texttt{\textbf{chr}}\xspace}
+\newcommand{\dbl}{\texttt{\textbf{dbl}}\xspace}
+\newcommand{\lgl}{\texttt{\textbf{lgl}}\xspace}
+\newcommand{\clx}{\texttt{\textbf{clx}}\xspace}
+\newcommand{\raw}{\texttt{\textbf{raw}}\xspace}
+\newcommand{\NA}{\texttt{{NA}}\xspace}
+\newcommand{\VARGS}{\texttt{\textbf{...}}\xspace}
+\newcommand{\T}{\ensuremath{T}\xspace}
+\renewcommand{\S}{\ensuremath{S}\xspace}
+\newcommand{\V}{\ensuremath{V}\xspace}
+\newcommand{\A}{\ensuremath{A}\xspace}
+\newcommand{\ID}{\ensuremath{ID}\xspace}
+\newcommand{\F}{\ensuremath{F}\xspace}
+\newcommand{\B}{\ensuremath{B}\xspace}
+\newcommand{\FUN}[2]{\ensuremath{\langle #1 \rangle \rightarrow #2}\xspace}
+\newcommand{\STRUCT}[1]{\texttt{\textbf{struct}}\ensuremath{\langle #1\rangle}\xspace}
+\newcommand{\LIST}[1]{\texttt{\textbf{list}}\ensuremath{\langle #1\rangle}\xspace}
+\newcommand{\CLASS}[1]{\texttt{\textbf{class}}\ensuremath{\langle #1\rangle}\xspace}
+\newcommand{\VEC}[1]{#1\k{[]}\xspace}
+\newcommand{\NAVEC}[1]{\k{\string^}\!#1\k{[]}\xspace}
+
+\newcommand{\contractr}{{\sf ContractR}\xspace} % contractr
+\newcommand{\roxygen}{{\sf Roxygen2}\xspace} % roxygen
+\newcommand{\typetracer}{{\sf Typetracer}\xspace} % typetracer
+\newcommand{\rdt}{{\sf R-dyntrace}\xspace}
+\newcommand{\covr}{{\sf Covr}\xspace}
 
 \input{corpus.tex}
 
@@ -404,39 +411,8 @@ ktype \k{NULL}, instance of classes written using the S4 object system,
 closures and environments.  The implementation of R has a number of other
 types listed in Figure~\ref{rtypes} for reference.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Design A Type Language for R}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\renewcommand{\null}{\texttt{\textbf{null}}\xspace}
-\newcommand{\any}{\texttt{\textbf{any}}\xspace}
-\newcommand{\environment}{\texttt{\textbf{envir}}\xspace}
-\newcommand{\expression}{\texttt{\textbf{expression}}\xspace}
-\newcommand{\Language}{\texttt{\textbf{lang}}\xspace} %% Upper case!
-\newcommand{\externalptr}{\texttt{\textbf{externalptr}}\xspace}
-\renewcommand{\symbol}{\texttt{\textbf{symbol}}\xspace}
-\newcommand{\pairlist}{\texttt{\textbf{pairlist}}\xspace}
-\newcommand{\weakref}{\texttt{\textbf{weakref}}\xspace}
-\renewcommand{\int}{\texttt{\textbf{int}}\xspace}
-\newcommand{\chr}{\texttt{\textbf{chr}}\xspace}
-\newcommand{\dbl}{\texttt{\textbf{dbl}}\xspace}
-\newcommand{\lgl}{\texttt{\textbf{lgl}}\xspace}
-\newcommand{\clx}{\texttt{\textbf{clx}}\xspace}
-\newcommand{\raw}{\texttt{\textbf{raw}}\xspace}
-\newcommand{\NA}{\texttt{{NA}}\xspace}
-\newcommand{\VARGS}{\texttt{\textbf{...}}\xspace}
-\newcommand{\T}{\ensuremath{T}\xspace}
-\renewcommand{\S}{\ensuremath{S}\xspace}
-\newcommand{\V}{\ensuremath{V}\xspace}
-\newcommand{\A}{\ensuremath{A}\xspace}
-\newcommand{\ID}{\ensuremath{ID}\xspace}
-\newcommand{\F}{\ensuremath{F}\xspace}
-\newcommand{\B}{\ensuremath{B}\xspace}
-\newcommand{\FUN}[2]{\ensuremath{\langle #1 \rangle \rightarrow #2}\xspace}
-\newcommand{\STRUCT}[1]{\texttt{\textbf{struct}}\ensuremath{\langle #1\rangle}\xspace}
-\newcommand{\LIST}[1]{\texttt{\textbf{list}}\ensuremath{\langle #1\rangle}\xspace}
-\newcommand{\CLASS}[1]{\texttt{\textbf{class}}\ensuremath{\langle #1\rangle}\xspace}
-\newcommand{\VEC}[1]{#1\k{[]}\xspace}
-\newcommand{\NAVEC}[1]{\k{\string^}\!#1\k{[]}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Designing A Type Language for R}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 This section sets out to propose a candidate design for a type language that
@@ -495,6 +471,9 @@ guarantee to be \NA-free (\VEC\int).  A \NA-free vector can be treated as a
 vector that may have missing observations.  We do not allow scalar values to
 be missings.  The type \raw does not allow {\NA}s.
 
+\paragraph{Unions} We support untagged unions of types written
+$\T_1 \k{|} \T_n$.
+
 \paragraph{Nullables} 
 The type system has a \null type that is inhabited by a singleton
 \code{NULL} value. This value is often used as a sentinel or as a stand in
@@ -508,6 +487,12 @@ with \code{as.list}, and lists to vectors with \code{unlist} (coercions may
 ensue). We support parametrization of the list type, \LIST\T, but for
 heterogenous lists this type will default to \any.
 
+\paragraph{Classes} 
+R has more than one notion of type. Values can be attributed, one important
+attribute is the class of a value.  A class is a list of names that are used
+to mimic object-oriented programming. The type system includes class types
+written \CLASS{\ID_1,\dots,\ID_n}.
+
 \paragraph{Environments}
 Environments are lists with reference semantics: mutating a value in an
 environment is performed in-place.  They are used to store variables and to
@@ -515,110 +500,71 @@ escape from the copy-on-write semantics of other data types.  Environments
 are comprised of name, value pairs, and each environment has a reference to
 its parent environment. 
 
-\paragraph{Classes} 
-R has more than one notion of type. Values can be attributed, one important
-attribute is the class of a value.  A class is a list of names that are used
-to mimic object-oriented programming. The type system includes class types
-writte \CLASS{\ID_1,\dots,\ID_n} A value can have multiple classes.
-
-\paragraph{Unions} We support untagged unions of types written
-$\T_1 \k{|} \T_n$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-For this paper we have selected \CorpusLoadable packages consisting of
-\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
-code (C/C++/Fortran). Figure~\ref{fig:corpus} shows all the packages, the
-size of the dots reflects the size of the project in terms of both R and
-native lines of code\footnote{ Lines of source code reported excludes
-  comments and blank lines, counted by \emph{cloc}, \cf
-  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
-expression code coverage in percents and the y-axis gives the number of
-reverse dependencies in log scale. Dotted lines indicate means.  Packages
-with over \PackageSizeOutierRnd lines of code are annotated.
-
-\begin{figure}[!h]  \centering
-  \includegraphics[width=.8\linewidth]{plots/corpus.pdf}
-  \caption{Corpus overview}\label{fig:corpus}
-\end{figure}
-
-These packages come from the Comprehensive R Achive Network
-(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of
-R code with over \AllCranRnd packages\footnote{CRAN receives about 6 new
-  package submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd
-and \AllNativeCodeRnd R and native code respectively. Unlike other open code
-repositories like GitHub, CRAN is a curated repository. Each submitted
-package must abide to a number of well-formedness rules that are
-automatically checked asserting certain quality. Most relevant for this work
-is that all of the runnable code (including code snippets from examples and
-vignettes) is tested and only a successfully running package is admitted in
-the archive.
-
-We have downloaded and installed all available CRAN packages. Out of the
-\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason
-for this is that \rdt is based on R 3.5.0 and some of the packages are no
-longer compatible with it. Some packages also require extra native
-dependencies which were not present on our servers.  We have two criteria
-for including a package into the corpus:
-\begin{inparaenum}[(1)]
-\item have runnable code that covers significant part of the package source
-  code from which type signatures could be inferred, and
-\item have some reverse dependencies that allows us to evaluate the inferred
-  types on runnable code from these dependent packages.
-\end{inparaenum}
-The concrete thresholds were set to at least \ThresholdCodeCoverage of
-expression coverage and at minimum \ThresholdRevdeps reverse dependencies.
-
-The code coverage was computed for each package using
-\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R
-tool.  The reverse package dependencies were extracted from the package
-metadata using builtin function.
-
 %
 %
-%
-\section{Methodology}
+\section{Extracting and Checking Signatures}
 
-In this section, we will describe our approach to data collection and
-analysis through \typetracer, a dynamic analysis built in the \R-dyntrace
-framework.  We will then describe the process by which we distill the rich
-information we collect with \typetracer to more digestible ``types'', though
-we discuss the precise details of our type annotation language in
-Section~\ref{sec:types}.  Finally, we discuss \contractr, a package built in
-R which supports our type language and can generate and check contracts for
-function types.
+For this paper, we have built tooling to (\emph{a}) automate the extraction
+of raw type signatures from execution traces, (\emph{b}) infer type
+signatures from a set of raw types, and (\emph{c}) validate the inferred
+signatures by the means of contracts. This section presents each step
+of this pipeline.
 
-%
-\subsection{R-dyntrace}
-R-dyntrace is a framework for performing dynamic analysis of R. It was designed
-and used previously for a large-scale study of laziness in R~\cite{oopsla19} It
-is an instrumented R Virtual Machine based on GNU-R version 3.5.0. It exposes
-hooks from key points inside the R interpreter to which user defined callbacks
-can be attached for gathering information about the program state at those
-points. This information can be used to generate detailed program traces for
-online or offline analysis. R-dyntrace provides hooks for function entry and
-exit, S3/S4 dispatch, non-local jumps (because of longjumps in the R interpreter
-on exceptions and other non-local returns), promise creation and forcing,
-variable definition and mutation and garbage collection. garbage collection
-entry and exit, function entry and exit.
+\subsection{Extracting raw type signature from traces}
+
+We implemented \typetracer an automated tool for extracting raw type
+signatures from execution traces of R programs. The goal of this tool is to
+output a tuple $\langle f, t_1, \dots, t_n, t\rangle$ for each function call
+during the execution of a program, where $f$ is an identifier for a
+function, $t_i$ are type-level summaries of the arguments and $t$ is a
+summary of the return value.
+
+While this task is seemingly simple, the details and their proverbial devil
+are surprisingly tricky to get right and to scale to long running programs.
+To avoid starting from scratch, our implementation reuses an open source
+dynamic analysis framework for R named \rdt~\cite{oopsla19} which consists
+of an instrumented R Virtual Machine based on GNU-R version 3.5.0. The
+framework exposes hooks at key points in the R interpreter to which user
+defined callbacks can be attached. These hooks include function entry and
+exit, method dispatch for the S3 and S4 object systems, the longjumps used
+by the interpreter to implement non-local exit, creation and forcing of
+promises (lazy evaluation), variable definition, value creation, mutation
+and garbage collection.
+
+\paragraph{Raw types}
+The type information output by the tool includes the \emph{type tag} of each
+value. The R internal types are translated to the type name of the proposed
+type system. The next bit of information output for each value is its
+\emph{class}.  The class is an optional list of names, it may be absent,
+and, in some cases, it may be implicit (i.e. the interpreter blesses some
+values with the \k{matrix} and \k{array} classes even when they have no
+attribute). Finally, for each value, the tool outputs the list of
+\emph{attribute names} (other than \k{class}).
+
+Depending on the value's type tag, the tool collects further information:
+
+\begin{itemize}
+\item For vectors, the number of dimensions and their names are output;
+\item For lists, a recursive traversal collects element types and
+  the name attributes of elements.  
+  TODO: HOW DO WE OUTPUT HETEROGENEOUS NAMES???
+\item For promises, we carefully dig into the promise value {\it without
+  forcing it}, and collect information about the innermost value. If the
+  innermost value is the unbound value, then the promise is an as-of-yet
+  unevaluated expression. In this case, we do our best to guess the value of
+  the unevaluated expression: if the expression is not a language
+  expression, we collect information about it, otherwise we can say nothing
+  without evaluating it and ascribe it type ``any''. 
+\end{itemize}
+
+For vectors (and lists), we additionally iterate through the elements,
+checking if the values are NA (resp. NULL); if none are NA (resp. NULL), we
+ascribe the NA-free (resp. NULL-free) tag to the value.  Arguments that are
+part of a function's varargs (denoted \ldots in function definitions) are
+tagged as such and ignored, as varargs can contain anything (and their type
+will be equivalent to and any-typed list).
 
 
-%
-%
-\subsection{typetracer and Initial Analysis}
-
-To help inform the design of our type system, and to ensure that it aligns
-with the day-to-day usage of R, we performed a corpus analysis of some of
-the most widely used R packages.  The corpus is discussed in detail in
-Section~\ref{sec:corpus}.  We built \typetracer, our dynamic analysis, in
-the R-dyntrace~\cite{oopsla19} dynamic analysis framework which is itself
-built on a modified version of R targeting R version 3.5.0---we refer the
-reader to Section~\ref{sec:r-dyntrace} for more details on the framework.
-
-%
-%
-\subsubsection{Overview}
 The goal of our analysis is to discover argument types for functions,
 builtins, and specials (R functions such as \{, \code{if}, etc.).  First,
 recall that R wraps arguments in promises (Section~\ref{sec:R}).  Naively
@@ -632,50 +578,6 @@ and add it to the call trace associated with the current function call.
 Once function execution completes, we collect information about the return
 value, add it to the call trace, and save the completed call trace to be
 written out later.
-%
-%
-\subsubsection{Type Information}
-Once a value is obtained, either on function return or when an argument
-promise is forced, we can probe it without interfering with program behaviour.
-We query the value for the following information:
-
-\begin{itemize}
-\item the value's type tag according to R's runtime. R's runtime implements
-  type tags as a typedef, e.g. \code{INTSXP} for integers, and, confusingly,
-  \code{VECSXP} for lists;
-\item its class, which is a list of string class names. Typically, the class
-  of a value is held in an attribute with name ``class'', though some
-  classes are blessed by the R runtime, such as matrix and array classes;
-\item its attributes, a list of metadata attached to the value.
-\end{itemize}
-
-Now, depending on the value's type tag, we collect further information:
-
-\begin{itemize}
-\item For R's primitive types, we collect its dimension, and if it has a
-  names attribute we collect the names as well;
-\item For lists, we recursively collect the types of list elements;
-\item For lists {\it with a names attribute}, we collect the names as well
-  as the types of the slots that those names refer to (data.frames fall into
-  this category);
-\item For promises, we carefully dig into the promise value {\it without
-  forcing it}, and collect information about the innermost value. If the
-  innermost value is the unbound value, then the promise is an as-of-yet
-  unevaluated expression. In this case, we do our best to guess the value of
-  the unevaluated expression: if the expression is not a language
-  expression, we collect information about it, otherwise we can say nothing
-  without evaluating it and ascribe it type ``any''. \footnote{\AT{I think
-      this is confusing, reword.}}
-\end{itemize}
-
-For vectors (and lists), we additionally iterate through the elements,
-checking if the values are NA (resp. NULL); if none are NA (resp. NULL), we
-ascribe the NA-free (resp. NULL-free) tag to the value.  Arguments that are
-part of a function's varargs (denoted \ldots in function definitions) are
-tagged as such and ignored, as varargs can contain anything (and their type
-will be equivalent to and any-typed list).
-
-Now that we've seen the high-level picture of our approach, we will elaborate on some key details and discuss particular challenges that we faced.
 
 %
 %
@@ -700,8 +602,10 @@ We grappled with a number of corner cases related to R's non-strict semantics.
   the type of the default value.
 
 Another possibility is that a value is used {\it without being forced}, as
-is the case when values are ``metaprogrammed''.
-This is common practice in e.g. the \code{tidyverse}~\footnote{\AT{either talk about it here or in background}} ecosystem, as they use the metaprogramming capabilities of R to implement a DSL for data analysis.
+is the case when values are ``metaprogrammed''.  This is common practice in
+e.g. the \code{tidyverse}~\footnote{\AT{either talk about it here or in
+    background}} ecosystem, as they use the metaprogramming capabilities of
+R to implement a DSL for data analysis.
 
 
 To tackle possibly unevaluated arguments, we make an {\it initial guess} of
@@ -781,11 +685,8 @@ The types that we provide to users are constructed during post-processing,
 and rely on the detailed information made available by these low-level
 reflection mechanisms.
 
-%
-%
-%
-%
-\subsection{Post-Processing and Type Ascription}
+
+\subsection{Inferring type signatures from raw types}
 
 The type information we collect is far more detailed than the types we
 actually generate (which we discuss in Section~\ref{sec:types}), and so the
@@ -823,8 +724,7 @@ discussed next.
 %
 %
 %
-\subsection{contractr}
-\label{sec:contractr}
+\subsection{Checking types signatures with contracts}
 
 \contractr is an R package that implements our type system for the R
 package ecosystem. For functions with type annotations, it adds contracts for type-checking
@@ -988,6 +888,58 @@ engineering effort it takes to package experimental ideas in the form of stable
 and easy-to-use tools. R has an eclectic mix of features and design oddities
 that make this even harder. 
 
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For this paper we have selected \CorpusLoadable packages consisting of
+\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
+code (C/C++/Fortran). Figure~\ref{fig:corpus} shows all the packages, the
+size of the dots reflects the size of the project in terms of both R and
+native lines of code\footnote{ Lines of source code reported excludes
+  comments and blank lines, counted by \emph{cloc}, \cf
+  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
+expression code coverage in percents and the y-axis gives the number of
+reverse dependencies in log scale. Dotted lines indicate means.  Packages
+with over \PackageSizeOutierRnd lines of code are annotated.
+
+\begin{figure}[!h]  \centering
+  \includegraphics[width=.98\linewidth]{plots/corpus.pdf}
+  \caption{Corpus overview}\label{fig:corpus}
+\end{figure}
+
+These packages come from the Comprehensive R Achive Network
+(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of
+R code with over \AllCranRnd packages\footnote{CRAN receives about 6 new
+  package submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd
+and \AllNativeCodeRnd R and native code respectively. Unlike other open code
+repositories like GitHub, CRAN is a curated repository. Each submitted
+package must abide to a number of well-formedness rules that are
+automatically checked asserting certain quality. Most relevant for this work
+is that all of the runnable code (including code snippets from examples and
+vignettes) is tested and only a successfully running package is admitted in
+the archive.
+
+We have downloaded and installed all available CRAN packages. Out of the
+\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason
+for this is that \rdt is based on R 3.5.0 and some of the packages are no
+longer compatible with it. Some packages also require extra native
+dependencies which were not present on our servers.  We have two criteria
+for including a package into the corpus:
+\begin{inparaenum}[(1)]
+\item have runnable code that covers significant part of the package source
+  code from which type signatures could be inferred, and
+\item have some reverse dependencies that allows us to evaluate the inferred
+  types on runnable code from these dependent packages.
+\end{inparaenum}
+The concrete thresholds were set to at least \ThresholdCodeCoverage of
+expression coverage and at minimum \ThresholdRevdeps reverse dependencies.
+
+The code coverage was computed for each package using
+\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R
+tool.  The reverse package dependencies were extracted from the package
+metadata using builtin function.
 
 %
 %
