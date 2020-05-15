@@ -407,9 +407,9 @@ types listed in Figure~\ref{rtypes} for reference.
 
 \renewcommand{\null}{\texttt{\textbf{null}}\xspace}
 \newcommand{\any}{\texttt{\textbf{any}}\xspace}
-\newcommand{\environment}{\texttt{\textbf{environment}}\xspace}
+\newcommand{\environment}{\texttt{\textbf{envir}}\xspace}
 \newcommand{\expression}{\texttt{\textbf{expression}}\xspace}
-\newcommand{\Language}{\texttt{\textbf{language}}\xspace} %% Upper case!
+\newcommand{\Language}{\texttt{\textbf{lang}}\xspace} %% Upper case!
 \newcommand{\externalptr}{\texttt{\textbf{externalptr}}\xspace}
 \renewcommand{\symbol}{\texttt{\textbf{symbol}}\xspace}
 \newcommand{\pairlist}{\texttt{\textbf{pairlist}}\xspace}
@@ -454,8 +454,6 @@ motivates our design.
 \T& ::= & \any          & \it top type\\
   & |   & \null         & \it null type\\
   & |   & \environment  & \it environment type \\
-  & |   & \Language     & \it language type \\
-  & |   & \symbol       & \it symbol type \\
   & |   & \S            & \it scalar type \\
   & |   & \V            & \it vector type \\
   & |   & \T~\k{|}\T    & \it union type \\
@@ -493,7 +491,7 @@ different.  The type system allows to distinguish between vectors that may
 contain missing observations (written \NAVEC\int) and those who are
 guarantee to be \NA-free (\VEC\int).  A \NA-free vector can be treated as a
 vector that may have missing observations.  We do not allow scalar values to
-be missings.
+be missings.  The type \raw does not allow {\NA}s.
 
 \paragraph{Nullables} 
 The type system has a \null type that is inhabited by a singleton
