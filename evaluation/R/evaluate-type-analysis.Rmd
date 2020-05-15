@@ -7,6 +7,7 @@ output:
     toc_float: true
 params:
   type_analysis_datafile: ../data/type-analysis/merged/merged.csv
+  graph_dirpath: ../../paper/plots/
 ---
 
 ```{r setup, echo=FALSE, eval=TRUE}
@@ -19,6 +20,13 @@ suppressPackageStartupMessages(library(tidyr))
 suppressPackageStartupMessages(library(DT))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(tibble))
+
+source("latex-macros.R")
+
+save_graph <- function(plot, filename, device = cairo_pdf, width=12, height=4, ...) {
+    ggsave(filename = file.path(params$graph_dirpath, filename), plot = plot, device = device, width=width, height=height, ...)
+    plot
+}
 
 type_analysis_data <- 
     read_csv(params$type_analysis_datafile,
@@ -80,13 +88,20 @@ to_percentage <- function(proportions) {
 # Incompatible Functions
 
 ```{r incompatible-functions, echo=FALSE, eval=TRUE}
+
+###type_compatibility <-
+###    type_analysis_data %>%
+###    group_by(package_name, function_name, outer_alternative) %>%
+###    summarize(parameter_count = length(unique(parameter_position))) %>%
+###    ungroup() %>%
+###    group_by(package_name, function_name) %>%
+###    mutate(compatible = length(unique(parameter_count)) == 1) %>%
+###    ungroup()
+    
 type_compatibility <-
     type_analysis_data %>%
-    group_by(package_name, function_name, outer_alternative) %>%
-    summarize(parameter_count = length(unique(parameter_position))) %>%
-    ungroup() %>%
     group_by(package_name, function_name) %>%
-    mutate(compatible = length(unique(parameter_count)) == 1) %>%
+    summarize(compatible = length(unique(outer_alternative)) == 1) %>%
     ungroup()
 
 incompatible_functions <-
@@ -443,12 +458,41 @@ group_by(alternative_count) %>%
 summarize(parameter_count = n()) %>%
 ungroup() %>%
 arrange(desc(parameter_count)) %>%
-mutate(percentage = round(100 * parameter_count / sum(parameter_count), 2),
-       cumulative_percentage = round(100 * cumsum(parameter_count) / sum(parameter_count), 2))
+mutate(percentage = round(parameter_count / sum(parameter_count), 4),
+       cumulative_percentage = round(cumsum(parameter_count) / sum(parameter_count), 4))
 
 datatable(union_frequency)
 
+total_parameter_count <- sum(union_frequency$parameter_count)
 
+print(total_parameter_count)
+
+union_frequency_folded <-
+    union_frequency %>%
+    select(alternative_count, parameter_count, percentage) %>%
+    filter(alternative_count > 3) %>%
+    summarize(alternative_count = "> 3", parameter_count = sum(parameter_count)) %>%
+    mutate(percentage = round(as.double(parameter_count) / total_parameter_count, 3)) %>%
+    print()
+    
+union_frequency_folded <-
+    union_frequency %>%
+    select(alternative_count, parameter_count, percentage) %>%
+    filter(alternative_count <= 3) %>%
+    mutate(alternative_count = as.character(alternative_count)) %>%
+    rbind(union_frequency_folded)
+    
+datatable(union_frequency_folded)
+    
+(union_frequency_folded %>%
+ggplot(aes(alternative_count, percentage)) +
+geom_col() +
+scale_y_continuous(sec.axis = sec_axis(~ . * total_parameter_count, labels = count_labels), labels = relative_labels) +
+labs(x="Types", y="Parameters") +
+scale_x_discrete(limits=c("> 3", 3, 2, 1)) +
+coord_flip() +
+theme(legend.title = element_blank(), legend.position = "top")) %>%
+save_graph("union_frequency.pdf")
 
 union_types <-
 union_data %>%
