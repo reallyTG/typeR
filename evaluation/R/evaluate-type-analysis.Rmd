@@ -470,4 +470,18 @@ slice(1:20) %>%
 ungroup()
 
 datatable(union_types)
+
+
+single_union_types <-
+union_data %>%
+filter(alternative_count == 1) %>%
+group_by(kind) %>%
+summarize(count = n())%>%
+ungroup() %>%
+arrange(desc(count)) %>%
+mutate(percentage = round(100 * count / sum(count), 1),
+       cumsum_percentage = round(100 * cumsum(count) / sum(count), 1))
+
+
+datatable(single_union_types)
 ```
