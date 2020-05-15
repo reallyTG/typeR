@@ -533,37 +533,34 @@ and garbage collection.
 
 \paragraph{Raw types}
 The type information output by the tool includes the \emph{type tag} of each
-value. The R internal types are translated to the type name of the proposed
-type system. The next bit of information output for each value is its
-\emph{class}.  The class is an optional list of names, it may be absent,
-and, in some cases, it may be implicit (i.e. the interpreter blesses some
-values with the \k{matrix} and \k{array} classes even when they have no
-attribute). Finally, for each value, the tool outputs the list of
-\emph{attribute names} (other than \k{class}).
+value. The R internal types are translated to names in the proposed type
+system. The next bit of information output is the \emph{class} which is an
+optional list of names, it may be absent, and, in some cases, it may be
+implicit (i.e. the interpreter blesses some values with the \k{matrix} and
+\k{array} classes even when they have no attributes). 
 
 Depending on the value's type tag, the tool collects further information:
 
 \begin{itemize}
-\item For vectors, the number of dimensions and their names are output;
-\item For lists, a recursive traversal collects element types and
-  the name attributes of elements.  
-  TODO: HOW DO WE OUTPUT HETEROGENEOUS NAMES???
-\item For promises, we carefully dig into the promise value {\it without
-  forcing it}, and collect information about the innermost value. If the
-  innermost value is the unbound value, then the promise is an as-of-yet
-  unevaluated expression. In this case, we do our best to guess the value of
-  the unevaluated expression: if the expression is not a language
-  expression, we collect information about it, otherwise we can say nothing
-  without evaluating it and ascribe it type ``any''. 
+\item For vectors, the number of dimensions and the present of \NA values.
+\item For lists, a recursive traversal collects element types.
+\item For promises, we attempt to establish the type of its result or output
+  \any.
 \end{itemize}
 
-For vectors (and lists), we additionally iterate through the elements,
-checking if the values are NA (resp. NULL); if none are NA (resp. NULL), we
-ascribe the NA-free (resp. NULL-free) tag to the value.  Arguments that are
-part of a function's varargs (denoted \ldots in function definitions) are
-tagged as such and ignored, as varargs can contain anything (and their type
-will be equivalent to and any-typed list).
+\noindent
+To obtain raw types, we make use of R's C FFI and use low-level machinery to
+collect type tags and attributes from the R runtime.  The types that we
+provide to users are constructed during post-processing, and rely on the
+detailed information made available by these low-level reflection
+mechanisms.
 
+\paragraph{Varargs}
+Arguments that are part of a function's varargs (denoted \VARGS) are
+ignored, as type \any is output for the entire varag construct.
+
+
+\paragraph{Promises}
 
 The goal of our analysis is to discover argument types for functions,
 builtins, and specials (R functions such as \{, \code{if}, etc.).  First,
@@ -579,27 +576,19 @@ Once function execution completes, we collect information about the return
 value, add it to the call trace, and save the completed call trace to be
 written out later.
 
-%
-%
-\subsubsection{Challenges}
-\label{subsec:typetracer-challenges}
 
-We grappled with a number of corner cases related to R's non-strict semantics.
+First, we wanted to ensure that \typetracer captured types for unevaluated
+arguments.  Unfortunately, not every argument of a function is necessarily
+used during every function execution, meaning that some arguments may remain
+unevaluated (as they are never forced), and there are a few reasons for
+this.
 
-\begin{itemize}
-
-\item First, we wanted to ensure that \typetracer captured types for
-  unevaluated arguments.  Unfortunately, not every argument of a function is
-  necessarily used during every function execution, meaning that some
-  arguments may remain unevaluated (as they are never forced), and there are
-  a few reasons for this.
-
-  One possibility is that the argument was simply unused given the control
-  flow of this particular execution (e.g. if the argument is only needed in
-  one branch of a conditional expression).  This mainly occurs when
-  arguments have default values for some parameters that are not critical to
-  every execution of the function.  In these cases, we still want to collect
-  the type of the default value.
+One possibility is that the argument was simply unused given the control
+flow of this particular execution (e.g. if the argument is only needed in
+one branch of a conditional expression).  This mainly occurs when arguments
+have default values for some parameters that are not critical to every
+execution of the function.  In these cases, we still want to collect the
+type of the default value.
 
 Another possibility is that a value is used {\it without being forced}, as
 is the case when values are ``metaprogrammed''.  This is common practice in
@@ -607,18 +596,18 @@ e.g. the \code{tidyverse}~\footnote{\AT{either talk about it here or in
     background}} ecosystem, as they use the metaprogramming capabilities of
 R to implement a DSL for data analysis.
 
-
 To tackle possibly unevaluated arguments, we make an {\it initial guess} of
 function argument types on function entry. Specifically, we collect types
 for argument default values, and ascribe an ``unused'' type for unevaluated
 expressions.  If an argument promise is later forced, we simply update the
 recorded type for the argument.
 
-\item Second, we wanted to account for formal arguments (arguments which are
-  named in the function definition) which received no values when the
-  function was called. This represents cases where a function was not called
-  with all of its arguments, and no default value was specified for missing
-  arguments.  We record a ``missing'' type for such argument.
+\paragraph{Missing arguments}
+Second, we wanted to account for formal arguments (arguments which are named
+in the function definition) which received no values when the function was
+called. This represents cases where a function was not called with all of
+its arguments, and no default value was specified for missing arguments.  We
+record a ``missing'' type for such argument.
 
 There are two obvious ways to deal with missing arguments: type them as $\bot$
 or as $\top$.  As we are performing a dynamic analysis based on package test
@@ -627,63 +616,45 @@ impossible to know dynamically what all possible function behaviours are.
 We discuss the prevalence of such any-typed arguments in
 Section~\ref{sec:evaluation}.
 
-\item Third, we had to contend with R's backend sometimes
-  performing longjumps, which discards current R calls from the call stack.
-  In order to ensure that call traces are not lost when a longjump occurs,
-  \typetracer intercepts the unwinding process initiated by the longjump and
-  mimics the functionality of the functions being exited.  The R-dyntrace
-  framework supplies the return value during the unwinding process (if there
-  is indeed such a value), so we can capture it, analyze it, and include it
-  in the call trace.  In certain situations, however, no return value can be
-  obtained (e.g. a longjump occurred as part of some error handling), and
-  then we simply record a ``jumped'' return value, which we can deal with in
-  post-processing.  
-\end{itemize}
 
-Having outlined these challenges, we will now explore the implementation of \typetracer in more detail.
+\paragraph{Non-local returns}
+Third, we had to contend with R's backend sometimes performing longjumps,
+which discards current R calls from the call stack.  In order to ensure that
+call traces are not lost when a longjump occurs, \typetracer intercepts the
+unwinding process initiated by the longjump and mimics the functionality of
+the functions being exited.  The R-dyntrace framework supplies the return
+value during the unwinding process (if there is indeed such a value), so we
+can capture it, analyze it, and include it in the call trace.  In certain
+situations, however, no return value can be obtained (e.g. a longjump
+occurred as part of some error handling), and then we simply record a
+``jumped'' return value, which we can deal with in post-processing.
 
-%
-%
-\subsubsection{Select Details}
 
-As mentioned, our analysis is built on the R-dyntrace framework.  R-dyntrace
-is a very efficient instrumentation framework for R, which is built on a
-modified version of the R runtime. 
-
-We primarily rely on 8 R-dyntrace callbacks: \texttt{closure\_entry},
-\texttt{closure\_exit}, \texttt{builtin\_entry}, \texttt{builtin\_exit},
-\texttt{special\_entry},\texttt{special\_exit},
-\texttt{promise\_force\_entry}, and \texttt{promise\_force\_exit}.  These
-callbacks fire when closures, builtin, and special functions are entered and
-exited, and before and after the forcing of promises.  The function-related
-callbacks are used mainly for bookkeeping: the analysis is notified that a
-closure, builtin, or special has been entered/exited by pushing/popping the
-call onto a stack.  The calls themselves store a {\it call trace} object,
-where we store the type information that we collect, populated with initial
-guesses of argument types (as discussed in
-Section~\ref{subsec:typetracer-challenges}).  Also, recall that R can
-perform single or multiple dispatch on function arguments depending on their
-class.  We collect such dispatch information the {\tt \_entry} variants.
+\paragraph{Implementation details.}
+We primarily rely on eight callbacks: \k{closure\_entry}, \k{closure\_exit},
+\k{builtin\_entry}, \k{builtin\_exit}, \k{special\_entry},\k{special\_exit},
+\k{promise\_force\_entry}, and \k{promise\_force\_exit}.  The
+function-related callbacks are used mainly for bookkeeping: the analysis is
+notified that a construct has been entered by pushing the call onto a stack.
+The calls themselves store a trace object, it is that object that holds the
+type information. As R can perform single or multiple dispatch on function
+arguments depending on their class, the relevant information is kept by the
+{\tt \_entry} variants.
 
 The primary functionality of \typetracer is in {\tt promise\_force\_exit}.
 As arguments to functions in R are wrapped in promises, we delay our
 reflection to promise force time.  In R, promises are essentially objects
-with value and expression slots. \AT{Put this as part of R-dyntrace
-  background:} When a promise is created for a particular expression, that
-expression is merely put into the expression slot of a promise object, and a
-special {\it unbound} value is loaded into the value slot (unless some
-default value is specified, wherein it is loaded into the value slot---this
-is the case with default argument values).  When the promise is forced, the
-expression is evaluated in the forcing context, and the value is stored in
-the value slot of the promise.  So to get the type of a function argument,
-we check the value slot of the argument promise---recursively if the value
-itself is a promise.
+with value and expression slots.
 
-To construct a type for each argument, we make use of R's C FFI and use
-low-level machinery to collect type tags and attributes from the R runtime.
-The types that we provide to users are constructed during post-processing,
-and rely on the detailed information made available by these low-level
-reflection mechanisms.
+When a promise is created for a particular expression, that expression is
+merely put into the expression slot of a promise object, and a special {\it
+  unbound} value is loaded into the value slot (unless some default value is
+specified, wherein it is loaded into the value slot---this is the case with
+default argument values).  When the promise is forced, the expression is
+evaluated in the forcing context, and the value is stored in the value slot
+of the promise.  So to get the type of a function argument, we check the
+value slot of the argument promise---recursively if the value itself is a
+promise.
 
 
 \subsection{Inferring type signatures from raw types}
@@ -1424,16 +1395,21 @@ perform appropriate conversions and computations. On the one hand, this form
 of ad-hoc polymorphism makes R functions expressive; on the other hand, it
 requires support for polymorphism in the typing scheme, making the type
 system complex.  Our system lacks explicit support for
-polymorphism. Instead, it supports union and any types. A union type is
+polymorphism. Instead, it supports union, any and ... types. A union type is
 inferred when values of multiple types are observed at a function parameter
-and return position. any type is inferred when an argument is missing or
-unused. Furthermore, list element types can be inferred as any if they have
-more than 5 different types. Values with many different types can result in
+and return position, any type is inferred when an argument is missing or
+unused, and ... is inferred for vararg parameters. Furthermore, list element
+types can be inferred as any if they have more than 5 different types. Values with many different types can result in
 a large number of alternatives in the type inferred for that position,
 making it hard to read and unwieldy for end-users. To evaluate this
 ''expressivity gap`' between our type inference scheme and R functions, we
 look at the number of different types in the parameter and return types of
 the XXX functions in our corpus.
+
+\begin{figure}[!h]  \centering
+  \includegraphics[width=\linewidth]{plots/union_frequency.pdf}
+  \caption{Types inferred for each position}\label{fig:unionfreq}
+\end{figure}
 
 We observe that XXX% of the positions have a single type ascribed to them. XXX%
 have five or more types ascribed to them. Parameter PARAMNAME of function
