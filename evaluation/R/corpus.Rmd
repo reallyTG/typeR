@@ -473,6 +473,7 @@ pkgs <-
   left_join(pkgs_functions, by="package") %>%
   left_join(pkgs_classes, by="package") %>%
   left_join(pkgs_revdeps, by="package") %>%
+  left_join(pkgs_revdeps_coverage, by="package") %>%
   left_join(pkgs_asserts, by="package") %>%
   left_join(pkgs_roxygen, by="package")
 ```
