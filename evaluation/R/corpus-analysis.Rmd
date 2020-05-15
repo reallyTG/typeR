@@ -84,10 +84,6 @@ summary_corpus <- function(df, prefix) {
     r(paste(prefix, "with native code"), filter(df, package_native_code > 0)),
     r(paste(prefix, "native code"), sum(df$package_native_code, na.rm=T)),
     
-    r(paste(prefix, "w asserts"), filter(df, asserts > 0)),
-    r(paste(prefix, "asserts"), sum(df$asserts, na.rm=T)),
-    r(paste(prefix, "funs with asserts"), sum(df$funs_with_assert, na.rm=T)),
-    
     r(paste(prefix, "functions"), sum(df$funs, na.rm=T)),
     r(paste(prefix, "public functions"), sum(df$funs_public, na.rm=T)),
     r(paste(prefix, "private functions"), sum(df$funs_private, na.rm=T)),
