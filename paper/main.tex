@@ -324,7 +324,7 @@ as well.
 \end{lstlisting}
 
 R has one builtin notion of type that can be queried by the \k{typeof}
-function. Figure~\ref{types} lists all of the builtin types that are
+function. Figure~\ref{rtypes} lists all of the builtin types that are
 provided by the language. They are the possible return values of
 \k{typeof}. There is no intrinsic notion of subtyping in R. But, in many
 context a \k{logical} will convert to \k{integer}, and an \k{integer} will
@@ -370,7 +370,7 @@ vectorized data types have a distinguished missing value denoted by
 \k{externalprt},
 \k{bytecode},
 \k{weakref}}\\\hline
-\end{tabular}\caption{Builtin Types}\label{types}\end{wrapfigure}
+\end{tabular}\caption{Builtin Types}\label{rtypes}\end{wrapfigure}
 
 With one exception all vectorized data types are monomorphic, the exception
 is the \k{list} type which can hold values of any other type including
@@ -400,8 +400,493 @@ is a list of vectors with a class and a column name attribute.
 Scalar data types include the distinguished \k{NULL} value, which is also of
 ktype \k{NULL}, instance of classes written using the S4 object system,
 closures and environments.  The implementation of R has a number of other
-types that are mostly not used by user code, they are listed in
-Figure~\ref{types} for reference.
+types listed in Figure~\ref{rtypes} for reference.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design A Type Language for R}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\null}{\texttt{\textbf{null}}\xspace}
+\newcommand{\any}{\texttt{\textbf{any}}\xspace}
+\newcommand{\environment}{\texttt{\textbf{environment}}\xspace}
+\newcommand{\expression}{\texttt{\textbf{expression}}\xspace}
+\newcommand{\Language}{\texttt{\textbf{language}}\xspace} %% Upper case!
+\newcommand{\externalptr}{\texttt{\textbf{externalptr}}\xspace}
+\renewcommand{\symbol}{\texttt{\textbf{symbol}}\xspace}
+\newcommand{\pairlist}{\texttt{\textbf{pairlist}}\xspace}
+\newcommand{\weakref}{\texttt{\textbf{weakref}}\xspace}
+\renewcommand{\int}{\texttt{\textbf{int}}\xspace}
+\newcommand{\chr}{\texttt{\textbf{chr}}\xspace}
+\newcommand{\dbl}{\texttt{\textbf{dbl}}\xspace}
+\newcommand{\lgl}{\texttt{\textbf{lgl}}\xspace}
+\newcommand{\clx}{\texttt{\textbf{clx}}\xspace}
+\newcommand{\raw}{\texttt{\textbf{raw}}\xspace}
+\newcommand{\VARGS}{\texttt{\textbf{...}}\xspace}
+\newcommand{\T}{\ensuremath{T}\xspace}
+\renewcommand{\S}{\ensuremath{S}\xspace}
+\newcommand{\V}{\ensuremath{V}\xspace}
+\newcommand{\A}{\ensuremath{A}\xspace}
+\newcommand{\ID}{\ensuremath{ID}\xspace}
+\newcommand{\F}{\ensuremath{F}\xspace}
+\newcommand{\B}{\ensuremath{B}\xspace}
+\newcommand{\FUN}[2]{\ensuremath{\langle #1 \rangle \rightarrow #2}\xspace}
+\newcommand{\STRUCT}[1]{\texttt{\textbf{struct}}\ensuremath{\langle #1\rangle}\xspace}
+\newcommand{\LIST}[1]{\texttt{\textbf{list}}\ensuremath{\langle #1\rangle}\xspace}
+\newcommand{\CLASS}[1]{\texttt{\textbf{class}}\ensuremath{\langle #1\rangle}\xspace}
+\newcommand{\VEC}[1]{#1\k{[]}\xspace}
+\newcommand{\NAVEC}[1]{\k{\string^}\!#1\k{[]}\xspace}
+
+
+This section sets out to propose a candidate design for a type language that
+can be used to describe the arguments and return values of functions in R.
+The goal is not to be the final design but rather a starting point for an
+iterative process.
+
+Fig.~\ref{types} presents our type language. An early design choice was to
+stay close to the R language and only depart in small, hopefully,
+non-controverwsial ways.  Functions types have the form \FUN{A_1, \dots,
+  A_n}\T where each $\A_i$ argument is either a type \T or \VARGS, a
+variable length argument list. The rest of this section details and
+motivates our design.
+
+\begin{figure}[!h] \noindent \small  \centering\begin{minipage}{.45\linewidth}
+\begin{tabular}{lclr}
+\T& ::= & \null         & \it unit type\\
+  & |   & \any          & \it top type\\
+  & |   & \environment  & \it environment type \\
+  & |   & \Language     & \it language type \\
+  & |   & \symbol       & \it symbol type \\
+  & |   & \S            & \it scalar type \\
+  & |   & \V            & \it vector type \\
+  & |   & \T~\k{|}\T    & \it union type \\
+  & |   & \k{?} \T      & \it nullable type \\
+  & |   & \FUN{A_1, ..., A_n}\T & \it function type \\
+  & |   & \STRUCT{F_1, ..., F_n} & \it struct type \\
+  & |   & \LIST{T}      & \it list type\\
+  & |   & \CLASS{ID_1, ..., ID_n}& \it class type\vspace{5pt}\\
+\end{tabular}\end{minipage}   \hfill
+\begin{minipage}{.45\linewidth}\begin{tabular}{lclr}
+\A & ::= & \T & \it arguments \\
+  & |   & \VARGS \vspace{5pt} \\
+\F & ::= & \ID\, :\,T & \it struct field\vspace{5pt}\\
+\V & ::= & ~\VEC\S &\\
+  & |   & \NAVEC\S & \it na vector types \vspace{5pt}\\
+\S & ::= & \int & \\
+  & |   & \chr \\
+  & |   & \dbl \\
+  & |   & \lgl \\
+  & |   & \clx \\
+  & |   & \raw \vspace{5pt}\\
+\end{tabular}\end{minipage}\caption{The R type language}\label{types}
+\end{figure}
+
+\subsection{Basic Types}
+
+The workhorse types in R are the vectorized primitives: integers, doubles,
+complex numbers, logicals (booleans), characters, and raws (bytes).  These
+are vectorized in that they are always considered to be vectors by the R
+runtime: for instance, even ``scalar'' numbers are considered to be
+unit-length vectors to R.  These primitive vectors are homogeneous, in that
+a vector of doubles contains only doubles.
+
+Related to these primitive types is one of R's notions of ``nullness'': for
+each of the primitives, R distinguishes a special ``NA'' value which
+represents missing data.  There is an NA for each of the primitive types
+(i.e. there is a double NA, integer NA, etc.).  Thus, even homogeneous
+vectors can represent missing data with their appropriate NA value.
+
+\subsubsection{Possibly-NA Primitives}
+
+A common primitive usage pattern is related to the presence of NAs:
+programmers explicitly check for NAs in primitive vectors, possibly
+sanitizing them if they are present.  NAs complicate practically every
+computation using primitive vectors, a fact that many programmers appear to
+be acutely aware of. For instance, consider the code in
+Figure~\ref{fig:na-example}.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+binom.profile <- function(x, n, ...) {
+  xn <- cbind(x = x, n = n)
+  ok <- !is.na(xn[, 1]) & !is.na(xn[, 2])
+  x <- xn[ok, "x"]
+  n <- xn[ok, "n"]
+  ...
+\end{lstlisting}
+
+\caption{NA checking example from the \code{binom} package.}
+\label{fig:na-example}
+\end{center}
+\end{figure}
+
+The \code{binom} package is a popular R package for computing confidence
+intervals for binomial experiments, and the \code{binom.profile} function
+does so using the profile likelihood, the details of which are not relevant
+here.  This code snippet highlights a data sanitization pattern appearing at
+the beginning of the function: the programmer first binds the vectors into a
+matrix (line 2), with one column for each of \code{x} and \code{n}, then
+finds rows where both columns are not NA (line 3), then extracts non-NA
+values and stores them into \code{x} and \code{n} respectively (lines 4-5).
+Importantly, this process is entirely quiet, and the user of
+\code{binom.profile} will not be notified if their data happens to contain
+NAs, and the NAs will be silently ignored.  In reality, the presence of NAs
+in data could signify some sort of data corruption, and quietly ignoring
+issues in data could lead users (read: statisticians) to draw flawed
+conclusions from erroneous data.
+
+To combat this, we introduce a modifier on primitive types: the type
+\code{^T} signifies that primitive type \code{T} might contain an NA value,
+while \code{T} signifies that \code{T} is NA-free.  The NA-free case has a
+shorter syntax as NA-free vectors are \AT{more common} than the alternative.
+If the \code{binom} developers were to annotate arguments \code{x} and
+\code{n} with such an NA-free type, \contractr will notify users when
+\code{binom.profile} is called with NA-full values, rather than just quietly
+ignoring them.
+
+Note that when combining call traces involving \code{^T} and \code{T} types,
+we subsume \code{T} types into \code{^T} types: if NA-free and NA-full
+vectors are passed to an argument, then we say that the argument can handle
+NA-full vectors.  This is equivalent to saying \code{T <: ^T}.
+
+%
+%
+\subsubsection{Scalar Primitives}
+
+scalars and often do high-level
+dimensionality checks on their data.  To illustrate, consider the code in
+Figure~\ref{fig:scalar-vector-example}.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+hankel.matrix <- function( n, x ) { 
+### arguments
+### n = a positive integer value for the order of the Hankel matrix
+### x = an order 2 * n + 1 vector of numeric values
+    ...
+    if ( n != trunc( n ) )
+        stop( "argument n ix not an integer" )
+    if ( !is.vector( x ) )
+        stop( "argument x is not a vector" )
+    m <- length( x )
+    if ( m < n )
+        stop( "length of argument x is less than n" )
+    ...
+\end{lstlisting}
+
+\caption{Scalar/vector example from the \code{matrixcalc} package.}
+\label{fig:scalar-vector-example}
+\end{center}
+\end{figure}
+
+The \code{hankel.matrix} function takes two arguments (as described in the
+comment in the code), and returns a Hankel matrix, which essentially is a
+matrix where the skew-diagonals have a desirable property.  The function
+body has a number of interesting checks: on lines 6-7, \code{n} undergoes an
+integer ``type check''; on lines 8-9, \code{x} undergoes a vector ``type
+check''; on line 11, \code{n} is assumed to be a scalar, as if it were a
+vector, the code \code{m < n} would essentially check \code{m < n[i]} for
+each element in \code{n}, returning a vector of comparison results, and the
+conditional of an if must be a scalar else R generates a warning.
+
+These checks exemplify functionality that we would like to include in our
+type annotation language, namely, we would like our type language to
+differentiate between scalars and vectors.  To that end, we introduce the
+following types into our type language: for some primitive type \code{T},
+the user may modify \code{T} with a modifier \code{[]} to indicate that it
+is a vector of \code{T}.  Perhaps surprisingly, we found that scalars
+\AT{occurred more frequently} than vectors, and for that reason we chose the
+shorter scalar type syntax as the default.  The NA-free modifier works as
+expected: \code{^T[]} indicates a vector of \code{T} that is free of NAs,
+while \code{^T} indicates a scalar which is not NA.
+ 
+%
+%
+\subsubsection{Matrices}
+
+Matrices represent another layer of complexity on top of vectorized
+primitives.  Internally, matrices are simply vectors with class ``matrix''
+and a \code{dims} attribute indicating matrix dimensions, and while not
+codified in the language semantics, many internal functions will coerce
+vectors to matrices automatically.  Relying on automatic coercion is unwise,
+and many functions check to ensure that their arguments are matrices.  For
+instance, consider the code in Figure~\ref{fig:matrix-example}.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
+                             na.rm = FALSE, ...) {
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Validate arguments
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Argument 'x':
+  if (!is.matrix(x)) {
+    .Defunct(msg = sprintf("Argument 'x' is of class %s, but should be a matrix. 
+    The use of a %s is not supported, the correctness of the result is not guaranteed. 
+    Please update your code accordingly.", sQuote(class(x)[1]), sQuote(class(x)[1])))
+  }
+  ...
+\end{lstlisting}
+
+\caption{Matrix example from the \code{matrixStats} package.}
+\label{fig:matrix-example}
+\end{center}
+\end{figure}
+
+The \code{rowWeightedMeans} function calculates the weighted means of rows
+or columns of a matrix \code{x}.  This function exhibits good practice in
+type checking arguments, rightly producing a message to the user indicating
+that an explicit matrix should be passed.
+
+To capture cases like this, we include a \code{class<matrix>} type in our
+type annotation language.  If \code{rowWeightedMeans} were outfitted with
+such a type, \contractr can perform the check present in this code
+automatically, notifying the users passing ill-typed arguments.
+
+%
+%
+\subsubsection{Forgoing Dimensionality} 
+
+Thus far we've seen instances where we introduce types that subsume existing
+argument validation code, but our intention is not to subsume {\it all} such
+code.  As an example of something we {\it do not} want to do, consider the
+code in Figure~\ref{fig:general-validation-example}.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
+                             na.rm = FALSE, ...) {
+  ...
+  n <- ncol(x)
+  if (length(w) != n) {
+    stop("The length of argument 'w' is does not match the number of column in 'x': ", 
+    length(w), " != ", n)
+  }
+  ...
+\end{lstlisting}
+
+\caption{General dimensionality check example from the \code{matrixStats} package.}
+\label{fig:general-validation-example}
+\end{center}
+\end{figure}
+
+This code is from later in the same \code{rowWeightedMeans} function
+discussed previously.  Here, the length of the weights vector \code{w} is
+being checked for equality with the number of columns in the matrix
+\code{x}.  Specifying this relationship as a type amounts to {\it dependent
+  typing}, which we believe too complex to retrofit onto a dynamic data
+science language such as R.  Ultimately, we decided to leave these kinds of
+checks up to the programmer.  
+
+%
+%
+%
+%
+\subsection{Lists}
+
+Separate from the vectorized primitives in R are lists: Whereas vectors are
+homogeneous and restricted to primitive types, lists can contain
+arbitrarily-typed data.  Further, lists and vectors have a different syntax
+for accessing elements, where lists are indexed using \code{[[} and vectors
+    using \code{[}.  R even builds on lists to create a more complex data
+      structure known as the {\it data frame}, an essential data structure
+      to R's functionality.
+
+We are faced with several possible designs for list types.  Chief concerns
+include the heterogeneity of list elements and the presence list element
+names, which allow list elements to be accessed in a struct-like manner.
+The next sections highlight some important design decisions for our list
+types.
+
+%
+%
+\subsubsection{Relationship Between Lists and Vectors}
+
+The ease with which vectors may be transformed into lists is perhaps
+indicative of a relationship between the two.  In R, all vectors can be
+converted to lists with a simple call to \code{as.list}, and lists to
+vectors with \code{unlist}, though care must be taken when unlisting a
+non-homogeneous list, as coercions will be performed where possible, and the
+function will simply do nothing if coercion is impossible.  That said, lists
+and vectors have different access syntax, so vectors cannot stand-in for
+lists without the \code{as.list} call above.
+
+In sum, we opted not to include a subtyping relationship between vectors and
+lists, keeping both types separate.  In practice, \AT{how often do \code{T[]
+    | list<T>} types occur?}.  During our evaluation we also found it rare
+that programmers would attempt to pass list-typed values to vector-typed
+arguments and vice versa, and we will discuss this further in
+Section~\ref{sec:evaluation}.
+
+%
+%
+\subsubsection{Environments}
+
+Environments in R are essentially lists with reference semantics: mutating a
+value in an environment is performed in-place, and that mutation can thus be
+shared with other code holding a reference to the environment.  They are
+used primarily by the R runtime to store variables (their primary function
+is that of an execution environment), though they also often used by
+programmers either to themselves reflect on local, previous, or global
+scope, or simply because of their reference semantics.  Environments are
+comprised of name, value pairs, and each environment has a reference to its
+parent environment.
+
+We thought to include detailed environment types in our type language by way
+of allowing environment types to define names and types of values in the
+environment.  Unfortunately, this led to an undue explosion in the ``size''
+of our types: often, environments had hundreds of values, particularly those
+which were obtained from R (by e.g. passing a reference to a local scope).
+These types were difficult to parse visually and did not feel informative.
+Further, environments \AT{did not occur often}, and giving them a richer
+type was not worth the increase in the visual complexity of our types.
+
+%
+%
+\subsubsection{Structs}
+\label{subsec:structs}
+
+
+We observed the use of consistently-named lists in \AT{a number of
+  functions}.  In R, ``fields'' of named lists can be accessed using the
+\code{$} operator, as illustrated in the code snippet in
+Figure~\ref{fig:struct-ex}.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+agricolae::cv.model <- function(x) {
+  suma2 <- sum(x$residual^2)
+  gl <- x$df.residual
+  promedio <- mean(x$fitted.values)
+  return(sqrt(suma2/gl)*100/promedio)
+}
+
+data(sweetpotato)
+model<-aov(yield~virus, data=sweetpotato)
+cv.model(model)
+\end{lstlisting}
+
+\caption{Struct example from a test in the \code{agricolae} package.}
+\label{fig:struct-ex}
+\end{center}
+\end{figure}
+
+In the code snippet, the function \code{cv.model} takes an argument
+\code{x}, which we observed to always be a {\it linear model}, which is part
+of R's built-in statistics functionality.  Internally, linear models are
+represented as lists with named elements, and one may access these named
+elements using the \code{$} syntax, as seen on lines 2-4 in the snippet.  To
+describe these kinds of values, we included a struct type in our type
+system, allowing users to specify name, type pairs as part of list type
+definitions.
+
+Unfortunately, the inclusion of structs complicated our analysis by
+polluting the data, illustrated on line 8 with the call
+\code{data(sweetpotato)}.  It is quite common for R example code to use some
+built-in data sets, such as \code{sweetpotato}, to show off some package
+functionality with ``real data''.  When \typetracer is configured to detect
+structs we saw a marked increase in misrepresentative types, as the types of
+functions which use these data sets (such as \code{aov} in
+Figure~\ref{fig:struct-ex}) became polluted with the names from the example
+sets.  We implemented a unification strategy for struct types, removing them
+if they co-occurred with list types, and turning them into lists if two
+co-occurring struct types shared no common names, but even so we found
+ourselves with function signatures that were full of noise introduced by the
+struct names.
+
+We still believe struct types to be useful to R programmers, and so our
+language supports the type and \contractr will check them, though we
+configured \typetracer to ignore them as they made the data substantially
+less useful.  On the positive side, we found that \AT{get the number, but
+  often} structs-typed values had a {\it class}, which helped motivate our
+inclusion of class-like types in our type annotation language.  Classes are
+discussed in more detail in Section~\ref{subsec:classes}.
+
+%
+\subsection{Classes}
+
+R has more than one notion of type.  The classes of function arguments are
+used by R as part of its dispatch mechanism, the most prevalent of which
+(\AT{we have that number, too!}) is S3 dispatch, in which R dispatches on
+the (S3) class of the first argument to a function, selecting the
+appropriate method to call for the class. 
+
+Classes are very prevalent in R \AT{number}, and so we include a
+\code{class<class-name>} ... \AT{todo} \typetracer was outfit to report the
+class of values, but some care needed to be taken so as to not overreport
+class types, as {\it all} values have a class in R.  The main classes we
+were interested in were matrix, array (higher dimensional matrices), and
+data.frames, in addition to any user-defined classes.  In many cases
+\AT{number?}, values with a user-defined class are in reality lists with
+named elements, or structs.  Including class types, and having \typetracer
+report them in place of structs, significantly reduced the noise in the
+analysis and allowed us to gather more focused data. 
+
+When set to ignore classes, \typetracer reports \AT{type} as the type of the
+function, as compared with \AT{other type} when configured to report
+classes.
+%
+A value can have multiple classes in R.  This is common practice in the
+\code{dplyr} package, which extends the functionality of data frames: a
+\code{data.frame} that passes through \code{dplyr} functions gains two
+additional classes (\code{tbl} and \code{tbl_df}), bringing the total to at
+least 3, in addition to whichever other classes that data frame happened to
+have.  Note that when looking to perform S3 dispatch, R will try to match
+{\it any} of the classes of the first argument to a dispatched function, so
+each of these classes are important.
+
+We found these so-called multi-classes to be surprisingly common, making up
+\AT{occurrence} of the occurrences of class-typed values.  One possible
+reason for this is that values can gain classes quite easily (e.g. the
+\code{dplyr} example discussed above), somewhat polluting the output of
+\typetracer.  Nevertheless, we found \AT{number} of occurrences of
+monomorphic multi-class arguments, meaning that the function was always
+called with a multi-class value in that argument position.
+
+In the end, we support these multi-class types by allowing \code{class<...>}
+types to contain a list of class names, so for instance a \code{dplyr}
+\code{tibble} would have type \code{class<data.frame, tbl, tbl_df>} in our
+type language, and when performing related contract assertions \contractr
+will check that the value has every class that make up its type.
+
+%
+\subsection{Nullable Types}
+
+One final, common pattern that we would like to highlight is the
+co-occurrence of \code{NULL} with other types of values.  In
+Section~\ref{subsec:basictypes} we discussed NA, and how NAs represent
+missing data for the primitive types, and more generally R provides a
+\code{NULL} value that programmers use to represent missing data for other
+types.  Programmers often use \code{NULL} as a default value for function
+arguments, and the code snippet in Figure~\ref{fig:null} exemplifies this.
+
+\begin{figure}[htbp]
+\begin{center}
+
+\begin{lstlisting}
+# NULL default argument example. 
+\end{lstlisting}
+
+\caption{Idiomatic NULL usage in R.}
+\label{fig:null}
+\end{center}
+\end{figure}
+
+To capture this behaviour, we introduce a nullable type \code{? T} into our
+type language and contract checking framework.  That way, programmers can
+succinctly ascribe types to null-by-default arguments (such as in the
+example in Figure~\ref{fig:null}).  This also served to reduce the number of
+polymorphic arguments we detected: Without this type, \AT{X\%} of
+polymorphic argument positions were of the form \code{null | T}.  Including
+a nullable type served to reduce observed polymorphism by \AT{Y\%}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
