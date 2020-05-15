@@ -127,10 +127,10 @@
 The R programming language is widely used in a variety of domains for tasks
 related to data science. R was designed to favor an interactive style of
 programming with minimal syntactic and conceptual overhead. This design is
-well suited to interactive data analysis, but a bad firt for tools such as
+well suited to interactive data analysis, but a bad fit for tools such as
 compilers or program analyzers which must generate performant code or catch
 programming errors.  In particular, R has no type annotations, its
-operations are dynamically checked at runtime. The starting point for our
+operations are dynamically checked at run-time. The starting point for our
 work are the twin questions, \emph{what expressive power is needed to
   accurately type R code?} and \emph{which type system is the R community
   willing to adopt?} Both questions are difficult to answer without actually
@@ -211,13 +211,13 @@ replace ad hoc error checking code.
 To sum up, our paper makes the following main contributions:
 \begin{itemize}
 \item We implemented tooling to automatically extract type signatures from R
-  functions and to intrument R functions with checks based on their declared
+  functions and to instrument R functions with checks based on their declared
   types. The tooling is robust and scalable to the entire R language.
-\item We carried out a large-scale analyis of corpus of \PACKAGES widely
+\item We carried out a large-scale analysis of corpus of \PACKAGES widely
   used and actively maintained libraries to extract function type signatures
   validated the robustness of the inferred type signatures against XXX
   programs that use those functions.
-\item We report on the appropriateness and usefulness of a simpe type
+\item We report on the appropriateness and usefulness of a simple type
   language for the R programming language.
 \end{itemize}
 
@@ -244,7 +244,7 @@ intersperse typed and untyped code in a fine-grained manner.
 But what if the design of the type system is unclear?  \citet{tip} propose
 an intriguing approach called trace typing. With trace typing, a new type
 system can be prototyped and evaluated by applying the type rule to
-execution traces of programs. While the appraoch has the limitation of
+execution traces of programs. While the approach has the limitation of
 dynamic analysis techniques, namely that the results are only as good at the
 coverage of the source code, it allows to quickly test new design and
 quantify how much of a code base can be type-checked.  Other approaches that
@@ -252,7 +252,7 @@ infer types for dynamic analysis include the work of \citet{FurrAF2009} for
 Ruby.
 
 There is no previous work for the R programming language. We take
-inspiration in the above mentionned works but focus on adapting them to our
+inspiration in the above mentioned works but focus on adapting them to our
 target language.
 
 
@@ -408,7 +408,7 @@ type, such as data frames, leverage attributes. A data frame, for instance,
 is a list of vectors with a class and a column name attribute.
 
 Scalar data types include the distinguished \k{NULL} value, which is also of
-ktype \k{NULL}, instance of classes written using the S4 object system,
+type \k{NULL}, instance of classes written using the S4 object system,
 closures and environments.  The implementation of R has a number of other
 types listed in Figure~\ref{rtypes} for reference.
 
@@ -423,7 +423,7 @@ iterative process.
 
 Fig.~\ref{types} presents our type language. An early design choice was to
 stay close to the R language and only depart in small, hopefully,
-non-controverwsial ways.  Functions types have the form \FUN{A_1, \dots,
+non-controversial ways.  Functions types have the form \FUN{A_1, \dots,
   A_n}\T where each $\A_i$ argument is either a type \T or \VARGS, a
 variable length argument list. The rest of this section details and
 motivates our design.
@@ -486,7 +486,7 @@ introduce a nullable type \code{?}\T.  The difference between the \NA and
 Lists and vectors are closely related. Any vector can be converted to a list
 with \code{as.list}, and lists to vectors with \code{unlist} (coercions may
 ensue). We support parametrization of the list type, \LIST\T, but for
-heterogenous lists this type will default to \any.
+heterogeneous lists this type will default to \any.
 
 \paragraph{Classes} 
 R has more than one notion of type. Values can be attributed, one important
@@ -550,7 +550,7 @@ Depending on the value's type tag, the tool collects further information:
 
 \noindent
 To obtain raw types, we make use of R's C FFI and use low-level machinery to
-collect type tags and attributes from the R runtime.  The types that we
+collect type tags and attributes from the R run-time.  The types that we
 provide to users are constructed during post-processing, and rely on the
 detailed information made available by these low-level reflection
 mechanisms.
@@ -604,7 +604,7 @@ The output of the \typetracer tool consists of a set of tuples of raw types,
 each representing a function call in some program's execution. The inference
 step consolidates the different tuples corresponding to a particular function
 definition across multiple programs and distills them into a single type
-signature.  The shape of the infered function signatures is:
+signature.  The shape of the inferred function signatures is:
 
 \medskip
 \FUN{ T_{1,1} \k{~|~} T_{1,i}, \dots, T_{n,1} \k{~|~} T_{n,j}}{T_1\k{~|~} T_k}
@@ -639,12 +639,12 @@ decorate function with assertions. We use it to insert type checks of the
 arguments and return values. As usual with R, this is not straightforward.
 
 While \contractr's primary logic has been implemented in C++ to reduce its
-runtime overhead, we have not observed a single segfault during our use of
+runtier overhead, we have not observed a single segfault during our use of
 the package.  It has been tested with GNU R-3.5.0 and hardened with a
 battery of 400 test cases. It works by modifying function definition to
 insert a call to a type-checking function.
 
-In terms of useability, our checker is enabled automatically whenever a
+In terms of usability, our checker is enabled automatically whenever a
 package is loaded in R. So, a simple invocation of \code{library(contractr)}
 causes contracts to be injected in all packages.  On loading, \contractr
 scans all packages in the user's workspace and inserts contracts in
@@ -677,7 +677,7 @@ type-checking so that results can be obtained by calling
 halt the program.
 
 \paragraph{Checking the values} A number of properties can be checked
-by a simple tag check, namely wether a value is a: null, environment, vector
+by a simple tag check, namely whether a value is a: null, environment, vector
 or scalar. Other properties require an inspection of the contents of a
 value: the absence of \NA or the type of the elements of list. Union types
 require checking for each of the alternatives. We do not check higher-order
@@ -720,7 +720,7 @@ dependencies in log scale. Dotted lines indicate means. Packages with over
   \caption{Corpus overview}\label{fig:corpus}
 \end{figure}
 
-These packages come from the Comprehensive R Achive Network
+These packages come from the Comprehensive R Archive Network
 (CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of R
 code with over \AllCranRnd packages\footnote{CRAN receives about 6 new package
   submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd and
@@ -780,11 +780,11 @@ metadata using builtin function.
 
 The first part of our evaluation attempts to shed light on how good a fit
 our proposed type system is with respect to common programming patterns
-occuring in widely used R libraries.
+occurring in widely used R libraries.
 
 First we look at the share of monomorphic arguments and function signatures.
 Monomorphic in this context means that the type is not relying on \any or
-inlcuding a union.  The import of monorphism in this context is that it
+including a union.  The import of monorphism in this context is that it
 means our type language can accurately capture an argument's type or a
 function signature.
 
