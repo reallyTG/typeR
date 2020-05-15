@@ -247,41 +247,12 @@ target language.
 %
 \subsection{The R Programming Language}
 
-Over the last decade, the R Project has become a key tool for implementing
-sophisticated data analysis algorithms in fields ranging from Computational
-Biology~\cite{R05} to Political Science~\cite{R:Keele:2008}. At the heart of
-the R project is a \emph{vectorized, dynamic, lazy, functional,
-  object-oriented} programming language with a rather unusual combination of
+The R Project is a key tool for data analysis.  At the heart of the R
+project is a \emph{vectorized, dynamic, lazy, functional, object-oriented}
+programming language with a rather unusual combination of
 features~\cite{ecoop12} designed to ease learning by non-programmer and
-enable rapid development of new statistical methods.  The language, commonly
-referred to as R was designed in 1993 by Ross Ihaka and Robert
-Gentleman~\cite{R96} as a successor to S~\cite{S88}.  First released in
-1995, under a GNU license, R rapidly became the lingua franca for
-statistical data analysis. Today, there are over 13,000 R packages available
-from repositories such as CRAN and Bioconductor.  With 55 R user groups
-world-wide, Smith~\cite{eco11} estimates that there are over 2 million
-end-users.
-
-As an introduction to R, consider the code snippet in Fig.~\ref{sample} from
-a top-level interaction where the user defines a function \code{normSum}
-that accepts vectors of integers, logicals, doubles and complex values and
-normalizes the vector with respect to its sum and rounds the results. The
-function definition does not require type annotations, and all operations
-transparently work on vectors of any length and different types.
-
-\begin{figure}[!hb]{\begin{lstlisting}
-> normSum <- function( m )  round( m / sum(m), 2)
-> normSum(c(1L,3L,6L))
-[1] 0.1 0.3 0.6
-> normSum(c(1.1,3.3,6.6))
-[1] 0.1 0.3 0.6
-> normSum(c(1.6,3.3,6.1))
-[1] 0.15 0.30 0.55
-> normSum(complex(r=rnorm(3),i=rnorm(3)))
-[1] 0.49+0.21i 0.30-0.18i 0.22-0.03i
-\end{lstlisting}}
-\caption{Sample R code}\label{sample}
-\end{figure}
+enable rapid development of new statistical methods.  The language was
+designed~\citet{R96} as a successor to S~\cite{S88}.
 
 In R, functions can be called with named parameters, arguments can have
 default values, and R also support variable argument lists.  To illustrate
@@ -304,10 +275,11 @@ the reference count on that object is 1.  This semantics gives R a
 functional flavor while allowing updating in place within loops (the first
 update copies, subsequent updates are performed on the copy). Arguments to
 functions are evaluated only when needed, they are bundled in so-called
-promises which package the original expression (as an abstract syntax tree, or AST), its environment
-as well as the result of evaluating the expression. Promises can be
-leveraged for meta-programming as it is possible to retrieve the text of a
-promise and evaluate it in a different environment.
+promises which package the original expression (as an abstract syntax tree,
+or AST), its environment as well as the result of evaluating the
+expression. Promises can be leveraged for meta-programming as it is possible
+to retrieve the text of a promise and evaluate it in a different
+environment.
 
 
 \subsubsection{Types of Data}
