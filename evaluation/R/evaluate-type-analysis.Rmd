@@ -9,6 +9,7 @@ params:
   type_analysis_datafile: ../data/type-analysis/merged/merged.csv
   graph_dirpath: ../../paper/plots/
   table_dirpath: ../../paper/tables/
+  macro_dirpath: ../../paper/macros/
 ---
 
 ```{r setup, echo=FALSE, eval=TRUE}
@@ -23,6 +24,8 @@ suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(tibble))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(kableExtra))
+
+macro_filename <- file.path(params$macro_dirpath, "macros.tex")
 
 source("latex-macros.R")
 
@@ -516,6 +519,16 @@ coord_flip() +
 theme(legend.title = element_blank(), legend.position = "top")) %>%
 save_graph("union_frequency.pdf")
 
+
+generate_macro("PercUnitypedPositions", 
+               union_frequency_folded %>% filter(alternative_count == "1") %>% pull(percentage),
+               macro_filename)
+
+generate_macro("PercManytypedPositions", 
+               union_frequency_folded %>% filter(alternative_count == "> 3") %>% pull(percentage),
+               macro_filename)
+
+
 union_types <-
 union_data %>%
 group_by(package_name, function_name, parameter_position, alternative_count) %>%
@@ -528,8 +541,8 @@ group_by(alternative_count) %>%
 arrange(desc(count)) %>%
 ungroup() %>%
 group_by(alternative_count) %>%
-mutate(percentage = round(100 * count / sum(count), 2),
-       cumsum_percentage = round(100 * cumsum(count) / sum(count), 2)) %>%
+mutate(percentage = round(100 * count / sum(count), 1),
+       cumsum_percentage = round(100 * cumsum(count) / sum(count), 1)) %>%
 ungroup() %>%
 group_by(alternative_count) %>%
 slice(1:20) %>%

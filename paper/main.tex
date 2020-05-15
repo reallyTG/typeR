@@ -823,25 +823,24 @@ including a union.  The import of monorphism in this context is that it
 means our type language can accurately capture an argument's type or a
 function signature.
 
-<<Insert proportion of monorphic types in argument and in function
-signature. Perhaps a table of monomorphic type signatures that are
-popular...>>
-
-
 \begin{figure}[!h]  \centering
   \includegraphics[width=\linewidth]{plots/union_frequency.pdf}
   \caption{Size of unions}\label{fig:unionfreq}
 \end{figure}
 
-We observe that XXX of the positions have a single type ascribed to them,
-and, only XXX have four or more types ascribed to them. Parameter PARAMNAME
-of function XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it.
-Hence, most functions admit or return a uni-typed value.
+There are \PercUnitypedPositions monomorphic parameter and return value
+positions in function signatures. Only \PercManytypedPositions positions have
+four or more types ascribed to them. Parameter PARAMNAME of function
+XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it. Most functions
+admit or return a uni-typed value.
 
 Figure 1 provides a breakdown of the different type categories observed at
 uni-typed positions.
 
 \input{tables/uni-typed-breakdown.tex}
+
+We observe that XXX of the positions have a single type ascribed to them, and,
+only XXX have four or more types ascribed to them.
 
 Figure XXX shows ten most common type categories that occur by
 themselves. We observe that three scalar types, double, logical, and
