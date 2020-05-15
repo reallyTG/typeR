@@ -200,6 +200,88 @@ pkgs_coverage <-
   mutate(coverage_expr=coverage_expr/100, coverage_line=coverage_line/100)
 ```
 
+#### Coverage details
+
+We have to manually add the header to the `coverage-details.csv` files.
+
+```{r process package coverage details}
+read_coverage_details <- function(file, package) {
+  read_csv(
+    file, 
+    col_names = c( 
+      "type",
+      "filename",
+      "functions",
+      "first_line",
+      "first_byte",
+      "last_line",
+      "last_byte",
+      "first_column",
+      "last_column",
+      "first_parsed",
+      "last_parsed",
+      "value"
+    ),
+    col_types=cols(
+      type = col_character(),
+      filename = col_character(),
+      functions = col_character(),
+      first_line = col_integer(),
+      first_byte = col_integer(),
+      last_line = col_integer(),
+      last_byte = col_integer(),
+      first_column = col_integer(),
+      last_column = col_integer(),
+      first_parsed = col_integer(),
+      last_parsed = col_integer(),
+      value = col_double() # some value seems to be too big to fit into an int
+    )
+  ) %>%
+    add_column(package, .before="type") %>%
+    rename(fun=functions)
+}
+
+if (file_exists(PACKAGE_COVERAGE_DETAILS)) {
+  coverage_details <- read_csv(
+    PACKAGE_COVERAGE_DETAILS,
+    col_types=cols(
+      package = col_character(),
+      type = col_character(),
+      filename = col_character(),
+      fun = col_character(),
+      first_line = col_double(),
+      first_byte = col_double(),
+      last_line = col_double(),
+      last_byte = col_double(),
+      first_column = col_double(),
+      last_column = col_double(),
+      first_parsed = col_double(),
+      last_parsed = col_double(),
+      value = col_double()
+    )
+  )
+} else {
+  coverage_details_files <- path(PACKAGE_COVERAGE_DIR, pkgs_coverage$package, "coverage-details.csv")
+  names(coverage_details_files) <- pkgs_coverage$package
+
+  stopifnot(all(file_exists(coverage_details_files)))
+
+  coverage_details <- imap_dfr(coverage_details_files, read_coverage_details)
+  write_csv(coverage_details, PACKAGE_COVERAGE_DETAILS)
+}
+```
+
+```{r function coverage}
+coverage_funs <- 
+  coverage_details %>%
+  filter(type=="all") %>%
+  group_by(package, fun) %>%
+  summarise(coverage=ifelse(n() > 0, sum(value > 0)/n(), NA))
+
+write_csv(coverage_funs, CRAN_COVERAGE_FUNCTIONS)
+```
+
+
 ### Package runs
 
 ```{r package runs}
@@ -225,22 +307,62 @@ pkgs_runs <-
 ### Package functions
 
 ```{r load functions}
-pkgs_functions <- 
+pkgs_functions_raw <- 
   read_csv(
     PACKAGE_FUNCTIONS,
     col_types=cols(
       package = col_character(),
       fun = col_character(),
-      num_params = col_double(),
-      has_elipsis = col_logical(),
-      exported = col_logical()
+      exported = col_logical(),
+      is_s3_dispatch = col_logical(),
+      is_s3_method = col_logical(),
+      params = col_character()
     )
-  ) %>%
+  )
+
+pkgs_functions_exported <-
+  pkgs_functions_raw %>%
   count(package, exported) %>%
-  mutate(type=ifelse(exported, "funs_public", "funs_private")) %>%
-  select(-exported) %>%
-  spread(key=type, value=n, fill=0) %>%
-  mutate(funs=funs_public+funs_private)
+  mutate(exported=ifelse(exported, "funs_public", "funs_private")) %>%
+  pivot_wider(
+    names_from=exported, 
+    values_from=n, 
+    values_fill=list(n=0)
+  )
+
+pkgs_functions_s3 <-
+  pkgs_functions_raw %>%
+  group_by(package) %>%
+  summarise(funs_s3_dispatch=sum(is_s3_dispatch), funs_s3_method=sum(is_s3_method))
+
+pkgs_functions <-
+  pkgs_functions_exported %>%
+  left_join(pkgs_functions_s3, by="package") %>%
+  mutate(
+    funs_s3_dispatch=replace_na(funs_s3_dispatch, 0),
+    funs_s3_method=replace_na(funs_s3_method, 0),
+    funs=funs_public+funs_private,
+    funs_s3=funs_s3_dispatch+funs_s3_method
+  )
+```
+
+### Package classes
+
+```{r load classes}
+pkgs_classes_raw <- 
+  read_csv(
+    PACKAGE_CLASSES,
+    col_types=cols(
+      package = col_character(),
+      class = col_character()
+    )
+  )
+
+pkgs_classes <- 
+  select(pkgs_loadable, package) %>%
+  left_join(count(pkgs_classes_raw, package), by="package") %>% 
+  rename(s3_classes=n) %>%
+  mutate(s3_classes=replace_na(s3_classes, 0))  
 ```
 
 ### Package reverse dependencies
@@ -259,13 +381,17 @@ pkgs_revdeps_raw <- withr::with_libpaths(LIB_DIR, {
   )
 }) %>% imap_dfr(~tibble(package=.y, revdep=.x))
 
-pkgs_revdeps <- count(pkgs_revdeps_raw, package) %>% rename(revdeps=n)
+pkgs_revdeps <- 
+  pkgs_revdeps_raw %>%
+  left_join(select(pkgs_runnable_code, package, runnable_code), by=c("revdep"="package")) %>%
+  group_by(package) %>%
+  summarise(revdeps=n(), revdeps_runnable_code=sum(runnable_code, na.rm=T))
 ```
 
 ### Package asserts
 
 ```{r runtime checks}
-pkgs_asserts <- 
+pkgs_asserts_raw <-
   read_csv(
     PACKAGE_ASSERTS,
     col_types=cols(
@@ -279,11 +405,16 @@ pkgs_asserts <-
       assert = col_character(),
       args = col_character()
     )
-  ) %>%
+  )
+write_csv(pkgs_asserts_raw, CRAN_ASSERTS)
+
+pkgs_asserts <- 
+  pkgs_asserts_raw %>%
   count(package, fun_name) %>%
   group_by(package) %>%
   summarise(funs_with_assert=length(unique(fun_name)), asserts=sum(n))
 ```
+
 
 ### Package roxygen
 
@@ -312,6 +443,7 @@ pkgs <-
   left_join(pkgs_coverage, by="package") %>%
   left_join(pkgs_runs, by="package") %>%
   left_join(pkgs_functions, by="package") %>%
+  left_join(pkgs_classes, by="package") %>%
   left_join(pkgs_revdeps, by="package") %>%
   left_join(pkgs_asserts, by="package") %>%
   left_join(pkgs_roxygen, by="package")

@@ -28,6 +28,75 @@ create_tags(path(TAGS_DIR, "code-coverage.tex"), prefix="", default=TRUE)
 
 ## Loading data
 
+```{r}
+corpus <- read_csv(
+  CORPUS_DETAILS,
+  col_types=cols(
+    package = col_character(),
+    installed = col_logical(),
+    loadable = col_logical(),
+    version = col_character(),
+    title = col_character(),
+    size = col_double(),
+    package_native_code = col_double(),
+    package_r_code = col_double(),
+    package_code = col_double(),
+    runnable_code = col_double(),
+    runnable_files = col_double(),
+    runnable_code_examples = col_double(),
+    runnable_code_vignettes = col_double(),
+    runnable_code_tests = col_double(),
+    runnable_files_examples = col_double(),
+    runnable_files_vignettes = col_double(),
+    runnable_files_tests = col_double(),
+    coverage_expr = col_double(),
+    coverage_line = col_double(),
+    runnable_success = col_double(),
+    runnable_error = col_double(),
+    runnable_time = col_double(),
+    runnable_rate = col_double(),
+    funs_private = col_double(),
+    funs_public = col_double(),
+    funs = col_double(),
+    revdeps = col_double(),
+    funs_with_assert = col_double(),
+    asserts = col_double(),
+    uses_roxygen = col_logical()
+  )
+)
+```
+
+## Per function code coverage
+
+
+```{r}
+coverage_funs %>%
+  ggplot(aes(x=coverage)) + 
+  geom_histogram(bins=100) +
+  scale_x_continuous(labels = scales::percent) +
+  scale_y_log10(labels = scales::comma) +
+  labs(x="Code coverage", y="Number of functions", title="Code coverage distribution over corpus functions")
+```
+
+```{r}
+filter(coverage_funs, coverage==0)
+```
+
+
+```{r}
+coverage_run <- read_csv("/var/lib/R/run/package-coverage/parallel-results.csv")
+```
+
+```{r}
+coverage <- read_csv("/var/lib/R/run/package-coverage/coverage.csv")
+```
+
+
+```{r}
+coverage_details <- read_csv("/var/lib/R/run/package-coverage/coverage-details.csv")
+```
+
+
 ## Corpus coverage by reverse dependencies
 
 ## Code coverage

@@ -19,27 +19,34 @@ PLOT_DIR <- path(PAPER_DIR, "plots")
 TAGS_DIR <- PAPER_DIR
 
 ## all packages
-CRAN_PACKAGES_FILE <- path(EVALUATION_DIR, "cran.txt")
-CRAN_PACKAGES_DETAILS <- path(EVALUATION_DIR, "cran-details.csv")
-CRAN_REVDEPS <- path(EVALUATION_DIR, "cran-revdeps.csv")
+CRAN_PACKAGES_FILE      <- path(EVALUATION_DIR, "cran.txt")
+CRAN_PACKAGES_DETAILS   <- path(EVALUATION_DIR, "cran-details.csv")
+CRAN_REVDEPS            <- path(EVALUATION_DIR, "cran-revdeps.csv")
+CRAN_COVERAGE_FUNCTIONS <- path(EVALUATION_DIR, "cran-coverage-functions.csv")
+CRAN_ASSERTS            <- path(EVALUATION_DIR, "cran-asserts.csv")
 
 ## corpus related
-CORPUS_FILE           <- path(EVALUATION_DIR, "corpus.txt")
-CORPUS_DETAILS        <- path(EVALUATION_DIR, "corpus-details.csv")
-CORPUS_REVDEPS        <- path(EVALUATION_DIR, "corpus-revdeps.csv")
-CORPUS_REVDEPS_UNIQUE <- path(EVALUATION_DIR, "corpus-revdeps.txt")
+CORPUS_FILE                  <- path(EVALUATION_DIR, "corpus.txt")
+CORPUS_DETAILS               <- path(EVALUATION_DIR, "corpus-details.csv")
+CORPUS_REVDEPS               <- path(EVALUATION_DIR, "corpus-revdeps.csv")
+CORPUS_REVDEPS_UNIQUE        <- path(EVALUATION_DIR, "corpus-revdeps.txt")
+COVERAGE_REVDEP_FUNCTIONS    <- path(EVALUATION_DIR, "corpus-coverage-functions.csv")
+
+## plots
 CORPUS_PLOT           <- path(PLOT_DIR, "corpus.pdf")
 
 # package coverage related
-PACKAGE_COVERAGE_DIR <- path(RUN_DIR, "package-coverage")
-PACKAGE_COVERAGE_RUN <- path(PACKAGE_COVERAGE_DIR, "parallel-results.csv")
-PACKAGE_COVERAGE_LOG <- path(PACKAGE_COVERAGE_DIR, "parallel.log")
-PACKAGE_COVERAGE     <- path(PACKAGE_COVERAGE_DIR, "coverage.csv")
+PACKAGE_COVERAGE_DIR     <- path(RUN_DIR, "package-coverage")
+PACKAGE_COVERAGE_RUN     <- path(PACKAGE_COVERAGE_DIR, "parallel-results.csv")
+PACKAGE_COVERAGE_LOG     <- path(PACKAGE_COVERAGE_DIR, "parallel.log")
+PACKAGE_COVERAGE         <- path(PACKAGE_COVERAGE_DIR, "coverage.csv")
+PACKAGE_COVERAGE_DETAILS <- path(PACKAGE_COVERAGE_DIR, "coverage-details.csv")
 
 # package revdeps coverage
-PACKAGE_REVDEPS_COVERAGE_DIR <- path(RUN_DIR, "package-revdep-coverage")
-PACKAGE_REVDEPS_COVERAGE <- path(PACKAGE_REVDEPS_COVERAGE_DIR, "revdep-coverage.csv")
-PACKAGE_REVDEPS_RUNS <- path(PACKAGE_REVDEPS_COVERAGE_DIR, "revdep-runs.csv")
+PACKAGE_REVDEPS_COVERAGE_DIR     <- path(RUN_DIR, "package-revdep-coverage")
+PACKAGE_REVDEPS_COVERAGE         <- path(PACKAGE_REVDEPS_COVERAGE_DIR, "revdep-coverage.csv")
+PACKAGE_REVDEPS_COVERAGE_DETAILS <- path(PACKAGE_REVDEPS_COVERAGE_DIR, "revdep-coverage-details-expr.csv")
+PACKAGE_REVDEPS_RUNS             <- path(PACKAGE_REVDEPS_COVERAGE_DIR, "revdep-runs.csv")
 
 # package roxygen
 PACKAGE_USES_ROXYGEN <- path(RUN_DIR, "package-uses-roxygen", "roxygen.csv")
@@ -56,6 +63,7 @@ PACKAGE_LOAD_RUN <- path(PACKAGE_LOAD_DIR, "parallel-results.csv")
 # package functions
 PACKAGE_FUNCTIONS_DIR <- path(RUN_DIR, "package-functions")
 PACKAGE_FUNCTIONS     <- path(PACKAGE_FUNCTIONS_DIR, "functions.csv")
+PACKAGE_CLASSES       <- path(PACKAGE_FUNCTIONS_DIR, "classes.csv")
 
 # package runnable code
 PACKAGE_RUNNABLE_CODE_DIR      <- path(RUN_DIR, "extract-package-runnable-code")
