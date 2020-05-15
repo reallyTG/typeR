@@ -281,6 +281,12 @@ coverage_funs <-
 write_csv(coverage_funs, CRAN_COVERAGE_FUNCTIONS)
 ```
 
+```{r}
+pkgs_coverage_funs <-
+  filter(coverage_funs, coverage > 0) %>%
+  count(package) %>%
+  rename(funs_with_coverage=n)
+```
 
 ### Package runs
 
@@ -388,6 +394,27 @@ pkgs_revdeps <-
   summarise(revdeps=n(), revdeps_runnable_code=sum(runnable_code, na.rm=T))
 ```
 
+```{r}
+pkgs_revdeps_coverage <- 
+  read_csv(
+    PACKAGE_REVDEPS_COVERAGE,
+    col_types=cols(
+      package = col_character(),
+      revdep_coverage_expression = col_double(),
+      revdep_coverage_line = col_double(),
+      n_revdeps = col_double(),
+      n_ran_revdeps = col_double()
+    )
+  ) %>%
+  select(
+    package,
+    revdep_coverage_expr=revdep_coverage_expression,
+    revdep_coverage_line,
+    revdep_coverage_runs=n_ran_revdeps
+  )
+```
+
+
 ### Package asserts
 
 ```{r runtime checks}
@@ -441,6 +468,7 @@ pkgs <-
   left_join(pkgs_sloc, by="package") %>%
   left_join(pkgs_runnable_code, by="package") %>%
   left_join(pkgs_coverage, by="package") %>%
+  left_join(pkgs_coverage_funs, by="package") %>%
   left_join(pkgs_runs, by="package") %>%
   left_join(pkgs_functions, by="package") %>%
   left_join(pkgs_classes, by="package") %>%
