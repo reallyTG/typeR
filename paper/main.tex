@@ -882,13 +882,12 @@ Our data supports the choice of making the presence of NAs explicit.  In
 practice, programmers explicitly check for NAs in primitive vectors,
 possibly sanitizing them if they are present. 
 
-\begin{lstlisting}
-binom.profile <- function(x, n, ...) {
-  xn <- cbind(x = x, n = n)
-  ok <- !is.na(xn[, 1]) & !is.na(xn[, 2])
-  x <- xn[ok, "x"]
-  n <- xn[ok, "n"]
-  ...
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+  binom.profile <- function(x, n, ...) {
+   xn <- cbind(x = x, n = n)
+   ok <- !is.na(xn[, 1]) & !is.na(xn[, 2])
+   x <- xn[ok, "x"]
+   n <- xn[ok, "n"]
 \end{lstlisting}
 
 The \code{binom} package is a popular R package for computing confidence
@@ -903,17 +902,15 @@ respectively.
 The data also suggests that programmers often use scalars, and do
 dimensionality checks on their data.
 
-\begin{lstlisting}
-hankel.matrix <- function( n, x ) { 
-### arguments
-### n = a positive integer value for the order of the Hankel matrix
-### x = an order 2 * n + 1 vector of numeric values
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+  hankel.matrix <- function( n, x ) { 
+  ### n = a positive integer value for the order of the Hankel matrix
+  ### x = an order 2 * n + 1 vector of numeric values
     ...
     if ( n != trunc( n ) )  stop( "argument n ix not an integer" )
     if ( !is.vector( x ) )  stop( "argument x is not a vector" )
     m <- length( x )
     if ( m < n )  stop( "length of argument x is less than n" )
-    ...
 \end{lstlisting}
 
 The \code{hankel.matrix} function takes two arguments.  The function has a
@@ -933,19 +930,11 @@ codified in the language semantics, many internal functions will coerce
 vectors to matrices automatically.  Relying on automatic coercion is unwise,
 and many functions check to ensure that their arguments are matrices.
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
 rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
                              na.rm = FALSE, ...) {
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  # Validate arguments
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  # Argument 'x':
-  if (!is.matrix(x)) {
-    .Defunct(msg = sprintf("Argument 'x' is of class %s, but should be a matrix. 
-    The use of a %s is not supported, the correctness of the result is not guaranteed. 
-    Please update your code accordingly.", sQuote(class(x)[1]), sQuote(class(x)[1])))
-  }
-  ...
+  if (!is.matrix(x)) 
+    .Defunct(msg = sprintf("Argument 'x' should be a matrix.)
 \end{lstlisting}
 
 The \code{rowWeightedMeans} function calculates the weighted means of rows
@@ -962,16 +951,11 @@ Thus far we've seen instances where we introduce types that subsume existing
 argument validation code, but our intention is not to subsume {\it all} such
 code.
 
-\begin{lstlisting}
-rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
-                             na.rm = FALSE, ...) {
-  ...
-  n <- ncol(x)
-  if (length(w) != n) {
-    stop("The length of argument 'w' is does not match the number of column in 'x': ", 
-    length(w), " != ", n)
-  }
-  ...
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+  rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE) {
+    n <- ncol(x)
+    if (length(w) != n) 
+       stop("The length of 'w' does not match columns in 'x': ")
 \end{lstlisting}
 
 This code is from later in the same \code{rowWeightedMeans} function
@@ -982,23 +966,22 @@ being checked for equality with the number of columns in the matrix
 science language such as R.  Ultimately, we decided to leave these kinds of
 checks up to the programmer.
 
-\paragraph{Structs.}
+\paragraph{Structs}
 
 We observed the use of consistently-named lists in \AT{a number of
   functions}.  In R, ``fields'' of named lists can be accessed using the
 \code{$} operator.
 
-\begin{lstlisting}
-agricolae::cv.model <- function(x) {
-  suma2 <- sum(x$residual^2)
-  gl <- x$df.residual
-  promedio <- mean(x$fitted.values)
-  return(sqrt(suma2/gl)*100/promedio)
-}
-
-data(sweetpotato)
-model<-aov(yield~virus, data=sweetpotato)
-cv.model(model)
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+  agricolae::cv.model <- function(x) {
+    suma2 <- sum(x$residual^2)
+    gl <- x$df.residual
+    promedio <- mean(x$fitted.values)
+    return(sqrt(suma2/gl)*100/promedio)
+  }
+  data(sweetpotato)
+  model<-aov(yield~virus, data=sweetpotato)
+  cv.model(model)
 \end{lstlisting}
 
 In the code snippet, the function \code{cv.model} takes an argument
@@ -1049,15 +1032,12 @@ on their data frames.  In base R, idiomatic data frame use is to use string
 column names to select rows from the frame (unless only a single column is
 of interest, wherein the \code{$} syntax is appropriate).
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
 data(cars)
-
 # tidyverse: Filter rows where speed is > 20. 
 fast_cars_tidy <- filter(cars, speed > 20)
-
 # base R: Get all rows where the "speed" column has a value > 20.
 fast_cars_base <- cars[cars[, "speed"] > 20, ] # base example
-
 \end{lstlisting}
 
 
