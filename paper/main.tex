@@ -32,7 +32,7 @@
   keywordstyle=,
   commentstyle=\color{Gray}\em,
   stringstyle=\color{Gray},
-  numbers=left,
+%  numbers=left,
   showstringspaces=false
 }
 \lstdefinestyle{R}{ %
@@ -45,6 +45,8 @@
   style=R,
   breaklines=false
 }
+\renewcommand{\k}[1]{{\tt #1}\xspace}
+
 
 \newcommand{\eg}{\emph{e.g.},\xspace}
 \newcommand{\ie}{\emph{i.e.},\xspace}
@@ -244,8 +246,7 @@ inspiration in the above mentionned works but focus on adapting them to our
 target language.
 
 
-%
-\subsection{The R Programming Language}
+\subsection{The R Programming Language} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The R Project is a key tool for data analysis.  At the heart of the R
 project is a \emph{vectorized, dynamic, lazy, functional, object-oriented}
@@ -254,50 +255,80 @@ features~\cite{ecoop12} designed to ease learning by non-programmer and
 enable rapid development of new statistical methods.  The language was
 designed~\citet{R96} as a successor to S~\cite{S88}.
 
-In R, functions can be called with named parameters, arguments can have
-default values, and R also support variable argument lists.  To illustrate
-all of this in a single example, consider:
+In this paper, we will attempt infer type signature for functions. We now
+introduce some relevant concepts.  Functions can be called with named
+parameters, arguments can have default values, and R also support variable
+argument lists.  To illustrate all of this in a single example, consider:
 
 \begin{lstlisting}
-f <- function(x, ..., y=3) x + y
+  f <- function(x, ..., y=if(z==0) 1, z=0) x + y + if (missing(...)) 0 else c(...)
 \end{lstlisting}
 
 \noindent
-Function \k{f} can be called with a single argument \code{f(3)}, with named
-argument \code{f(y=4,x=2)} and with a variable number of arguments,
-\code{f(1,2,3,4,y=5)}, all of these calls will return \code{6}.
+This function four formal parameters, \k x, \k{...}, \k y and \k z. Argument
+\k x can be bound positionally or passed by name. The vararg argument,
+\k{...}, is always passed positionally. The remaining two arguments must be
+passed by name.  Arguments \k y and \k z have default values, in the case of
+\k z this is a constant, but \k{y}'s default value is an expression that
+depends on the value of \k z. The body of the function will add parameters
+\k x and \k y with either the scalar 0 or the result of concatenating the
+varargs into a primitive vector. The function \k{missing} tests if an
+argument was explicitly passed. The following are some valid invocations
+of \k f:
 
-R has a number of features that are not crucial to the present
-discussion. We will mention some of them here for completeness.  In R, data
-structures are reference counted and have copy-on-write semantics, thus the
-assignment \code{x[12]<-3} results in an update to a copy of \code{x} unless
-the reference count on that object is 1.  This semantics gives R a
-functional flavor while allowing updating in place within loops (the first
-update copies, subsequent updates are performed on the copy). Arguments to
-functions are evaluated only when needed, they are bundled in so-called
-promises which package the original expression (as an abstract syntax tree,
-or AST), its environment as well as the result of evaluating the
-expression. Promises can be leveraged for meta-programming as it is possible
-to retrieve the text of a promise and evaluate it in a different
-environment.
+\begin{lstlisting}
+ > f(1)    
+ [1] 2             % a double vector, y is 0, ... is missing
+ > f(1,2) 
+ [1] 4             % a double vector, y is 0, ... is 2
+ > f(1,2,3)
+ [1] 4 5           % a double vector, y is 0, ... is 2, 3
+ > f(2,3,x=1)
+ [1] 4 5           % a double vector, y is 0, ... is 2, 3
+ > f(x=1, y= 1)
+ [1] 2             % a double vector, y is 1, ... is missing
+ > f(x=1, z= 1)
+ numeric(0)        % a double vector of length 0, y is NULL
+ > f(1L,2L,y=1L)
+ [1] 4             % an integer vector, y is integer 1, ... is integer 2
+ > f(1, y=c(1,2))
+ [1] 1 2           % a double vetor, y is 1, 2, ... is missing
+\end{lstlisting}
 
+\noindent
+The above hints at the polymorphism of the language, \k f, may return a
+vector of integer or of double, the length of the vector depends on the
+length of the varargs and of \k x and \k y.  The language does not really
+differentiate between scalar and vectors.
+Some more exotic types that can be encountered include vectors of complex
+number and list of arbitrary types. Function \k f can be invoked with those
+as well.
 
-\subsubsection{Types of Data}
-\label{subsubsec:backgroundtypes}
-
-Before attempting to define a type system for R, we should understand the
-different kinds of values that programs operate on.  As we will see
-different notions of type may emerge depending on how granular we want to
-be.
-
-\renewcommand{\k}[1]{{\tt #1}\xspace}
+\begin{lstlisting}
+ > c1 <- complex(re=1, im=2)
+ > c2 <- complex(re=2, im=1)
+ > f(c1)
+ [1] 1             % a double vector, x is complex, y is double
+ > f(c1,y=c2)
+ [1] 2+1i          % a complex vector, x and y are complex
+ > l1 <- list(1,2)
+ > l2 <- list(c1,c2)
+ > f(l1) 
+ [1] 1             % a double vector, x is a list of doubles
+ > f(l1,y=l2)
+ [[1]]             % a list of complex, x is a list of doubles
+ [1] 1+2i          %                      y is a list of complex
+ 
+ [[2]]
+ [1] 2+1i
+\end{lstlisting}
 
 R has one builtin notion of type that can be queried by the \k{typeof}
 function. Figure~\ref{types} lists all of the builtin types that are
 provided by the language. They are the possible return values of
 \k{typeof}. There is no intrinsic notion of subtyping in R. But, in many
 context a \k{logical} will convert to \k{integer}, and an \k{integer} will
-convert to \k{double}.  Some off conversions can occur in corner cases, such
+convert to \k{double}.  Some odd conversions can occur in corner cases, such
 as \k{1<"2"} holds and \k{c(1,2)[1.6]} returns the first element of the
 vector, as the double is converted to an integer. R does not distinguish
 between scalars and vectors (they are all vectors), so \code{typeof(5) ==}
@@ -347,12 +378,6 @@ is the \k{list} type which can hold values of any other type including
 different type will cause a conversion. Either the value is converted to the
 type of vector, or the vector is converted to the type of the value.
 
-Scalar data types include the distinguished \k{NULL} value, which is also of
-type \k{NULL}, instance of classes written using the S4~\footnote{put footnote on S4 here} object system,
-closures and environments.  The implementation of R has a number of other
-types that are mostly not used by user code, they are listed in
-Figure~\ref{types} for reference.
-
 Over the years, programmers have found the need for a richer type structure
 and have added {\it attributes}. The best way to think of attributes is as
 an optional map from name to values that can be attached to any object.
@@ -372,10 +397,15 @@ multiple dispatch (on all arguments). Some of the most widely used data
 type, such as data frames, leverage attributes. A data frame, for instance,
 is a list of vectors with a class and a column name attribute.
 
+Scalar data types include the distinguished \k{NULL} value, which is also of
+ktype \k{NULL}, instance of classes written using the S4 object system,
+closures and environments.  The implementation of R has a number of other
+types that are mostly not used by user code, they are listed in
+Figure~\ref{types} for reference.
 
-%
-%
-\section{Project Corpus}\label{sec:corpus}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 For this paper we have selected \CorpusLoadable packages consisting of
 \CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
