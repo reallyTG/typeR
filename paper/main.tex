@@ -1326,11 +1326,11 @@ perform appropriate conversions and computations. On the one hand, this form
 of ad-hoc polymorphism makes R functions expressive; on the other hand, it
 requires support for polymorphism in the typing scheme, making the type
 system complex.  Our system lacks explicit support for
-polymorphism. Instead, it supports union, any and ... types. A union type is
+polymorphism. Instead, it supports union, \any and \VARGS types. A union type is
 inferred when values of multiple types are observed at a function parameter
-and return position, any type is inferred when an argument is missing or
-unused, and ... is inferred for vararg parameters. Furthermore, list element
-types can be inferred as any if they have more than 5 different types. Values with many different types can result in
+and return position, \any type is inferred when an argument is missing or
+unused, and \VARGS is inferred for variable length argument list positions. Furthermore, list element
+types can be inferred as \any if they have more than 5 different types. Values with many different types can result in
 a large number of alternatives in the type inferred for that position,
 making it hard to read and unwieldy for end-users. To evaluate this
 ''expressivity gap`' between our type inference scheme and R functions, we
@@ -1342,10 +1342,15 @@ the XXX functions in our corpus.
   \caption{Types inferred for each position}\label{fig:unionfreq}
 \end{figure}
 
-We observe that XXX% of the positions have a single type ascribed to them. XXX%
-have five or more types ascribed to them. Parameter PARAMNAME of function
-XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it. This implies that
-most functions admit or return a uni-typed value.
+We observe that XXX of the positions have a single type ascribed to them, and,
+only XXX have four or more types ascribed to them. Parameter PARAMNAME of function
+XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it.
+Hence, most functions admit or return a uni-typed value.
+
+Figure 1 provides a breakdown of the different type categories observed at
+uni-typed positions.
+
+\input{tables/uni-typed-breakdown.tex}
 
 Figure XXX shows ten most common type categories that occur by themselves. We
 observe that three scalar types, double, logical, and character are most
@@ -1479,12 +1484,12 @@ We did not include these types of coercions in our type annotation framework as 
 
 \begin{tabular}{llrrr}
 \toprule
-Actual Type & Expected Type & \# Failed Assertions & \% Total & Cumulative \%\\
+Passed & Arg Type & Occurrences & \% Total & Cumulative \%\\
 \midrule
 double[] & class<`matrix`> & 371896 & 27.37 & 27.37\\
 double[] & integer[] & 117212 & 8.62 & 35.99\\
 character & class<`bignum`> | raw[] & 100100 & 7.37 & 43.36\\
-double & integer | null & 60570 & 4.46 & 47.81\\
+double & integer | null & 60578 & 4.46 & 47.81\\
 double[] & class<`timeSeries`> & 58872 & 4.33 & 52.15\\
 \addlinespace
 class<matrix> & class<`timeSeries`> & 55005 & 4.05 & 56.19\\
@@ -1507,38 +1512,91 @@ These are functions which were under-tested, as calls to these functions represe
 
 Turning our attention now to arguments, we found that only \PROPARGSFAILINGASSERTS of function parameters exhibited a failed assertion.
 Table~\ref{tbl:fail-breakdown-0} showed the raw results from counting runtime occurrences, but that data alone does not tell the full story, as some failures may be overrepresented if e.g. a failing contract assertion was in a loop.
-We were interested in a breakdown of type signature by parameter, and seeing how often those contracts were violated.
-Table~\ref{tbl:fail-breakdown-1} breaks down the results from Table~\ref{tbl:fail-breakdown-0} by parameter position, folding away multiple identical failed contract assertions for the same parameter position.
-The first row of this table reads: a value of type ${\bf chr}[]$ was passed to 183 different argument positions expecting a value of type ${\bf chr}$, representing 2.05\% of all arguments where a contract check failed.
+We were interested in knowing for each of the most common violations in Table~\ref{tbl:fail-breakdown-0}, how many different arguments had that type, and how many of those exhibited the contract failure in question.
+Table~\ref{tbl:fail-breakdown-1} breaks down the results from Table~\ref{tbl:fail-breakdown-0} by unique parameter position, folding away multiple identical failed contract assertions for the same parameter position.
+The first row of this table reads: a value of type \code{double[]} was passed to 15 different function parameters expecting a matrix, of which there are 1394 in total: 1.08\% of matrix-typed parameters were passed double vector values.
 
-The main takeaway from Table~\ref{tbl:fail-breakdown-1} is that there appear to be no pathological kinds of failing assertions: programmers are not disproportionately passing values of one type to arguments expecting values of another.
-In other words, our type language appears to match with programmer intuitions: had we failed to account for a key, type-based assumption that R programmers make, we would see it at the top of the table.
+We see that even though the double vector and matrix issue was wildly prevalent in the raw, dynamic contract evaluation numbers, the number of actual function argument types that were violated is very small.
+The story is similar with the double and integer coercion we mentioned earlier: it represents many dynamic contract failures, but very few of the integer vector-typed arguments have their contracts violated by double vector-typed values.
+Rows 5 and 6 are interesting: we see that rather often arguments expecting time series data are passed double vector or matrix values.
+This is a quirk of the \code{timeSeries} package, whose functions often accept matrices and vectors, converting them to time series in an ad hoc manner.
+Note that the code coverage of the \code{timeSeries} tests, examples, and vignettes on the \code{timeSeries} package code is only 58.24\%, which is one possible explanation of why these contract failures are occurring: the types that \typetracer generates are only as good as the test code its run on.
 
  \begin{table}
 % BEGIN Autogenerated
 
-
+\begin{tabular}{llrrr}
+\toprule
+Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
+\midrule
+double[] & class<`matrix`> & 15 & 1394 & 1.08\\
+double[] & integer[] & 44 & 657 & 6.70\\
+character & class<`bignum`> | raw[] & 1 & 3 & 33.33\\
+double & integer | null & 5 & 20 & 25.00\\
+double[] & class<`timeSeries`> & 19 & 35 & 54.29\\
+\addlinespace
+class<matrix> & class<`timeSeries`> & 19 & 35 & 54.29\\
+double[] & double & 100 & 5021 & 1.99\\
+double & class<`data.frame`> & 1 & 900 & 0.11\\
+double[] & class<`data.frame`> & 6 & 900 & 0.67\\
+double & integer & 48 & 529 & 9.07\\
+\bottomrule
+\end{tabular}
 
 % END Autogenerated
  \label{tbl:fail-breakdown-1}
- \caption{Most common failing contract checks by type. Note that for this table, we collapsed multiple identical failed assertions into one, meaning that single arguments with multiple (identical) failed assertions are only counted once.}
+ \caption{Results from Table~\ref{tbl:fail-breakdown-0}, broken down by occurrences of the expected type as a parameter type.}
  \end{table}
 
-%
-%
-% \subsubsection{Patterns in Failed Contract Assertions}
+Table~\ref{tbl:fail-breakdown-2} presents data on the most frequently violated contracts amongst the most frequently occurring argument types.
+We selected argument types which were in the 90th percentile of argument type occurrences, computed the most frequent type signature violations among them, and reported the most frequently violated contracts together with the type of the value that violated that contract. 
+The first row of the table reads: 44 function arguments with integer vector type are passed double vectors instead, and 657 arguments have integer vector type.
+Had we failed to capture some key usage pattern of R with our type annotation framework, we would likely see it here, and we can see this in action if we consider Table~\ref{tbl:fail-breakdown-3}, which was obtained identically to Table~\ref{tbl:fail-breakdown-2} with a percentile of 80th percentile instead.
+The most frequent argument type violation pattern in that of data frames being passed to arguments expecting tibbles: this occurs in only 22\% of such arguments, and represents cases where tests did not adequately cover all valid function inputs.
+Separate from the issue of testing, we can capture this behaviour with user-defined subtyping, as data frames are subtypes of tibbles, but this necessitates a proper object-oriented type system for R which is outside the scope of this work.
 
-% While Table~\ref{tbl:fail-breakdown-1} revealed no glaring patterns in failed assertions, there are a few subtle issues that we will discuss.
-% First, \PERCFAILEDVECTOSCA of failed checks broken down by parameter position failed due to vectors being passed where scalars were expected.
+ \begin{table}
+% BEGIN Autogenerated
 
-% We observed an interesting corner case and quirk of R in looking at functions with values that default to NA.
-% In R, recall that there is a different type of NA for each primitive, and when the literal value \code{NA} appears in code, R assumes it to be the logical NA.
-% For the purposes of our analysis, this has the effect of introducing $\string^{\bf lgl}$ types where they (probably) don't belong, particularly when programmers fail to effectively test their code.
-% For example, a function header like \code{function(x, y=NA)} will have $\string^{\bf lgl}$ as part of the type of parameter \code{y}.
-% We tried to control for this in our analysis, and indeed $\string^{\bf lgl}$ is a subtype of all NA-able numeric types.
+\begin{tabular}{llrrr}
+\toprule
+Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
+\midrule
+double[] & integer[] & 44 & 657 & 6.70\\
+\textasciicircum{}logical[] & null & 158 & 2756 & 5.73\\
+character[] & character & 183 & 4102 & 4.46\\
+character & null & 117 & 2756 & 4.25\\
+double & null & 107 & 2756 & 3.88\\
+\bottomrule
+\end{tabular}
+% END Autogenerated
+ \label{tbl:fail-breakdown-2}
+ \caption{What is the highest failure rate among popular argument types? For argument signatures whose frequency is in the 90th percentile.}
+ \end{table}
+ 
+  \begin{table}
+% BEGIN Autogenerated
 
-
-
+\begin{tabular}{llrrr}
+\toprule
+Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
+\midrule
+class<data.frame> & class<`data.frame`, `tbl`, `tbl\_df`> & 63 & 284 & 22.18\\
+class<matrix> & class<`array`> & 13 & 70 & 18.57\\
+\textasciicircum{}logical[] & logical | null & 9 & 49 & 18.37\\
+character[] & list<character[]> & 20 & 109 & 18.35\\
+complex[] & complex & 7 & 42 & 16.67\\
+\bottomrule
+\end{tabular}
+% END Autogenerated
+ \label{tbl:fail-breakdown-3}
+ \caption{What is the highest failure rate among popular argument types? For argument signatures whose frequency is in the 80th percentile.}
+ \end{table}
+ 
+In sum, we believe that this evaluation shows that the type signatures we generate from traces are quite good.
+Only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed at runtime, representing failures in as few as \PROPARGSFAILINGASSERTS of argument types.
+Even though \PROPFUNSFAILEDCHECKNOSTHREE of functions had at least one argument type involved in a failing contract check, these functions are under-tested, representing only \PERCCALLSBADFUNSINTESTS of calls observed while inferring types.
+ 
 %
 %
 %

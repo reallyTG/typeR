@@ -8,6 +8,7 @@ output:
 params:
   type_analysis_datafile: ../data/type-analysis/merged/merged.csv
   graph_dirpath: ../../paper/plots/
+  table_dirpath: ../../paper/tables/
 ---
 
 ```{r setup, echo=FALSE, eval=TRUE}
@@ -20,6 +21,8 @@ suppressPackageStartupMessages(library(tidyr))
 suppressPackageStartupMessages(library(DT))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(tibble))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(kableExtra))
 
 source("latex-macros.R")
 
@@ -28,29 +31,33 @@ save_graph <- function(plot, filename, device = cairo_pdf, width=12, height=4, .
     plot
 }
 
-type_analysis_data <- 
-    read_csv(params$type_analysis_datafile,
-             col_names = TRUE,
-             col_types = cols(col_character(),
-                              col_character(),
-                              col_integer(),
-                              col_integer(),
-                              col_integer(),
-                              col_character(),
-                              col_integer()))
-                              
+save_table <- function(content, filename) {
+    write(content, file = file.path(params$table_dirpath, filename))
+}
+
+simplify_types <- function(type) {
+    if(type %in% c("any", "externalptr", "expression", "pairlist")) {
+        "any"
+    }
+    else {
+        type
+    }
+}
+
+is_polymorphic <- function(kind) {
+    kind %in% c("...", "any", "list")
+}
+
 infer_kind <- function(type) {
     if(type %in% c("integer", "double", "character", "logical", "complex", "raw")) {
         "scalar"
     }
-    else if(type %in% c("^integer", "^double", "^character", "^logical", "^complex")) {
-        "scalar-na"
-    }
     else if(type %in% c("integer[]", "double[]", "character[]", "logical[]", "complex[]", "raw[]")) {
         "vector"
     }
-    else if(type %in% c("^integer[]", "^double[]", "^character[]", "^logical[]", "^complex[]")) {
-        "vector-na"
+    else if(type %in% c("^integer[]", "^double[]", "^character[]", "^logical[]", "^complex[]", 
+                        "^integer", "^double", "^character", "^logical", "^complex")) {
+        "^vector"
     }
     else if(str_detect(type, "^list")) {
         "list"
@@ -70,14 +77,29 @@ infer_kind <- function(type) {
     else if(type == "...") {
         "..."
     }
+    else if(type == "environment") {
+        "environment"
+    }
     else {
         "other"
     }
 }
 
+type_analysis_data <- 
+    read_csv(params$type_analysis_datafile,
+             col_names = TRUE,
+             col_types = cols(col_character(),
+                              col_character(),
+                              col_integer(),
+                              col_integer(),
+                              col_integer(),
+                              col_character(),
+                              col_integer()))
+
 type_analysis_data <-
-   type_analysis_data %>%
-   mutate(kind = map_chr(type, infer_kind))
+    type_analysis_data %>%
+    mutate(type = map_chr(type, simplify_types)) %>%
+    mutate(kind = map_chr(type, infer_kind))
 
 to_percentage <- function(proportions) {
     str_c(round(100 * proportions, 2), "%")
@@ -497,9 +519,9 @@ save_graph("union_frequency.pdf")
 union_types <-
 union_data %>%
 group_by(package_name, function_name, parameter_position, alternative_count) %>%
-summarize(type = paste0(sort(type), collapse=" | ")) %>%
+summarize(kind = paste0(sort(kind), collapse=" | ")) %>%
 ungroup() %>%
-group_by(alternative_count, type) %>%
+group_by(alternative_count, kind) %>%
 summarize(count = n()) %>%
 ungroup() %>%
 group_by(alternative_count) %>%
@@ -514,6 +536,27 @@ slice(1:20) %>%
 ungroup()
 
 datatable(union_types)
+
+unityped_positions <-
+union_types %>% 
+filter(alternative_count == 1) 
+
+
+polymorphic_unityped_rows <-
+unityped_positions %>%
+pull(kind) %>% 
+map_lgl(is_polymorphic)
+
+polymorphic_unityped_rows <- (1:nrow(unityped_positions))[polymorphic_unityped_rows]
+
+print(polymorphic_unityped_rows)
+
+unityped_positions %>%
+select("Types" = kind, "Parameter #" = count, "%" = percentage, "Cumulative %" = cumsum_percentage) %>%
+kable("latex", booktabs = T) %>%
+kable_styling(full_width = F, latex_options = c("scale_down")) %>%
+row_spec(polymorphic_unityped_rows, color = "black", background = "lightgray") %>%
+save_table("uni-typed-breakdown.tex")
 
 
 single_union_types <-
