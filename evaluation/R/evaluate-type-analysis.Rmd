@@ -588,13 +588,22 @@ datatable(single_union_types)
 
 
 ```{r, eval = TRUE, verbose = FALSE}
-function_polymorphic_freq <-
+function_polymorphism <-
 union_data %>%
 distinct(package_name, function_name, parameter_position, alternative_count) %>%
 mutate(polymorphic = ifelse(alternative_count > 1, TRUE, is_polymorphic(alternative_count))) %>%
 group_by(package_name, function_name) %>%
 summarize(polymorphic_position_count = as.integer(sum(polymorphic))) %>%
-ungroup() %>%
+ungroup()
+
+package_polymorphism <-
+function_polymorphism %>%
+group_by(package_name) %>%
+summarize(monomorphic = all(polymorphic_position_count == 0)) %>%
+ungroup()
+
+function_polymorphic_freq <-
+function_polymorphism %>%
 group_by(polymorphic_position_count) %>%
 summarize(function_count = n()) %>%
 ungroup() %>%
@@ -638,5 +647,9 @@ generate_macro("CountPolymorphicFunctions",
 
 generate_macro("PercPolymorphicFunctions", 
                1.0 - function_polymorphic_freq %>% filter(polymorphic_position_count == "0") %>% pull(function_percentage),
+               macro_filename)
+               
+generate_macro("CountMonomorphicPackages", 
+               package_polymorphism %>% pull(monomorphic) %>% sum(),
                macro_filename)
 ```
