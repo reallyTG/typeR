@@ -121,6 +121,7 @@
 \newcommand{\PERCSUCCFUNNOSTHREE}{84.52\%\xspace}
 \newcommand{\PERCSUCCFUNS}{78.79\%\xspace}
 \newcommand{\PERCCALLSBADFUNSINTESTS}{5.38\%\xspace}
+\newcommand{\TOTNUMSIGS}{21,730\xspace}
 
 \begin{abstract}
 The R programming language is widely used in a variety of domains for tasks
@@ -512,7 +513,7 @@ of this pipeline.
 
 \subsection{Extracting raw type signature from traces}
 
-We implemented \typetracer an automated tool for extracting raw type
+We implemented \typetracer, an automated tool for extracting raw type
 signatures from execution traces of R programs. The goal of this tool is to
 output a tuple $\langle f, t_1, \dots, t_n, t\rangle$ for each function call
 during the execution of a program, where $f$ is an identifier for a
@@ -560,12 +561,12 @@ ignored, as type \any is output for the entire varag construct.
 
 
 \paragraph{Promises}
-The fact that arguments are evaluated lazily, i.e. expression are packing
-into promises and evaluated on first access, complicates the information
+The fact that arguments are evaluated lazily (in that expression are packed
+into promises and evaluated on first access) complicates the information
 gathering.  For example, some promises remain un-evaluated, and it would be
 erroneous to force them as they may cause side-effects that will affect the
 programs execution.  To deal with unevaluated arguments, we make an initial
-guess for each argument at fufnction entry.  If the promise is later forced,
+guess for each argument at function entry.  If the promise is later forced,
 we simply update the recorded type for the argument.
 
 \paragraph{Missing arguments}
@@ -579,7 +580,7 @@ are performing a dynamic analysis, we conservatively type them as \any.
 \paragraph{Non-local returns}
 When a function exits with a longjump there is no return value to speak
 of. In order to ensure that call traces are valid when a longjump occurs, we
-intercept the unwinding process initiated by the longjump and mimics the
+intercept the unwinding process initiated by the longjump and mimic the
 functionality of the functions being exited. When no return value is present
 for a call, we record a special \k{jumped} return type.
 
@@ -598,9 +599,9 @@ the relevant information is kept by the {\tt \_entry} variants.
 
 \subsection{Inferring type signatures from raw types}
 
-The output of the \typetracer tool consists of a set of tuples of row types,
+The output of the \typetracer tool consists of a set of tuples of raw types,
 each representing a function call in some program's execution. The inference
-step consolidate the different tuples corresponding to a particular function
+step consolidates the different tuples corresponding to a particular function
 definition across multiple programs and distills them into a single type
 signature.  The shape of the infered function signatures is:
 
@@ -610,7 +611,7 @@ signature.  The shape of the infered function signatures is:
 
 \noindent
 In other words, we take the union of the types occurring at individual
-argument positions rather than an union of function types. Furthermore we
+argument positions rather than an union of function types. Furthermore, we
 apply some transformation on the types to keep the size of types in check.
 
 \medskip
@@ -645,7 +646,7 @@ return value.
 implementation is in C++ to keep the runtime overhead low. It been designed and
 tested with GNU R-3.5.0 but it also works with recent versions of R. It has been
 hardened with a battery of 400 test cases. We have used it extensively during
-the course of this work; firstly, for sanity checking of XXX type signatures
+the course of this work; firstly, for sanity checking of \TOTNUMSIGS type signatures
 generated for the XXX packages during the development phase, and secondly, for
 assessing the quality of these type signatures on XXX packages during the
 evaluation phase. We discuss this further in Section~\ref{sec:evaluation}.
@@ -802,7 +803,7 @@ size of the dots reflects the size of the project in terms of both R and
 native lines of code\footnote{ Lines of source code reported excludes
   comments and blank lines, counted by \emph{cloc}, \cf
   \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
-expression code coverage in percents and the y-axis gives the number of
+expression code coverage in percent and the y-axis gives the number of
 reverse dependencies in log scale. Dotted lines indicate means.  Packages
 with over \PackageSizeOutierRnd lines of code are annotated.
 
