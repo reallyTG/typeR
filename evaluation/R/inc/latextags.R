@@ -34,7 +34,7 @@ r.numeric <- function(name, value, ...) {
   raw_str <- fmt(value, ...)
   rnd_str <- fmt(oom(value), ...)
   
-  if (raw_str != rnd_str) {
+  if (!is.na(value) && raw_str != rnd_str) {
     tag(str_c(name, " rnd"), rnd_str)
   }
   

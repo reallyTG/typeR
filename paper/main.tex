@@ -704,54 +704,66 @@ type-checker if it see the sentinel.
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 For this paper we have selected \CorpusLoadable packages consisting of
-\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
-code (C/C++/Fortran). Figure~\ref{fig:corpus} shows all the packages, the
-size of the dots reflects the size of the project in terms of both R and
-native lines of code\footnote{ Lines of source code reported excludes
-  comments and blank lines, counted by \emph{cloc}, \cf
-  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
-expression code coverage in percent and the y-axis gives the number of
-reverse dependencies in log scale. Dotted lines indicate means.  Packages
-with over \PackageSizeOutierRnd lines of code are annotated.
+\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native code
+(C/C++/Fortran). Figure~\ref{fig:corpus} shows these packages, the size of the
+dots reflects the size of the project in terms of lines of code including both R
+and native code\footnote{ Lines of source code reported excludes comments and
+  blank lines, counted by \emph{cloc}, \cf
+  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the expression
+code coverage in percents and the y-axis gives the number of reverse
+dependencies in log scale. Dotted lines indicate means. Packages with over
+\PackageSizeOutierRnd lines of code are annotated.
 
 \begin{figure}[!h]  \centering
-  \includegraphics[width=.98\linewidth]{plots/corpus.pdf}
+  \includegraphics[width=.8\linewidth]{plots/corpus.pdf}
   \caption{Corpus overview}\label{fig:corpus}
 \end{figure}
 
 These packages come from the Comprehensive R Achive Network
-(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of
-R code with over \AllCranRnd packages\footnote{CRAN receives about 6 new
-  package submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd
-and \AllNativeCodeRnd R and native code respectively. Unlike other open code
-repositories like GitHub, CRAN is a curated repository. Each submitted
-package must abide to a number of well-formedness rules that are
-automatically checked asserting certain quality. Most relevant for this work
-is that all of the runnable code (including code snippets from examples and
-vignettes) is tested and only a successfully running package is admitted in
-the archive.
+(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of R
+code with over \AllCranRnd packages\footnote{CRAN receives about 6 new package
+  submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd and
+\AllNativeCodeRnd R and native code respectively. Unlike other open code
+repositories such as GitHub, CRAN is a curated repository. Each submitted
+package must abide to a number of well-formedness rules that are automatically
+checked asserting certain quality. Most relevant for this work is that all of
+the runnable code (including code snippets from examples and vignettes) is
+tested and only a successfully running package is admitted in the archive.
 
 We have downloaded and installed all available CRAN packages. Out of the
-\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason
-for this is that \rdt is based on R 3.5.0 and some of the packages are no
-longer compatible with it. Some packages also require extra native
-dependencies which were not present on our servers.  We have two criteria
-for including a package into the corpus:
+\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason for
+this is that \rdt is based on R 3.5.0 and some of the packages are no longer
+compatible with this version. Some packages also require extra native
+dependencies which were not present on our servers. We defined two criteria for
+including a package into the corpus:
 \begin{inparaenum}[(1)]
-\item have runnable code that covers significant part of the package source
-  code from which type signatures could be inferred, and
-\item have some reverse dependencies that allows us to evaluate the inferred
-  types on runnable code from these dependent packages.
+  \item have a runnable code that covers a significant part of the package
+  source code from which type signatures could be inferred, and
+  \item have some reverse dependencies that will allows us to evaluate the
+  inferred types using the runnable code from these dependencies.
 \end{inparaenum}
-The concrete thresholds were set to at least \ThresholdCodeCoverage of
-expression coverage and at minimum \ThresholdRevdeps reverse dependencies.
+The concrete thresholds used were: at least \ThresholdCodeCoverage of expression
+coverage and at minimum \ThresholdRevdeps reverse dependencies. The code
+coverage was computed for each package using
+\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R tool.
+The reverse package dependencies were extracted from the package metadata using
+builtin function.
 
-The code coverage was computed for each package using
-\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R
-tool.  The reverse package dependencies were extracted from the package
-metadata using builtin function.
+The \CorpusLoadable selected packages contain \CorpusRunnableCodeRnd lines of
+runnable code in examples (\CorpusExamplesCodeRnd), tests (\CorpusTestsCodeRnd)
+and vignettes (\CorpusVignettesCodeRnd). Running this code results on average in
+\CorpusMeanExprCoverage package code coverage (CRAN average is
+\AllMeanExprCoverage). Together, there is \CorpusRevdesRnd (on average
+\CorpusMeanRevdes, median \CorpusMedianRevdes; CRAN average is \AllMeanRevdes,
+median \AllMedianRevdes) reverse dependencies with \CorpusRevdepRunnableCodeRnd
+runnable lines of code resulting in \CorpusRevdepMeanCodeCoverage coverage (on
+average) of the corpus packages.
 
-%
+Together there are \CorpusFunctionsRnd defined R functions
+(\CorpusPublicFunctionsRnd are from packages' public API).
+\CorpusSThreeFunctionsRnd are S3 functions. Packages in the corpus define
+\CorpusSThreeClasses S3 classes.
+
 %
 %
 \section{Left overs}

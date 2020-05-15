@@ -39,41 +39,7 @@ create_tags(path(TAGS_DIR, "corpus.tex"), prefix="", default=TRUE)
 ## Load data
 
 ```{r}
-pkgs <- read_csv(
-  CRAN_PACKAGES_DETAILS,
-  col_types=cols(
-    package = col_character(),
-    installed = col_logical(),
-    loadable = col_logical(),
-    version = col_character(),
-    title = col_character(),
-    size = col_double(),
-    package_native_code = col_double(),
-    package_r_code = col_double(),
-    package_code = col_double(),
-    runnable_code = col_double(),
-    runnable_files = col_double(),
-    runnable_code_examples = col_double(),
-    runnable_code_vignettes = col_double(),
-    runnable_code_tests = col_double(),
-    runnable_files_examples = col_double(),
-    runnable_files_vignettes = col_double(),
-    runnable_files_tests = col_double(),
-    coverage_expr = col_double(),
-    coverage_line = col_double(),
-    runnable_success = col_double(),
-    runnable_error = col_double(),
-    runnable_time = col_double(),
-    runnable_rate = col_double(),
-    funs_private = col_double(),
-    funs_public = col_double(),
-    funs = col_double(),
-    revdeps = col_double(),
-    funs_with_assert = col_double(),
-    asserts = col_double(),
-    uses_roxygen = col_logical()
-  )
-)
+pkgs <- read_csv(CRAN_PACKAGES_DETAILS)
 ```
 
 ## Overview
@@ -109,9 +75,10 @@ summary_corpus <- function(df, prefix) {
     r(paste(prefix, "vignettes code"), sum(df$runnable_code_vignettes , na.rm=T)),
     
     r(paste(prefix, "with coverage"), w_coverage),
-    r(paste(prefix, "mean expr coverage"), percent(mean(w_coverage))),
-    r(paste(prefix, "median expr coverage"), percent(median(w_coverage))),
-  
+    r(paste(prefix, "mean expr coverage"), percent(mean(w_coverage$coverage_expr))),
+    r(paste(prefix, "median expr coverage"), percent(median(w_coverage$coverage_expr))),
+    r(paste(prefix, "covered functions ratio"), ratio(sum(w_coverage$funs_with_coverage),sum(w_coverage$funs))),
+
     r(paste(prefix, "with R code"), filter(df, package_r_code > 0)),
     r(paste(prefix, "R code"), sum(df$package_r_code, na.rm=T)),
     r(paste(prefix, "with native code"), filter(df, package_native_code > 0)),
@@ -124,11 +91,17 @@ summary_corpus <- function(df, prefix) {
     r(paste(prefix, "functions"), sum(df$funs, na.rm=T)),
     r(paste(prefix, "public functions"), sum(df$funs_public, na.rm=T)),
     r(paste(prefix, "private functions"), sum(df$funs_private, na.rm=T)),
+    r(paste(prefix, "S three functions"), sum(df$funs_s3, na.rm=T)),
+    r(paste(prefix, "S three classes"), sum(df$s3_classes, na.rm=T)),
     
     r(paste(prefix, "w revdes"), w_revdeps),
-    r(paste(prefix, "mean revdes"), mean(w_revdeps)),
-    r(paste(prefix, "median revdes"), median(w_revdeps)),
+    r(paste(prefix, "revdes"), sum(w_revdeps$revdeps)),
+    r(paste(prefix, "mean revdes"), mean(w_revdeps$revdeps)),
+    r(paste(prefix, "median revdes"), median(w_revdeps$revdeps)),
     r(paste(prefix, "at least min revdep"), filter(w_revdeps, revdeps >= params$min_revdeps)),
+    r(paste(prefix, "revdep runnable code"), sum(w_revdeps$revdeps_runnable_code, na.rm=T)),
+    r(paste(prefix, "revdep mean code coverage"), percent(mean(w_revdeps$revdep_coverage_expr)/100)),
+    r(paste(prefix, "revdep median code coverage"), percent(median(w_revdeps$revdep_coverage_expr)/100)),
     
     r(paste(prefix, "runtime"), as.duration(sum(w_runnable$runnable_time))),
     r(paste(prefix, "mean runtime"), as.duration(mean(w_runnable$runnable_time))),
