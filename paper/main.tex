@@ -102,8 +102,10 @@
 \newcommand{\PACKAGES}{412\xspace}  %%% TODO auto-gen
 \newcommand{\genthat}{genthat\xspace}  %%% TODO auto-gen
 \newcommand{\YEARS}{20\xspace} %%TODO fix
-\newcommand{\PERCFAILEDASSERTIONS}{2\%\xspace}
-\newcommand{\NUMPKGSEVAL}{7000\xspace} % autogenerate
+\newcommand{\PERCFAILEDASSERTIONS}{2.19\%\xspace}
+\newcommand{\PERCFAILEDASSERTIONSWUNDEF}{2.23\%\xspace}
+\newcommand{\PERCASSERTIONSUNDEF}{0.04\%\xspace}
+\newcommand{\NUMPKGSEVAL}{7485\xspace} % autogenerate
 \newcommand{\NUMASSERTIONS}{62,171,573\xspace} %autogenerate
 \newcommand{\PROPFUNSFAILEDCHECK}{21.21\%\xspace}
 \newcommand{\PROPFUNSFAILEDCHECKNOSTHREE}{15.48\%\xspace} 
@@ -1597,7 +1599,9 @@ We collected failed contract assertions in order to analyze them and perhaps ide
 \subsubsection{Overall Results}
 
 We ran our evaluation on \NUMPKGSEVAL packages and recorded \NUMASSERTIONS total assertions.
-Overall, we found that only \PERCFAILEDASSERTIONS of contract assertions failed.
+Overall, we found that only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed.
+We made a simplification in our analysis, capping the number of function arguments we generate types for to 20, and this resulted in only \PERCASSERTIONSUNDEF failed assertions, which suggests that the simplification we made did not greatly affect the results.
+Once we controlled for these, we found that \PERCFAILEDASSERTIONS of all assertions failed for reasons related to our generated types.
 Additionally, we found that \PERCSUCCARG of parameter types and \PERCSUCCFUNS of functions types were never violated.
 The number of immaculate function types increases to \PERCSUCCFUNNOSTHREE if we count out S3 functions:
 These S3 functions represent user-defined polymorphism which we do not tackle in this work.
@@ -1610,7 +1614,7 @@ Overall, these numbers are promising, and suggest that the type signatures gener
 We breakdown the failed assertions by type in Table~\ref{tbl:fail-breakdown-0}.
 By far the most commonly failed assertion is one asserting that a value with ${\bf dbl}[]$ type has type ${\bf class}\langle matrix \rangle$.
 This was a deliberate design decision, as coercion from vectors to matrices is ad hoc at best, and surely not a practice codified in the language.
-In a similar vein, another popular failing assertion is checking if a ${\bf dbl}[]$ has type ${bf int}[]$, another case of commonly performed coercion.
+In a similar vein, another popular failing assertion is checking if a ${\bf dbl}[]$ has type ${\bf int}[]$, another case of commonly performed coercion.
 We did not include these types of coercions in our type annotation framework as programmers cannot rely on them, and it is not always the case that the coercions are safe to perform. 
 
 \begin{table}
@@ -1646,6 +1650,7 @@ Removing those functions, we see that \PROPFUNSFAILEDCHECKNOSTHREE of functions 
 
 Turning our attention now to arguments, we found that only \PROPARGSFAILINGASSERTS of function parameters exhibited a failed assertion.
 Table~\ref{tbl:fail-breakdown-0} showed the raw results from counting runtime occurrences, but that data alone does not tell the full story, as some failures may be overrepresented if e.g. a failing contract assertion was in a loop.
+We were interested in a breakdown of type signature by parameter, and seeing how often those contracts were violated.
 Table~\ref{tbl:fail-breakdown-1} breaks down the results from Table~\ref{tbl:fail-breakdown-0} by parameter position, folding away multiple identical failed contract assertions for the same parameter position.
 The first row of this table reads: a value of type ${\bf chr}[]$ was passed to 183 different argument positions expecting a value of type ${\bf chr}$, representing 2.05\% of all arguments where a contract check failed.
 
