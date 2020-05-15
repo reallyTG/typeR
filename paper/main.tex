@@ -101,6 +101,7 @@
 
 \input{corpus.tex}
 \input{macros/macros.tex}
+\input{asserts.tex}
 
 \begin{document}
 \title{Designing Types for R, Empirically}
@@ -1322,6 +1323,57 @@ types.
 %
 %
 \subsection{Usefulness of the Type Checking Framework}
+
+There is a number of ways in R to check types of function parameters. The
+default and the most common way\footnote{\CranStopifnotRatio of all runtime
+  checks in the whole of CRAN} is to use \code{stopifnot} function from the R
+base package. It takes a number of R expressions which all should evaluate to
+true otherwise a runtime exception is thrown with a message quoting the
+corresponding failed expression. For example, the following code checks whether
+a given parameter \code{x} is a scalar string:
+%
+\begin{lstlisting}
+stopifnot(is.character(x), length(x) == 1L, !is.na(x))
+\end{lstlisting}
+
+Next to \code{stopifnot}, there are 4 packages in CRAN\footnote{Packages are
+  available on CRAN website: \url{https://cran.r-project.org/web/packages/}}.
+that focus on runtime assertions: \emph{assertive}, \emph{ensurer},
+\emph{assertr} and \emph{assertthat} \emph{assertive} and \emph{ensurer} have
+not been updated 2016 and 2015 respectively. \emph{assertr} is used by only
+\AssertrRevdeps other packages and in the current version focuses on checking
+properties of data frames. Only the \emph{assertthat} is maintained and used
+(with \AssertthatRevdeps reverse dependencies). The advantage of
+\emph{assertthat} over the R's default is that it provides a much better error
+message.
+
+One way to asses the usefulness of our type checking system is to find out how
+many of the existing type checking constrains could be replaced by \contractr.
+To measure this, we have extracted all calls to \code{stopifnot} and
+\code{assertthat} assertions and checked which one of them could be either
+completely replaced by \contractr or at least partially simplified by removing a
+portion of an assertion expression. This is useful, because a common pattern is
+that the first part of the parameter assertion checks its type while the rest
+checks its value. In the example above, the whole expression could be replaced
+by \code{character} type.
+
+Out of the \CorpusLoadable packages, \CorpusAssertsInPackages use runtime
+assertions. Together there are \CorpusAsserts asserts in
+\CorpusAssertsInFunctions functions. Among these, \contractr can replace
+\CorpusTypedAsserts (\CorpusTypedAssertsRatio) assertion calls across
+\CorpusTypedAssertsPackages packages and \CorpusTypedAssertsFunctions functions.
+Furthermore, additional \CorpusPartiallyTypedAsserts
+(\CorpusPartiallyTypedAssertsRatio) asserts in packages
+\CorpusPartiallyTypedAssertsPackages packages and
+\CorpusPartiallyTypedAssertsFunctions functions could have been simplified.
+
+Checking the type of function parameters is not something that is seen often in
+the R code. In the whole of CRAN, there are only \CranAssertsRnd asserts in
+\CranAssertsInFunctionsRnd functions define in \CranAssertsInPackagesRnd
+packages. One might speculate that one of the reasons is that the current way is
+not convenient as it is rather verbose. Our system can infer type annotations
+for existing functions automatically. This can remove or partially remove over
+\CorpusPartiallyTypedAssertsRatio of existing assertions.
 
 \section{Conclusion}
 
