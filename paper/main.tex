@@ -705,47 +705,66 @@ type-checker if it see the sentinel.
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 For this paper we have selected \CorpusLoadable packages consisting of
-\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
-code (C/C++/Fortran). Figure~\ref{fig:corpus} shows all the packages, the
-size of the dots reflects the size of the project in terms of both R and
-native lines of code\footnote{ Lines of source code reported excludes
-  comments and blank lines, counted by \emph{cloc}, \cf
-  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the
-expression code coverage in percent and the y-axis gives the number of
-reverse dependencies in log scale. Dotted lines indicate means.  Packages
-with over \PackageSizeOutierRnd lines of code are annotated.
+\CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native code
+(C/C++/Fortran). Figure~\ref{fig:corpus} shows these packages, the size of the
+dots reflects the size of the project in terms of lines of code including both R
+and native code\footnote{ Lines of source code reported excludes comments and
+  blank lines, counted by \emph{cloc}, \cf
+  \url{https://github.com/AlDanial/cloc}}, the x-axis indicates the expression
+code coverage in percents and the y-axis gives the number of reverse
+dependencies in log scale. Dotted lines indicate means. Packages with over
+\PackageSizeOutierRnd lines of code are annotated.
 
 \begin{figure}[!h]  \centering
-  \includegraphics[width=.98\linewidth]{plots/corpus.pdf}
+  \includegraphics[width=.8\linewidth]{plots/corpus.pdf}
   \caption{Corpus overview}\label{fig:corpus}
 \end{figure}
 
 These packages come from the Comprehensive R Achive Network
-(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of
-R code with over \AllCranRnd packages\footnote{CRAN receives about 6 new
-  package submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd
-and \AllNativeCodeRnd R and native code respectively. Unlike other open code
-repositories like GitHub, CRAN is a curated repository. Each submitted
-package must abide to a number of well-formedness rules that are
-automatically checked asserting certain quality. Most relevant for this work
-is that all of the runnable code (including code snippets from examples and
-vignettes) is tested and only a successfully running package is admitted in
-the archive.
+(CRAN\footnote{\url{http://cran.r-project.org}}), the largest repository of R
+code with over \AllCranRnd packages\footnote{CRAN receives about 6 new package
+  submissions a day~\cite{Ligges2017}} containing over \AllRCodeRnd and
+\AllNativeCodeRnd R and native code respectively. Unlike other open code
+repositories such as GitHub, CRAN is a curated repository. Each submitted
+package must abide to a number of well-formedness rules that are automatically
+checked asserting certain quality. Most relevant for this work is that all of
+the runnable code (including code snippets from examples and vignettes) is
+tested and only a successfully running package is admitted in the archive.
 
 We have downloaded and installed all available CRAN packages. Out of the
-\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason
-for this is that \rdt is based on R 3.5.0 and some of the packages are no
-longer compatible with it. Some packages also require extra native
-dependencies which were not present on our servers.  We have two criteria
-for including a package into the corpus:
+\AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason for
+this is that \rdt is based on R 3.5.0 and some of the packages are no longer
+compatible with this version. Some packages also require extra native
+dependencies which were not present on our servers. We defined two criteria for
+including a package into the corpus:
 \begin{inparaenum}[(1)]
-\item have runnable code that covers significant part of the package source
-  code from which type signatures could be inferred, and
-\item have some reverse dependencies that allows us to evaluate the inferred
-  types on runnable code from these dependent packages.
+  \item have a runnable code that covers a significant part of the package
+  source code from which type signatures could be inferred, and
+  \item have some reverse dependencies that will allows us to evaluate the
+  inferred types using the runnable code from these dependencies.
 \end{inparaenum}
-The concrete thresholds were set to at least \ThresholdCodeCoverage of
-expression coverage and at minimum \ThresholdRevdeps reverse dependencies.
+The concrete thresholds used were: at least \ThresholdCodeCoverage of expression
+coverage and at minimum \ThresholdRevdeps reverse dependencies. The code
+coverage was computed for each package using
+\covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R tool.
+The reverse package dependencies were extracted from the package metadata using
+builtin function.
+
+The \CorpusLoadable selected packages contain \CorpusRunnableCodeRnd lines of
+runnable code in examples (\CorpusExamplesCodeRnd), tests (\CorpusTestsCodeRnd)
+and vignettes (\CorpusVignettesCodeRnd). Running this code results on average in
+\CorpusMeanExprCoverage package code coverage (CRAN average is
+\AllMeanExprCoverage). Together, there is \CorpusRevdesRnd (on average
+\CorpusMeanRevdes, median \CorpusMedianRevdes; CRAN average is \AllMeanRevdes,
+median \AllMedianRevdes) reverse dependencies with \CorpusRevdepRunnableCodeRnd
+runnable lines of code resulting in \CorpusRevdepMeanCodeCoverage coverage (on
+average) of the corpus packages.
+
+Together there are \CorpusFunctionsRnd defined R functions
+(\CorpusPublicFunctionsRnd are from packages' public API).
+\CorpusSThreeFunctionsRnd are S3 functions. Packages in the corpus define
+\CorpusSThreeClasses S3 classes.
+
 
 The code coverage was computed for each package using
 \covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R
@@ -1080,7 +1099,6 @@ most common object system in R, with no sophisticated hierarchies, and its
 semantics are simple enough to be captured by our proposed design.
 
 
-
 \subsection{Robustness}
 
 In the last section, we evaluated our type annotation language based on a
@@ -1122,6 +1140,7 @@ failing assertion is checking if a ${\bf dbl}[]$ has type ${\bf int}[]$,
 another case of commonly performed coercion.  We did not include these types
 of coercions in our type annotation framework as programmers cannot rely on
 them, and it is not always the case that the coercions are safe to perform.
+=======
 
 \begin{table}
 % BEGIN Autogenerated
@@ -1148,17 +1167,18 @@ double & integer & 20586 & 1.51 & 66.35\\
 \caption{Top types of contract assertion failures.}
 \end{table}
 
+
 In addition to the raw number of failing contract checks, we were interested
-in how many functions had a parameter where a contract check failed.
-Overall, we found that \PROPFUNSFAILEDCHECK of functions had a failing
-contract check.  Digging a little deeper, we noticed that many of these
-functions were performing S3 dispatch, which is part of R's
-object-orientation framework which we will tackle in future work.  Removing
-those functions, we see that \PROPFUNSFAILEDCHECKNOSTHREE of functions
-exhibited failing contract checks.  These are functions which were
-under-tested, as calls to these functions represent only
-\PERCCALLSBADFUNSINTESTS of recorded calls during \typetracer's run on the
-core corpus to infer types.
+in how many functions had a parameter where a contract check failed, and
+overall we found this to be the case in \PROPFUNSFAILEDCHECK of functions.
+Digging a little deeper, we noticed that many of these functions were
+performing S3 dispatch, which is part of R's object-orientation framework:
+thus, these functions implement user-defined polymorphism which we do not
+handle in our type framework.  Removing those functions, we see that
+\PROPFUNSFAILEDCHECKNOSTHREE of functions exhibited failing contract checks.
+These are functions which were under-tested, as calls to these functions
+represent only \PERCCALLSBADFUNSINTESTS of recorded calls during
+\typetracer's run on the core corpus to infer types.
 
 Turning our attention now to arguments, we found that only
 \PROPARGSFAILINGASSERTS of function parameters exhibited a failed assertion.
