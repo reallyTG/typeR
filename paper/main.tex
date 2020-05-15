@@ -561,100 +561,40 @@ ignored, as type \any is output for the entire varag construct.
 
 
 \paragraph{Promises}
-
-The goal of our analysis is to discover argument types for functions,
-builtins, and specials (R functions such as \{, \code{if}, etc.).  First,
-recall that R wraps arguments in promises (Section~\ref{sec:R}).  Naively
-intercepting function calls and recording argument types would result in
-incomplete data: While we can dig into promises without forcing them, if the
-innermost value is an unevaluated expression we are unable to probe it
-without evaluating it, which may alter program behaviour.  To circumvent
-this obstacle, we instead intercept the forcing of promises: when a promise
-is forced, we identify the surrounding call, collect the type of the value,
-and add it to the call trace associated with the current function call.
-Once function execution completes, we collect information about the return
-value, add it to the call trace, and save the completed call trace to be
-written out later.
-
-
-First, we wanted to ensure that \typetracer captured types for unevaluated
-arguments.  Unfortunately, not every argument of a function is necessarily
-used during every function execution, meaning that some arguments may remain
-unevaluated (as they are never forced), and there are a few reasons for
-this.
-
-One possibility is that the argument was simply unused given the control
-flow of this particular execution (e.g. if the argument is only needed in
-one branch of a conditional expression).  This mainly occurs when arguments
-have default values for some parameters that are not critical to every
-execution of the function.  In these cases, we still want to collect the
-type of the default value.
-
-Another possibility is that a value is used {\it without being forced}, as
-is the case when values are ``metaprogrammed''.  This is common practice in
-e.g. the \code{tidyverse}~\footnote{\AT{either talk about it here or in
-    background}} ecosystem, as they use the metaprogramming capabilities of
-R to implement a DSL for data analysis.
-
-To tackle possibly unevaluated arguments, we make an {\it initial guess} of
-function argument types on function entry. Specifically, we collect types
-for argument default values, and ascribe an ``unused'' type for unevaluated
-expressions.  If an argument promise is later forced, we simply update the
-recorded type for the argument.
+The fact that arguments are evaluated lazily, i.e. expression are packing
+into promises and evaluated on first access, complicates the information
+gathering.  For example, some promises remain un-evaluated, and it would be
+erroneous to force them as they may cause side-effects that will affect the
+programs execution.  To deal with unevaluated arguments, we make an initial
+guess for each argument at fufnction entry.  If the promise is later forced,
+we simply update the recorded type for the argument.
 
 \paragraph{Missing arguments}
-Second, we wanted to account for formal arguments (arguments which are named
-in the function definition) which received no values when the function was
-called. This represents cases where a function was not called with all of
-its arguments, and no default value was specified for missing arguments.  We
-record a ``missing'' type for such argument.
-
-There are two obvious ways to deal with missing arguments: type them as $\bot$
-or as $\top$.  As we are performing a dynamic analysis based on package test
-code, we conservatively type these arguments as $\top$, or \code{any}, as It is
-impossible to know dynamically what all possible function behaviours are.
-We discuss the prevalence of such any-typed arguments in
-Section~\ref{sec:evaluation}.
-
+Parameters which receive no values when the function is called are termed
+missing. This occurs when a function was called with too few arguments and
+no default value was specified for missing arguments.  We record a
+\k{missing} type for such argument.  There are two obvious ways to deal with
+missing arguments: type them as \any or type them as some unit type.  As we
+are performing a dynamic analysis, we conservatively type them as \any.
 
 \paragraph{Non-local returns}
-Third, we had to contend with R's backend sometimes performing longjumps,
-which discards current R calls from the call stack.  In order to ensure that
-call traces are not lost when a longjump occurs, \typetracer intercepts the
-unwinding process initiated by the longjump and mimics the functionality of
-the functions being exited.  The R-dyntrace framework supplies the return
-value during the unwinding process (if there is indeed such a value), so we
-can capture it, analyze it, and include it in the call trace.  In certain
-situations, however, no return value can be obtained (e.g. a longjump
-occurred as part of some error handling), and then we simply record a
-``jumped'' return value, which we can deal with in post-processing.
-
+When a function exits with a longjump there is no return value to speak
+of. In order to ensure that call traces are valid when a longjump occurs, we
+intercept the unwinding process initiated by the longjump and mimics the
+functionality of the functions being exited. When no return value is present
+for a call, we record a special \k{jumped} return type.
 
 \paragraph{Implementation details.}
 We primarily rely on eight callbacks: \k{closure\_entry}, \k{closure\_exit},
-\k{builtin\_entry}, \k{builtin\_exit}, \k{special\_entry},\k{special\_exit},
-\k{promise\_force\_entry}, and \k{promise\_force\_exit}.  The
-function-related callbacks are used mainly for bookkeeping: the analysis is
-notified that a construct has been entered by pushing the call onto a stack.
-The calls themselves store a trace object, it is that object that holds the
-type information. As R can perform single or multiple dispatch on function
-arguments depending on their class, the relevant information is kept by the
-{\tt \_entry} variants.
+\k{builtin\_entry}, \k{builtin\_exit}, \k{special\_entry},
+\k{special\_exit}, \k{promise\_force\_entry}, and
+\k{prom\-ise\_force\_exit}.  The function-related callbacks are used mainly
+for bookkeeping: the analysis is notified that a construct has been entered
+by pushing the call onto a stack.  The calls themselves store a trace
+object, it is that object that holds the type information. As R can perform
+single or multiple dispatch on function arguments depending on their class,
+the relevant information is kept by the {\tt \_entry} variants.
 
-The primary functionality of \typetracer is in {\tt promise\_force\_exit}.
-As arguments to functions in R are wrapped in promises, we delay our
-reflection to promise force time.  In R, promises are essentially objects
-with value and expression slots.
-
-When a promise is created for a particular expression, that expression is
-merely put into the expression slot of a promise object, and a special {\it
-  unbound} value is loaded into the value slot (unless some default value is
-specified, wherein it is loaded into the value slot---this is the case with
-default argument values).  When the promise is forced, the expression is
-evaluated in the forcing context, and the value is stored in the value slot
-of the promise.  So to get the type of a function argument, we check the
-value slot of the argument promise---recursively if the value itself is a
-promise.
 
 
 \subsection{Inferring type signatures from raw types}
