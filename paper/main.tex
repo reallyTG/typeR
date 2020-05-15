@@ -575,7 +575,8 @@ missing. This occurs when a function was called with too few arguments and
 no default value was specified for missing arguments.  We record a
 \k{missing} type for such argument.  There are two obvious ways to deal with
 missing arguments: type them as \any or type them as some unit type.  As we
-are performing a dynamic analysis, we conservatively type them as \any.
+are performing a dynamic analysis, we conservatively type them as
+\LIST{\any}.
 
 \paragraph{Non-local returns}
 When a function exits with a longjump there is no return value to speak
@@ -751,26 +752,116 @@ The code coverage was computed for each package using
 tool.  The reverse package dependencies were extracted from the package
 metadata using builtin function.
 
-%
-%
-%
-\section{Left overs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Evaluation} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-SOME OF THIS STUFF CAN BE USED IN THE EVALUATION
+\newcommand{\FIX}[1]{{\bf #1}\xspace}
 
-%
-%
-\subsubsection{Possibly-NA Primitives}
+\subsection{Expressiveness}
 
-A common primitive usage pattern is related to the presence of NAs:
-programmers explicitly check for NAs in primitive vectors, possibly
-sanitizing them if they are present.  NAs complicate practically every
-computation using primitive vectors, a fact that many programmers appear to
-be acutely aware of. For instance, consider the code in
-Figure~\ref{fig:na-example}.
+The first part of our evaluation attempts to shed light on how good a fit
+our proposed type system is with respect to common programming patterns
+occuring in widely used R libraries.
 
-\begin{figure}[htbp]
-\begin{center}
+First we look at the share of monomorphic arguments and function signatures.
+Monomorphic in this context means that the type is not relying on \any or
+inlcuding a union.  The import of monorphism in this context is that it
+means our type language can accurately capture an argument's type or a
+function signature.
+
+<<Insert proportion of monorphic types in argument and in function
+signature. Perhaps a table of monomorphic type signatures that are
+popular...>>
+
+
+\begin{figure}[!h]  \centering
+  \includegraphics[width=\linewidth]{plots/union_frequency.pdf}
+  \caption{Size of unions}\label{fig:unionfreq}
+\end{figure}
+
+We observe that XXX of the positions have a single type ascribed to them,
+and, only XXX have four or more types ascribed to them. Parameter PARAMNAME
+of function XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it.
+Hence, most functions admit or return a uni-typed value.
+
+Figure 1 provides a breakdown of the different type categories observed at
+uni-typed positions.
+
+\input{tables/uni-typed-breakdown.tex}
+
+Figure XXX shows ten most common type categories that occur by
+themselves. We observe that three scalar types, double, logical, and
+character are most frequent. This is followed by XXX vararg parameter
+positions. Next, XX\% of the parameter types are any because arguments at
+those positions were either missing or unused in at least one call to those
+functions. Together, these types amount to more than 50\%. This is followed
+by double vector, the unit type, null, character vector, and classes matrix
+and data.frame respectively.
+
+Figure 1 shows the number of alternatives in the inferred type of function
+parameter and return values.
+
+XXX\% of the parameter positions are monomorphic.  \typetracer observes XXX
+calls to XXX functions with XXX arguments. This translates to XXX parameters
+and XXX return types.  A parameter or return type is from unioning all the
+distinct observed types of
+
+Figure 1 shows the distribution of parameter and return types for these
+functions.
+
+class is the most common type in our corpus, accounting for XXX\% of all the
+inferred types. This is followed by an almost equal proportion,
+28\%, scalar types and, surprisingly, only 13\% vector types. Vectors are the
+workhorse of R, most primitive operations in R are vectorized and literals are
+treated as single element vectors. It is unexpected to observe twice as many
+scalars as vectors. It is even more unexpected to observe class as the most
+common type. class of an object is used for dynamic dispatch by the S3 object
+system in R. This suggests that usage of S3 is prevalent in our corpus.
+
+null types. Together, these four types make up for 80\% of the observed
+types in our corpus.  The other types, occurring only XXX\% of the times
+include XXX environment types, XXXX expression types, XXXX pairlist types
+and lastly, XXX externalptr types.
+
+In order to count the occurrences of each type, we subdivided them into {\it
+  kinds}: For our purposes, the {\it kind} of a type is equivalent to it's
+top-level type constructor, so all classes have kind ``class'', all lists
+have kind ``list'', and so on.  We found that classes are the most common
+kind of type, accounting for roughly 31\% of types.  In order, the most
+common classes are matrices (12\%), data.frames (7.5\%), formulas (2\%),
+factors (2\%), and tibbles (2\%).  Roughly 25\% of classes are part of R's
+base language implementation, the others being defined as part of some
+package's functionality.
+
+Besides classes, scalars and vectors are the next most common kind, making
+up 41\% of types. with scalars making up 28.1\% of types and vectors
+12.65\%.  Nulls and lists follow at 8\% and 7\% respectively, and the vararg
+type \ldots makes up 6.5\% of arguments.  This all totals up to over 90\% of
+types.  We will discuss the any type in more detail in
+Section~\ref{subsec:any}.
+
+The polymorphism in R is best described by {\it ad hoc} polymorphism,
+wherein polymorphism is implemented by function and operator overloading
+(see S3 dispatch) rather than in some more fundamental way in the language
+design.  For the purposes of this evaluation, we will say that an argument
+is polymorphic if its type is a union of two or more types, in other words
+the argument has been observed to take more than one type of value.
+
+We found that 15\% of argument positions were polymorphic, and that X\% of
+functions were polymorphic.
+
+Our type annotation language does not support sophisticated class typing,
+and much of the polymorphism in R is due to these classes, namely through
+the S3 dispatch mechanism.  In future work, we aim to more fully handle S3
+and objects in R.  For now, if we count out
+
+
+\subsubsection{Discussion}
+
+\paragraph{NAs}
+Our data supports the choice of making the presence of NAs explicit.  In
+practice, programmers explicitly check for NAs in primitive vectors,
+possibly sanitizing them if they are present. 
 
 \begin{lstlisting}
 binom.profile <- function(x, n, ...) {
@@ -781,51 +872,17 @@ binom.profile <- function(x, n, ...) {
   ...
 \end{lstlisting}
 
-\caption{NA checking example from the \code{binom} package.}
-\label{fig:na-example}
-\end{center}
-\end{figure}
-
 The \code{binom} package is a popular R package for computing confidence
-intervals for binomial experiments, and the \code{binom.profile} function
-does so using the profile likelihood, the details of which are not relevant
-here.  This code snippet highlights a data sanitization pattern appearing at
-the beginning of the function: the programmer first binds the vectors into a
-matrix (line 2), with one column for each of \code{x} and \code{n}, then
-finds rows where both columns are not NA (line 3), then extracts non-NA
-values and stores them into \code{x} and \code{n} respectively (lines 4-5).
-Importantly, this process is entirely quiet, and the user of
-\code{binom.profile} will not be notified if their data happens to contain
-NAs, and the NAs will be silently ignored.  In reality, the presence of NAs
-in data could signify some sort of data corruption, and quietly ignoring
-issues in data could lead users (read: statisticians) to draw flawed
-conclusions from erroneous data.
+intervals, and the \code{binom.profile} function does so using the profile
+likelihood.  This code snippet highlights a data sanitization pattern: the
+programmer first binds the vectors into a matrix, with one column for each
+of \code{x} and \code{n}, then finds rows where both columns are not \NA,
+then extracts non-\NA values and stores them into \code{x} and \code{n}
+respectively.
 
-To combat this, we introduce a modifier on primitive types: the type
-\code{^T} signifies that primitive type \code{T} might contain an NA value,
-while \code{T} signifies that \code{T} is NA-free.  The NA-free case has a
-shorter syntax as NA-free vectors are \AT{more common} than the alternative.
-If the \code{binom} developers were to annotate arguments \code{x} and
-\code{n} with such an NA-free type, \contractr will notify users when
-\code{binom.profile} is called with NA-full values, rather than just quietly
-ignoring them.
-
-Note that when combining call traces involving \code{^T} and \code{T} types,
-we subsume \code{T} types into \code{^T} types: if NA-free and NA-full
-vectors are passed to an argument, then we say that the argument can handle
-NA-full vectors.  This is equivalent to saying \code{T <: ^T}.
-
-%
-%
-\subsubsection{Scalar Primitives}
-
-Initial analyses of our data revealed that programmers \AT{often} use
-scalars (as explicitly as they can, anyway), and often do high-level
-dimensionality checks on their data.  To illustrate, consider the code in
-Figure~\ref{fig:scalar-vector-example}.
-
-\begin{figure}[htbp]
-\begin{center}
+\paragraph{Scalars}
+The data also suggests that programmers often use scalars, and do
+dimensionality checks on their data.
 
 \begin{lstlisting}
 hankel.matrix <- function( n, x ) { 
@@ -833,56 +890,29 @@ hankel.matrix <- function( n, x ) {
 ### n = a positive integer value for the order of the Hankel matrix
 ### x = an order 2 * n + 1 vector of numeric values
     ...
-    if ( n != trunc( n ) )
-        stop( "argument n ix not an integer" )
-    if ( !is.vector( x ) )
-        stop( "argument x is not a vector" )
+    if ( n != trunc( n ) )  stop( "argument n ix not an integer" )
+    if ( !is.vector( x ) )  stop( "argument x is not a vector" )
     m <- length( x )
-    if ( m < n )
-        stop( "length of argument x is less than n" )
+    if ( m < n )  stop( "length of argument x is less than n" )
     ...
 \end{lstlisting}
 
-\caption{Scalar/vector example from the \code{matrixcalc} package.}
-\label{fig:scalar-vector-example}
-\end{center}
-\end{figure}
+The \code{hankel.matrix} function takes two arguments.  The function has a
+number of interesting checks: \code{n} undergoes an integer type check;
+\code{x} undergoes a vector type check; and \code{n} is expected to be a
+scalar, as if it were a vector, the code \code{m < n} would essentially
+check \code{m < n[i]} for each element in \code{n}, returning a vector of
+comparison results, and the conditional of an if must be a scalar else R
+generates a warning.
 
-The \code{hankel.matrix} function takes two arguments (as described in the
-comment in the code), and returns a Hankel matrix, which essentially is a
-matrix where the skew-diagonals have a desirable property.  The function
-body has a number of interesting checks: on lines 6-7, \code{n} undergoes an
-integer ``type check''; on lines 8-9, \code{x} undergoes a vector ``type
-check''; on line 11, \code{n} is assumed to be a scalar, as if it were a
-vector, the code \code{m < n} would essentially check \code{m < n[i]} for
-each element in \code{n}, returning a vector of comparison results, and the
-conditional of an if must be a scalar else R generates a warning.
-
-These checks exemplify functionality that we would like to include in our
-type annotation language, namely, we would like our type language to
-differentiate between scalars and vectors.  To that end, we introduce the
-following types into our type language: for some primitive type \code{T},
-the user may modify \code{T} with a modifier \code{[]} to indicate that it
-is a vector of \code{T}.  Perhaps surprisingly, we found that scalars
-\AT{occurred more frequently} than vectors, and for that reason we chose the
-shorter scalar type syntax as the default.  The NA-free modifier works as
-expected: \code{^T[]} indicates a vector of \code{T} that is free of NAs,
-while \code{^T} indicates a scalar which is not NA.
- 
-%
-%
-\subsubsection{Matrices}
+\paragraph{Matrices}
 
 Matrices represent another layer of complexity on top of vectorized
 primitives.  Internally, matrices are simply vectors with class ``matrix''
 and a \code{dims} attribute indicating matrix dimensions, and while not
 codified in the language semantics, many internal functions will coerce
 vectors to matrices automatically.  Relying on automatic coercion is unwise,
-and many functions check to ensure that their arguments are matrices.  For
-instance, consider the code in Figure~\ref{fig:matrix-example}.
-
-\begin{figure}[htbp]
-\begin{center}
+and many functions check to ensure that their arguments are matrices.
 
 \begin{lstlisting}
 rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
@@ -899,11 +929,6 @@ rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
   ...
 \end{lstlisting}
 
-\caption{Matrix example from the \code{matrixStats} package.}
-\label{fig:matrix-example}
-\end{center}
-\end{figure}
-
 The \code{rowWeightedMeans} function calculates the weighted means of rows
 or columns of a matrix \code{x}.  This function exhibits good practice in
 type checking arguments, rightly producing a message to the user indicating
@@ -914,17 +939,9 @@ type annotation language.  If \code{rowWeightedMeans} were outfitted with
 such a type, \contractr can perform the check present in this code
 automatically, notifying the users passing ill-typed arguments.
 
-%
-%
-\subsubsection{Forgoing Dimensionality} 
-
 Thus far we've seen instances where we introduce types that subsume existing
 argument validation code, but our intention is not to subsume {\it all} such
-code.  As an example of something we {\it do not} want to do, consider the
-code in Figure~\ref{fig:general-validation-example}.
-
-\begin{figure}[htbp]
-\begin{center}
+code.
 
 \begin{lstlisting}
 rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
@@ -938,56 +955,19 @@ rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
   ...
 \end{lstlisting}
 
-\caption{General dimensionality check example from the \code{matrixStats} package.}
-\label{fig:general-validation-example}
-\end{center}
-\end{figure}
-
 This code is from later in the same \code{rowWeightedMeans} function
 discussed previously.  Here, the length of the weights vector \code{w} is
 being checked for equality with the number of columns in the matrix
 \code{x}.  Specifying this relationship as a type amounts to {\it dependent
   typing}, which we believe too complex to retrofit onto a dynamic data
 science language such as R.  Ultimately, we decided to leave these kinds of
-checks up to the programmer.  
+checks up to the programmer.
 
-%
-%
-%
-%
-%
-\subsubsection{Relationship Between Lists and Vectors}
-
-The ease with which vectors may be transformed into lists is perhaps
-indicative of a relationship between the two.  In R, all vectors can be
-converted to lists with a simple call to \code{as.list}, and lists to
-vectors with \code{unlist}, though care must be taken when unlisting a
-non-homogeneous list, as coercions will be performed where possible, and the
-function will simply do nothing if coercion is impossible.  That said, lists
-and vectors have different access syntax, so vectors cannot stand-in for
-lists without the \code{as.list} call above.
-
-In sum, we opted not to include a subtyping relationship between vectors and
-lists, keeping both types separate.  In practice, \AT{how often do \code{T[]
-    | list<T>} types occur?}.  During our evaluation we also found it rare
-that programmers would attempt to pass list-typed values to vector-typed
-arguments and vice versa, and we will discuss this further in
-Section~\ref{sec:evaluation}.
-
-%
-%
-%
-\subsubsection{Structs}
-\label{subsec:structs}
-
+\paragraph{Structs.}
 
 We observed the use of consistently-named lists in \AT{a number of
   functions}.  In R, ``fields'' of named lists can be accessed using the
-\code{$} operator, as illustrated in the code snippet in
-Figure~\ref{fig:struct-ex}.
-
-\begin{figure}[htbp]
-\begin{center}
+\code{$} operator.
 
 \begin{lstlisting}
 agricolae::cv.model <- function(x) {
@@ -1001,11 +981,6 @@ data(sweetpotato)
 model<-aov(yield~virus, data=sweetpotato)
 cv.model(model)
 \end{lstlisting}
-
-\caption{Struct example from a test in the \code{agricolae} package.}
-\label{fig:struct-ex}
-\end{center}
-\end{figure}
 
 In the code snippet, the function \code{cv.model} takes an argument
 \code{x}, which we observed to always be a {\it linear model}, which is part
@@ -1035,17 +1010,15 @@ language supports the type and \contractr will check them, though we
 configured \typetracer to ignore them as they made the data substantially
 less useful.  On the positive side, we found that \AT{get the number, but
   often} structs-typed values had a {\it class}, which helped motivate our
-inclusion of class-like types in our type annotation language.  Classes are
-discussed in more detail in Section~\ref{subsec:classes}.
+inclusion of class-like types in our type annotation language. 
 
 %
-\subsubsection{Data Frames}
+\paragraph{Data Frames}
 
-One of the most popular classes in R is the \code{data.frame} class \AT{we
-  have numbers here, grab em}.  Data frames and the derivative \code{tibble}
-(from the \code{tidyverse} ecosystem) and \code{data.table} (from the
-\code{data.table} package) types underpin a huge amount of data analysis in
-R.
+One of the most popular classes in R is the \code{data.frame} class.  Data
+frames and the derivative \code{tibble} (from the \code{tidyverse}
+ecosystem) and \code{data.table} (from the \code{data.table} package) types
+underpin a huge amount of data analysis in R.
 
 One way to deal with data frames is through the struct type, with a named
 field for each column of the data frame, but as mentioned previously structs
@@ -1055,11 +1028,7 @@ operate in a name-agnostic way.  For instance, the \code{tidyverse} package
 ecosystem allows programmers to pass column names to functions which operate
 on their data frames.  In base R, idiomatic data frame use is to use string
 column names to select rows from the frame (unless only a single column is
-of interest, wherein the \code{$} syntax is appropriate).  We include some
-examples in Figure~\ref{fig:data-frames-bad} to illustrate the complexities.
-
-\begin{figure}[htbp]
-\begin{center}
+of interest, wherein the \code{$} syntax is appropriate).
 
 \begin{lstlisting}
 data(cars)
@@ -1072,10 +1041,6 @@ fast_cars_base <- cars[cars[, "speed"] > 20, ] # base example
 
 \end{lstlisting}
 
-\caption{Select examples of idiomatic \code{data.frame} use.}
-\label{fig:data-frames-bad}
-\end{center}
-\end{figure}
 
 Doing justice to this type will be an endeavour in and of itself, requiring
 reconciliation of base R's \code{data.frame}, \code{tidyverse}'s
@@ -1089,89 +1054,7 @@ discern soundly.
 In the context of our type annotation language, we will ascribe the type \code{class<data.frame>} to \code{data.frame}-typed values.
 A more in-depth discussion of class types follows.
 
-%
-%
-%
-%
-\subsection{Classes in R}
-\label{subsec:classes}
-
-As discussed in Section~\ref{sec:R}, the R runtime has more than one notion
-of type.  The classes of function arguments are used by R as part of its
-dispatch mechanism, the most prevalent of which (\AT{we have that number,
-  too!}) is S3 dispatch, in which R dispatches on the (S3) class of the
-first argument to a function, selecting the appropriate method to call for
-the class.  To quickly illustrate, consider the code snippet in
-Figure~\ref{fig:dispatch-ex}.
-
-\begin{figure}[htbp]
-\begin{center}
-
-\begin{lstlisting}
-# Quick example of S3 dispatch.
-\end{lstlisting}
-
-\caption{S3 dispatch in R.}
-\label{fig:dispatch-ex}
-\end{center}
-\end{figure}
-
-Classes are very prevalent in R \AT{number}, and so we include a
-\code{class<class-name>} ... \AT{todo} \typetracer was outfit to report the
-class of values, but some care needed to be taken so as to not overreport
-class types, as {\it all} values have a class in R.  The main classes we
-were interested in were matrix, array (higher dimensional matrices), and
-data.frames, in addition to any user-defined classes.  In many cases
-\AT{number?}, values with a user-defined class are in reality lists with
-named elements, or structs.  Including class types, and having \typetracer
-report them in place of structs, significantly reduced the noise in the
-analysis and allowed us to gather more focused data.  To get a sense for
-this difference, consider the code in Figure~\ref{fig:class-vs-struct}.
-
-\begin{figure}[htbp]
-\begin{center}
-
-\begin{lstlisting}
-# Example of gross struct that turns into class.
-\end{lstlisting}
-
-\caption{S3 dispatch in R.}
-\label{fig:class-vs-struct}
-\end{center}
-\end{figure}
-
-When set to ignore classes, \typetracer reports \AT{type} as the type of the function, as compared with \AT{other type} when configured to report classes.
-
-%
-%
-\subsubsection{Multi-Classes}
-
-A value can have multiple classes in R.  This is common practice in the
-\code{dplyr} package, which extends the functionality of data frames: a
-\code{data.frame} that passes through \code{dplyr} functions gains two
-additional classes (\code{tbl} and \code{tbl_df}), bringing the total to at
-least 3, in addition to whichever other classes that data frame happened to
-have.  Note that when looking to perform S3 dispatch, R will try to match
-{\it any} of the classes of the first argument to a dispatched function, so
-each of these classes are important.
-
-We found these so-called multi-classes to be surprisingly common, making up
-\AT{occurrence} of the occurrences of class-typed values.  One possible
-reason for this is that values can gain classes quite easily (e.g. the
-\code{dplyr} example discussed above), somewhat polluting the output of
-\typetracer.  Nevertheless, we found \AT{number} of occurrences of
-monomorphic multi-class arguments, meaning that the function was always
-called with a multi-class value in that argument position.
-
-In the end, we support these multi-class types by allowing \code{class<...>}
-types to contain a list of class names, so for instance a \code{dplyr}
-\code{tibble} would have type \code{class<data.frame, tbl, tbl_df>} in our
-type language, and when performing related contract assertions \contractr
-will check that the value has every class that make up its type.
-
-%
-%
-\subsubsection{Forgoing R's Object Systems}
+\paragraph{Objects}
 
 R has multiple, disparate object systems, with the language providing direct
 support for S3, S4, and R5.  Thus far, we've mainly discussed S3 and its
@@ -1196,196 +1079,49 @@ to account for this in future work.  For now, S3 types suffice: S3 is the
 most common object system in R, with no sophisticated hierarchies, and its
 semantics are simple enough to be captured by our proposed design.
 
-%
-%
-\section{Evaluation}
-\label{sec:evaluation}
-
-To evaluate the effectiveness of our type annotation language and contract
-checking framework, we conducted a large-scale experiment based on the
-corpus of 412 packages we used to inform our language design.  This corpus
-represents some of the most widely used and thoroughly tested R libraries on
-CRAN.
-
-We configured \typetracer to infer the types of each of the functions that
-are visible to package clients.  Recall that \typetracer's primary function
-is to collect call signatures from observed function calls, and we ran
-\typetracer on the test, example, and vignette code of all packages in the
-aforementioned corpus.  These call traces were consolidated into a single
-function type for each visible package function: \typetracer employs
-unification strategies discussed in Section~\ref{sec:typesystemdesign} to
-keep the size of signatures in check and only generates an \code{any} type
-when missing and unused arguments were recored, and when a longjump caused
-function execution to abort prematurely.  The types generated by \typetracer
-will be analyzed in more depth in Section~\ref{subsec:stats}, and a
-large-scale evaluation of the quality of these types will be discussed in
-Section~\ref{subsec:eval}.
-
-%
-%
-%
-%
-\subsection{Language Statistics}
-\label{subsec:stats}
-
-\subsection{Is our simple type language expressive enough to type R code?} Functions in
-R can support arguments of multiple types by reflecting on the type to
-perform appropriate conversions and computations. On the one hand, this form
-of ad-hoc polymorphism makes R functions expressive; on the other hand, it
-requires support for polymorphism in the typing scheme, making the type
-system complex.  Our system lacks explicit support for
-polymorphism. Instead, it supports union, \any and \VARGS types. A union type is
-inferred when values of multiple types are observed at a function parameter
-and return position, \any type is inferred when an argument is missing or
-unused, and \VARGS is inferred for variable length argument list positions. Furthermore, list element
-types can be inferred as \any if they have more than 5 different types. Values with many different types can result in
-a large number of alternatives in the type inferred for that position,
-making it hard to read and unwieldy for end-users. To evaluate this
-''expressivity gap`' between our type inference scheme and R functions, we
-look at the number of different types in the parameter and return types of
-the XXX functions in our corpus.
-
-\begin{figure}[!h]  \centering
-  \includegraphics[width=\linewidth]{plots/union_frequency.pdf}
-  \caption{Types inferred for each position}\label{fig:unionfreq}
-\end{figure}
-
-We observe that XXX of the positions have a single type ascribed to them, and,
-only XXX have four or more types ascribed to them. Parameter PARAMNAME of function
-XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it.
-Hence, most functions admit or return a uni-typed value.
-
-Figure 1 provides a breakdown of the different type categories observed at
-uni-typed positions.
-
-\input{tables/uni-typed-breakdown.tex}
-
-Figure XXX shows ten most common type categories that occur by themselves. We
-observe that three scalar types, double, logical, and character are most
-frequent. This is followed by XXX vararg parameter positions. Next, XX% of the
-parameter types are any because arguments at those positions were either missing
-or unused in at least one call to those functions. Together, these types amount
-to more than 50%. This is followed by double vector, the unit type, null,
-character vector, and classes matrix and data.frame respectively.
-
-Figure 1 shows the number of alternatives in the inferred type of function
-parameter and return values.
-
-XXX\% of the parameter positions are monomorphic. 
-\typetracer observes XXX calls to XXX functions with XXX arguments. This
-translates to XXX parameters and XXX return types. 
-A parameter or return type is  from unioning all the distinct observed types of 
-
-Figure 1 shows the distribution of parameter and return types for these
-functions.
 
 
-class is the most common type in our corpus, accounting for XXX% of all the
-inferred types. This is followed by an almost equal proportion,
-28%, scalar types and, surprisingly, only 13% vector types. Vectors are the
-workhorse of R, most primitive operations in R are vectorized and literals are
-treated as single element vectors. It is unexpected to observe twice as many
-scalars as vectors. It is even more unexpected to observe class as the most
-common type. class of an object is used for dynamic dispatch by the S3 object
-system in R. This suggests that usage of S3 is prevalent in our corpus.
+\subsection{Robustness}
+
+In the last section, we evaluated our type annotation language based on a
+set of function types that were automatically generated by \typetracer.
+Now, we're interested in knowing how representative our trace-generated
+types are of the functions they were generated for.  To measure this, we
+conducted a large-scale experiment: for each package in the corpus discussed
+in Section~\ref{sec:corpus}, we ran \typetracer on its test, example, and
+vignette code, obtaining types for package functions, and then subsequently
+ran the test, example, and vignette code of each of the package's reverse
+dependencies (or clients).  We collected failed contract assertions in order
+to analyze them and perhaps identify weaknesses in our type annotation
+language.
+
+We ran our evaluation on \NUMPKGSEVAL packages and recorded \NUMASSERTIONS
+total assertions.  Overall, we found that only \PERCFAILEDASSERTIONSWUNDEF
+of contract assertions failed.  We made a simplification in our analysis,
+capping the number of function arguments we generate types for to 20, and
+this resulted in only \PERCASSERTIONSUNDEF failed assertions, which suggests
+that the simplification we made did not greatly affect the results.  Once we
+controlled for these, we found that \PERCFAILEDASSERTIONS of all assertions
+failed for reasons related to our generated types.  Additionally, we found
+that \PERCSUCCARG of parameter types and \PERCSUCCFUNS of functions types
+were never violated.  The number of immaculate function types increases to
+\PERCSUCCFUNNOSTHREE if we count out S3 functions: These S3 functions
+represent user-defined polymorphism which we do not tackle in this work.
+Overall, these numbers are promising, and suggest that the type signatures
+generated by running \typetracer on our corpus are indeed representative,
+and capture intended function behaviour.
 
 
-
-null types. Together, these four types make up for 80% of the observed types in
-our corpus.
-The other types, occurring only XXX% of the times include XXX environment types,
-XXXX expression types, XXXX pairlist types and lastly, XXX externalptr types.
-
-
-
-
-We analyzed the type signatures generated by \typetracer in order to build
-up a profile of our type annotation language.  We were interested in broad,
-high-level information, such as the distribution of generated types, the
-level of polymorphism observed in the types, and the distribution of sizes
-of union types.
-
-%
-%
-\subsubsection{Type Distribution}
-
-\AT{Include a figure? Histogram(s) of types?}
-
-In order to count the occurrences of each type, we subdivided them into {\it kinds}: 
-For our purposes, the {\it kind} of a type is equivalent to it's top-level type constructor, so all classes have kind ``class'', all lists have kind ``list'', and so on.
-We found that classes are the most common kind of type, accounting for roughly 31\% of types.
-\AT{Make sure to transform class<function> into any=>any.}
-In order, the most common classes are matrices (12\%), data.frames (7.5\%), formulas (2\%), factors (2\%), and tibbles (2\%).
-Roughly 25\% of classes are part of R's base language implementation, the others being defined as part of some package's functionality.
-
-Besides classes, scalars and vectors are the next most common kind, making up 41\% of types. with scalars making up 28.1\% of types and vectors 12.65\%.
-Nulls and lists follow at 8\% and 7\% respectively, and the vararg type \ldots makes up 6.5\% of arguments.
-This all totals up to over 90\% of types.
-We will discuss the any type in more detail in Section~\ref{subsec:any}.
-
-It would appear that our simple type annotations nicely account for the landscape of values in R.
-\AT{Not sure what to say about classes.}
-% Classes are a common kind of type in R, and for the purposes of this type annotation language allowing users to specify class names as part of class types is welcome: we saw that the breakdown of the class kind does not reveal many outlier classes,
-
-%
-%
-\subsubsection{Polymorphism}
-
-The polymorphism in R is best described by {\it ad hoc} polymorphism, wherein polymorphism is implemented by function and operator overloading (see S3 dispatch) rather than in some more fundamental way in the language design.
-For the purposes of this evaluation, we will say that an argument is polymorphic if its type is a union of two or more types, in other words the argument has been observed to take more than one type of value.
-
-\AT{We need better numbers on this.}
-We found that 15\% of argument positions were polymorphic, and that X\% of functions were polymorphic.
-
-Our type annotation language does not support sophisticated class typing, and much of the polymorphism in R is due to these classes, namely through the S3 dispatch mechanism. 
-In future work, we aim to more fully handle S3 and objects in R.
-For now, if we count out 
-
-%
-%
-\subsubsection{Size of Union Types}
-
-%
-%
-\subsubsection{Use of \code{any}}
-\label{subsec:any}
-
-%
-%
-%
-%
-\subsection{RQ2: How good are type signatures generated from traces?}
-\label{subsec:eval}
-
-\AT{Me}
-
-In the last section, we evaluated our type annotation language based on a set of function types that were automatically generated by \typetracer.
-Now, we're interested in knowing how representative our trace-generated types are of the functions they were generated for.
-To measure this, we conducted a large-scale experiment: for each package in the corpus discussed in Section~\ref{sec:corpus}, we ran \typetracer on its test, example, and vignette code, obtaining types for package functions, and then subsequently ran the test, example, and vignette code of each of the package's reverse dependencies (or clients).
-We collected failed contract assertions in order to analyze them and perhaps identify weaknesses in our type annotation language.
-
-%
-%
-\subsubsection{Overall Results}
-
-We ran our evaluation on \NUMPKGSEVAL packages and recorded \NUMASSERTIONS total assertions.
-Overall, we found that only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed.
-We made a simplification in our analysis, capping the number of function arguments we generate types for to 20, and this resulted in only \PERCASSERTIONSUNDEF failed assertions, which suggests that the simplification we made did not greatly affect the results.
-Once we controlled for these, we found that \PERCFAILEDASSERTIONS of all assertions failed for reasons related to our generated types.
-Additionally, we found that \PERCSUCCARG of parameter types and \PERCSUCCFUNS of functions types were never violated.
-The number of immaculate function types increases to \PERCSUCCFUNNOSTHREE if we count out S3 functions:
-These S3 functions represent user-defined polymorphism which we do not tackle in this work.
-Overall, these numbers are promising, and suggest that the type signatures generated by running \typetracer on our corpus are indeed representative, and capture intended function behaviour.
-
-%
-%
-\subsubsection{Breakdown of Contract Assertion Failures}
-
-We breakdown the failed assertions by type in Table~\ref{tbl:fail-breakdown-0}.
-By far the most commonly failed assertion is one asserting that a value with ${\bf dbl}[]$ type has type ${\bf class}\langle matrix \rangle$.
-This was a deliberate design decision, as coercion from vectors to matrices is ad hoc at best, and surely not a practice codified in the language.
-In a similar vein, another popular failing assertion is checking if a ${\bf dbl}[]$ has type ${\bf int}[]$, another case of commonly performed coercion.
-We did not include these types of coercions in our type annotation framework as programmers cannot rely on them, and it is not always the case that the coercions are safe to perform. 
+We breakdown the failed assertions by type in
+Table~\ref{tbl:fail-breakdown-0}.  By far the most commonly failed assertion
+is one asserting that a value with ${\bf dbl}[]$ type has type ${\bf
+  class}\langle matrix \rangle$.  This was a deliberate design decision, as
+coercion from vectors to matrices is ad hoc at best, and surely not a
+practice codified in the language.  In a similar vein, another popular
+failing assertion is checking if a ${\bf dbl}[]$ has type ${\bf int}[]$,
+another case of commonly performed coercion.  We did not include these types
+of coercions in our type annotation framework as programmers cannot rely on
+them, and it is not always the case that the coercions are safe to perform.
 
 \begin{table}
 % BEGIN Autogenerated
@@ -1412,23 +1148,49 @@ double & integer & 20586 & 1.51 & 66.35\\
 \caption{Top types of contract assertion failures.}
 \end{table}
 
-In addition to the raw number of failing contract checks, we were interested in how many functions had a parameter where a contract check failed.
-Overall, we found that \PROPFUNSFAILEDCHECK of functions had a failing contract check.
-Digging a little deeper, we noticed that many of these functions were performing S3 dispatch, which is part of R's object-orientation framework which we will tackle in future work.
-Removing those functions, we see that \PROPFUNSFAILEDCHECKNOSTHREE of functions exhibited failing contract checks.
-These are functions which were under-tested, as calls to these functions represent only \PERCCALLSBADFUNSINTESTS of recorded calls during \typetracer's run on the core corpus to infer types.
+In addition to the raw number of failing contract checks, we were interested
+in how many functions had a parameter where a contract check failed.
+Overall, we found that \PROPFUNSFAILEDCHECK of functions had a failing
+contract check.  Digging a little deeper, we noticed that many of these
+functions were performing S3 dispatch, which is part of R's
+object-orientation framework which we will tackle in future work.  Removing
+those functions, we see that \PROPFUNSFAILEDCHECKNOSTHREE of functions
+exhibited failing contract checks.  These are functions which were
+under-tested, as calls to these functions represent only
+\PERCCALLSBADFUNSINTESTS of recorded calls during \typetracer's run on the
+core corpus to infer types.
 
-Turning our attention now to arguments, we found that only \PROPARGSFAILINGASSERTS of function parameters exhibited a failed assertion.
-Table~\ref{tbl:fail-breakdown-0} showed the raw results from counting runtime occurrences, but that data alone does not tell the full story, as some failures may be overrepresented if e.g. a failing contract assertion was in a loop.
-We were interested in knowing for each of the most common violations in Table~\ref{tbl:fail-breakdown-0}, how many different arguments had that type, and how many of those exhibited the contract failure in question.
-Table~\ref{tbl:fail-breakdown-1} breaks down the results from Table~\ref{tbl:fail-breakdown-0} by unique parameter position, folding away multiple identical failed contract assertions for the same parameter position.
-The first row of this table reads: a value of type \code{double[]} was passed to 15 different function parameters expecting a matrix, of which there are 1394 in total: 1.08\% of matrix-typed parameters were passed double vector values.
+Turning our attention now to arguments, we found that only
+\PROPARGSFAILINGASSERTS of function parameters exhibited a failed assertion.
+Table~\ref{tbl:fail-breakdown-0} showed the raw results from counting
+runtime occurrences, but that data alone does not tell the full story, as
+some failures may be overrepresented if e.g. a failing contract assertion
+was in a loop.  We were interested in knowing for each of the most common
+violations in Table~\ref{tbl:fail-breakdown-0}, how many different arguments
+had that type, and how many of those exhibited the contract failure in
+question.  Table~\ref{tbl:fail-breakdown-1} breaks down the results from
+Table~\ref{tbl:fail-breakdown-0} by unique parameter position, folding away
+multiple identical failed contract assertions for the same parameter
+position.  The first row of this table reads: a value of type
+\code{double[]} was passed to 15 different function parameters expecting a
+matrix, of which there are 1394 in total: 1.08\% of matrix-typed parameters
+were passed double vector values.
 
-We see that even though the double vector and matrix issue was wildly prevalent in the raw, dynamic contract evaluation numbers, the number of actual function argument types that were violated is very small.
-The story is similar with the double and integer coercion we mentioned earlier: it represents many dynamic contract failures, but very few of the integer vector-typed arguments have their contracts violated by double vector-typed values.
-Rows 5 and 6 are interesting: we see that rather often arguments expecting time series data are passed double vector or matrix values.
-This is a quirk of the \code{timeSeries} package, whose functions often accept matrices and vectors, converting them to time series in an ad hoc manner.
-Note that the code coverage of the \code{timeSeries} tests, examples, and vignettes on the \code{timeSeries} package code is only 58.24\%, which is one possible explanation of why these contract failures are occurring: the types that \typetracer generates are only as good as the test code its run on.
+We see that even though the double vector and matrix issue was wildly
+prevalent in the raw, dynamic contract evaluation numbers, the number of
+actual function argument types that were violated is very small.  The story
+is similar with the double and integer coercion we mentioned earlier: it
+represents many dynamic contract failures, but very few of the integer
+vector-typed arguments have their contracts violated by double vector-typed
+values.  Rows 5 and 6 are interesting: we see that rather often arguments
+expecting time series data are passed double vector or matrix values.  This
+is a quirk of the \code{timeSeries} package, whose functions often accept
+matrices and vectors, converting them to time series in an ad hoc manner.
+Note that the code coverage of the \code{timeSeries} tests, examples, and
+vignettes on the \code{timeSeries} package code is only 58.24\%, which is
+one possible explanation of why these contract failures are occurring: the
+types that \typetracer generates are only as good as the test code its run
+on.
 
  \begin{table}
 % BEGIN Autogenerated
@@ -1456,12 +1218,25 @@ double & integer & 48 & 529 & 9.07\\
  \caption{Results from Table~\ref{tbl:fail-breakdown-0}, broken down by occurrences of the expected type as a parameter type.}
  \end{table}
 
-Table~\ref{tbl:fail-breakdown-2} presents data on the most frequently violated contracts amongst the most frequently occurring argument types.
-We selected argument types which were in the 90th percentile of argument type occurrences, computed the most frequent type signature violations among them, and reported the most frequently violated contracts together with the type of the value that violated that contract. 
-The first row of the table reads: 44 function arguments with integer vector type are passed double vectors instead, and 657 arguments have integer vector type.
-Had we failed to capture some key usage pattern of R with our type annotation framework, we would likely see it here, and we can see this in action if we consider Table~\ref{tbl:fail-breakdown-3}, which was obtained identically to Table~\ref{tbl:fail-breakdown-2} with a percentile of 80th percentile instead.
-The most frequent argument type violation pattern in that of data frames being passed to arguments expecting tibbles: this occurs in only 22\% of such arguments, and represents cases where tests did not adequately cover all valid function inputs.
-Separate from the issue of testing, we can capture this behaviour with user-defined subtyping, as data frames are subtypes of tibbles, but this necessitates a proper object-oriented type system for R which is outside the scope of this work.
+Table~\ref{tbl:fail-breakdown-2} presents data on the most frequently
+violated contracts amongst the most frequently occurring argument types.  We
+selected argument types which were in the 90th percentile of argument type
+occurrences, computed the most frequent type signature violations among
+them, and reported the most frequently violated contracts together with the
+type of the value that violated that contract.  The first row of the table
+reads: 44 function arguments with integer vector type are passed double
+vectors instead, and 657 arguments have integer vector type.  Had we failed
+to capture some key usage pattern of R with our type annotation framework,
+we would likely see it here, and we can see this in action if we consider
+Table~\ref{tbl:fail-breakdown-3}, which was obtained identically to
+Table~\ref{tbl:fail-breakdown-2} with a percentile of 80th percentile
+instead.  The most frequent argument type violation pattern in that of data
+frames being passed to arguments expecting tibbles: this occurs in only 22\%
+of such arguments, and represents cases where tests did not adequately cover
+all valid function inputs.  Separate from the issue of testing, we can
+capture this behaviour with user-defined subtyping, as data frames are
+subtypes of tibbles, but this necessitates a proper object-oriented type
+system for R which is outside the scope of this work.
 
  \begin{table}
 % BEGIN Autogenerated
@@ -1501,9 +1276,14 @@ complex[] & complex & 7 & 42 & 16.67\\
  \caption{What is the highest failure rate among popular argument types? For argument signatures whose frequency is in the 80th percentile.}
  \end{table}
  
-In sum, we believe that this evaluation shows that the type signatures we generate from traces are quite good.
-Only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed at runtime, representing failures in as few as \PROPARGSFAILINGASSERTS of argument types.
-Even though \PROPFUNSFAILEDCHECKNOSTHREE of functions had at least one argument type involved in a failing contract check, these functions are under-tested, representing only \PERCCALLSBADFUNSINTESTS of calls observed while inferring types.
+In sum, we believe that this evaluation shows that the type signatures we
+generate from traces are quite good.  Only \PERCFAILEDASSERTIONSWUNDEF of
+contract assertions failed at runtime, representing failures in as few as
+\PROPARGSFAILINGASSERTS of argument types.  Even though
+\PROPFUNSFAILEDCHECKNOSTHREE of functions had at least one argument type
+involved in a failing contract check, these functions are under-tested,
+representing only \PERCCALLSBADFUNSINTESTS of calls observed while inferring
+types.
  
 %
 %
