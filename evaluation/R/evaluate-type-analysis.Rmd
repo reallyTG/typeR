@@ -585,3 +585,19 @@ mutate(percentage = round(100 * count / sum(count), 1),
 
 datatable(single_union_types)
 ```
+
+## 
+
+```{r, eval = TRUE, verbose = FALSE}
+union_frequency <-
+union_data %>%
+distinct(package_name, function_name, parameter_position) %>%
+mutate(polymorphic = ifelse(alternative_count > 1, true, is_polymorphic(alternative_count)) %>%
+group_by(package_name, function_name, polymorphic_position_count = )
+group_by(alternative_count) %>%
+summarize(parameter_count = n()) %>%
+ungroup() %>%
+arrange(desc(parameter_count)) %>%
+mutate(percentage = round(parameter_count / sum(parameter_count), 4),
+       cumulative_percentage = round(cumsum(parameter_count) / sum(parameter_count), 4))
+```
