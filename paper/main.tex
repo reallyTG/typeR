@@ -906,6 +906,51 @@ not a scalar).
     if ( m < n )  stop( "length of argument x is less than n" )
 \end{lstlisting}
 
+\paragraph{Nullables}
+The number of argument which may be \c{NULL} is 3,165 (or 3.5\%). This is a
+relatively small number of occurrences, but it is worth expressing the
+potential for the presence of \c{NULL} as these would likely inhibit
+optimizations.
+
+\paragraph{Structs}
+While experimenting with various design, we consider adding a struct type to
+capture lists with named elements that can be accessed with the \code{$}
+operators. We ended discarding those types as they grew large and were often
+only representative of the example data being manipulated.  Consider
+function \code{cv.model}, its argument \code{x} is observed to be of
+\CLASS{\texttt{aov}, \texttt{lm}} or \CLASS{\texttt{lm}}).  Internally,
+linear models are represented as lists with named elements.  The polution is
+illustrated by the lines after the funtion definition.  They load an example
+data set and test the function \code{cv.model}.  The
+\code{data(sweetpotato)} expression load a sample data set. The fields of
+\code{sweetpotato} will be recorded when \code{cv.model} is called.
+
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+  cv.model <- function(x) {
+    suma2 <- sum(x$residual^2)
+    gl <- x$df.residual
+    promedio <- mean(x$fitted.values)
+    return(sqrt(suma2/gl)*100/promedio)
+  }
+  
+  data(sweetpotato)
+  model<-aov(yield~virus, data=sweetpotato)
+  cv.model(model)
+\end{lstlisting}
+
+
+\paragraph{Objects}
+While we record classes, our analysis does not deal with method dispatch.  R
+has multiple, disparate, object systems, called S3, S4, and R5.  The
+\code{class} attribute is used by these systems to dispatch methods. S3 does
+single dispatch, S4 does multiple dispatch and R5 supports impertative
+objects.  The mechanics of S4 dispatch are more complex than for S3, and
+users can define their own class hierarchies that we would need to
+incorporate in our type analysis and contract checking frameworks.  We found
+limited use of S4 during our analysis. Coming up with a type system that
+accounts for all of these factors and consolidates multiple
+object-orientation frameworks in a single language design is an interesting
+problem in and of itself, one we leave for future work.  
 
 \paragraph{Matrices}
 
@@ -949,50 +994,6 @@ being checked for equality with the number of columns in the matrix
 science language such as R.  Ultimately, we decided to leave these kinds of
 checks up to the programmer.
 
-\paragraph{Structs}
-
-In R, lists can have a names attribute, allowing lists elements to be
-accessed by name using the \code{$} operator.
-
-\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-  agricolae::cv.model <- function(x) {
-    suma2 <- sum(x$residual^2)
-    gl <- x$df.residual
-    promedio <- mean(x$fitted.values)
-    return(sqrt(suma2/gl)*100/promedio)
-  }
-  data(sweetpotato)
-  model<-aov(yield~virus, data=sweetpotato)
-  cv.model(model)
-\end{lstlisting}
-
-In the code snippet, the function \code{cv.model} takes an argument
-\code{x}, which we observed to always be a {\it linear model} (either ANOVA
-with \CLASS{aov, lm} or a simple linear regression model with \CLASS{lm})
-which is part of R's built-in statistics functionality.  Internally, linear
-models are represented as lists with named elements, and one may access
-these named elements using the \code{$} syntax, as seen on lines 2-4 in the
-snippet.  To describe these kinds of values, we intended to include a struct
-type in our type system, allowing users to specify name, type pairs as part
-of list type definitions, though we found this to be problematic.
-
-The inclusion of structs complicated our analysis by polluting the data,
-illustrated on line 8 with the call \code{data(sweetpotato)}.  It is quite
-common for R example code to use some built-in data sets, such as
-\code{sweetpotato}, to show off some package functionality with ``real
-data''.  When \typetracer is configured to detect structs we saw a marked
-increase in misrepresentative types, as the types of functions which use
-these data sets (such as \code{aov} in the code example) became polluted
-with the names from the example sets.  We implemented a unification strategy
-for struct types, removing them if they co-occurred with list types, and
-turning them into lists if two co-occurring struct types shared no common
-names, but even so we found ourselves with function signatures that were
-full of noise introduced by the struct names.
-
-We found that struct-like data was best described with classes, as
-illustrated in the code snippet, and many structs actually had a class.
-Even though \code{x} is used like a struct, it in fact has a linear model
-class, which we believe is a more informative type.
 
 
 \paragraph{Data Frames}
@@ -1039,44 +1040,6 @@ dplyr::all_equal <- function(target, current, ignore_col_order = TRUE,
                       ignore_row_order = TRUE, convert = FALSE, ...) { ... }
 \end{lstlisting}
 
-\paragraph{Objects}
-
-R has multiple, disparate object systems, with the language providing direct
-support for S3, S4, and R5.  Thus far, we've mainly discussed S3 and its
-dispatch mechanism, and indeed our class types capture the S3
-classes of values, but not user-defined polymorphism.  We will not discuss R5 as it is still under development.
-
-S4, like S3, uses the class attribute to store types, we type them with a \CLASS{...} type.  
-We stuck to simple class-based types for S4 since
-doing anything more would be immensely complicated, and outside of the scope
-of this work.  For instance, the mechanics of S4 dispatch are more complex
-than for S3 (S4 dispatches on the class of {\it all} arguments), and users
-can define their own class hierarchies that we would need to incorporate in
-our type analysis and contract checking frameworks.  Further,we found
-  limited use of S4 during our analysis. Coming up with a type system that
-accounts for all of these factors and consolidates multiple
-object-orientation frameworks in a single language design is an interesting
-problem in and of itself, and we aim to extend our type annotation framework
-to account for this in future work.  For now, simple class types for S3 and S4 suffice.
-
-To illustrate informative class types, consider the following code snippet.
-\code{distr} is a package which implements statistical distributions in an object-oriented way, and the \code{Binom} function acts as a constructor for \CLASS{Binom} values.
-Another example is from the \code{Epi} package, which provides functionality for demographic and epidemiological analysis in the Lexis diagram.
-The function we highlighted, \code{timeBand}, extracts time band data from the passed Lexis object.
-We see from the type that the first argument is the Lexis object, and that either a \VEC\dbl or a \CLASS{factor} is returned.
-Often, class members are implemented as attributes on R values, and it's likely that this is the case for Lexis objects as evidenced by the programmer accessing the "breaks" attribute in the function code.
-
-\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-#' @type <size: dbl, prob: dbl> => class<Binom>
-distr::Binom <- function(size = 1,prob = 0.5) new("Binom", size = size, prob = prob)
-
-#' @type <lex: class<`Lexis`, `data.frame`>, time.scale: chr, type: chr> => 
-#'           class<`factor`> | dbl[];
-Epi::timeBand <- function(lex, time.scale, type="integer") {
-  time.scale <- check.time.scale(lex, time.scale)[1]
-  breaks <- attr(lex, "breaks")[[time.scale]]
-  ...
-\end{lstlisting}
 
 
 \subsection{Robustness}
