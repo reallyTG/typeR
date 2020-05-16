@@ -476,17 +476,17 @@ treated as a vector that may {\NA}s.  We do not allow scalar values to be
 $\T_1 \k{~|~} \T_n$.
 
 \paragraph{Nullables} 
-The type system has a \null type inhabited by a singleton \code{NULL}
-value. This value is often used as a sentinel or as a stand in for arguments
-that were not provided.  To capture this behavior, we introduce a nullable
-type \code{?}\T.  The difference between the \NA and \code{NULL} values is
-that \NA can be stored in primitive vectors.
+The \null type is inhabited by a singleton \code{NULL} value often used as a
+sentinel or a stand in for arguments with no value.  To capture this
+behavior, we introduce a nullable type \code{?}\T.  The difference between
+the \NA and \code{NULL} values is that the latter cannot be stored in
+vectors.
 
 \paragraph{Lists} Heterogeneous collections are implemented using lists.
-Lists and vectors are closely related. Any vector can be converted to a list
-with \code{as.list}, and lists to vectors with \code{unlist} (coercions may
-ensue). We support parametrization of the list type, \LIST\T, but for
-heterogeneous lists this type will default to \any.
+Lists and vectors are closely related: a vector converts to a list with
+\code{as.list}, and lists to vectors with \code{unlist} (coercions may
+ensue). The list type is parameterize, \LIST\T, when the list is
+heterogeneous \T defaults to \any.
 
 \paragraph{Classes} 
 R has more than one notion of type. Values can be attributed, one important
@@ -497,12 +497,9 @@ written \CLASS{\ID_1,\dots,\ID_n}.
 \paragraph{Environments}
 Environments are lists with reference semantics: mutating a value in an
 environment is performed in-place.  They are used to store variables and to
-escape from the copy-on-write semantics of other data types.  Environments
-are comprised of name, value pairs, and each environment has a reference to
-its parent environment. 
+escape from the copy-on-write semantics of other data types. 
 
-%
-%
+
 \section{Extracting and Checking Signatures}
 
 For this paper, we have built tooling to (\emph{a}) automate the extraction
@@ -621,15 +618,26 @@ apply some transformation on the types to keep the size of types in check.
   \T \k{~|~} $T'$ & $\Rightarrow$ &  \T & \it{iff} $T' <: T$  \\
   \LIST{\T} \k{~|~} $\LIST{T'}$ & $\Rightarrow$ &  \LIST\T & \it{iff} $T' <: T$  \\
    $\null \k{~|~} \VEC{\S_1} \k{~|~}\dots \VEC{\S_n}$  & $\Rightarrow$ &
-    $ \NAVEC{\S_1} \k{~|~}\dots \NAVEC{\S_n}$ &  \\  
+  $ \NAVEC{\S_1} \k{~|~}\dots \NAVEC{\S_n}$ &  \\
+  \\
+  \\
+  \NAVEC\S  & <:& \VEC\S \\
+  \T        & <:& \k{?}\T \\
+  \LIST{\T} & <:& \LIST{\T'} & \it{iff} \T <: \T' \\
+  \S        & <:& \VEC\S \\
+  \lgl      & <:& \int\\
+  \int      & <:& \dbl\\
+  \dbl      & <:& \clx\\  
 \end{tabular}
 \medskip
 
 \noindent
 Assuming that type sequences can be reordered freely, we rewrite types to
 minimize their size by removing redundant types, types that are subsumed by
-subtyping, and \null types. Lists with more than 5 types in their union become \LIST{any}.
-We also only generate types for the first 20 arguments of a function.
+subtyping, and \null types. For performance reasons, we bound lists to no
+more than five types in their union, above that they become \LIST{any}.
+Functions are alos limited to twenty arguments. Higher-order functions are
+approximated by \any to \any.
 
 \subsection{Checking types signatures with contracts}
 
@@ -653,7 +661,6 @@ functions for which type signatures are available. Then \contractr sets up
 package load hooks which are executed when new packages are loaded.
 Furthermore, \contractr automatically removes contracts from all functions
 and restores them to their original state when it is unloaded.
-
 The type signatures can be provided externally, in a file, thus avoiding the
 need to change the source code of checked packages.  Type declarations can
 also be written alongside a \code{@type} section inside \roxygen function
@@ -662,7 +669,6 @@ documentation. The documentation sections are processed by \roxygen before
 package build and a registered method for each custom tag section is
 invoked with the section data and documented object. \contractr uses this
 mechanism to register a hook for a custom \code{@type} tag. 
-  
 The \contractr API allows users to explicitly insert contracts during
 interactive development by supplying the type signature as a string.
 Contracts can be removed by calling \code{remove\_contract}.  Contracts can
@@ -683,14 +689,12 @@ or scalar. Other properties require an inspection of the contents of a
 value: the absence of \NA or the type of the elements of list. Union types
 require checking for each of the alternatives. We do not check higher-order
 functions in this version of the tool.
-
 When argument values are wrapped in promises (this is not always the case
 due to compiler optimizations), in order to retain the non-strict semantics
 of R, the expression held in the promise is wrapped in a call to the type
 checker, and type checking is delayed until the promise is forced. This
 leads to corner cases such that the type checking of a function may happen
 after that function has returned.
-
 Return values require care as well.  Functions return the last expression
 they evaluate, thus to avoid having to analyze the code of the called
 function the checker will register a callback on the exit hook. The hook is
@@ -1031,7 +1035,7 @@ and capture intended function behaviour.
 
 We breakdown the failed assertions by type in
 Table~\ref{tbl:fail-breakdown-0}.  
-Accounting for 27.37\% of assertion failures, the most common vilation arises when a value with \CLASS{matrix} is passed where a \VEC\dbl is expected.
+Accounting for 27.37\% of assertion failures, the most common vilation arises when a value with \CLASS{\texttt{matrix}} is passed where a \VEC\dbl is expected.
 Considering these types, we might imagine them to be compatible, however not allowing this coercion was a deliberate design decision:
 coercion from vectors to matrices is ad hoc at best, and surely not a
 practice codified in the language.  In a similar vein, another popular
@@ -1047,16 +1051,16 @@ them, and it is not always the case that the coercions are safe to perform.
 \toprule
 Passed & Arg Type & Occurrences & \% Total & Cumulative \%\\
 \midrule
-\VEC\dbl & \CLASS{matrix} & 371,896 & 27.37 & 27.37\\
+\VEC\dbl & \CLASS{\texttt{matrix}} & 371,896 & 27.37 & 27.37\\
 \VEC\dbl & \VEC\int & 117,212 & 8.62 & 35.99\\
-\chr & \CLASS{bignum} | \VEC\raw & 100,100 & 7.37 & 43.36\\
+\chr & \CLASS{\texttt{bignum}} | \VEC\raw & 100,100 & 7.37 & 43.36\\
 \dbl & \int | \null & 60,578 & 4.46 & 47.81\\
-\VEC\dbl & \CLASS{timeSeries} & 58,872 & 4.33 & 52.15\\
+\VEC\dbl & \CLASS{\texttt{timeSeries}} & 58,872 & 4.33 & 52.15\\
 \addlinespace
-\CLASS{matrix} & \CLASS{timeSeries} & 55,005 & 4.05 & 56.19\\
+\CLASS{\texttt{matrix}} & \CLASS{\texttt{timeSeries}} & 55,005 & 4.05 & 56.19\\
 \VEC\dbl & \dbl & 53,338 & 3.92 & 60.12\\
-\dbl & \CLASS{data.frame} & 32,553 & 2.40 & 62.51\\
-\VEC\dbl & \CLASS{data.frame} & 31,576 & 2.32 & 64.84\\
+\dbl & \CLASS{\texttt{data.frame}} & 32,553 & 2.40 & 62.51\\
+\VEC\dbl & \CLASS{\texttt{data.frame}} & 31,576 & 2.32 & 64.84\\
 \dbl & \int & 20,586 & 1.51 & 66.35\\
 \bottomrule
 \end{tabular}
@@ -1090,7 +1094,7 @@ question.  Table~\ref{tbl:fail-breakdown-1} breaks down the failed assertions by
 folding away multiple identical failed contract assertions for the same parameter
 position.  The first row of this table reads: a value of type
 \VEC\dbl was passed to 15 different function parameters expecting a
-\CLASS{matrix}, of which there are 1394 in total: 1.08\% of \CLASS{matrix}-typed parameters
+\CLASS{\texttt{matrix}}, of which there are 1394 in total: 1.08\% of \CLASS{\texttt{matrix}}-typed parameters
 were passed \VEC\dbl values.
 
 We see that even though the double vector and matrix issue was wildly
@@ -1100,7 +1104,7 @@ is similar with the double and integer coercion we mentioned earlier: it
 represents many dynamic contract failures, but very few of the \VEC\int-typed 
 arguments have their contracts violated by \VEC\dbl-typed
 values.  Rows 5 and 6 are interesting: we see that rather often arguments
-expecting \CLASS{timeSeries} data are passed \VEC\dbl or \CLASS{matrix} values.  This
+expecting \CLASS{\texttt{timeSeries}} data are passed \VEC\dbl or \CLASS{\texttt{matrix}} values.  This
 is a quirk of the \code{timeSeries} package, whose functions often accept
 matrices and vectors, converting them to time series in an ad hoc manner.
 Note that the code coverage of the \code{timeSeries} tests, examples, and
@@ -1116,16 +1120,16 @@ on.
 \toprule
 Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \midrule
-\VEC\dbl & \CLASS{matrix} & 15 & 1394 & 1.08\\
+\VEC\dbl & \CLASS{\texttt{matrix}} & 15 & 1394 & 1.08\\
 \VEC\dbl & \VEC\int & 44 & 657 & 6.70\\
-\chr & \CLASS{bignum} | \VEC\raw & 1 & 3 & 33.33\\
+\chr & \CLASS{\texttt{bignum}} | \VEC\raw & 1 & 3 & 33.33\\
 \dbl & \int | \null & 5 & 20 & 25.00\\
-\VEC\dbl & \CLASS{timeSeries} &19 & 35 & 54.29\\
+\VEC\dbl & \CLASS{\texttt{timeSeries}} &19 & 35 & 54.29\\
 \addlinespace
-\CLASS{matrix} & \CLASS{timeSeries} &  19 & 35 & 54.29\\
+\CLASS{\texttt{matrix}} & \CLASS{\texttt{timeSeries}} &  19 & 35 & 54.29\\
 \VEC\dbl & \dbl & 100 & 5021 & 1.99\\
-\dbl & \CLASS{data.frame} &  1 & 900 & 0.11\\
-\VEC\dbl & \CLASS{data.frame} &  6 & 900 & 0.67\\
+\dbl & \CLASS{\texttt{data.frame}} &  1 & 900 & 0.11\\
+\VEC\dbl & \CLASS{\texttt{data.frame}} &  6 & 900 & 0.67\\
 \dbl & \int & 48 & 529 & 9.07\\
 \bottomrule
 \end{tabular}
@@ -1146,8 +1150,8 @@ to capture some key usage pattern of R with our type annotation framework,
 we would likely see it here, and we can see this in action if we consider
 Table~\ref{tbl:fail-breakdown-3}, which was obtained identically to
 Table~\ref{tbl:fail-breakdown-2} with a percentile of 80th percentile
-instead.  The most frequent argument type violation pattern in that of \CLASS{data.frame} values
- passed to arguments expecting tibbles, which are an extension of \CLASS{data.frame} built in the \code{tidyverse} package suite: 
+instead.  The most frequent argument type violation pattern in that of \CLASS{\texttt{data.frame}} values
+passed to arguments expecting tibbles, which are an extension of \CLASS{\texttt{data.frame}} built in the \code{tidyverse} package suite: 
  this occurs in only 22\%
 of such arguments, and represents cases where tests did not adequately cover
 all valid function inputs.  Separate from the issue of testing, we can
@@ -1181,8 +1185,8 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \toprule
 Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \midrule
-\CLASS{data.frame} & \CLASS{data.frame, tbl, tbl\_df} & 63 & 284 & 22.18\\
-\CLASS{matrix} & \CLASS{array} & 13 & 70 & 18.57\\
+\CLASS{\texttt{data.frame}} & \CLASS{\texttt{data.frame}, \texttt{tbl}, \texttt{tbl\_df}} & 63 & 284 & 22.18\\
+\CLASS{\texttt{matrix}} & \CLASS{\texttt{array}} & 13 & 70 & 18.57\\
 \NAVEC\lgl & \lgl | \null & 9 & 49 & 18.37\\
 \VEC\chr & \LIST{\VEC\chr} & 20 & 109 & 18.35\\
 \VEC\clx & \clx & 7 & 42 & 16.67\\
