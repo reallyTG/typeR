@@ -153,13 +153,15 @@ R libraries.
 
 \section{Introduction}
 
-Our community builds, improves, and reasons about programming languages. To make
-design decisions that benefit users, we need to understand the target language
-as well as the real-world needs it answers. Often, we can appeal to our
-intuition, as many languages are intended for general purpose programming tasks.
-Unfortunately, intuition may fail when looking at domain-specific languages as
-these languages were designed for a specific group of users to solve very
-specific needs. This is the case of the data science language R.
+Our community builds, improves, and reasons about programming languages. To
+make design decisions that benefit users, we need to understand our target
+language as well as the real-world needs it answers. Often, we can appeal to
+our intuition, as many languages are intended for general purpose
+programming tasks.  Unfortunately, intuition may fail when looking at
+domain-specific languages as these languages were designed for a specific
+group of users to solve very specific needs. This is the case of the data
+science language R.
+
 
 R and its ancestor S were designed, implemented, and maintained by
 statisticians. Originally they aimed to be glue languages for reading data
@@ -179,38 +181,37 @@ programs do not teach R itself but simply introduce some of its key
 libraries---they have also created a language where errors can go
 undetected.
 
-Retrofitting a type system to the R programming language would increase our
-assurance in the result of data analysis. But, we are faced with two
-challenges. First, it is unclear what would be the \emph{right} type system
-for a language as baroque as R. For example, one of the most popular data
-type, the \code{data.frame}, is manipulated through reflective operations---a data frame is a table whose columns can be added or removed on the fly.
-Second, but just as crucially, designing a type system that will be adopted
-would require overcoming some prejudices and educating large numbers of
-users.
+Retrofitting a type system to the R language would increase our assurance in
+the result of data analysis. But, we are faced with two challenges. First,
+it is unclear what would be the \emph{right} type system for a language as
+baroque as R. For example, one of the most popular data type, the
+\code{data.frame}, is manipulated through reflective operations---a data
+frame is a table whose columns can be added or removed on the fly.  Second,
+but just as crucially, designing a type system that will be adopted would
+require overcoming some prejudices and educating large numbers of users.
 
 This paper is a data-driven study of what a type system for the R language
 could look like. Our intention is to eventually propose changes to the
 language, but we are aware that for any changes to be accepted by the user
 community they must clearly benefit the language without endangering
 backwards compatibility. Our goal is thus to find a compromise between
-simplicity and usefulness; any proposed type system should cover common
-programming idioms while remaining easy to learn and to use.
+simplicity and usefulness; any proposal should cover common programming
+idioms while remaining easy to learn and to use.
 
 This paper focuses on a simpler problem than an entire type system, instead,
-we limit the scope of our investigation to giving types to function
-signatures. In order to do this, we design a simple type language, one that
-matches the R data types but omits features such as parametric polymorphism
-and subtyping between user-defined data types. We then extract type
-signature from execution traces of a corpus of widely used libraries.  This
-allows us to see how far one can get with the simple type language and
-identify limitations of our this particular design. We validate the
-robustness of the extracted type signature by implementing a contact system
-that weaves the types around their respective functions, and use a large
-number of clients of the target packages for validation. The contract system
-can be used by the R community to experiment with our type signatures and to
+we limit our scope to giving types to function signatures. For this, we
+design a simple type language, one that matches the R data types but omits
+features such as parametric polymorphism and subtyping between user-defined
+data types. We then extract type signature from execution traces of a corpus
+of widely used libraries.  This allows us to see how far one can get with
+the simple type language and identify limitations of the design. We validate
+the robustness of the extracted type signature by implementing a contact
+checker that weaves the types around their respective functions, and use a
+large number of clients of the target packages for validation. The contract
+system can be used by the R community to experiment with type signatures and
 replace ad hoc error checking code.
 
-To sum up, our paper makes the following main contributions:
+To sum up, our paper makes the following contributions:
 \begin{itemize}
 \item We implemented tooling to automatically extract type signatures from R
   functions and to instrument R functions with checks based on their declared
@@ -243,8 +244,8 @@ example, Typed Racket emphasizes functional programming and support the
 migration from untyped to fully typed code~\cite{tf-popl08},
 Hack~\cite{hack13} and TypeScript~\cite{BAT14} focus on typing
 object-oriented features of PHP and JavaScript, respectively. They allow to
-intersperse typed and untyped code in a fine-grained manner.
-Other work looks at retrofitting types onto Lua~\cite{typedlua2014}.
+intersperse typed and untyped code in a fine-grained manner.  Other work
+looks at retrofitting types onto Lua~\cite{typedlua2014}.
 
 But what if the design of the type system is unclear?  \citet{tip} propose
 an intriguing approach called trace typing. With trace typing, a new type
@@ -256,11 +257,13 @@ quantify how much of a code base can be type-checked.  Other approaches that
 infer types for dynamic analysis include the work of \citet{FurrAF2009} and
 \citet{hicks2011ruby} for Ruby.
 
-Recent work has gone into adding types to Python, the other eminent data science language.
-Typilus is an interesting piece of recent work which explores using neural networks to infer types for Python programs~\cite{allamanis2020typilus}, and Python itself added support for type hints in Python 3.5~\cite{pythonspectypes}.
-There is no previous work on types for the R programming language. We take
-inspiration in the above mentioned works but focus on adapting them to our
-target language.
+Recent work has gone into adding types to Python, the other eminent data
+science language.  Typilus is an interesting piece of recent work which
+explores using neural networks to infer types for Python
+programs~\cite{allamanis2020typilus}, and Python itself added support for
+type hints in Python 3.5~\cite{pythonspectypes}.  There is no previous work
+on types for R. We take inspiration in the above mentioned works but focus
+on adapting them to our target language.
 
 
 \subsection{The R Programming Language} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -507,53 +510,45 @@ function, $t_i$ are type-level summaries of the arguments and $t$ is a
 summary of the return value.
 
 While this task is seemingly simple, the details and their proverbial devil
-are surprisingly tricky to get right and to scale to long running programs.
-To avoid starting from scratch, our implementation reuses an open source
-dynamic analysis framework for R named \rdt~\cite{oopsla19} which consists
-of an instrumented R Virtual Machine based on GNU-R version 3.5.0. The
-framework exposes hooks at key points in the R interpreter to which user
-defined callbacks can be attached. These hooks include function entry and
-exit, method dispatch for the S3 and S4 object systems, the longjumps used
-by the interpreter to implement non-local exit, creation and forcing of
-promises (lazy evaluation), variable definition, value creation, mutation
-and garbage collection.
+are surprisingly tricky to get right and to scale to large, long running,
+programs.  To avoid starting from scratch, our implementation reuses \rdt,
+an open source dynamic analysis framework for R~\cite{oopsla19} which
+consists of an instrumented R Virtual Machine based on GNU-R version
+3.5.0. The framework exposes hooks in the interpreter to which user defined
+callbacks can be attached. These hooks include function entry and exit,
+method dispatch for the S3 and S4 object systems, the longjumps used by the
+interpreter to implement non-local exit, creation and forcing of promises,
+variable definition, value creation, mutation and garbage collection.
 
 \paragraph{Raw types}
 The type information output by the tool includes the \emph{type tag} of each
-value. The R internal types are translated to names in the proposed type
-system. The next bit of information output is the \emph{class} which is an
-optional list of names, it may be absent, and, in some cases, it may be
-implicit (i.e. the interpreter blesses some values with the \k{matrix} and
-\k{array} classes even when they have no attributes). 
-Depending on the value's type tag, the tool collects further information:
+value. Internal types are translated to names in the proposed type
+system. The next bit of informatio is the \emph{class}, an optional list of
+names that may be absent, and, in some cases, is implicit (i.e. the
+interpreter blesses some values with the \k{matrix} and \k{array} classes
+even without attributes).  Depending on a value's type, the tool collects
+further information:
 
 \begin{itemize}
-\item For vectors, the number of dimensions and the present of \NA values.
-\item For lists, a recursive traversal collects element types.
-\item For promises, we attempt to establish the type of its result or output
-  \any.
+\item For vectors, the presence of \NA values.
+\item For lists, element types by a recursive traversal.
+\item For promises, an approximation of the expression type.
 \end{itemize}
 
 \noindent
-To obtain raw types, we make use of R's C FFI and use low-level machinery to
-collect type tags and attributes from the R run-time.  The types that we
-provide to users are constructed during post-processing, and rely on the
-detailed information made available by these low-level reflection
-mechanisms.
-
-\paragraph{Varargs}
-Arguments that are part of a function's varargs (denoted \VARGS) are
-ignored, as type \VARGS is output as the type of the entire varargs construct.
-
+To obtain these raw types, we make use of R's C FFI and use low-level
+machinery to collect information from the R language run-time.  Types are
+conmpleted during post-processing, and rely on the detailed information made
+available by these low-level reflection mechanisms.
 
 \paragraph{Promises}
-The fact that arguments are evaluated lazily (in that expression are packed
-into promises and evaluated on first access) complicates the information
-gathering.  For example, some promises remain un-evaluated, and it would be
-erroneous to force them as they may cause side-effects that will affect the
-programs execution.  To deal with unevaluated arguments, we make an initial
-guess for each argument at function entry.  If the promise is later forced,
-we simply update the recorded type for the argument.
+The fact that arguments are lazy (expression are packed into promises and
+only evaluated on first access) complicates information gathering.  For
+example, some promises may remain un-evaluated, and it would be erroneous to
+force them as they may side-effect and change programs execution.  To deal
+with unevaluated arguments, we make an initial guess for each argument at
+function entry.  If the promise is later forced, we simply update the
+recorded type for the argument.
 
 \paragraph{Missing arguments}
 Parameters which receive no values when the function is called are termed
@@ -565,11 +560,14 @@ are performing a dynamic analysis, we conservatively type them as
 \LIST{\any}.
 
 \paragraph{Non-local returns}
-When a function exits with a longjump there is no return value to speak
-of. In order to ensure that call traces are valid when a longjump occurs, we
-intercept the unwinding process initiated by the longjump and mimic the
-functionality of the functions being exited. When no return value is present
-for a call, we record a special \k{jumped} return type.
+When a function exits with a longjump, there is no return value to speak
+of. To ensure call traces are valid when a longjump occurs, we intercept the
+unwinding process and record a special \k{jumped} return type for function
+returns that are skipped.
+
+\paragraph{Varargs}
+Arguments that are part of a function's varargs (denoted \VARGS) are
+ignored. We do not attempt to give varags a type in this type system.
 
 \paragraph{Implementation details.}
 We primarily rely on eight callbacks: \k{closure\_entry}, \k{closure\_exit},
@@ -581,7 +579,6 @@ by pushing the call onto a stack.  The calls themselves store a trace
 object, it is that object that holds the type information. As R can perform
 single or multiple dispatch on function arguments depending on their class,
 the relevant information is kept by the {\tt \_entry} variants.
-
 
 
 \subsection{Inferring type signatures from raw types}
@@ -600,6 +597,8 @@ signature.  The shape of the inferred function signatures is:
 In other words, we take the union of the types occurring at individual
 argument positions rather than an union of function types. Furthermore, we
 apply some transformation on the types to keep the size of types in check.
+The following overviews the main simplification rules as well as the simple
+notion of subtyping that we have adopted here.
 
 \medskip
 \begin{tabular}{rclll}
@@ -608,6 +607,7 @@ apply some transformation on the types to keep the size of types in check.
   \LIST{\T} \k{~|~} $\LIST{T'}$ & $\Rightarrow$ &  \LIST\T & \it{iff} $T' <: T$  \\
    $\null \k{~|~} \VEC{\S_1} \k{~|~}\dots \VEC{\S_n}$  & $\Rightarrow$ &
   $ \NAVEC{\S_1} \k{~|~}\dots \NAVEC{\S_n}$ &  \\
+  \\
   \\
   \\
   \NAVEC\S  & <:& \VEC\S \\
@@ -623,10 +623,11 @@ apply some transformation on the types to keep the size of types in check.
 \noindent
 Assuming that type sequences can be reordered freely, we rewrite types to
 minimize their size by removing redundant types, types that are subsumed by
-subtyping, and \null types. For performance reasons, we bound lists to no
-more than five types in their union, above that they become \LIST{any}.
-Functions are alos limited to twenty arguments. Higher-order functions are
-approximated by \any to \any.
+subtyping, immutable lists, and remove \null type to replace them with
+nullables. For performance reasons, we bound lists to no more than five
+types in their union, above that they become \LIST{any}.  Functions are alos
+limited to twenty arguments. Higher-order functions are approximated by \any
+to \any.
 
 \subsection{Checking types signatures with contracts}
 
@@ -700,6 +701,8 @@ function do not have a return value to type-check. \contractr deals with
 this problem by allocating a unique sentinel object which serves as the
 return value for calls that are discarded. The exit hook does not call the
 type-checker if it see the sentinel.
+
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -799,17 +802,29 @@ Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
 \caption{Top types of arguments in R}\label{ctb}
 \end{table}
 
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Evaluation} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\FIX}[1]{{\bf #1}\xspace}
 
-We ran \typetracer on the test, example, and vignette code of the aforementioned corpus of \PACKAGES packages and inferred types for \NUMFUNCTIONS functions.
-We have selected and will discuss a few interesting signatures.
+We ran \typetracer on the test, example, and vignette code of the
+aforementioned corpus of \PACKAGES packages and successfully inferred types
+for \NUMFUNCTIONS functions.  Table~\ref{tbl:typesig} illustrates the
+process with ten representative signatures.  Many of the features of our
+type language are represented here.  Some signatures are telling of the
+function's behaviour.  For example, consider \code{decrypt_envelope}: the
+firs three parameters of the function are byte arrays, and the fourth
+argument is an RSA key, used to decrypt some of the inputs, and the output
+of the function is another byte array.  As another example, consider
+\code{Traverse}: according to the function documentation, it takes the root
+of a tree and traverses it in an order specified by the second argument.  We
+see that reflected in the type, where the first argument has type
+\CLASS{\texttt{Node}, \texttt{R6}} and the second argument had type
+\VEC\chr, representing the traversal order.
 
 \begin{table}[H]
   \centering
-  \resizebox{.8\linewidth}{!}{
+  \resizebox{.98\linewidth}{!}{
   \begin{tabular}{llrrr}
     \toprule
     Function & Type Signature \\
@@ -834,11 +849,17 @@ We have selected and will discuss a few interesting signatures.
 \caption{Select Type Signatures}\label{tbl:typesig}
 \end{table}
 
-Many of the features of our type language are represented here.
-Some of these signatures are telling of the function's behaviour.
-For example, consider the signature for \code{openssl::decrypt_envelope}: the first three parameters of the function are byte arrays, and the fourth argument is an RSA key, used to decrypt some of the inputs, and the output of the function is the decrypted byte array.
-As another example, consider \code{data.tree::Traverse}: according to the function documentation, it takes the root of a tree and traverses it in an order specified by the second argument.
-We see that reflected in the type, where the first argument has type \CLASS{\texttt{Node}, \texttt{R6}} and the second argument had type \VEC\chr, representing the traversal order.
+
+This section attempts to evaluate how well the proposed type system is able
+to describe the actual type signatures of functions. For this we focus on
+how often there is a single type for a particular argument; this because
+union types and \any are less accurate (and would likely require a more
+refined notion of subtyping or parametric polymorphism). Then, we evaluate
+how robust the inferred signatures are by checking that they remain valid
+for other inputs.  Lastly, we try to see if the current proposal would be
+useful to programmers by allowing them to remove ad hoc checks and providing
+useful documentation.
+
 
 \subsection{Expressiveness}
 
