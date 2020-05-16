@@ -1326,8 +1326,7 @@ type `lava::lava.options` <...> => list<double | character[]>;
 
 type `coin::\%GE\%` <class<`matrix`> | class<`matrix`, `pvalue`> | double[], double[] | class<`matrix`, `pvalue`>> => (class<`matrix`> | logical[]);
 
-type `emplik::llogp` <class<`matrix`> | double[], double> => (class<`matrix`> |
-double[]);
+type `emplik::llogp` <class<`matrix`> | double[], double> => (class<`matrix`> | double[]);
 
 type `emplik::gradf` <class<`matrix`>, double[], double[]> => double[];
 
@@ -1349,6 +1348,14 @@ type `stabledist::tanpi2` <double[]> => double[];
 
 type `neuralnet::relist` <double[], class<`array`> | integer[], class<`array`> | integer[]> => list<class<`matrix`>>;
 type `neuralnet::calculate.gradients` <any, integer, list<class<`matrix`>>, any, class<`matrix`>, double, logical> => double[];
+
+type `openssl::decrypt_envelope` <raw[], raw[], raw[], class<`key`, `rsa`>, any> => raw[];
+
+dbplyr:type `set_win_current_group` <null | character[]> => (character[] | null);
+
+type `sha256` <raw[], null | raw[]> => raw[];
+
+type `initparam` <? double, any, any, any, character, character, logical, double[], double[], any> => double[];
 
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 \end{document}
