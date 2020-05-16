@@ -572,6 +572,20 @@ row_spec(polymorphic_unityped_rows, color = "black", background = "lightgray") %
 save_table("uni-typed-breakdown.tex")
 
 
+monomorphic_parameter_count <-
+unityped_positions %>%
+mutate(polymorphic = map_lgl(kind, is_polymorphic)) %>%
+filter(!polymorphic) %>%
+pull(count) %>%
+sum()
+
+
+generate_macro("CountMonomorphicPositions", monomorphic_parameter_count, macro_filename)
+
+generate_macro("PercMonomorphicPositions", monomorphic_parameter_count / total_parameter_count, macro_filename)
+
+generate_macro("CountPositions", total_parameter_count, macro_filename)
+
 single_union_types <-
 union_data %>%
 filter(alternative_count == 1) %>%
