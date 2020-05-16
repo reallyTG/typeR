@@ -1317,41 +1317,21 @@ We see two major avenues for future work.
 
 \ldots
 
-
-type `data.tree::Traverse` <class<`Node`, `R6`>, character[], any, any> => list<any>;
-
-type `emulator::cprod` <class<`matrix`> | double[], class<`matrix`> | double[]> => class<`matrix`>;
-
-type `lava::lava.options` <...> => list<double | character[]>;
-
-type `coin::\%GE\%` <class<`matrix`> | class<`matrix`, `pvalue`> | double[], double[] | class<`matrix`, `pvalue`>> => (class<`matrix`> | logical[]);
-
-type `emplik::llogp` <class<`matrix`> | double[], double> => (class<`matrix`> | double[]);
-
-type `emplik::gradf` <class<`matrix`>, double[], double[]> => double[];
-
-type `fields::rdist` <class<`data.frame`> | class<`matrix`> | double[], class<`data.frame`> | class<`matrix`> | null | double[], logical> => (class<`matrix`> | class<`dist`>);
-
-type `stabledist::x.exp.m.x` <double[]> => double[];
+type `dplyr::group\_indices` <class<`data.frame`>, ...> => integer[];
 
 type `lava::index` <class<`lvm`> | class<`lvmfit`>, ...> => (null | list<any>);
 
-type `pkgload::compact` <list<any>> => list<any>;
-
 type `diptest::dip` <double[], character | logical, logical, double> => (class<`dip`> | double);
 
-
-type `bbmle::relist2` <double[], double[] | list<any>> => list<any>;
-
 type `stabledist::cospi2` <double[]> => double[];
-type `stabledist::tanpi2` <double[]> => double[];
 
-type `neuralnet::relist` <double[], class<`array`> | integer[], class<`array`> | integer[]> => list<class<`matrix`>>;
-type `neuralnet::calculate.gradients` <any, integer, list<class<`matrix`>>, any, class<`matrix`>, double, logical> => double[];
+type `emplik::llogp` <class<`matrix`> | double[], double> => (class<`matrix`> | double[]);
 
-type `openssl::decrypt_envelope` <raw[], raw[], raw[], class<`key`, `rsa`>, any> => raw[];
+type `data.tree::Traverse` <class<`Node`, `R6`>, character[], any, any> => list<any>;
 
-dbplyr:type `set_win_current_group` <null | character[]> => (character[] | null);
+type `openssl::decrypt\_envelope` <raw[], raw[], raw[], class<`key`, `rsa`>, any> => raw[];
+
+dbplyr:type `set\_win\_current\_group` <null | character[]> => (character[] | null);
 
 type `sha256` <raw[], null | raw[]> => raw[];
 
