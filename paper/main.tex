@@ -565,7 +565,7 @@ mechanisms.
 
 \paragraph{Varargs}
 Arguments that are part of a function's varargs (denoted \VARGS) are
-ignored, as type \any is output for the entire varag construct.
+ignored, as type \VARGS is output as the type of the entire varargs construct.
 
 
 \paragraph{Promises}
@@ -841,7 +841,7 @@ function signatures. Only \PercManytypedPositions positions have more than three
 types ascribed to them.
 
 \input{tables/uni-typed-breakdown.tex}
-Figure~\ref{fig:singlefreq} provides a breakdown of the different type categories
+Table~\ref{fig:singlefreq} provides a breakdown of the different type categories
 observed at uni-typed positions. Scalar, class and vector are
 the most common type categories. The shaded rows correspond to polymorphic
 types. Removing those gives us \CountMonomorphicPositions
@@ -860,18 +860,6 @@ polymorphic positions. We observe that \PercMonomorphicFunctions
 polymorphic parameter or return type. Polymorphic functions are spread across
 many packages, \CountMonomorphicPackages out of the 412 packages from our corpus
 export only monomorphic functions.
-
-
-Figure 1 shows the number of alternatives in the inferred type of function
-parameter and return values.
-
-XXX\% of the parameter positions are monomorphic.  \typetracer observes XXX
-calls to XXX functions with XXX arguments. This translates to XXX parameters
-and XXX return types.  A parameter or return type is from unioning all the
-distinct observed types of
-
-Figure 1 shows the distribution of parameter and return types for these
-functions.
 
 class is the most common type in our corpus, accounting for XXX\% of all the
 inferred types. This is followed by an almost equal proportion,
