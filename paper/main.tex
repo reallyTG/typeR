@@ -592,18 +592,17 @@ object, it is that object that holds the type information. As R can perform
 single or multiple dispatch on function arguments depending on their class,
 the relevant information is kept by the {\tt \_entry} variants.
 
-
 \subsection{Inferring type signatures from raw types}
-
+\enlargethispage{4mm}
 The output of the \typetracer tool consists of a set of tuples of raw types,
 each representing a function call in some program's execution. The inference
 step consolidates the different tuples corresponding to a particular function
 definition across multiple programs and distills them into a single type
 signature.  The shape of the inferred function signatures is:
 
-\medskip
+\vspace*{1mm}
 \FUN{ T_{1,1} \k{~|~} T_{1,i}, \dots, T_{n,1} \k{~|~} T_{n,j}}{T_1\k{~|~} T_k}
-\medskip
+\vspace*{1mm}
 
 \noindent
 In other words, we take the union of the types occurring at individual
@@ -612,15 +611,13 @@ apply some transformation on the types to keep the size of types in check.
 The following overviews the main simplification rules as well as the simple
 notion of subtyping that we have adopted here.
 
-\medskip
+\vspace*{1mm}
 \begin{tabular}{rclll}
   \T \k{~|~} \T  & $\Rightarrow$ &  \T &  \\
   \T \k{~|~} $T'$ & $\Rightarrow$ &  \T & \it{iff} $T' <: T$  \\
   \LIST{\T} \k{~|~} $\LIST{T'}$ & $\Rightarrow$ &  \LIST\T & \it{iff} $T' <: T$  \\
    $\null \k{~|~} \VEC{\S_1} \k{~|~}\dots \VEC{\S_n}$  & $\Rightarrow$ &
   $ \NAVEC{\S_1} \k{~|~}\dots \NAVEC{\S_n}$ &  \\
-  \\
-  \\
   \\
   \NAVEC\S  & <:& \VEC\S \\
   \T        & <:& \k{?}\T \\
@@ -703,7 +700,7 @@ this problem by allocating a unique sentinel object which serves as the
 return value for calls that are discarded. The exit hook does not call the
 type-checker if it see the sentinel.
 
-\newpage
+% \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
