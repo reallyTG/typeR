@@ -586,22 +586,70 @@ mutate(percentage = round(100 * count / sum(count), 1),
 datatable(single_union_types)
 ```
 
-## 
 
 ```{r, eval = TRUE, verbose = FALSE}
-function_polymorphic_freq <-
+function_polymorphism <-
 union_data %>%
-distinct(package_name, function_name, parameter_position) %>%
-mutate(polymorphic = ifelse(alternative_count > 1, true, is_polymorphic(alternative_count)) %>%
+distinct(package_name, function_name, parameter_position, alternative_count) %>%
+mutate(polymorphic = ifelse(alternative_count > 1, TRUE, is_polymorphic(alternative_count))) %>%
 group_by(package_name, function_name) %>%
-summarize(polymorphic_position_count = sum(polymorphic)) %>%
-ungroup() %>%
+summarize(polymorphic_position_count = as.integer(sum(polymorphic))) %>%
+ungroup()
+
+package_polymorphism <-
+function_polymorphism %>%
+group_by(package_name) %>%
+summarize(monomorphic = all(polymorphic_position_count == 0)) %>%
+ungroup()
+
+function_polymorphic_freq <-
+function_polymorphism %>%
 group_by(polymorphic_position_count) %>%
-summarize(function_count = ()) %>%
+summarize(function_count = n()) %>%
 ungroup() %>%
 arrange(polymorphic_position_count)
 
-function_polymorphic_freq %>%
-ggplot(aes(polymorphic_position_count, function_count)) +
 
+function_polymorphic_freq_more_than_three <-
+function_polymorphic_freq %>%
+filter(polymorphic_position_count > 3) %>%
+summarize(polymorphic_position_count = "> 3", function_count = sum(function_count))
+
+function_polymorphic_freq <-
+function_polymorphic_freq %>%
+filter(polymorphic_position_count <= 3) %>%
+rbind(function_polymorphic_freq_more_than_three) %>%
+mutate(function_percentage = function_count / total_function_count)
+
+
+(function_polymorphic_freq %>%
+ggplot(aes(polymorphic_position_count, function_percentage)) +
+geom_col() +
+scale_y_continuous(sec.axis = sec_axis(~ . * total_function_count, labels = count_labels), labels = relative_labels) +
+scale_x_discrete(limits=c("> 3", 3, 2, 1, 0)) +
+labs(x="Polymorphic Positions", y="Functions") +
+coord_flip() +
+theme(legend.title = element_blank(), legend.position = "top")) %>%
+save_graph("function_polymorphism.pdf")
+
+
+generate_macro("CountMonomorphicFunctions", 
+               function_polymorphic_freq %>% filter(polymorphic_position_count == "0") %>% pull(function_count),
+               macro_filename)
+
+generate_macro("PercMonomorphicFunctions", 
+               function_polymorphic_freq %>% filter(polymorphic_position_count == "0") %>% pull(function_percentage),
+               macro_filename)
+
+generate_macro("CountPolymorphicFunctions", 
+               total_function_count - function_polymorphic_freq %>% filter(polymorphic_position_count == "0") %>% pull(function_count),
+               macro_filename)
+
+generate_macro("PercPolymorphicFunctions", 
+               1.0 - function_polymorphic_freq %>% filter(polymorphic_position_count == "0") %>% pull(function_percentage),
+               macro_filename)
+               
+generate_macro("CountMonomorphicPackages", 
+               package_polymorphism %>% pull(monomorphic) %>% sum(),
+               macro_filename)
 ```

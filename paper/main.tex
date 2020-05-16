@@ -855,6 +855,21 @@ functions. Together, these types amount to more than 50\%. This is followed
 by double vector, the unit type, null, character vector, and classes matrix
 and data.frame respectively.
 
+\begin{figure}[!h]  \centering
+  \includegraphics[width=\linewidth]{plots/function_polymorphism.pdf}
+  \caption{Function Polymorphism}\label{fig:funpoly}
+\end{figure}
+
+Figure shows the distribution of functions against the number of polymorphic
+positions. We observe that \PercMonomorphicFunctions
+(\CountMonomorphicFunctions) functions are monomorphic. The remaining
+\PercPolymorphicFunctions (\CountPolymorphicFunctions) have at least one
+polymorphic parameter or return type. Polymorphic functions are spread
+across many packages, \CountMonomorphicPackages out of the 412 packages from our
+corpus export only monomorphic functions.
+
+
+
 Figure 1 shows the number of alternatives in the inferred type of function
 parameter and return values.
 
