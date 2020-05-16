@@ -868,55 +868,44 @@ functions.
 A number of lessons can be drawn from the data we have gathered.
 
 \paragraph{NAs}
-Our data supports the choice of making the presence of NAs explicit.  In
-practice, programmers explicitly check for NAs in primitive vectors,
-possibly sanitizing them if they are present. 
+Our data supports making the presence of {\NA}s explicit. Only 1,058 (of
+0.9\%) of arguments are marked as possibly having {\NA}s, thus the
+overwhelming majority of types appear to be {\NA}-free.  In practice,
+programmers check for them and sanitize them if they are present.  Consider
+the \code{binom} package for computing confidence intervals and its
+\code{binom.profile} function.  This attached code snippet highlights a data
+sanitization pattern: the programmer first binds the vectors into a matrix,
+then finds rows where both columns are not \NA, extracts non-\NA values and
+stores them into \code{x} and \code{n} respectively.
 
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-#' @type <x: dbl[], n: dbl[], conf.level: dbl, maxsteps: dbl,
-#'         del: dbl, bayes: lgl, plot: lgl, ...> => class<data.frame>
-binom.profile <- function(x, n, conf.level = 0.95, maxsteps = 50,
-                            del = zmax / 5, bayes = TRUE, plot = FALSE, ...) {
-   xn <- cbind(x = x, n = n)
-   ok <- !is.na(xn[, 1]) & !is.na(xn[, 2])
-   x <- xn[ok, "x"]
-   n <- xn[ok, "n"]
+  binom.profile <- function(x, n, conf.level=0.9, maxsteps=50,...) {
+    xn <- cbind(x = x, n = n)
+    ok <- !is.na(xn[, 1]) & !is.na(xn[, 2])
+    x <- xn[ok, "x"]
+    n <- xn[ok, "n"]
 \end{lstlisting}
-
-The \code{binom} package is a popular R package for computing confidence
-intervals, and the \code{binom.profile} function does so using the profile
-likelihood.  This code snippet highlights a data sanitization pattern: the
-programmer first binds the vectors into a matrix, with one column for each
-of \code{x} and \code{n}, then finds rows where both columns are not \NA,
-then extracts non-\NA values and stores them into \code{x} and \code{n}
-respectively.We see from the type that arguments \code{x} and \code{n} are intended to be free of \NA values.
-\contractr will check them for compliance, and warn programmers of function misuse.
 
 \paragraph{Scalars}
 The data also suggests that programmers often use scalars, and do
-dimensionality checks on their data.
+dimensionality checks on their data.  In our data 31,533 (or 29\%) of the
+arguments are scalar types. While not completely surprising, this is a
+rather large number. Consider the \code{hankel.matrix} function, it takes
+two arguments and checks that \code{n} is \int, that \code{x} is a vector,
+and also, indirectly, that \code{n} is a a scalar (this comes from the fact
+that it is used in the guard of a conditional which fails if \code{n} is
+not a scalar).
 
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-#' @type <n: dbl, x: int[]> => class<matrix>
-hankel.matrix <- function( n, x ) { 
+ hankel.matrix <- function( n, x ) { 
   ### n = a positive integer value for the order of the Hankel matrix
   ### x = an order 2 * n + 1 vector of numeric values
-    ...
     if ( n != trunc( n ) )  stop( "argument n ix not an integer" )
     if ( !is.vector( x ) )  stop( "argument x is not a vector" )
     m <- length( x )
     if ( m < n )  stop( "length of argument x is less than n" )
 \end{lstlisting}
 
-The \code{hankel.matrix} function takes two arguments.  The function has a
-number of interesting checks: \code{n} undergoes an integer type check;
-\code{x} undergoes a vector type check; and \code{n} is expected to be a
-scalar, as if it were a vector, the code \code{m < n} would essentially
-check \code{m < n[i]} for each element in \code{n}, returning a vector of
-comparison results, and the conditional of an if must be a scalar else R
-generates a warning. The type for this function indicates that \code{x} must be
-a vector, though here the type for \code{n} is found to be \dbl---this is likely due
-to numeric values defaulting to \dbl type in R, as e.g. \code{typeof(2)} is \dbl.
 
 \paragraph{Matrices}
 
@@ -926,36 +915,34 @@ and a \code{dims} attribute indicating matrix dimensions, and while not
 codified in the language semantics, many internal functions will coerce
 vectors to matrices automatically.  Relying on automatic coercion is unwise,
 and many functions check to ensure that their arguments are matrices.
-
-\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-#' @type <x: class<matrix>, w: ? ^dbl[], rows: null, cols: null, na.rm: lgl, ...> => ^dbl[]
-rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL,
-                             na.rm = FALSE, ...) {
-  if (!is.matrix(x)) 
-    .Defunct(msg = sprintf("Argument 'x' should be a matrix.)
-\end{lstlisting}
-
 The \code{rowWeightedMeans} function calculates the weighted means of rows
 or columns of a matrix \code{x}.  This function exhibits good practice in
 type checking arguments, rightly producing a message to the user indicating
-that an explicit matrix should be passed. We captured this with our class types, 
-and indeed \typetracer inferred a good type for this function, allowing \contractr to 
-perform the check present in this code automatically, notifying the users passing ill-typed arguments.
+that an explicit matrix should be passed. We captured this with our class
+types, and indeed \typetracer inferred a good type for this function,
+allowing \contractr to perform the check present in this code automatically,
+notifying the users passing ill-typed arguments.
+
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+  rowWeightedMeans <- function(x, w=NULL, rows=NULL, cols=NULL, na.rm=FALSE, ...) {
+    if (!is.matrix(x)) 
+      .Defunct(msg = sprintf("Argument 'x' should be a matrix.)
+\end{lstlisting}
+
 
 Thus far we've seen instances where we introduce types that subsume existing
 argument validation code, but our intention is not to subsume {\it all} such
 code. Consider:
 
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE) {
-    ...
+  rowWeightedMeans <- function(x, w = NULL, rows = NULL, cols = NULL, na.rm = FALSE) {
     n <- ncol(x)
     if (length(w) != n) 
        stop("The length of 'w' does not match columns in 'x': ")
 \end{lstlisting}
 
 This code is from later in the same \code{rowWeightedMeans} function
-discussed previously.  Here, the length of the weights vector \code{w} is
+pdiscussed previously.  Here, the length of the weights vector \code{w} is
 being checked for equality with the number of columns in the matrix
 \code{x}.  Specifying this relationship as a type amounts to {\it dependent
   typing}, which we believe too complex to retrofit onto a dynamic data
@@ -964,48 +951,50 @@ checks up to the programmer.
 
 \paragraph{Structs}
 
-In R, lists can have a names attribute, allowing lists elements to be accessed by name using the
-\code{$} operator.
+In R, lists can have a names attribute, allowing lists elements to be
+accessed by name using the \code{$} operator.
 
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-#' @type <x: class<aov, lm> | class<lm>> => dbl;
-agricolae::cv.model <- function(x) {
+  agricolae::cv.model <- function(x) {
     suma2 <- sum(x$residual^2)
     gl <- x$df.residual
     promedio <- mean(x$fitted.values)
     return(sqrt(suma2/gl)*100/promedio)
-}
-data(sweetpotato)
-model<-aov(yield~virus, data=sweetpotato)
-cv.model(model)
+  }
+  data(sweetpotato)
+  model<-aov(yield~virus, data=sweetpotato)
+  cv.model(model)
 \end{lstlisting}
 
 In the code snippet, the function \code{cv.model} takes an argument
-\code{x}, which we observed to always be a {\it linear model} (either ANOVA with \CLASS{aov, lm} or a simple linear regression model with \CLASS{lm}) which is part
-of R's built-in statistics functionality.  Internally, linear models are
-represented as lists with named elements, and one may access these named
-elements using the \code{$} syntax, as seen on lines 2-4 in the snippet.  To
-describe these kinds of values, we intended to include a struct type in our type
-system, allowing users to specify name, type pairs as part of list type
-definitions, though we found this to be problematic.
+\code{x}, which we observed to always be a {\it linear model} (either ANOVA
+with \CLASS{aov, lm} or a simple linear regression model with \CLASS{lm})
+which is part of R's built-in statistics functionality.  Internally, linear
+models are represented as lists with named elements, and one may access
+these named elements using the \code{$} syntax, as seen on lines 2-4 in the
+snippet.  To describe these kinds of values, we intended to include a struct
+type in our type system, allowing users to specify name, type pairs as part
+of list type definitions, though we found this to be problematic.
 
-The inclusion of structs complicated our analysis by
-polluting the data, illustrated on line 8 with the call
-\code{data(sweetpotato)}.  It is quite common for R example code to use some
-built-in data sets, such as \code{sweetpotato}, to show off some package
-functionality with ``real data''.  When \typetracer is configured to detect
-structs we saw a marked increase in misrepresentative types, as the types of
-functions which use these data sets (such as \code{aov} in the code example) became polluted with the names from the example
-sets.  We implemented a unification strategy for struct types, removing them
-if they co-occurred with list types, and turning them into lists if two
-co-occurring struct types shared no common names, but even so we found
-ourselves with function signatures that were full of noise introduced by the
-struct names.
+The inclusion of structs complicated our analysis by polluting the data,
+illustrated on line 8 with the call \code{data(sweetpotato)}.  It is quite
+common for R example code to use some built-in data sets, such as
+\code{sweetpotato}, to show off some package functionality with ``real
+data''.  When \typetracer is configured to detect structs we saw a marked
+increase in misrepresentative types, as the types of functions which use
+these data sets (such as \code{aov} in the code example) became polluted
+with the names from the example sets.  We implemented a unification strategy
+for struct types, removing them if they co-occurred with list types, and
+turning them into lists if two co-occurring struct types shared no common
+names, but even so we found ourselves with function signatures that were
+full of noise introduced by the struct names.
 
-We found that struct-like data was best described with classes, as illustrated in the code snippet, and many structs actually had a class.
-Even though \code{x} is used like a struct, it in fact has a linear model class, which we believe is a more informative type.
+We found that struct-like data was best described with classes, as
+illustrated in the code snippet, and many structs actually had a class.
+Even though \code{x} is used like a struct, it in fact has a linear model
+class, which we believe is a more informative type.
 
-%
+
 \paragraph{Data Frames}
 
 One of the most popular classes in R is the \code{data.frame} class, making up nearly 8\% of observed classes.  Data
