@@ -1058,10 +1058,10 @@ Passed & Arg Type & Occurrences & \% Total & Cumulative \%\\
 In addition to the number of failed contract checks, we were interested in
 how many functions had a parameter where a contract check failed, and
 overall we found this to be the case in \PROPFUNSFAILEDCHECK of functions.
-Digging a little deeper, we noticed that many of these functions were
-performing S3 dispatch which we do not handle.  Removing those functions, we
-see that \PROPFUNSFAILEDCHECKNOSTHREE of functions exhibited failing
-contract checks.  These are functions were likely under-tested, as calls to
+To subdivide this number, we discounted functions that were performing S3
+dispatch, as they exhibit user-defined polymorphism which we do not handle.
+Removing those functions, we see that the proportion of functions with failed contract checks falls to 
+\PROPFUNSFAILEDCHECKNOSTHREE. These remaining functions were under-tested, as calls to
 these functions represent only \PERCCALLSBADFUNSINTESTS of recorded calls
 during \typetracer's run on the core corpus to infer types.
 
