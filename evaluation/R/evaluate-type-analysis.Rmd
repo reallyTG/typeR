@@ -111,7 +111,6 @@ to_percentage <- function(proportions) {
 }
 ```
 
-
 # Incompatible Functions
 
 ```{r incompatible-functions, echo=FALSE, eval=TRUE}
@@ -152,9 +151,22 @@ type_analysis_data <-
                            incompatible_functions$function_name)))
 ```
 
+Make S3-less data frame, too.
+
+```{r}
+S3_funs <- read_csv("../data/package-functions.csv") %>% select(package, fun, is_s3_dispatch, is_s3_method) %>% filter(is_s3_method | is_s3_method) %>% select(package, fun)
+
+S3_funs <- S3_funs %>% rename("package_name" = "package", "function_name" = "fun")
+
+type_analysis_data_no_S3 <- type_analysis_data %>% anti_join(S3_funs)
+```
+
 ```{r high-level, echo=FALSE, eval=TRUE}
 total_package_count <- nrow(distinct(type_analysis_data, package_name))
 total_function_count <- nrow(distinct(type_analysis_data, package_name, function_name))
+
+total_package_count_no_S3 <- nrow(distinct(type_analysis_data_no_S3, package_name))
+total_function_count_no_S3 <- nrow(distinct(type_analysis_data_no_S3, package_name, function_name))
 ```
 
 **Packages**: `r total_package_count`
@@ -669,3 +681,5 @@ generate_macro("CountMonomorphicPackages",
                package_polymorphism %>% pull(monomorphic) %>% sum(),
                macro_filename)
 ```
+
+
