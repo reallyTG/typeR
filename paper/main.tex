@@ -153,14 +153,13 @@ R libraries.
 
 \section{Introduction}
 
-Our community builds, improves, and reasons about programming languages.  To
-make design decisions that benefit users, we need to understand our target
-language as well as the real-world needs it answers. Often, we can appeal to
-our intuition, as many languages are intended for general purpose
-programming tasks. Unfortunately, intuition may fail when looking at
-domain-specific languages as these languages designed for a specific group
-of users to solve very specific needs. This is the case of the data science
-language R.
+Our community builds, improves, and reasons about programming languages. To make
+design decisions that benefit users, we need to understand our target language
+as well as the real-world needs it answers. Often, we can appeal to our
+intuition, as many languages are intended for general purpose programming tasks.
+Unfortunately, intuition may fail when looking at domain-specific languages as
+these languages were designed for a specific group of users to solve very
+specific needs. This is the case of the data science language R.
 
 R and its ancestor S were designed, implemented, and maintained by
 statisticians. Originally they aimed to be glue languages for reading data
@@ -172,9 +171,9 @@ extensive reflective facilities and retrofitted object-oriented programming
 support.
 
 Many of the design decisions that gave us R were intended to foster an
-interactive, exploratory, programming style. These include, to name a few,
+interactive and exploratory programming style. These include, to name a few,
 the lack of type annotations, the ability to use syntactic shortcut, and the
-automatic conversion between data types.  While these choices have led to a
+automatic conversion between data types. While these choices have led to a
 language with a low barrier to entry---many data science educational
 programs do not teach R itself but simply introduce some of its key
 libraries---they have also created a language where errors can go
@@ -184,8 +183,7 @@ Retrofitting a type system to the R programming language would increase our
 assurance in the result of data analysis. But, we are faced with two
 challenges. First, it is unclear what would be the \emph{right} type system
 for a language as baroque as R. For example, one of the most popular data
-type, the \code{data.frame}, is manipulated through reflective operations --
-a data frame is a table whose columns can be added or removed on the fly.
+type, the \code{data.frame}, is manipulated through reflective operations---a data frame is a table whose columns can be added or removed on the fly.
 Second, but just as crucially, designing a type system that will be adopted
 would require overcoming some prejudices and educating large numbers of
 users.
@@ -633,13 +631,14 @@ approximated by \any to \any.
 \subsection{Checking types signatures with contracts}
 
 One way to validate the inferred type annotations is to check that different
-programs using one of the functions for which a type signature has been
-inferred respect the signature.  \contractr is an R package that allows to
-decorate function with assertions. We use it to insert type checks of the
-arguments and return values. As usual with R, this is not straightforward.
+programs using one of the functions for which a type signature has been inferred
+respect the signature. For this purpose, we developed \contractr, an R package
+that allows one to decorate function with assertions. We use it to insert type
+checks of the arguments and return values. As usual with R, this is not
+straightforward.
 
 While \contractr's primary logic has been implemented in C++ to reduce its
-runtier overhead, we have not observed a single segfault during our use of
+runtime overhead, we have not observed a single segfault during our use of
 the package.  It has been tested with GNU R-3.5.0 and hardened with a
 battery of 400 test cases. It works by modifying function definition to
 insert a call to a type-checking function.
@@ -728,7 +727,7 @@ tested and only a successfully running package is admitted in the archive.
 
 We have downloaded and installed all available CRAN packages. Out of the
 \AllCranRnd packages, we managed to install \AllLoadableRnd. The main reason for
-this is that \rdt is based on R 3.5.0 and some of the packages are no longer
+this is that \rdt is based on GNU-R 3.5.0 and some of the packages are no longer
 compatible with this version. Some packages also require extra native
 dependencies which were not present on our servers. We defined two criteria for
 including a package into the corpus:
@@ -1008,18 +1007,17 @@ syntax is appropriate).
 
 \subsection{Robustness}
 
-How robust are the inferred types?  To measure this, we conducted another
-large-scale experiment: for each package in the corpus, we ran used the
-inferred type signatures as contracts and ran all of the CRAN reverse
-dependencies for that package. In total we ran \NUMPKGSEVAL packages and
-recorded \NUMASSERTIONS total assertions.  Overall, we found that only
-\PERCFAILEDASSERTIONSWUNDEF of contract failed.  The limit on number of
-arguments (we record only 20) accounted for \PERCASSERTIONSUNDEF failed
-assertion. We found that \PERCSUCCARG of parameter types and \PERCSUCCFUNS
-of functions types never failed.  The number of immaculate function types
-increases to \PERCSUCCFUNNOSTHREE if we discount S3 object method dispatch.
-Overall, these numbers are promising, and suggest that the type signatures
-are robust.
+How robust are the inferred types? To measure this, we conducted another
+large-scale experiment: for each package in the corpus, using the inferred type
+signatures as contracts we ran all of the CRAN reverse dependencies for that
+package. In total we ran \NUMPKGSEVAL unique packages and recorded
+\NUMASSERTIONS total assertions. Overall, we found that only
+\PERCFAILEDASSERTIONSWUNDEF of contract failed. The limit on number of arguments
+(we record only 20) accounted for \PERCASSERTIONSUNDEF failed assertion. We
+found that \PERCSUCCARG of parameter types and \PERCSUCCFUNS of functions types
+never failed. The number of immaculate function types increases to
+\PERCSUCCFUNNOSTHREE if we discount S3 object method dispatch. Overall, these
+numbers are promising, and suggest that the type signatures are robust.
 
 We breakdown the failed assertions by type in
 Table~\ref{tbl:fail-breakdown-0}.  Accounting for 27\% of assertion
@@ -1054,7 +1052,9 @@ Passed & Arg Type & Occurrences & \% Total & Cumulative \%\\
 \bottomrule
 \end{tabular}
 % END Autogenerated
-\label{tbl:fail-breakdown-0}\caption{Top contract failures}\end{table}
+\caption{Top contract failures}
+\label{tbl:fail-breakdown-0}
+\end{table}
 
 In addition to the number of failed contract checks, we were interested in
 how many functions had a parameter where a contract check failed, and
@@ -1119,8 +1119,8 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \end{tabular}
 
 % END Autogenerated
- \label{tbl:fail-breakdown-1}
  \caption{Results from Table 4, broken down by occurrences of the expected type as a parameter type}
+ \label{tbl:fail-breakdown-1}
  \end{table}
 
 Table~\ref{tbl:fail-breakdown-2} presents data on the most frequently
@@ -1160,8 +1160,8 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \bottomrule
 \end{tabular}
 % END Autogenerated
- \label{tbl:fail-breakdown-2}
  \caption{What is the highest failure rate among popular argument types? For argument signatures whose frequency is in the 90th percentile}
+ \label{tbl:fail-breakdown-2}
  \end{table}
  
   \begin{table}
@@ -1179,8 +1179,8 @@ Passed & Arg Type & \#Args Fail & \#Args w Type & \% Failure\\
 \bottomrule
 \end{tabular}
 % END Autogenerated
- \label{tbl:fail-breakdown-3}
  \caption{What is the highest failure rate among popular argument types? For argument signatures whose frequency is in the 80th percentile}
+ \label{tbl:fail-breakdown-3}
  \end{table}
  
 In sum, we believe that this evaluation shows that the type signatures we
