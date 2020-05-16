@@ -810,6 +810,26 @@ Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
 
 \newcommand{\FIX}[1]{{\bf #1}\xspace}
 
+\code{dplyr::group_indices}: \FUN{\CLASS{\texttt{data.frame}}, \VARGS}{\VEC\int}
+
+\code{lava::index}: \FUN{\CLASS{\texttt{lvm}} \; | \; \CLASS{\texttt{lvmfit}}, \VARGS}{\; ? \; \LIST{\any}}
+
+\code{diptest::dip}: \FUN{\VEC\dbl, \chr \; | \; \lgl, \lgl, \dbl}{\CLASS{\texttt{dip}} \; | \; \dbl} 
+
+\code{stabledist::cospi2}: \FUN{\VEC\dbl}{\VEC\dbl}
+
+\code{matrixcalc::matrix.power}: \FUN{\CLASS{\texttt{matrix}}, \dbl}{\CLASS{\texttt{matrix}}}
+
+\code{data.tree::Traverse}: \FUN{\CLASS{\texttt{Node}, \texttt{R6}}, ~\VEC\chr, \any, \any}{\LIST{\any}}
+
+\code{openssl::decrypt\_envelope}: \FUN{~\VEC\raw, ~\VEC\raw, ~\VEC\raw, \CLASS{\texttt{key}, \texttt{rsa}}, \any}{\VEC\raw}
+
+\code{dbplyr::set\_win\_current\_group} \FUN{? ~\VEC\chr}{\; ? \; \VEC\chr}
+
+\code{openssl::sha256}: \FUN{~\VEC\raw, ? ~\VEC\raw}{\VEC\raw}
+
+\code{forecast::initparam}: \FUN{? \dbl, \any, \any, \any, \chr, \chr, \lgl, ~\VEC\dbl, ~\VEC\dbl, \any}{\VEC\dbl}
+
 \subsection{Expressiveness}
 
 The first part of our evaluation attempts to shed light on how good a fit
@@ -1245,29 +1265,8 @@ We see two major avenues for future work.
 
 \section{Conclusion}
 
-
-
 \ldots
 
-\code{dplyr::group_indices}: \FUN{\CLASS{\texttt{data.frame}}, \VARGS}{\VEC\int}
-
-\code{lava::index}: \FUN{\CLASS{\texttt{lvm}} \; | \; \CLASS{\texttt{lvmfit}}, \VARGS}{\; ? \; \LIST{\any}}
-
-\code{diptest::dip}: \FUN{\VEC\dbl, \chr \; | \; \lgl, \lgl, \dbl}{\CLASS{\texttt{dip}} \; | \; \dbl} 
-
-\code{stabledist::cospi2}: \FUN{\VEC\dbl}{\VEC\dbl}
-
-\code{matrixcalc::matrix.power}: \FUN{\CLASS{\texttt{matrix}}, \dbl}{\CLASS{\texttt{matrix}}}
-
-\code{data.tree::Traverse}: \FUN{\CLASS{\texttt{Node}, \texttt{R6}}, ~\VEC\chr, \any, \any}{\LIST{\any}}
-
-\code{openssl::decrypt\_envelope}: \FUN{~\VEC\raw, ~\VEC\raw, ~\VEC\raw, \CLASS{\texttt{key}, \texttt{rsa}}, \any}~\VEC\raw
-
-\code{dbplyr::set\_win\_current\_group} \FUN{? ~\VEC\chr}? ~\VEC\chr
-
-\code{openssl::sha256}: \FUN{~\VEC\raw, ? ~\VEC\raw}~\VEC\raw
-
-\code{forecast::initparam}: \FUN{? \dbl, \any, \any, \any, \chr, \chr, \lgl, ~\VEC\dbl, ~\VEC\dbl, \any}~\VEC\dbl
 
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 \end{document}
