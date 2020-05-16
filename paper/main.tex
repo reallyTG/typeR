@@ -800,25 +800,32 @@ Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
 We ran \typetracer on the test, example, and vignette code of the aforementioned corpus of \PACKAGES packages and inferred types for \NUMFUNCTIONS functions.
 We have selected and will discuss a few interesting signatures.
 
-\code{dplyr::group_indices}: \FUN{\CLASS{\texttt{data.frame}}, \VARGS}{\VEC\int}
-
-\code{lava::index}: \FUN{\CLASS{\texttt{lvm}} \; | \; \CLASS{\texttt{lvmfit}}, \VARGS}{\; ? \; \LIST{\any}}
-
-\code{diptest::dip}: \FUN{\VEC\dbl, \chr \; | \; \lgl, \lgl, \dbl}{\CLASS{\texttt{dip}} \; | \; \dbl} 
-
-\code{stabledist::cospi2}: \FUN{\VEC\dbl}{\VEC\dbl}
-
-\code{matrixcalc::matrix.power}: \FUN{\CLASS{\texttt{matrix}}, \dbl}{\CLASS{\texttt{matrix}}}
-
-\code{data.tree::Traverse}: \FUN{\CLASS{\texttt{Node}, \texttt{R6}}, ~\VEC\chr, \any, \any}{\LIST{\any}}
-
-\code{openssl::decrypt\_envelope}: \FUN{~\VEC\raw, ~\VEC\raw, ~\VEC\raw, \CLASS{\texttt{key}, \texttt{rsa}}, \any}{\VEC\raw}
-
-\code{dbplyr::set\_win\_current\_group} \FUN{? ~\VEC\chr}{\; ? \; \VEC\chr}
-
-\code{openssl::sha256}: \FUN{~\VEC\raw, ? ~\VEC\raw}{\VEC\raw}
-
-\code{forecast::initparam}: \FUN{? \dbl, \any, \any, \any, \chr, \chr, \lgl, ~\VEC\dbl, ~\VEC\dbl, \any}{\VEC\dbl}
+\begin{table}[H]
+  \centering
+  \resizebox{.8\linewidth}{!}{
+  \begin{tabular}{llrrr}
+    \toprule
+    Function & Type Signature \\
+    \midrule
+    \code{dplyr::group_indices} & \FUN{\CLASS{\texttt{data.frame}}, \VARGS}{\VEC\int}\\
+    \code{moments::all.cumulants} & \FUN{\CLASS{\texttt{matrix}} \; | \; \VEC\dbl}{\CLASS{\texttt{matrix}}\; | \; \VEC{\dbl}}\\
+    \code{diptest::dip}& \FUN{\VEC\dbl, \chr \; | \; \lgl, \lgl,
+                         \dbl}{\CLASS{\texttt{dip}} \; | \; \dbl} \\
+    \code{stabledist::cospi2}& \FUN{\VEC\dbl}{\VEC\dbl} \\
+    \code{matrixcalc::matrix.power}& \FUN{\CLASS{\texttt{matrix}},
+                                     \dbl}{\CLASS{\texttt{matrix}}} \\
+    \code{data.tree::Traverse}& \FUN{\CLASS{\texttt{Node}, \texttt{R6}}, ~\VEC\chr,
+                                \any, \any}{\LIST{\any}} \\
+    \code{openssl::decrypt\_envelope}& \FUN{~\VEC\raw, ~\VEC\raw, ~\VEC\raw,
+                                       \CLASS{\texttt{key}, \texttt{rsa}}, \any}{\VEC\raw} \\
+    \code{dbplyr::set\_win\_current\_group}& \FUN{? ~\VEC\chr}{\; ? \; \VEC\chr} \\
+    \code{openssl::sha256}& \FUN{~\VEC\raw, ? ~\VEC\raw}{\VEC\raw} \\
+    \code{forecast::initparam}& \FUN{? \dbl, \any, \any, \any, \chr, \chr, \lgl,
+                                ~\VEC\dbl, ~\VEC\dbl, \any}{\VEC\dbl} \\
+    \bottomrule
+  \end{tabular}}
+\caption{Select Type Signatures}\label{tbl:typesig}
+\end{table}
 
 Many of the features of our type language are represented here.
 Some of these signatures are telling of the function's behaviour.
