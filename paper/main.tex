@@ -858,31 +858,6 @@ polymorphic parameter or return type. Polymorphic functions are spread across
 many packages, \CountMonomorphicPackages out of the 412 packages from our corpus
 export only monomorphic functions.
 
-class is the most common type in our corpus, accounting for XXX\% of all the
-inferred types. This is followed by an almost equal proportion,
-28\%, scalar types and, surprisingly, only 13\% vector types. Vectors are the
-workhorse of R, most primitive operations in R are vectorized and literals are
-treated as single element vectors. It is unexpected to observe twice as many
-scalars as vectors. It is even more unexpected to observe class as the most
-common type. class of an object is used for dynamic dispatch by the S3 object
-system in R. This suggests that usage of S3 is prevalent in our corpus.
-
-null types. Together, these four types make up for 80\% of the observed
-types in our corpus.  The other types, occurring only XXX\% of the times
-include XXX environment types, XXXX expression types, XXXX pairlist types
-and lastly, XXX externalptr types.
-
-
-The polymorphism in R is best described by {\it ad hoc} polymorphism,
-wherein polymorphism is implemented by function and operator overloading
-(see S3 dispatch) rather than in some more fundamental way in the language
-design.  For the purposes of this evaluation, we will say that an argument
-is polymorphic if its type is a union of two or more types, in other words
-the argument has been observed to take more than one type of value.
-
-We found that 15\% of argument positions were polymorphic, and that X\% of
-functions were polymorphic.
-
 Our type annotation language does not support sophisticated class typing,
 and much of the polymorphism in R is due to these classes, namely through
 the S3 dispatch mechanism.  In future work, we aim to more fully handle S3
