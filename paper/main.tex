@@ -1040,10 +1040,10 @@ agricolae::cv.model <- function(x) {
     gl <- x$df.residual
     promedio <- mean(x$fitted.values)
     return(sqrt(suma2/gl)*100/promedio)
-  }
-  data(sweetpotato)
-  model<-aov(yield~virus, data=sweetpotato)
-  cv.model(model)
+}
+data(sweetpotato)
+model<-aov(yield~virus, data=sweetpotato)
+cv.model(model)
 \end{lstlisting}
 
 In the code snippet, the function \code{cv.model} takes an argument
@@ -1074,7 +1074,7 @@ Even though \code{x} is used like a struct, it in fact has a linear model class,
 %
 \paragraph{Data Frames}
 
-One of the most popular classes in R is the \code{data.frame} class.  Data
+One of the most popular classes in R is the \code{data.frame} class, making up nearly 8\% of observed classes.  Data
 frames and the derivative \code{tibble} (from the \code{tidyverse}
 ecosystem) and \code{data.table} (from the \code{data.table} package) types
 underpin a huge amount of data analysis in R.
@@ -1107,33 +1107,53 @@ It will also require proper treatment of function types, and perhaps even
 parametric types, which dynamic analyses such as \typetracer are unable to
 discern soundly.
 
-In the context of our type annotation language, we will ascribe the type \code{class<data.frame>} to \code{data.frame}-typed values.
-A more in-depth discussion of class types follows.
+In the context of our type annotation language, we ascribe the type \CLASS{data.frame} to \code{data.frame}-typed values.
+Consider the following code snippet, showing the type signature for \code{dplyr}'s \code{all_equal} function which checks two \CLASS{data.frame} for equality.
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+#' @type <target: class<data.frame>, current: class<data.frame>, ignore_col_order: lgl, 
+#'         ignore_row_order: lgl, convert: lgl, ...> => (chr | lgl)
+dplyr::all_equal <- function(target, current, ignore_col_order = TRUE,
+                      ignore_row_order = TRUE, convert = FALSE, ...) { ... }
+\end{lstlisting}
 
 \paragraph{Objects}
 
 R has multiple, disparate object systems, with the language providing direct
 support for S3, S4, and R5.  Thus far, we've mainly discussed S3 and its
-dispatch mechanism, and indeed our class types roughly capture the S3
-classes of values.  We will not discuss R5 as it is still under development.
+dispatch mechanism, and indeed our class types capture the S3
+classes of values, but not user-defined polymorphism.  We will not discuss R5 as it is still under development.
 
-For S4, we have an \code{s4} type to denote S4 values, though we did not
-elaborate on this type, and in practice S4 values have a class, and thus a
-\code{class<...>} type.  We stuck to simple class-based types for S4 since
+S4, like S3, uses the class attribute to store types, we type them with a \CLASS{...} type.  
+We stuck to simple class-based types for S4 since
 doing anything more would be immensely complicated, and outside of the scope
 of this work.  For instance, the mechanics of S4 dispatch are more complex
 than for S3 (S4 dispatches on the class of {\it all} arguments), and users
 can define their own class hierarchies that we would need to incorporate in
-our type analysis and contract checking frameworks.  Further, \AT{we found
-  limited use of S4 during our analysis}, with S4 types being heavily used
-in a select subset of packages (\AT{such as ...}), some of which make heavy
-use of R's metaprogramming capabilities.  Coming up with a type system that
+our type analysis and contract checking frameworks.  Further,we found
+  limited use of S4 during our analysis. Coming up with a type system that
 accounts for all of these factors and consolidates multiple
 object-orientation frameworks in a single language design is an interesting
 problem in and of itself, and we aim to extend our type annotation framework
-to account for this in future work.  For now, S3 types suffice: S3 is the
-most common object system in R, with no sophisticated hierarchies, and its
-semantics are simple enough to be captured by our proposed design.
+to account for this in future work.  For now, simple class types for S3 and S4 suffice.
+
+To illustrate informative class types, consider the following code snippet.
+\code{distr} is a package which implements statistical distributions in an object-oriented way, and the \code{Binom} function acts as a constructor for \CLASS{Binom} values.
+Another example is from the \code{Epi} package, which provides functionality for demographic and epidemiological analysis in the Lexis diagram.
+The function we highlighted, \code{timeBand}, extracts time band data from the passed Lexis object.
+We see from the type that the first argument is the Lexis object, and that either a \VEC\dbl or a \CLASS{factor} is returned.
+Often, class members are implemented as attributes on R values, and it's likely that this is the case for Lexis objects as evidenced by the programmer accessing the "breaks" attribute in the function code.
+
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
+#' @type <size: dbl, prob: dbl> => class<Binom>
+distr::Binom <- function(size = 1,prob = 0.5) new("Binom", size = size, prob = prob)
+
+#' @type <lex: class<`Lexis`, `data.frame`>, time.scale: chr, type: chr> => 
+#'           class<`factor`> | dbl[];
+Epi::timeBand <- function(lex, time.scale, type="integer") {
+  time.scale <- check.time.scale(lex, time.scale)[1]
+  breaks <- attr(lex, "breaks")[[time.scale]]
+  ...
+\end{lstlisting}
 
 
 \subsection{Robustness}
