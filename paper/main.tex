@@ -1355,5 +1355,20 @@ We see two major avenues for future work.
 \ldots
 
 
+type `data.tree::Traverse` <class<`Node`, `R6`>, character[], any, any> => list<any>;
+
+type `emulator::cprod` <class<`matrix`> | double[], class<`matrix`> | double[]> => class<`matrix`>;
+
+type `lava::lava.options` <...> => list<double | character[]>;
+
+type `coin::\%GE\%` <class<`matrix`> | class<`matrix`, `pvalue`> | double[], double[] | class<`matrix`, `pvalue`>> => (class<`matrix`> | logical[]);
+
+type `emplik::llogp` <class<`matrix`> | double[], double> => (class<`matrix`> |
+double[]);
+
+type `emplik::gradf` <class<`matrix`>, double[], double[]> => double[];
+
+type `fields::rdist` <class<`data.frame`> | class<`matrix`> | double[], class<`data.frame`> | class<`matrix`> | null | double[], logical> => (class<`matrix`> | class<`dist`>);
+
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 \end{document}
