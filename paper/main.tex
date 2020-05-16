@@ -1250,7 +1250,7 @@ for existing functions automatically. This can remove or partially remove over
 
 
 Retrofitting a type system for the interactive and exploratory programming style of R is hard: The language is poorly specified and builds upon an eclectic mix of features such as laziness, reflection, dynamic evaluation and ad-hoc object systems.
-Our intent is to eventually propose changes to the language, but we are aware that for any changes to be accepted by the community, they must have clear benefits without endangering backwards compatibility.
+Our intent is to eventually propose a type system for inclusion in the language, but we are aware that for any changes to be accepted by the community, they must have clear benefits without endangering backwards compatibility.
 As a step towards this, we focus on a simpler problem: instead of an entire type system, we limited the scope of our investigation to ascribing types to function signatures.
 To this end, we designed a simple type language which found a compromise between simplicity and usefulness by focusing  on the most widely used features of R.
 We presented \typetracer, a tool for inferring types for function signatures from runnable code, and \contractr, an easy-to-use package for R which allows users to specify function type signatures and have function arguments checked for compliance at runtime.
@@ -1260,6 +1260,7 @@ Overall, we found that our simple design fits quite well with the existing langu
 Over 82\% of functions are either monomorphic or have only one single polymorphic argument.
 When we tested the types inferred by \typetracer during our evaluation, we found that only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed, and found no pathological patterns in argument types with failed assertions.
 Furthermore, we found that our type language and contract checking framework would be useful to programmers, eliminate or otherwise simplify \CorpusPartiallyTypedAssertsRatio of existing type checks and assertions in user code.
+In sum, we believe that our simple type language design is a solid foundation for the eventual type system for R.
 
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 \end{document}
