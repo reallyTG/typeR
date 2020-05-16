@@ -1241,12 +1241,20 @@ for existing functions automatically. This can remove or partially remove over
 
 \section{Conclusion}
 
-Our goal with this work was to ...
+Our ultimate goal is to design a type system for R which accounts for the language's intricacies and eccentricities whilst being usable and desirable for R programmers.
+This is no small feat, as our ability to statically make sense of R code is complicated by a language design which fosters an interactive programming style by minimizing programmer overhead.
+Designing a type system which accounts for language features such as reflective table manipulation, extensive type reflection, and ad hoc polymorphism, as well as consolidating R's many disparate object systems is sure to be a long road.
 
-Overall, we found that our proposed design fits quite well with the existing language:
+This work focuses on a simpler problem: instead of an entire type system, we limited the scope of our investigation to ascribing types to function signatures.
+To this end, we designed a simple type language which found a compromise between simplicity and usefulness.
+Our language focuses on the most widely used features of R and omits features such as parametric polymorphism and user-defined subtyping.
+We presented \typetracer, a tool for inferring types for function signatures from runnable code, and \contractr, an easy-to-use package for R which allows users to specify function type signatures and have function arguments checked for compliance at runtime.
+
+We evaluated our design by running \typetracer on a corpus of 412 of the most widely used R packages on CRAN, inferring signatures for exported functions, and testing those inferred signatures on the \NUMPKGSEVAL reverse dependencies of the corpus.
+Overall, we found that our simple design fits quite well with the existing language:
 Over 82\% of functions are either monomorphic or have only one single polymorphic argument.
 When we tested the types inferred by \typetracer during our evaluation, we found that only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed, and found no pathological patterns in argument types with failed assertions.
-Furthermore, we found that our type language and contract checking framework could eliminate or otherwise simplify \CorpusPartiallyTypedAssertsRatio of existing type checks and assertions in user code.
+Furthermore, we found that our type language and contract checking framework would be useful to programmers, eliminate or otherwise simplify \CorpusPartiallyTypedAssertsRatio of existing type checks and assertions in user code.
 
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 \end{document}
