@@ -830,8 +830,9 @@ We have selected and will discuss a few interesting signatures.
 
 Many of the features of our type language are represented here.
 Some of these signatures are telling of the function's behaviour.
-For example, consider the signature for \code{openssl::decrypt_envelope}: the firs three parameters of the function are byte arrays, and the fourth argument is an RSA key, used to decrypt some of the inputs, and the output of the function is another byte array.
+For example, consider the signature for \code{openssl::decrypt_envelope}: the first three parameters of the function are byte arrays, and the fourth argument is an RSA key, used to decrypt some of the inputs, and the output of the function is the decrypted byte array.
 As another example, consider \code{data.tree::Traverse}: according to the function documentation, it takes the root of a tree and traverses it in an order specified by the second argument.
+We see that reflected in the type, where the first argument has type \CLASS{\texttt{Node}, \texttt{R6}} and the second argument had type \VEC\chr, representing the traversal order.
 
 \subsection{Expressiveness}
 
