@@ -497,10 +497,10 @@ escape from the copy-on-write semantics of other data types.
 For this paper, we have built tooling to (\emph{a}) automate the extraction of
 raw type signatures from execution traces, (\emph{b}) infer type signatures from
 a set of raw types, and (\emph{c}) validate the inferred signatures by the means
-of contracts. This section presents each step of this pipeline (\emph{cf.}
-Figure~\ref{fig:pipeline}). The pipeline is run in parallel using GNU
+of contracts. Figure~\ref{fig:pipeline} shows an overview of this pipeline. This
+section gives details of the main steps. The pipeline is run using GNU
 parallel~\cite{tange2011_parallel} on Intel Xeon 6140, 2.30GHz with 72 cores and
-256GB of RAM).
+256GB of RAM.
 
 \begin{figure}[t!]
   \vspace{2mm}
