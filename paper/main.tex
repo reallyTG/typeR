@@ -671,13 +671,9 @@ string, selectively disable contract checking and inspecting type assertions.
 by a simple tag check, namely whether a value is a: null, environment, vector
 or scalar. Other properties require an inspection of the contents of a
 value: the absence of \NA or the type of the elements of list. Union types
-require checking for each of the alternatives.
-
-We do not check higher-order functions in this version of the tool. Checking
+require checking for each of the alternatives. We do not check higher-order functions in this version of the tool. Checking
 them could be done by dynamically wrapping functions with checks. The usage
-of higher-order functions remains limited in R.
-
-When argument values are wrapped in promises (this is not always the case
+of higher-order functions remains limited in R. When argument values are wrapped in promises (this is not always the case
 due to compiler optimizations), in order to retain the non-strict semantics
 of R, the expression held in the promise is wrapped in a call to the type
 checker, and type checking is delayed until the promise is forced. This
@@ -711,7 +707,7 @@ expression code coverage in percents and the y-axis gives the number of
 reverse dependencies in log scale. Dotted lines indicate means. Packages
 with over \PackageSizeOutierRnd lines of code are annotated.
 
-\begin{figure}[!h]\centering\includegraphics[width=.8\linewidth]
+\begin{figure}[!h]\centering\includegraphics[width=.9\linewidth]
   {plots/corpus.pdf}\caption{Corpus}\label{fig:corpus}
 \end{figure}
 
