@@ -400,7 +400,7 @@ datatable(vector_data)
 ```{r vector-na-type, eval=TRUE, echo=FALSE}
 vector_na_data <-
 type_analysis_data %>%
-filter(kind == "vector-na") %>%
+filter(kind == "^vector") %>%
 group_by(type) %>%
 summarize(count = n()) %>%
 ungroup() %>%
