@@ -805,6 +805,9 @@ Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
 
 \newcommand{\FIX}[1]{{\bf #1}\xspace}
 
+We ran \typetracer on the test, example, and vignette code of the aforementioned corpus of \PACKAGES packages and inferred types for \NUMFUNCTIONS functions.
+We have selected and will discuss a few interesting signatures.
+
 \code{dplyr::group_indices}: \FUN{\CLASS{\texttt{data.frame}}, \VARGS}{\VEC\int}
 
 \code{lava::index}: \FUN{\CLASS{\texttt{lvm}} \; | \; \CLASS{\texttt{lvmfit}}, \VARGS}{\; ? \; \LIST{\any}}
@@ -824,6 +827,12 @@ Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
 \code{openssl::sha256}: \FUN{~\VEC\raw, ? ~\VEC\raw}{\VEC\raw}
 
 \code{forecast::initparam}: \FUN{? \dbl, \any, \any, \any, \chr, \chr, \lgl, ~\VEC\dbl, ~\VEC\dbl, \any}{\VEC\dbl}
+
+Many of the features of our type language are represented here.
+Some of these signatures are telling of the function's behaviour.
+For example, consider the signature for \code{openssl::decrypt_envelope}: the firs three parameters of the function are byte arrays, and the fourth argument is an RSA key, likely one used to decrypt some of the inputs, and the output of the function is another byte array.
+As another example, consider \code{data.tree::Traverse}: according to the function documentation, it takes the root of a tree and traverses it in an order specified by the second argument.
+
 
 \subsection{Expressiveness}
 
