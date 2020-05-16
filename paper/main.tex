@@ -1015,11 +1015,12 @@ checks up to the programmer.
 
 \paragraph{Structs}
 
-\typetracer observed that \PROPSTRUCTSDYN of lists had a \code{names} attribute, and in R, ``fields'' of named lists can be accessed using the
+In R, lists can have a names attribute, allowing lists elements to be accessed by name using the
 \code{$} operator.
 
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-  agricolae::cv.model <- function(x) {
+#' @type <x: class<aov, lm> | class<lm>> => dbl;
+agricolae::cv.model <- function(x) {
     suma2 <- sum(x$residual^2)
     gl <- x$df.residual
     promedio <- mean(x$fitted.values)
@@ -1031,34 +1032,29 @@ checks up to the programmer.
 \end{lstlisting}
 
 In the code snippet, the function \code{cv.model} takes an argument
-\code{x}, which we observed to always be a {\it linear model}, which is part
+\code{x}, which we observed to always be a {\it linear model} (either ANOVA with \CLASS{aov, lm} or a simple linear regression model with \CLASS{lm}) which is part
 of R's built-in statistics functionality.  Internally, linear models are
 represented as lists with named elements, and one may access these named
 elements using the \code{$} syntax, as seen on lines 2-4 in the snippet.  To
-describe these kinds of values, we included a struct type in our type
+describe these kinds of values, we intended to include a struct type in our type
 system, allowing users to specify name, type pairs as part of list type
-definitions.
+definitions, though we found this to be problematic.
 
-Unfortunately, the inclusion of structs complicated our analysis by
+The inclusion of structs complicated our analysis by
 polluting the data, illustrated on line 8 with the call
 \code{data(sweetpotato)}.  It is quite common for R example code to use some
 built-in data sets, such as \code{sweetpotato}, to show off some package
 functionality with ``real data''.  When \typetracer is configured to detect
 structs we saw a marked increase in misrepresentative types, as the types of
-functions which use these data sets (such as \code{aov} in
-Figure~\ref{fig:struct-ex}) became polluted with the names from the example
+functions which use these data sets (such as \code{aov} in the code example) became polluted with the names from the example
 sets.  We implemented a unification strategy for struct types, removing them
 if they co-occurred with list types, and turning them into lists if two
 co-occurring struct types shared no common names, but even so we found
 ourselves with function signatures that were full of noise introduced by the
 struct names.
 
-We still believe struct types to be useful to R programmers, and so our
-language supports the type and \contractr will check them, though we
-configured \typetracer to ignore them as they made the data substantially
-less useful.  On the positive side, we found that \AT{get the number, but
-  often} structs-typed values had a {\it class}, which helped motivate our
-inclusion of class-like types in our type annotation language. 
+We found that struct-like data was best described with classes, as illustrated in the code snippet, and many structs actually had a class.
+Even though \code{x} is used like a struct, it in fact has a linear model class, which we believe is a more informative type.
 
 %
 \paragraph{Data Frames}
