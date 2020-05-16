@@ -128,6 +128,7 @@
 \newcommand{\PERCCALLSBADFUNSINTESTS}{5.38\%\xspace}
 \newcommand{\TOTNUMSIGS}{21,730\xspace}
 \newcommand{\PROPSTRUCTSDYN}{44.46\%\xspace}
+\newcommand{\NUMFILESRUN}{145,373\xspace}
 
 
 \begin{abstract}
@@ -222,7 +223,7 @@ To sum up, our paper makes the following main contributions:
   types. The tooling is robust and scalable to the entire R language.
 \item We carried out a large-scale analysis of corpus of \PACKAGES widely
   used and actively maintained libraries to extract function type signatures and
-  validated the robustness of the inferred type signatures against XXX
+  validated the robustness of the inferred type signatures against \NUMFILESRUN
   programs that use those functions.
 \item We report on the appropriateness and usefulness of a simple type
   language for the R programming language.
@@ -635,7 +636,8 @@ apply some transformation on the types to keep the size of types in check.
 \noindent
 Assuming that type sequences can be reordered freely, we rewrite types to
 minimize their size by removing redundant types, types that are subsumed by
-subtyping, and \null types.
+subtyping, and \null types. Lists with more than 5 types in their union become \LIST{any}.
+We also only generate types for the first 20 arguments of a function.
 
 \subsection{Checking types signatures with contracts}
 
@@ -784,7 +786,7 @@ metadata using builtin function.
 
 We ran \typetracer on the \CorpusLoadable packages we discussed in this section, which yields types for \NUMFUNCTIONS functions.
 To build up a picture of what types for R functions might look like, consult Table~\ref{tbl:corpus-type-breakdown}, which lists the 10 most popular argument signatures.
-The first row of the table reads: 13255 arguments have type \dbl, represnting 11.06\% of type signatures, and \typetracer observed 41M values of type \dbl flowing into or out of functions while running on the core package corpus, which represents only 1.59\% of dynamically observed values.
+The first row of the table reads: 13255 arguments have type \dbl, represnting 11.06\% of argument type signatures, and \typetracer observed 41M values of type \dbl flowing into or out of functions while running on the core package corpus, which represents only 1.59\% of dynamically observed values.
 Of interest are rows 2 and 4, where we see that collectively \lgl and \chr make up only 16.11\% of argument types, while making up nearly 60\% of dynamically observed values.
 
 \begin{table}
@@ -792,7 +794,7 @@ Of interest are rows 2 and 4, where we see that collectively \lgl and \chr make 
 
 \begin{tabular}{lrrrr}
 \toprule
-Type & Args with Type & \% of Static Types & Dynamic Observations & \% of Dynamic Types\\
+Type & Args with Type & \% Args & Dynamic Observations & \% Dynamic Types\\
 \midrule
 \dbl & 13,255 & 11.06 & 41,560,797 & 1.59\\
 \lgl & 10,142 & 8.46 & 712,895,959 & 27.21\\
@@ -1409,7 +1411,17 @@ not convenient as it is rather verbose. Our system can infer type annotations
 for existing functions automatically. This can remove or partially remove over
 \CorpusPartiallyTypedAssertsRatio of existing assertions.
 
+\section{Future Work}
+
+We see two major avenues for future work.
+
+\subsection{Types for R Objects}
+
+\subsection{Types for Data Frames}
+
 \section{Conclusion}
+
+
 
 \ldots
 
