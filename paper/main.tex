@@ -1262,18 +1262,14 @@ not convenient as it is rather verbose. Our system can infer type annotations
 for existing functions automatically. This can remove or partially remove over
 \CorpusPartiallyTypedAssertsRatio of existing assertions.
 
-\section{Future Work}
-
-We see two major avenues for future work.
-
-\subsection{Types for R Objects}
-
-\subsection{Types for Data Frames}
-
 \section{Conclusion}
 
-\ldots
+Our goal with this work was to ...
 
+Overall, we found that our proposed design fits quite well with the existing language:
+Over 82\% of functions are either monomorphic or have only one single polymorphic argument, indicating that our design fits quite well with the language.
+When we tested the types inferred by \typetracer during our evaluation, we found that only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed, and found no pathological patterns in argument types with failed assertions.
+Furthermore, we found that our type language and contract checking framework could eliminate or otherwise simplify \CorpusPartiallyTypedAssertsRatio of existing type checks and assertions in user code.
 
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
 \end{document}
