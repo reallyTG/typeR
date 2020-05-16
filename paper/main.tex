@@ -254,8 +254,8 @@ execution traces of programs. While the approach has the limitation of
 dynamic analysis techniques, namely that the results are only as good at the
 coverage of the source code, it allows to quickly test new design and
 quantify how much of a code base can be type-checked.  Other approaches that
-infer types for dynamic analysis include the work of \citet{FurrAF2009} for
-Ruby.
+infer types for dynamic analysis include the work of \citet{FurrAF2009} and
+\citet{hicks2011ruby} for Ruby.
 
 There is no previous work on types for the R programming language. We take
 inspiration in the above mentioned works but focus on adapting them to our
@@ -928,6 +928,13 @@ The number of argument which may be \c{NULL} is 3,165 (or 3.5\%). This is a
 relatively small number of occurrences, but it is worth expressing the
 potential for the presence of \c{NULL} as these would likely inhibit
 optimizations.
+
+\paragraph{Higher-Order Functions}
+\typetracer assigns the type \CLASS{\texttt{function}} to function values.
+The number of positions that receive a function is 1,831, which is just
+2\% of all the positions for which we infer types. Given the small number of
+occurrences, it is not worth complicating the inferred types with a complete
+signature for these functions.
 
 \paragraph{Structs}
 While experimenting with various design, we consider adding a struct type to
