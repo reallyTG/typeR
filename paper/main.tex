@@ -836,14 +836,14 @@ function signature.
   \caption{Size of unions}\label{fig:unionfreq}
 \end{figure}
 
-\ref{fig:unionfreq} shows the number of types inferred at each position of a
+Figure~\ref{fig:unionfreq} shows the number of types inferred at each position of a
 function signature. Most functions admit or return a uni-typed value. There are
 \PercUnitypedPositions uni-typed parameter and return value positions in
 function signatures. Only \PercManytypedPositions positions have more than three
 types ascribed to them.
 
 \input{tables/uni-typed-breakdown.tex}
-\ref{fig:singlefreq} provides a breakdown of the different type categories
+Figure~\ref{fig:singlefreq} provides a breakdown of the different type categories
 observed at uni-typed positions. Scalar, class and vector are
 the most common type categories. The shaded rows correspond to polymorphic
 types. Removing those gives us \CountMonomorphicPositions
@@ -855,7 +855,7 @@ parameter and return positions.
   \caption{Function Polymorphism}\label{fig:funpoly}
 \end{figure}
 
-\ref{fig:funpoly} shows the distribution of functions against the number of
+Figure~\ref{fig:funpoly} shows the distribution of functions against the number of
 polymorphic positions. We observe that \PercMonomorphicFunctions
 (\CountMonomorphicFunctions) functions are monomorphic. The remaining
 \PercPolymorphicFunctions (\CountPolymorphicFunctions) have at least one
