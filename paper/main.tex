@@ -1251,8 +1251,7 @@ for existing functions automatically. This can remove or partially remove over
 Designing a type system for R is no small feat, as statically making sense of R code is complicated by a language design which fosters an interactive programming style by minimizing programmer overhead.
 Our intent is to eventually propose changes to the language, but we are aware that for any changes to be accepted by the community, they must have clear benefits without endangering backwards compatibility.
 As a step towards this, we focus on a simpler problem: instead of an entire type system, we limited the scope of our investigation to ascribing types to function signatures.
-To this end, we designed a simple type language which found a compromise between simplicity and usefulness.
-Our language focuses on the most widely used features of R and omits features such as parametric polymorphism and user-defined subtyping.
+To this end, we designed a simple type language which found a compromise between simplicity and usefulness by focusing  on the most widely used features of R.
 We presented \typetracer, a tool for inferring types for function signatures from runnable code, and \contractr, an easy-to-use package for R which allows users to specify function type signatures and have function arguments checked for compliance at runtime.
 
 We evaluated our design by running \typetracer on a corpus of 412 of the most widely used R packages on CRAN, inferring signatures for exported functions, and testing those inferred signatures on the \NUMPKGSEVAL reverse dependencies of the corpus.
