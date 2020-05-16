@@ -929,6 +929,12 @@ relatively small number of occurrences, but it is worth expressing the
 potential for the presence of \c{NULL} as these would likely inhibit
 optimizations.
 
+\paragraph(Higher-Order Functions)
+\typetracer assigns the type \CLASS{\texttt{function}} to function values.
+The number of positions that receive a function is 1,831 (or
+2\%). Given the small number of occurrences, it is not worth complicating the
+inferred types with a complete signature for these functions.
+
 \paragraph{Structs}
 While experimenting with various design, we consider adding a struct type to
 capture lists with named elements that can be accessed with the \code{$}
