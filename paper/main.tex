@@ -1248,10 +1248,7 @@ for existing functions automatically. This can remove or partially remove over
 
 \section{Conclusion}
 
-Our ultimate goal is to design a type system for R which accounts for the language's intricacies and eccentricities whilst being usable and desirable for R programmers.
-This is no small feat, as our ability to statically make sense of R code is complicated by a language design which fosters an interactive programming style by minimizing programmer overhead.
-Designing a type system which accounts for language features such as reflective table manipulation, extensive type reflection, and ad hoc polymorphism, as well as consolidating R's many disparate object systems is sure to be a long road.
-
+Designing a type system for R is no small feat, as statically make sense of R code is complicated by a language design which fosters an interactive programming style by minimizing programmer overhead.
 This work focuses on a simpler problem: instead of an entire type system, we limited the scope of our investigation to ascribing types to function signatures.
 To this end, we designed a simple type language which found a compromise between simplicity and usefulness.
 Our language focuses on the most widely used features of R and omits features such as parametric polymorphism and user-defined subtyping.
