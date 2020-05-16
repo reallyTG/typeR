@@ -636,8 +636,8 @@ Assuming that type sequences can be reordered freely, we rewrite types to
 minimize their size by removing redundant types, types that are subsumed by
 subtyping, and \null types. For performance reasons, we bound lists to no
 more than five types in their union, above that they become \LIST{any}.
-Functions are alos limited to twenty arguments.
-
+Functions are alos limited to twenty arguments. Higher-order functions are
+approximated by \any to \any.
 
 \subsection{Checking types signatures with contracts}
 
@@ -661,7 +661,6 @@ functions for which type signatures are available. Then \contractr sets up
 package load hooks which are executed when new packages are loaded.
 Furthermore, \contractr automatically removes contracts from all functions
 and restores them to their original state when it is unloaded.
-
 The type signatures can be provided externally, in a file, thus avoiding the
 need to change the source code of checked packages.  Type declarations can
 also be written alongside a \code{@type} section inside \roxygen function
@@ -670,7 +669,6 @@ documentation. The documentation sections are processed by \roxygen before
 package build and a registered method for each custom tag section is
 invoked with the section data and documented object. \contractr uses this
 mechanism to register a hook for a custom \code{@type} tag. 
-  
 The \contractr API allows users to explicitly insert contracts during
 interactive development by supplying the type signature as a string.
 Contracts can be removed by calling \code{remove\_contract}.  Contracts can
@@ -691,14 +689,12 @@ or scalar. Other properties require an inspection of the contents of a
 value: the absence of \NA or the type of the elements of list. Union types
 require checking for each of the alternatives. We do not check higher-order
 functions in this version of the tool.
-
 When argument values are wrapped in promises (this is not always the case
 due to compiler optimizations), in order to retain the non-strict semantics
 of R, the expression held in the promise is wrapped in a call to the type
 checker, and type checking is delayed until the promise is forced. This
 leads to corner cases such that the type checking of a function may happen
 after that function has returned.
-
 Return values require care as well.  Functions return the last expression
 they evaluate, thus to avoid having to analyze the code of the called
 function the checker will register a callback on the exit hook. The hook is
