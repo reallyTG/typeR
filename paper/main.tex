@@ -1260,13 +1260,17 @@ Over 82\% of functions are either monomorphic or have only one single polymorphi
 When we tested the types inferred by \typetracer during our evaluation, we found that only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed, and found no pathological patterns in argument types with failed assertions.
 Furthermore, we found that our type language and contract checking framework would be useful to programmers, eliminate or otherwise simplify \CorpusPartiallyTypedAssertsRatio of existing type checks and assertions in user code.
 
-\bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
-\end{document}
-
 Retrofitting a type system for the interactive and exploratory programming style
-of R is hard. It is even challenging to gain acceptance by the user community.
+of R is hard. Furthermore, the language is poorly specified and builds upon an eclectic mix
+of features such as laziness, reflection, dynamic evaluation and ad-hoc object
+systems. It is even challenging to gain acceptance by the user community.
 To this end, we have begun our journey with a simple type language, one that we
 believe captures the essence of R while remaining simple and useful. We focus on
 the basic language features for generating the type signatures, and find that
+
+\bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual}
+\end{document}
+
+
 
 
