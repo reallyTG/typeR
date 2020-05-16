@@ -25,6 +25,8 @@ suppressPackageStartupMessages(library(tibble))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(kableExtra))
 
+old_theme <- theme_set(theme_bw() + theme(text = element_text(size = 15), panel.border = element_blank()))
+
 macro_filename <- file.path(params$macro_dirpath, "macros.tex")
 
 source("latex-macros.R")
@@ -513,7 +515,7 @@ datatable(union_frequency_folded)
 ggplot(aes(alternative_count, percentage)) +
 geom_col() +
 scale_y_continuous(sec.axis = sec_axis(~ . * total_parameter_count, labels = count_labels), labels = relative_labels) +
-labs(x="Types", y="Parameters") +
+labs(x="Types", y="Positions") +
 scale_x_discrete(limits=c("> 3", 3, 2, 1)) +
 coord_flip() +
 theme(legend.title = element_blank(), legend.position = "top")) %>%
