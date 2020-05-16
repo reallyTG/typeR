@@ -154,7 +154,7 @@ R libraries.
 \section{Introduction}
 
 Our community builds, improves, and reasons about programming languages. To make
-design decisions that benefit users, we need to understand our target language
+design decisions that benefit users, we need to understand the target language
 as well as the real-world needs it answers. Often, we can appeal to our
 intuition, as many languages are intended for general purpose programming tasks.
 Unfortunately, intuition may fail when looking at domain-specific languages as
@@ -634,11 +634,10 @@ One way to validate the inferred type annotations is to check that different
 programs using one of the functions for which a type signature has been inferred
 respect the signature. For this purpose, we developed \contractr, an R package
 that allows one to decorate function with assertions. We use it to insert type
-checks of the arguments and return values. As usual with R, this is not
-straightforward.
+checks of the arguments and return values. 
 
-While \contractr's primary logic has been implemented in C++ to reduce its
-runtime overhead, we have not observed a single segfault during our use of
+\contractr's primary logic has been implemented in C++ to reduce its
+runtime overhead, and we have not observed a single segfault during our use of
 the package.  It has been tested with GNU R-3.5.0 and hardened with a
 battery of 400 test cases. It works by modifying function definition to
 insert a call to a type-checking function.
