@@ -25,7 +25,7 @@ suppressPackageStartupMessages(library(tibble))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(kableExtra))
 
-old_theme <- theme_set(theme_bw() + theme(text = element_text(size = 15), panel.border = element_blank()))
+old_theme <- theme_set(theme_bw() + theme(text = element_text(size = 20), panel.border = element_blank()))
 
 macro_filename <- file.path(params$macro_dirpath, "macros.tex")
 
