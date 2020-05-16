@@ -642,35 +642,41 @@ the package.  It has been tested with GNU R-3.5.0 and hardened with a
 battery of 400 test cases. It works by modifying function definition to
 insert a call to a type-checking function.
 
-In terms of usability, our checker is enabled automatically whenever a
-package is loaded in R. So, a simple invocation of \code{library(contractr)}
-causes contracts to be injected in all packages.  On loading, \contractr
-scans all packages in the user's workspace and inserts contracts in
-functions for which type signatures are available. Then \contractr sets up
-package load hooks which are executed when new packages are loaded.
-Furthermore, \contractr automatically removes contracts from all functions
-and restores them to their original state when it is unloaded.
-The type signatures can be provided externally, in a file, thus avoiding the
-need to change the source code of checked packages.  Type declarations can
-also be written alongside a \code{@type} section inside \roxygen function
-comment blocks. \roxygen is an R package that enables authors to add
-documentation. The documentation sections are processed by \roxygen before
-package build and a registered method for each custom tag section is
-invoked with the section data and documented object. \contractr uses this
-mechanism to register a hook for a custom \code{@type} tag. 
-The \contractr API allows users to explicitly insert contracts during
-interactive development by supplying the type signature as a string.
-Contracts can be removed by calling \code{remove\_contract}.  Contracts can
-be selectively enabled or disabled for code blocks by wrapping them in calls
-to \code{ignore\_contracts} and \code{capture\_contracts}.  These functions
-return a data frame that contains all the information about failed and
-successful contract assertions in the wrapped code blocks.  Multiple
-failures can introduce noise; this is avoided by setting
-\code{contractr.severity} to \code{'silence'}.  \contractr still performs
-type-checking so that results can be obtained by calling
-\code{get\_contracts}. Setting \code{contractr.severity} flag to
-\code{'error'} turns the type-checking warnings to errors and
-halt the program.
+In terms of usability, our checker is enabled automatically whenever a package
+is loaded in R. So, a simple invocation of \code{library(contractr)} causes
+contracts to be injected in all packages. On loading, \contractr scans all
+packages in the user's workspace and inserts contracts in functions for which
+type signatures are available. Then \contractr sets up package load hooks which
+are executed when new packages are loaded. Furthermore, \contractr automatically
+removes contracts from all functions and restores them to their original state
+when it is unloaded. The type signatures can be provided externally, in a file,
+thus avoiding the need to change the source code of checked packages. Type
+declarations can also be written directly in the adjunct function comments using
+\roxygen annotation tags. \contractr introduces a new use \code{@type} tag. When
+a package these type signatures are extracted and stored in the appropriate
+location. The following is an example of a type annotation using \roxygen:
+
+\begin{lstlisting}
+#' @type <chr> => int
+#' @export
+file_size <- function(f) { ... }
+\end{lstlisting}
+
+The \contractr provides an extensive API that allows users to explicitly insert
+contracts during interactive development by supplying the type signature as a
+string, selectively disable contract checking and inspecting type assertions.
+
+% Contracts can be removed by calling \code{remove\_contract}.  Contracts can
+% be selectively enabled or disabled for code blocks by wrapping them in calls
+% to \code{ignore\_contracts} and \code{capture\_contracts}.  These functions
+% return a data frame that contains all the information about failed and
+% successful contract assertions in the wrapped code blocks.  Multiple
+% failures can introduce noise; this is avoided by setting
+% \code{contractr.severity} to \code{'silence'}.  \contractr still performs
+% type-checking so that results can be obtained by calling
+% \code{get\_contracts}. Setting \code{contractr.severity} flag to
+% \code{'error'} turns the type-checking warnings to errors and
+% halt the program.
 
 \paragraph{Checking the values} A number of properties can be checked
 by a simple tag check, namely whether a value is a: null, environment, vector
