@@ -837,17 +837,19 @@ with more than three members.
   \caption{Size of unions}\label{fig:unionfreq}
 \end{figure}
 
-
+The next step, is shown in Table~\ref{fig:singlefreq}, the table provides a
+breakdown of types occuring in arguments without a union. Scalar, class and
+vector are the most common type categories. The shaded rows correspond to
+polymorphic types. Removing those gives us \CountMonomorphicPositions
+(\PercMonomorphicPositions) monomorphic positions in a corpus of
+\CountPositions parameters. With close to 70\% of monomorphic argument or
+return values, it is fair to say that even a simple type language provides
+significant benefits.
 
 
 \input{tables/uni-typed-breakdown.tex}
 
-Table~\ref{fig:singlefreq} provides a breakdown of the different type
-categories observed at uni-typed positions. Scalar, class and vector are the
-most common type categories. The shaded rows correspond to polymorphic
-types. Removing those gives us \CountMonomorphicPositions
-(\PercMonomorphicPositions) monomorphic positions in a corpus of
-\CountPositions parameter and return positions.
+
 
 \begin{figure}[!h]  \centering
   \includegraphics[width=\linewidth]{plots/function_polymorphism.pdf}
