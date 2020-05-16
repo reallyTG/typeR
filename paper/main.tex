@@ -420,12 +420,9 @@ types listed in Figure~\ref{rtypes} for reference.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Designing A Type Language for R}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-This section sets out to propose a candidate design for a type language that
-can be used to describe the arguments and return values of functions in R.
-The goal is not to be the final design but rather a starting point for an
-iterative process.
-
+This section sets out to propose a candidate design for a type language to
+describe the arguments and return values of functions in R.  The goal is not
+to get a final design but rather a starting point for an iterative process.
 Fig.~\ref{types} presents our type language. An early design choice was to
 stay close to the R language and only depart in small, hopefully,
 non-controversial ways.  Functions types have the form \FUN{A_1, \dots,
@@ -460,32 +457,30 @@ motivates our design.
 \end{tabular}\end{minipage}\caption{The R type language}\label{types}
 \end{figure}
 
-\paragraph{Scalar vs. Vectors} Our type system distinguishes between
-vectors of length 1, and vectors of any dimensions. The six base types,
-integers, doubles, complex numbers, logicals (booleans), characters, and
-raws (bytes), can be either vectors (e.g., \VEC\int) or scalars (e.g.,
-\int).  It is worthwhile to note that a vector can happen to be of length 1
-and thus a scalar value is a subtype of the corresponding vector type.
-Vectors are homogeneous, in that a vector of doubles contains only doubles.
+\paragraph{Scalar vs. Vectors} We distinguish between
+vectors of length 1, and vectors of any dimension. The base types, \int,
+\dbl, \clx, \lgl (booleans), \chr, and \raw (bytes), can be either vectors
+(e.g., \VEC\int) or scalars (e.g., \int).  A vector can happen to be of
+length 1, and thus a scalar value is also a vector.  Vectors are
+homogeneous, in that a vector of doubles contains only doubles.
 
-\paragraph{Missing values} In R, a missing value is written
-\NA, each of basic types has its specific representation of \NA. Thus there
-is an \int missing observation as well as a double missing, and they are
-different.  The type system allows to distinguish between vectors that may
-contain missing observations (written \NAVEC\int) and those who are
-guarantee to be \NA-free (\VEC\int).  A \NA-free vector can be treated as a
-vector that may have missing observations.  We do not allow scalar values to
-be missings.  The type \raw does not allow {\NA}s.
+\paragraph{NA values} In R, a value can be \emph{not available}, written
+\NA. Each of basic types has its specific \NA. Thus there is an \int \NA as
+well as a double \NA, and they are different.  The type system allows to
+distinguish between vectors that may contain {\NA}s(written \NAVEC\int) and
+those who are guarantee to be \NA-free (\VEC\int).  A \NA-free vector can be
+treated as a vector that may {\NA}s.  We do not allow scalar values to be
+\NA and the type \raw does not allow {\NA}s.
 
 \paragraph{Unions} We support untagged unions of types written
-$\T_1 \k{|} \T_n$.
+$\T_1 \k{~|~} \T_n$.
 
 \paragraph{Nullables} 
-The type system has a \null type that is inhabited by a singleton
-\code{NULL} value. This value is often used as a sentinel or as a stand in
-for arguments that were not provided.  To capture this behavior, we
-introduce a nullable type \code{?}\T.  The difference between the \NA and
-\code{NULL} values is that \NA can be stored in primitive vectors.
+The type system has a \null type inhabited by a singleton \code{NULL}
+value. This value is often used as a sentinel or as a stand in for arguments
+that were not provided.  To capture this behavior, we introduce a nullable
+type \code{?}\T.  The difference between the \NA and \code{NULL} values is
+that \NA can be stored in primitive vectors.
 
 \paragraph{Lists} Heterogeneous collections are implemented using lists.
 Lists and vectors are closely related. Any vector can be converted to a list
