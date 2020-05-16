@@ -832,42 +832,31 @@ function signature.
   \caption{Size of unions}\label{fig:unionfreq}
 \end{figure}
 
-There are \PercUnitypedPositions monomorphic parameter and return value
-positions in function signatures. Only \PercManytypedPositions positions have
-four or more types ascribed to them. Parameter PARAMNAME of function
-XXXXCOLONCOLONXXX has the maximum, XXX, types ascribed to it. Most functions
-admit or return a uni-typed value.
-
-Figure 1 provides a breakdown of the different type categories observed at
-uni-typed positions.
+\ref{fig:unionfreq} shows the number of types inferred at each position of a
+function signature. Most functions admit or return a uni-typed value. There are
+\PercUnitypedPositions uni-typed parameter and return value positions in
+function signatures. Only \PercManytypedPositions positions have more than three
+types ascribed to them.
 
 \input{tables/uni-typed-breakdown.tex}
-
-We observe that XXX of the positions have a single type ascribed to them, and,
-only XXX have four or more types ascribed to them.
-
-Figure XXX shows ten most common type categories that occur by
-themselves. We observe that three scalar types, double, logical, and
-character are most frequent. This is followed by XXX vararg parameter
-positions. Next, XX\% of the parameter types are any because arguments at
-those positions were either missing or unused in at least one call to those
-functions. Together, these types amount to more than 50\%. This is followed
-by double vector, the unit type, null, character vector, and classes matrix
-and data.frame respectively.
+\ref{fig:singlefreq} provides a breakdown of the different type categories
+observed at uni-typed positions. \scalar, \class and \vector are
+the most common type categories. The shaded rows correspond to polymorphic
+types. Removing those gives us XXX (XXX) monomorphic positions in a corpus of
+XXX parameter and return positions.
 
 \begin{figure}[!h]  \centering
   \includegraphics[width=\linewidth]{plots/function_polymorphism.pdf}
   \caption{Function Polymorphism}\label{fig:funpoly}
 \end{figure}
 
-Figure shows the distribution of functions against the number of polymorphic
-positions. We observe that \PercMonomorphicFunctions
+\ref{fig:funpoly} shows the distribution of functions against the number of
+polymorphic positions. We observe that \PercMonomorphicFunctions
 (\CountMonomorphicFunctions) functions are monomorphic. The remaining
 \PercPolymorphicFunctions (\CountPolymorphicFunctions) have at least one
-polymorphic parameter or return type. Polymorphic functions are spread
-across many packages, \CountMonomorphicPackages out of the 412 packages from our
-corpus export only monomorphic functions.
-
+polymorphic parameter or return type. Polymorphic functions are spread across
+many packages, \CountMonomorphicPackages out of the 412 packages from our corpus
+export only monomorphic functions.
 
 
 Figure 1 shows the number of alternatives in the inferred type of function
