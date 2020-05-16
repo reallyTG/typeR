@@ -605,13 +605,13 @@ signature.  The shape of the inferred function signatures is:
 \vspace*{1mm}
 
 \noindent
-In other words, we take the union of the types occurring at individual
-argument positions rather than an union of function types. Furthermore, we
-apply some transformation on the types to keep the size of types in check.
-The following overviews the main simplification rules as well as the simple
-notion of subtyping that we have adopted here.
+In other words, we take the union of the types occurring at individual argument
+positions rather than an union of function types. Furthermore, we apply some
+transformation on the types to keep the size of types in check.
+Figure~\ref{fig:siplification-rules} overviews the main simplification rules as
+well as the simple notion of subtyping that we have adopted here.
 
-\vspace*{1mm}
+\begin{figure}[h!tb]
 \begin{tabular}{rclll}
   \T \k{~|~} \T  & $\Rightarrow$ &  \T &  \\
   \T \k{~|~} $T'$ & $\Rightarrow$ &  \T & \it{iff} $T' <: T$  \\
@@ -627,9 +627,10 @@ notion of subtyping that we have adopted here.
   \int      & <:& \dbl\\
   \dbl      & <:& \clx\\  
 \end{tabular}
-\medskip
+\caption{Simplification rules and subtyping}
+\label{fig:siplification-rules}
+\end{figure}
 
-\noindent
 Assuming that type sequences can be reordered freely, we rewrite types to
 minimize their size by removing redundant types, types that are subsumed by
 subtyping, immutable lists, and remove \null type to replace them with
@@ -716,7 +717,7 @@ expression code coverage in percents and the y-axis gives the number of
 reverse dependencies in log scale. Dotted lines indicate means. Packages
 with over \PackageSizeOutierRnd lines of code are annotated.
 
-\begin{figure}[!h]\centering\includegraphics[width=.9\linewidth]
+\begin{figure}[!h]\centering\includegraphics[width=.8\linewidth]
   {plots/corpus.pdf}\caption{Corpus}\label{fig:corpus}
 \end{figure}
 
