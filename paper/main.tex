@@ -354,8 +354,8 @@ vectorized data types have a distinguished missing value denoted by
 \code{typeof(c(1,NA)[2])=="double"}.
 
 \begin{wrapfigure}{r}{6.1cm}
-\footnotesize\begin{tabular}{l|l@{}}\hline
-\multicolumn{2}{l}{\bf Vectorized data types:}  \\\hline
+\footnotesize\begin{tabular}{l@{}l@{}}\hline
+\bf Vectors:\\\hline
 \k{logical}   & vector of boolean values\\
 \k{integer}   & vector of 32 bit integer values\\
 \k{double}    & vector of 64 bit floating points\\
@@ -363,28 +363,16 @@ vectorized data types have a distinguished missing value denoted by
 \k{character} & vector of strings values\\
 \k{raw}       & vector of bytes\\
 \k{list}      & vector of values of any type\\\hline
-\multicolumn{2}{l}{\bf Scalar data types:}\\\hline
+{\bf Scalars:}\\\hline
 \k{NULL}      &  singleton null value\\
 \k{S4}        &  instance of a S4 class \\
 \k{closure}   &  function with its environment\\
 \k{environment}& mapping from symbol to value \\\hline
-\multicolumn{2}{l}{\bf Implementation data types:}\\\hline
-\multicolumn{2}{l}{\k{special},
-\k{builtin},
-\k{symbol},
-\k{pairlist},
-\k{promise}}\\
-\multicolumn{2}{l}{
-\k{language},
-\k{char},
-\k{...},
-\k{any},
-\k{expression},
-}\\
-\multicolumn{2}{l}{
-\k{externalprt},
-\k{bytecode},
-\k{weakref}}\\\hline
+{\bf Implementation:}\\\hline
+\k{special},
+\k{builtin}, &\k{symbol}, \k{pairlist}, \k{promise}\\
+\k{language}, \k{char}, \k{...}, & \k{~any}, \k{expression},\\
+\k{externalprt},& \k{bytecode}, \k{weakref}\\\hline
 \end{tabular}\caption{Builtin Types}\label{rtypes}\end{wrapfigure}
 
 With one exception all vectorized data types are monomorphic, the exception
