@@ -105,6 +105,7 @@
 \input{corpus.tex}
 \input{macros/macros.tex}
 \input{asserts.tex}
+\input{kaggle.tex}
 
 \begin{document}
 \title{Designing Types for R, Empirically}
@@ -768,6 +769,30 @@ The code coverage was computed for each package using
 \covr\footnote{\url{https://github.com/r-lib/covr}}, the R code coverage R
 tool.  The reverse package dependencies were extracted from the package
 metadata using builtin function.
+
+\paragraph{User code}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+To represent end-user code in the corpus, we turned to Kaggle, an online
+platform for data-science and machine-learning. The website allows people to
+share data-science competitions, data-analysis problems together with data, for
+which users try to find the best solution. The solutions, called \emph{kernels},
+are then shared back to the platform in the form of either plain scripts or as
+notebooks. One of the most popular competition is about predicting passenger
+survival on Titanic\footnote{\url{https://www.kaggle.com/c/titanic}} with
+\KaggleDownloaded kernels in R (over 1/4 of all available R kernels) which we
+used for our corpus.
+
+Unlike CRAN, Kaggle is not a curated repository and therefore there are no
+guarantees about the quality of the code. After downloading all of the
+\KaggleDownloaded kernels and extracting the R code from the various
+formats,\footnote{We use {\sf rmarkdown} to convert from notebooks to R.} we
+found that \KaggleDuplicated were whole-file duplicates
+(\KaggleDuplicatedRatio). From the resulting \KaggleRunnable kernels,
+\KaggleFail failed to execute. Next to various runtime exceptions, common
+problems were missing libraries (no longer available for R 3.5), parse errors
+and misspelled package names. The final set contains \KaggleSuccess kernels with
+\KaggleSuccessCodeRnd lines of R code. The Kaggle kernels are used for additonal
+validation of the inferred types.
+
 
 \paragraph{Type usage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 During execution 3,147 different types were observed.  Classes are the most
