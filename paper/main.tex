@@ -269,6 +269,10 @@ on adapting them to our target language.
 
 \subsection{The R Programming Language} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\AT{TODO: Softer intro to R.
+People always get confused about c() and stuff like that.
+We have some space, we can take it.}
+
 The R Project is a key tool for data analysis.  At the heart of the R
 project is a \emph{vectorized, dynamic, lazy, functional, object-oriented}
 programming language with a rather unusual combination of
@@ -915,9 +919,14 @@ breakdown of types occuring in arguments without a union. Scalar, class and
 vector are the most common type categories. The shaded rows correspond to
 polymorphic types. Removing those gives us \CountMonomorphicPositions
 (\PercMonomorphicPositions) monomorphic positions in a corpus of
-\CountPositions parameters. With close to 70\% of monomorphic argument or
+\CountPositions parameters. With close to 65\% of monomorphic argument or
 return values, it is fair to say that even a simple type language provides
 significant benefits.
+
+We would like to point out the number of occurrences of the singleton {\tt null} type, and discuss why we treat it as an {\it any}-type.
+In R, it is common for programmers to include default values for arguments, and in many cases this value happens to be {\tt NULL}.
+Our type analysis will report a {\tt null} type for these arguments if they are never passed a value during testing.
+Thus, we interpret these as cases where we cannot be sure of the argument.
 
 \begin{figure}[!h]  \centering
   \includegraphics[width=.7\linewidth]{plots/function_polymorphism.pdf}
@@ -992,10 +1001,10 @@ signature for these functions.
 \paragraph{Structs}
 While experimenting with various design, we consider adding a struct type to
 capture lists with named elements that can be accessed with the \code{$}
-operators. We ended discarding those types as they grew large and were often
+operators. We ended up discarding those types as they grew large and were often
 only representative of the example data being manipulated.  Consider
 function \code{cv.model}, its argument \code{x} is observed to be of
-\CLASS{\texttt{aov}, \texttt{lm}} or \CLASS{\texttt{lm}}).  Internally,
+\CLASS{\texttt{aov}, \texttt{lm}} or \CLASS{\texttt{lm}}.  Internally,
 linear models are represented as lists with named elements.  The polution is
 illustrated by the lines after the funtion definition.  They load an example
 data set and test the function \code{cv.model}.  The
@@ -1020,7 +1029,7 @@ data set and test the function \code{cv.model}.  The
 While we record classes, our analysis does not deal with method dispatch.  R
 has multiple, disparate, object systems, called S3, S4, and R5.  The
 \code{class} attribute is used by these systems to dispatch methods. S3 does
-single dispatch, S4 does multiple dispatch and R5 supports impertative
+single dispatch, S4 does multiple dispatch and R5 supports imperative
 objects.  The mechanics of S4 dispatch are more complex than for S3, and
 users can define their own class hierarchies that we would need to
 incorporate in our type analysis and contract checking frameworks.  We found
@@ -1242,6 +1251,31 @@ contract assertions failed at runtime, representing failures in as few as
 involved in a failing contract check, these functions are under-tested,
 representing only \PERCCALLSBADFUNSINTESTS of calls observed while inferring
 types.
+
+\AT{Do we want to expand on this evaluation?
+Or just expand in a more general section later.}
+ 
+ %
+ %
+ \subsubsection{Kaggle}
+ 
+ \AT{TODO: Fill in and discuss Kaggle results.}
+ 
+ To further validate our inferred types, we repeated the experiment discussed in this section on Kaggle code.
+ By-and-large, we saw no meaningful difference in the two data sets, with the contract assertion failure patterns being repeated from the reverse dependencies.
+  
+ 
+ %
+ %
+ \subsubsection{Working Failed Assertions into Types}
+ 
+ \AT{TODO: compare with types that we get when looking at reverse dependencies, and discuss implications.}
+ 
+Throughout this section, we have seen instances where the reverse dependencies of a package exercise its functions in a way that was not accounted for in the package's own test and  example code.
+These do not always represent errors, and may represent cases of oversight by package writers.
+
+If we {\it include} running a package's reverse dependencies in our type inference process, we will obtain different types for certain functions.
+In doing so, we observe \ldots
  
 %
 %
