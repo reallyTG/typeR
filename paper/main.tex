@@ -1,13 +1,21 @@
-\documentclass[acmsmall,review,anonymous]{acmart}\settopmatter{printfolios=true,printccs=false,printacmref=false}
+\documentclass[acmsmall, screen,review]{acmart}
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+%\settopmatter{printfolios=true,printccs=true,printacmref=true}
+
+
+
+\setcopyright{rightsretained}
+\acmPrice{}
+\acmDOI{10.1145/3360579}
+\acmYear{2020}
+\copyrightyear{2020}
 \acmJournal{PACMPL}
-\acmVolume{1}
-\acmNumber{OOPSLA} % CONF = POPL or ICFP or OOPSLA
-\acmArticle{1}
-\acmYear{2018}
-\acmMonth{1}
-\acmDOI{} % \acmDOI{10.1145/nnnnnnn.nnnnnnn}
-\startPage{1}
-\setcopyright{none}
+\acmVolume{3}
+\acmNumber{OOPSLA}
+\acmArticle{153}
+\acmMonth{10}
+
 \bibliographystyle{ACM-Reference-Format}
 \citestyle{acmauthoryear}   %% For author/year citations
 \usepackage{my_style}
@@ -109,6 +117,10 @@
 
 \begin{document}
 \title{Designing Types for R, Empirically}
+\author{Aviral Goel}\affiliation{\institution{Northeastern University}}
+\author{Filip Krikava}\affiliation{\institution{Czech Technical University in Prague}}
+\author{Alexi Turcotte}\affiliation{\institution{Northeastern University}}
+\author{Jan Vitek}\affiliation{\institution{Norteastern / Czech Technical University}}
 
 \newcommand{\NUMFUNCTIONS}{20,214\xspace}  %%% TODO auto-gen
 \newcommand{\NUMPACKAGES}{412\xspace}  %%% TODO auto-gen
@@ -131,6 +143,31 @@
 \newcommand{\PROPSTRUCTSDYN}{44.46\%\xspace}
 \newcommand{\NUMFILESRUN}{145,373\xspace}
 
+\keywords{type declarations, dynamic languages, R}
+
+
+\begin{CCSXML}
+	<ccs2012>
+	<concept>
+	<concept_id>10011007.10011006.10011008.10011024</concept_id>
+	<concept_desc>Software and its engineering~Language features</concept_desc>
+	<concept_significance>500</concept_significance>
+	</concept>
+	<concept>
+	<concept_id>10011007.10011006.10011008</concept_id>
+	<concept_desc>Software and its engineering~General programming languages</concept_desc>
+	<concept_significance>300</concept_significance>
+	</concept>
+	<concept>
+	<concept_id>10011007.10011006.10011008.10011009.10011021</concept_id>
+	<concept_desc>Software and its engineering~Multiparadigm languages</concept_desc>
+	<concept_significance>100</concept_significance>
+	</concept>
+	</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Software and its engineering~Language features}
+\ccsdesc[300]{Software and its engineering~General programming languages}
 
 \begin{abstract}
 The R programming language is widely used in a variety of domains.  It was
