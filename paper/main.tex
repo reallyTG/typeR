@@ -1167,7 +1167,7 @@ Turning our attention now to arguments, we found that only
 \PROPARGSFAILINGASSERTS of parameters failed.
 Table~\ref{tbl:fail-breakdown-0} showed the runtime occurrences, but that
 data alone does not tell the full story, as some failures may be
-overrepresented if e.g. a failing contract assertion was in a loop.  We were
+overrepresented if, e.g., a failing contract assertion was in a loop.  We were
 interested in knowing for each of the most common violations in
 Table~\ref{tbl:fail-breakdown-0}, how many different arguments had that
 type, and how many of those exhibited the contract failure in question.
@@ -1289,9 +1289,33 @@ involved in a failing contract check, these functions are under-tested,
 representing only \PERCCALLSBADFUNSINTESTS of calls observed while inferring
 types.
 
-\AT{Do we want to expand on this evaluation?
-Or just expand in a more general section later.}
+ %
+ %
+ \subsubsection{Other Observations}
  
+ \AT{Kinds of failures: vectors passed to scalars, wrong things passed to classes, nulls passed to non-nullable arguments.}
+ 
+ We observed a number of other interesting patterns in the contract assertion failure data.
+ 
+ First, we were curious about how many \null-typed values flowed into non-nullable arguments.
+ We found that \AT{fill in numbers}.
+ Of these, there were three main kinds of ``type errors''.
+ 
+ \begin{itemize}
+   \item One kind of type error occurs when an argument with a {\tt NULL} default value is not given a value by the programmer.
+   In testing, the programmer only tested the function by passing values to these null-by-default arguments.
+   \AT{Check correlation with coverage.}
+   
+   \item Another kind of type error occurs when {\tt NULL} is passed to an argument which is not expected to be {\tt NULL}, but that does not cause an error.
+   One example is \AT{see as.integer example}.
+   
+   \item Finally, in some cases the {\tt NULL}s resulted in errors, either unhandled or handled by a check and a conditional.
+ \end{itemize}
+ 
+ Next, we were curious about how often vectors were passed to arguments expecting scalars.
+ We found \AT{finish analysis, numbers}.
+ Besides an outright error, this kind of contract assertion failure might indicate that a function was not well-tested, in that it was only ever tested with unit-length vectors being passed to an argument which is intended to have a vector type.
+ Further, these errors may reveal functions that were not designed with a vector-typed argument in mind, but can in fact handle vectors of values (in R, most functions that can accept scalars can also accept vectors).
  %
  %
  \subsubsection{Kaggle}
@@ -1300,7 +1324,8 @@ Or just expand in a more general section later.}
  
  To further validate our inferred types, we repeated the experiment discussed in this section on Kaggle code.
  By-and-large, we saw no meaningful difference in the two data sets, with the contract assertion failure patterns being repeated from the reverse dependencies.
-  
+ 
+ \AT{Discuss how things match up between Kaggle and revdeps.}
  
  %
  %
