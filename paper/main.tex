@@ -1310,23 +1310,20 @@ types.
  
  First, we were curious about how many \null-typed values flowed into non-nullable arguments.
  We found that \AT{fill in numbers}.
- Of these, there were three main kinds of ``type errors''.
+ We manually inspected some of the offending functions and observed three main patterns.
  
- \begin{itemize}
-   \item One kind of type error occurs when an argument with a {\tt NULL} default value is not given a value by the programmer.
-   In testing, the programmer only tested the function by passing values to these null-by-default arguments.
-   \AT{Check correlation with coverage.}
-   
-   \item Another kind of type error occurs when {\tt NULL} is passed to an argument which is not expected to be {\tt NULL}, but that does not cause an error.
-   One example is \AT{see as.integer example}.
-   
-   \item Finally, in some cases the {\tt NULL}s resulted in errors, either unhandled or handled by a check and a conditional.
- \end{itemize}
+ First, we found that many of these errors occurred in arguments that have a {\tt NULL} default value.
+ This would be the case when the programmer only tested the function by passing values to these null-by-default arguments, and clients of the package make use of the default.
+ In fact, we observed \AT{something about coverage.}
  
+ The other two patterns are for arguments with no default value, where either the call results in an error (perhaps explicitly handled by the programmer), or resulting in valid function behaviour that was untested by the original package designer.
+ Here, the first case can be explained by a lack of testing (or generally incorrect use in a client), and the second case is explained by programmers not fully understanding R's language semantics (\AT{as who would expect as.integer(NULL) to yield integer(0)?}).
+
  Next, we were curious about how often vectors were passed to arguments expecting scalars.
  We found \AT{finish analysis, numbers}.
  Besides an outright error, this kind of contract assertion failure might indicate that a function was not well-tested, in that it was only ever tested with unit-length vectors being passed to an argument which is intended to have a vector type.
  Further, these errors may reveal functions that were not designed with a vector-typed argument in mind, but can in fact handle vectors of values (in R, most functions that can accept scalars can also accept vectors).
+ 
  %
  %
  \subsubsection{Kaggle}
