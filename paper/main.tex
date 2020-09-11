@@ -317,13 +317,24 @@ features~\cite{ecoop12} designed to ease learning by non-programmer and
 enable rapid development of new statistical methods.  The language was
 designed~\citet{R96} as a successor to S~\cite{S88}.
 
-In this paper, we will attempt infer type signature for functions. We now
-introduce some relevant concepts.  Functions can be called with named
-parameters, arguments can have default values, and R also support variable
-argument lists.  To illustrate all of this in a single example, consider:
+In this paper, we will attempt infer type signature for functions. 
+We begin by introducing some relevant concepts. 
+
+The basic building blocks of R are vectors of primitives.
+Characters (strings), integers, logicals (booleans), doubles, complex numbers, and raw bytes make up R's primitive values.
+When we say that R is {\it vectorized}, we mean that primitive values are {\it always} vectors.
+For example, in R one might see \code{2.5} and think it to be a scalar double, but it is in actuality a unit-length vector containing a single double.
+Vectors can also be explicitly constructed using the vector constructor \code{c(...)}, 
+For example, \code{c(1L, 2L, 3L)} creates a vector of three integers (in R, integer literals are denoted by an \code{L}).
+
+The main object of our work is R functions, which have a number of quirks.
+Arguments to functions in R can be assigned default values (which can be arbitrary expressions!), and R functions can support variable argument lists, and functions can be called by specifying argument names explicitly in the call.
+To illustrate all of this in a single example, consider:
 
 \begin{lstlisting}
-  f <- function(x, ..., y=if(z==0) 1, z=0) x + y + if (missing(...)) 0 else c(...)
+f <- function(x, ..., y=if(z==0) 1, z=0) { 
+  x + y + if (missing(...)) 0 else c(...)
+}
 \end{lstlisting}
 
 \noindent
@@ -358,9 +369,9 @@ of \k f:
 \end{lstlisting}
 
 \noindent
-The above hints at the polymorphism of the language, \k f, may return a
-vector of integer or of double, the length of the vector depends on the
-length of the varargs and of \k x and \k y.  The language does not really
+The above hints at the polymorphism of the language: \k f may return a
+vector of integers or of doubles, the length of the vector depends on the
+length of the varargs, and of \k x and \k y.  As we mentioned, the language does not really
 differentiate between scalar and vectors.  Some more exotic types that can
 be encountered include vectors of complex number and list of arbitrary
 types. Function \k f can be invoked with those as well.
@@ -386,8 +397,8 @@ types. Function \k f can be invoked with those as well.
 
 R has one builtin notion of type that can be queried by the \k{typeof}
 function. Figure~\ref{rtypes} lists all of the builtin types that are
-provided by the language. They are the possible return values of
-\k{typeof}. There is no intrinsic notion of subtyping in R. But, in many
+provided by the language, which are the possible return values of
+\k{typeof}. There is no intrinsic notion of subtyping in R, but in many
 context a \k{logical} will convert to \k{integer}, and an \k{integer} will
 convert to \k{double}.  Some odd conversions can occur in corner cases, such
 as \k{1<"2"} holds and \k{c(1,2)[1.6]} returns the first element of the
@@ -1295,7 +1306,7 @@ types.
  
  \AT{Kinds of failures: vectors passed to scalars, wrong things passed to classes, nulls passed to non-nullable arguments.}
  
- We observed a number of other interesting patterns in the contract assertion failure data.
+ We drew a number of other observations from the contract assertion failure data.
  
  First, we were curious about how many \null-typed values flowed into non-nullable arguments.
  We found that \AT{fill in numbers}.
@@ -1396,6 +1407,36 @@ not convenient as it is rather verbose. Our system can infer type annotations
 for existing functions automatically. This can remove or partially remove over
 \CorpusPartiallyTypedAssertsRatio of existing assertions.
 
+%
+%
+%
+%
+\subsection{Discussion}
+
+\AT{Talk about how we thought do to a different unification for class types.}
+
+As a closing point of discussion, we would like to highlight an alternate strategy for unifying class types that we considered.
+Recall that in our proposed type annotation language, classes are represented as \CLASS{{\tt A}} for something of class {\tt A}, and \CLASS{{\tt A}, {\tt B}} for something with two classes {\tt A} and {\tt B}.
+
+During the robustness phase of our evaluation, we noted a number of class-based type errors such as a \CLASS{{\tt data.frame}} being passed to an argument expecting, e.g., a \CLASS{{\tt data.frame}, {\tt tbl}, {\tt tbl\_df}}.
+This represents something of a limitation of our approach, as data frames and {\tt dplyr} tibbles are related and convertible (you can think of a tibble as a subclass of a data frame)---a fact not represented by our types.
+One option to mitigate this would be to include a type such as \CLASS{{\tt data.frame}, ...} that must include {\it at least} the {\tt data.frame} class, but this would not altogether solve this problem.
+For one, to generate this type we would either need to a) include some type hierarchy in our type system, which is outside of the scope of this work, or b) somehow infer the type with \typetracer.
+To create this type, \typetracer would have to observe values of {\it both} type \CLASS{{\tt data.frame}} and \CLASS{{\tt data.frame}, {\tt tbl}, {\tt tbl\_df}}, which would not solve the aforementioned problem as many {\tt dplyr} functions are only called with tibbles.
+
+Further, the data table, another data frame alternative, while being coercible to and from a data frame, only has \CLASS{{\tt data.table}} (not including {\tt data.frame} as part of its class).
+This alternate class type would also not adequately capture this behaviour, and even worse, if a \CLASS{{\tt data.frame}} and \CLASS{{\tt data.table}} were to co-occur in an argument type, we would unify it to \CLASS{...}, which is not very informative.
+
+For these reasons, we believe our unification strategy for class types to be adequate until we extend our type system to handle R's wild and varied object orientation frameworks.
+
+
+
+%
+%
+%
+%
+%
+%
 \section{Conclusion}
 
 
