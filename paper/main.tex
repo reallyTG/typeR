@@ -22,6 +22,7 @@
 \usepackage{listings, wrapfig,xspace}
 \usepackage{paralist}
 \usepackage{booktabs} % To thicken table lines
+\usepackage{makecell}
 
 \lstset{language=R}
 \definecolor{LightGray}{rgb}{.92,.92,.92}
@@ -70,7 +71,7 @@
 \renewcommand{\to}{\ensuremath{\rightarrow}\xspace}
 
 
-\renewcommand{\null}{\texttt{\textbf{null}}\xspace}
+\newcommand{\nul}{\texttt{\textbf{null}}\xspace}
 \newcommand{\scalar}{\texttt{\textbf{scalar}}\xspace}
 \renewcommand{\vector}{\texttt{\textbf{vector}}\xspace}
 \newcommand{\class}{\texttt{\textbf{class}}\xspace}
@@ -496,7 +497,7 @@ motivates our design.
 \begin{figure}[!h] \noindent \small  \centering\begin{minipage}{.45\linewidth}
 \begin{tabular}{lclr}
 \T& ::= & \any          & \it top type\\
-  & |   & \null         & \it null type\\
+  & |   & \nul         & \it null type\\
   & |   & \environment  & \it environment type \\
   & |   & \S            & \it scalar type \\
   & |   & \V            & \it vector type \\
@@ -539,7 +540,7 @@ treated as a vector that may {\NA}s.  We do not allow scalar values to be
 $\T_1 \k{~|~} \T_n$.
 
 \paragraph{Nullables} 
-The \null type is inhabited by a singleton \code{NULL} value often used as a
+The \nul type is inhabited by a singleton \code{NULL} value often used as a
 sentinel or a stand in for arguments with no value.  To capture this
 behavior, we introduce a nullable type \code{?}\T.  The difference between
 the \NA and \code{NULL} values is that the latter cannot be stored in
@@ -687,7 +688,7 @@ well as the simple notion of subtyping that we have adopted here.
   \T \k{~|~} \T  & $\Rightarrow$ &  \T &  \\
   \T \k{~|~} $T'$ & $\Rightarrow$ &  \T & \it{iff} $T' <: T$  \\
   \LIST{\T} \k{~|~} $\LIST{T'}$ & $\Rightarrow$ &  \LIST\T & \it{iff} $T' <: T$  \\
-   $\null \k{~|~} \VEC{\S_1} \k{~|~}\dots \VEC{\S_n}$  & $\Rightarrow$ &
+   $\nul \k{~|~} \VEC{\S_1} \k{~|~}\dots \VEC{\S_n}$  & $\Rightarrow$ &
   $ \NAVEC{\S_1} \k{~|~}\dots \NAVEC{\S_n}$ &  \\
   \\
   \NAVEC\S  & <:& \VEC\S \\
@@ -704,7 +705,7 @@ well as the simple notion of subtyping that we have adopted here.
 
 Assuming that type sequences can be reordered freely, we rewrite types to
 minimize their size by removing redundant types, types that are subsumed by
-subtyping, immutable lists, and remove \null type to replace them with
+subtyping, immutable lists, and remove \nul type to replace them with
 nullables. For performance reasons, we bound lists to no more than five
 types in their union, above that they become \LIST{any}.  Functions are alos
 limited to twenty arguments. Higher-order functions are approximated by \any
@@ -883,7 +884,7 @@ corpus.
 Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
 \dbl               & 12,298 &     11.24 &  12,152,787 & 20.3 \\
 \lgl               & 9,366 &      8.7 & 6,650,294 & 11.1 \\
-\null              &  8,799 &      8.0 & 2,187,611 & 3.7 \\
+\nul              &  8,799 &      8.0 & 2,187,611 & 3.7 \\
 \chr               &  8,727 &      8.0 & 2,564,207 & 4.3 \\
 \VEC\dbl           &  7,190 &      6.6 &  4,934,773 & 8.2 \\
 \VARGS             &  6,611 &      6.0 &  6,075,874 & 10.1 \\
@@ -956,8 +957,6 @@ useful documentation.
 
 \subsection{Expressiveness}
 
-\AT{TODO: Update plots, reread and readjust wording and examples since some tables have changed.}
-
 The first part of our evaluation attempts to shed light on how good a fit
 our proposed type system is with respect to common programming patterns
 occurring in widely used R libraries.
@@ -981,19 +980,20 @@ with more than three members.
 
 \input{tables/uni-typed-breakdown.tex}
 
-The next step, is shown in Table~\ref{fig:singlefreq}, the table provides a
-breakdown of types occuring in arguments without a union. Scalar, class and
+Table~\ref{fig:singlefreq} provides a
+breakdown of types occurring in arguments without a union. Scalar, class and
 vector are the most common type categories. The shaded rows correspond to
-polymorphic types. Removing those gives us \CountMonomorphicPositions
+polymorphic types. 
+When an argument's type is \nul, we say that the argument is polymorphic due to a limitation in our analysis:
+In R, it is common for programmers to include default values for arguments, and in many cases this value happens to be {\tt NULL}.
+Our type analysis will report a {\tt null} type for these arguments if they are {\it never passed a value} during testing.
+We interpret these instances of \nul as polymorphic to capture that we cannot be sure of the actual type.
+
+Removing the aforementioned instances of polymorphism gives us \CountMonomorphicPositions
 (\PercMonomorphicPositions) monomorphic positions in a corpus of
-\CountPositions parameters. With close to 65\% of monomorphic argument or
+\CountPositions parameters. With close to 60\% of monomorphic argument or
 return values, it is fair to say that even a simple type language provides
 significant benefits.
-
-We would like to point out the number of occurrences of the singleton {\tt null} type, and discuss why we treat it as an {\it any}-type.
-In R, it is common for programmers to include default values for arguments, and in many cases this value happens to be {\tt NULL}.
-Our type analysis will report a {\tt null} type for these arguments if they are never passed a value during testing.
-Thus, we interpret these as cases where we cannot be sure of the argument.
 
 \begin{figure}[!h]  \centering
   \includegraphics[width=.7\linewidth]{plots/function_polymorphism.pdf}
@@ -1004,9 +1004,9 @@ If we look at the numbers from the point of view of functions and count how
 many of their arguments are polymorphic, we observe that
 \PercMonomorphicFunctions (\CountMonomorphicFunctions) functions are
 monomorphic. The remaining \PercPolymorphicFunctions
-(\CountPolymorphicFunctions) have at least one polymorphic parameter or
+(\CountPolymorphicFunctions) have at least one union or polymorphic parameter or
 return type.  Figure~\ref{fig:funpoly} shows the distribution of functions
-against the number of polymorphic arguments. Finally, we count
+against the number of polymorphic arguments. Finally, we count that
 \CountMonomorphicPackages out of the 412 packages export only monomorphic
 functions.
 
@@ -1014,8 +1014,8 @@ functions.
 A number of lessons can be drawn from the data we have gathered.
 
 \paragraph{NAs}
-Our data supports making the presence of {\NA}s explicit. Only 1,058 (of
-0.9\%) of arguments are marked as possibly having {\NA}s, thus the
+Our data supports making the presence of {\NA}s explicit. Only 2923 (or
+2.78\%) of arguments are marked as possibly having {\NA}s, thus the
 overwhelming majority of types appear to be {\NA}-free.  In practice,
 programmers check for them and sanitize them if they are present.  Consider
 the \code{binom} package for computing confidence intervals and its
@@ -1025,16 +1025,18 @@ then finds rows where both columns are not \NA, extracts non-\NA values and
 stores them into \code{x} and \code{n} respectively.
 
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
-  binom.profile <- function(x, n, conf.level=0.9, maxsteps=50,...) {
+  binom.profile <- function(x, n, conf.level=0.9, maxsteps=50, ...) {
     xn <- cbind(x = x, n = n)
     ok <- !is.na(xn[, 1]) & !is.na(xn[, 2])
     x <- xn[ok, "x"]
     n <- xn[ok, "n"]
+    # ...
+  }
 \end{lstlisting}
 
 \paragraph{Scalars}
 The data also suggests that programmers often use scalars, and do
-dimensionality checks on their data.  In our data 31,533 (or 29\%) of the
+dimensionality checks on their data.  In our data 25,064 (or 33.33\%) of the
 arguments are scalar types. While not completely surprising, this is a
 rather large number. Consider the \code{hankel.matrix} function, it takes
 two arguments and checks that \code{n} is \int, that \code{x} is a vector,
@@ -1042,26 +1044,28 @@ and also, indirectly, that \code{n} is a a scalar (this comes from the fact
 that it is used in the guard of a conditional which fails if \code{n} is
 not a scalar).
 
-\begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
- hankel.matrix <- function( n, x ) { 
-  ### n = a positive integer value for the order of the Hankel matrix
-  ### x = an order 2 * n + 1 vector of numeric values
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily] 
+  hankel.matrix <- function( n, x ) { 
+    ### n = a positive integer value for the order of the Hankel matrix
+    ### x = an order 2 * n + 1 vector of numeric values
     if ( n != trunc( n ) )  stop( "argument n ix not an integer" )
     if ( !is.vector( x ) )  stop( "argument x is not a vector" )
     m <- length( x )
     if ( m < n )  stop( "length of argument x is less than n" )
+    # ...
+  }
 \end{lstlisting}
 
 \paragraph{Nullables}
-The number of argument which may be \c{NULL} is 3,165 (or 3.5\%). This is a
+The number of argument which may be \c{NULL} is 5057 (or 4.44\%). This is a
 relatively small number of occurrences, but it is worth expressing the
 potential for the presence of \c{NULL} as these would likely inhibit
 optimizations.
 
 \paragraph{Higher-Order Functions}
 \typetracer assigns the type \CLASS{\texttt{function}} to function values.
-The number of positions that receive a function is 1,831, which is just
-2\% of all the positions for which we infer types. Given the small number of
+The number of positions that receive a function (possibly as part of a union) is 1,705, which is just
+1.51\% of all the positions for which we infer types. Given the small number of
 occurrences, it is not worth complicating the inferred types with a complete
 signature for these functions.
 
@@ -1106,7 +1110,7 @@ object-orientation frameworks in a single language design is an interesting
 problem in and of itself, one we leave for future work.  
 
 \paragraph{Matrices}
-Matrices are instances of the eponymous class. They have a \code{dims}
+Matrices are instances of the eponymous class, representing 10.71\% of all classes occurring in types. They have a \code{dims}
 attribute indicating dimensions, and while not codified in the language
 semantics, many internal functions coerce vectors to matrices automatically.
 The \code{rowWeightedMeans} function calculates the weighted means of rows.
@@ -1115,26 +1119,30 @@ The programmer added a type check for \code{x}.
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
   rowWeightedMeans <- function(x, w=NULL, rows=NULL, cols=NULL, na.rm=FALSE, ...) {
     if (!is.matrix(x))   .Defunct(msg = sprintf("'x' should be a matrix.)
+    # ...
+  }
 \end{lstlisting}
 
 
 \paragraph{Data Frames}
 One of the most popular classes in R is the \code{data.frame} class, making
-up nearly 8\% of observed classes.  Data frames and the derivative
-\code{tibble} and \code{data.table} types underpin many popular uses of R.
+up  8.15\% of observed classes.  Data frames and the derivative
+\code{tibble} and \code{data.table} types underpin much of the idiomatic usage of R.
 One way to deal with data frames is through the struct type, with a named
 field for each column of the data frame, but as mentioned previously structs
 introduced undue noise.  Further complicating data frames is that many
 functions built to operate on them operate in a name-agnostic way.  For
 instance, the \code{tidyverse} package ecosystem allows programmers to pass
 column names to functions which operate on their data frames.  In base R,
-idiomatic data frame use is to use string column names to select rows from
+typical data frame use is to use string column names to select rows from
 the frame (unless only a single column is of interest, wherein the \code{$}
 syntax is appropriate).
+In sum, data frames are a popular class of R values, and have spawned many derivative data types, such as tibbles and data tables.
+We include a \CLASS{{\tt data.frame}} type to cover most use-cases, and we leave a richer type for future work on a full fledged object-oriented type system.
 
 \subsection{Robustness}
 
-How robust are the inferred types? To measure this, we conducted another
+We now ask {\it how robust are the inferred types}? To measure this, we conducted another
 large-scale experiment: for each package in the corpus, using the inferred type
 signatures as contracts we ran all of the CRAN reverse dependencies for that
 package. In total we ran \NUMPKGSEVAL unique packages and recorded
@@ -1144,37 +1152,48 @@ package. In total we ran \NUMPKGSEVAL unique packages and recorded
 found that \PERCSUCCARG of parameter types and \PERCSUCCFUNS of functions types
 never failed. The number of immaculate function types increases to
 \PERCSUCCFUNNOSTHREE if we discount S3 object method dispatch. Overall, these
-numbers are promising, and suggest that the type signatures are robust.
+numbers are promising, and suggest that the type signatures are indeed robust.
 
 We breakdown the failed assertions by type in
-Table~\ref{tbl:fail-breakdown-0}.  Accounting for 27\% of assertion
-failures, is when \CLASS{\texttt{matrix}} is passed where a \VEC\dbl is
+Table~\ref{tbl:fail-breakdown-0}.  Accounting for 36.36\% of assertion
+failures, is when a \VEC\dbl is passed where a \CLASS{\texttt{matrix}} is
 expected.  Considering these types, we might imagine them to be compatible,
 however not allowing this coercion was a deliberate design decision:
-coercion from vectors to matrices is ad hoc at best, and surely not a
-practice codified in the language.  In a similar vein, another popular
+coercion from matrices to vectors is ad hoc at best, and surely not a
+practice codified in the language. For instance, if it is determined that we should coerce the matrix it would need to be flattened, and should this be done row-wise or column-wise? 
+
+In a similar vein, another popular
 failing assertion is checking if a ${\bf dbl}[]$ has type ${\bf int}[]$,
 another case of commonly performed coercion.  We did not include these types
 of coercions in our type annotation framework as programmers cannot rely on
 them, and it is not always the case that the coercions are safe to perform.
+
+The second row of the table is exemplary of a pattern where vectors are passed when scalars are expected.
+In these cases, the functions exhibiting these assertion failures were under-tested, and can operate just as well on vectors of values.
+As an example, this failure occurred in functions from the \code{lubridate} package which provides date/time functionality.
+Many functions, e.g., \code{date_decimal} and \code{make_datetime} turn doubles into \CLASS{{\tt POSIXct, POSIXt}} (which are dates in R), and they can easily operate on vectors of doubles, producing lists of dates.
+
+Finally, we point out that assertion failures of, e.g., \CLASS{{\tt data.frame}} values being passed to \CLASS{{\tt data.frame, tbl, tbl\_df}} arguments and \CLASS{{\tt xml\_node}} values being passed to an argument expecting other XML-like classes are related to our simplified take on class types. 
+Our type system does not encode user-defined subtyping and coercion, which could help address these mismatches.
 
 \begin{table}
 % BEGIN Autogenerated
 \scriptsize
 \begin{tabular}{llrrr}
 \toprule
-Passed & Arg Type & Occurrences & \% Total & Cumulative \%\\
+Passed & Arg Type & Occurrences & \% Total & Cumul. \%\\
 \midrule
 \VEC\dbl & \CLASS{\texttt{matrix}} & 705,036 & 36.36 & 36.36 \\ 
-\VEC\dbl & \VEC\int & 189,800 & 9.79 & 46.15 \\ 
+\VEC\dbl & \dbl & 189,800 & 9.79 & 46.15 \\ 
 \chr & \CLASS{\texttt{bignum}} | \VEC\raw & 100,100 & 5.16 & 51.31 \\
-\CLASS{{\tt simpleError, error, condition}} & \CLASS{{\tt data.frame}} | \CLASS{{\tt matrix}} | \CLASS{{\tt randomForest}} | \VEC\dbl & 78,197 & 4.03 & 55.34 \\ 
+\CLASS{{\tt simpleError, error, condition}} & \makecell[tl]{\CLASS{{\tt data.frame}} | \CLASS{{\tt matrix}} | \\ \CLASS{{\tt randomForest}} | \VEC\dbl} & 78,197 & 4.03 & 55.34 \\ 
   \CLASS{{\tt data.frame}} & \CLASS{{\tt data.frame, tbl, tbl\_df}} & 58,809 & 3.03 & 58.37 \\ 
+  \addlinespace
   \CLASS{{\tt matrix}} & \CLASS{{\tt timeSeries}} & 53,482 & 2.76 & 61.13 \\ 
  \VEC\dbl & \VEC\int & 33,350 & 1.72 & 62.85 \\ 
  \dbl & \CLASS{{\tt data.frame}} & 32261 & 1.66 & 64.52 \\ 
   \VEC\dbl & \CLASS{{\tt data.frame}} & 31361 & 1.62 & 66.13 \\ 
-  \CLASS{{\tt xml\_node}} & \CLASS{{\tt xml\_missing}} $|$ \CLASS{{\tt xml\_nodeset}} $|$ \CLASS{{\tt xml\_document, xml\_node}} & 30,330 & 1.56 & 67.70 \\ 
+  \CLASS{{\tt xml\_node}} & \makecell[tl]{\CLASS{{\tt xml\_missing}} $|$ \CLASS{{\tt xml\_nodeset}} $|$ \\ \CLASS{{\tt xml\_document, xml\_node}}} & 30,330 & 1.56 & 67.70 \\ 
 \bottomrule
 \end{tabular}
 % END Autogenerated
@@ -1204,7 +1223,7 @@ Table~\ref{tbl:fail-breakdown-1} breaks down the failed assertions by type,
 folding away multiple identical failed contract assertions for the same
 parameter position.  The first row of this table reads: a value of type
 \VEC\dbl was passed to 15 different function parameters expecting a
-\CLASS{\texttt{matrix}}, of which there are 1394 in total: 1\% of
+\CLASS{\texttt{matrix}}, of which there are 1522 in total: 18 (1.18\%) of these
 \CLASS{\texttt{matrix}}-typed parameters were passed \VEC\dbl values.
 
 We see that even though the double vector and matrix issue was wildly
@@ -1213,13 +1232,12 @@ actual function argument types that were violated is very small.  The story
 is similar with the double and integer coercion we mentioned earlier: it
 represents many dynamic contract failures, but very few of the
 \VEC\int-typed arguments have their contracts violated by \VEC\dbl-typed
-values.  Rows 5 and 6 are interesting: we see that rather often arguments
-expecting \CLASS{\texttt{timeSeries}} data are passed \VEC\dbl or
+values.  Row six is interesting: we see that rather often arguments
+expecting \CLASS{\texttt{timeSeries}} data are passed
 \CLASS{\texttt{matrix}} values.  This is a quirk of the \code{timeSeries}
 package, whose functions often accept matrices and vectors, converting them
 to time series in an ad hoc manner.  Note that the code coverage of the
-\code{timeSeries} tests, examples, and vignettes on the \code{timeSeries}
-package code is only 58\%, which is one possible explanation of why these
+\code{timeSeries} tests, examples, and vignettes package code is only 58\%, which is one possible explanation of why these
 contract failures are occurring: the types that \typetracer generates are
 only as good as the test code its run on.
 
@@ -1229,16 +1247,18 @@ only as good as the test code its run on.
 \begin{tabular}{llrrr}
 \toprule
 Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
+\midrule
 \VEC\dbl & \CLASS{\texttt{matrix}} & 18 & 1522 & 1.18 \\ 
-\VEC\dbl & \VEC\int  & 66 & 5865 & 1.13 \\ 
+\VEC\dbl & \dbl  & 66 & 5865 & 1.13 \\ 
 \chr & \CLASS{\texttt{bignum}} | \VEC\raw & 1 & 3 & 33.33 \\ 
-\CLASS{{\tt simpleError, error, condition}} & \CLASS{{\tt data.frame}} | \CLASS{{\tt matrix}} | \CLASS{{\tt randomForest}} | \VEC\dbl & 2 & 2 & 100 \\ 
+\CLASS{{\tt simpleError, error, condition}} & \makecell[tl]{\CLASS{{\tt data.frame}} | \CLASS{{\tt matrix}} | \\ \CLASS{{\tt randomForest}} | \VEC\dbl}  & 2 & 2 & 100 \\ 
   \CLASS{{\tt data.frame}} & \CLASS{{\tt data.frame, tbl, tbl\_df}} & 23 & 196 & 11.73 \\ 
+  \addlinespace
   \CLASS{{\tt matrix}} & \CLASS{{\tt timeSeries}} & 21 & 39 & 53.85 \\ 
  \VEC\dbl & \VEC\int & 31 & 624 & 4.97 \\ 
  \dbl & \CLASS{{\tt data.frame}} & 2 & 1025 & 0.20 \\ 
   \VEC\dbl & \CLASS{{\tt data.frame}}  & 6 & 1025 & 0.59 \\ 
-  \CLASS{{\tt xml\_node}} & \CLASS{{\tt xml\_missing}} $|$ \CLASS{{\tt xml\_nodeset}} $|$ \CLASS{{\tt xml\_document, xml\_node}}  & 1 & 1 & 100 \\ 
+  \CLASS{{\tt xml\_node}} & \makecell[tl]{\CLASS{{\tt xml\_missing}} $|$ \CLASS{{\tt xml\_nodeset}} $|$ \\ \CLASS{{\tt xml\_document, xml\_node}}}   & 1 & 1 & 100 \\ 
 \bottomrule
 \end{tabular}
 
@@ -1253,21 +1273,20 @@ selected argument types which were in the 90th percentile of argument type
 occurrences, computed the most frequent type signature violations among
 them, and reported the most frequently violated contracts together with the
 type of the value that violated that contract.  The first row of the table
-reads: 44 function arguments with \VEC\int type are passed \VEC\dbl instead,
-and 657 arguments have \VEC\int type.  Had we failed to capture some key
+reads: 31 function arguments with \VEC\int type are passed \VEC\dbl instead,
+and 624 arguments have \VEC\int type, representing a failure rate of 4.97\%. 
+
+Had we failed to capture some key
 usage pattern of R with our type annotation framework, we would likely see
 it here, and we can see this in action if we consider
 Table~\ref{tbl:fail-breakdown-3}, which was obtained identically to
 Table~\ref{tbl:fail-breakdown-2} with a percentile of 80th percentile
 instead.  The most frequent argument type violation pattern in that of
-\CLASS{\texttt{data.frame}} values passed to arguments expecting tibbles,
-which are an extension of \CLASS{\texttt{data.frame}} built in the
-\code{tidyverse} package suite: this occurs in only 22\% of such arguments,
+\CLASS{{\tt matrix}}, \VEC\dbl, and \CLASS{\texttt{data.frame}} values passed to arguments expecting \CLASS{{\tt timeSeries}},
+This occurs in only 35.90\% of such arguments,
 and represents cases where tests did not adequately cover all valid function
 inputs.  Separate from the issue of testing, we can capture this behaviour
-with user-defined subtyping, as data frames are subtypes of tibbles, but
-this necessitates a proper object-oriented type system for R which is
-outside the scope of this work.
+with user-defined subtyping or coercion, as the data types which were passed are readily convertible to \CLASS{{\tt timeSeries}}.
 
  \begin{table}
 % BEGIN Autogenerated\
@@ -1278,7 +1297,7 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \midrule
 \VEC\dbl & \VEC\int & 31 & 624 & 4.97 \\
 \dbl & \int & 21 & 519 & 4.05\\
-\VEC\chr & \chr | \null & 10 & 256 & 3.91 \\
+\VEC\chr & \chr | \nul & 10 & 256 & 3.91 \\
 \NAVEC\lgl & \VEC\lgl & 8  & 219 & 3.65 \\
 \NASCA\lgl & \VEC\lgl & 5 & 219 & 2.28 \\
 \bottomrule
@@ -1302,7 +1321,7 @@ Passed & Arg Type & \#Args Fail & \#Args w Type & \% Failure\\
 \chr & \raw & 6 & 31 & 19.35 \\
 % \CLASS{\texttt{data.frame}} & \CLASS{\texttt{data.frame}, \texttt{tbl}, \texttt{tbl\_df}} & 63 & 284 & 22.18\\
 % \CLASS{\texttt{matrix}} & \CLASS{\texttt{array}} & 13 & 70 & 18.57\\
-% \NAVEC\lgl & \lgl | \null & 9 & 49 & 18.37\\
+% \NAVEC\lgl & \lgl | \nul & 9 & 49 & 18.37\\
 % \VEC\chr & \LIST{\VEC\chr} & 20 & 109 & 18.35\\
 % \VEC\clx & \clx & 7 & 42 & 16.67\\
 \bottomrule
@@ -1320,7 +1339,7 @@ contract assertions failed at runtime, representing failures in as few as
 \PROPFUNSFAILEDCHECKNOSTHREE of functions had at least one argument type
 involved in a failing contract check, these functions are under-tested,
 representing only \PERCCALLSBADFUNSINTESTS of calls observed while inferring
-types.
+types. 
 
  %
  %
@@ -1328,7 +1347,7 @@ types.
  
  We drew a number of other observations from the contract assertion failure data.
  
- First, we were curious about how many \null-typed values flowed into non-nullable arguments, and we found that they accounted for \NUMNULLASSERTERRORS of contract assertion failures in \NUMFUNSWITHNULLASSERTERROR functions.
+ First, we were curious about how many \nul-typed values flowed into non-nullable arguments, and we found that they accounted for \NUMNULLASSERTERRORS of contract assertion failures in \NUMFUNSWITHNULLASSERTERROR functions.
  We manually inspected some of the offending functions and observed three main patterns.
  
  First, we found that many of these errors occurred in arguments that have a {\tt NULL} default value.
