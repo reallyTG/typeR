@@ -1548,30 +1548,7 @@ Our system can infer type annotations
 for existing functions automatically. This can remove or partially remove over
 \CorpusPartiallyTypedAssertsRatio of existing assertions.
 
-%
-%
-%
-%
-% \subsection{Discussion}
 
-% As a closing point of discussion, we would like to highlight an alternate strategy for unifying class types that we considered.
-% Recall that in our proposed type annotation language, classes are represented as \CLASS{{\tt A}} for something of class {\tt A}, and \CLASS{{\tt A}, {\tt B}} for something with two classes {\tt A} and {\tt B}.
-
-% During the robustness phase of our evaluation, we noted a number of class-based type errors such as a \CLASS{{\tt data.frame}} being passed to an argument expecting, e.g., a \CLASS{{\tt data.frame}, {\tt tbl}, {\tt tbl\_df}}.
-% This represents something of a limitation of our approach, as data frames and {\tt dplyr} tibbles are related and convertible (you can think of a tibble as a subclass of a data frame)---a fact not represented by our types.
-% One option to mitigate this would be to include a type such as \CLASS{{\tt data.frame}, ...} that must include {\it at least} the {\tt data.frame} class, but this would not altogether solve this problem.
-% For one, to generate this type we would either need to a) include some type hierarchy in our type system, which is outside of the scope of this work, or b) somehow infer the type with \typetracer.
-% To create this type, \typetracer would have to observe values of {\it both} type \CLASS{{\tt data.frame}} and \CLASS{{\tt data.frame}, {\tt tbl}, {\tt tbl\_df}}, which would not solve the aforementioned problem as many {\tt dplyr} functions are only called with tibbles.
-
-% Further, the data table, another data frame alternative, while being coercible to and from a data frame, only has \CLASS{{\tt data.table}} (not including {\tt data.frame} as part of its class).
-% This alternate class type would also not adequately capture this behaviour, and even worse, if a \CLASS{{\tt data.frame}} and \CLASS{{\tt data.table}} were to co-occur in an argument type, we would unify it to \CLASS{...}, which is not very informative.
-
-% For these reasons, we believe our unification strategy for class types to be adequate until we extend our type system to handle R's wild and varied object orientation frameworks.
-
-
-
-%
-%
 %
 %
 %
@@ -1579,22 +1556,57 @@ for existing functions automatically. This can remove or partially remove over
 \section{Conclusion}
 
 
-Retrofitting a type system for the interactive and exploratory programming style of R is hard: The language is poorly specified and builds upon an eclectic mix of features such as laziness, reflection, dynamic evaluation and ad-hoc object systems.
-Our intent is to eventually propose a type system for inclusion in the language, but we are aware that for any changes to be accepted by the community, they must have clear benefits without endangering backwards compatibility.
-As a step towards this, we focus on a simpler problem: instead of an entire type system, we limited the scope of our investigation to ascribing types to function signatures.
-To this end, we designed a simple type language which found a compromise between simplicity and usefulness by focusing  on the most widely used features of R.
-We presented \typetracer, a tool for inferring types for function signatures from runnable code, and \contractr, an easy-to-use package for R which allows users to specify function type signatures and have function arguments checked for compliance at runtime.
+Retrofitting a type system for the interactive and exploratory
+programming style of R is hard: The language is poorly specified and
+builds upon an eclectic mix of features such as laziness, reflection,
+dynamic evaluation and ad-hoc object systems.  Our intent is to
+eventually propose a type system for inclusion in the language, but we
+are aware that for any changes to be accepted by the community, they
+must have clear benefits without endangering backwards compatibility.
+As a step towards this, we focus on a simpler problem: instead of an
+entire type system, we limited the scope of our investigation to
+ascribing types to function signatures.  To this end, we designed a
+simple type language which found a compromise between simplicity and
+usefulness by focusing on the most widely used features of R.  We
+presented \typetracer, a tool for inferring types for function
+signatures from runnable code, and \contractr, an easy-to-use package
+for R which allows users to specify function type signatures and have
+function arguments checked for compliance at runtime.
 
-We evaluated our design by running \typetracer on a corpus of 412 of the most widely used R packages on CRAN, inferring signatures for exported functions, and testing those inferred signatures on the \NUMPKGSEVAL reverse dependencies of the corpus.
-Overall, we found that our simple design fits quite well with the existing language:
-Nearly 80\% of functions are either monomorphic or have only one single polymorphic argument.
-When we tested the types inferred by \typetracer during our evaluation, we found that only \PERCFAILEDASSERTIONSWUNDEF of contract assertions failed.
-Furthermore, we found that our type language and contract checking framework would be useful to programmers, eliminate or otherwise simplify \CorpusPartiallyTypedAssertsRatio of existing type checks and assertions in user code.
-In sum, we believe that our simple type language design is a solid foundation for the eventual type system for R.
+We evaluated our design by running \typetracer on a corpus of 412 of
+the most widely used R packages on CRAN, inferring signatures for
+exported functions, and testing those inferred signatures on the
+\NUMPKGSEVAL reverse dependencies of the corpus.  Overall, we found
+that our simple design fits quite well with the existing language:
+Nearly 80\% of functions are either monomorphic or have only one
+single polymorphic argument.  When we tested the types inferred by
+\typetracer during our evaluation, we found that only
+\PERCFAILEDASSERTIONSWUNDEF of contract assertions failed.
+Furthermore, we found that our type language and contract checking
+framework would be useful to programmers, eliminate or otherwise
+simplify \CorpusPartiallyTypedAssertsRatio of existing type checks and
+assertions in user code.  In sum, we believe that our simple type
+language design is a solid foundation for the eventual type system for
+R.
 
-\section*{Acknowledgements}
 
-This work was partially funded by NSERC.
+\begin{acks}
+This work has received funding from the \grantsponsor{ONR}{Office of
+  Naval Research (ONR)}{} award \grantnum{ONR}{503353}, the
+\grantsponsor{NSF}{National Science Foundation}{} awards
+\grantnum{NSF}{1759736}, \grantnum{NSF}{1544542},
+\grantnum{NSF}{1925644}, and \grantnum{NSF}{1910850}, the
+\grantsponsor{BC}{Czech Ministry of Education, Youth and Sports from
+  the Czech Operational Programme Research, Development, and
+  Education}{}, under grant agreement No.
+\grantnum{BC}{CZ.02.1.01/0.0/0.0/15\_003/0000421}, and the
+\grantsponsor{ELE}{European Research Council (ERC) under the European
+  Union's Horizon 2020 research and innovation programme}{}, under
+grant agreement No.  \grantnum{ELE}{695412}. This work was partially
+funded by NSERC.
+\end{acks}
+
+
 
 
 \bibliography{bib/biblio,bib/jv,bib/r,bib/new,bib/gradual,bib/types4R}
