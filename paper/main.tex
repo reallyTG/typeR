@@ -244,64 +244,59 @@ frame is a table whose columns can be added or removed on the fly.  Second,
 but just as crucially, designing a type system that will be adopted would
 require overcoming some prejudices and educating large numbers of users.
 
-This paper is a data-driven study of what a type system for the R language
-could look like. Our intention is to eventually propose changes to the
-language, but we are aware that for any changes to be accepted by the user
-community they must clearly benefit the language without endangering
-backwards compatibility. Our goal is thus to find a compromise between
-simplicity and usefulness; any proposal should cover common programming
-idioms while remaining easy to learn and to use.
-
-This paper focuses on a simpler problem than an entire type system, instead,
-we limit our scope to giving types to function signatures. For this, we
-design a simple type language, one that matches the R data types but omits
-features such as parametric polymorphism and subtyping between user-defined
-data types. We then extract type signature from execution traces of a corpus
-of widely used libraries.  This allows us to see how far one can get with
-the simple type language and identify limitations of the design. We validate
-the robustness of the extracted type signature by implementing a contract
-checker that weaves the types around their respective functions, and use a
-both a large number of clients of the target packages as well as end-user code for validation. The contract
-system can be used by the R community to experiment with type signatures and
-replace ad hoc error checking code.
-
-To sum up, our paper makes the following contributions:
+The goal of this paper is to gather data that can be used as input to
+the process of designing a type system for R.  To focus our work, we
+chose to limit the scope of investigation on the design of a language
+for function type signatures.  Thus, this paper will use the collected
+data to document the signature of user-defined functions.  For this,
+we design a simple type language, one that matches the R data types.
+We then extract type signature from execution traces of a corpus of
+widely used libraries.  This allows us to see how far one can get with
+the simple type language and identify limitations of the design. We
+validate the robustness of the extracted type signature by
+implementing a contract checker that weaves the types around their
+respective functions, and use a both a large number of clients of the
+target packages as well as end-user code for validation.  To sum up,
+we make the following contributions:
 \begin{itemize}
-\item We implemented tooling to automatically extract type signatures from R
-  functions and to instrument R functions with checks based on their declared
-  types. The tooling is robust and scalable to the entire R language.
-\item We carried out a large-scale analysis of corpus of \PACKAGES widely
-  used and actively maintained libraries to extract function type signatures and
-  validated the robustness of the inferred type signatures against \NUMFILESRUN
-  programs that use those functions.
+\item We implemented scalable and robust tooling to automatically
+  extract type signatures and instrument R functions with checks
+  based on their declared types.
+\item We carried out a corpus analysis of \PACKAGES widely used and
+  maintained packages to extract function type signatures and
+  validated the robustness of the inferred type signatures against
+  \NUMFILESRUN programs that use those functions.
 \item We report on the appropriateness and usefulness of a simple type
-  language for the R programming language.
+  language for R.
+\item Our data and code are open source and publicly
+  available.\footnote{ \url{github.com/PRL-PRG/propagatr},
+  \url{github.com/PRL-PRG/contractr}, {\bf TODO add DATA link}}
 \end{itemize}
 
-Our tools are open source and publicly available on GitHub\footnote{
-\typetracer: \url{https://github.com/PRL-PRG/propagatr}, \contractr:
-\url{https://github.com/PRL-PRG/contractr} }.
 %
 \section{Background} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section, we introduce related work on extending dynamic languages
-with static type systems and we give a short primer on the R programming
-language.
+This section introduces related work and gives a short primer on R.
 
 \subsection{Related Work}
 
-Dynamic programming languages such as Racket, JavaScript and PHP have
-been extended post-facto with various static type systems.  In each
+Dynamic programming languages such as Racket, JavaScript, PHP and Lua
+have been extended post factum with static type systems.  In each
 case, the type system was carefully engineered to match the salient
-characteristics of the host languages and to foster a particular
+characteristics of its host language and to foster a particular
 programming style. For example, Typed Racket emphasizes functional
-programming and supports the migration from untyped to fully typed
+programming and migration from untyped to fully typed
 code~\cite{tf-popl08}, Hack~\cite{hack13} and TypeScript~\cite{BAT14}
-focus on typing object-oriented features of PHP and JavaScript,
+focus on object-oriented features of PHP and JavaScript,
 respectively. They allow users to intersperse typed and untyped code
-in a fine-grained manner.  Other work looks at retrofitting types onto
-Lua~\cite{typedlua2014} which account for the myriad ways Lua
-programmers use tables.
+in a fine-grained manner.  In the case of Lua~\cite{typedlua2014}, the
+type system tried to account for the myriad ways Lua programmers use
+tables.  Other languages adopted a mix of typed and untyped code by
+design. In Julia, type annotations are needed for method dispatch and
+performance~\cite{oopsla18a}. In Thorn, users could freely move
+between typed and untyped code thanks to the addition of like
+types~\cite{popl10}. Lastly C\# is an example of a statically typed
+language which added a dynamic type~\cite{Bierman10}.
 
 But what if the design of the type system is unclear?  \citet{tip} propose
 an intriguing approach called trace typing. With trace typing, a new type
@@ -318,19 +313,18 @@ data science language.  Typilus is an interesting piece of recent work
 which explores using neural networks to infer types for Python
 programs~\cite{allamanis2020typilus}, and Python itself added support
 for type hints in Python 3.5~\cite{pythonspectypes}.  There is no
-previous work on types for R, besides a short sketch of issues the
-type system would need to tackle~\cite{turcotte2019towards}. We take
-inspiration in the aforementioned works but focus on adapting them to
-our target language.
+previous work on types for R. We take inspiration in the
+aforementioned works but focus on adapting them to our target
+language.
 
 
 \subsection{The R Programming Language} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The R Project is a key tool for data analysis.  At the heart of the R
-project is a \emph{vectorized, dynamic, lazy, functional, object-oriented}
-programming language with a rather unusual combination of
-features~\cite{ecoop12} designed to ease learning by non-programmers and
-enable rapid development of new statistical methods.  The language was
+project is a vectorized, dynamic, lazy, functional, object-oriented
+language with a rather unusual combination of features~\cite{ecoop12}
+designed to ease learning by non-programmers and enable rapid
+development of new statistical methods.  The language was
 designed~\citet{R96} as a successor to S~\cite{S88}.
 
 The basic building blocks of R are vectors of primitives (primitives
