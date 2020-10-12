@@ -325,21 +325,18 @@ project is a vectorized, dynamic, lazy, functional, object-oriented
 language with an unusual combination of features~\cite{ecoop12}.  R
 was designed~\citet{R96} as a successor to S~\cite{S88}.
 
-The basic building blocks of R are vectors of primitives (primitives
-in R are characters (strings), integers, logicals (booleans), doubles,
-complex numbers, and raw bytes).  When we say that R is {\it
-  vectorized}, we mean that primitive values are {\it always} vectors.
-For example, in R one might see the literal \code{2.5} and think it to
-be a scalar double, but it is in actuality a unit-length vector
-containing a single double.  Vectors can also be explicitly
-constructed using the vector constructor \code{c(...)}, For example,
-\code{c(1L, 2L, 3L)} creates a vector of three integers (in R, integer
-literals are denoted by an \code{L}).  To illustrate that scalars are
-vectors, in R \code{(c(2.5) == 2.5) == TRUE}.
+It's basic building blocks are vectors of primitives (primitives in R
+are characters (or strings), integers, logicals (or booleans),
+doubles, complex numbers, and raw bytes).  To say that R is vectorized
+implies that primitive values are {\it always} vectors.  For example,
+the literal \code{2.5} is a unit-length vector containing a single
+double.  Vectors can be explicitly constructed using the constructor
+\code{c(...)}, as in \code{c(1L, 2L, 3L)} which creates a vector of
+three integers.
 
-The main object of our work is R functions, and functions in R have a
-number of quirks.  Arguments can be assigned default values (which can
-be arbitrary expressions!), and functions can support variable
+The main object of our work is functions, and R functions have a
+number of quirks.  Arguments can be assigned arbitrary expressions as
+default values, and functions can support variable
 argument lists, and functions can be called by specifying argument
 names explicitly in the call.  To illustrate all of this in a single
 example, consider:
