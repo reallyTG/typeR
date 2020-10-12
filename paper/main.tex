@@ -278,7 +278,7 @@ we make the following contributions:
 
 This section introduces related work and gives a short primer on R.
 
-\subsection{Related Work}
+\subsection{Related Work} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Dynamic programming languages such as Racket, JavaScript, PHP and Lua
 have been extended post factum with static type systems.  In each
@@ -299,7 +299,7 @@ types~\cite{popl10}. Lastly C\# is an example of a statically typed
 language which added a dynamic type~\cite{Bierman10}.
 
 But what if the design of the type system is unclear?  \citet{tip} propose
-an intriguing approach called trace typing. With trace typing, a new type
+a promising approach called trace typing. With trace typing, a new type
 system can be prototyped and evaluated by applying the type rule to
 execution traces of programs. While the approach has the limitation of
 dynamic analysis techniques, namely that the results are only as good at the
@@ -318,14 +318,12 @@ aforementioned works but focus on adapting them to our target
 language.
 
 
-\subsection{The R Programming Language} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The R Language} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The R Project is a key tool for data analysis.  At the heart of the R
 project is a vectorized, dynamic, lazy, functional, object-oriented
-language with a rather unusual combination of features~\cite{ecoop12}
-designed to ease learning by non-programmers and enable rapid
-development of new statistical methods.  The language was
-designed~\citet{R96} as a successor to S~\cite{S88}.
+language with an unusual combination of features~\cite{ecoop12}.  R
+was designed~\citet{R96} as a successor to S~\cite{S88}.
 
 The basic building blocks of R are vectors of primitives (primitives
 in R are characters (strings), integers, logicals (booleans), doubles,
@@ -347,9 +345,7 @@ names explicitly in the call.  To illustrate all of this in a single
 example, consider:
 
 \begin{lstlisting}
-f <- function(x, ..., y=if(z==0) 1, z=0) { 
-  x + y + if (missing(...)) 0 else c(...)
-}
+f <- function(x,..., y=if(z==0) 1, z=0) { x + y + if(missing(...)) 0 else c(...) }
 \end{lstlisting}
 
 \noindent
