@@ -187,10 +187,9 @@
 \begin{abstract}
 The R programming language is widely used in a variety of domains.  It
 was designed to favor an interactive style of programming with minimal
-syntactic and conceptual overhead. This design is well suited to
-interactive data analysis, but a bad fit for tools such as compilers
-or program analyzers which must generate native code or catch
-programming errors.  In particular, R has no type annotations, and all
+syntactic and conceptual overhead. This design is well suited to data
+analysis, but a bad fit for tools such as compilers or program
+analyzers. In particular, R has no type annotations, and all
 operations are dynamically checked at run-time. The starting point for
 our work are the twin questions: \emph{what expressive power is needed
 to accurately type R code?} and \emph{which type system is the R
@@ -204,41 +203,40 @@ type system.  As a starting point, we infer type signatures for
 \NUMFUNCTIONS functions from \NUMPACKAGES packages among the most
 widely used open source R libraries. We then conduct an evaluation on
 \NUMPKGSEVAL clients of these packages, as well as on end-user code
-found on the Kaggle competition website.
+from the Kaggle competition.
 \end{abstract} \maketitle
 
 \section{Introduction}
 
-Our community builds, improves, and reasons about programming languages. To
-make design decisions that benefit users, we need to understand our target
-language as well as the real-world needs it answers. Often, we can appeal to
-our intuition, as many languages are intended for general purpose
-programming tasks.  Unfortunately, intuition may fail when looking at
-domain-specific languages designed for a specific
-group of users to solve very specific needs. This is the case of the data
-science language R.
-
+Our community builds, improves, and reasons about programming
+languages. To make design decisions that benefit users, we need to
+understand our target language as well as the real-world needs it
+answers. Often, we can appeal to intuition, as many languages are
+intended for general purpose programming tasks.  Unfortunately,
+intuition may fail us when looking at domain-specific languages
+designed for a particular group of users to solve specific needs. This
+is the case of the data science language R.
 
 R and its ancestor S were designed, implemented, and maintained by
-statisticians. Originally they aimed to be glue languages for reading data
-and calling statistical routines written in Fortran. Over three decades they
-became widely used across many fields for data analysis and visualization.
+statisticians. Originally they aimed to be glue languages for 
+statistical routines written in Fortran. Over three decades they
+became widely used across many fields for exploratory data analysis.
 Modern R, as an object of study, is fascinating. It is a vectorized,
 dynamically typed, lazy functional language with limited side-effects,
 extensive reflective facilities and retrofitted object-oriented programming
 support.
 
 Many of the design decisions that gave us R were intended to foster an
-interactive and exploratory programming style. These include, to name a few,
-the lack of type annotations, the ability to use syntactic shortcuts, and the
-automatic conversion between data types. While these choices have led to a
-language with a low barrier to entry---many data science educational
-programs do not teach R itself but simply introduce some of its key
-libraries---they have also created a language where errors can easily go
+interactive and exploratory programming style. These include, to name
+a few salient ones, the lack of type annotations, the ability to use
+syntactic shortcuts, and widespread conversion between data
+types. While these choices have decreased the barrier to entry---many
+data science educational programs do not teach R itself but simply
+introduce some of its key libraries---they also allow for errors to go
 undetected.
 
 Retrofitting a type system to the R language would increase our assurance in
-the result of data analysis, but we are faced with two challenges. First,
+the result of data analysis, but this requires facing two challenges. First,
 it is unclear what would be the \emph{right} type system for a language as
 baroque as R. For example, one of the most popular data type, the
 \code{data.frame}, is manipulated through reflective operations---a data
