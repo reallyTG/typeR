@@ -1716,26 +1716,44 @@ functions automatically. This can remove or partially remove over
 
 \AT{Let's discuss alternative strategies for consolidating types here.}
 
-\begin{itemize}
-	\item We employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all of the observed types at that position.
-	\item We then simplified these unions using the rules \AT{discussed previously, ref section.}
-	\item We did not develop this strategy in a vacuum, and there are indeed alternatives worth mentioning.
-	
-	\item For starters, one may rightly argue that our strategy results in a loss of precision, as relationships between input and output types are obscured.
-	\item For example, consider a function with two unique call traces, \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl}.
-	\item The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which obscures the (potential) relationship between the argument and return type.
-	
-	\item An obvious solution to this is simply to convert each call trace into a type, and generate a union of function types as the overall type for the function.
-	\item This would lead to the type  \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl} for the aforementioned function.
-	\item Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable, due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
-	\item To quickly compare this consolidation strategy against the one employed throughout the paper, we find that the types \AT{put numbers, gist is that it's bigger and more incomprehensible.}
-	
-	\item Another option is to employ a hybrid approach, wherein we perform a union of function types {\it after} grouping them together by return type, and performing basic primitive type consolidation on the return types.
-	\item This has the advantage of avoiding most of the blowup of the naive approach, however this hybrid  approach suffers particularly when functions return classes, as effectively consolidating class types is unclear given the limited level of detail in our type system.
-	\item Comparing again to the strategy employed throughout the paper, we see \AT{numbers, it's a bit bigger, not too much. Need numbers of unions, etc. Forthcoming.}
-	
-	\item \AT{Will pull in example showcasing the different strategies.}
-\end{itemize}
+Throughout this paper, we employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all of the observed types at that position.
+We then simplified these unions using the rules presented in Section~\ref{fig:siplification-rules}.
+We call this an {\it arrow of unions}.
+Now, this strategy was not developed in a vacuum, and we will now discuss some of the decisions that we made in choosing this strategy.
+
+Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types are obscured when all argument and return types are unioned.
+For example, consider a function with two unique call traces, \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl}.
+The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which obscures the (potential) relationship between the argument and return type.
+
+An obvious solution to this is simply to convert each call trace into a type, and generate a union of function types as the overall type for the function.
+This would lead to the type  \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl} for the aforementioned function.
+Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable, due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
+When comparing this consolidation strategy against the one employed throughout the paper, we find that the types are much larger \AT{character count}, and we count \AT{number} top-level unions.
+Recall that we found \AT{number} functions to be polymorphic when collapsing these unions of arrows into an arrow of unions; with unions of arrows, we find \AT{number} functions (\AT{percentage}) to be polymorphic.
+
+Another option is to employ a hybrid approach, wherein we perform a union of function types {\it after} grouping them together by return type, and performing basic primitive type consolidation on the return types.
+This has the advantage of avoiding most of the blowup of the naive approach, however this hybrid approach suffers particularly when functions return classes, as our type system does not allow us to effectively consolidate class types.
+Comparing again to the strategy employed throughout the paper, we find \AT{number} (\AT{\%}) functions to have a union of arrows, and \AT{number} (\AT{percentage}) of arguments are polymorphic.
+We additionally find that \AT{number} (\AT{\%}) of arrow types have at least one polymorphic argument.
+
+To connect this discussion with actual R types, we chose the \AT{which?} function from the \AT{which?} package, and show what the type of the function would be when using each of these strategies.
+We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}.
+\AT{We could use stringr::str\_extract\_all?}
+
+\begin{table}[H]
+	\centering
+	 \resizebox{.98\linewidth}{!}{
+		\begin{tabular}{llrrr}
+			\toprule
+			Merge Strategy & Function Type \\
+			\midrule
+			Union of Arrows & \\
+			Hybrid &  \\
+			Arrow of Unions & \\
+			\bottomrule
+	\end{tabular}}
+	\caption{Types of \AT{package::function} with different type merge strategies. }\label{tbl:real-function-different-merge-strats}
+\end{table}
 
 %
 %
