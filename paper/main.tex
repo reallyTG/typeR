@@ -1668,8 +1668,6 @@ functions automatically. This can remove or partially remove over
 %
 \section{Discussion}
 
-\AT{Let's discuss alternative strategies for consolidating types here.}
-
 Throughout this paper, we employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all of the observed types at that position.
 We then simplified these unions using the rules presented in Section~\ref{fig:siplification-rules}.
 We call this an {\it arrow of unions}.
@@ -1696,9 +1694,14 @@ We additionally find that 38,650 (26.14\%) of arrow types have at least one poly
 	\caption{Comparison of top-level function type counts across different merge strategies.}\label{fig:mergecomp}
 \end{figure}
 
-To connect this discussion with actual R types, we chose the \AT{which?} function from the \AT{which?} package, and show what the type of the function would be when using each of these strategies.
+% To connect this discussion with actual R types, we chose the \code{discretize} function from the \code{arules} package, and show what the type of the function would be when using each of these strategies.
+% The purpose of the function is to convert a continuous variable into a categorical variable, using several unsupervised learning methods.
+To connect this discussion with actual R types, we chose the \code{correlation} function from the \code{agricolae} package, and show what the type of the function would be when using each of these strategies.
+\code{agricolae::correlation} obtains the coefficients of correlation and p-value between all variables of some input data table, and uses a method of the user's choosing.
+It returns the correlation matrix and the probability together in a list.
 We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}.
-\AT{We could use stringr::str\_extract\_all?}
+We see that the hybrid approach produces a much smaller type, with only two arrow types in the top-level union.
+Moreover, we see that no real precision is lost when further reducing the function type to a pure arrow of unions, as the two options in the type obtained with the hybrid approach are not very informative.
 
 \begin{table}[H]
 	\centering
@@ -1707,12 +1710,58 @@ We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}.
 			\toprule
 			Merge Strategy & Function Type \\
 			\midrule
-			Union of Arrows & \\
-			Hybrid &  \\
-			Arrow of Unions & \\
+			Union of Arrows & \makecell[tl]{
+				\FUN{\VEC{\dbl}, \VEC{\dbl}, \chr, \chr}{\nul} | \\
+				\FUN{\VEC{\int}, \VEC{\dbl}, \chr, \chr}{\nul} | \\
+				\FUN{\CLASS{{\tt data.frame}}, \nul, \VEC\chr, \chr}{\LIST{\CLASS{{\tt matrix}} \; | \; \dbl}} | \\
+				\FUN{\CLASS{{\tt data.frame}}, \nul, \chr, \chr}{\LIST{\CLASS{{\tt matrix}} \; | \; \dbl}} | \\
+				\FUN{\VEC\dbl, \CLASS{{\tt data.frame}}, \VEC\chr, \chr}{\LIST{\CLASS{{\tt matrix}} \; | \; \dbl}} | \\
+				\FUN{\VEC\dbl, \CLASS{{\tt data.frame}}, \chr, \chr}{\LIST{\CLASS{{\tt matrix}} \; | \; \dbl}}
+			} \\
+		\addlinespace
+			Hybrid & \makecell[tl]{
+				\FUN{\VEC{\dbl}, \VEC{\dbl}, {\chr}, {\chr}}{\nul} | \\
+				\FUN{\CLASS{{\tt data.frame}} \; | \; \VEC{\dbl}, ? \; \CLASS{{\tt data.frame}}, \VEC{\chr}, {\chr}}{\LIST{\CLASS{{\tt matrix}} \; | \; \dbl}}} \\
+			\addlinespace
+			Arrow of Unions & \FUN{\CLASS{{\tt data.frame}} \; | \; \VEC{\dbl}, ? \; \VEC{\dbl} \; | \; \CLASS{{\tt data.frame}}, \VEC{\chr}, {\chr}}{\, ? \; \LIST{\CLASS{{\tt matrix}} \; | \; \dbl}} \\
 			\bottomrule
 	\end{tabular}}
-	\caption{Types of \AT{package::function} with different type merge strategies. }\label{tbl:real-function-different-merge-strats}
+	\caption{Types of \code{agricolae::correlation} with different type merge strategies. }\label{tbl:real-function-different-merge-strats}
+\end{table}
+
+On the other hand, there are real cases where a meaningful loss of precision occurs.
+Consider instead the \code{rename} function from the \code{dplyr} package, with types shown in Figure~\ref{tbl:real-function-different-merge-strats-2}.
+This function takes a data frame and renames selected columns.
+We see that with both the union-of-arrows and hybrid approach, the types are the same (with only three unique function signatures observed), and can glean from these types that \code{dplyr::rename} produces a data frame of the {\it same class} as the input.
+This information is lost in the arrow-of-unions merge strategy.
+That said, once we extend the type system with proper user-defined type hierarchies, the union-of-arrows type will be much more clear.
+
+\begin{table}[H]
+	\centering
+	\resizebox{.98\linewidth}{!}{
+		\begin{tabular}{llrrr}
+			\toprule
+			Merge Strategy & Function Type \\
+			\midrule
+			Union of Arrows &  \makecell[tl]{
+		      \FUN{\CLASS{{\tt data.frame}}, ...}{\CLASS{{\tt data.frame}}}	| \\
+             \FUN{\CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}}, ...}{\CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}}} | \\
+             \FUN{\CLASS{{\tt data.frame, tbl, tbl\_df}}, ...}{\CLASS{{\tt data.frame, tbl, tbl\_df}}}
+			} \\
+		\addlinespace
+			Hybrid & \makecell[tl]{
+				\FUN{\CLASS{{\tt data.frame}}, ...}{\CLASS{{\tt data.frame}}}	| \\
+				\FUN{\CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}}, ...}{\CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}}} | \\
+				\FUN{\CLASS{{\tt data.frame, tbl, tbl\_df}}, ...}{\CLASS{{\tt data.frame, tbl, tbl\_df}}}
+			} \\
+		\addlinespace
+			Arrow of Unions & \makecell[tl]{
+				$\langle \CLASS{{\tt data.frame}} \;|\; \CLASS{{\tt data.frame, tbl, tbl\_df}} \;|\; \CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}, ...} \rangle$ $\rightarrow$ \\
+				$\CLASS{{\tt data.frame}} \;|\; \CLASS{{\tt data.frame, tbl, tbl\_df}} \;|\; \CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}}$
+			} \\
+			\bottomrule
+	\end{tabular}}
+	\caption{Types of \code{X::Y} with different type merge strategies. }\label{tbl:real-function-different-merge-strats-2}
 \end{table}
 
 %
