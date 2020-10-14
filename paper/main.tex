@@ -998,7 +998,7 @@ our proposed type system is with respect to common programming patterns
 occurring in widely used R libraries.
 
 \begin{figure}[!h]  \centering
-  \includegraphics[width=.7\linewidth]{plots/argument_polymorphism.pdf}
+  \includegraphics[width=.8\linewidth]{plots/argument_polymorphism.pdf}
   \caption{Size of unions}\label{fig:unionfreq}
 \end{figure}
 
@@ -1035,7 +1035,7 @@ positions in a corpus of \CountPositions parameters. With close to
 even a simple type language provides significant benefits.
 
 \begin{figure}[!h]  \centering
-  \includegraphics[width=.7\linewidth]{plots/function_polymorphism.pdf}
+  \includegraphics[width=.8\linewidth]{plots/function_polymorphism.pdf}
   \caption{Function Polymorphism}\label{fig:funpoly}
 \end{figure}
 
@@ -1736,6 +1736,11 @@ This has the advantage of avoiding most of the blowup of the naive approach, how
 Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and 38,650 independent signatures.
 Most functions only have one or two top-level alternatives (23,530, or 92.17\%).
 We additionally find that 38,650 (26.14\%) of arrow types have at least one polymorphic argument.
+
+\begin{figure}[!h]  \centering
+	\includegraphics[width=.8\linewidth]{plots/merge_strategy_comp.pdf}
+	\caption{Comparison of top-level function type counts across different merge strategies.}\label{fig:mergecomp}
+\end{figure}
 
 To connect this discussion with actual R types, we chose the \AT{which?} function from the \AT{which?} package, and show what the type of the function would be when using each of these strategies.
 We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}.
