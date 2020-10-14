@@ -447,13 +447,16 @@ or of doubles of length equal to the max length of its arguments.
 
 In this section, we set out to propose a candidate design for a type
 language to describe the arguments and return values of R functions.
-The goal is not to propose a final design, but rather to propose a
-starting point for an iterative design process.  Fig.~\ref{types}
-presents our type language. An early design choice was to stay close
-to the R language and only depart in small and hopefully
-non-controversial ways.  Functions types have the form \FUN{A_1,
-  \dots, A_n}\T where each $\A_i$ argument is either a type \T or
-\VARGS, a variable length argument list. The rest of this section
+The goal is not to propose a final design, but rather a
+starting point for an iterative design process.
+
+
+
+Fig.~\ref{types} presents our type language. An early design choice
+was to stay close to the R language and only depart in small and
+hopefully non-controversial ways.  Functions types have the form
+\FUN{A_1, \dots, A_n}\T where each $\A_i$ argument is either a type \T
+or \VARGS, a variable length argument list. The rest of this section
 details and motivates our design.
 
 \begin{figure}[!h] \noindent \small  \centering\begin{minipage}{.45\linewidth}
