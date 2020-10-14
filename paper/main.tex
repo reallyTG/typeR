@@ -250,22 +250,22 @@ chose to limit the scope of investigation on the design of a language
 for function type signatures.  Thus, this paper will use the collected
 data to document the signature of user-defined functions.  For this,
 we design a simple type language, one that matches the R data types.
-We then extract type signature from execution traces of a corpus of
-widely used libraries.  This allows us to see how far one can get with
-the simple type language and identify limitations of the design. We
-validate the robustness of the extracted type signature by
-implementing a contract checker that weaves the types around their
-respective functions, and use a both a large number of clients of the
-target packages as well as end-user code for validation.  To sum up,
-we make the following contributions:
+We then extract call and return types from execution traces of a
+corpus of widely used libraries, and finally synthesize type
+signatures.  This allows us to see how far one can get with a simple
+type language and identify limitations of our design. We validate the
+robustness of the extracted type signatures by implementing a contract
+checker that weaves types around their respective functions, and use
+clients of the target packages for validation.  To sum up, we make the
+following contributions:
 \begin{itemize}
 \item We implemented scalable and robust tooling to automatically
   extract type signatures and instrument R functions with checks
   based on their declared types.
 \item We carried out a corpus analysis of \PACKAGES widely used and
-  maintained packages to extract function type signatures and
-  validated the robustness of the inferred type signatures against
-  \NUMFILESRUN programs that use those functions.
+  maintained packages to synthesize function type signatures and
+  validated the robustness of the signatures against \NUMFILESRUN
+  programs that use those functions.
 \item We report on the appropriateness and usefulness of a simple type
   language for R.
 \item Our data and code are open source and publicly
@@ -288,9 +288,9 @@ programming style. For example, Typed Racket emphasizes functional
 programming and migration from untyped to fully typed
 code~\cite{tf-popl08}, Hack~\cite{hack13} and TypeScript~\cite{BAT14}
 focus on object-oriented features of PHP and JavaScript,
-respectively. They allow users to intersperse typed and untyped code
-in a fine-grained manner.  In the case of Lua~\cite{typedlua2014}, the
-type system tried to account for the myriad ways Lua programmers use
+respectively. They allow users to mix typed and untyped code in a
+fine-grained manner.  In the case of Lua~\cite{typedlua2014}, the type
+system tried to account for the myriad ways Lua programmers use
 tables.  Other languages adopted a mix of typed and untyped code by
 design. In Julia, type annotations are needed for method dispatch and
 performance~\cite{oopsla18a}. In Thorn, users could freely move
@@ -320,118 +320,30 @@ language.
 
 \subsection{The R Language} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The R Project is a key tool for data analysis.  At the heart of the R
-project is a vectorized, dynamic, lazy, functional, object-oriented
-language with an unusual combination of features~\cite{ecoop12}.  R
-was designed~\citet{R96} as a successor to S~\cite{S88}.
+The R Project is a key tool for data analysis.  At the heart of R is a
+vectorized, dynamic, lazy, functional, object-oriented language with
+an unusual combination of features~\cite{ecoop12}.  R was designed by
+\citet{R96} as a successor to S~\cite{S88}.
 
-It's basic building blocks are vectors of primitives (primitives in R
-are characters (or strings), integers, logicals (or booleans),
-doubles, complex numbers, and raw bytes).  To say that R is vectorized
-implies that primitive values are {\it always} vectors.  For example,
-the literal \code{2.5} is a unit-length vector containing a single
-double.  Vectors can be explicitly constructed using the constructor
-\code{c(...)}, as in \code{c(1L, 2L, 3L)} which creates a vector of
-three integers.
-
-The main object of our work is functions, and R functions have a
-number of quirks.  Arguments can be assigned arbitrary expressions as
-default values, and functions can support variable
-argument lists, and functions can be called by specifying argument
-names explicitly in the call.  To illustrate all of this in a single
-example, consider:
-
-\begin{lstlisting}
-f <- function(x,..., y=if(z==0) 1, z=0) { x + y + if(missing(...)) 0 else c(...) }
-\end{lstlisting}
-
-\noindent
-This function has four formal parameters, \k x, \k{...}, \k y and \k
-z. Argument \k x can be bound positionally or passed by name. The
-vararg argument, \k{...}, is always passed positionally. The remaining
-two arguments must be passed by name as they are preceded by the
-\k{...} parameter.  Arguments \k y and \k z have default values, in
-the case of \k z this is a constant, but \k{y}'s default value is an
-expression that depends on the value of \k z (if \k z is not zero, \k
-y will default to \k{NULL}). The body of the function will add
-parameters \k x and \k y with either the scalar 0 or the result of
-concatenating the varargs into a primitive vector. The function
-\k{missing} tests if an argument was explicitly passed. The following
-are some valid invocations of \k f:
-
-\begin{lstlisting}
- > f(1)    
-   [1] 2             # a double vector, y is 0, ... is missing
- > f(1, 2) 
-   [1] 4             # a double vector, y is 0, ... is 2
- > f(1, 2, 3)
-   [1] 4 5           # a double vector, y is 0, ... is 2, 3
- > f(2, 3, x=1)
-   [1] 4 5           # a double vector, y is 0, ... is 2, 3
- > f(x=1, y=1)
-   [1] 2             # a double vector, y is 1, ... is missing
- > f(x=1, z=1)
-   numeric(0)        # a double vector of length 0, y is NULL
- > f(1L, 2L, y=1L)
-   [1] 4             # an integer vector, y is integer 1, ... is integer 2
- > f(1, y=c(1,2))
-   [1] 1 2           # a double vetor, y is 1, 2, ... is missing
-\end{lstlisting}
-
-\noindent
-The above hints at the polymorphism of the language: \k f may return a
-vector of integers or of doubles, the length of the vector depends on
-the length of the varargs, and of \k x and \k y.  As we mentioned, the
-language does not really differentiate between scalar and vectors.
-Some more exotic types that can be encountered include vectors of
-complex number and list of arbitrary types. Function \k f can be
-invoked with those as well.
-
-\begin{lstlisting}
- > c1 <- complex(re=1, im=2)
- > c2 <- complex(re=2, im=1)
- > f(c1)
-   [1] 1             # a double vector, x is complex, y is double
- > f(c1, y=c2)
-   [1] 2+1i          # a complex vector, x and y are complex
- > l1 <- list(1, 2)
- > l2 <- list(c1, c2)
- > f(l1) 
-   [1] 1             # a double vector, x is a list of doubles
- > f(l1, y=l2)
-   [[1]]             # a list of complex, x is a list of doubles
-   [1] 1+2i          #                      y is a list of complex
- 
-   [[2]]
-   [1] 2+1i
-\end{lstlisting}
-
-R has a builtin notion of type that can be queried by the \k{typeof}
+R's main data type is the primitive vector.  Vectors care explicitly
+constructed by the constructor \code{c(...)}, as in \code{c(1L, 2L,
+  3L)} which creates a vector of three integers.  R has a builtin
+notion of type that can be queried by the \k{typeof}
 function. Figure~\ref{rtypes} lists all of the builtin types that are
 provided by the language; these are the possible return values of
-\k{typeof}. There is no intrinsic notion of subtyping in R, but in many
-contexts a \k{logical} will be coerced to \k{integer}, and an \k{integer} will
-be coerced to \k{double}.  Some odd conversions can occur in corner cases, such
-as \k{1<"2"} holds and \k{c(1,2)[1.6]} returns the first element of the
-vector, as the double is converted to an integer. R does not distinguish
-between scalars and vectors (they are all vectors), so \code{typeof(5) ==}
-\code{typeof(c(5)) == typeof(c(5,5))} \code{ == "double"}. 
-
-All vectorized data types have a distinguished missing value denoted
-by \code{NA} (for ``not available'').  The default type of \code{NA}
-is \k{logical}.  We can see that \code{typeof(NA)=="logical"}, but
-\k{NA} inhabits every type: \code{typeof(c(1,NA)[2])} \k{==}
-\k{"double"}.  In addition to \code{NA}, R has a \code{NULL} value,
-and to understand why R has both a \code{NULL} value and \code{NA}
-values it is useful to remember that R is primarily designed for
-statistics and data science.  In experimental data science, it is
-useful to have a notion of a ``missing observation'', which is often
-NaN (not a number, or similar) in, e.g., MATLAB and Python.  Since
-vectors are unityped in R, it {\it must} have a ``NaN'' value for {\it
-  each} primitive type.  There single \code{NULL} null-typed value in
-the language to encompass all other cases.  In a sense, you can think
-of \code{NA} as representing a missing data point, and \code{NULL} as
-a missing data {\it set}.
+\k{typeof}. There is no intrinsic notion of subtyping in R, but in
+many contexts a \k{logical} will be coerced to \k{integer}, and an
+\k{integer} will be coerced to \k{double}.  Some odd conversions can
+occur in corner cases, such as \k{1<"2"} holds and \k{c(1,2)[1.6]}
+returns the first element of the vector, as the double is converted to
+an integer. R does not distinguish between scalars and vectors (they
+are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
+  typeof(c(5,5))} \code{ == "double"}.  With the exception of lists,
+all vectorized data types are monomorphic.  A \k{list} can hold values
+of any other type including \k{list}. For all monomorphic data types,
+attempting to store a value of a different type will cause a
+conversion. Either the value is converted to the type of the vector,
+or the vector is converted to the type of the value.
 
 \begin{wrapfigure}{r}{6.1cm}
 \footnotesize\begin{tabular}{l@{}l@{}}\hline
@@ -455,54 +367,96 @@ a missing data {\it set}.
 \k{externalprt},& \k{bytecode}, \k{weakref}\\\hline
 \end{tabular}\caption{Builtin Types}\label{rtypes}\end{wrapfigure}
 
-With one exception, all vectorized data types are monomorphic.  The
-exception is the \k{list} type which can hold values of any other type
-including \k{list}. For all monomorphic data types, attempting to
-store a value of a different type will cause a conversion. Either the
-value is converted to the type of the vector, or the vector is
-converted to the type of the value.
+\noindent
+All vectorized data types have a distinguished missing value denoted
+by \code{NA} (for ``not available'').  The type of \code{NA} is
+\k{logical} (\code{typeof(NA)=="logical"}), but \k{NA} inhabits every
+type: \code{typeof(c(1,NA)[2])} \k{==} \k{"double"}.  R also has a
+\code{NULL} value.  In data science, it is useful to have a notion of
+a ``missing observation'', since vectors are monomorphic there is a
+need for a missing value to inhabit each primitive type. In a sense,
+\code{NA} represents a missing data point, and \code{NULL} is a
+missing data set.
 
-Over the years, programmers have found the need for a richer type structure
-and have added {\it attributes}. The best way to think of attributes is as
-an optional map from names to values that can be attached to any object.
-Attributes are used to encode various type structures. They can be queried
-with functions such as \k{attributes} and \k{class}.  The addition of
-attributes lets programmers extend the set of types by tagging data with
-user-defined attributes. For example, one could define a vector of four
-values, \code{x<-c(1,2,3,4)} and then attach the attribute \k{dim} with a
-pair of numbers as value: \code{attr(x,"dim")<-c(2,2)}.  From that point,
-arithmetic functions will treat \k{x} as a 2x2 matrix. 
+Over time, programmers have found the need for a richer type
+structure.  R supports this with {\it attributes}. One may think of
+attributes as an optional map from names to values attached to any
+built in type.  Attributes are used to encode various type
+structures. They are queried with \k{attributes} and \k{class}.  Using
+attributes, programmers can extend the set of types by tagging
+data. For example, take the vector of four values,
+\code{x<-c(1,2,3,4)} and attach attribute \k{dim},
+\code{attr(x,"dim")<-c(2,2)}, to treat \k{x} as a 2x2 matrix.
 
-Another attribute that can be set is the \k{class}.  This attribute
-can be bound to a list of class names. For instance,
-\code{class(x)<-"human"} will set the class of \k{x} to be \k{human}.
-The main usage of attributes is for object-oriented programming. There
-are three object-orientation frameworks in R: S3, S4, and R5.  The S3
-object system support single dispatch on the class of the first
-argument of a function, whereas the S4 object system allows multiple
-dispatch (on all arguments). R5 allows for users to define objects in
-a more imperative style. Some of the most widely used data types
-leverage attributes, e.g., data frames and matrices. A data frame, for
-instance, is a list of vectors with a class and a column name
-attribute, and matrices are vectors with a \k{dims} attribute.
+Another attribute that can be set is the \k{class}, this is one way to
+use R for object-oriented programming.  This attribute can be bound to
+a list of class names. For instance, \code{class(x)<-"human"} will set
+the class of \k{x} to be \k{human}.  There are three
+object-orientation frameworks in R: S3, S4, and R5.  The S3 object
+system support single dispatch on the class of the first argument of a
+function, whereas the S4 object system allows multiple dispatch. R5
+allows for users to define objects in a more imperative style. Some of
+the most widely used data types leverage attributes, e.g., data frames
+and matrices. A data frame, for instance, is a list of vectors with a
+class and a column name attribute, and matrices are vectors with a
+ \k{dims} attribute.
 
-Scalar data types include the distinguished \k{NULL} value, instances
-of classes written using the S4 object system, closures, and
-environments.  The implementation of R has a number of other types
-listed in Figure~\ref{rtypes} for reference.
+
+R functions have a number of quirks.  Arguments can be assigned
+arbitrary expressions as default values; functions take variable
+numbers of parameters, and can be called positionally and nominally.
+Consider this example:
+
+\begin{lstlisting}
+f <- function(x,..., y=if(z==0) 1, z=0) { x + y + if(missing(...)) 0 else c(...) }
+\end{lstlisting}
+
+\noindent
+This function has four formal parameters, \k x, dots, \k y and \k
+z. Parameter \k x can be bound positionally or passed by name. The
+dots, \k{...}, is always positional. The remaining two parameters must
+be passed by name as they are preceded by dots; \k y and \k z have
+default values, in the case of \k z this is a constant, but \k{y} is
+bound to an expression that depends on \k z's value (if \k z is not
+zero, \k y defaults to \k{NULL}). The body of the function will add \k
+x and \k y tp either 0 or the result of concatenating the dots into a
+primitive vector. The function \k{missing} tests if a parameter was
+explicitly passed. The following are some valid invocations of \k f:
+
+\begin{lstlisting}
+ > f(1)    
+   [1] 2             # a double vector, y is 0, ... is missing
+ > f(2, 3, x=1)
+   [1] 4 5           # a double vector, y is 0, ... is 2, 3
+ > f(x=1, y=1)
+   [1] 2             # a double vector, y is 1, ... is missing
+ > f(x=1, z=1)
+   numeric(0)        # a double vector of length 0, y is NULL
+ > f(1L, 2L, y=1L)
+   [1] 4             # an integer vector, y is integer 1, ... is integer 2
+ > f(1, y=c(1,2))
+   [1] 1 2           # a double vetor, y is 1, 2, ... is missing
+\end{lstlisting}
+
+\noindent
+The above hints at polymorphism: \k f may return a vector of integers
+or of doubles of length equal to the max length of its arguments.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Designing A Type Language for R}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In this section, we set out to propose a candidate design for a type
 language to describe the arguments and return values of R functions.
-The goal is not to propose a final design, but rather to propose a
-starting point for an iterative design process.  Fig.~\ref{types}
-presents our type language. An early design choice was to stay close
-to the R language and only depart in small and hopefully
-non-controversial ways.  Functions types have the form \FUN{A_1,
-  \dots, A_n}\T where each $\A_i$ argument is either a type \T or
-\VARGS, a variable length argument list. The rest of this section
+The goal is not to propose a final design, but rather a
+starting point for an iterative design process.
+
+
+
+Fig.~\ref{types} presents our type language. An early design choice
+was to stay close to the R language and only depart in small and
+hopefully non-controversial ways.  Functions types have the form
+\FUN{A_1, \dots, A_n}\T where each $\A_i$ argument is either a type \T
+or \VARGS, a variable length argument list. The rest of this section
 details and motivates our design.
 
 \begin{figure}[!h] \noindent \small  \centering\begin{minipage}{.45\linewidth}
