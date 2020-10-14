@@ -1728,13 +1728,14 @@ The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\ch
 An obvious solution to this is simply to convert each call trace into a type, and generate a union of function types as the overall type for the function.
 This would lead to the type  \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl} for the aforementioned function.
 Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable, due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
-When comparing this consolidation strategy against the one employed throughout the paper, we find that the types are much larger \AT{character count}, and we count \AT{number} top-level unions.
-Recall that we found \AT{number} functions to be polymorphic when collapsing these unions of arrows into an arrow of unions; with unions of arrows, we find \AT{number} functions (\AT{percentage}) to be polymorphic.
+When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using this strategy are much larger, with 14,057 (55.06\%) functions have at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
+We observed 93,229 unique, independent signatures using this strategy.
 
 Another option is to employ a hybrid approach, wherein we perform a union of function types {\it after} grouping them together by return type, and performing basic primitive type consolidation on the return types.
 This has the advantage of avoiding most of the blowup of the naive approach, however this hybrid approach suffers particularly when functions return classes, as our type system does not allow us to effectively consolidate class types.
-Comparing again to the strategy employed throughout the paper, we find \AT{number} (\AT{\%}) functions to have a union of arrows, and \AT{number} (\AT{percentage}) of arguments are polymorphic.
-We additionally find that \AT{number} (\AT{\%}) of arrow types have at least one polymorphic argument.
+Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and 38,650 independent signatures.
+Most functions only have one or two top-level alternatives (23,530, or 92.17\%).
+We additionally find that 38,650 (26.14\%) of arrow types have at least one polymorphic argument.
 
 To connect this discussion with actual R types, we chose the \AT{which?} function from the \AT{which?} package, and show what the type of the function would be when using each of these strategies.
 We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}.
