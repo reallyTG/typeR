@@ -585,12 +585,12 @@ same primitive type.
 \caption{Subtyping}\label{fig:sub}
 \end{figure}
 
-\subsection{Synthesizing function type signatures}
 
-In order to keep the type signatures compact, we will compact
-union of arrows into a single top-level arrow with unions
-at each argument position. Thus, the shape of function
-signatures will be as follows:
+\subsection{Synthesizing signatures}
+
+In order to keep the type signatures compact, we will compact union of
+arrows into a single top-level arrow with unions at each argument
+position. Thus, the shape of function signatures will be as follows:
 
 \vspace*{1mm}
 \FUN{ T_{1,1} \k{~|~} T_{1,i}, \dots, T_{n,1} \k{~|~} T_{n,j}}{T_1 \k{~|~} ... \k{~|~} T_k}
@@ -619,8 +619,11 @@ subsumed by subtyping, immutable lists, and remove \nul type to
 replace them with nullables.  Higher-order functions are
 conservatively treated as \any $\rightarrow$ \any.
 
+It is noteworthy that by performing this compaction we are loosing
+precision, that is to say, the synthesized signatures will suggest
+that the function accepts combination of types that were not observed.
 
-\section{Type Extraction and Checking Pipeline}
+\section{Analysis and Instrumentation Pipeline}
 
 For this paper, we have built tooling to (\emph{a}) automate the
 extraction of raw type signatures from execution traces, (\emph{b})
@@ -637,64 +640,58 @@ is run using GNU parallel~\cite{tange2011_parallel} on Intel Xeon
     for \emph{all} CRAN packages.}\label{fig:pipeline}
 \end{figure}
 
-\subsection{Extracting raw type signature from traces}
+\subsection{Types from traces}
 
-We implemented \typetracer, an automated tool for extracting raw type
-signatures from execution traces of R programs. The goal of this tool is to
-output a tuple $\langle f, t_1, \dots, t_n, t\rangle$ for each function call
-during the execution of a program, where $f$ is an identifier for a
-function, $t_i$ are type-level summaries of the arguments and $t$ is a
-summary of the return value.
+We implemented \typetracer, an automated tool for extracting types
+from execution traces of R programs. The goal of this tool is to
+output a tuple $\langle f, t_1, \dots, t_n, t\rangle$ for each
+function call during the execution of a program, where $f$ is an
+identifier for a function, $t_i$ are type-level summaries of the
+arguments and $t$ is a summary of the return value.
 
-While this task is seemingly simple, the details and their proverbial devil
-are surprisingly tricky to get right and to scale to large, long running
-programs.  To avoid starting from scratch, our implementation reuses \rdt,
-an open source dynamic analysis framework for R~\cite{oopsla19} which
-consists of an instrumented R Virtual Machine based on GNU-R version
-3.5.0. The framework exposes hooks in the interpreter to which user defined
-callbacks can be attached. These hooks include function entry and exit,
-method dispatch for the S3 and S4 object systems, the longjumps used by the
-interpreter to implement non-local exit, creation and forcing of promises,
-variable definition, value creation, mutation and garbage collection.
+While seemingly simple, the details and their proverbial devil are
+surprisingly tricky to get right at scale.  Our implementation reuses
+\rdt, an open source dynamic analysis framework for R~\cite{oopsla19}
+which consists of an instrumented R Virtual Machine based on GNU-R
+version 3.5.0. The framework exposes hooks in the interpreter to which
+user defined callbacks can be attached. These hooks include function
+entry and exit, method dispatch for the S3 and S4 object systems, the
+longjumps used by the interpreter to implement non-local exit,
+creation and forcing of promises, variable definition, value creation,
+mutation and garbage collection.
 
-\paragraph{Raw types}
-The type information output by the tool includes the \emph{type tag} of each
-value. Internal types are translated to names in the proposed type
-system. The next bit of information is the \emph{class}, an optional list of
-names that may be absent, and, in some cases, is implicit (i.e. the
-interpreter blesses some values with the \k{matrix} and \k{array} classes
-even without attributes).  Depending on a value's type, the tool collects
-further information:
-
-\begin{itemize}
-\item For vectors, the presence of \NA values.
-\item For lists, element types by a recursive traversal.
-\item For promises, an approximation of the expression type.
-\end{itemize}
-
-\noindent
-To obtain these raw types, we make use of R's C FFI and use low-level
-machinery to collect information from the R language run-time.  Types are
-completed during post-processing, and rely on the detailed information made
-available by these low-level reflection mechanisms.
+\paragraph{Types}
+The type information output by the tool includes the \emph{type tag}
+of each value. Internal types are translated to names in the proposed
+type system. The next bit of information is the \emph{class}, an
+optional list of names that may be absent, and, in some cases, is
+implicit (i.e. the interpreter blesses some values with the \k{matrix}
+and \k{array} classes even without attributes).  Depending on a
+value's type, the tool collects further information: (a) for vectors,
+the presence of \NA values, (b) for lists, element types by a
+recursive traversal, and (c) for promises, an approximation of the
+expression type.  To obtain these types, we make use of R's C FFI and
+use low-level machinery to collect information from the R run-time.
+Types are completed during post-processing, and rely on the detailed
+information made available by these reflection mechanisms.
 
 \paragraph{Promises}
-The fact that arguments are lazy (expression are packed into promises and
-only evaluated on first access) complicates information gathering.  For
-example, some promises may remain un-evaluated, and it would be erroneous to
-force them as they may side-effect and change program behavior.  To deal
-with unevaluated arguments, we make an initial guess for each argument at
-function entry.  If the promise is later forced, we simply update the
-recorded type for the argument.
+The fact that arguments are lazy (expressions are packed into promises
+and only evaluated on first access) complicates information gathering.
+For example, some promises may remain unevaluated, and it would be
+erroneous to force them as they may side-effect and change program
+behavior.  To deal with unevaluated arguments, we make an initial
+guess for each argument at function entry and update the recorded type
+if the promise is forced.
 
 \paragraph{Missing arguments}
-Parameters which receive no values when the function is called are termed
-missing. This occurs when a function was called with too few arguments and
-no default values were specified for missing arguments.  We record a
-\k{missing} type for such argument.  There are two obvious ways to deal with
-missing arguments: type them as \any or type them as some unit type.  As we
-are performing a dynamic analysis, we conservatively type them as
-\any.
+Parameters which receive no values when the function is called are
+termed missing (not to be confused with \NA). This occurs when a
+function is called with too few arguments and no default values are
+specified for those missing arguments.  We record a \k{missing} type
+for such argument.  There are two obvious ways to deal with missing
+arguments: type them as \any or type them as some unit type.  We
+conservatively type them as \any.
 
 \paragraph{Non-local returns}
 When a function exits with a longjump, there is no return value to speak
@@ -703,91 +700,64 @@ unwinding process and record a special \k{jumped} return type for function
 returns that are skipped. As we cannot be sure of the intended return value, 
 these \k{jumped} values become \any types.
 
-\paragraph{Varargs}
-Arguments that are part of a function's varargs (denoted \VARGS) are
-ignored. We do not attempt to give varags a type in this type system.
+\paragraph{Dots}
+Arguments that are part of a dots parameter (denoted \VARGS) are
+ignored. We do not attempt to give dots a type.
 
 \paragraph{Implementation details.}
-We primarily rely on eight callbacks: \k{closure\_entry}, \k{closure\_exit},
-\k{builtin\_entry}, \k{builtin\_exit}, \k{special\_entry},
-\k{special\_exit}, \k{promise\_force\_entry}, and finally
-\k{promise\_force\_exit}.  The function-related callbacks are used mainly
-for bookkeeping: the analysis is notified that a construct has been entered
-by pushing the call onto a stack.  The calls themselves store a trace
-object that holds the type information. As R can perform
-single or multiple dispatch on function arguments depending on their class,
-the relevant information is kept by the {\tt \_entry} variants.
+We primarily rely on eight callbacks: \k{closure\_entry},
+\k{closure\_exit}, \k{builtin\_entry}, \k{builtin\_exit},
+\k{special\_entry}, \k{special\_exit}, \k{promise\_force\_entry}, and
+finally \k{promise\_force\_exit}.  The function-related callbacks are
+used mainly for bookkeeping: the analysis is notified that a construct
+has been entered by pushing the call onto a stack.  The calls
+themselves store a trace object that holds the type information. As R
+can perform single or multiple dispatch on function arguments
+depending on their class, the relevant information is kept by the {\tt
+  \_entry} variants.
 
 
-\subsection{Checking types signatures with contracts}
+\subsection{Checking signatures with contracts}
 
-One way to validate an inferred function type is to check that it is
-respected in a different program which uses the function.  For this
-purpose, we developed \contractr, an R package that allows one to
-decorate a function with assertions. We use it to insert type checking
-of arguments and return values.
-
-\contractr's primary logic has been implemented in C++ to reduce its
-runtime overhead, and we have not observed a single segmentation fault
-during our use of the package.  It has been tested with GNU R-3.5.0
-and hardened with a battery of 400 test cases. It works by modifying
-function definitions to insert a call to a type-checking function.
-
-In terms of usability, our checker is enabled automatically whenever a
-package is loaded in R. So, a simple invocation of
-\code{library(contractr)} causes contracts to be injected in all
-packages. On loading, \contractr scans all packages in the user's
-workspace and inserts contracts in functions for which type signatures
-are available. Then \contractr sets up package load hooks which are
-executed when new packages are loaded. Furthermore, \contractr
-automatically removes contracts from all functions and restores them
-to their original state when it is unloaded. The type signatures can
-be provided in an external file, thus avoiding the need to change the
-source code of checked packages. Type declarations can also be written
-directly in the adjunct function comments using
-\roxygen~\footnote{\url{https://cran.r-project.org/web/packages/roxygen2/}}
-annotation tags. \contractr introduces a new use \code{@type}
-tag. When a package these type signatures are extracted and stored in
-the appropriate location. The following is an example of a type
-annotation using \roxygen:
+One can validate a function's type signature by checking that it is
+respected in all programs that call the function.  For this, we
+developed \contractr, an R package that decorates functions with
+assertions. We use it to insert type checking code around functions.
+For speed, \contractr's primary logic is implemented in C++.  It has
+been tested with GNU R-3.5.0 and hardened with a battery of 400 test
+cases.  An invocation of \code{library(contractr)} causes contracts to
+be injected. \contractr scans all packages in the workspace and
+inserts contracts in functions for which type signatures are
+available. Package load hooks are executed when new packages are
+loaded. \contractr automatically removes contracts from all functions
+and restores them to their original state when it is unloaded. The
+type signatures can be provided in an external file, thus avoiding the
+need to change the source code of checked packages. Type declarations
+can also be written in comments using \roxygen annotations, using the
+\code{@type} tag:
 
 \begin{lstlisting}
-#' @type <chr> => int
-#' @export
-file_size <- function(f) { ... }
+ #' @type <chr> => int
+ #' @export
+ file_size <- function(f) { ... }
 \end{lstlisting}
 
-\contractr provides an extensive API that allows users to explicitly
-insert contracts during interactive development by supplying the type
-signature as a string, selectively disable contract checking, and
-inspecting type assertions.
-
-\paragraph{Checking the values} A number of properties can be checked
-by a simple tag check, namely whether a value is a null, environment,
-vector or scalar. Other properties require an inspection of the
-contents of a value, such as checking for the absence of \NA or the
-type of the elements of list. Union types require checking for each of
-the members of the union. As the usage of higher-order functions
-remains limited in R, we do not check higher-order functions in this
-version of the tool. Checking them could be done by dynamically
-wrapping functions with checks.  When argument values are wrapped in
-promises (this is not always the case due to compiler optimizations),
-in order to retain the non-strict semantics of R, the expression held
-in the promise is wrapped in a call to the type checker, and type
-checking is delayed until the promise is forced. This leads to corner
-cases such that the type checking of a function may happen after that
-function has returned.
-
-Return values require care as well.  Functions return the last
-expression they evaluate, thus to avoid having to analyze the code of
-the called function the checker will register a callback on the exit
-hook. The hook is executed in the function call's environment. Another
-wrinkle is due to longjumps which causes active function calls on the
-stack to be discarded. When they are discarded, their exit hooks are
-called but they do not have a return value to type-check. \contractr
-deals with this problem by allocating a unique sentinel object which
-serves as the return value for calls that are discarded. The exit hook
-does not call the type-checker if it see the sentinel.
+The injected contracts check arguments with a simple tag check when
+possible. Some properties require traversing data structures, such as
+the absence of \NA. For union types, multiple checks may be needed, at
+worst one per member of the union.  In order to retain the non-strict
+semantics of R, the expression held in a promise is wrapped in a call
+to the type checker, and type checking is delayed until the promise is
+forced. This leads to corner cases such that the type checking of a
+function may happen after that function has returned.  Return values
+require care as well.  Functions return the last expression they
+evaluate, thus a callback is added to the exit hook.  Another wrinkle
+is due to longjumps which causes active function calls on the stack to
+be discarded. When they are discarded, their exit hooks are called but
+they do not have a return value to type-check. \contractr deals with
+this problem by allocating a unique sentinel object which serves as
+the return value for calls that are discarded. The exit hook does not
+call the type-checker if it see the sentinel.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1705,33 +1675,23 @@ functions automatically. This can remove or partially remove over
 Throughout this paper, we employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all of the observed types at that position.
 We then simplified these unions using the rules presented in Section~\ref{fig:siplification-rules}.
 We call this an {\it arrow of unions}.
-This strategy was not developed in a vacuum, and we will now discuss some of the decisions that we made in choosing it.
+Now, this strategy was not developed in a vacuum, and we will now discuss some of the decisions that we made in choosing it.
 
-Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types are obscured when taking a per-argument union of types.
+Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types are obscured when all argument and return types are unioned.
 For example, consider a function with two unique call traces, \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl}.
-The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which obscures the (potential) relationship between the argument and return type (e.g., it is not as clear that the function maps character inputs to character outputs).
+The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which obscures the (potential) relationship between the argument and return type.
 
-One solution to this is simply to convert each call trace into a type, and generate a union of arrow types as the overall type for the function.
+One solution to this is simply to convert each call trace into a type, and generate a union of function types as the overall type for the function.
 This would lead to the type  \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl} for the aforementioned function.
-We call this the {\it basic union of arrows} strategy.
-Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
-When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using are much larger, with 14,057 (55.06\%) functions have at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
-We observed 93,229 independent signatures using this strategy (i.e., the function types using the union of arrows strategy are made up of some ~93K arrow types).
+Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable, due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
+When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using this strategy are much larger, with 14,057 (55.06\%) functions have at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
+We observed 93,229 unique, independent signatures using this strategy.
 
-Another option is to employ a hybrid approach, wherein we group function traces by return type, and apply the arrow of unions strategy to these groups.
-We also perform basic primitive type consolidation on return types, so we would, e.g., merge two function traces \FUN{\dbl}{\int} and \FUN{\dbl}{\VEC\int} into a single arrow type, \FUN{\dbl}{\VEC\int}.
-% wherein we perform a union of function types {\it after} grouping them together by return type, and performing basic primitive type consolidation on the return types.
-We refer to this as the {\it hybrid union of arrows} strategy.
+Another option is to employ a hybrid approach, wherein we perform a union of function types {\it after} grouping them together by return type, and performing basic primitive type consolidation on the return types.
 This has the advantage of avoiding most of the blowup of the naive approach, however this hybrid approach suffers particularly when functions return classes, as our type system does not allow us to effectively consolidate class types.
-Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and we find 38,650 independent signatures.
+Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and 38,650 independent signatures.
 Most functions only have one or two top-level alternatives (23,530, or 92.17\%).
 We additionally find that 38,650 (26.14\%) of arrow types have at least one polymorphic argument.
-
-Figure~\ref{fig:mergecomp} shows a comparison of these two alternative merge strategies.
-Functions are grouped by the number of {\it top-level alternatives} in their types, and the number of top-level alternatives in a function type is the number of arrow types in the union of arrows.
-For example, the function type \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} has two top-level alternatives.
-We see that just over 40\% of functions have a single arrow type at the top level using the basic union of arrows strategy, which climbs to nearly 80\% when employing the hybrid approach.
-Further, over 5\% of function types have $>9$ top-level alternatives using the basic strategy.
 
 \begin{figure}[!h]  \centering
 	\includegraphics[width=.8\linewidth]{plots/merge_strategy_comp.pdf}
@@ -1743,9 +1703,9 @@ Further, over 5\% of function types have $>9$ top-level alternatives using the b
 To connect this discussion with actual R types, we chose the \code{correlation} function from the \code{agricolae} package, and show what the type of the function would be when using each of these strategies.
 \code{agricolae::correlation} obtains the coefficients of correlation and p-value between all variables of some input data table, and uses a method of the user's choosing.
 It returns the correlation matrix and the probability together in a list.
-We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}:
+We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}.
 We see that the hybrid approach produces a much smaller type, with only two arrow types in the top-level union.
-Moreover, we see that no real precision is lost when further reducing the function type to a pure arrow of unions, as the two top-level alternatives in the type obtained with the hybrid approach are not very informative.
+Moreover, we see that no real precision is lost when further reducing the function type to a pure arrow of unions, as the two options in the type obtained with the hybrid approach are not very informative.
 
 \begin{table}[H]
 	\centering
@@ -1773,12 +1733,12 @@ Moreover, we see that no real precision is lost when further reducing the functi
 	\caption{Types of \code{agricolae::correlation} with different type merge strategies. }\label{tbl:real-function-different-merge-strats}
 \end{table}
 
-In contrast, there are real cases where a meaningful loss of precision occurs.
+On the other hand, there are real cases where a meaningful loss of precision occurs.
 Consider instead the \code{rename} function from the \code{dplyr} package, with types shown in Figure~\ref{tbl:real-function-different-merge-strats-2}.
 This function takes a data frame and renames selected columns.
 We see that with both the union-of-arrows and hybrid approach, the types are the same (with only three unique function signatures observed), and can glean from these types that \code{dplyr::rename} produces a data frame of the {\it same class} as the input.
-This information is lost in the arrow of unions merge strategy.
-We believe that the arrow of unions type will be much improved once the type system is extended with user-defined type hierarchies.
+This information is lost in the arrow-of-unions merge strategy.
+That said, once we extend the type system with proper user-defined type hierarchies, the union-of-arrows type will be much more clear.
 
 \begin{table}[H]
 	\centering
@@ -1805,16 +1765,16 @@ We believe that the arrow of unions type will be much improved once the type sys
 			} \\
 			\bottomrule
 	\end{tabular}}
-	\caption{Types of \code{dplyr::rename} with different type merge strategies. }\label{tbl:real-function-different-merge-strats-2}
+	\caption{Types of \code{X::Y} with different type merge strategies. }\label{tbl:real-function-different-merge-strats-2}
 \end{table}
 
 Finally, we want to briefly discuss types for base package functions (in R, functions like \code{+}, \code{-}, vector access, etc. are part of the {\it base package}).
 One can find the implementation of these functions in the R source code\footnote{A read-only mirror of the R source can be found at \url{https://github.com/wch/r-source}.}, where they are implemented in C.
 As we have alluded to, these functions coerce mismatched arguments in an ad hoc manner, with no real defined semantics.
 Further, functions like \code{+} often act on values based on their type (according to \code{typeof}), and ignore the class unless some package extended \code{+} to dispatch on some new class.
-This leads to incredibly large infered signatures for these functions:
+This leads to incredibly large infered signatures for these functions.
 Even after counting out traces related to S3 and S4 dispatch, the type of \code{+} using the hybrid approach has 29 top-level alternatives, 22 of which have a class-typed argument.
-We don't believe these types to be particularly useful to a programmer, but a compiler may find them useful, as given a set of types for inputs, it can select the appropriate arrow type from the top-level alternatives.
+We don't believe this type to be particularly useful to a programmer, but a compiler might find it quite useful, as given a set of types for inputs, it can select the appropriate arrow type from the top-level alternatives.
 
 %
 %
