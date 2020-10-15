@@ -408,7 +408,7 @@ numbers of parameters, and can be called positionally and nominally.
 Consider this example:
 
 \begin{lstlisting}
-f <- function(x,..., y=if(z==0) 1, z=0) { x + y + if(missing(...)) 0 else c(...) }
+ f <- function(x,..., y=if(z==0) 1, z=0) { x + y + if(missing(...)) 0 else c(...) }
 \end{lstlisting}
 
 \noindent
@@ -584,16 +584,12 @@ same primitive type.
 \caption{Subtyping}\label{fig:sub}
 \end{figure}
 
-\subsection{Synthesizing signatures}
+\subsection{Synthesizing function type signatures}
 
-
-
-The output of the \typetracer tool consists of a set of tuples of raw
-types, each representing a function call in some program's
-execution. The inference step consolidates the different tuples
-corresponding to a particular function definition across multiple
-programs and distills them into a single type signature.  The shape of
-the inferred function signatures is:
+In order to keep the type signatures compact, we will compact
+union of arrows into a single top-level arrow with unions
+at each argument position. Thus, the shape of function
+signatures will be as follows:
 
 \vspace*{1mm}
 \FUN{ T_{1,1} \k{~|~} T_{1,i}, \dots, T_{n,1} \k{~|~} T_{n,j}}{T_1 \k{~|~} ... \k{~|~} T_k}
@@ -604,8 +600,7 @@ In other words, we take the union of the types occurring at individual
 argument positions rather than an union of function
 types. Furthermore, we apply some transformation on the types to keep
 the size of types in check.  Figure~\ref{fig:siplification-rules}
-overviews the main simplification rules as well as the simple notion
-of subtyping that we have adopted here.
+overviews the main simplification rules that we have adopted here.
 
 \begin{figure}[h!tb]\begin{tabular}{rclll}
   \T \k{~|~} \T  & $\Rightarrow$ &  \T &  \\
@@ -620,9 +615,8 @@ of subtyping that we have adopted here.
 Assuming that type sequences can be reordered freely, we rewrite types
 to minimize their size by removing redundant types, types that are
 subsumed by subtyping, immutable lists, and remove \nul type to
-replace them with nullables.  Functions are limited to twenty
-arguments as a simplifying assumption. Higher-order functions are
-conservatively inferred as \any $\rightarrow$ \any by \typetracer.
+replace them with nullables.  Higher-order functions are
+conservatively treated as \any $\rightarrow$ \any.
 
 
 \section{Type Extraction and Checking Pipeline}
