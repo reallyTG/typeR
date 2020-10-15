@@ -454,7 +454,9 @@ Given the pecularities of the language there are a number of design
 choices that need to be reviewed and evaluated. It is uncontroversial
 to include types that cover the six kinds of primitive vectors,
 furthermore environments and the distinguished null types are commonly
-used and must be included. Fig.~\ref{types} presents our type language.
+used and must be included. For simplicity, we omit some of the data
+types that closer to the implementation of the
+language. Fig.~\ref{types} presents our type language.
 
 \begin{figure}[!h] \noindent \small  \centering\begin{minipage}{.45\linewidth}
 \begin{tabular}{lclr}
@@ -465,38 +467,46 @@ used and must be included. Fig.~\ref{types} presents our type language.
   & |   & \V            & \it vector type \\
   & |   & \T~\k{|}\T    & \it union type \\
   & |   & \k{?} \T      & \it nullable type \\
-  & |   & \FUN{A_1, ..., A_n}\T    & \it function type \\
+  & |   & \FUN{A_1, \dots~ A_n}\T    & \it function type \\
   & |   & \LIST\T                  & \it list type\\
-  & |   & \CLASS{ID_1, ..., ID_n}  & \it class type\vspace{5pt}\\
+  & |   & \CLASS{ID_1, \dots~ ID_n}  & \it class type\vspace{5pt}\\
 \end{tabular}\end{minipage}   \hfill
 \begin{minipage}{.45\linewidth}\begin{tabular}{lclr}
 \A & ::= & \T          & \it arguments \\
-   & |   & \VARGS      & \vspace{5pt} \\
-\V & ::= & ~\VEC\S     & \\
+   & |   & \VARGS      & \it dots \vspace{5pt} \\
+\V & ::= & ~\VEC\S     & \it vector types\\
    & |   & \NAVEC\S    & \it na vector types \vspace{5pt}\\
-\S & ::= & \int        & \\
-   & |   & \chr \\
-   & |   & \dbl \\
-   & |   & \lgl \\
-   & |   & \clx \\
-   & |   & \raw \vspace{5pt}\\
+\S & ::= & \int        & \it integer\\
+   & |   & \chr        & \it character\\
+   & |   & \dbl        & \it double \\
+   & |   & \lgl        & \it logical\\
+   & |   & \clx        & \it complex \\
+   & |   & \raw        & {\it raw } \vspace{5pt}\\%
 \end{tabular}\end{minipage}\caption{The R type language}\label{types}
 \end{figure}
 
-\paragraph{Scalars} We distinguish between
-vectors of length 1, and vectors of any dimension. The base types, \int,
-\dbl, \clx, \lgl (booleans), \chr, and \raw (bytes), can be either vectors
-(e.g., \VEC\int) or scalars (e.g., \int).  A vector can happen to be of
-length 1, and thus a scalar value is also a vector.  Vectors are
-homogeneous, in that a vector of doubles contains only doubles.
+\paragraph{Scalars} While R does not have scalar data types, there are
+cases where functions except scalar values, for example a conditional
+takes a single logical (and will complain if more values are passed).
+We considered tracking dimensions of data structures, but decided
+against it. Instead, the type language differentiates between vectors
+of lenght 1 and vectors of any dimension.  The primitive types can be
+either vectors (e.g., \VEC\int) or scalars (e.g., \int).  A vector can
+happen to be of length 1, and thus a scalar is also a vector.  Vectors
+are monomorphic, a vector of doubles contains only doubles.
 
 \paragraph{Missing} 
-Each of basic types has its specific \NA. Thus there is an \int \NA as
-well as a \dbl \NA, and they are different.  The type system allows
-one to distinguish between vectors that may contain {\NA}s (written
-\NAVEC\int) and those who are guarantee to be \NA-free (\VEC\int).  A
-\NA-free vector can be treated as a vector that may {\NA}s.  We do not
-allow scalar values to be \NA and the type \raw does not allow {\NA}s.
+Each of basic types has its specific \NA. Many built-in functions,
+especially those implemented in C or Fortran, do not support \NA
+values.  It is thus advantageous to distinguish between vector that
+can contain missing values and those that are guaranteed not to.  In
+our experience, functions that expect scalar values tend to not admit
+{\NA}s, thus scalar types are treated as being \NA-free. The type
+language does allows to write \VEC\int to specify that a vector of
+integers may have {\NA}s and \NAVEC\int to say that a vector must not
+have missing values. Of course, a value of type \VEC\int may happen to
+not have any \NA and thus be of type \NAVEC\int.  The type \raw does
+not allow {\NA}s, so \VEC\raw is \NA-free.
 
 \paragraph{Unions} We support untagged unions of types written
 $\T_1 \k{~|~} ... \k{~|~} \T_n$. It is noteworthy that the elements
