@@ -1685,13 +1685,13 @@ functions automatically. This can remove or partially remove over
 Throughout this paper, we employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all of the observed types at that position.
 We then simplified these unions using the rules presented in Section~\ref{fig:siplification-rules}.
 We call this an {\it arrow of unions}.
-Now, this strategy was not developed in a vacuum, and we will now discuss some of the decisions that we made in choosing this strategy.
+Now, this strategy was not developed in a vacuum, and we will now discuss some of the decisions that we made in choosing it.
 
 Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types are obscured when all argument and return types are unioned.
 For example, consider a function with two unique call traces, \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl}.
 The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which obscures the (potential) relationship between the argument and return type.
 
-An obvious solution to this is simply to convert each call trace into a type, and generate a union of function types as the overall type for the function.
+One solution to this is simply to convert each call trace into a type, and generate a union of function types as the overall type for the function.
 This would lead to the type  \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl} for the aforementioned function.
 Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable, due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
 When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using this strategy are much larger, with 14,057 (55.06\%) functions have at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
@@ -1777,6 +1777,14 @@ That said, once we extend the type system with proper user-defined type hierarch
 	\end{tabular}}
 	\caption{Types of \code{X::Y} with different type merge strategies. }\label{tbl:real-function-different-merge-strats-2}
 \end{table}
+
+Finally, we want to briefly discuss types for base package functions (in R, functions like \code{+}, \code{-}, vector access, etc. are part of the {\it base package}).
+One can find the implementation of these functions in the R source code\footnote{A read-only mirror of the R source can be found at \url{https://github.com/wch/r-source}.}, where they are implemented in C.
+As we have alluded to, these functions coerce mismatched arguments in an ad hoc manner, with no real defined semantics.
+Further, functions like \code{+} often act on values based on their type (according to \code{typeof}), and ignore the class unless some package extended \code{+} to dispatch on some new class.
+This leads to incredibly large infered signatures for these functions.
+Even after counting out traces related to S3 and S4 dispatch, the type of \code{+} using the hybrid approach has 29 top-level alternatives, 22 of which have a class-typed argument.
+We don't believe this type to be particularly useful to a programmer, but a compiler might find it quite useful, as given a set of types for inputs, it can select the appropriate arrow type from the top-level alternatives.
 
 %
 %
