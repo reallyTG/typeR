@@ -490,7 +490,7 @@ language. Fig.~\ref{types} presents our type language.
 \end{figure}
 
 \paragraph{Scalar} While R does not have scalar data types, there are
-cases where functions except scalar values, for example a conditional
+cases where functions expect scalar values, for example a conditional
 takes a single logical (and will complain if more values are passed).
 We considered tracking dimensions of data structures, but decided
 against it. Instead, the type language differentiates between vectors
@@ -1679,25 +1679,26 @@ We then simplified these unions using the rules presented in Section~\ref{fig:si
 We call this an {\it arrow of unions}.
 This strategy was not developed in a vacuum, and we will now discuss some of the decisions that went into it.
 
-Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types are obscured when all argument and return types are unioned.
+Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types can be obscured.
 For example, consider a function with two unique call traces, \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl}.
-The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which obscures the (potential) relationship between the argument and return type.
+The arrow of union strategy results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which hides the (potential) relationship between the argument and return type.
 
 One solution to this is simply to convert each call trace into an arrow type, and generate a union of arrow types as the overall type for the function, dubbed the basic {\it union of arrows} strategy.
 This would lead to the type  \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl} for the aforementioned function.
-Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable, due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
-When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using this strategy are much larger, with 14,057 (55.06\%) functions have at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
-We observed 93,229 independent signatures using this strategy.
+Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
+When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using this strategy are much larger, with 14,057 (55.06\%) functions having at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
+We observed 93,229 independent arrow types using this strategy.
 
 Another option is to employ a hybrid approach, wherein we perform the union of arrow types {\it after} grouping them together by return type (to further simplify we also combine some primitive return types together, such as \dbl and \VEC\dbl).
 While this has the advantage of reducing most of the blow-up of the previous approach, it suffers particularly when functions return classes, as our type system does not allow us to effectively consolidate class types.
-Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and 38,650 independent signatures.
-Most functions only have one or two top-level alternatives (23,530, or 92.17\%).
+This strategy would reduce arrow types \FUN{\chr}{\dbl}, \FUN{\VEC\chr}{\dbl}, and \FUN{\NAVEC\chr}{\dbl} into the function type \FUN{\NAVEC\chr}{\dbl}.
+Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and we found 38,650 independent arrow types.
 We additionally find that 38,650 (26.14\%) of arrow types have at least one polymorphic argument.
 
 These findings are summarized in Figure~\ref{fig:mergecomp}, which shows a breakdown of the number of {\it top-level alternatives} in the function types obtained with both of these strategies.
 The term ``top-level alternative'' signifies an arrow type in the union of arrows, e.g., \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl} are top-level alternatives in the type \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl}.
-We see that the hybrid approach greatly increases the number of functions with no union of arrows at the function level, and nearly 5\% of function types obtained with the basic union of arrows strategy have over 9 top-level alternatives.
+We see that the hybrid approach greatly increases the number of functions with no union of arrows at the function level, where 92\% of functions only have one or two top-level alternatives.
+Also, nearly 5\% of function types obtained with the basic union of arrows strategy have over 9 top-level alternatives.
 
 \begin{figure}[!h]  \centering
 	\includegraphics[width=.8\linewidth]{plots/merge_strategy_comp.pdf}
@@ -1706,9 +1707,9 @@ We see that the hybrid approach greatly increases the number of functions with n
 
 % To connect this discussion with actual R types, we chose the \code{discretize} function from the \code{arules} package, and show what the type of the function would be when using each of these strategies.
 % The purpose of the function is to convert a continuous variable into a categorical variable, using several unsupervised learning methods.
-To connect this discussion with actual R types, we chose the \code{correlation} function from the \code{agricolae} package, and show what the type of the function would be when using each of these strategies.
-\code{agricolae::correlation} obtains the coefficients of correlation and p-value between all variables of some input data table, and uses a method of the user's choosing.
-It returns the correlation matrix and the probability together in a list.
+To connect this discussion with actual R types, we show what the types of the \code{correlation} function from the \code{agricolae} would be when using each of these strategies.
+\code{agricolae::correlation} obtains the coefficients of correlation and p-value between all variables of some input data table, using a method of the user's choosing.
+It returns the correlation matrix and the p-value (a double) together in a list.
 We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}, where we see that the hybrid approach produces a much smaller type, with only two arrow types in the top-level union.
 Moreover, we see that no real precision is lost when further reducing the function type to a pure arrow of unions, as the two top-level alternatives in the type obtained with the hybrid approach are not very informative.
 
@@ -1741,9 +1742,9 @@ Moreover, we see that no real precision is lost when further reducing the functi
 In contrast, there are real cases where a meaningful loss of precision occurs.
 Consider instead the \code{rename} function from the \code{dplyr} package, with types shown in Figure~\ref{tbl:real-function-different-merge-strats-2}.
 This function takes a data frame and renames selected columns.
-We see that with both the union-of-arrows and hybrid approach, the types are the same (with only three unique function signatures observed), and can glean from these types that \code{dplyr::rename} produces a data frame of the {\it same class} as the input.
+We see that the types are the same with both the union of arrows and hybrid approach (with only three unique function signatures observed), and can glean from these types that \code{dplyr::rename} produces a data frame of the {\it same class} as the input.
 This information is lost in the arrow-of-unions merge strategy.
-That said, once the type system is extend with proper user-defined type hierarchies, the arrow of unions type will be much smaller and more informative (as data frames, grouped tibbles, and tibbles are likely all related types).
+That said, once the type system is extend with proper user-defined type hierarchies, the arrow of unions type will be much smaller and more informative (as data frames, grouped tibbles, and tibbles all related types).
 
 \begin{table}[H]
 	\centering
@@ -1773,10 +1774,9 @@ That said, once the type system is extend with proper user-defined type hierarch
 	\caption{Types of \code{X::Y} with different type merge strategies. }\label{tbl:real-function-different-merge-strats-2}
 \end{table}
 
-Finally, we want to briefly discuss types for base package functions (in R, functions like \code{+}, \code{-}, vector access, etc. are part of the {\it base package}).
-One can find the implementation of these functions in the R source code\footnote{A read-only mirror of the R source can be found at \url{https://github.com/wch/r-source}.}, where they are implemented in C.
+Finally, we want to briefly discuss types for base package functions (in R, functions like \code{+}, \code{-}, and vector access are part of the {\it base package}).
 As we have alluded to, these functions coerce mismatched arguments in an ad hoc manner, with no real defined semantics.
-Further, functions like \code{+} often act on values based on their type (according to \code{typeof}), and ignore the class unless some package extended \code{+} to dispatch on some new class.
+Further, functions like \code{+} often act on values based on their type (according to \code{typeof}), and ignore the class, unless a package extended \code{+} to dispatch on the class.
 This leads to incredibly large infered signatures for these functions.
 Even after counting out traces related to S3 and S4 dispatch, the type of \code{+} using the hybrid approach has 29 top-level alternatives, 22 of which have a class-typed argument.
 We don't believe this type to be particularly useful to a programmer, but a compiler might find it quite useful, as given a set of types for inputs, it can select the appropriate arrow type from the top-level alternatives.
