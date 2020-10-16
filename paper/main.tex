@@ -271,7 +271,7 @@ following contributions:
   language for R.
 \item Our data and code are open source and publicly
   available.\footnote{ \url{github.com/PRL-PRG/propagatr},
-  \url{github.com/PRL-PRG/contractr}, {\bf TODO add DATA link}}
+  \url{github.com/PRL-PRG/contractr}, data: \url{doi.org/10.5281/zenodo.4091818}, artifact: \url{doi.org/10.5281/zenodo.4037278}}
 \end{itemize}
 
 %
@@ -1371,6 +1371,8 @@ involved in a failing contract check, these functions are under-tested,
 representing only \PERCCALLSBADFUNSINTESTS of calls observed while inferring
 types. 
 
+\pagebreak
+
  %
  %
  \subsubsection{Other Observations}
@@ -1672,26 +1674,30 @@ functions automatically. This can remove or partially remove over
 %
 \section{Discussion}
 
-Throughout this paper, we employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all of the observed types at that position.
+Throughout this paper, we employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all the observed types at that position.
 We then simplified these unions using the rules presented in Section~\ref{fig:siplification-rules}.
 We call this an {\it arrow of unions}.
-Now, this strategy was not developed in a vacuum, and we will now discuss some of the decisions that we made in choosing it.
+This strategy was not developed in a vacuum, and we will now discuss some of the decisions that went into it.
 
 Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types are obscured when all argument and return types are unioned.
 For example, consider a function with two unique call traces, \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl}.
 The strategy we employed results in a combined type of \FUN{\chr \;|\; \dbl}{\chr \;|\; \dbl} for the function, which obscures the (potential) relationship between the argument and return type.
 
-One solution to this is simply to convert each call trace into a type, and generate a union of function types as the overall type for the function.
+One solution to this is simply to convert each call trace into an arrow type, and generate a union of arrow types as the overall type for the function, dubbed the basic {\it union of arrows} strategy.
 This would lead to the type  \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl} for the aforementioned function.
 Unfortunately, this leads to a significant blow-up in the size of types, and makes many types unreadable, due to the myriad ways in which we combine the primitive types, as recall that, e.g., scalars and vectors are not the same type, and we see many types of the form \FUN{\chr}{\dbl} $|$ \FUN{\VEC\chr}{\dbl} $|$ \FUN{\NAVEC\chr}{\dbl}.
 When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using this strategy are much larger, with 14,057 (55.06\%) functions have at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
-We observed 93,229 unique, independent signatures using this strategy.
+We observed 93,229 independent signatures using this strategy.
 
-Another option is to employ a hybrid approach, wherein we perform a union of function types {\it after} grouping them together by return type, and performing basic primitive type consolidation on the return types.
-This has the advantage of avoiding most of the blowup of the naive approach, however this hybrid approach suffers particularly when functions return classes, as our type system does not allow us to effectively consolidate class types.
+Another option is to employ a hybrid approach, wherein we perform the union of arrow types {\it after} grouping them together by return type (to further simplify we also combine some primitive return types together, such as \dbl and \VEC\dbl).
+While this has the advantage of reducing most of the blow-up of the previous approach, it suffers particularly when functions return classes, as our type system does not allow us to effectively consolidate class types.
 Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and 38,650 independent signatures.
 Most functions only have one or two top-level alternatives (23,530, or 92.17\%).
 We additionally find that 38,650 (26.14\%) of arrow types have at least one polymorphic argument.
+
+These findings are summarized in Figure~\ref{fig:mergecomp}, which shows a breakdown of the number of {\it top-level alternatives} in the function types obtained with both of these strategies.
+The term ``top-level alternative'' signifies an arrow type in the union of arrows, e.g., \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl} are top-level alternatives in the type \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl}.
+We see that the hybrid approach greatly increases the number of functions with no union of arrows at the function level, and nearly 5\% of function types obtained with the basic union of arrows strategy have over 9 top-level alternatives.
 
 \begin{figure}[!h]  \centering
 	\includegraphics[width=.8\linewidth]{plots/merge_strategy_comp.pdf}
@@ -1703,9 +1709,8 @@ We additionally find that 38,650 (26.14\%) of arrow types have at least one poly
 To connect this discussion with actual R types, we chose the \code{correlation} function from the \code{agricolae} package, and show what the type of the function would be when using each of these strategies.
 \code{agricolae::correlation} obtains the coefficients of correlation and p-value between all variables of some input data table, and uses a method of the user's choosing.
 It returns the correlation matrix and the probability together in a list.
-We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}.
-We see that the hybrid approach produces a much smaller type, with only two arrow types in the top-level union.
-Moreover, we see that no real precision is lost when further reducing the function type to a pure arrow of unions, as the two options in the type obtained with the hybrid approach are not very informative.
+We refer the reader to Figure~\ref{tbl:real-function-different-merge-strats}, where we see that the hybrid approach produces a much smaller type, with only two arrow types in the top-level union.
+Moreover, we see that no real precision is lost when further reducing the function type to a pure arrow of unions, as the two top-level alternatives in the type obtained with the hybrid approach are not very informative.
 
 \begin{table}[H]
 	\centering
@@ -1733,12 +1738,12 @@ Moreover, we see that no real precision is lost when further reducing the functi
 	\caption{Types of \code{agricolae::correlation} with different type merge strategies. }\label{tbl:real-function-different-merge-strats}
 \end{table}
 
-On the other hand, there are real cases where a meaningful loss of precision occurs.
+In contrast, there are real cases where a meaningful loss of precision occurs.
 Consider instead the \code{rename} function from the \code{dplyr} package, with types shown in Figure~\ref{tbl:real-function-different-merge-strats-2}.
 This function takes a data frame and renames selected columns.
 We see that with both the union-of-arrows and hybrid approach, the types are the same (with only three unique function signatures observed), and can glean from these types that \code{dplyr::rename} produces a data frame of the {\it same class} as the input.
 This information is lost in the arrow-of-unions merge strategy.
-That said, once we extend the type system with proper user-defined type hierarchies, the union-of-arrows type will be much more clear.
+That said, once the type system is extend with proper user-defined type hierarchies, the arrow of unions type will be much smaller and more informative (as data frames, grouped tibbles, and tibbles are likely all related types).
 
 \begin{table}[H]
 	\centering
