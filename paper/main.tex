@@ -1455,11 +1455,11 @@ it to return the integer \code{NA} value, or error).
  really ought to have been tested with the offending type, for
  instance:
  \begin{lstlisting}
-combinat::permn <- function (x, fun = NULL, ...) {
+  combinat::permn <- function (x, fun = NULL, ...) {
     if (is.numeric(x) && length(x) == 1 && x > 0 && trunc(x) == x) 
         x <- seq(x)
     # ...
-}
+  }
  \end{lstlisting}
  As per the documentation, this function is intended to take a vector,
  and generate all permutations of elements in that vector.  If given a
@@ -1558,11 +1558,11 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
  two, as is the case here.  One function producing many of these
  errors is the following:
  \begin{lstlisting}
-class::knn <- function (train, test, cl, k = 1, l = 0, prob = FALSE, use.all = TRUE)  {
+  class::knn <- function (train, test, cl, k = 1, l = 0, prob = FALSE, use.all = TRUE)  {
     train <- as.matrix(train)
     test <- as.matrix(test)
     ...
-}
+  }
  \end{lstlisting}
  We see that \code{class::knn} coerces its first two arguments to matrices.
  On the topic of coercion, rows two and three of Table~ are interesting as they depict {\it factors} being passed to arguments expecting character vectors.
@@ -1576,7 +1576,7 @@ class::knn <- function (train, test, cl, k = 1, l = 0, prob = FALSE, use.all = T
  user defined their own class, {\tt ixforeach}, and wanted to use the
  \code{iterators} package (the user called \code{iterator::iter} with
  a \CLASS{{\tt ixforeach}}, and it gained the class {\tt iter} on
- return).  As we mentioned, accounting for object-orientation in the
+ return).  As mentioned, accounting for object-orientation in the
  type system is beyond the scope of this work, and such an inclusion
  would allow us to better type situations like this.
  
