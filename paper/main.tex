@@ -326,25 +326,23 @@ vectorized, dynamic, lazy, functional, object-oriented language with
 an unusual combination of features~\cite{ecoop12}.  R was designed by
 \citet{R96} as a successor to S~\cite{S88}.
 
-R's main data type is the primitive vector.  Vectors care explicitly
+R's main data type is the primitive vector.  Vectors are explicitly
 constructed by the constructor \code{c(...)}, as in \code{c(1L, 2L,
   3L)} which creates a vector of three integers.  R has a builtin
-notion of type that can be queried by the \k{typeof}
-function. Figure~\ref{rtypes} lists all of the builtin types that are
+notion of type that can be queried with the \k{typeof}
+function. Figure~\ref{rtypes} lists all of the builtin types
 provided by the language; these are the possible return values of
 \k{typeof}. There is no intrinsic notion of subtyping in R, but in
-many contexts a \k{logical} will be coerced to \k{integer}, and an
-\k{integer} will be coerced to \k{double}.  Some odd conversions can
-occur in corner cases, such as \k{1<"2"} holds and \k{c(1,2)[1.6]}
+many contexts a \k{logical} will be coerced to \k{integer}, an
+\k{integer} will be coerced to \k{double}, and a \k{double} will be coerced to \k{complex}.  
+Some odd conversions occur in corner cases, such as \k{1<"2"} holds and \k{c(1,2)[1.6]}
 returns the first element of the vector, as the double is converted to
 an integer. R does not distinguish between scalars and vectors (they
 are all vectors), so \code{typeof(5) ==} \code{typeof(c(5)) ==
-  typeof(c(5,5))} \code{ == "double"}.  With the exception of lists,
-all vectorized data types are monomorphic.  A \k{list} can hold values
-of any other type including \k{list}. For all monomorphic data types,
-attempting to store a value of a different type will cause a
-conversion. Either the value is converted to the type of the vector,
-or the vector is converted to the type of the value.
+  typeof(c(5,5))} \code{ == "double"}. All vectorized data types are monomorphic, except \k{list} which can hold values
+of any type, including \k{list}. For all monomorphic data types,
+attempting to store a differently-typed value will cause a
+conversion: Either the value is converted to the type of the vector, or vice versa.
 
 \begin{wrapfigure}{r}{6.1cm}
 \footnotesize\begin{tabular}{l@{}l@{}}\hline
@@ -368,7 +366,7 @@ or the vector is converted to the type of the value.
 \k{externalprt},& \k{bytecode}, \k{weakref}\\\hline
 \end{tabular}\caption{Builtin Types}\label{rtypes}\end{wrapfigure}
 
-\noindent
+
 All vectorized data types have a distinguished missing value denoted
 by \code{NA} (for ``not available'').  The type of \code{NA} is
 \k{logical} (\code{typeof(NA)=="logical"}), but \k{NA} inhabits every
@@ -376,23 +374,23 @@ type: \code{typeof(c(1,NA)[2])} \k{==} \k{"double"}.  R also has a
 \code{NULL} value.  In data science, it is useful to have a notion of
 a ``missing observation'', since vectors are monomorphic there is a
 need for a missing value to inhabit each primitive type. In a sense,
-\code{NA} represents a missing data point, and \code{NULL} is a
+\code{NA} represents a missing data point, whereas \code{NULL} represents a
 missing data set.
 
 Over time, programmers have found the need for a richer type
 structure.  R supports this with {\it attributes}. One may think of
 attributes as an optional map from names to values attached to any
 built in type.  Attributes are used to encode various type
-structures. They are queried with \k{attributes} and \k{class}.  Using
+structures, and they are queried with \k{attributes}.  Using
 attributes, programmers can extend the set of types by tagging
 data. For example, take the vector of four values,
 \code{x<-c(1,2,3,4)} and attach attribute \k{dim},
 \code{attr(x,"dim")<-c(2,2)}, to treat \k{x} as a 2x2 matrix.
 
-Another attribute that can be set is the \k{class}, this is one way to
-use R for object-oriented programming.  This attribute can be bound to
-a list of class names. For instance, \code{class(x)<-"human"} will set
-the class of \k{x} to be \k{human}.  There are three
+Another attribute that can be set is the \k{class}, which is one way to
+use R for object-oriented programming. The class attribute can be queried with \k{class}, and it can be bound to
+a list of class names: For instance, \code{class(x)<-c("human", "friend")} will set
+the class of \k{x} to be \k{human} and \k{friend}.  There are three
 object-orientation frameworks in R: S3, S4, and R5.  The S3 object
 system support single dispatch on the class of the first argument of a
 function, whereas the S4 object system allows multiple dispatch. R5
@@ -420,7 +418,7 @@ be passed by name as they are preceded by dots; \k y and \k z have
 default values, in the case of \k z this is a constant, but \k{y} is
 bound to an expression that depends on \k z's value (if \k z is not
 zero, \k y defaults to \k{NULL}). The body of the function will add \k
-x and \k y tp either 0 or the result of concatenating the dots into a
+x and \k y to either 0 or the result of concatenating the dots into a
 primitive vector. The function \k{missing} tests if a parameter was
 explicitly passed. The following are some valid invocations of \k f:
 
@@ -451,7 +449,7 @@ language to describe the signatures of R functions.  The goal is not
 to propose a final design, but rather a starting point for an
 iterative process.
 
-Given the pecularities of the language there are a number of design
+Given the peculiarities of the language there are a number of design
 choices that need to be reviewed and evaluated. It is not
 controversial to include types that cover the six kinds of primitive
 vectors, furthermore environments and the distinguished null types are
@@ -491,39 +489,41 @@ language. Fig.~\ref{types} presents our type language.
 
 \paragraph{Scalar} While R does not have scalar data types, there are
 cases where functions expect scalar values, for example a conditional
-takes a single logical (and will complain if more values are passed).
+takes a single logical and will complain if more values are passed.
 We considered tracking dimensions of data structures, but decided
 against it. Instead, the type language differentiates between vectors
 of lenght 1 and vectors of any dimension.  The primitive types can be
 either vectors (e.g., \VEC\int) or scalars (e.g., \int).  A vector can
-happen to be of length 1, and thus a scalar is also a vector.  Vectors
+happen to be of length 1, which we handle with subtyping, shown later.  Vectors
 are monomorphic, a vector of doubles contains only doubles.
 
 \paragraph{Missing} 
-Each of basic types has its specific \NA. Many built-in functions,
+Each primitive type has its specific \NA. Many built-in functions,
 especially those implemented in C or Fortran, do not support \NA
-values.  It is thus advantageous to distinguish between vector that
-can contain missing values and those that are guaranteed not to.  In
+values.  It is thus advantageous to distinguish between vectors that
+can and cannot contain missing values.  In
 our experience, functions that expect scalar values tend to not admit
 {\NA}s, thus scalar types are treated as being \NA-free. The type
-language does allows to write \VEC\int to specify that a vector of
-integers may have {\NA}s and \NAVEC\int to say that a vector must not
-have missing values. Of course, a value of type \VEC\int may happen to
-not have any \NA and thus be of type \NAVEC\int.  The type \raw does
-not allow {\NA}s, so \VEC\raw is \NA-free.
+language allows one to write \NAVEC\int to specify that a vector of
+integers {\it may} have {\NA}s and \VEC\int to say that a vector must not
+have missing values.  The type \raw does
+not allow {\NA}s, so \NAVEC{\raw} is \NA-free.
+R does not provide a built-in type testing mechanism, e.g., for the case of
+\NA-free data types, it is necessary to scan vectors to find out if
+they have missing values.
 
 \paragraph{Nullable} 
 The \nul type is inhabited by a singleton \code{NULL} value often used
 as a sentinel. Unlike in some other lanugage, \k{NULL} is not the
 default value of uninitialized variables. R has different notion for
-that (which we do not cover here).  To capture common uses, of
+that (which we do not cover here).  To capture common uses of
 \k{NULL}, the type language has a nullable type, written \code{?}\T.
 Values of this type can be either values of type \T or \k{NULL}.
 
 \paragraph{Lists} Heterogeneous collections are implemented using lists.
 Lists and vectors are closely related: a vector converts to a list
 with \code{as.list}, and lists to vectors with \code{unlist}
-(coercions may ensue). The type language allows to specify that a
+(coercions may ensue). The type language allows one to specify that a
 value is a list containing element of some type \T, written \LIST\T. R
 does not have built-in type tests for this purpose, to establish the
 type of a value requires traversal and checking individual elements.
@@ -531,14 +531,14 @@ type of a value requires traversal and checking individual elements.
 \paragraph{Class}
 R has three objects systems, code-named S3, S4 and R5. All of them
 operate by adding a class attribute to values. The most widely used
-system, by far, is S3 which supports single dispatch and multiple
+system by far is S3, which supports single dispatch and multiple
 classes~\cite{ecoop12}. The challenge from a type system point of view
-is that a value such as integer 5, could be attributed with a class.
+is that a value (such as an integer \k{5L}) could be attributed with a class.
 Code that performs dispatch would use the class attribute while code
 that does not would view the value as an integer. The type language
-focuses on the attribute and will hide the underlying type of the
-value. While that seems to match common usage it does represent a loss
-of expressiveness. The type language also focuses on S3, we leave the
+focuses on the attribute, and will hide the underlying type of the
+value. While this seems to match common usage, it does represent a loss
+of expressiveness. The type language also focuses on S3, and we leave the
 other object systems for future work. S3 has no notion of inheritance,
 each value has a list of classes. The type language thus allows to
 write \CLASS{\ID_1,\dots,\ID_n} to denote values tagged with the class
@@ -546,35 +546,33 @@ names $\ID_1$ to $\ID_n$.
 
 \paragraph{Union} We support untagged unions of types written
 $\T_1 \k{~|~} ... \k{~|~} \T_n$. The elements of unions are not
-disjoint, 1L is both an \int, a \VEC\int and a \NAVEC\int. R does not
-provide a built-in type testing mechanism, e.g. for the case of
-\NA-free data types, it is necessary to scan vectors to find out if
-they have missing values.
+disjoint, e.g., 1L is both an \int, a \VEC\int and a \NAVEC\int.
 
 \paragraph{Function}
 Functions signatures the form \FUN{A_1, \dots, A_n}\T where each
-$\A_i$ argument is either a type \T or \VARGS, a variable length
+$\A_i$ argument is either a type \T or dots (\VARGS), a variable length
 argument list. Moreover, a single function's signature can be the
 disjunction of a number of individual signatures.
 
+Overall, the choice of type language follows the structure of values.  The
+presence of \NA-free data types and scalars are two choices that must
+be validated in practice.  Note that nullable types are really just a special case of
+unions (i.e., \code{?}\T is shorthand for $\T \k{~|~} \k{NULL}$).
+
 \subsection{Subtyping}
 
-The choice of type language follows the structure of values.  The
-presence of \NA-free data types and scalars are two choices that must
-be validated in practice.  Nullable types are just a special case of
-unions.
-
-While R does not support the notion of subtyping between values.  The
+R does not support the notion of subtyping between values, but we include a few simple rules in
+our framework to capture widespread coercion.  The
 conversions between primitive types give us a starting point (e.g., an
 \int is always accepted where a \dbl is expected). Furthermore, the
 types introduced above induce some the rules of Figure~\ref{fig:sub}:
-a vector without \NA is a subtype of a vector, a value of type \T is a
+an \NA-free vector is a subtype of its \NA-ful equivalent, a value of type \T is a
 subtype of a nullable \T, a list is subtype of another list if their
 elements are subtypes, and a scalar is a subtype of a vector of the
 same primitive type.
 
 \begin{figure}[h!tb]\begin{tabular}{rclll}
-  \NAVEC\S  & <:& \VEC\S \\
+  \VEC\S    & <:& \NAVEC\S \\
   \T        & <:& \k{?}\T \\
   \LIST{\T} & <:& \LIST{\T'} & \it{iff} \T <: \T' \\
   \S        & <:& \VEC\S \\
