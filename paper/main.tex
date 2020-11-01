@@ -2,16 +2,9 @@
 \setlength{\pdfpagewidth}{8.5in}
 \setlength{\pdfpageheight}{11in}
 %\settopmatter{printfolios=true,printccs=true,printacmref=true}
-\setcopyright{rightsretained}
-\acmPrice{}
-\acmDOI{10.1145/3360579}
-\acmYear{2020}
-\copyrightyear{2020}
+\setcopyright{rightsretained} 
 \acmJournal{PACMPL}
-\acmVolume{3}
-\acmNumber{OOPSLA}
-\acmArticle{153}
-\acmMonth{10}
+\acmYear{2020} \acmVolume{4} \acmNumber{OOPSLA} \acmArticle{181} \acmMonth{11} \acmPrice{}\acmDOI{10.1145/3428249}
 
 \bibliographystyle{ACM-Reference-Format}
 \citestyle{acmauthoryear}   %% For author/year citations
@@ -99,7 +92,7 @@
 \newcommand{\FUN}[2]{\ensuremath{\langle #1 \rangle \rightarrow #2}\xspace}
 \newcommand{\STRUCT}[1]{\texttt{\textbf{struct}}\ensuremath{\langle #1\rangle}\xspace}
 \newcommand{\LIST}[1]{\texttt{\textbf{list}}\ensuremath{\langle #1\rangle}\xspace}
-\newcommand{\CLASS}[1]{\texttt{\textbf{class}}\ensuremath{\langle #1\rangle}\xspace}
+\newcommand{\CLASS}[1]{\texttt{\textbf{class}}\ensuremath{\langle #1\rangle}}
 \newcommand{\VEC}[1]{#1\k{[]}}
 \newcommand{\NAVEC}[1]{\k{\string^}\!#1\k{[]}}
 \newcommand{\NASCA}[1]{\k{\string^}\!#1\xspace}
@@ -586,9 +579,9 @@ same primitive type.
 
 \subsection{Synthesizing signatures}
 
-In order to keep the type signatures compact, we will compact union of
-arrows into a single top-level arrow with unions at each argument
-position. Thus, the shape of function signatures will be as follows:
+Later in this paper, we will introduce a tool to synthesize function type signatures from running R code, wherein each invocation of a function will generate a trace representing the types of function arguments and returns.
+These traces will be combined into an overall arrow type for the function, and in order to keep these signatures compact we compact the traces into a single top-level arrow with unions at each argument
+position. Thus, the shape of function signatures will be:
 
 \vspace*{1mm}
 \FUN{ T_{1,1} \k{~|~} T_{1,i}, \dots, T_{n,1} \k{~|~} T_{n,j}}{T_1 \k{~|~} ... \k{~|~} T_k}
@@ -599,7 +592,7 @@ In other words, we take the union of the types occurring at individual
 argument positions rather than an union of function
 types. Furthermore, we apply some transformation on the types to keep
 the size of types in check.  Figure~\ref{fig:siplification-rules}
-overviews the main simplification rules that we have adopted here.
+overviews the main simplification rules we adopted.
 
 \begin{figure}[h!tb]\begin{tabular}{rclll}
   \T \k{~|~} \T  & $\Rightarrow$ &  \T &  \\
@@ -613,13 +606,11 @@ overviews the main simplification rules that we have adopted here.
 
 Assuming that type sequences can be reordered freely, we rewrite types
 to minimize their size by removing redundant types, types that are
-subsumed by subtyping, immutable lists, and remove \nul type to
-replace them with nullables.  Higher-order functions are
+subsumed by subtyping, immutable lists, and replace \nul types with nullables.  Higher-order functions are
 conservatively treated as \any $\rightarrow$ \any.
 
-It is noteworthy that by performing this compaction we are loosing
-precision, that is to say, the synthesized signatures will suggest
-that the function accepts combination of types that were not observed.
+It is noteworthy that by performing this compaction we are losing
+precision, and the synthesized signatures will suggest combinations of argument types that were not observed.
 
 \section{Analysis and Instrumentation Pipeline}
 
@@ -661,7 +652,7 @@ mutation and garbage collection.
 \paragraph{Types}
 The type information output by the tool includes the \emph{type tag}
 of each value. Internal types are translated to names in the proposed
-type system. The next bit of information is the \emph{class}, an
+type language. The next bit of information is the \emph{class}, an
 optional list of names that may be absent, and, in some cases, is
 implicit (i.e. the interpreter blesses some values with the \k{matrix}
 and \k{array} classes even without attributes).  Depending on a
@@ -687,7 +678,7 @@ Parameters which receive no values when the function is called are
 termed missing (not to be confused with \NA). This occurs when a
 function is called with too few arguments and no default values are
 specified for those missing arguments.  We record a \k{missing} type
-for such argument.  There are two obvious ways to deal with missing
+for such arguments.  There are two obvious ways to deal with missing
 arguments: type them as \any or type them as some unit type.  We
 conservatively type them as \any.
 
@@ -760,6 +751,9 @@ call the type-checker if it see the sentinel.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Corpus}\label{sec:corpus} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Our aim is to gather data with which we can validate our type language design.
+To that end, we propose an experiment wherein we use \typetracer to synthesize types for some core corpus of packages, and validate those types by using \contractr and installing contracts on core corpus functions and running the client code of this corpus.
+ 
 For this paper we have selected \CorpusLoadable packages consisting of
 \CorpusRCodeRnd lines of R code and \CorpusNativeCodeRnd lines of native
 code (C/Fortran). Figure~\ref{fig:corpus} shows these packages: the size of
@@ -793,14 +787,16 @@ the \AllCranRnd packages, we managed to install \AllLoadableRnd. The
 main reason for this is that \rdt (and, by extension, \typetracer) is
 based on GNU-R 3.5.0 and some of the packages are not compatible with
 this version.  Some packages also require extra native dependencies
-which were not present on our servers. We defined two criteria for
+which were not present on our servers. 
+
+We defined two criteria for
 including a package into the corpus:
 \begin{inparaenum}[(1)]
-  \item the package must have a runnable code that covers a
+  \item the package must have runnable code that covers a
     significant part of the package source code from which type
     signatures could be inferred, and
   \item the package must have some reverse dependencies that will
-    allows us to evaluate the inferred types using the runnable code
+    allow us to evaluate the inferred types, using the runnable code
     from these dependencies.
 \end{inparaenum}
 The concrete thresholds used were: at least \ThresholdCodeCoverage of
@@ -828,8 +824,8 @@ classes.
 
 \paragraph{User code}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 To represent end-user code in the corpus, we turned to Kaggle, an
-online platform for data-science and machine-learning. The website
-allows people to share data-science competitions and data-analysis
+online platform for data science and machine learning. The website
+allows people to share data science competitions and data analysis
 problems together with data for which users try to find the best
 solution (something like a repository of hackathon or datathon
 code). The solutions, called \emph{kernels}, are then posted on Kaggle
@@ -847,14 +843,14 @@ notebooks to R.} we found that \KaggleDuplicated were whole-file
 duplicates (\KaggleDuplicatedRatio). From the resulting
 \KaggleRunnable kernels, \KaggleFail failed to execute. Next to
 various runtime exceptions, common problems were missing libraries (no
-longer available for R 3.5), parse errors and misspelled package
+longer available for R 3.5), parse errors, and misspelled package
 names. The final set contains \KaggleSuccess kernels with
 \KaggleSuccessCodeRnd lines of R code. The Kaggle kernels are used for
 additional validation of the inferred types.
 
 
 \paragraph{Type usage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-During execution 3,147 different types were observed.  Classes are the
+During execution, 3,147 different types were observed.  Classes are the
 most common types, accounting for roughly 31\% of types of arguments.
 The most common classes are \c{matrices} (12\%), \c{data.frames}
 (7.5\%), \c{formulas} (2\%), \c{factors} (2\%), and \c{tibbles} (2\%).
@@ -936,7 +932,7 @@ that reflected in the type, where the first argument has type
 \end{table}
 
 
-This section attempts to evaluate how well the proposed type system is able
+This section attempts to evaluate how well the proposed type language is able
 to describe the actual type signatures of functions. For this we focus on
 how often there is a single type for a particular argument; this is because
 union types and \any are less accurate (and would likely require a more
@@ -950,7 +946,7 @@ useful documentation.
 \subsection{Expressiveness}
 
 The first part of our evaluation attempts to shed light on how good a fit
-our proposed type system is with respect to common programming patterns
+our proposed type language is with respect to common programming patterns
 occurring in widely used R libraries.
 
 \begin{figure}[!h]  \centering
@@ -962,11 +958,11 @@ First we look at the share of monomorphic arguments and function signatures.
 Monomorphic in this context means that the type is not relying on \any or
 including a union.  The import of monomorphism in this context is that it
 means our type language can accurately capture an argument's type or a
-function signature. We get to that number in two steps.
+function's signature. We get to that number in two steps.
 Fig.~\ref{fig:unionfreq} shows the number of inferred argument types and
-their size (in terms of members of the union). The figure shows the most
+their size (in terms of members of the union). The figure shows that most
 functions do not require a union at all (\PercUnitypedPositions of arguments
-do not have a union), and only \PercManytypedPositions positions have unions
+do not have a union), and only \PercManytypedPositions of positions have unions
 with more than three members.
 
 
@@ -975,11 +971,11 @@ with more than three members.
 Table~\ref{fig:singlefreq} provides a breakdown of types occurring in
 arguments without a union. Scalar, class and vector are the most
 common type categories. The shaded rows correspond to polymorphic
-types.  When an argument's type is \nul, we say that the argument is
+types.  When an argument's type is inferred to be \nul, we say that the argument is
 polymorphic due to a limitation in our analysis: In R, it is common
 for programmers to include default values for arguments, and in many
 cases this value happens to be {\tt NULL}.  Our type analysis will
-report a {\tt null} type for these arguments if they are {\it never
+report a \nul type for these arguments if they are {\it never
   passed a value} during testing.  We interpret these instances of
 \nul as polymorphic to capture that we cannot be sure of the actual
 type.
@@ -1076,9 +1072,8 @@ being manipulated.  Consider function \code{cv.model}, its argument
 \code{x} is observed to be of \CLASS{\texttt{aov}, \texttt{lm}} or
 \CLASS{\texttt{lm}}.  Internally, linear models are represented as
 lists with named elements.  The pollution is illustrated by the lines
-after the function definition.  They load an example data set and test
-the function \code{cv.model}.  The \code{data(sweetpotato)} expression
-loads a sample data set. The fields of \code{sweetpotato} will be
+after the function definition, where the \code{data(sweetpotato)} expression
+loads a sample data set to test the function.  The fields of \code{sweetpotato} will be
 recorded when \code{cv.model} is called.
 
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily]
@@ -1099,7 +1094,7 @@ recorded when \code{cv.model} is called.
 While we record classes, our analysis does not deal with method
 dispatch.  R has multiple disparate object systems called S3, S4, and
 R5.  The \code{class} attribute is used by these systems to dispatch
-methods. S3 does single dispatch, S4 does multiple dispatch and R5
+methods. S3 does single dispatch, S4 does multiple dispatch, and R5
 supports imperative objects.  The mechanics of S4 dispatch are more
 complex than for S3, and users can define their own class hierarchies
 that we would need to incorporate in our type analysis and contract
@@ -1192,7 +1187,7 @@ Finally, we point out that assertion failures of, e.g., \CLASS{{\tt
     data.frame}} values being passed to \CLASS{{\tt data.frame, tbl,
     tbl\_df}} arguments and \CLASS{{\tt xml\_node}} values being
 passed to an argument expecting other XML-like classes are related to
-our simplified take on class types.  Our type system does not encode
+our simplified take on class types.  Our type language does not encode
 user-defined subtyping and coercion, which could help address these
 mismatches.
 
@@ -1250,19 +1245,19 @@ there are 1522 in total: 18 (1.18\%) of these
 \CLASS{\texttt{matrix}}-typed parameters were passed \VEC\dbl values.
 
 We see that even though the double vector and matrix issue was wildly
-prevalent in the raw, dynamic contract evaluation numbers, the number
+prevalent in the dynamic contract evaluation numbers, the number
 of actual function argument types that were violated is very small.
 The story is similar with the double and integer coercion we mentioned
 earlier: it represents many dynamic contract failures, but very few of
 the \VEC\int-typed arguments have their contracts violated by
 \VEC\dbl-typed values.  Row six is interesting: we see that rather
 often arguments expecting \CLASS{\texttt{timeSeries}} data are passed
-\CLASS{\texttt{matrix}} values.  This is a quirk of the
+\CLASS{\texttt{matrix}} values.  These are all from the
 \code{timeSeries} package, whose functions often accept matrices and
 vectors, converting them to time series in an ad hoc manner.  Note
 that the code coverage of the \code{timeSeries} tests, examples, and
 vignettes package code is only 58\%, which is one possible explanation
-of why these contract failures are occurring: the types that
+for these contract failures: the types that
 \typetracer generates are only as good as the test code its run on.
 
  \begin{table}
@@ -1304,8 +1299,7 @@ arguments with \VEC\int type are passed \VEC\dbl values instead, and
 4.97\%.
 
 Had we failed to capture some key usage pattern of R with our type
-annotation framework, we would likely see it here, and we can see this
-in action if we consider Table~\ref{tbl:fail-breakdown-3}, which was
+annotation framework, we would likely see it here. For example, consider Table~\ref{tbl:fail-breakdown-3}, which was
 obtained identically to Table~\ref{tbl:fail-breakdown-2} except
 selecting arguments in the 80th percentile instead.  The most frequent
 argument type violation pattern in that of \CLASS{{\tt matrix}},
@@ -1461,7 +1455,7 @@ it to return the integer \code{NA} value, or error).
  \end{lstlisting}
  As per the documentation, this function is intended to take a vector,
  and generate all permutations of elements in that vector.  If given a
- scalar ``integer'' $n$, it will generate all permutations for the
+ scalar integer $n$, it will generate all permutations for the
  list $[1, 2, ..., n]$.  Interestingly, the function was only tested
  by passing an integer, and not ever with a vector (even though,
  presumably, that is the main utility of the function).
@@ -1495,7 +1489,7 @@ found many instances of \CLASS{{\tt matrix}}, \CLASS{{\tt
  discussed in this section on end-user R code found on the Kaggle
  competition website.
  
- By-and-large, we saw no meaningful difference in the two data sets,
+ By-and-large, this evaluation did not reveal any new insights,
  with the contract assertion failure patterns being repeated from the
  reverse dependencies.  Overall, we observed that
  \PERCFAILEDASSERTIONSKAGGLE of all contract assertions failed while
@@ -1570,7 +1564,7 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
  Another interesting entry in Table~\ref{tbl:fail-breakdown-0-kaggle}
  is the fifth row, where a \CLASS{{\tt ixforeach, iter}} is being
  passed to an argument expecting a long union of classes, each of the
- form \CLASS{{\tt X, iter}}.  This is likely an instance where the
+ form \CLASS{{\tt \_, iter}}.  This is likely an instance where the
  user defined their own class, {\tt ixforeach}, and wanted to use the
  \code{iterators} package (the user called \code{iterator::iter} with
  a \CLASS{{\tt ixforeach}}, and it gained the class {\tt iter} on
@@ -1616,8 +1610,8 @@ There are a number of ways to check the types of function parameters
 in R.  The default and most common way\footnote{\CranStopifnotRatio of
 all runtime checks in the whole of CRAN} is to use the
 \code{stopifnot} function from the R base package. It takes a number
-of R expressions which all should evaluate to true otherwise a runtime
-exception is thrown with a message quoting the corresponding failed
+of R expressions which should all evaluate to \code{TRUE}, otherwise a runtime
+exception is thrown with a message quoting the failed
 expression. For example, the following code checks whether a given
 parameter \code{x} is a scalar string:
 %
@@ -1625,43 +1619,40 @@ parameter \code{x} is a scalar string:
 stopifnot(is.character(x), length(x) == 1L, !is.na(x))
 \end{lstlisting}
 
-Besides \code{stopifnot}, there are 4 packages in
+Beyond \code{stopifnot}, there are 4 packages in
 CRAN\footnote{Packages are available on the CRAN website:
 \url{https://cran.r-project.org/web/packages/}} that focus on runtime
-assertions: \emph{assertive}, \emph{ensurer}, \emph{assertr} and
+assertions: \emph{assertive}, \emph{ensurer}, \emph{assertr}, and
 \emph{assertthat}. \emph{assertive} and \emph{ensurer} have not been
 updated since 2016 and 2015 respectively, and \emph{assertr} is used
 by only \AssertrRevdeps other packages and currently focuses on
-checking properties of data frames. Only the \emph{assertthat} package
-is maintained and used (with \AssertthatRevdeps reverse
-dependencies). The advantage of \emph{assertthat} over the R's default
+checking properties of data frames. Only \emph{assertthat} is maintained and used (with \AssertthatRevdeps reverse
+dependencies). The advantage of \emph{assertthat} over the R default
 is that it provides much better error messages.
 
-One way to asses the usefulness of our type checking system is to find
-out how many of the existing type checking constrains could be
-replaced by \contractr.  To measure this, we have extracted all calls
-to \code{stopifnot} and \code{assertthat} assertions and checked which
-among them could be either completely replaced by \contractr or at
+One way to assess the usefulness of our type checking framework is to see how many existing user-defined type checks can be replaced by \contractr.
+To measure this, we extracted all calls
+to \code{stopifnot} and \code{assertthat} assertions, and checked which
+among them could either be completely replaced by \contractr, or at
 least partially simplified by removing a portion of an assertion
-expression. This is useful, because a common pattern is that the first
-part of the parameter assertion checks its type while the rest checks
-its value. In the example above, the whole expression could be
+expression. Partial simplification is useful, as a common pattern in this ad hoc type checking is that the first
+part of the assertion checks the value's type, while the rest checks more detailed properties. In the example above, the whole expression could be
 replaced by a \chr type check.
 
 Out of the \CorpusLoadable packages, \CorpusAssertsInPackages use
-runtime assertions. Together there are \CorpusAsserts asserts in
+runtime assertions. Altogether, there are \CorpusAsserts assertions in
 \CorpusAssertsInFunctions functions. Among these, \contractr can
 replace \CorpusTypedAsserts (\CorpusTypedAssertsRatio) assertion calls
 across \CorpusTypedAssertsPackages packages and
-\CorpusTypedAssertsFunctions functions.  Furthermore, additional
+\CorpusTypedAssertsFunctions functions.  Furthermore, an additional
 \CorpusPartiallyTypedAsserts (\CorpusPartiallyTypedAssertsRatio)
-asserts in packages \CorpusPartiallyTypedAssertsPackages packages and
+asserts in \CorpusPartiallyTypedAssertsPackages packages and
 \CorpusPartiallyTypedAssertsFunctions functions could have been
 simplified.
 
 Checking the type of function parameters is not something that is seen
 often in the R code. In the whole of CRAN, there are only
-\CranAssertsRnd asserts in \CranAssertsInFunctionsRnd functions define
+\CranAssertsRnd asserts in \CranAssertsInFunctionsRnd functions defined
 in \CranAssertsInPackagesRnd packages.  One may speculate that this is
 the case due to the verbosity and inconvenience of the existing
 assertion tools.  Our system can infer type annotations for existing
@@ -1677,7 +1668,7 @@ functions automatically. This can remove or partially remove over
 Throughout this paper, we employed the following strategy to consolidate types: We collected all of the traces observed for a function, and combined them into a single function type, where the type for each argument position was made up of a union of all the observed types at that position.
 We then simplified these unions using the rules presented in Section~\ref{fig:siplification-rules}.
 We call this an {\it arrow of unions}.
-This strategy was not developed in a vacuum, and we will now discuss some of the decisions that went into it.
+We will elaborate on some of the design decisions that went into developing this method.
 
 Arguably, the primary issue with the arrow of unions strategy is that of a loss of precision, as relationships between argument and return types can be obscured.
 For example, consider a function with two unique call traces, \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl}.
@@ -1689,13 +1680,13 @@ Unfortunately, this leads to a significant blow-up in the size of types, and mak
 When comparing this consolidation strategy against the one employed throughout the paper, we find that the types using this strategy are much larger, with 14,057 (55.06\%) functions having at least one top-level union. %, and that 16,745 (65.59\%) functions have two or fewer top-level alternatives. 
 We observed 93,229 independent arrow types using this strategy.
 
-Another option is to employ a hybrid approach, wherein we perform the union of arrow types {\it after} grouping them together by return type (to further simplify we also combine some primitive return types together, such as \dbl and \VEC\dbl).
+Another option is to employ a hybrid approach, wherein we perform the union of arrow types {\it after} grouping them together by return type (to further simplify, we also combine some primitive return types together, such as \dbl and \VEC\dbl).
 While this has the advantage of reducing most of the blow-up of the previous approach, it suffers particularly when functions return classes, as our type system does not allow us to effectively consolidate class types.
 This strategy would reduce arrow types \FUN{\chr}{\dbl}, \FUN{\VEC\chr}{\dbl}, and \FUN{\NAVEC\chr}{\dbl} into the function type \FUN{\NAVEC\chr}{\dbl}.
 Comparing again to the strategy employed throughout the paper, we find 5,317 (20.82\%) functions to have a union of arrows, and we found 38,650 independent arrow types.
 We additionally find that 38,650 (26.14\%) of arrow types have at least one polymorphic argument.
 
-These findings are summarized in Figure~\ref{fig:mergecomp}, which shows a breakdown of the number of {\it top-level alternatives} in the function types obtained with both of these strategies.
+These findings are summarized in Figure~\ref{fig:mergecomp}, which shows a breakdown of the number of {\it top-level alternatives} in the function types obtained with both of these strategies:
 The term ``top-level alternative'' signifies an arrow type in the union of arrows, e.g., \FUN{\chr}{\chr} and \FUN{\dbl}{\dbl} are top-level alternatives in the type \FUN{\chr}{\chr} $|$ \FUN{\dbl}{\dbl}.
 We see that the hybrid approach greatly increases the number of functions with no union of arrows at the function level, where 92\% of functions only have one or two top-level alternatives.
 Also, nearly 5\% of function types obtained with the basic union of arrows strategy have over 9 top-level alternatives.
@@ -1744,7 +1735,7 @@ Consider instead the \code{rename} function from the \code{dplyr} package, with 
 This function takes a data frame and renames selected columns.
 We see that the types are the same with both the union of arrows and hybrid approach (with only three unique function signatures observed), and can glean from these types that \code{dplyr::rename} produces a data frame of the {\it same class} as the input.
 This information is lost in the arrow-of-unions merge strategy.
-That said, once the type system is extend with proper user-defined type hierarchies, the arrow of unions type will be much smaller and more informative (as data frames, grouped tibbles, and tibbles all related types).
+That said, once the type language is extend with proper user-defined type hierarchies, the arrow of unions type will be much smaller and more informative (as data frames, grouped tibbles, and tibbles are all related types).
 
 \begin{table}[H]
 	\centering
@@ -1775,11 +1766,11 @@ That said, once the type system is extend with proper user-defined type hierarch
 \end{table}
 
 Finally, we want to briefly discuss types for base package functions (in R, functions like \code{+}, \code{-}, and vector access are part of the {\it base package}).
-As we have alluded to, these functions coerce mismatched arguments in an ad hoc manner, with no real defined semantics.
+These functions coerce mismatched arguments in an ad hoc manner, with no real defined semantics.
 Further, functions like \code{+} often act on values based on their type (according to \code{typeof}), and ignore the class, unless a package extended \code{+} to dispatch on the class.
-This leads to incredibly large infered signatures for these functions.
+This leads to incredibly large inferred signatures for these functions.
 Even after counting out traces related to S3 and S4 dispatch, the type of \code{+} using the hybrid approach has 29 top-level alternatives, 22 of which have a class-typed argument.
-We don't believe this type to be particularly useful to a programmer, but a compiler might find it quite useful, as given a set of types for inputs, it can select the appropriate arrow type from the top-level alternatives.
+We don't believe this type to be particularly useful to a programmer, but a compiler might find it quite useful, as it can determine the type of the return value of a function given the types of its arguments.
 
 %
 %
