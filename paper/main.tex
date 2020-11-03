@@ -111,10 +111,10 @@
 
 \begin{document}
 \title{Designing Types for R, Empirically}
-\author{Alexi Turcotte}\affiliation{\institution{Northeastern University}}
-\author{Aviral Goel}\affiliation{\institution{Northeastern University}}
-\author{Filip Krikava}\affiliation{\institution{Czech Technical University in Prague}}
-\author{Jan Vitek}\affiliation{\institution{Northeastern / Czech Technical University}}
+\author{Alexi Turcotte}\affiliation{\institution{Northeastern University, USA}}
+\author{Aviral Goel}\affiliation{\institution{Northeastern University, USA}}
+\author{Filip Křikava}\affiliation{\institution{Czech Technical University, Czechia}}
+\author{Jan Vitek}\affiliation{\institution{Northeastern University, USA / Czech Technical University, Czechia}}
 
 \newcommand{\NUMFUNCTIONS}{25,215\xspace}  %%% TODO auto-gen
 \newcommand{\NUMPACKAGES}{412\xspace}  %%% TODO auto-gen
@@ -184,8 +184,8 @@ was designed to favor an interactive style of programming with minimal
 syntactic and conceptual overhead. This design is well suited to data
 analysis, but a bad fit for tools such as compilers or program
 analyzers. In particular, R has no type annotations, and all
-operations are dynamically checked at run-time. The starting point for
-our work are the twin questions: \emph{what expressive power is needed
+operations are dynamically checked at runtime. The starting point for
+our work are the two questions: \emph{what expressive power is needed
 to accurately type R code?} and \emph{which type system is the R
 community willing to adopt?} Both questions are difficult to answer
 without actually experimenting with a type system. The goal of this
@@ -197,7 +197,7 @@ type system.  As a starting point, we infer type signatures for
 \NUMFUNCTIONS functions from \NUMPACKAGES packages among the most
 widely used open source R libraries. We then conduct an evaluation on
 \NUMPKGSEVAL clients of these packages, as well as on end-user code
-from the Kaggle competition.
+from the Kaggle data science competition website.
 \end{abstract} \maketitle
 
 \section{Introduction}
@@ -215,7 +215,7 @@ R and its ancestor S were designed, implemented, and maintained by
 statisticians. Originally they aimed to be glue languages for 
 statistical routines written in Fortran. Over three decades they
 became widely used across many fields for exploratory data analysis.
-Modern R, as an object of study, is fascinating. It is a vectorized,
+Modern R is fascinating as an object of study. It is a vectorized,
 dynamically typed, lazy functional language with limited side-effects,
 extensive reflective facilities and retrofitted object-oriented programming
 support.
@@ -242,15 +242,17 @@ The goal of this paper is to gather data that can be used as input to
 the process of designing a type system for R.  To focus our work, we
 chose to limit the scope of investigation on the design of a language
 for function type signatures.  Thus, this paper will use the collected
-data to document the signature of user-defined functions.  For this,
-we design a simple type language, one that matches the R data types.
+data to document the signatures of user-defined functions.  For this,
+we design a simple type language that matches the R data types.
 We then extract call and return types from execution traces of a
 corpus of widely used libraries, and finally synthesize type
 signatures.  This allows us to see how far one can get with a simple
 type language and identify limitations of our design. We validate the
 robustness of the extracted type signatures by implementing a contract
 checker that weaves types around their respective functions, and use
-clients of the target packages for validation.  To sum up, we make the
+clients of the target packages for validation, as well as end-user code from data science competitions.  
+
+To sum up, we make the
 following contributions:
 \begin{itemize}
 \item We implemented scalable and robust tooling to automatically
@@ -577,7 +579,7 @@ same primitive type.
 \end{figure}
 
 
-\subsection{Synthesizing signatures}
+\subsection{Synthesizing Signatures}
 
 Later in this paper, we will introduce a tool to synthesize function type signatures from running R code, wherein each invocation of a function will generate a trace representing the types of function arguments and returns.
 These traces will be combined into an overall arrow type for the function, and in order to keep these signatures compact we compact the traces into a single top-level arrow with unions at each argument
@@ -629,7 +631,7 @@ is run using GNU parallel~\cite{tange2011_parallel} on Intel Xeon
     for \emph{all} CRAN packages.}\label{fig:pipeline}
 \end{figure}
 
-\subsection{Types from traces}
+\subsection{Types from Traces}
 
 We implemented \typetracer, an automated tool for extracting types
 from execution traces of R programs. The goal of this tool is to
@@ -673,7 +675,7 @@ behavior.  To deal with unevaluated arguments, we make an initial
 guess for each argument at function entry and update the recorded type
 if the promise is forced.
 
-\paragraph{Missing arguments}
+\paragraph{Missing Arguments}
 Parameters which receive no values when the function is called are
 termed missing (not to be confused with \NA). This occurs when a
 function is called with too few arguments and no default values are
@@ -682,7 +684,7 @@ for such arguments.  There are two obvious ways to deal with missing
 arguments: type them as \any or type them as some unit type.  We
 conservatively type them as \any.
 
-\paragraph{Non-local returns}
+\paragraph{Non-local Returns}
 When a function exits with a longjump, there is no return value to speak
 of. To ensure call traces are valid when a longjump occurs, we intercept the
 unwinding process and record a special \k{jumped} return type for function
@@ -693,7 +695,7 @@ these \k{jumped} values become \any types.
 Arguments that are part of a dots parameter (denoted \VARGS) are
 ignored. We do not attempt to give dots a type.
 
-\paragraph{Implementation details.}
+\paragraph{Implementation Details.}
 We primarily rely on eight callbacks: \k{closure\_entry},
 \k{closure\_exit}, \k{builtin\_entry}, \k{builtin\_exit},
 \k{special\_entry}, \k{special\_exit}, \k{promise\_force\_entry}, and
@@ -706,7 +708,7 @@ depending on their class, the relevant information is kept by the {\tt
   \_entry} variants.
 
 
-\subsection{Checking signatures with contracts}
+\subsection{Checking Signatures with Contracts}
 
 One can validate a function's type signature by checking that it is
 respected in all programs that call the function.  For this, we
@@ -822,7 +824,7 @@ packages.  Together there are \CorpusFunctionsRnd defined R functions
 methods. Packages in the corpus define \CorpusSThreeClasses S3
 classes.
 
-\paragraph{User code}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{User Code}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 To represent end-user code in the corpus, we turned to Kaggle, an
 online platform for data science and machine learning. The website
 allows people to share data science competitions and data analysis
@@ -849,7 +851,7 @@ names. The final set contains \KaggleSuccess kernels with
 additional validation of the inferred types.
 
 
-\paragraph{Type usage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Type Usage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 During execution, 3,147 different types were observed.  Classes are the
 most common types, accounting for roughly 31\% of types of arguments.
 The most common classes are \c{matrices} (12\%), \c{data.frames}
@@ -866,6 +868,7 @@ and accounts for over 12 million (20.3\%) of the types observed by
 \typetracer's dynamic analysis.
 
 \begin{table}[!h]
+\caption{Top types of arguments in R}\label{ctb}
 % BEGIN Autogenerated
 \small\begin{tabular}{lrrrr}\toprule
 Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
@@ -881,7 +884,6 @@ Type & Args & \% of Args & Observations & \% of Obs.\\\midrule
 \CLASS{\texttt{data.frame}} & 2,608 & 2.4 &  352,655 & 0.6 \\
 \bottomrule
 \end{tabular}
-\caption{Top types of arguments in R}\label{ctb}
 \end{table}
 
 
@@ -893,7 +895,7 @@ aforementioned corpus of \PACKAGES packages and successfully inferred
 types for \NUMFUNCTIONS functions.  Table~\ref{tbl:typesig}
 illustrates the process with ten representative signatures.  Many of
 the features of our type language are represented here, and some
-signatures are telling of the function's behaviour.  For example,
+signatures are telling of the function's behavior.  For example,
 consider \code{decrypt_envelope}: the first three parameters of the
 function are byte arrays, and the fourth argument is an RSA key, used
 to decrypt some of the inputs, and the output of the function is
@@ -906,6 +908,7 @@ that reflected in the type, where the first argument has type
 
 \begin{table}[H]
   \centering
+  \caption{Select Type Signatures}\label{tbl:typesig}
   \resizebox{.98\linewidth}{!}{
   \begin{tabular}{llrrr}
     \toprule
@@ -928,7 +931,6 @@ that reflected in the type, where the first argument has type
                                 ~\VEC\dbl, ~\VEC\dbl, \any}{\VEC\dbl} \\
     \bottomrule
   \end{tabular}}
-\caption{Select Type Signatures}\label{tbl:typesig}
 \end{table}
 
 
@@ -1194,6 +1196,7 @@ mismatches.
 \begin{table}
 % BEGIN Autogenerated
 \scriptsize
+\caption{Top contract failures}
 \begin{tabular}{llrrr}
 \toprule
 Passed & Arg Type & Occurrences & \% Total & Cumul. \%\\
@@ -1212,7 +1215,7 @@ Passed & Arg Type & Occurrences & \% Total & Cumul. \%\\
 \bottomrule
 \end{tabular}
 % END Autogenerated
-\caption{Top contract failures}
+
 \label{tbl:fail-breakdown-0}
 \end{table}
 
@@ -1263,9 +1266,10 @@ for these contract failures: the types that
  \begin{table}
 % BEGIN Autogenerated
 \scriptsize
+ \caption{Results from Table 4, broken down by occurrences of the expected type as a parameter type}
 \begin{tabular}{llrrr}
 \toprule
-              &                &      \multicolumn{2}{c}{\# Args Types}        &  \\
+              &                &      \multicolumn{2}{c}{\# Arg Types}        &  \\
  Passed & Arg Type & Failed & Total & \% Failure\\
 \midrule
 \VEC\dbl & \CLASS{\texttt{matrix}} & 18 & 1522 & 1.18 \\ 
@@ -1283,7 +1287,7 @@ for these contract failures: the types that
 \end{tabular}
 
 % END Autogenerated
- \caption{Results from Table 4, broken down by occurrences of the expected type as a parameter type}
+
  \label{tbl:fail-breakdown-1}
  \end{table}
 
@@ -1307,13 +1311,15 @@ argument type violation pattern in that of \CLASS{{\tt matrix}},
 expecting \CLASS{{\tt timeSeries}}.  This occurs in 35.90\% of such
 arguments, and represents cases where tests did not adequately cover
 all valid function inputs.  Separate from the issue of testing, we can
-capture this behaviour with user-defined subtyping or coercion, as the
+capture this behavior with user-defined subtyping or coercion, as the
 data types which were passed are readily convertible to \CLASS{{\tt
     timeSeries}}.
 
  \begin{table}
 % BEGIN Autogenerated\
 \scriptsize
+ \caption{Highest failure rate among popular argument types, for
+   argument signatures whose frequency is in the 90th percentile.}
 \begin{tabular}{llrrr}
 \toprule
 Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
@@ -1326,17 +1332,18 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \bottomrule
 \end{tabular}
 % END Autogenerated
- \caption{Highest failure rate among popular argument types, for
-   argument signatures whose frequency is in the 90th percentile.}
+
  \label{tbl:fail-breakdown-2}
  \end{table}
  
   \begin{table}
 % BEGIN Autogenerated
 \scriptsize
+ \caption{Highest failure rate among popular argument types, for argument signatures whose frequency is in the 80th percentile.}
 \begin{tabular}{ll@{}rrr@{}}
 \toprule
-Passed & Arg Type & \#Args Fail & \#Args w Type & \% Failure\\
+              &                &      \multicolumn{2}{c}{\# Arg Types}        &  \\
+ Passed & Arg Type & Failed & Total & \% Failure\\
 \midrule
 \CLASS{{\tt matrix}} & \CLASS{{\tt timeSeries}} & 21 & 39 & 35.90 \\
 \VEC\dbl & \CLASS{{\tt timeSeries}} & 21 & 39 & 35.90 \\
@@ -1351,7 +1358,6 @@ Passed & Arg Type & \#Args Fail & \#Args w Type & \% Failure\\
 \bottomrule
 \end{tabular}
 % END Autogenerated
- \caption{Highest failure rate among popular argument types, for argument signatures whose frequency is in the 80th percentile.}
  % *: Grouped Tibble is \CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}} , and Tibble is \CLASS{{\tt data.frame, grouped\_df, tbl, tbl\_df}}.}
  \label{tbl:fail-breakdown-3}
  \end{table}
@@ -1397,7 +1403,7 @@ types.
  
  The other two patterns are for arguments with no default value, where
  either the call results in an error (perhaps explicitly handled by
- the programmer), or results in valid function behaviour that was
+ the programmer), or results in valid function behavior that was
  untested by the original package designer.  Here, the first case can
  be explained by a lack of testing, and the second case is explained
  by programmers not fully understanding R's language semantics.  For
@@ -1503,6 +1509,7 @@ found many instances of \CLASS{{\tt matrix}}, \CLASS{{\tt
  
  \begin{table}[ht]
  \scriptsize
+ \caption{Top contract failures in Kaggle kernels}
 \centering
 \begin{tabular}{llrrr}
 \toprule
@@ -1515,13 +1522,13 @@ Passed & Arg Type & Occurrences & \% Total & Cumulative \%\\
  \CLASS{{\tt ixforeach, iter}} & \makecell[tl]{\CLASS{{\tt dataframeiter, iter}} $|$ ... $|$ \\ \CLASS{{\tt iforeach, iter}}} & 4139 & 5.82 & 77.94 \\ 
 \bottomrule
 \end{tabular}
-\caption{Top contract failures in Kaggle kernels}
 \label{tbl:fail-breakdown-0-kaggle}
 \end{table}
  
  \begin{table}
 % BEGIN Autogenerated\
 \small
+\caption{Highest failure rate among popular argument types in Kaggle, for argument signatures whose frequency is in the 90th percentile.}
 \begin{tabular}{llrrr}
 \toprule
 Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
@@ -1533,7 +1540,6 @@ Passed & Arg Type & \# Args Failed & \# Args with Type & \% Failure\\
 \int & \chr & 5 & 304 & 0.02 \\ 
 \bottomrule
 \end{tabular}
-\caption{Highest failure rate among popular argument types in Kaggle, for argument signatures whose frequency is in the 90th percentile.}
  \label{tbl:fail-breakdown-2-kaggle}
 \end{table}
  
@@ -1706,6 +1712,7 @@ Moreover, we see that no real precision is lost when further reducing the functi
 
 \begin{table}[H]
 	\centering
+	\caption{Types of \code{agricolae::correlation} with different type merge strategies. }\label{tbl:real-function-different-merge-strats}
 	 \resizebox{.98\linewidth}{!}{
 		\begin{tabular}{llrrr}
 			\toprule
@@ -1727,7 +1734,6 @@ Moreover, we see that no real precision is lost when further reducing the functi
 			Arrow of Unions & \FUN{\CLASS{{\tt data.frame}} \; | \; \VEC{\dbl}, ? \; \VEC{\dbl} \; | \; \CLASS{{\tt data.frame}}, \VEC{\chr}, {\chr}}{\, ? \; \LIST{\CLASS{{\tt matrix}} \; | \; \dbl}} \\
 			\bottomrule
 	\end{tabular}}
-	\caption{Types of \code{agricolae::correlation} with different type merge strategies. }\label{tbl:real-function-different-merge-strats}
 \end{table}
 
 In contrast, there are real cases where a meaningful loss of precision occurs.
@@ -1739,6 +1745,7 @@ That said, once the type language is extend with proper user-defined type hierar
 
 \begin{table}[H]
 	\centering
+	\caption{Types of \code{dplyr::rename} with different type merge strategies. }\label{tbl:real-function-different-merge-strats-2}
 	\resizebox{.98\linewidth}{!}{
 		\begin{tabular}{llrrr}
 			\toprule
@@ -1762,7 +1769,6 @@ That said, once the type language is extend with proper user-defined type hierar
 			} \\
 			\bottomrule
 	\end{tabular}}
-	\caption{Types of \code{X::Y} with different type merge strategies. }\label{tbl:real-function-different-merge-strats-2}
 \end{table}
 
 Finally, we want to briefly discuss types for base package functions (in R, functions like \code{+}, \code{-}, and vector access are part of the {\it base package}).
